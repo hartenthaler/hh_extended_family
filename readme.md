@@ -4,7 +4,17 @@
 
 ## Description
 
-This module creates an additional tab in Individual view which list all of the first cousins of that person (including half-cousins).
+This module creates an additional tab in the Individual view which list all of the first cousins of that person (including half-cousins).
+
+This module version is derived from vytux_cousins with addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
+A translation to German was added.
+
+It is planned to add more functions:
+* add new text if there is a family but no cousins ("has no recorded cousins in first grade")
+* do not show empty tables for "Father's family" or "Mother's family"
+* check problem with links of individuals
+* count separately for each sex and for full and half cousins ("has 4 male cousins, 2 female half cousins, 1 female full cousin")
+* maybe add uncles, nieces, nephews and so on
 
 <a name="Contents"></a>
 
@@ -54,6 +64,6 @@ To update simply replace the hh_cousins files with the new ones from the latest 
 
 You can report errors raising an issue in this github repository.
 
-<span style="font-weight: bold;">Forum: </span>general webtrees support can be found at the [webtrees forum](http://www.webtrees.net/index.php/en/forum/index-en)
+<span style="font-weight: bold;">Forum: </span>general webtrees support can be found at the [webtrees forum](http://www.webtrees.net/)
 
 * * *
