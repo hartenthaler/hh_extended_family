@@ -2,51 +2,55 @@
 <?php use Fisharebest\Webtrees\I18N; ?>
 <?php use Fisharebest\Webtrees\View; ?>
 
-<div class="wt-tab-vytux-cousins py-4">
+<div class="wt-tab-hh-cousins py-4">
     <?php if ($cousins_obj->self->childFamilies()->first()): ?>
     <?php $prev_fam_id = '-1'; ?>
 	    <h3><?= I18N::plural('%2$s has %1$d first cousin recorded', '%2$s has %1$d first cousins recorded', $cousins_obj->allCousinCount, $cousins_obj->allCousinCount, $cousins_obj->self->fullName()) ?></h3>
-        <div id="vytux_cousins_content">
-            <div id="cousins_f">
-                <h4><?=I18N::translate('Father\'s family (%s)', $cousins_obj->fathersCousinCount)?></h4>
-                <?php  foreach ($cousins_obj->fatherCousins as $cousin) : ?>
-                <?php if ($cousin->childFamilies()->first()->xref() != $prev_fam_id) : ?>
-                        <?php $prev_fam_id = $cousin->childFamilies()->first()->xref(); $i = 1; ?>
-					    <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?=e($cousin->childFamilies()->first()->url());?>">&nbsp;<?= $cousin->childFamilies()->first()->fullName(); ?></a></h5>
-                    <?php endif ?>
-                    
-                    <div class="wt-chart-box-<?= strtolower($cousin->sex()) ?>">
-                        <span class="cousins_counter"><?= $i ?> </span>
-                        <?php if ($cousin->canShow()): ?>
-                            <span class="cousins_name"><a href="<?= e($cousin->url()) ?>"><?= $cousin->fullName() ?></a></span>
-                        <?php else: ?>
-                            <span class="cousins_name"><?= $cousin->fullName() ?></span>
-                        <?php endif ?>
-                        <span class="cousins_lifespan" ><?= $cousin->lifespan() ?></span>
-                        <span class="cousins_pedi"><?= $module_obj->getChildLabel($cousin) ?></span>
-			        </div>
-                <?php $i++; endforeach ?>
-            </div>
-            <div id="cousins_m">
-                <h4><?=I18N::translate('Mother\'s family (%s)', $cousins_obj->mothersCousinCount)?></h4>
-                <?php  foreach ($cousins_obj->motherCousins as $cousin) : ?>
+        <div id="hh_cousins_content">
+            <?php if ($cousins_obj->fathersCousinCount): ?>
+                <div id="cousins_f">
+                    <h4><?=I18N::translate('Father\'s family (%s)', $cousins_obj->fathersCousinCount)?></h4>
+                    <?php  foreach ($cousins_obj->fatherCousins as $cousin) : ?>
                     <?php if ($cousin->childFamilies()->first()->xref() != $prev_fam_id) : ?>
-                        <?php $prev_fam_id = $cousin->childFamilies()->first()->xref(); $i = 1; ?>
-					    <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?=e($cousin->childFamilies()->first()->url());?>">&nbsp;<?= $cousin->childFamilies()->first()->fullName(); ?></a></h5>
-                    <?php endif ?>
-                    
-                    <div class="wt-chart-box-<?= strtolower($cousin->sex()) ?>">
-                        <span class="cousins_counter"><?= $i ?> </span>
-                        <?php if ($cousin->canShow()): ?>
-                            <span class="cousins_name"><a href=""><?= $cousin->fullName() ?></a></span>
-                        <?php else: ?>
-                            <span class="cousins_name"><?= $cousin->fullName() ?></span>
+                            <?php $prev_fam_id = $cousin->childFamilies()->first()->xref(); $i = 1; ?>
+                            <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?=e($cousin->childFamilies()->first()->url());?>">&nbsp;<?= $cousin->childFamilies()->first()->fullName(); ?></a></h5>
                         <?php endif ?>
-                        <span class="cousins_lifespan" ><?= $cousin->lifespan() ?></span>
-                        <span class="cousins_pedi"><?= $module_obj->getChildLabel($cousin) ?></span>
-			        </div>
-                <?php $i++; endforeach ?>
-            </div>
+                        
+                        <div class="wt-chart-box-<?= strtolower($cousin->sex()) ?>">
+                            <span class="cousins_counter"><?= $i ?> </span>
+                            <?php if ($cousin->canShow()): ?>
+                                <span class="cousins_name"><a href="<?= e($cousin->url()) ?>"><?= $cousin->fullName() ?></a></span>
+                            <?php else: ?>
+                                <span class="cousins_name"><?= $cousin->fullName() ?></span>
+                            <?php endif ?>
+                            <span class="cousins_lifespan" ><?= $cousin->lifespan() ?></span>
+                            <span class="cousins_pedi"><?= $module_obj->getChildLabel($cousin) ?></span>
+                        </div>
+                    <?php $i++; endforeach ?>
+                </div>    
+            <?php endif ?>
+            <?php if ($cousins_obj->mothersCousinCount): ?>
+                <div id="cousins_m">
+                    <h4><?=I18N::translate('Mother\'s family (%s)', $cousins_obj->mothersCousinCount)?></h4>
+                    <?php  foreach ($cousins_obj->motherCousins as $cousin) : ?>
+                        <?php if ($cousin->childFamilies()->first()->xref() != $prev_fam_id) : ?>
+                            <?php $prev_fam_id = $cousin->childFamilies()->first()->xref(); $i = 1; ?>
+                            <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?=e($cousin->childFamilies()->first()->url());?>">&nbsp;<?= $cousin->childFamilies()->first()->fullName(); ?></a></h5>
+                        <?php endif ?>
+                        
+                        <div class="wt-chart-box-<?= strtolower($cousin->sex()) ?>">
+                            <span class="cousins_counter"><?= $i ?> </span>
+                            <?php if ($cousin->canShow()): ?>
+                                <span class="cousins_name"><a href=""><?= $cousin->fullName() ?></a></span>
+                            <?php else: ?>
+                                <span class="cousins_name"><?= $cousin->fullName() ?></span>
+                            <?php endif ?>
+                            <span class="cousins_lifespan" ><?= $cousin->lifespan() ?></span>
+                            <span class="cousins_pedi"><?= $module_obj->getChildLabel($cousin) ?></span>
+                        </div>
+                    <?php $i++; endforeach ?>
+                </div>
+            <?php endif ?>
         </div>
     <?php else: ?>
         <h3><?= I18N::translate('No family available') ?></h3>
@@ -62,4 +66,3 @@
   document.head.appendChild(newSheet);
 </script>
 <?php View::endpush() ?>
-
