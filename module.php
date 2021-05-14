@@ -65,7 +65,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.0';
+    public const CUSTOM_VERSION = '2.0.16.2';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/master/latest-version.txt';
 
@@ -81,7 +81,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     }
 
     /**
-     * A sentence describing what this module does.
+     * A sentence describing what this module does. Used in the list of all installed modules.
      *
      * @return string
      */
@@ -163,8 +163,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     }
 
     /**
-     * A greyed out tab has no actual content, but may perhaps have
-     * options to create content.
+     * A greyed out tab has no actual content, but may perhaps have options to create content.
      *
      * @param Individual $individual
      *
@@ -172,7 +171,11 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
      */
     public function isGrayedOut(Individual $individual): bool
     {
-        return false;
+        if ($this->getCousins($individual)->allCousinCount == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private function getCousins(Individual $individual): object
