@@ -65,7 +65,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.3';
+    public const CUSTOM_VERSION = '2.0.16.4';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
