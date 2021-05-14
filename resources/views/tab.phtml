@@ -54,7 +54,7 @@
                 <?php endif ?>
             </div>
         <?php else: ?>
-            <h3><?= I18N::translate('%1$s has no first cousins recorded.', $cousins_obj->self->fullName()) ?></h3>
+            <h3><?= I18N::translate('%s has no first cousins recorded.', $cousins_obj->self->fullName()) ?></h3>
         <?php endif ?>
     <?php else: ?>
         <h3><?= I18N::translate('No family available') ?></h3>

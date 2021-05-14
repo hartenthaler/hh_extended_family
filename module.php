@@ -380,7 +380,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             'No family available' => 'Es wurde keine Familie gefunden.',
             'Father\'s family (%s)' => 'Familie des Vaters (%s)',
             'Mother\'s family (%s)' => 'Familie der Mutter (%s)',
-            '%1$s has no first cousins recorded.' => 'hat keine aufgezeichneten Cousins und Cousinen ersten Grades.',
+            '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades aufgezeichnet.',
             '%2$s has %1$d first cousin recorded.' .
                 I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
                 => '%2$s hat %1$d Cousin oder Cousine ersten Grades.'  . 
