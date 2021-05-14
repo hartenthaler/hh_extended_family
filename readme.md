@@ -38,7 +38,7 @@ This section documents installation instructions for hh_cousins.
 1. Download the [latest release](https://github.com/hartenthaler/hh_cousins/releases/latest)
 1. Unzip the package into your `webtrees/modules_v4` directory of your web server
 1. Rename the folder to `hh_cousins`
-1. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Individual page</span>, and find the module. It will be called "Cousins". Check it has a tick for "Enabled"
+1. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Individual page</span>, and find the module. It will be called "Cousins". Check if it has a tick for "Enabled".
 1. Next go to the "Tabs" menu. Set the access level and position for the menu item to suit your preferences. It will probably have defaulted to "Show only to managers".
 1. Finally click SAVE, to complete the installation.
 
