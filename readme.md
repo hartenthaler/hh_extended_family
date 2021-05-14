@@ -9,12 +9,12 @@ This module creates an additional tab in the Individual view which list all the 
 This module version is derived from vytux_cousins. There are some additional features:
 * addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
 * translation to German
-* doesn't show empty tables for "Father's family" and "Mother's family"
-* tab is greyedout if there are no cousins
+* don't show empty tables for "Father's family" and "Mother's family"
+* new text added if there is a family but no cousins ("... has no first cousins recorded.")
+* tab is greyed out if there are no cousins
 
 It is planned to add some more features:
-* add new text if there is a family but no cousins ("has no recorded cousins in first grade")
-* check problem with links of individuals
+* check sporadic problem with links of individuals
 * count separately for each sex and for full and half cousins ("has 4 male cousins, 2 female half cousins, 1 female full cousin")
 * maybe add uncles, nieces, nephews and so on
 

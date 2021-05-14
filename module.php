@@ -65,9 +65,9 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.2';
+    public const CUSTOM_VERSION = '2.0.16.3';
 
-    public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/master/latest-version.txt';
+    public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
 
     /**
@@ -352,26 +352,6 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     /**
      * @return array
      */
-    protected function lithuanianTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-            'Cousins' => 'Pusbroliai/Pusseserės',
-            'A tab showing cousins of an individual.' => 'Lapas rodantis asmens pusbrolius ir pusseseres.',
-            'No family available' => 'Šeima nerasta',
-            'Father\'s family (%s)' => 'Tėvo šeima (%s)',
-            'Mother\'s family (%s)' => 'Motinos šeima (%s)',
-            '%2$s has %1$d first cousin recorded' . 
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s turi %1$d įrašyta pirmos eilės pusbrolį/pusseserę'  . 
-                I18N::PLURAL . '%2$s turi %1$d įrašytus pirmos eilės pusbrolius/pusseseres'  . 
-                I18N::PLURAL . '%2$s turi %1$d įrašytų pirmos eilės pusbrolių/pusseserių',
-        ];
-    }
-
-    /**
-     * @return array
-     */
     protected function danishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
@@ -381,29 +361,30 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             'No family available' => 'Ingen familie tilgængelig',
             'Father\'s family (%s)' => 'Fars familie (%s)',
             'Mother\'s family (%s)' => 'Mors familie (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s har %1$d registreret fæter eller kusin'  . 
-                I18N::PLURAL . '%2$s har %1$d registrerede fæter eller kusiner',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s har %1$d registreret fæter eller kusin.'  . 
+                I18N::PLURAL . '%2$s har %1$d registrerede fæter eller kusiner.',
         ];
     }
 
     /**
      * @return array
      */
-    protected function frenchTranslations(): array
+    protected function germanTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Cousins',
-            'A tab showing cousins of an individual.' => 'Onglet montrant les cousins d\'un individu.',
-            'No family available' => 'Pas de famille disponible',
-            'Father\'s family (%s)' => 'Famille paternelle (%s)',
-            'Mother\'s family (%s)' => 'Famille maternelle (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s a %1$d cousin germain connu'  . 
-                I18N::PLURAL . '%2$s a %1$d cousins germains connus',
+            'Cousins' => 'Cousins/Cousinen',
+            'A tab showing cousins of an individual.' => 'Reiter zeigt Cousins und Cousinen einer Person.',
+            'No family available' => 'Es wurde keine Familie gefunden.',
+            'Father\'s family (%s)' => 'Familie des Vaters (%s)',
+            'Mother\'s family (%s)' => 'Familie der Mutter (%s)',
+            '%1$s has no first cousins recorded.' => 'hat keine aufgezeichneten Cousins und Cousinen ersten Grades.',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s hat %1$d Cousin oder Cousine ersten Grades.'  . 
+                I18N::PLURAL . '%2$s hat %1$d Cousins oder Cousinen ersten Grades.',
         ];
     }
 
@@ -419,10 +400,29 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             'No family available' => 'Perhe puuttuu',
             'Father\'s family (%s)' => 'Isän perhe (%s)',
             'Mother\'s family (%s)' => 'Äidin perhe (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s:llä on %1$d serkku sivustolla'  . 
-                I18N::PLURAL . '%2$s:lla on %1$d serkkua sivustolla',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s:llä on %1$d serkku sivustolla.'  . 
+                I18N::PLURAL . '%2$s:lla on %1$d serkkua sivustolla.',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    protected function frenchTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Cousins' => 'Cousins',
+            'A tab showing cousins of an individual.' => 'Onglet montrant les cousins d\'un individu.',
+            'No family available' => 'Pas de famille disponible',
+            'Father\'s family (%s)' => 'Famille paternelle (%s)',
+            'Mother\'s family (%s)' => 'Famille maternelle (%s)',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s a %1$d cousin germain connu.'  . 
+                I18N::PLURAL . '%2$s a %1$d cousins germains connus.',
         ];
     }
 
@@ -438,10 +438,30 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             'No family available' => 'משפחה חסרה',
             'Father\'s family (%s)' => 'משפחת האב (%s)',
             'Mother\'s family (%s)' => 'משפחת האם (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => 'ל%2$s יש בן דוד אחד מדרגה ראשונה'  . 
-                I18N::PLURAL . 'ל%2$s יש %1$d בני דודים מדרגה ראשונה',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => 'ל%2$s יש בן דוד אחד מדרגה ראשונה.'  . 
+                I18N::PLURAL . 'ל%2$s יש %1$d בני דודים מדרגה ראשונה.',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    protected function lithuanianTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Cousins' => 'Pusbroliai/Pusseserės',
+            'A tab showing cousins of an individual.' => 'Lapas rodantis asmens pusbrolius ir pusseseres.',
+            'No family available' => 'Šeima nerasta',
+            'Father\'s family (%s)' => 'Tėvo šeima (%s)',
+            'Mother\'s family (%s)' => 'Motinos šeima (%s)',
+            '%2$s has %1$d first cousin recorded.' . 
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s turi %1$d įrašyta pirmos eilės pusbrolį/pusseserę.'  . 
+                I18N::PLURAL . '%2$s turi %1$d įrašytus pirmos eilės pusbrolius/pusseseres.'  . 
+                I18N::PLURAL . '%2$s turi %1$d įrašytų pirmos eilės pusbrolių/pusseserių.',
         ];
     }
 
@@ -457,29 +477,10 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             'No family available' => 'Ingen familie tilgjengelig',
             'Father\'s family (%s)' => 'Fars familie (%s)',
             'Mother\'s family (%s)' => 'Mors familie (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s har %1$d registrert søskenbarn'  . 
-                I18N::PLURAL . '%2$s har %1$d registrerte søskenbarn',
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    protected function norwegianNynorskTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-            'Cousins' => 'Syskenbarn',
-            'A tab showing cousins of an individual.' => 'Fane som syner ein person sine syskenbarn.',
-            'No family available' => 'Ingen familie tilgjengeleg',
-            'Father\'s family (%s)' => 'Fars familie (%s)',
-            'Mother\'s family (%s)' => 'Mors familie (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s har %1$d registrert syskenbarn'  . 
-                I18N::PLURAL . '%2$s har %1$d registrerte syskenbarn',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s har %1$d registrert søskenbarn.'  . 
+                I18N::PLURAL . '%2$s har %1$d registrerte søskenbarn.',
         ];
     }
 
@@ -495,32 +496,32 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             'No family available' => 'Geen familie gevonden',
             'Father\'s family (%s)' => 'Vader\'s familie (%s)',
             'Mother\'s family (%s)' => 'Moeder\'s familie (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s heeft %1$d neef of nicht in de eerste lijn'  . 
-                I18N::PLURAL . '%2$s heeft %1$d neven en nichten in de eerste lijn',
-        ];
-    }
-    
-    /**
-     * @return array
-     */
-    protected function germanTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-            'Cousins' => 'Cousins/Cousinen',
-            'A tab showing cousins of an individual.' => 'Reiter zeigt Cousins und Cousinen einer Person.',
-            'No family available' => 'Es wurde keine Familie gefunden.',
-            'Father\'s family (%s)' => 'Familie des Vaters (%s)',
-            'Mother\'s family (%s)' => 'Familie der Mutter (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s hat %1$d Cousin oder Cousine im ersten Grad'  . 
-                I18N::PLURAL . '%2$s hat %1$d Cousins oder Cousinen im ersten Grad',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s heeft %1$d neef of nicht in de eerste lijn.'  . 
+                I18N::PLURAL . '%2$s heeft %1$d neven en nichten in de eerste lijn.',
         ];
     }
 
+    /**
+     * @return array
+     */
+    protected function norwegianNynorskTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Cousins' => 'Syskenbarn',
+            'A tab showing cousins of an individual.' => 'Fane som syner ein person sine syskenbarn.',
+            'No family available' => 'Ingen familie tilgjengeleg',
+            'Father\'s family (%s)' => 'Fars familie (%s)',
+            'Mother\'s family (%s)' => 'Mors familie (%s)',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s har %1$d registrert syskenbarn.'  . 
+                I18N::PLURAL . '%2$s har %1$d registrerte syskenbarn.',
+        ];
+    }
+  
     /**
      * @return array
      */
@@ -533,10 +534,10 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             'No family available' => 'Familj saknas',
             'Father\'s family (%s)' => 'Faderns familj (%s)',
             'Mother\'s family (%s)' => 'Moderns familj (%s)',
-            '%2$s has %1$d first cousin recorded' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded'   
-                => '%2$s har %1$d registrerad kusin'  . 
-                I18N::PLURAL . '%2$s har %1$d registrerade kusiner',
+            '%2$s has %1$d first cousin recorded.' .
+                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+                => '%2$s har %1$d registrerad kusin.'  . 
+                I18N::PLURAL . '%2$s har %1$d registrerade kusiner.',
         ];
     }
 
