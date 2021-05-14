@@ -1,4 +1,4 @@
-# hh_cousins Readme
+# hh_cousins
 
 <a name="Description"></a>
 
@@ -14,16 +14,19 @@ The readme contains the following main sections:
 
 *   [Description](#Description)
 *   [Contents](#Contents)
-*   [Requirements](#Require)
+*   [Requirements](#Requirements)
 *   [Installation](#Installation)
 *   [Upgrade](#upgrade)
 *   [Contact Support](#Support)
 
-<a name="Require"></a>
+<a name="Requirements"></a>
 
 ## Requirements
 
 This module requires **webtrees** version 2.0 or later.
+This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
+
+This module was tested with **webtrees** 2.0.16 version.
 
 <a name="Installation"></a>
 
@@ -31,10 +34,13 @@ This module requires **webtrees** version 2.0 or later.
 
 This section documents installation instructions for hh_cousins.
 
-1.  Unzip the files and upload them to the **webtrees** /modules_v4
-2.  Login to **webtrees** as administrator, go to <span class="pointer">Administration --> Modules</span>, and find the module. It will be called "Cousins". Check it has a tick for "Enabled"
-3.  Next go to the "Tabs" menu. Set the access level and position for the menu item to suit your preference. It will probably have defaulted to "Show only to managers".
-4.  Finally click SAVE, to complete the installation.
+1. Make database backup
+1. Download the [latest release](https://github.com/hartenthaler/hh_cousins/releases/latest)
+1. Unzip the package into your `webtrees/modules_v4` directory of your web server
+1. Rename the folder to `hh_cousins`
+1. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Individual page</span>, and find the module. It will be called "Cousins". Check it has a tick for "Enabled"
+1. Next go to the "Tabs" menu. Set the access level and position for the menu item to suit your preferences. It will probably have defaulted to "Show only to managers".
+1. Finally click SAVE, to complete the installation.
 
 <a name="upgrade"></a>
 
