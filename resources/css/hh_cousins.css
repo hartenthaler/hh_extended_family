@@ -1,0 +1,78 @@
+#_vytux_cousins_ {
+    width: 98%;
+}
+
+#_vytux_cousins_ h3 {
+    margin: 10px 20px;
+}
+
+#_vytux_cousins_ h4 {
+    font-size: 16px;
+    font-weight: 900;
+    margin: 0 0 5px;
+    text-align: center;
+}
+
+#_vytux_cousins_ h5 {
+	font-size: 14px;
+    margin: 0;
+    clear: both;
+    padding: 10px 0 2px 0;
+}
+
+#vytux_cousins_content {
+    border-spacing: 10px;
+    display: inline-table;
+    margin: 0 10px;
+    overflow: hidden;
+    padding: 0;
+    width: 98%;
+}
+
+#vytux_cousins_content .wt-chart-box-m,
+#vytux_cousins_content .wt-chart-box-f,
+#vytux_cousins_content .wt-chart-box-u {
+    clear: left;
+    float: left;
+    margin: 1px 0;
+    width: 99%;
+}
+
+#cousins_f,
+#cousins_m {
+    border: 1px solid grey;
+    border-radius: 5px;
+    display: table-cell;
+    padding: 10px;
+    width: 45%;
+}
+
+/* Mobile low resolution viewport */
+@media (max-width: 600px) {
+    #cousins_f,
+    #cousins_m {
+        border: 1px solid grey;
+        border-radius: 5px;
+        display: table-caption;
+        padding: 10px;
+        width: 90%;
+        margin-bottom: 10px;
+    }
+}
+
+.cousins_name {}
+
+.cousins_lifespan,
+.cousins_pedi {
+    font-size: 9px;
+    padding: 3px 5px 5px 5px;
+}
+
+.cousins_counter {
+    margin: 0 3px;
+    font-size: 80%;
+}
+
+.cousins_counter:after {
+    content: ". ";
+}
