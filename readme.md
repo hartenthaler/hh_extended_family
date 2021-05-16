@@ -4,8 +4,7 @@
 
 [![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_cousins)]
 [![webtrees Major Version](https://img.shields.io/badge/webtrees-v2.x-green)]
-[![Downloads](https://img.shields.io/github/downloads/hartenthaler/hh_cousins/V2.0.16.4/total)]()
-[![Issue Count](https://codeclimate.com/github/hartenthaler/hh_cousins/badges/issue_count.svg)](https://codeclimate.com/github/hartenthaler/hh_cousins)
+[![Downloads](https://img.shields.io/github/downloads/hartenthaler/hh_cousins/2.0.16.4/total)]()
 
 <a name="Description"></a>
 
