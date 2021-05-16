@@ -1,14 +1,17 @@
 # webtrees module hh_cousins
 
-[![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_cousins)][1]
-[![webtrees major version](https://img.shields.io/badge/webtrees-v2.x-green)][2]
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+
+[![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_cousins)]
+[![webtrees Major Version](https://img.shields.io/badge/webtrees-v2.x-green)]
 [![Downloads](https://img.shields.io/github/downloads/hartenthaler/hh_cousins/V2.0.16.4/total)]()
+[![Issue Count](https://codeclimate.com/github/hartenthaler/hh_cousins/badges/issue_count.svg)](https://codeclimate.com/github/hartenthaler/hh_cousins)
 
 <a name="Description"></a>
 
 ## Description
 
-This webtrees module creates an additional tab in the Individual view which list all the first cousins of that person (including half-cousins).
+This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which list all the first cousins of that person (including half-cousins).
 
 This module version is derived from vytux_cousins. There are some additional features:
 * support for half-cousins added (from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279))
