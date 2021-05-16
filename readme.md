@@ -2,8 +2,8 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-[![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_cousins)]
-[![webtrees Major Version](https://img.shields.io/badge/webtrees-v2.x-green)]
+![webtrees Major Version](https://img.shields.io/badge/webtrees-v2.x-green)
+![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_cousins)
 [![Downloads](https://img.shields.io/github/downloads/hartenthaler/hh_cousins/2.0.16.4/total)]()
 
 <a name="Description"></a>
