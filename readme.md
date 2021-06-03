@@ -10,7 +10,7 @@
 
 ## Description
 
-This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which list all the first cousins of that person (including half-cousins).
+This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists all the first cousins of that person (including half-cousins).
 
 This module version is derived from vytux_cousins. There are some additional features:
 * support for half-cousins added (from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279))

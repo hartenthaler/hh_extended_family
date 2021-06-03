@@ -65,7 +65,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.4';
+    public const CUSTOM_VERSION = '2.0.16.5';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
@@ -87,7 +87,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
      */
     public function description(): string
     {
-        return /* I18N: Description of the "Facts and events" module */ I18N::translate(self::CUSTOM_DESCRIPTION);
+        return /* I18N: Description of this module */ I18N::translate(self::CUSTOM_DESCRIPTION);
     }
 
     /**
@@ -178,15 +178,39 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
         }
     }
 
+    /**
+     * Find half and full cousins
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
     private function getCousins(Individual $individual): object
     {
+        
         $cousinsObj = (object)[];
-        $cousinsObj->self = $individual;
-        $cousinsObj->fathersCousinCount = 0;
-        $cousinsObj->mothersCousinCount = 0;
-        $cousinsObj->allCousinCount = 0;
+        
         $cousinsObj->fatherCousins = [];
         $cousinsObj->motherCousins = [];
+        $cousinsObj->fatherAndMotherCousins = [];
+        
+        $cousinsObj->fathersMaleCousinCount = 0;
+        $cousinsObj->fathersFemaleCousinCount = 0;
+        $cousinsObj->fathersCousinCount = 0;
+        
+        $cousinsObj->mothersMaleCousinCount = 0;
+        $cousinsObj->mothersFemaleCousinCount = 0;
+        $cousinsObj->mothersCousinCount = 0;
+        
+        $cousinsObj->fathersAndMothersCousinCount = 0;
+        $cousinsObj->maleCousinCount = 0;
+        $cousinsObj->femaleCousinCount = 0;
+        $cousinsObj->allCousinCount = 0;
+        
+        $cousinsObj->self = $individual;
+        $cousinsObj->niceName = $this->niceName( $individual );
+        
+        
         if ($individual->childFamilies()->first()) {
             $cousinsObj->father = $individual->childFamilies()->first()->husband();
             $cousinsObj->mother = $individual->childFamilies()->first()->wife();
@@ -200,7 +224,6 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
                               foreach ($sibling->spouseFamilies() as $fam) {
                                  foreach ($fam->children() as $child) {
                                     $cousinsObj->fatherCousins[] = $child;
-                                    $cousinsObj->fathersCousinCount++;
                                  }
                               }
                            }
@@ -210,7 +233,6 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
                }
             }
             $cousinsObj->fatherCousins = array_unique( $cousinsObj->fatherCousins );
-            $cousinsObj->fathersCousinCount = sizeof( $cousinsObj->fatherCousins );
 
             if ($cousinsObj->mother) {
                foreach ($cousinsObj->mother->childFamilies() as $family) {
@@ -220,9 +242,11 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
                            if ($sibling !== $cousinsObj->mother) {
                               foreach ($sibling->spouseFamilies() as $fam) {
                                  foreach ($fam->children() as $child) {
-									if ( in_array( $child, $cousinsObj->fatherCousins )){} else {
+									if ( in_array( $child, $cousinsObj->fatherCousins )){
+                                       $cousinsObj->fatherAndMotherCousins[] = $child;
+                                       // tbd: remove this child from $cousinsObj->fatherCousins[]
+                                    } else {
                                        $cousinsObj->motherCousins[] = $child;
-                                       $cousinsObj->mothersCousinCount++;
 									}
                                  }
                               }
@@ -233,12 +257,53 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
                } 
             }
             $cousinsObj->motherCousins = array_unique( $cousinsObj->motherCousins );
+            $cousinsObj->fatherAndMotherCousins = array_unique( $cousinsObj->fatherAndMotherCousins );
+             
+            $cousinsObj->fathersCousinCount = sizeof( $cousinsObj->fatherCousins );
             $cousinsObj->mothersCousinCount = sizeof( $cousinsObj->motherCousins );
+            $cousinsObj->fathersAndMothersCousinCount = sizeof( $cousinsObj->fatherAndMotherCousins );
+            
+             // tbd check if $cousinsObj->fathersAndMothersCousinCount > 0
+            
+            foreach ($cousinsObj->fatherCousins as $cousin) {
+                if ($cousin->sex() == "M") {
+                    $cousinsObj->fathersMaleCousinCount++;
+                } elseif ($cousin->sex() == "F") {
+                    $cousinsObj->fathersFemaleCousinCount++;
+                } // else do not count here
+            }
+            
+            foreach ($cousinsObj->motherCousins as $cousin) {
+                if ($cousin->sex() == "M") {
+                    $cousinsObj->mothersMaleCousinCount++;
+                } elseif ($cousin->sex() == "F") {
+                    $cousinsObj->mothersFemaleCousinCount++;
+                } // else do not count here
+            }
 
-            $cousinsObj->allCousinCount = sizeof(array_unique(array_merge($cousinsObj->fatherCousins,$cousinsObj->motherCousins)));
+            $cousinsObj->maleCousinCount = $cousinsObj->fathersMaleCousinCount + $cousinsObj->mothersMaleCousinCount;
+            $cousinsObj->femaleCousinCount = $cousinsObj->fathersFemaleCousinCount + $cousinsObj->mothersFemaleCousinCount;
+            // $cousinsObj->allCousinCount = sizeof(array_unique(array_merge($cousinsObj->fatherCousins,$cousinsObj->motherCousins)));
+            $cousinsObj->allCousinCount = $cousinsObj->fathersCousinCount + $cousinsObj->mothersCousinCount;
         }
 
         return $cousinsObj;
+    }
+
+    /**
+    * Find a short, nice name for a person
+    * => use nickname ("Sepp") or Rufname or first of first names if one of these is available
+    *    => otherwise use surname if available ("Mr. xxx", "Mrs. xxx", or "xxx" if sex is not F or M
+    *       => otherwise use "He" or "She" or "She/he" if sex is not F or M
+    *
+    * @param Individual $individual
+    *
+    * @return string
+    */
+    public function niceName(Individual $individual): string
+    {
+        // tbd
+        return $individual->fullname();
     }
 
     /**
@@ -380,11 +445,15 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             'No family available' => 'Es wurde keine Familie gefunden.',
             'Father\'s family (%s)' => 'Familie des Vaters (%s)',
             'Mother\'s family (%s)' => 'Familie der Mutter (%s)',
-            '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades aufgezeichnet.',
-            '%2$s has %1$d first cousin recorded.' .
-                I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
-                => '%2$s hat %1$d Cousin oder Cousine ersten Grades.'  . 
-                I18N::PLURAL . '%2$s hat %1$d Cousins oder Cousinen ersten Grades.',
+            '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
+            '%s has one first cousin recorded.' => 'Für %s ist ein Cousin ersten Grades verzeichnet.',   // tbd hier muss das Geschlecht ergänzt werden
+            '%s has %d female first cousins recorded.' => 'Für %s sind %d Cousinen ersten Gradesverzeichnet.',
+            '%s has %d male first cousins recorded.' => 'Für %s sind %d Cousins ersten Grades verzeichnet.',
+            '%s has %d female and %d male first cousins recorded (%d in total).' => 'Für %s sind %d Cousinen und %d Cousins ersten Grades verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
+            // '%2$s has %1$d first cousin recorded.' .
+            //    I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
+            //    => '%2$s hat %1$d Cousin oder Cousine ersten Grades.'  . 
+            //    I18N::PLURAL . '%2$s hat %1$d Cousins oder Cousinen ersten Grades.',
         ];
     }
 
