@@ -1,26 +1,31 @@
-#_hh_cousins_ {
+#_hh_extended_family_ {
     width: 98%;
 }
 
-#_hh_cousins_ h3 {
+#_hh_extended_family_ h2 {
     margin: 10px 20px;
 }
 
-#_hh_cousins_ h4 {
+#_hh_extended_family_ h3 {
+    font-size: 16px;
+    margin: 10px 20px;
+}
+
+#_hh_extended_family_ h4 {
     font-size: 14px;
     font-weight: 900;
     margin: 0 0 5px;
     text-align: center;
 }
 
-#_hh_cousins_ h5 {
+#_hh_extended_family_ h5 {
     font-size: 12px;
     margin: 0;
     clear: both;
     padding: 10px 0 2px 0;
 }
 
-#hh_cousins_content {
+#hh_extended_family_content {
     border-spacing: 10px;
     display: inline-table;
     margin: 0 10px;
@@ -29,17 +34,17 @@
     width: 98%;
 }
 
-#hh_cousins_content .wt-chart-box-m,
-#hh_cousins_content .wt-chart-box-f,
-#hh_cousins_content .wt-chart-box-u {
+#hh_extended_family_content .wt-chart-box-m,
+#hh_extended_family_content .wt-chart-box-f,
+#hh_extended_family_content .wt-chart-box-u {
     clear: left;
     float: left;
     margin: 1px 0;
     width: 99%;
 }
 
-#cousins_f,
-#cousins_m {
+#extended_family_f,
+#extended_family_m {
     border: 1px solid grey;
     border-radius: 5px;
     display: table-cell;
@@ -49,8 +54,8 @@
 
 /* Mobile low resolution viewport */
 @media (max-width: 600px) {
-    #cousins_f,
-    #cousins_m {
+    #extended_family_f,
+    #extended_family_m {
         border: 1px solid grey;
         border-radius: 5px;
         display: table-caption;
@@ -60,19 +65,19 @@
     }
 }
 
-.cousins_name {}
+.extended_family_name {}
 
-.cousins_lifespan,
-.cousins_pedi {
+.extended_family_lifespan,
+.extended_family_pedi {
     font-size: 9px;
     padding: 3px 5px 5px 5px;
 }
 
-.cousins_counter {
+.extended_family_counter {
     margin: 0 3px;
     font-size: 80%;
 }
 
-.cousins_counter:after {
+.extended_family_counter:after {
     content: ". ";
 }

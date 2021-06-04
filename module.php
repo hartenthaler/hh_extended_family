@@ -1,6 +1,6 @@
 <?php
 /*
- * webtrees - cousins tab based on vytux_cousins and simpl_cousins
+ * webtrees - extended family tab based on vytux_cousins and simpl_cousins
  *
  * Copyright (C) 2021 Hermann Hartenthaler 
  *
@@ -28,7 +28,7 @@
 
 declare(strict_types=1);
 
-namespace Hartenthaler\WebtreesModules\hh_cousins;
+namespace Hartenthaler\WebtreesModules\hh_extended_family;
 
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Gedcom;
@@ -51,21 +51,21 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * cousins module
  */
-class CousinsTabModule extends AbstractModule implements ModuleTabInterface, ModuleCustomInterface {
+class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterface, ModuleCustomInterface {
     use ModuleCustomTrait;
     use ModuleTabTrait;
 
-    public const CUSTOM_TITLE = 'Cousins';
+    public const CUSTOM_TITLE = 'Extended family';
     
-    public const CUSTOM_MODULE = 'hh_cousins';
+    public const CUSTOM_MODULE = 'hh_extended_family';
     
-    public const CUSTOM_DESCRIPTION = 'A tab showing cousins of an individual.';
+    public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
 
     public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.5';
+    public const CUSTOM_VERSION = '2.0.16.7';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
@@ -179,6 +179,55 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     }
 
     /**
+    * count male and female individuals
+    *
+    * @param array of individuals
+    *
+    * @return object with three elements: male, female and unknown_others (integer >= 0)
+    */
+    private function countMaleFemale(array $indilist): object
+    {
+        $mf = (object)[];
+        $mf->male = 0;
+        $mf->female = 0;
+        $mf->unknown_others=0;
+        
+        foreach ($indilist as $il) {
+            if ($il->sex() == "M") {
+                $mf->male++;
+            } elseif ($il->sex() == "F") {
+                $mf->female++;
+            } else {
+               $mf->unknown_others++; 
+            }
+        }
+        
+        return $mf;
+    }
+
+    /**
+     * Find members of extended family
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getExtendedFamily(Individual $individual): object
+    {
+        $extfamObj = (object)[];
+       
+        $extfamObj->self = (object)[];
+        $extfamObj->self->indi = $individual;
+        $extfamObj->self->niceName = $this->niceName( $individual );
+        $extfamObj->cousins = (object)[];
+        $extfamObj->cousins = $this->getCousins( $individual );
+        $extfamObj->UnclesAunts = (object)[];
+        $extfamObj->UnclesAunts = $this->getUnclesAunts( $individual );
+       
+       return $extfamObj;
+    }
+
+    /**
      * Find half and full cousins
      *
      * @param Individual $individual
@@ -187,7 +236,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
      */
     private function getCousins(Individual $individual): object
     {
-        
+    
         $cousinsObj = (object)[];
         
         $cousinsObj->fatherCousins = [];
@@ -206,10 +255,6 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
         $cousinsObj->maleCousinCount = 0;
         $cousinsObj->femaleCousinCount = 0;
         $cousinsObj->allCousinCount = 0;
-        
-        $cousinsObj->self = $individual;
-        $cousinsObj->niceName = $this->niceName( $individual );
-        
         
         if ($individual->childFamilies()->first()) {
             $cousinsObj->father = $individual->childFamilies()->first()->husband();
@@ -244,7 +289,7 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
                                  foreach ($fam->children() as $child) {
 									if ( in_array( $child, $cousinsObj->fatherCousins )){
                                        $cousinsObj->fatherAndMotherCousins[] = $child;
-                                       // tbd: remove this child from $cousinsObj->fatherCousins[]
+                                       // tbd: remove this individual from $cousinsObj->fatherCousins[]
                                     } else {
                                        $cousinsObj->motherCousins[] = $child;
 									}
@@ -265,29 +310,111 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             
              // tbd check if $cousinsObj->fathersAndMothersCousinCount > 0
             
-            foreach ($cousinsObj->fatherCousins as $cousin) {
-                if ($cousin->sex() == "M") {
-                    $cousinsObj->fathersMaleCousinCount++;
-                } elseif ($cousin->sex() == "F") {
-                    $cousinsObj->fathersFemaleCousinCount++;
-                } // else do not count here
-            }
-            
-            foreach ($cousinsObj->motherCousins as $cousin) {
-                if ($cousin->sex() == "M") {
-                    $cousinsObj->mothersMaleCousinCount++;
-                } elseif ($cousin->sex() == "F") {
-                    $cousinsObj->mothersFemaleCousinCount++;
-                } // else do not count here
-            }
+            $count = $this->countMaleFemale( $cousinsObj->fatherCousins );
+            $cousinsObj->fathersMaleCousinCount = $count->male;
+            $cousinsObj->fathersFemaleCousinCount = $count->female;
+                                  
+            $count = $this->countMaleFemale( $cousinsObj->motherCousins );
+            $cousinsObj->mothersMaleCousinCount = $count->male;
+            $cousinsObj->mothersFemaleCousinCount = $count->female;
 
             $cousinsObj->maleCousinCount = $cousinsObj->fathersMaleCousinCount + $cousinsObj->mothersMaleCousinCount;
             $cousinsObj->femaleCousinCount = $cousinsObj->fathersFemaleCousinCount + $cousinsObj->mothersFemaleCousinCount;
-            // $cousinsObj->allCousinCount = sizeof(array_unique(array_merge($cousinsObj->fatherCousins,$cousinsObj->motherCousins)));
             $cousinsObj->allCousinCount = $cousinsObj->fathersCousinCount + $cousinsObj->mothersCousinCount;
         }
 
         return $cousinsObj;
+    }
+
+    /**
+     * Find uncles and aunts
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getUnclesAunts(Individual $individual): object
+    {
+    
+        $unclesAuntsObj = (object)[];
+        
+        $unclesAuntsObj->fatherUnclesAunts = [];
+        $unclesAuntsObj->motherUnclesAunts = [];
+        $unclesAuntsObj->fatherAndMotherUnclesAunts = [];
+        
+        $unclesAuntsObj->fathersUncleCount = 0;
+        $unclesAuntsObj->fathersAuntCount = 0;
+        $unclesAuntsObj->fathersUncleAuntCount = 0;
+        
+        $unclesAuntsObj->mothersUncleCount = 0;
+        $unclesAuntsObj->mothersAuntCount = 0;
+        $unclesAuntsObj->mothersUncleAuntCount = 0;
+        
+        $unclesAuntsObj->fathersAndMothersUncleAuntCount = 0;
+        $unclesAuntsObj->UncleCount = 0;
+        $unclesAuntsObj->AuntCount = 0;
+        $unclesAuntsObj->allUncleAuntCount = 0;
+        
+        if ($individual->childFamilies()->first()) {
+            $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
+            $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
+
+            if ($unclesAuntsObj->father) {
+               foreach ($unclesAuntsObj->father->childFamilies() as $family) {
+                  foreach ($family->spouses() as $parent) {
+                     foreach ($parent->spouseFamilies() as $family2) {
+                        foreach ($family2->children() as $sibling) {
+                            if ($sibling !== $unclesAuntsObj->father) {
+                                $unclesAuntsObj->fatherUnclesAunts[] = $sibling;
+                            }
+                        }
+                     }
+                  }
+               }
+            }
+            $unclesAuntsObj->fatherUnclesAunts = array_unique( $unclesAuntsObj->fatherUnclesAunts );
+
+            if ($unclesAuntsObj->mother) {
+               foreach ($unclesAuntsObj->mother->childFamilies() as $family) {
+                  foreach ($family->spouses() as $parent) {
+                     foreach ($parent->spouseFamilies() as $family2) {
+                        foreach ($family2->children() as $sibling) {
+                            if ($sibling !== $unclesAuntsObj->mother) {
+                                if ( in_array( $sibling, $unclesAuntsObj->fatherUnclesAunts )){
+                                   $unclesAuntsObj->fatherAndMotherUnclesAunts[] = $sibling;
+                                   // tbd: remove this individual from $unclesAuntsObj->fatherUnclesAunts[]
+                                } else {
+                                   $unclesAuntsObj->motherUnclesAunts[] = $sibling;
+                                }
+                            }
+                        }
+                     }
+                  }
+               } 
+            }
+            $unclesAuntsObj->motherUnclesAunts = array_unique( $unclesAuntsObj->motherUnclesAunts );
+            $unclesAuntsObj->fatherAndMotherUnclesAunts = array_unique( $unclesAuntsObj->fatherAndMotherUnclesAunts );
+             
+            $unclesAuntsObj->fathersUncleAuntCount = sizeof( $unclesAuntsObj->fatherUnclesAunts );
+            $unclesAuntsObj->mothersUncleAuntCount = sizeof( $unclesAuntsObj->motherUnclesAunts );
+            $unclesAuntsObj->fathersAndMothersUncleAuntCount = sizeof( $unclesAuntsObj->fatherAndMotherUnclesAunts );
+            
+             // tbd check if $unclesAuntsObj->fathersAndMothersUncleAuntCount > 0
+            
+            $count = $this->countMaleFemale( $unclesAuntsObj->fatherUnclesAunts );
+            $unclesAuntsObj->fathersUncleCount = $count->male;
+            $unclesAuntsObj->fathersAuntCount = $count->female;
+                                  
+            $count = $this->countMaleFemale( $unclesAuntsObj->motherUnclesAunts );
+            $unclesAuntsObj->mothersUncleCount = $count->male;
+            $unclesAuntsObj->mothersAuntCount = $count->female;
+
+            $unclesAuntsObj->UncleCount = $unclesAuntsObj->fathersUncleCount + $unclesAuntsObj->mothersUncleCount;
+            $unclesAuntsObj->AuntCount = $unclesAuntsObj->fathersAuntCount + $unclesAuntsObj->mothersAuntCount;
+            $unclesAuntsObj->allUncleAuntCount = $unclesAuntsObj->fathersUncleAuntCount + $unclesAuntsObj->mothersUncleAuntCount;
+        }
+
+        return $unclesAuntsObj;
     }
 
     /**
@@ -340,9 +467,9 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     public function getTabContent(Individual $individual): string
     {
         return view($this->name() . '::tab', [
-            'cousins_obj'   => $this->getCousins($individual),
-            'cousins_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
-            'module_obj'    => $this,
+            'extfam_obj'            => $this->getExtendedFamily( $individual ),
+            'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
+            'module_obj'            => $this,
         ]); 
     }
 
@@ -421,8 +548,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Fætre og kusiner',
-            'A tab showing cousins of an individual.' => 'En fane der viser en persons fætre og kusiner.',
+            'Extended family' => 'Fætre og kusiner',
+            'A tab showing the extended family of an individual.' => 'En fane der viser en persons fætre og kusiner.',
             'No family available' => 'Ingen familie tilgængelig',
             'Father\'s family (%s)' => 'Fars familie (%s)',
             'Mother\'s family (%s)' => 'Mors familie (%s)',
@@ -440,13 +567,17 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Cousins/Cousinen',
-            'A tab showing cousins of an individual.' => 'Reiter zeigt Cousins und Cousinen einer Person.',
+            'Extended family' => 'Großfamilie',
+            'A tab showing the extended family of an individual.' => 'Reiter zeigt die Großfamilie einer Person.',
             'No family available' => 'Es wurde keine Familie gefunden.',
+            'Cousins' => 'Cousinen und Cousins',
+            'Aunts and uncles' => 'Tanten und Onkel',
             'Father\'s family (%s)' => 'Familie des Vaters (%s)',
             'Mother\'s family (%s)' => 'Familie der Mutter (%s)',
             '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
-            '%s has one first cousin recorded.' => 'Für %s ist ein Cousin ersten Grades verzeichnet.',   // tbd hier muss das Geschlecht ergänzt werden
+            '%s has one female first cousin recorded.' => 'Für %s ist eine Cousine ersten Grades verzeichnet.',
+            '%s has one male first cousin recorded.' => 'Für %s ist ein Cousin ersten Grades verzeichnet.',
+            '%s has one first cousin recorded.' => 'Für %s ist ein Cousin bzw. eine Cousine ersten Grades verzeichnet.',
             '%s has %d female first cousins recorded.' => 'Für %s sind %d Cousinen ersten Gradesverzeichnet.',
             '%s has %d male first cousins recorded.' => 'Für %s sind %d Cousins ersten Grades verzeichnet.',
             '%s has %d female and %d male first cousins recorded (%d in total).' => 'Für %s sind %d Cousinen und %d Cousins ersten Grades verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
@@ -454,6 +585,12 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
             //    I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
             //    => '%2$s hat %1$d Cousin oder Cousine ersten Grades.'  . 
             //    I18N::PLURAL . '%2$s hat %1$d Cousins oder Cousinen ersten Grades.',
+            '%s has one Aunt recorded.' => 'Für %s ist eine Tante verzeichnet.',
+            '%s has one Uncle recorded.' => 'Für %s ist ein Onkel verzeichnet.',
+            '%s has one Aunt or Uncle recorded.' => 'Für %s ist eine Tante oder ein Onkel verzeichnet.',
+            '%s has %d aunts recorded.' => 'Für %s sind %d Tanten verzeichnet.',
+            '%s has %d uncles recorded.' => 'Für %s sind %d Onkel verzeichnet.',
+            '%s has %d aunts and %d uncles recorded (%d in total).' => 'Für %s sind %d Tanten und %d Onkel verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
         ];
     }
 
@@ -464,8 +601,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Serkut',
-            'A tab showing cousins of an individual.' => 'Välilehti joka näyttää henkilön serkut.',
+            'Extended family' => 'Serkut',
+            'A tab showing the extended family of an individual.' => 'Välilehti joka näyttää henkilön serkut.',
             'No family available' => 'Perhe puuttuu',
             'Father\'s family (%s)' => 'Isän perhe (%s)',
             'Mother\'s family (%s)' => 'Äidin perhe (%s)',
@@ -483,8 +620,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Cousins',
-            'A tab showing cousins of an individual.' => 'Onglet montrant les cousins d\'un individu.',
+            'Extended family' => 'Cousins',
+            'A tab showing the extended family of an individual.' => 'Onglet montrant les cousins d\'un individu.',
             'No family available' => 'Pas de famille disponible',
             'Father\'s family (%s)' => 'Famille paternelle (%s)',
             'Mother\'s family (%s)' => 'Famille maternelle (%s)',
@@ -502,8 +639,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'בני דודים',
-            'A tab showing cousins of an individual.' => 'חוצץ המראה בני דוד של אדם.',
+            'Extended family' => 'בני דודים',
+            'A tab showing the extended family of an individual.' => 'חוצץ המראה בני דוד של אדם.',
             'No family available' => 'משפחה חסרה',
             'Father\'s family (%s)' => 'משפחת האב (%s)',
             'Mother\'s family (%s)' => 'משפחת האם (%s)',
@@ -521,8 +658,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Pusbroliai/Pusseserės',
-            'A tab showing cousins of an individual.' => 'Lapas rodantis asmens pusbrolius ir pusseseres.',
+            'Extended family' => 'Pusbroliai/Pusseserės',
+            'A tab showing the extended family of an individual.' => 'Lapas rodantis asmens pusbrolius ir pusseseres.',
             'No family available' => 'Šeima nerasta',
             'Father\'s family (%s)' => 'Tėvo šeima (%s)',
             'Mother\'s family (%s)' => 'Motinos šeima (%s)',
@@ -541,8 +678,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Søskenbarn',
-            'A tab showing cousins of an individual.' => 'Fane som viser en persons søskenbarn.',
+            'Extended family' => 'Søskenbarn',
+            'A tab showing the extended family of an individual.' => 'Fane som viser en persons søskenbarn.',
             'No family available' => 'Ingen familie tilgjengelig',
             'Father\'s family (%s)' => 'Fars familie (%s)',
             'Mother\'s family (%s)' => 'Mors familie (%s)',
@@ -560,8 +697,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Neven en Nichten',
-            'A tab showing cousins of an individual.' => 'Tab laat neven en nichten van deze persoon zien.',
+            'Extended family' => 'Neven en Nichten',
+            'A tab showing the extended family of an individual.' => 'Tab laat neven en nichten van deze persoon zien.',
             'No family available' => 'Geen familie gevonden',
             'Father\'s family (%s)' => 'Vader\'s familie (%s)',
             'Mother\'s family (%s)' => 'Moeder\'s familie (%s)',
@@ -579,8 +716,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Syskenbarn',
-            'A tab showing cousins of an individual.' => 'Fane som syner ein person sine syskenbarn.',
+            'Extended family' => 'Syskenbarn',
+            'A tab showing the extended family of an individual.' => 'Fane som syner ein person sine syskenbarn.',
             'No family available' => 'Ingen familie tilgjengeleg',
             'Father\'s family (%s)' => 'Fars familie (%s)',
             'Mother\'s family (%s)' => 'Mors familie (%s)',
@@ -598,8 +735,8 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            'Cousins' => 'Kusiner',
-            'A tab showing cousins of an individual.' => 'En flik som visar en persons kusiner.',
+            'Extended family' => 'Kusiner',
+            'A tab showing the extended family of an individual.' => 'En flik som visar en persons kusiner.',
             'No family available' => 'Familj saknas',
             'Father\'s family (%s)' => 'Faderns familj (%s)',
             'Mother\'s family (%s)' => 'Moderns familj (%s)',
@@ -612,4 +749,4 @@ class CousinsTabModule extends AbstractModule implements ModuleTabInterface, Mod
 
 };
 
-return new CousinsTabModule;
+return new ExtendedFamilyTabModule;
