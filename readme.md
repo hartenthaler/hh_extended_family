@@ -20,12 +20,6 @@ This module version is derived from vytux_cousins. There are some additional fea
 * new text added if there is a family but no cousins or no aunts/uncles ("... has no first cousins / aunts or uncles recorded.")
 * tab is greyed out if the extended family is empty
 
-There are some open issues:
-* check sporadic problems with links of individuals
-* use singular and plural if there are male and female cousins / aunts and uncles
-* handling of cousins / aunts or uncles, when there are cousins / aunts or uncles in fathers and mothers family
-* update translations to other languages than English and German
-
 It is planned to add some more features:
 * let the user select if he likes to see only living members of extended family
 * use a nice short name for the Proband instead of full name
