@@ -4,7 +4,7 @@
 
 ![webtrees Major Version](https://img.shields.io/badge/webtrees-v2.x-green)
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
-[![Downloads](https://img.shields.io/github/downloads/hartenthaler/hh_extended_family/2.0.16.7/total)]()
+[![Downloads](https://img.shields.io/github/downloads/hartenthaler/hh_extended_family/2.0.16.8/total)]()
 
 <a name="Description"></a>
 
@@ -13,7 +13,7 @@
 This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the extended family of that person (cousins, uncles, aunts, ...).
 
 This module version is derived from vytux_cousins. There are some additional features:
-* including uncles and aunts
+* including grandparents, uncles and aunts
 * addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
 * don't show empty tables for "Father's family" and "Mother's family"
 * count separately for each sex (this supports translation if there are for example different words for male and female cousins)
@@ -21,10 +21,10 @@ This module version is derived from vytux_cousins. There are some additional fea
 * tab is greyed out if the extended family is empty
 
 It is planned to add some more features:
+* add grandchilds, nieces, nephews
 * let the user select if he likes to see only living members of extended family
 * use a nice short name for the Proband instead of full name
 * count separately for full and half cousins ("has 4 male cousins, 2 female half cousins, 1 female full cousin")
-* add grandparents, grandchilds, nieces, nephews
 
 <a name="Contents"></a>
 

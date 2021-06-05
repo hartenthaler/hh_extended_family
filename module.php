@@ -65,7 +65,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.7';
+    public const CUSTOM_VERSION = '2.0.16.8';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
@@ -191,7 +191,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $mf->male = 0;
         $mf->female = 0;
         $mf->unknown_others=0;
-        
+    
         foreach ($indilist as $il) {
             if ($il->sex() == "M") {
                 $mf->male++;
@@ -219,13 +219,189 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $extfamObj->self = (object)[];
         $extfamObj->self->indi = $individual;
         $extfamObj->self->niceName = $this->niceName( $individual );
-        $extfamObj->cousins = (object)[];
-        $extfamObj->cousins = $this->getCousins( $individual );
+        
+        $extfamObj->Grandparents = (object)[];
+        $extfamObj->Grandparents = $this->getGrandparents( $individual );
         $extfamObj->UnclesAunts = (object)[];
         $extfamObj->UnclesAunts = $this->getUnclesAunts( $individual );
-        $extfamObj->allIndividualsCount = $extfamObj->cousins->allCousinCount + $extfamObj->UnclesAunts->allUncleAuntCount;
-       
+        $extfamObj->cousins = (object)[];
+        $extfamObj->cousins = $this->getCousins( $individual );
+        
+        $extfamObj->allIndividualsCount = $extfamObj->Grandparents->allGrandparentCount + $extfamObj->UnclesAunts->allUncleAuntCount + $extfamObj->cousins->allCousinCount;
+        
        return $extfamObj;
+    }
+
+    /**
+     * Find grandparents
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getGrandparents(Individual $individual): object
+    {
+    
+        $GrandparentsObj = (object)[];
+        
+        $GrandparentsObj->fatherGrandparents = [];
+        $GrandparentsObj->motherGrandparents = [];
+        $GrandparentsObj->fatherAndMotherGrandparents = [];
+        
+        $GrandparentsObj->fathersGrandfatherCount = 0;
+        $GrandparentsObj->fathersGrandmotherCount = 0;
+        $GrandparentsObj->fathersGrandparentCount = 0;
+        
+        $GrandparentsObj->mothersGrandfatherCount = 0;
+        $GrandparentsObj->mothersGrandmotherCount = 0;
+        $GrandparentsObj->mothersGrandparentCount = 0;
+        
+        $GrandparentsObj->fathersAndmothersGrandparentCount = 0;
+        $GrandparentsObj->GrandfatherCount = 0;
+        $GrandparentsObj->GrandmotherCount = 0;
+        $GrandparentsObj->allGrandparentCount = 0;
+        
+        if ($individual->childFamilies()->first()) {
+            $GrandparentsObj->father = $individual->childFamilies()->first()->husband();
+            $GrandparentsObj->mother = $individual->childFamilies()->first()->wife();
+
+            if ($GrandparentsObj->father) {
+               foreach ($GrandparentsObj->father->childFamilies() as $family) {
+                  foreach ($family->spouses() as $parent) {
+                     foreach ($parent->spouseFamilies() as $family2) {
+                        $GrandparentsObj->fatherGrandparents[] = $family2->husband();
+                        $GrandparentsObj->fatherGrandparents[] = $family2->wife();
+                     }
+                  }
+               }
+            }
+            $GrandparentsObj->fatherGrandparents = array_unique( $GrandparentsObj->fatherGrandparents );
+
+            if ($GrandparentsObj->mother) {
+               foreach ($GrandparentsObj->mother->childFamilies() as $family) {
+                  foreach ($family->spouses() as $parent) {
+                     foreach ($parent->spouseFamilies() as $family2) {
+                        if ( in_array( $family2, $GrandparentsObj->fatherGrandparents )){
+                           $GrandparentsObj->fatherAndMotherGrandparents[] = $family2;
+                           // tbd: remove this individual from $GrandparentsObj->fatherGrandparents[]
+                        } else {
+                           $GrandparentsObj->motherGrandparents[] = $family2->husband();
+                           $GrandparentsObj->motherGrandparents[] = $family2->wife();
+                        }
+                     }
+                  }
+               } 
+            }
+            $GrandparentsObj->motherGrandparents = array_unique( $GrandparentsObj->motherGrandparents );
+            $GrandparentsObj->fatherAndMotherGrandparents = array_unique( $GrandparentsObj->fatherAndMotherGrandparents );
+             
+            $GrandparentsObj->fathersGrandparentCount = sizeof( $GrandparentsObj->fatherGrandparents );
+            $GrandparentsObj->mothersGrandparentCount = sizeof( $GrandparentsObj->motherGrandparents );
+            $GrandparentsObj->fathersAndmothersGrandparentCount = sizeof( $GrandparentsObj->fatherAndMotherGrandparents );
+            
+            $count = $this->countMaleFemale( $GrandparentsObj->fatherGrandparents );
+            $GrandparentsObj->fathersGrandfatherCount = $count->male;
+            $GrandparentsObj->fathersGrandmotherCount = $count->female;
+                                  
+            $count = $this->countMaleFemale( $GrandparentsObj->motherGrandparents );
+            $GrandparentsObj->mothersGrandfatherCount = $count->male;
+            $GrandparentsObj->mothersGrandmotherCount = $count->female;
+
+            $GrandparentsObj->GrandfatherCount = $GrandparentsObj->fathersGrandfatherCount + $GrandparentsObj->mothersGrandfatherCount;
+            $GrandparentsObj->GrandmotherCount = $GrandparentsObj->fathersGrandmotherCount + $GrandparentsObj->mothersGrandmotherCount;
+            $GrandparentsObj->allGrandparentCount = $GrandparentsObj->fathersGrandparentCount + $GrandparentsObj->mothersGrandparentCount;
+        }
+
+        return $GrandparentsObj;
+    }
+
+    /**
+     * Find uncles and aunts
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getUnclesAunts(Individual $individual): object
+    {
+    
+        $unclesAuntsObj = (object)[];
+        
+        $unclesAuntsObj->fatherUnclesAunts = [];
+        $unclesAuntsObj->motherUnclesAunts = [];
+        $unclesAuntsObj->fatherAndMotherUnclesAunts = [];
+        
+        $unclesAuntsObj->fathersUncleCount = 0;
+        $unclesAuntsObj->fathersAuntCount = 0;
+        $unclesAuntsObj->fathersUncleAuntCount = 0;
+        
+        $unclesAuntsObj->mothersUncleCount = 0;
+        $unclesAuntsObj->mothersAuntCount = 0;
+        $unclesAuntsObj->mothersUncleAuntCount = 0;
+        
+        $unclesAuntsObj->fathersAndMothersUncleAuntCount = 0;
+        $unclesAuntsObj->UncleCount = 0;
+        $unclesAuntsObj->AuntCount = 0;
+        $unclesAuntsObj->allUncleAuntCount = 0;
+        
+        if ($individual->childFamilies()->first()) {
+            $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
+            $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
+
+            if ($unclesAuntsObj->father) {
+               foreach ($unclesAuntsObj->father->childFamilies() as $family) {
+                  foreach ($family->spouses() as $parent) {
+                     foreach ($parent->spouseFamilies() as $family2) {
+                        foreach ($family2->children() as $sibling) {
+                            if ($sibling !== $unclesAuntsObj->father) {
+                                $unclesAuntsObj->fatherUnclesAunts[] = $sibling;
+                            }
+                        }
+                     }
+                  }
+               }
+            }
+            $unclesAuntsObj->fatherUnclesAunts = array_unique( $unclesAuntsObj->fatherUnclesAunts );
+
+            if ($unclesAuntsObj->mother) {
+               foreach ($unclesAuntsObj->mother->childFamilies() as $family) {
+                  foreach ($family->spouses() as $parent) {
+                     foreach ($parent->spouseFamilies() as $family2) {
+                        foreach ($family2->children() as $sibling) {
+                            if ($sibling !== $unclesAuntsObj->mother) {
+                                if ( in_array( $sibling, $unclesAuntsObj->fatherUnclesAunts )){
+                                   $unclesAuntsObj->fatherAndMotherUnclesAunts[] = $sibling;
+                                   // tbd: remove this individual from $unclesAuntsObj->fatherUnclesAunts[]
+                                } else {
+                                   $unclesAuntsObj->motherUnclesAunts[] = $sibling;
+                                }
+                            }
+                        }
+                     }
+                  }
+               } 
+            }
+            $unclesAuntsObj->motherUnclesAunts = array_unique( $unclesAuntsObj->motherUnclesAunts );
+            $unclesAuntsObj->fatherAndMotherUnclesAunts = array_unique( $unclesAuntsObj->fatherAndMotherUnclesAunts );
+             
+            $unclesAuntsObj->fathersUncleAuntCount = sizeof( $unclesAuntsObj->fatherUnclesAunts );
+            $unclesAuntsObj->mothersUncleAuntCount = sizeof( $unclesAuntsObj->motherUnclesAunts );
+            $unclesAuntsObj->fathersAndMothersUncleAuntCount = sizeof( $unclesAuntsObj->fatherAndMotherUnclesAunts );
+            
+            $count = $this->countMaleFemale( $unclesAuntsObj->fatherUnclesAunts );
+            $unclesAuntsObj->fathersUncleCount = $count->male;
+            $unclesAuntsObj->fathersAuntCount = $count->female;
+                                  
+            $count = $this->countMaleFemale( $unclesAuntsObj->motherUnclesAunts );
+            $unclesAuntsObj->mothersUncleCount = $count->male;
+            $unclesAuntsObj->mothersAuntCount = $count->female;
+
+            $unclesAuntsObj->UncleCount = $unclesAuntsObj->fathersUncleCount + $unclesAuntsObj->mothersUncleCount;
+            $unclesAuntsObj->AuntCount = $unclesAuntsObj->fathersAuntCount + $unclesAuntsObj->mothersAuntCount;
+            $unclesAuntsObj->allUncleAuntCount = $unclesAuntsObj->fathersUncleAuntCount + $unclesAuntsObj->mothersUncleAuntCount;
+        }
+
+        return $unclesAuntsObj;
     }
 
     /**
@@ -309,8 +485,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $cousinsObj->mothersCousinCount = sizeof( $cousinsObj->motherCousins );
             $cousinsObj->fathersAndMothersCousinCount = sizeof( $cousinsObj->fatherAndMotherCousins );
             
-             // tbd check if $cousinsObj->fathersAndMothersCousinCount > 0
-            
             $count = $this->countMaleFemale( $cousinsObj->fatherCousins );
             $cousinsObj->fathersMaleCousinCount = $count->male;
             $cousinsObj->fathersFemaleCousinCount = $count->female;
@@ -325,97 +499,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         }
 
         return $cousinsObj;
-    }
-
-    /**
-     * Find uncles and aunts
-     *
-     * @param Individual $individual
-     *
-     * @return object
-     */
-    private function getUnclesAunts(Individual $individual): object
-    {
-    
-        $unclesAuntsObj = (object)[];
-        
-        $unclesAuntsObj->fatherUnclesAunts = [];
-        $unclesAuntsObj->motherUnclesAunts = [];
-        $unclesAuntsObj->fatherAndMotherUnclesAunts = [];
-        
-        $unclesAuntsObj->fathersUncleCount = 0;
-        $unclesAuntsObj->fathersAuntCount = 0;
-        $unclesAuntsObj->fathersUncleAuntCount = 0;
-        
-        $unclesAuntsObj->mothersUncleCount = 0;
-        $unclesAuntsObj->mothersAuntCount = 0;
-        $unclesAuntsObj->mothersUncleAuntCount = 0;
-        
-        $unclesAuntsObj->fathersAndMothersUncleAuntCount = 0;
-        $unclesAuntsObj->UncleCount = 0;
-        $unclesAuntsObj->AuntCount = 0;
-        $unclesAuntsObj->allUncleAuntCount = 0;
-        
-        if ($individual->childFamilies()->first()) {
-            $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
-            $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
-
-            if ($unclesAuntsObj->father) {
-               foreach ($unclesAuntsObj->father->childFamilies() as $family) {
-                  foreach ($family->spouses() as $parent) {
-                     foreach ($parent->spouseFamilies() as $family2) {
-                        foreach ($family2->children() as $sibling) {
-                            if ($sibling !== $unclesAuntsObj->father) {
-                                $unclesAuntsObj->fatherUnclesAunts[] = $sibling;
-                            }
-                        }
-                     }
-                  }
-               }
-            }
-            $unclesAuntsObj->fatherUnclesAunts = array_unique( $unclesAuntsObj->fatherUnclesAunts );
-
-            if ($unclesAuntsObj->mother) {
-               foreach ($unclesAuntsObj->mother->childFamilies() as $family) {
-                  foreach ($family->spouses() as $parent) {
-                     foreach ($parent->spouseFamilies() as $family2) {
-                        foreach ($family2->children() as $sibling) {
-                            if ($sibling !== $unclesAuntsObj->mother) {
-                                if ( in_array( $sibling, $unclesAuntsObj->fatherUnclesAunts )){
-                                   $unclesAuntsObj->fatherAndMotherUnclesAunts[] = $sibling;
-                                   // tbd: remove this individual from $unclesAuntsObj->fatherUnclesAunts[]
-                                } else {
-                                   $unclesAuntsObj->motherUnclesAunts[] = $sibling;
-                                }
-                            }
-                        }
-                     }
-                  }
-               } 
-            }
-            $unclesAuntsObj->motherUnclesAunts = array_unique( $unclesAuntsObj->motherUnclesAunts );
-            $unclesAuntsObj->fatherAndMotherUnclesAunts = array_unique( $unclesAuntsObj->fatherAndMotherUnclesAunts );
-             
-            $unclesAuntsObj->fathersUncleAuntCount = sizeof( $unclesAuntsObj->fatherUnclesAunts );
-            $unclesAuntsObj->mothersUncleAuntCount = sizeof( $unclesAuntsObj->motherUnclesAunts );
-            $unclesAuntsObj->fathersAndMothersUncleAuntCount = sizeof( $unclesAuntsObj->fatherAndMotherUnclesAunts );
-            
-             // tbd check if $unclesAuntsObj->fathersAndMothersUncleAuntCount > 0
-            
-            $count = $this->countMaleFemale( $unclesAuntsObj->fatherUnclesAunts );
-            $unclesAuntsObj->fathersUncleCount = $count->male;
-            $unclesAuntsObj->fathersAuntCount = $count->female;
-                                  
-            $count = $this->countMaleFemale( $unclesAuntsObj->motherUnclesAunts );
-            $unclesAuntsObj->mothersUncleCount = $count->male;
-            $unclesAuntsObj->mothersAuntCount = $count->female;
-
-            $unclesAuntsObj->UncleCount = $unclesAuntsObj->fathersUncleCount + $unclesAuntsObj->mothersUncleCount;
-            $unclesAuntsObj->AuntCount = $unclesAuntsObj->fathersAuntCount + $unclesAuntsObj->mothersAuntCount;
-            $unclesAuntsObj->allUncleAuntCount = $unclesAuntsObj->fathersUncleAuntCount + $unclesAuntsObj->mothersUncleAuntCount;
-        }
-
-        return $unclesAuntsObj;
     }
 
     /**
@@ -571,12 +654,29 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Extended family' => 'Großfamilie',
             'A tab showing the extended family of an individual.' => 'Reiter zeigt die Großfamilie einer Person.',
             'No family available' => 'Es wurde keine Familie gefunden.',
-            'Cousins' => 'Cousinen und Cousins',
-            'Aunts and uncles' => 'Tanten und Onkel',
             'Father\'s family (%s)' => 'Familie des Vaters (%s)',
             'Mother\'s family (%s)' => 'Familie der Mutter (%s)',
-            '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
+            
+            'Grandparents' => 'Großeltern',
+            '%s has no grandparents recorded.' => 'Für %s sind keine Großeltern verzeichnet.',
+            '%s has one grandmother recorded.' => 'Für %s ist eine Großmutter verzeichnet.',
+            '%s has one grandfather recorded.' => 'Für %s ist ein Großvater verzeichnet.',
+            '%s has one grandparent recorded.' => 'Für %s ist ein Großelternteil verzeichnet.',
+            '%s has %d grandmothers recorded.' => 'Für %s sind %d Großmütter verzeichnet.',
+            '%s has %d grandfathers recorded.' => 'Für %s sind %d Großväter verzeichnet.',
+            '%s has %d grandmothers and %d grandfathers recorded (%d in total).' => 'Für %s sind %d Großmütter und %d Großväter verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
+            
+            'Aunts and uncles' => 'Tanten und Onkel',
             '%s has no aunts or uncles recorded.' => 'Für %s sind keine Tanten oder Onkel verzeichnet.',
+            '%s has one Aunt recorded.' => 'Für %s ist eine Tante verzeichnet.',
+            '%s has one Uncle recorded.' => 'Für %s ist ein Onkel verzeichnet.',
+            '%s has one Aunt or Uncle recorded.' => 'Für %s ist eine Tante oder ein Onkel verzeichnet.',
+            '%s has %d aunts recorded.' => 'Für %s sind %d Tanten verzeichnet.',
+            '%s has %d uncles recorded.' => 'Für %s sind %d Onkel verzeichnet.',
+            '%s has %d aunts and %d uncles recorded (%d in total).' => 'Für %s sind %d Tanten und %d Onkel verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
+
+            'Cousins' => 'Cousinen und Cousins',
+            '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
             '%s has one female first cousin recorded.' => 'Für %s ist eine Cousine ersten Grades verzeichnet.',
             '%s has one male first cousin recorded.' => 'Für %s ist ein Cousin ersten Grades verzeichnet.',
             '%s has one first cousin recorded.' => 'Für %s ist ein Cousin bzw. eine Cousine ersten Grades verzeichnet.',
@@ -587,12 +687,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             //    I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
             //    => '%2$s hat %1$d Cousin oder Cousine ersten Grades.'  . 
             //    I18N::PLURAL . '%2$s hat %1$d Cousins oder Cousinen ersten Grades.',
-            '%s has one Aunt recorded.' => 'Für %s ist eine Tante verzeichnet.',
-            '%s has one Uncle recorded.' => 'Für %s ist ein Onkel verzeichnet.',
-            '%s has one Aunt or Uncle recorded.' => 'Für %s ist eine Tante oder ein Onkel verzeichnet.',
-            '%s has %d aunts recorded.' => 'Für %s sind %d Tanten verzeichnet.',
-            '%s has %d uncles recorded.' => 'Für %s sind %d Onkel verzeichnet.',
-            '%s has %d aunts and %d uncles recorded (%d in total).' => 'Für %s sind %d Tanten und %d Onkel verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
+
         ];
     }
 
