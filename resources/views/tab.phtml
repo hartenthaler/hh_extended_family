@@ -77,13 +77,7 @@
         <?php else: ?>
             <h3><?= I18N::translate('%s has no first cousins recorded.', $extfam_obj->self->indi->fullName()) ?></h3>
         <?php endif ?>
-    <?php else: ?>
-        <h3><?= I18N::translate('No family available') ?></h3>
-    <?php endif ?>
-</div>
 
-<div class="wt-tab-hh-cousins py-4">
-    <?php if ($extfam_obj->self->indi->childFamilies()->first()): ?>
         <?php $prev_fam_id = '-1'; ?>
         <?php if ($extfam_obj->UnclesAunts->allUncleAuntCount): ?>
             <h2><?= I18N::translate('Aunts and uncles') ?></h2>
@@ -157,6 +151,7 @@
         <?php else: ?>
             <h3><?= I18N::translate('%s has no aunts or uncles recorded.', $extfam_obj->self->indi->fullName()) ?></h3>
         <?php endif ?>
+        
     <?php else: ?>
         <h3><?= I18N::translate('No family available') ?></h3>
     <?php endif ?>

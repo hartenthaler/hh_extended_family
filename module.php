@@ -171,7 +171,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function isGrayedOut(Individual $individual): bool
     {
-        if ($this->getCousins($individual)->allCousinCount == 0) {
+        if ($this->getExtendedFamily( $individual )->allIndividualsCount == 0) {
             return true;
         } else {
             return false;
@@ -223,6 +223,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $extfamObj->cousins = $this->getCousins( $individual );
         $extfamObj->UnclesAunts = (object)[];
         $extfamObj->UnclesAunts = $this->getUnclesAunts( $individual );
+        $extfamObj->allIndividualsCount = $extfamObj->cousins->allCousinCount + $extfamObj->UnclesAunts->allUncleAuntCount;
        
        return $extfamObj;
     }
@@ -575,6 +576,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Father\'s family (%s)' => 'Familie des Vaters (%s)',
             'Mother\'s family (%s)' => 'Familie der Mutter (%s)',
             '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
+            '%s has no aunts or uncles recorded.' => 'Für %s sind keine Tanten oder Onkel verzeichnet.',
             '%s has one female first cousin recorded.' => 'Für %s ist eine Cousine ersten Grades verzeichnet.',
             '%s has one male first cousin recorded.' => 'Für %s ist ein Cousin ersten Grades verzeichnet.',
             '%s has one first cousin recorded.' => 'Für %s ist ein Cousin bzw. eine Cousine ersten Grades verzeichnet.',
