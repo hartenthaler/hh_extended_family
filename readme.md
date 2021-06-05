@@ -4,13 +4,12 @@
 
 ![webtrees Major Version](https://img.shields.io/badge/webtrees-v2.x-green)
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
-[![Downloads](https://img.shields.io/github/downloads/hartenthaler/hh_extended_family/2.0.16.8/total)]()
 
 <a name="Description"></a>
 
 ## Description
 
-This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the extended family of that person (cousins, uncles, aunts, ...).
+This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the extended family of that person (grandparents, uncles, aunts, cousins).
 
 This module version is derived from vytux_cousins. There are some additional features:
 * including grandparents, uncles and aunts
@@ -19,12 +18,6 @@ This module version is derived from vytux_cousins. There are some additional fea
 * count separately for each sex (this supports translation if there are for example different words for male and female cousins)
 * new text added if there is a family but no cousins or no aunts/uncles ("... has no first cousins / aunts or uncles recorded.")
 * tab is greyed out if the extended family is empty
-
-It is planned to add some more features:
-* add grandchilds, nieces, nephews
-* let the user select if he likes to see only living members of extended family
-* use a nice short name for the Proband instead of full name
-* count separately for full and half cousins ("has 4 male cousins, 2 female half cousins, 1 female full cousin")
 
 <a name="Contents"></a>
 
