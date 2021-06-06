@@ -15,6 +15,7 @@ This module version is derived from vytux_cousins. There are some additional fea
 * including grandparents, uncles and aunts
 * addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
 * don't show empty tables for "Father's family" and "Mother's family"
+* beside father's and mother's family, now there can be a third category "father's and mother's family" if members of the extended family are related to both sides
 * count separately for each sex (this supports translation if there are for example different words for male and female cousins)
 * new text added if there is a family but no cousins or no aunts/uncles ("... has no first cousins / aunts or uncles recorded.")
 * tab is greyed out if the extended family is empty
@@ -27,10 +28,16 @@ The readme contains the following main sections:
 
 *   [Description](#Description)
 *   [Contents](#Contents)
+*   [Screenshot](#Screenshot)
 *   [Requirements](#Requirements)
 *   [Installation](#Installation)
 *   [Upgrade](#upgrade)
 *   [Contact Support](#Support)
+
+<a name="Screenshot"></a>
+
+## Screenshot
+<p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="67%"></p>
 
 <a name="Requirements"></a>
 
