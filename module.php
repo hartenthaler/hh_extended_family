@@ -247,6 +247,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $GrandparentsObj->motherGrandparents = [];
         $GrandparentsObj->fatherAndMotherGrandparents = [];
         
+        $GrandparentsObj->allGrandparentCount = 0;
+        
         if ($individual->childFamilies()->first()) {
             $GrandparentsObj->father = $individual->childFamilies()->first()->husband();
             $GrandparentsObj->mother = $individual->childFamilies()->first()->wife();
@@ -322,7 +324,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
             $GrandparentsObj->GrandfatherCount = $GrandparentsObj->fathersGrandfatherCount + $GrandparentsObj->mothersGrandfatherCount + $GrandparentsObj->fathersAndMothersGrandfatherCount;
             $GrandparentsObj->GrandmotherCount = $GrandparentsObj->fathersGrandmotherCount + $GrandparentsObj->mothersGrandmotherCount + $GrandparentsObj->fathersAndMothersGrandmotherCount;
-            $GrandparentsObj->allGrandparentCount = $GrandparentsObj->GrandfatherCount + $GrandparentsObj->GrandmotherCount;
+            $GrandparentsObj->allGrandparentCount = $GrandparentsObj->fathersGrandparentCount + $GrandparentsObj->mothersGrandparentCount + $GrandparentsObj->fathersAndMothersGrandparentCount;
         }
 
         return $GrandparentsObj;
@@ -343,6 +345,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $unclesAuntsObj->fatherUnclesAunts = [];
         $unclesAuntsObj->motherUnclesAunts = [];
         $unclesAuntsObj->fatherAndMotherUnclesAunts = [];
+        
+        $unclesAuntsObj->allUncleAuntCount = 0;
         
         if ($individual->childFamilies()->first()) {
             $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
@@ -404,7 +408,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
             $unclesAuntsObj->UncleCount = $unclesAuntsObj->fathersUncleCount + $unclesAuntsObj->mothersUncleCount + $unclesAuntsObj->fathersAndMothersUncleCount;
             $unclesAuntsObj->AuntCount = $unclesAuntsObj->fathersAuntCount + $unclesAuntsObj->mothersAuntCount + $unclesAuntsObj->fathersAndMothersAuntCount;
-            $unclesAuntsObj->allUncleAuntCount = $unclesAuntsObj->UncleCount + $unclesAuntsObj->AuntCount;
+            $unclesAuntsObj->allUncleAuntCount = $unclesAuntsObj->fathersUncleAuntCount + $unclesAuntsObj->mothersUncleAuntCount + $unclesAuntsObj->fathersAndMothersUncleAuntCount;
         }
 
         return $unclesAuntsObj;
@@ -425,6 +429,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $cousinsObj->fatherCousins = [];
         $cousinsObj->motherCousins = [];
         $cousinsObj->fatherAndMotherCousins = [];
+        
+        $cousinsObj->allCousinCount = 0;
         
         if ($individual->childFamilies()->first()) {
             $cousinsObj->father = $individual->childFamilies()->first()->husband();
@@ -494,7 +500,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
             $cousinsObj->maleCousinCount = $cousinsObj->fathersMaleCousinCount + $cousinsObj->mothersMaleCousinCount + $cousinsObj->fathersAndMothersMaleCousinCount;
             $cousinsObj->femaleCousinCount = $cousinsObj->fathersFemaleCousinCount + $cousinsObj->mothersFemaleCousinCount + $cousinsObj->fathersAndMothersFemaleCousinCount;
-            $cousinsObj->allCousinCount = $cousinsObj->maleCousinCount + $cousinsObj->femaleCousinCount;
+            $cousinsObj->allCousinCount = $cousinsObj->fathersCousinCount + $cousinsObj->mothersCousinCount + $cousinsObj->fathersAndMothersCousinCount;
         }
 
         return $cousinsObj;
