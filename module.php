@@ -65,7 +65,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.10';
+    public const CUSTOM_VERSION = '2.0.16.11';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
@@ -139,53 +139,104 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         return __DIR__ . '/resources/';
     }
+
+    /**
+     * initialize part of extended family (object contains three arrays of individuals and several counter values)
+     *
+     * @return initialized object
+     */
+    private function initializedFamilyPartObject(): object
+    {    
+        $efpObj = (object)[];
+        
+        $efpObj->fatherFamily = [];
+        $efpObj->motherFamily = [];
+        $efpObj->fatherAndMotherFamily = [];
+        
+        $efpObj->allCount = 0;
+        
+        return $efpObj;
+    }
     
     /**
-     * The default position for this tab.  It can be changed in the control panel.
-     *
-     * @return int
-     */
-    public function defaultTabOrder(): int
-    {
-        return 10;
-    }
-
-    /**
-     * Is this tab empty? If so, we don't always need to display it.
-     *
-     * @param Individual $individual
-     *
-     * @return bool
-     */
-    public function hasTabContent(Individual $individual): bool
-    {
-        return true;
-    }
-
-    /**
-     * A greyed out tab has no actual content, but may perhaps have options to create content.
-     *
-     * @param Individual $individual
-     *
-     * @return bool
-     */
-    public function isGrayedOut(Individual $individual): bool
-    {
-        if ($this->getExtendedFamily( $individual )->allIndividualsCount == 0) {      
-        // tbd: use another function which is more efficient (stops if the first memeber of extended family is found)
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-    * count male and female individuals
+    * add an individual to the extended family if it is not already memeber of this extended family
     *
-    * @param array of individuals
+    * @param individual
+    * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+    * @param string prefered family side ('father', 'mother'); father is default
     *
-    * @return object with three elements: male, female and unknown_others (integer >= 0)
+    * @return extended family object
     */
+    private function addIndividualToExtendedFamily(Individual $individual, object $extendedFamilyPart, string $side): object
+    {    
+        $efpObj = $extendedFamilyPart;
+   
+        if ($individual instanceof Individual) {
+            if ($side == 'mother') {
+                if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
+                    // already stored in father's and mother's array: do nothing
+                } elseif ( in_array( $individual, $efpObj->fatherFamily )){
+                    $efpObj->fatherAndMotherFamily[] = $individual;
+                    unset($efpObj->fatherFamily[array_search($individual,$efpObj->fatherFamily)]);
+                } elseif ( !in_array( $individual, $efpObj->motherFamily ) ) {
+                    $efpObj->motherFamily[] = $individual;
+                }
+            } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
+                if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
+                    // already stored in father's and mother's array: do nothing
+                } elseif ( in_array( $individual, $efpObj->motherFamily )){
+                    $efpObj->fatherAndMotherFamily[] = $individual;
+                    unset($efpObj->motherFamily[array_search($individual,$efpObj->motherFamily)]);
+                } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
+                    $efpObj->fatherFamily[] = $individual;
+                }
+            }
+        }
+        
+        return $efpObj;
+    }
+
+    /**
+     * count individuals (per family of mother/father/motherAndFather; per sex)
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     *
+     * @return object with added counters
+     */
+    private function addCountersToFamilyPartObject( object $extendedFamilyPart ): object
+    {
+        $efpObj = $extendedFamilyPart;
+        
+        $efpObj->fathersFamilyCount = sizeof( $efpObj->fatherFamily );
+        $efpObj->mothersFamilyCount = sizeof( $efpObj->motherFamily );
+        $efpObj->fathersAndMothersFamilyCount = sizeof( $efpObj->fatherAndMotherFamily );
+        
+        $count = $this->countMaleFemale( $efpObj->fatherFamily );
+        $efpObj->fathersMaleCount = $count->male;
+        $efpObj->fathersFemaleCount = $count->female;
+                              
+        $count = $this->countMaleFemale( $efpObj->motherFamily );
+        $efpObj->mothersMaleCount = $count->male;
+        $efpObj->mothersFemaleCount = $count->female;
+                                          
+        $count = $this->countMaleFemale( $efpObj->fatherAndMotherFamily );
+        $efpObj->fathersAndMothersMaleCount = $count->male;
+        $efpObj->fathersAndMothersFemaleCount = $count->female;
+
+        $efpObj->maleCount = $efpObj->fathersMaleCount + $efpObj->mothersMaleCount + $efpObj->fathersAndMothersMaleCount;
+        $efpObj->femaleCount = $efpObj->fathersFemaleCount + $efpObj->mothersFemaleCount + $efpObj->fathersAndMothersFemaleCount;
+        $efpObj->allCount = $efpObj->fathersFamilyCount + $efpObj->mothersFamilyCount + $efpObj->fathersAndMothersFamilyCount;
+        
+        return $efpObj;
+    }
+    
+    /**
+     * count male and female individuals
+     *
+     * @param array of individuals
+     *
+     * @return object with three elements: male, female and unknown_others (integer >= 0)
+     */
     private function countMaleFemale(array $indilist): object
     {
         $mf = (object)[];
@@ -218,20 +269,33 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function getExtendedFamily(Individual $individual): object
     {
         $extfamObj = (object)[];
-       
-        $extfamObj->self = (object)[];
-        $extfamObj->self->indi = $individual;
-        $extfamObj->self->niceName = $this->niceName( $individual );
+
+        $extfamObj->Self            = $this->getSelf( $individual );
+        $extfamObj->Grandparents    = $this->getGrandparents( $individual );
+        $extfamObj->UnclesAunts     = $this->getUnclesAunts( $individual );
+        $extfamObj->Cousins         = $this->getCousins( $individual );
         
-        $extfamObj->Grandparents = $this->getGrandparents( $individual );
-        $extfamObj->UnclesAunts = $this->getUnclesAunts( $individual );
-        $extfamObj->cousins = $this->getCousins( $individual );
-        
-        $extfamObj->allIndividualsCount = $extfamObj->Grandparents->allGrandparentCount + $extfamObj->UnclesAunts->allUncleAuntCount + $extfamObj->cousins->allCousinCount;
+        $extfamObj->allCount = $extfamObj->Grandparents->allCount + $extfamObj->UnclesAunts->allCount + $extfamObj->Cousins->allCount;
         
        return $extfamObj;
     }
-
+    
+    /**
+     * self finding
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getSelf(Individual $individual): object
+    {
+        $selfObj = (object)[];
+        
+        $selfObj->indi = $individual;
+        $selfObj->niceName = $this->niceName( $individual );
+        return $selfObj;
+    }
+    
     /**
      * Find grandparents
      *
@@ -241,90 +305,37 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getGrandparents(Individual $individual): object
     {      
-        $GrandparentsObj = (object)[];  // contains three arrays of individuals and a bunch of counter values
-        
-        $GrandparentsObj->fatherGrandparents = [];
-        $GrandparentsObj->motherGrandparents = [];
-        $GrandparentsObj->fatherAndMotherGrandparents = [];
-        
-        $GrandparentsObj->allGrandparentCount = 0;
+        $GrandparentsObj = $this->initializedFamilyPartObject();
         
         if ($individual->childFamilies()->first()) {
+            
             $GrandparentsObj->father = $individual->childFamilies()->first()->husband();
             $GrandparentsObj->mother = $individual->childFamilies()->first()->wife();
 
             // tbd: if there are stepparents of proband, then add parents and stepparents of these stepparents
             if ($GrandparentsObj->father) {
-                //print_r("Start father");
                foreach ($GrandparentsObj->father->childFamilies() as $family) {
                   foreach ($family->spouses() as $parent) {
                      foreach ($parent->spouseFamilies() as $family2) {
-                        if ($family2->husband() instanceof Individual) {
-                            $GrandparentsObj->fatherGrandparents[] = $family2->husband();
-                            //print_r("add husband: "); print_r($family2->husband()->fullname());
-                        }
-                        if ($family2->wife() instanceof Individual) {
-                            $GrandparentsObj->fatherGrandparents[] = $family2->wife();
-                            //print_r("add wife: "); print_r($family2->wife()->fullname());
-                        }
+                        $GrandparentsObj = $this->addIndividualToExtendedFamily( $family2->husband(), $GrandparentsObj, 'father');
+                        $GrandparentsObj = $this->addIndividualToExtendedFamily( $family2->wife(), $GrandparentsObj, 'father'); 
                      }
                   }
                }
             }
-            $GrandparentsObj->fatherGrandparents = array_unique( $GrandparentsObj->fatherGrandparents );
 
             if ($GrandparentsObj->mother) {
                foreach ($GrandparentsObj->mother->childFamilies() as $family) {
                   foreach ($family->spouses() as $parent) {
                      foreach ($parent->spouseFamilies() as $family2) {
-                        $husband = $family2->husband();
-                        if ($husband instanceof Individual) {
-                            if ( in_array( $husband, $GrandparentsObj->fatherAndMotherGrandparents )){
-                                // already stored in father and mother area
-                            } elseif ( in_array( $husband, $GrandparentsObj->fatherGrandparents )){
-                                $GrandparentsObj->fatherAndMotherGrandparents[] = $husband;
-                                unset($GrandparentsObj->fatherGrandparents[array_search($husband,$GrandparentsObj->fatherGrandparents)]);
-                            } else {
-                                $GrandparentsObj->motherGrandparents[] = $husband;
-                            }
-                        }
-                        $wife = $family2->wife();
-                        if ($wife instanceof Individual) {
-                            if ( in_array( $wife, $GrandparentsObj->fatherAndMotherGrandparents )){
-                                // already stored in father and mother area
-                            } elseif ( in_array( $wife, $GrandparentsObj->fatherGrandparents )){
-                                $GrandparentsObj->fatherAndMotherGrandparents[] = $wife;
-                                unset($GrandparentsObj->fatherGrandparents[array_search($wife,$GrandparentsObj->fatherGrandparents)]);
-                            } else {
-                                $GrandparentsObj->motherGrandparents[] = $wife;
-                            }
-                        }
+                        $GrandparentsObj = $this->addIndividualToExtendedFamily( $family2->husband(), $GrandparentsObj, 'mother');
+                        $GrandparentsObj = $this->addIndividualToExtendedFamily( $family2->wife(), $GrandparentsObj, 'mother');
                      }
                   }
                } 
             }
-            $GrandparentsObj->motherGrandparents = array_unique( $GrandparentsObj->motherGrandparents );
-            $GrandparentsObj->fatherAndMotherGrandparents = array_unique( $GrandparentsObj->fatherAndMotherGrandparents );
              
-            $GrandparentsObj->fathersGrandparentCount = sizeof( $GrandparentsObj->fatherGrandparents );
-            $GrandparentsObj->mothersGrandparentCount = sizeof( $GrandparentsObj->motherGrandparents );
-            $GrandparentsObj->fathersAndMothersGrandparentCount = sizeof( $GrandparentsObj->fatherAndMotherGrandparents );
-            
-            $count = $this->countMaleFemale( $GrandparentsObj->fatherGrandparents );
-            $GrandparentsObj->fathersGrandfatherCount = $count->male;
-            $GrandparentsObj->fathersGrandmotherCount = $count->female;
-                                  
-            $count = $this->countMaleFemale( $GrandparentsObj->motherGrandparents );
-            $GrandparentsObj->mothersGrandfatherCount = $count->male;
-            $GrandparentsObj->mothersGrandmotherCount = $count->female;
-                                              
-            $count = $this->countMaleFemale( $GrandparentsObj->fatherAndMotherGrandparents );
-            $GrandparentsObj->fathersAndMothersGrandfatherCount = $count->male;
-            $GrandparentsObj->fathersAndMothersGrandmotherCount = $count->female;
-
-            $GrandparentsObj->GrandfatherCount = $GrandparentsObj->fathersGrandfatherCount + $GrandparentsObj->mothersGrandfatherCount + $GrandparentsObj->fathersAndMothersGrandfatherCount;
-            $GrandparentsObj->GrandmotherCount = $GrandparentsObj->fathersGrandmotherCount + $GrandparentsObj->mothersGrandmotherCount + $GrandparentsObj->fathersAndMothersGrandmotherCount;
-            $GrandparentsObj->allGrandparentCount = $GrandparentsObj->fathersGrandparentCount + $GrandparentsObj->mothersGrandparentCount + $GrandparentsObj->fathersAndMothersGrandparentCount;
+            $GrandparentsObj = $this->addCountersToFamilyPartObject( $GrandparentsObj );
         }
 
         return $GrandparentsObj;
@@ -339,16 +350,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getUnclesAunts(Individual $individual): object
     {
-    
-        $unclesAuntsObj = (object)[];   // contains three arrays of individuals and a bunch of counter values
-        
-        $unclesAuntsObj->fatherUnclesAunts = [];
-        $unclesAuntsObj->motherUnclesAunts = [];
-        $unclesAuntsObj->fatherAndMotherUnclesAunts = [];
-        
-        $unclesAuntsObj->allUncleAuntCount = 0;
+        $unclesAuntsObj = $this->initializedFamilyPartObject();
         
         if ($individual->childFamilies()->first()) {
+            
             $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
             $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
 
@@ -358,14 +363,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                      foreach ($parent->spouseFamilies() as $family2) {
                         foreach ($family2->children() as $sibling) {
                             if ($sibling !== $unclesAuntsObj->father) {
-                                $unclesAuntsObj->fatherUnclesAunts[] = $sibling;
+                                $unclesAuntsObj = $this->addIndividualToExtendedFamily( $sibling, $unclesAuntsObj, 'father');
                             }
                         }
                      }
                   }
                }
             }
-            $unclesAuntsObj->fatherUnclesAunts = array_unique( $unclesAuntsObj->fatherUnclesAunts );
 
             if ($unclesAuntsObj->mother) {
                foreach ($unclesAuntsObj->mother->childFamilies() as $family) {
@@ -373,42 +377,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                      foreach ($parent->spouseFamilies() as $family2) {
                         foreach ($family2->children() as $sibling) {
                             if ($sibling !== $unclesAuntsObj->mother) {
-                                if ( in_array( $sibling, $unclesAuntsObj->fatherAndMotherUnclesAunts )){
-                                    // already stored in father and mother area
-                                } elseif ( in_array( $sibling, $unclesAuntsObj->fatherUnclesAunts )){
-                                    $unclesAuntsObj->fatherAndMotherUnclesAunts[] = $sibling;
-                                    unset($unclesAuntsObj->fatherUnclesAunts[array_search($sibling,$unclesAuntsObj->fatherUnclesAunts)]);
-                                } else {
-                                    $unclesAuntsObj->motherUnclesAunts[] = $sibling;
-                                }
+                                $unclesAuntsObj = $this->addIndividualToExtendedFamily( $sibling, $unclesAuntsObj, 'mother');
                             }
                         }
                      }
                   }
                } 
             }
-            $unclesAuntsObj->motherUnclesAunts = array_unique( $unclesAuntsObj->motherUnclesAunts );
-            $unclesAuntsObj->fatherAndMotherUnclesAunts = array_unique( $unclesAuntsObj->fatherAndMotherUnclesAunts );
-             
-            $unclesAuntsObj->fathersUncleAuntCount = sizeof( $unclesAuntsObj->fatherUnclesAunts );
-            $unclesAuntsObj->mothersUncleAuntCount = sizeof( $unclesAuntsObj->motherUnclesAunts );
-            $unclesAuntsObj->fathersAndMothersUncleAuntCount = sizeof( $unclesAuntsObj->fatherAndMotherUnclesAunts );
             
-            $count = $this->countMaleFemale( $unclesAuntsObj->fatherUnclesAunts );
-            $unclesAuntsObj->fathersUncleCount = $count->male;
-            $unclesAuntsObj->fathersAuntCount = $count->female;
-                                  
-            $count = $this->countMaleFemale( $unclesAuntsObj->motherUnclesAunts );
-            $unclesAuntsObj->mothersUncleCount = $count->male;
-            $unclesAuntsObj->mothersAuntCount = $count->female;
-                                  
-            $count = $this->countMaleFemale( $unclesAuntsObj->fatherAndMotherUnclesAunts );
-            $unclesAuntsObj->fathersAndMothersUncleCount = $count->male;
-            $unclesAuntsObj->fathersAndMothersAuntCount = $count->female;
-
-            $unclesAuntsObj->UncleCount = $unclesAuntsObj->fathersUncleCount + $unclesAuntsObj->mothersUncleCount + $unclesAuntsObj->fathersAndMothersUncleCount;
-            $unclesAuntsObj->AuntCount = $unclesAuntsObj->fathersAuntCount + $unclesAuntsObj->mothersAuntCount + $unclesAuntsObj->fathersAndMothersAuntCount;
-            $unclesAuntsObj->allUncleAuntCount = $unclesAuntsObj->fathersUncleAuntCount + $unclesAuntsObj->mothersUncleAuntCount + $unclesAuntsObj->fathersAndMothersUncleAuntCount;
+            $unclesAuntsObj = $this->addCountersToFamilyPartObject( $unclesAuntsObj );
         }
 
         return $unclesAuntsObj;
@@ -423,14 +400,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getCousins(Individual $individual): object
     {
-    
-        $cousinsObj = (object)[];   // contains three arrays of individuals and a bunch of counter values
-        
-        $cousinsObj->fatherCousins = [];
-        $cousinsObj->motherCousins = [];
-        $cousinsObj->fatherAndMotherCousins = [];
-        
-        $cousinsObj->allCousinCount = 0;
+        $cousinsObj = $this->initializedFamilyPartObject();
         
         if ($individual->childFamilies()->first()) {
             $cousinsObj->father = $individual->childFamilies()->first()->husband();
@@ -444,7 +414,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                            if ($sibling !== $cousinsObj->father) {
                               foreach ($sibling->spouseFamilies() as $fam) {
                                  foreach ($fam->children() as $child) {
-                                    $cousinsObj->fatherCousins[] = $child;
+                                    $cousinsObj = $this->addIndividualToExtendedFamily( $child, $cousinsObj, 'father');
                                  }
                               }
                            }
@@ -453,7 +423,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                   }
                }
             }
-            $cousinsObj->fatherCousins = array_unique( $cousinsObj->fatherCousins );
 
             if ($cousinsObj->mother) {
                foreach ($cousinsObj->mother->childFamilies() as $family) {
@@ -463,14 +432,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                            if ($sibling !== $cousinsObj->mother) {
                               foreach ($sibling->spouseFamilies() as $fam) {
                                  foreach ($fam->children() as $child) {
-                                    if ( in_array( $child, $cousinsObj->fatherAndMotherCousins )){
-                                        // already stored in father and mother area
-                                    } elseif ( in_array( $child, $cousinsObj->fatherCousins )){
-                                        $cousinsObj->fatherAndMotherCousins[] = $child;
-                                        unset($cousinsObj->fatherCousins[array_search($child,$cousinsObj->fatherCousins)]);
-                                    } else {
-                                        $cousinsObj->motherCousins[] = $child;
-                                    }
+                                    $cousinsObj = $this->addIndividualToExtendedFamily( $child, $cousinsObj, 'mother');
                                  }
                               }
                            }
@@ -479,43 +441,23 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                   }
                } 
             }
-            $cousinsObj->motherCousins = array_unique( $cousinsObj->motherCousins );
-            $cousinsObj->fatherAndMotherCousins = array_unique( $cousinsObj->fatherAndMotherCousins );
              
-            $cousinsObj->fathersCousinCount = sizeof( $cousinsObj->fatherCousins );
-            $cousinsObj->mothersCousinCount = sizeof( $cousinsObj->motherCousins );
-            $cousinsObj->fathersAndMothersCousinCount = sizeof( $cousinsObj->fatherAndMotherCousins );
-            
-            $count = $this->countMaleFemale( $cousinsObj->fatherCousins );
-            $cousinsObj->fathersMaleCousinCount = $count->male;
-            $cousinsObj->fathersFemaleCousinCount = $count->female;
-                                  
-            $count = $this->countMaleFemale( $cousinsObj->motherCousins );
-            $cousinsObj->mothersMaleCousinCount = $count->male;
-            $cousinsObj->mothersFemaleCousinCount = $count->female;
-                                              
-            $count = $this->countMaleFemale( $cousinsObj->fatherAndMotherCousins );
-            $cousinsObj->fathersAndMothersMaleCousinCount = $count->male;
-            $cousinsObj->fathersAndMothersFemaleCousinCount = $count->female;
-
-            $cousinsObj->maleCousinCount = $cousinsObj->fathersMaleCousinCount + $cousinsObj->mothersMaleCousinCount + $cousinsObj->fathersAndMothersMaleCousinCount;
-            $cousinsObj->femaleCousinCount = $cousinsObj->fathersFemaleCousinCount + $cousinsObj->mothersFemaleCousinCount + $cousinsObj->fathersAndMothersFemaleCousinCount;
-            $cousinsObj->allCousinCount = $cousinsObj->fathersCousinCount + $cousinsObj->mothersCousinCount + $cousinsObj->fathersAndMothersCousinCount;
+            $cousinsObj = $this->addCountersToFamilyPartObject( $cousinsObj );
         }
 
         return $cousinsObj;
     }
 
     /**
-    * Find a short, nice name for a person
-    * => use nickname ("Sepp") or Rufname or first of first names if one of these is available
-    *    => otherwise use surname if available ("Mr. xxx", "Mrs. xxx", or "xxx" if sex is not F or M
-    *       => otherwise use "He" or "She" or "She/he" if sex is not F or M
-    *
-    * @param Individual $individual
-    *
-    * @return string
-    */
+     * Find a short, nice name for a person
+     * => use nickname ("Sepp") or Rufname or first of first names if one of these is available
+     *    => otherwise use surname if available ("Mr. xxx", "Mrs. xxx", or "xxx" if sex is not F or M
+     *       => otherwise use "He" or "She" or "She/he" if sex is not F or M
+     *
+     * @param Individual $individual
+     *
+     * @return string
+     */
     public function niceName(Individual $individual): string
     {
         // tbd
@@ -540,6 +482,45 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return GedcomCodePedi::getValue('',$individual->getInstance($individual->xref(),$individual->tree()));
     }
 
+    /**
+     * The default position for this tab.  It can be changed in the control panel.
+     *
+     * @return int
+     */
+    public function defaultTabOrder(): int
+    {
+        return 10;
+    }
+
+    /**
+     * Is this tab empty? If so, we don't always need to display it.
+     *
+     * @param Individual $individual
+     *
+     * @return bool
+     */
+    public function hasTabContent(Individual $individual): bool
+    {
+        return true;
+    }
+
+    /**
+     * A greyed out tab has no actual content, but may perhaps have options to create content.
+     *
+     * @param Individual $individual
+     *
+     * @return bool
+     */
+    public function isGrayedOut(Individual $individual): bool
+    {
+        if ($this->getExtendedFamily( $individual )->allCount == 0) {      
+        // tbd: use another function which is more efficient (stops if the first memeber of extended family is found)
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     /**
      * @return ResponseInterface
      */
