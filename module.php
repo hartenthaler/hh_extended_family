@@ -171,25 +171,23 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {    
         $efpObj = $extendedFamilyPart;
    
-        if ($individual instanceof Individual) {
-            if ($side == 'mother') {
-                if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
-                    // already stored in father's and mother's array: do nothing
-                } elseif ( in_array( $individual, $efpObj->fatherFamily )){
-                    $efpObj->fatherAndMotherFamily[] = $individual;
-                    unset($efpObj->fatherFamily[array_search($individual,$efpObj->fatherFamily)]);
-                } elseif ( !in_array( $individual, $efpObj->motherFamily ) ) {
-                    $efpObj->motherFamily[] = $individual;
-                }
+        if ($side == 'mother') {
+            if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
+                // already stored in father's and mother's array: do nothing
+            } elseif ( in_array( $individual, $efpObj->fatherFamily )){
+                $efpObj->fatherAndMotherFamily[] = $individual;
+                unset($efpObj->fatherFamily[array_search($individual,$efpObj->fatherFamily)]);
+            } elseif ( !in_array( $individual, $efpObj->motherFamily ) ) {
+                $efpObj->motherFamily[] = $individual;
+            }
+        } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
+            if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
+                // already stored in father's and mother's array: do nothing
+            } elseif ( in_array( $individual, $efpObj->motherFamily )){
+                $efpObj->fatherAndMotherFamily[] = $individual;
+                unset($efpObj->motherFamily[array_search($individual,$efpObj->motherFamily)]);
             } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
-                if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
-                    // already stored in father's and mother's array: do nothing
-                } elseif ( in_array( $individual, $efpObj->motherFamily )){
-                    $efpObj->fatherAndMotherFamily[] = $individual;
-                    unset($efpObj->motherFamily[array_search($individual,$efpObj->motherFamily)]);
-                } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
-                    $efpObj->fatherFamily[] = $individual;
-                }
+                $efpObj->fatherFamily[] = $individual;
             }
         }
         
@@ -297,6 +295,43 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
     
     /**
+     * Find grandparents for one side 
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param string family side ('father', 'mother'); father is default
+     *
+     * @return object
+     */
+    private function getGrandparentsOneSide(object $extendedFamilyPart, string $side): object
+    {    
+        // tbd: if there are stepparents of proband, then add parents and stepparents of these stepparents
+        $efp = $extendedFamilyPart;
+        
+        if ($side == 'mother') {
+            $individual = $extendedFamilyPart->mother;
+        } else {
+            $individual = $extendedFamilyPart->father;
+        }
+        
+        if ($individual instanceof Individual) {
+           foreach ($individual->childFamilies() as $family) {
+              foreach ($family->spouses() as $parent) {
+                 foreach ($parent->spouseFamilies() as $family2) {
+                    if ($family2->husband() instanceof Individual) {
+                        $efp = $this->addIndividualToExtendedFamily( $family2->husband(), $extendedFamilyPart, $side );
+                    }
+                    if ($family2->wife() instanceof Individual) {
+                        $efp = $this->addIndividualToExtendedFamily( $family2->wife(), $extendedFamilyPart, $side );
+                    }
+                 }
+              }
+           }
+        }
+        
+        return $efp;
+    }
+    
+    /**
      * Find grandparents
      *
      * @param Individual $individual
@@ -309,31 +344,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         
         if ($individual->childFamilies()->first()) {
             
+            // husband() or wife() may not exist
             $GrandparentsObj->father = $individual->childFamilies()->first()->husband();
             $GrandparentsObj->mother = $individual->childFamilies()->first()->wife();
 
-            // tbd: if there are stepparents of proband, then add parents and stepparents of these stepparents
-            if ($GrandparentsObj->father) {
-               foreach ($GrandparentsObj->father->childFamilies() as $family) {
-                  foreach ($family->spouses() as $parent) {
-                     foreach ($parent->spouseFamilies() as $family2) {
-                        $GrandparentsObj = $this->addIndividualToExtendedFamily( $family2->husband(), $GrandparentsObj, 'father');
-                        $GrandparentsObj = $this->addIndividualToExtendedFamily( $family2->wife(), $GrandparentsObj, 'father'); 
-                     }
-                  }
-               }
-            }
-
-            if ($GrandparentsObj->mother) {
-               foreach ($GrandparentsObj->mother->childFamilies() as $family) {
-                  foreach ($family->spouses() as $parent) {
-                     foreach ($parent->spouseFamilies() as $family2) {
-                        $GrandparentsObj = $this->addIndividualToExtendedFamily( $family2->husband(), $GrandparentsObj, 'mother');
-                        $GrandparentsObj = $this->addIndividualToExtendedFamily( $family2->wife(), $GrandparentsObj, 'mother');
-                     }
-                  }
-               } 
-            }
+            $GrandparentsObj = $this->getGrandparentsOneSide( $GrandparentsObj, 'father');
+            $GrandparentsObj = $this->getGrandparentsOneSide( $GrandparentsObj, 'mother');
              
             $GrandparentsObj = $this->addCountersToFamilyPartObject( $GrandparentsObj );
         }
@@ -341,6 +357,41 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return $GrandparentsObj;
     }
 
+    /**
+     * Find uncles and aunts for one side 
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param string family side ('father', 'mother'); father is default
+     *
+     * @return object
+     */
+    private function getUnclesAuntsOneSide(object $extendedFamilyPart, string $side): object
+    {
+        $efp = $extendedFamilyPart;
+
+        if ($side == 'mother') {
+            $individual = $extendedFamilyPart->mother;
+        } else {
+            $individual = $extendedFamilyPart->father;
+        }
+        
+        if ($individual instanceof Individual) {
+           foreach ($individual->childFamilies() as $family) {
+              foreach ($family->spouses() as $parent) {
+                 foreach ($parent->spouseFamilies() as $family2) {
+                    foreach ($family2->children() as $sibling) {
+                        if ($sibling !== $individual) {
+                            $efp = $this->addIndividualToExtendedFamily( $sibling, $extendedFamilyPart, $side );
+                        }
+                    }
+                 }
+              }
+           }
+        }
+        
+        return $efp;
+    }
+    
     /**
      * Find uncles and aunts
      *
@@ -357,40 +408,53 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
             $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
 
-            if ($unclesAuntsObj->father) {
-               foreach ($unclesAuntsObj->father->childFamilies() as $family) {
-                  foreach ($family->spouses() as $parent) {
-                     foreach ($parent->spouseFamilies() as $family2) {
-                        foreach ($family2->children() as $sibling) {
-                            if ($sibling !== $unclesAuntsObj->father) {
-                                $unclesAuntsObj = $this->addIndividualToExtendedFamily( $sibling, $unclesAuntsObj, 'father');
-                            }
-                        }
-                     }
-                  }
-               }
-            }
-
-            if ($unclesAuntsObj->mother) {
-               foreach ($unclesAuntsObj->mother->childFamilies() as $family) {
-                  foreach ($family->spouses() as $parent) {
-                     foreach ($parent->spouseFamilies() as $family2) {
-                        foreach ($family2->children() as $sibling) {
-                            if ($sibling !== $unclesAuntsObj->mother) {
-                                $unclesAuntsObj = $this->addIndividualToExtendedFamily( $sibling, $unclesAuntsObj, 'mother');
-                            }
-                        }
-                     }
-                  }
-               } 
-            }
-            
+            $unclesAuntsObj = $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'father');
+            $unclesAuntsObj = $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'mother');
+           
             $unclesAuntsObj = $this->addCountersToFamilyPartObject( $unclesAuntsObj );
         }
 
         return $unclesAuntsObj;
     }
 
+    /**
+     * Find half and full cousins for one side 
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param string family side ('father', 'mother'); father is default
+     *
+     * @return object
+     */
+    private function getCousinsOneSide(object $extendedFamilyPart, string $side): object
+    {
+        $efp = $extendedFamilyPart;
+        
+        if ($side == 'mother') {
+            $individual = $extendedFamilyPart->mother;
+        } else {
+            $individual = $extendedFamilyPart->father;
+        }
+        
+        if ($individual instanceof Individual) {
+           foreach ($individual->childFamilies() as $family) {
+              foreach ($family->spouses() as $parent) {
+                 foreach ($parent->spouseFamilies() as $family2) {
+                    foreach ($family2->children() as $sibling) {
+                       if ($sibling !== $individual) {
+                          foreach ($sibling->spouseFamilies() as $fam) {
+                             foreach ($fam->children() as $child) {
+                                $efp = $this->addIndividualToExtendedFamily( $child, $extendedFamilyPart, $side );
+                             }
+                          }
+                       }
+                    }
+                 }
+              }
+           }
+        }
+        
+        return $efp;
+    }
     /**
      * Find half and full cousins
      *
@@ -403,44 +467,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $cousinsObj = $this->initializedFamilyPartObject();
         
         if ($individual->childFamilies()->first()) {
+            
             $cousinsObj->father = $individual->childFamilies()->first()->husband();
             $cousinsObj->mother = $individual->childFamilies()->first()->wife();
 
-            if ($cousinsObj->father) {
-               foreach ($cousinsObj->father->childFamilies() as $family) {
-                  foreach ($family->spouses() as $parent) {
-                     foreach ($parent->spouseFamilies() as $family2) {
-                        foreach ($family2->children() as $sibling) {
-                           if ($sibling !== $cousinsObj->father) {
-                              foreach ($sibling->spouseFamilies() as $fam) {
-                                 foreach ($fam->children() as $child) {
-                                    $cousinsObj = $this->addIndividualToExtendedFamily( $child, $cousinsObj, 'father');
-                                 }
-                              }
-                           }
-                        }
-                     }
-                  }
-               }
-            }
-
-            if ($cousinsObj->mother) {
-               foreach ($cousinsObj->mother->childFamilies() as $family) {
-                  foreach ($family->spouses() as $parent) {
-                     foreach ($parent->spouseFamilies() as $family2) {
-                        foreach ($family2->children() as $sibling) {
-                           if ($sibling !== $cousinsObj->mother) {
-                              foreach ($sibling->spouseFamilies() as $fam) {
-                                 foreach ($fam->children() as $child) {
-                                    $cousinsObj = $this->addIndividualToExtendedFamily( $child, $cousinsObj, 'mother');
-                                 }
-                              }
-                           }
-                        }
-                     }
-                  }
-               } 
-            }
+            $cousinsObj = $this->getCousinsOneSide( $cousinsObj, 'father');
+            $cousinsObj = $this->getCousinsOneSide( $cousinsObj, 'mother');
              
             $cousinsObj = $this->addCountersToFamilyPartObject( $cousinsObj );
         }
@@ -651,7 +683,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandparent recorded.' => 'Für %s ist ein Großelternteil verzeichnet.',
             '%s has %d grandmothers recorded.' => 'Für %s sind %d Großmütter verzeichnet.',
             '%s has %d grandfathers recorded.' => 'Für %s sind %d Großväter verzeichnet.',
-            '%s has %d grandfathers and %d grandmothers recorded (%d in total).' => 'Für %s sind %d Großväter und %d Großmütter verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
+                => 'Für %2$s sind %1$d Großvater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Großväter und ',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+                => '%d Großmutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Großmütter verzeichnet (insgesamt %d).',
             
             'Uncles and Aunts' => 'Onkel und Tanten',
             '%s has no uncles or aunts recorded.' => 'Für %s sind keine Onkel oder Tanten verzeichnet.',
@@ -660,7 +695,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one uncle or aunt recorded.' => 'Für %s ist ein Onkel oder eine Tante verzeichnet.',
             '%s has %d aunts recorded.' => 'Für %s sind %d Tanten verzeichnet.',
             '%s has %d uncles recorded.' => 'Für %s sind %d Onkel verzeichnet.',
-            '%s has %d uncles and %d aunts recorded (%d in total).' => 'Für %s sind %d Onkel und %d Tanten verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
+            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
+                => 'Für %2$s sind %1$d Onkel und ' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel und ',
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d Tante verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Tanten verzeichnet (insgesamt %d).', 
 
             'Cousins' => 'Cousins und Cousinen',
             '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
@@ -669,12 +707,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one first cousin recorded.' => 'Für %s ist ein Cousin bzw. eine Cousine ersten Grades verzeichnet.',
             '%s has %d female first cousins recorded.' => 'Für %s sind %d Cousinen ersten Grades verzeichnet.',
             '%s has %d male first cousins recorded.' => 'Für %s sind %d Cousins ersten Grades verzeichnet.',
-            '%s has %d male and %d female first cousins recorded (%d in total).' => 'Für %s sind %d Cousins und %d Cousinen ersten Grades verzeichnet (insgesamt %d).', // tbd Singular und Plural unterstützen
-            // '%2$s has %1$d first cousin recorded.' .
-            //    I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
-            //    => '%2$s hat %1$d Cousin oder Cousine ersten Grades.'  . 
-            //    I18N::PLURAL . '%2$s hat %1$d Cousins oder Cousinen ersten Grades.',
-
+            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
+                => 'Für %2$s sind %1$d Cousin ersten Grades und ' . I18N::PLURAL . 'Für %2$s sind %1$d Cousins ersten Grades und ',
+            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
+                => '%d Cousine ersten Grades verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Cousinen ersten Grades verzeichnet (insgesamt %d).',   
         ];
     }
 
@@ -795,7 +831,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandparent recorded.' => 'Voor %s is een grootouder  geregistreerd.',
             '%s has %d grandmothers recorded.' => 'Voor %s zijn %d grootmoeders geregistreerd.',
             '%s has %d grandfathers recorded.' => 'Voor %s zijn %d grootvaders geregistreerd.',
-            '%s has %d grandfathers and %d grandmothers recorded (%d in total).' => 'Voor %s zijn %d grootvaders en %d grootmoeders geregistreerd (%d in totaal).', // tbd ondersteuning enkelvoud en meervoud
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
+                => 'Voor %2$s zijn %1$d grootvader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootvaders en ',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+                => '%d grootmoeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d grootmoeders geregistreerd (%d in totaal).',
             
             'Uncles and Aunts' => 'Ooms en tantes',
             '%s has no uncles or aunts recorded.' => 'Voor %s zijn geen ooms en tantes geregistreerd.',
@@ -803,8 +842,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one uncle recorded.' => 'Voor %s is een oom geregistreerd.',
             '%s has one uncle or aunt recorded.' => 'Voor %s is een oom of tante geregistreerd.',
             '%s has %d aunts recorded.' => 'Voor %s zijn %d tantes geregistreerd.',
-            '%s has %d uncles recorded.' => 'Voor %s sind %d ooms geregistreerd.',
-            '%s has %d uncles and %d aunts recorded (%d in total).' => 'Voor %s zijn %d ooms en %d tantes geregistreerd (%d in totaal).', // tbd ondersteuning enkelvoud en meervoud
+            '%s has %d uncles recorded.' => 'Voor %s zijn %d ooms geregistreerd.',
+            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
+                => 'Voor %2$s zijn %1$d oom en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms en ',
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d tante geregistreerd (%d in totaal).' . I18N::PLURAL . '%d tantes geregistreerd (%d in totaal).',
 
             'Cousins' => 'Neven en nichten',
             '%s has no first cousins recorded.' => 'Voor %s zijn geen eerstegraads neven en nichten geregistreerd.',
@@ -813,11 +855,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one first cousin recorded.' => 'Voor %s is een eerstegraads neef of nicht geregistreerd.',
             '%s has %d female first cousins recorded.' => 'Voor %s zijn %d eerstegraads nichten geregistreerd.',
             '%s has %d male first cousins recorded.' => 'Voor %s zijn %d eerstegraads neven geregistreerd.',
-            '%s has %d male and %d female first cousins recorded (%d in total).' => 'Voor %s zijn %d eerstegraads neven en %d eerstegraads nichten geregistreerd (%d in totaal).', // tbd ondersteuning enkelvoud en meervoud
-            // '%2$s has %1$d first cousin recorded.' .
-            //    I18N::PLURAL . '%2$s has %1$d first cousins recorded.'   
-            //    => '%2$s heeft %1$d eerstegraads neef of nicht.'  . 
-            //    I18N::PLURAL . '%2$s heeft %1$d eerstegraads neven en nichten.',
+            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
+                => 'Voor %2$s zijn %1$d eerstegraads neef en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d eerstegraads neven en ',
+            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
+                => '%d eerstegraads nicht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d eerstegraads nichten geregistreerd (%d in totaal).', 
         ];
     }
 
