@@ -818,17 +818,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         // Note the special characters used in plural and context-sensitive translations.
         return [
             'Extended family' => 'Uitgebreide familie',
-            'A tab showing the extended family of an individual.' => 'Tab laat neven en nichten van deze persoon zien.',
+            'A tab showing the extended family of an individual.' => 'Tab laat de uitgebreide familie van deze persoon zien.',
             'No family available' => 'Geen familie gevonden',
-            'Father\'s family (%d)' => 'Vaders familie (%d)',
-            'Mother\'s family (%d)' => 'Moeders familie (%d)',
-            'Father\'s and Mother\'s family (%d)' => 'Vaders en moeders familie (%d)',
+            'Father\'s family (%d)' => 'Familie van de vader (%d)',
+            'Mother\'s family (%d)' => 'Familie van de moeder (%d)',
+            'Father\'s and Mother\'s family (%d)' => 'Familie van de vader en de moeder (%d)',
             
             'Grandparents' => 'Grootouders',
-            '%s has no grandparents recorded.' => 'Voor %s is geen grootouder geregistreerd.', 
+            '%s has no grandparents recorded.' => 'Voor %s zijn geen grootouders geregistreerd.', 
             '%s has one grandmother recorded.' => 'Voor %s is een grootmoeder geregistreerd.',
             '%s has one grandfather recorded.' => 'Voor %s is een grootvader geregistreerd.',
-            '%s has one grandparent recorded.' => 'Voor %s is een grootouder  geregistreerd.',
+            '%s has one grandparent recorded.' => 'Voor %s is een grootouder geregistreerd.',
             '%s has %d grandmothers recorded.' => 'Voor %s zijn %d grootmoeders geregistreerd.',
             '%s has %d grandfathers recorded.' => 'Voor %s zijn %d grootvaders geregistreerd.',
             '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
