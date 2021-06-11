@@ -47,7 +47,8 @@
 
 #extended_family_f,
 #extended_family_m,
-#extended_family_fm {
+#extended_family_fm,
+#extended_family_g {
     border: 1px solid grey;
     border-radius: 5px;
     display: table-cell;
@@ -59,7 +60,8 @@
 @media (max-width: 600px) {
     #extended_family_f,
     #extended_family_m,
-    #extended_family_fm{
+    #extended_family_fm,
+    #extended_family_g {
         border: 1px solid grey;
         border-radius: 5px;
         display: table-caption;

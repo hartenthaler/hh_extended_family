@@ -1,0 +1,73 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\View;
+use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
+
+?>
+
+<?= view('components/breadcrumbs', ['links' => [route(ControlPanel::class) => I18N::translate('Control panel'), $title]]) ?>
+
+<h1><?= $title ?></h1>
+
+<div class="hh-extended-family mb-5">
+    <form method="post">
+        <?= csrf_field() ?>
+        <input type="hidden" name="save" id="save" value="1">
+		
+        <!-- grandparents -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('grandparents') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'grandparents', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$grandparents]) ?>
+                </div>
+            </div>
+        </fieldset>
+        <!-- grandchildren -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('grandchildren') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'grandchildren', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$grandchildren]) ?>
+                </div>
+            </div>
+        </fieldset>
+		<!-- uncles and aunts -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('uncles and aunts') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'uncles_and_aunts', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$uncles_and_aunts]) ?>
+                </div>
+            </div>
+        </fieldset>
+		<!-- cousins -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('cousins') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'cousins', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$cousins]) ?>
+                </div>
+            </div>
+        </fieldset>
+		
+        <button type="submit" class="btn btn-primary">
+            <?= view('icons/save') ?>
+            <?= I18N::translate('save') ?>
+        </button>
+    </form>
+</div>
+
+<?php View::push('javascript') ?>
+<script>
+</script>
+<?php View::endpush() ?>

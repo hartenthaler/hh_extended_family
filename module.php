@@ -2,18 +2,18 @@
 /*
  * webtrees - extended family tab based on vytux_cousins and simpl_cousins
  *
- * Copyright (C) 2021 Hermann Hartenthaler 
+ * Copyright (C) 2021 Hermann Hartenthaler. All rights reserved.
  *
  * Copyright (C) 2013 Vytautas Krivickas and vytux.com. All rights reserved. 
  *
  * Copyright (C) 2013 Nigel Osborne and kiwtrees.net. All rights reserved.
  *
- * webtrees: Web based Family History software
+ * webtrees: online genealogy / web based family history software
  * Copyright (C) 2021 webtrees development team.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
+ * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -22,38 +22,42 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * along with this program; If not, see <https://www.gnu.org/licenses/>.
 */
 
 declare(strict_types=1);
 
 namespace Hartenthaler\WebtreesModules\hh_extended_family;
 
-use Fisharebest\Webtrees\Fact;
-use Fisharebest\Webtrees\Gedcom;
 use Fisharebest\Webtrees\I18N;
-use Fisharebest\Webtrees\Individual;
-use Fisharebest\Webtrees\Family;
-use Fisharebest\Webtrees\Auth;
-use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
-use Fisharebest\Webtrees\Contracts\UserInterface;
-use Fisharebest\Webtrees\Module\AbstractModule;
-use Fisharebest\Webtrees\Module\ModuleCustomInterface;
-use Fisharebest\Webtrees\Module\ModuleCustomTrait;
-use Fisharebest\Webtrees\Module\ModuleTabInterface;
-use Fisharebest\Webtrees\Module\ModuleTabTrait;
 use Fisharebest\Webtrees\Tree;
 use Fisharebest\Webtrees\View;
+use Fisharebest\Webtrees\Fact;
+use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\Gedcom;
+use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
+use Fisharebest\Webtrees\FlashMessages;
 use Fisharebest\Localization\Translation;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Fisharebest\Webtrees\Module\AbstractModule;
+use Fisharebest\Webtrees\Module\ModuleTabTrait;
+use Fisharebest\Webtrees\Module\ModuleConfigTrait;
+use Fisharebest\Webtrees\Module\ModuleCustomTrait;
+use Fisharebest\Webtrees\Module\ModuleTabInterface;
+use Fisharebest\Webtrees\Module\ModuleConfigInterface;
+use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 
 /**
- * cousins module
+ * Class ExtendedFamilyTabModule
  */
-class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterface, ModuleCustomInterface {
-    use ModuleCustomTrait;
+class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterface, ModuleCustomInterface, ModuleConfigInterface
+{
     use ModuleTabTrait;
+    use ModuleCustomTrait;
+    use ModuleConfigTrait;
 
     public const CUSTOM_TITLE = 'Extended family';
     
@@ -65,10 +69,492 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.13';
+    public const CUSTOM_VERSION = '2.0.16.14';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
+   
+    /**
+     * Find members of extended family
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getExtendedFamily(Individual $individual): object
+    {      
+		$extfamObj = (object)[];
+        $extfamObj->showFamilyPart = $this->showFamilyPart();
+		$extfamObj->allCount = 0;
+		$extfamObj->Self = $this->getSelf( $individual );
+		
+		if ($extfamObj->showFamilyPart['grandparents']) {
+			$extfamObj->Grandparents = $this->getGrandparents( $individual );
+			$extfamObj->allCount += $extfamObj->Grandparents->allCount;
+		}
+        if ($extfamObj->showFamilyPart['grandchildren']) {
+			$extfamObj->Grandchildren = $this->getGrandchildren( $individual );
+			$extfamObj->allCount += $extfamObj->Grandchildren->allCount;
+		}
+        if ($extfamObj->showFamilyPart['uncles_and_aunts']) {
+			$extfamObj->UnclesAunts = $this->getUnclesAunts( $individual );
+			$extfamObj->allCount += $extfamObj->UnclesAunts->allCount;
+		}
+        if ($extfamObj->showFamilyPart['cousins']) {
+			$extfamObj->Cousins = $this->getCousins( $individual );
+			$extfamObj->allCount += $extfamObj->Cousins->allCount;
+		}
+       return $extfamObj;
+    }
+    
+    /**
+     * self finding
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getSelf(Individual $individual): object
+    {
+        $selfObj = (object)[];
+        
+        $selfObj->indi = $individual;
+        $selfObj->niceName = $this->niceName( $individual );
+        return $selfObj;
+    }
+    
+    /**
+     * Find grandparents for one side 
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param string family side ('father', 'mother'); father is default
+     *
+     * @return object
+     */
+    private function getGrandparentsOneSide(object $extendedFamilyPart, string $side): object
+    {
+        $efp = $extendedFamilyPart;
+        
+        if ($side == 'mother') {
+            $parent = $extendedFamilyPart->mother;
+        } else {
+            $parent = $extendedFamilyPart->father;
+        }
+        
+        if ($parent instanceof Individual) {                                                    // Gen 1 P
+            foreach ($parent->spouseFamilies() as $family1) {                                   // Gen 1 F
+                foreach ($family1->spouses() as $spouse) {                                      // Gen 1 P
+                    if (!($side == 'father' and $spouse == $extendedFamilyPart->mother) and !($side == 'mother' and $spouse == $extendedFamilyPart->father)) {
+                        foreach ($spouse->childFamilies() as $family1) {                        // Gen 2 F
+                            foreach ($family1->spouses() as $spouse1) {                         // Gen 2 P
+                                foreach ($spouse1->spouseFamilies() as $family2) {              // Gen 2 F
+                                    foreach ($family2->spouses() as $spouse2) {                 // Gen 2 P
+                                        foreach ($spouse2->spouseFamilies() as $family3) {      // Gen 2 F
+                                            foreach ($family3->spouses() as $spouse3) {         // Gen 2 P
+                                                $efp = $this->addIndividualToAncestorsFamily( $spouse3, $extendedFamilyPart, $side );
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        return $efp;
+    }
+    
+    /**
+     * Find grandparents
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getGrandparents(Individual $individual): object
+    {      
+        $GrandparentsObj = $this->initializedFamilyPartObject('ancestors');
+        
+        if ($individual->childFamilies()->first()) {
+            
+            // husband() or wife() may not exist
+            $GrandparentsObj->father = $individual->childFamilies()->first()->husband();
+            $GrandparentsObj->mother = $individual->childFamilies()->first()->wife();
 
+            $GrandparentsObj = $this->getGrandparentsOneSide( $GrandparentsObj, 'father');
+            $GrandparentsObj = $this->getGrandparentsOneSide( $GrandparentsObj, 'mother');
+             
+            $GrandparentsObj = $this->addCountersToFamilyPartObject( $GrandparentsObj, 'ancestors' );
+        }
+
+        return $GrandparentsObj;
+    }
+    
+    /**
+     * Find grandchildren including step- and step-step-grandchildren
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getGrandchildren(Individual $individual): object
+    {      
+        $GrandchildrenObj = $this->initializedFamilyPartObject('descendants');
+        
+        foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
+                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
+                    foreach ($family2->children() as $child) {                                  // Gen -1 P
+                        foreach ($child->spouseFamilies() as $family3) {                        // Gen -1 F
+                            foreach ($family3->spouses() as $childstepchild) {                  // Gen -1 P
+                                foreach ($childstepchild->spouseFamilies() as $family4) {       // Gen -1 F    
+                                    foreach ($family4->children() as $grandchild) {             // Gen -2 P
+                                        $efp = $this->addIndividualToDescendantsFamily( $grandchild, $GrandchildrenObj, $family1 );
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+            
+        $GrandchildrenObj = $this->addCountersToFamilyPartObject( $GrandchildrenObj, 'descendants' );
+
+        return $GrandchildrenObj;
+    }
+    
+    /**
+     * Find uncles and aunts for one side including uncles and aunts by marriage
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param string family side ('father', 'mother'); father is default
+     *
+     * @return object
+     */
+    private function getUnclesAuntsOneSide(object $extendedFamilyPart, string $side): object
+    {
+        $efp = $extendedFamilyPart;
+
+        if ($side == 'mother') {
+            $parent = $extendedFamilyPart->mother;
+        } else {
+            $parent = $extendedFamilyPart->father;
+        }
+        
+        if ($parent instanceof Individual) {                                        // Gen 1 P
+           foreach ($parent->childFamilies() as $family1) {                         // Gen 2 F
+              foreach ($family1->spouses() as $grandparent) {                       // Gen 2 P
+                 foreach ($grandparent->spouseFamilies() as $family2) {             // Gen 2 F
+                    foreach ($family2->children() as $uncleaunt) {                  // Gen 1 P
+                        if($uncleaunt !== $parent) {
+                            //foreach ($uncleaunt->spouseFamilies() as $family3) {    // Gen 1 F    tbd: designed to include uncles/aunts by marriage; but how to group them with their partner in tab.html?
+                                //foreach ($family3->spouses() as $uncleaunt2) {      // Gen 1 P
+                                    $efp = $this->addIndividualToAncestorsFamily( $uncleaunt, $extendedFamilyPart, $side );
+                                //}
+                            //}
+                        }
+                    }
+                 }
+              }
+           }
+        }
+        
+        return $efp;
+    }
+    
+    /**
+     * Find uncles and aunts
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getUnclesAunts(Individual $individual): object
+    {
+        $unclesAuntsObj = $this->initializedFamilyPartObject('ancestors');
+        
+        if ($individual->childFamilies()->first()) {
+            
+            $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
+            $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
+
+            $unclesAuntsObj = $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'father');
+            $unclesAuntsObj = $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'mother');
+           
+            $unclesAuntsObj = $this->addCountersToFamilyPartObject( $unclesAuntsObj, 'ancestors' );
+        }
+
+        return $unclesAuntsObj;
+    }
+
+    /**
+     * Find half and full cousins for one side 
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param string family side ('father', 'mother'); father is default
+     *
+     * @return object
+     */
+    private function getCousinsOneSide(object $extendedFamilyPart, string $side): object
+    {
+        $efp = $extendedFamilyPart;
+        
+        if ($side == 'mother') {
+            $parent = $extendedFamilyPart->mother;
+        } else {
+            $parent = $extendedFamilyPart->father;
+        }
+        
+        if ($parent instanceof Individual) {                                            // Gen 1 P    
+           foreach ($parent->childFamilies() as $family1) {                             // Gen 2 F
+                foreach ($family1->spouses() as $grandparent) {                         // Gen 2 P
+                    foreach ($grandparent->spouseFamilies() as $family2) {              // Gen 2 F
+                        foreach ($family2->children() as $uncleaunt) {                  // Gen 1 P
+                            if($uncleaunt !== $parent) {
+                                foreach ($uncleaunt->spouseFamilies() as $family3) {    // Gen 1 F
+                                    foreach ($family3->children() as $cousin) {         // Gen 0 P
+                                        $efp = $this->addIndividualToAncestorsFamily( $cousin, $extendedFamilyPart, $side );
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        return $efp;
+    }
+    /**
+     * Find half and full cousins
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getCousins(Individual $individual): object
+    {
+        $cousinsObj = $this->initializedFamilyPartObject('ancestors');
+        
+        if ($individual->childFamilies()->first()) {
+            
+            $cousinsObj->father = $individual->childFamilies()->first()->husband();
+            $cousinsObj->mother = $individual->childFamilies()->first()->wife();
+
+            $cousinsObj = $this->getCousinsOneSide( $cousinsObj, 'father');
+            $cousinsObj = $this->getCousinsOneSide( $cousinsObj, 'mother');
+             
+            $cousinsObj = $this->addCountersToFamilyPartObject( $cousinsObj, 'ancestors' );
+        }
+
+        return $cousinsObj;
+    }
+    
+    /**
+     * initialize part of extended family (object contains arrays of individuals or families and several counter values)
+     *
+     * @param string type of part of extended family ('ancestors', 'descendants')
+     * @return initialized object
+     */
+    private function initializedFamilyPartObject(string $type): object
+    {    
+        $efpObj = (object)[];
+        
+        if ($type == 'ancestors') {
+            $efpObj->fatherFamily = [];
+            $efpObj->motherFamily = [];
+            $efpObj->fatherAndMotherFamily = [];
+        } elseif ($type == 'descendants') {
+            $efpObj->families = [];
+        }
+        
+        $efpObj->allCount = 0;
+        
+        return $efpObj;
+    }
+    
+   /**
+    * add an individual to the extended family (of type 'ancestors') if it is not already member of this extended family
+    *
+    * @param individual
+    * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+    * @param string prefered family side ('father', 'mother'); father is default
+    *
+    * @return extended family object
+    */
+    private function addIndividualToAncestorsFamily(Individual $individual, object $extendedFamilyPart, string $side): object
+    {    
+        $efpObj = $extendedFamilyPart;
+   
+        if ($side == 'mother') {
+            if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
+                // already stored in father's and mother's array: do nothing
+            } elseif ( in_array( $individual, $efpObj->fatherFamily )){
+                $efpObj->fatherAndMotherFamily[] = $individual;
+                unset($efpObj->fatherFamily[array_search($individual,$efpObj->fatherFamily)]);
+            } elseif ( !in_array( $individual, $efpObj->motherFamily ) ) {
+                $efpObj->motherFamily[] = $individual;
+            }
+        } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
+            if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
+                // already stored in father's and mother's array: do nothing
+            } elseif ( in_array( $individual, $efpObj->motherFamily )){
+                $efpObj->fatherAndMotherFamily[] = $individual;
+                unset($efpObj->motherFamily[array_search($individual,$efpObj->motherFamily)]);
+            } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
+                $efpObj->fatherFamily[] = $individual;
+            }
+        }
+        
+        return $efpObj;
+    }
+    
+   /**
+    * add an individual to the extended family (of type 'descendants') if it is not already member of this extended family
+    *
+    * @param individual
+    * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+    * @param object family (on level of proband) to which these grandchildren are belonging
+    *
+    * @return extended family object
+    */
+    private function addIndividualToDescendantsFamily(Individual $individual, object $extendedFamilyPart, object $family): object
+    {    
+        $efpObj = $extendedFamilyPart;
+        $found = 0;
+   
+        foreach ($efpObj->families as $family) {
+            if ( in_array( $individual, $family->grandchildren ) ){
+                $found = 1;
+                break;
+            }
+        }
+        
+        if ($found == 0) {
+            if ( !in_array( $family, $efpObj->families ) ) {
+                $efpObj->families[] = $family;
+                $efpObj->families[0]->grandchildren = [];                 // tbd: richtige Familie
+            }
+            $efpObj->families[0]->grandchildren[] = $individual;          // tbd: richtige Familie
+        }
+        
+        return $efpObj;
+    }
+    
+    /**
+     * count individuals per family (maybe including mother/father/motherAndFather families) and per sex
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param string type of part of extended family ('ancestors', 'descendants')
+     *
+     * @return object with added counters
+     */
+    private function addCountersToFamilyPartObject( object $extendedFamilyPart, string $type ): object
+    {
+        $efpObj = $extendedFamilyPart;
+        
+        if ($type == 'ancestors') {
+            $efpObj->fathersFamilyCount = sizeof( $efpObj->fatherFamily );
+            $efpObj->mothersFamilyCount = sizeof( $efpObj->motherFamily );
+            $efpObj->fathersAndMothersFamilyCount = sizeof( $efpObj->fatherAndMotherFamily );
+            
+            $count = $this->countMaleFemale( $efpObj->fatherFamily );
+            $efpObj->fathersMaleCount = $count->male;
+            $efpObj->fathersFemaleCount = $count->female;
+                                  
+            $count = $this->countMaleFemale( $efpObj->motherFamily );
+            $efpObj->mothersMaleCount = $count->male;
+            $efpObj->mothersFemaleCount = $count->female;
+                                              
+            $count = $this->countMaleFemale( $efpObj->fatherAndMotherFamily );
+            $efpObj->fathersAndMothersMaleCount = $count->male;
+            $efpObj->fathersAndMothersFemaleCount = $count->female;
+
+            $efpObj->maleCount = $efpObj->fathersMaleCount + $efpObj->mothersMaleCount + $efpObj->fathersAndMothersMaleCount;
+            $efpObj->femaleCount = $efpObj->fathersFemaleCount + $efpObj->mothersFemaleCount + $efpObj->fathersAndMothersFemaleCount;
+            $efpObj->allCount = $efpObj->fathersFamilyCount + $efpObj->mothersFamilyCount + $efpObj->fathersAndMothersFamilyCount;
+        } elseif ($type == 'descendants') {
+            $countMale = 0;
+            $countFemale = 0;
+            $countOthers = 0;
+            foreach ($efpObj->families as $family) {
+                $count = $this->countMaleFemale( $family->grandchildren );
+                $countMale += $count->male;
+                $countFemale += $count->female;
+                $countOthers += $count->unknown_others;
+            }
+            $efpObj->maleCount = $countMale;
+            $efpObj->femaleCount = $countFemale;
+            $efpObj->allCount = $countMale + $countFemale + $countOthers;
+        }
+        
+        return $efpObj;
+    }
+    
+    /**
+     * count male and female individuals
+     *
+     * @param array of individuals
+     *
+     * @return object with three elements: male, female and unknown_others (integer >= 0)
+     */
+    private function countMaleFemale(array $indilist): object
+    {
+        $mf = (object)[];
+        $mf->male = 0;
+        $mf->female = 0;
+        $mf->unknown_others=0;
+    
+        foreach ($indilist as $il) {
+            if ($il instanceof Individual) {
+                if ($il->sex() == "M") {
+                    $mf->male++;
+                } elseif ($il->sex() == "F") {
+                    $mf->female++;
+                } else {
+                   $mf->unknown_others++; 
+                }
+            }
+        }
+        
+        return $mf;
+    }
+
+    /**
+     * Find a short, nice name for a person
+     * => use nickname ("Sepp") or Rufname or first of first names if one of these is available
+     *    => otherwise use surname if available ("Mr. xxx", "Mrs. xxx", or "xxx" if sex is not F or M
+     *       => otherwise use "He" or "She" or "She/he" if sex is not F or M
+     *
+     * @param Individual $individual
+     *
+     * @return string
+     */
+    public function niceName(Individual $individual): string
+    {
+        // tbd
+        return $individual->fullname();
+    }
+
+    /**
+     * A label for a parental family group
+     *
+     * @param Individual $individual
+     *
+     * @return string
+     */
+    public function getChildLabel(Individual $individual): string
+    {
+        if (preg_match('/\n1 FAMC @' . $individual->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $individual->gedcom(), $match)) {
+            // A specified pedigree
+            return GedcomCodePedi::getValue($match[1],$individual->getInstance($individual->xref(),$individual->tree()));
+        }
+
+        // Default (birth) pedigree
+        return GedcomCodePedi::getValue('',$individual->getInstance($individual->xref(),$individual->tree()));
+    }
 
     /**
      * How should this module be identified in the control panel, etc.?
@@ -138,380 +624,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function resourcesFolder(): string
     {
         return __DIR__ . '/resources/';
-    }
-
-    /**
-     * initialize part of extended family (object contains three arrays of individuals and several counter values)
-     *
-     * @return initialized object
-     */
-    private function initializedFamilyPartObject(): object
-    {    
-        $efpObj = (object)[];
-        
-        $efpObj->fatherFamily = [];
-        $efpObj->motherFamily = [];
-        $efpObj->fatherAndMotherFamily = [];
-        
-        $efpObj->allCount = 0;
-        
-        return $efpObj;
-    }
-    
-    /**
-    * add an individual to the extended family if it is not already memeber of this extended family
-    *
-    * @param individual
-    * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-    * @param string prefered family side ('father', 'mother'); father is default
-    *
-    * @return extended family object
-    */
-    private function addIndividualToExtendedFamily(Individual $individual, object $extendedFamilyPart, string $side): object
-    {    
-        $efpObj = $extendedFamilyPart;
-   
-        if ($side == 'mother') {
-            if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
-                // already stored in father's and mother's array: do nothing
-            } elseif ( in_array( $individual, $efpObj->fatherFamily )){
-                $efpObj->fatherAndMotherFamily[] = $individual;
-                unset($efpObj->fatherFamily[array_search($individual,$efpObj->fatherFamily)]);
-            } elseif ( !in_array( $individual, $efpObj->motherFamily ) ) {
-                $efpObj->motherFamily[] = $individual;
-            }
-        } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
-            if ( in_array( $individual, $efpObj->fatherAndMotherFamily )){
-                // already stored in father's and mother's array: do nothing
-            } elseif ( in_array( $individual, $efpObj->motherFamily )){
-                $efpObj->fatherAndMotherFamily[] = $individual;
-                unset($efpObj->motherFamily[array_search($individual,$efpObj->motherFamily)]);
-            } elseif ( !in_array( $individual, $efpObj->fatherFamily ) ) {
-                $efpObj->fatherFamily[] = $individual;
-            }
-        }
-        
-        return $efpObj;
-    }
-
-    /**
-     * count individuals (per family of mother/father/motherAndFather; per sex)
-     *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     *
-     * @return object with added counters
-     */
-    private function addCountersToFamilyPartObject( object $extendedFamilyPart ): object
-    {
-        $efpObj = $extendedFamilyPart;
-        
-        $efpObj->fathersFamilyCount = sizeof( $efpObj->fatherFamily );
-        $efpObj->mothersFamilyCount = sizeof( $efpObj->motherFamily );
-        $efpObj->fathersAndMothersFamilyCount = sizeof( $efpObj->fatherAndMotherFamily );
-        
-        $count = $this->countMaleFemale( $efpObj->fatherFamily );
-        $efpObj->fathersMaleCount = $count->male;
-        $efpObj->fathersFemaleCount = $count->female;
-                              
-        $count = $this->countMaleFemale( $efpObj->motherFamily );
-        $efpObj->mothersMaleCount = $count->male;
-        $efpObj->mothersFemaleCount = $count->female;
-                                          
-        $count = $this->countMaleFemale( $efpObj->fatherAndMotherFamily );
-        $efpObj->fathersAndMothersMaleCount = $count->male;
-        $efpObj->fathersAndMothersFemaleCount = $count->female;
-
-        $efpObj->maleCount = $efpObj->fathersMaleCount + $efpObj->mothersMaleCount + $efpObj->fathersAndMothersMaleCount;
-        $efpObj->femaleCount = $efpObj->fathersFemaleCount + $efpObj->mothersFemaleCount + $efpObj->fathersAndMothersFemaleCount;
-        $efpObj->allCount = $efpObj->fathersFamilyCount + $efpObj->mothersFamilyCount + $efpObj->fathersAndMothersFamilyCount;
-        
-        return $efpObj;
-    }
-    
-    /**
-     * count male and female individuals
-     *
-     * @param array of individuals
-     *
-     * @return object with three elements: male, female and unknown_others (integer >= 0)
-     */
-    private function countMaleFemale(array $indilist): object
-    {
-        $mf = (object)[];
-        $mf->male = 0;
-        $mf->female = 0;
-        $mf->unknown_others=0;
-    
-        foreach ($indilist as $il) {
-            if ($il instanceof Individual) {
-                if ($il->sex() == "M") {
-                    $mf->male++;
-                } elseif ($il->sex() == "F") {
-                    $mf->female++;
-                } else {
-                   $mf->unknown_others++; 
-                }
-            }
-        }
-        
-        return $mf;
-    }
-    
-    /**
-     * Find members of extended family
-     *
-     * @param Individual $individual
-     *
-     * @return object
-     */
-    private function getExtendedFamily(Individual $individual): object
-    {
-        $extfamObj = (object)[];
-
-        $extfamObj->Self            = $this->getSelf( $individual );
-        $extfamObj->Grandparents    = $this->getGrandparents( $individual );
-        $extfamObj->UnclesAunts     = $this->getUnclesAunts( $individual );
-        $extfamObj->Cousins         = $this->getCousins( $individual );
-        
-        $extfamObj->allCount = $extfamObj->Grandparents->allCount + $extfamObj->UnclesAunts->allCount + $extfamObj->Cousins->allCount;
-        
-       return $extfamObj;
-    }
-    
-    /**
-     * self finding
-     *
-     * @param Individual $individual
-     *
-     * @return object
-     */
-    private function getSelf(Individual $individual): object
-    {
-        $selfObj = (object)[];
-        
-        $selfObj->indi = $individual;
-        $selfObj->niceName = $this->niceName( $individual );
-        return $selfObj;
-    }
-    
-    /**
-     * Find grandparents for one side 
-     *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param string family side ('father', 'mother'); father is default
-     *
-     * @return object
-     */
-    private function getGrandparentsOneSide(object $extendedFamilyPart, string $side): object
-    {    
-        // tbd: if there are stepparents of proband, then add parents and stepparents of these stepparents
-        $efp = $extendedFamilyPart;
-        
-        if ($side == 'mother') {
-            $individual = $extendedFamilyPart->mother;
-        } else {
-            $individual = $extendedFamilyPart->father;
-        }
-        
-        if ($individual instanceof Individual) {
-           foreach ($individual->childFamilies() as $family) {
-              foreach ($family->spouses() as $parent) {
-                 foreach ($parent->spouseFamilies() as $family2) {
-                    if ($family2->husband() instanceof Individual) {
-                        $efp = $this->addIndividualToExtendedFamily( $family2->husband(), $extendedFamilyPart, $side );
-                    }
-                    if ($family2->wife() instanceof Individual) {
-                        $efp = $this->addIndividualToExtendedFamily( $family2->wife(), $extendedFamilyPart, $side );
-                    }
-                 }
-              }
-           }
-        }
-        
-        return $efp;
-    }
-    
-    /**
-     * Find grandparents
-     *
-     * @param Individual $individual
-     *
-     * @return object
-     */
-    private function getGrandparents(Individual $individual): object
-    {      
-        $GrandparentsObj = $this->initializedFamilyPartObject();
-        
-        if ($individual->childFamilies()->first()) {
-            
-            // husband() or wife() may not exist
-            $GrandparentsObj->father = $individual->childFamilies()->first()->husband();
-            $GrandparentsObj->mother = $individual->childFamilies()->first()->wife();
-
-            $GrandparentsObj = $this->getGrandparentsOneSide( $GrandparentsObj, 'father');
-            $GrandparentsObj = $this->getGrandparentsOneSide( $GrandparentsObj, 'mother');
-             
-            $GrandparentsObj = $this->addCountersToFamilyPartObject( $GrandparentsObj );
-        }
-
-        return $GrandparentsObj;
-    }
-
-    /**
-     * Find uncles and aunts for one side 
-     *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param string family side ('father', 'mother'); father is default
-     *
-     * @return object
-     */
-    private function getUnclesAuntsOneSide(object $extendedFamilyPart, string $side): object
-    {
-        $efp = $extendedFamilyPart;
-
-        if ($side == 'mother') {
-            $individual = $extendedFamilyPart->mother;
-        } else {
-            $individual = $extendedFamilyPart->father;
-        }
-        
-        if ($individual instanceof Individual) {
-           foreach ($individual->childFamilies() as $family) {
-              foreach ($family->spouses() as $parent) {
-                 foreach ($parent->spouseFamilies() as $family2) {
-                    foreach ($family2->children() as $sibling) {
-                        if ($sibling !== $individual) {
-                            $efp = $this->addIndividualToExtendedFamily( $sibling, $extendedFamilyPart, $side );
-                        }
-                    }
-                 }
-              }
-           }
-        }
-        
-        return $efp;
-    }
-    
-    /**
-     * Find uncles and aunts
-     *
-     * @param Individual $individual
-     *
-     * @return object
-     */
-    private function getUnclesAunts(Individual $individual): object
-    {
-        $unclesAuntsObj = $this->initializedFamilyPartObject();
-        
-        if ($individual->childFamilies()->first()) {
-            
-            $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
-            $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
-
-            $unclesAuntsObj = $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'father');
-            $unclesAuntsObj = $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'mother');
-           
-            $unclesAuntsObj = $this->addCountersToFamilyPartObject( $unclesAuntsObj );
-        }
-
-        return $unclesAuntsObj;
-    }
-
-    /**
-     * Find half and full cousins for one side 
-     *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param string family side ('father', 'mother'); father is default
-     *
-     * @return object
-     */
-    private function getCousinsOneSide(object $extendedFamilyPart, string $side): object
-    {
-        $efp = $extendedFamilyPart;
-        
-        if ($side == 'mother') {
-            $individual = $extendedFamilyPart->mother;
-        } else {
-            $individual = $extendedFamilyPart->father;
-        }
-        
-        if ($individual instanceof Individual) {
-           foreach ($individual->childFamilies() as $family) {
-              foreach ($family->spouses() as $parent) {
-                 foreach ($parent->spouseFamilies() as $family2) {
-                    foreach ($family2->children() as $sibling) {
-                       if ($sibling !== $individual) {
-                          foreach ($sibling->spouseFamilies() as $fam) {
-                             foreach ($fam->children() as $child) {
-                                $efp = $this->addIndividualToExtendedFamily( $child, $extendedFamilyPart, $side );
-                             }
-                          }
-                       }
-                    }
-                 }
-              }
-           }
-        }
-        
-        return $efp;
-    }
-    /**
-     * Find half and full cousins
-     *
-     * @param Individual $individual
-     *
-     * @return object
-     */
-    private function getCousins(Individual $individual): object
-    {
-        $cousinsObj = $this->initializedFamilyPartObject();
-        
-        if ($individual->childFamilies()->first()) {
-            
-            $cousinsObj->father = $individual->childFamilies()->first()->husband();
-            $cousinsObj->mother = $individual->childFamilies()->first()->wife();
-
-            $cousinsObj = $this->getCousinsOneSide( $cousinsObj, 'father');
-            $cousinsObj = $this->getCousinsOneSide( $cousinsObj, 'mother');
-             
-            $cousinsObj = $this->addCountersToFamilyPartObject( $cousinsObj );
-        }
-
-        return $cousinsObj;
-    }
-
-    /**
-     * Find a short, nice name for a person
-     * => use nickname ("Sepp") or Rufname or first of first names if one of these is available
-     *    => otherwise use surname if available ("Mr. xxx", "Mrs. xxx", or "xxx" if sex is not F or M
-     *       => otherwise use "He" or "She" or "She/he" if sex is not F or M
-     *
-     * @param Individual $individual
-     *
-     * @return string
-     */
-    public function niceName(Individual $individual): string
-    {
-        // tbd
-        return $individual->fullname();
-    }
-
-    /**
-     * A label for a parental family group
-     *
-     * @param Individual $individual
-     *
-     * @return string
-     */
-    public function getChildLabel(Individual $individual): string
-    {
-        if (preg_match('/\n1 FAMC @' . $individual->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $individual->gedcom(), $match)) {
-            // A specified pedigree
-            return GedcomCodePedi::getValue($match[1],$individual->getInstance($individual->xref(),$individual->tree()));
-        }
-
-        // Default (birth) pedigree
-        return GedcomCodePedi::getValue('',$individual->getInstance($individual->xref(),$individual->tree()));
     }
 
     /**
@@ -605,6 +717,66 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * @param ServerRequestInterface $request
+     *
+     * @return ResponseInterface
+     */
+    public function getAdminAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $this->layout = 'layouts/administration';
+
+        return $this->viewResponse($this->name() . '::settings', [
+            'grandparents'      => $this->getPreference('grandparents'),
+            'grandchildren'     => $this->getPreference('grandchildren'),
+			'uncles_and_aunts'  => $this->getPreference('uncles_and_aunts'),
+            'cousins'           => $this->getPreference('cousins'),
+            'title'             => $this->title(),
+        ]);
+    }
+
+    /**
+     * Save the user preference.
+     *
+     * @param ServerRequestInterface $request
+     *
+     * @return ResponseInterface
+     */
+    public function postAdminAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $params = (array) $request->getParsedBody();
+
+        // store the preferences in the database
+        if ($params['save'] === '1') {
+            $this->setPreference('grandparents', $params['grandparents']);
+            $this->setPreference('grandchildren', $params['grandchildren']);
+			$this->setPreference('uncles_and_aunts', $params['uncles_and_aunts']);
+            $this->setPreference('cousins', $params['cousins']);
+
+            FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
+        }
+
+        return redirect($this->getConfigLink());
+    }
+
+    /**
+     * parts of extended family which should be shown
+     *
+     * @return array 
+     */
+    public function showFamilyPart(): array
+    {    
+        // Set default values in case the settings are not stored in the database yet
+		$sp = [
+			'grandparents' 		=> $this->getPreference('grandparents', '1'),
+			'grandchildren' 	=> $this->getPreference('grandchildren', '1'),
+			'uncles_and_aunts'	=> $this->getPreference('uncles_and_aunts', '1'),
+			'cousins'			=> $this->getPreference('cousins', '1'),
+		];
+        
+        return $sp;
+    }
+
+    /**
      * Additional/updated translations.
      *
      * @param string $language
@@ -687,7 +859,19 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Für %2$s sind %1$d Großvater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Großväter und ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d Großmutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Großmütter verzeichnet (insgesamt %d).',
-            
+                
+            'Grandchildren' => 'Enkelkinder',
+            '%s has no grandchildren recorded.' => 'Für %s sind keine Enkelkinder verzeichnet.',
+            '%s has one female grandchild recorded.' => 'Für %s ist ein weibliches Enkelkind verzeichnet.',
+            '%s has one male grandchild recorded.' => 'Für %s ist ein männliches Enkelkind verzeichnet.',
+            '%s has one grandchild recorded.' => 'Für %s ist ein Enkelkind verzeichnet.',
+            '%s has %d female grandchildren recorded.' => 'Für %s sind %d weibliche Enkelkinder verzeichnet.',
+            '%s has %d male grandchildren recorded.' => 'Für %s sind %d männliche Enkelkinder verzeichnet.',
+            '%2$s has %1$d male grandchild and ' . I18N::PLURAL . '%2$s has %1$d male grandchildren and ' 
+                => 'Für %2$s sind %1$d männliches Enkelkind und ' . I18N::PLURAL . 'Für %2$s sind %1$d männliche Enkelkinder und ',
+            '%d female grandchild recorded (%d in total).' . I18N::PLURAL . '%d female grandchildren recorded (%d in total).' 
+                => '%d weibliches Enkelkind verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d weibliche Enkelkinder verzeichnet (insgesamt %d).',
+                
             'Uncles and Aunts' => 'Onkel und Tanten',
             '%s has no uncles or aunts recorded.' => 'Für %s sind keine Onkel oder Tanten verzeichnet.',
             '%s has one aunt recorded.' => 'Für %s ist eine Tante verzeichnet.',
