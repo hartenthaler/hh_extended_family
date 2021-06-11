@@ -1043,6 +1043,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Voor %2$s zijn %1$d grootvader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootvaders en ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d grootmoeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d grootmoeders geregistreerd (%d in totaal).',
+                
+            'Grandchildren' => 'Kleinkinderen',
+            '%s has no grandchildren recorded.' => 'Voor %s zijn geen kleinkinderen geregistreerd.',
+            '%s has one female grandchild recorded.' => 'Voor %s is een kleindochter geregistreerd.',
+            '%s has one male grandchild recorded.' => 'Voor %s is een kleinzoon geregistreerd.',
+            '%s has one grandchild recorded.' => 'Voor %s is een kleinkind geregistreerd.',
+            '%s has %d female grandchildren recorded.' => 'Voor %s zijn %d kleindochters geregistreerd.',
+            '%s has %d male grandchildren recorded.' => 'Voor %s zijn %d kleinzoons geregistreerd.',
+            '%2$s has %1$d male grandchild and ' . I18N::PLURAL . '%2$s has %1$d male grandchildren and ' 
+                => 'Voor %2$s is %1$d kleinzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzoons en ',
+            '%d female grandchild recorded (%d in total).' . I18N::PLURAL . '%d female grandchildren recorded (%d in total).' 
+                => '%d kleindochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d kleindochters geregistreerd (%d in totaal).',
             
             'Uncles and Aunts' => 'Ooms en tantes',
             '%s has no uncles or aunts recorded.' => 'Voor %s zijn geen ooms en tantes geregistreerd.',
