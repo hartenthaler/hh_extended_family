@@ -19,10 +19,10 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('grandparents') ?>
+                    <?= I18N::translate('Grandparents') ?>
                 </legend>
                 <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'grandparents', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$grandparents]) ?>
+                    <?= view('components/radios-inline', ['name' => 'grandparents', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$grandparents]) ?>
                 </div>
             </div>
         </fieldset>
@@ -30,10 +30,10 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('grandchildren') ?>
+                    <?= I18N::translate('Grandchildren') ?>
                 </legend>
                 <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'grandchildren', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$grandchildren]) ?>
+                    <?= view('components/radios-inline', ['name' => 'grandchildren', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$grandchildren]) ?>
                 </div>
             </div>
         </fieldset>
@@ -41,10 +41,10 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('uncles and aunts') ?>
+                    <?= I18N::translate('Uncles and Aunts') ?>
                 </legend>
                 <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'uncles_and_aunts', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$uncles_and_aunts]) ?>
+                    <?= view('components/radios-inline', ['name' => 'uncles_and_aunts', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$uncles_and_aunts]) ?>
                 </div>
             </div>
         </fieldset>
@@ -52,10 +52,21 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('cousins') ?>
+                    <?= I18N::translate('Cousins') ?>
                 </legend>
                 <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'cousins', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$cousins]) ?>
+                    <?= view('components/radios-inline', ['name' => 'cousins', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$cousins]) ?>
+                </div>
+            </div>
+        </fieldset>
+        <!-- nephews and nieces -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Nephews and Nieces') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'nephews_and_nieces', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$nephews_and_nieces]) ?>
                 </div>
             </div>
         </fieldset>

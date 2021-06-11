@@ -350,6 +350,17 @@
             </div>
         <?php endif ?>
         
+        <?php if ( $extfam_obj->showFamilyPart['nephews_and_nieces'] ): ?>
+            <div class="hh-extended-family-nephews-nieces">
+                <?php if ($extfam_obj->NephewsNieces->allCount): ?>
+                    <h2><?= I18N::translate('Nephews and Nieces') ?></h2>
+
+                <?php else: ?>
+                    <h3><?= I18N::translate('%s has no nephews or nieces recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
+        
     <?php else: ?>
         <h3><?= I18N::translate('No family available') ?></h3>
     <?php endif ?>

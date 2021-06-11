@@ -103,6 +103,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 			$extfamObj->Cousins = $this->getCousins( $individual );
 			$extfamObj->allCount += $extfamObj->Cousins->allCount;
 		}
+        if ($extfamObj->showFamilyPart['nephews_and_nieces']) {
+			$extfamObj->NephewsNieces = $this->getNephewsNieces( $individual );
+			$extfamObj->allCount += $extfamObj->NephewsNieces->allCount;
+		}
        return $extfamObj;
     }
     
@@ -350,6 +354,22 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         }
 
         return $cousinsObj;
+    }
+    
+    /**
+     * Find nephews and nieces
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function getNephewsNieces(Individual $individual): object
+    {      
+        $NephewsNiecesObj = $this->initializedFamilyPartObject('descendants');
+            
+        $NephewsNiecesObj = $this->addCountersToFamilyPartObject( $NephewsNiecesObj, 'descendants' );
+
+        return $NephewsNiecesObj;
     }
     
     /**
@@ -726,11 +746,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $this->layout = 'layouts/administration';
 
         return $this->viewResponse($this->name() . '::settings', [
-            'grandparents'      => $this->getPreference('grandparents'),
-            'grandchildren'     => $this->getPreference('grandchildren'),
-			'uncles_and_aunts'  => $this->getPreference('uncles_and_aunts'),
-            'cousins'           => $this->getPreference('cousins'),
-            'title'             => $this->title(),
+            'grandparents'          => $this->getPreference('grandparents'),
+            'grandchildren'         => $this->getPreference('grandchildren'),
+			'uncles_and_aunts'      => $this->getPreference('uncles_and_aunts'),
+            'cousins'               => $this->getPreference('cousins'),
+            'nephews_and_nieces'    => $this->getPreference('nephews_and_nieces'),
+            'title'                 => $this->title(),
         ]);
     }
 
@@ -751,6 +772,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->setPreference('grandchildren', $params['grandchildren']);
 			$this->setPreference('uncles_and_aunts', $params['uncles_and_aunts']);
             $this->setPreference('cousins', $params['cousins']);
+            $this->setPreference('nephews_and_nieces', $params['nephews_and_nieces']);
 
             FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
         }
@@ -766,11 +788,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function showFamilyPart(): array
     {    
         // Set default values in case the settings are not stored in the database yet
+        // yes should be no and no should be yes, because I don't know how to set the default in settings.phtml radio buttons
 		$sp = [
-			'grandparents' 		=> $this->getPreference('grandparents', '1'),
-			'grandchildren' 	=> $this->getPreference('grandchildren', '1'),
-			'uncles_and_aunts'	=> $this->getPreference('uncles_and_aunts', '1'),
-			'cousins'			=> $this->getPreference('cousins', '1'),
+			'grandparents' 		    => !$this->getPreference('grandparents', '1'),
+			'grandchildren' 	    => !$this->getPreference('grandchildren', '1'),
+			'uncles_and_aunts'	    => !$this->getPreference('uncles_and_aunts', '1'),
+			'cousins'			    => !$this->getPreference('cousins', '1'),
+            'nephews_and_nieces'    => !$this->getPreference('nephews_and_nieces', '1'),
 		];
         
         return $sp;
