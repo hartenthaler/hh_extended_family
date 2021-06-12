@@ -596,7 +596,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         // an individual can have many names (we use only the first one) or no name
         $name_facts = $individual->facts(['NAME']);
-        if (count($name_facts) > 0) {
+        if (count($name_facts) > 0) {       // check if there is at least one name            
             $nickname = $name_facts[0]->attribute('NICK');
             if ($nickname !== '') {
                 $nice = $nickname;
@@ -606,7 +606,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     $nice = $rn;
                 } else {
                     $givensurnames = explode('/', $name_facts[0]->value());
-                    if ($givensurnames[0] !== '') {
+                    if ($givensurnames[0] !== '') {     // are there given names?
                         $givennameparts = explode( ' ', $givensurnames[0]);
                         $nice = $givennameparts[0];     // this is the first given name
                     } else {
@@ -1113,6 +1113,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Extended family' => 'Uitgebreide familie',
             'A tab showing the extended family of an individual.' => 'Tab laat de uitgebreide familie van deze persoon zien.',
             'Are these parts of the extended family to be shown?' => 'Wilt u deze delen van de uitgebreide familie weergeven?',
+            'He' => 'hem', // context "Für ihn/Voor ..."
+            'She' => 'haar', // context "Für sie/Voor ..."
+            'He/she' => 'hem/haar', // context "Für ihn/sie"
+            'Mr.' => 'de heer', // context "Für Herrn xxx"
+            'Mrs.' => 'mevrouw', // context "Für Frau xxx" `
             'No family available' => 'Geen familie gevonden',
             'Father\'s family (%d)' => 'Familie van de vader (%d)',
             'Mother\'s family (%d)' => 'Familie van de moeder (%d)',
