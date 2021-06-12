@@ -9,6 +9,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
 <?= view('components/breadcrumbs', ['links' => [route(ControlPanel::class) => I18N::translate('Control panel'), $title]]) ?>
 
 <h1><?= $title ?></h1>
+<h3><?= I18N::translate('Are these parts of the extended family to be shown?') ?></h3>
 
 <div class="hh-extended-family mb-5">
     <form method="post">
