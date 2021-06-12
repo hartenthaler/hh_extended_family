@@ -9,16 +9,16 @@
 
 ## Description
 
-This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the extended family of that person: grandparents, grandchildren, uncles, aunts, cousins.
+This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the extended family of that person: grandparents, grandchildren, uncles, aunts, cousins, nephews and nieces.
 
 This module version is derived from vytux_cousins. There are some additional features:
-* beside cousins: including grandparents, grandchildren, uncles and aunts
+* beside cousins: including grandparents, grandchildren, uncles, aunts, nephews and nieces
 * admin can decide in control panel which extended family parts should be shown
 * addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
 * don't show empty tables for "Father's family" and "Mother's family"
 * beside father's and mother's family, now there can be a third category "father's and mother's family" if members of the extended family are related to both sides
 * count separately for each sex (this supports translation if there are for example different words for male and female cousins)
-* new text added if there is a family but no cousins or no aunts/uncles ("... has no first cousins / aunts or uncles recorded.")
+* new text added if there is a family but no members in a part of the extended family (e.g. "... has no first cousins recorded.")
 * tab is greyed out if the extended family is empty
 
 <a name="Contents"></a>
