@@ -1077,7 +1077,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return [
             'Extended family' => 'Uitgebreide familie',
             'A tab showing the extended family of an individual.' => 'Tab laat de uitgebreide familie van deze persoon zien.',
-            'Are these parts of the extended family to be shown?' => '******************************Sollen diese Teile der erweiterten Familie angezeigt werden?',
+            'Are these parts of the extended family to be shown?' => 'Wilt u deze delen van de uitgebreide familie weergeven?',
             'No family available' => 'Geen familie gevonden',
             'Father\'s family (%d)' => 'Familie van de vader (%d)',
             'Mother\'s family (%d)' => 'Familie van de moeder (%d)',
@@ -1131,17 +1131,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
                 => '%d eerstegraads nicht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d eerstegraads nichten geregistreerd (%d in totaal).',
                 
-            'Nephews and Nieces' => '*****************************Neffen und Nichten',
-            '%s has no nephews or nieces recorded.' => 'Für %s sind keine Neffen oder Nichten verzeichnet.',
-            '%s has one niece recorded.' => 'Für %s ist eine Nichte verzeichnet.',
-            '%s has one nephew recorded.' => 'Für %s ist ein Neffe verzeichnet.',
-            '%s has one nephew or niece recorded.' => 'Für %s ist ein Neffe oder eine Nichte verzeichnet.',
-            '%s has %d nieces recorded.' => 'Für %s sind %d Nichten verzeichnet.',
-            '%s has %d nephews recorded.' => 'Für %s sind %d Neffen verzeichnet.',
+            'Nephews and Nieces' => 'Neven en nichten (kinderen van broer of zus)',
+            '%s has no nephews or nieces recorded.' => 'Voor %s zijn geen neven of nichten geregistreerd.',
+            '%s has one niece recorded.' => 'Voor %s is een nicht geregistreerd.',
+            '%s has one nephew recorded.' => 'Voor %s is een neef geregistreerd.',
+            '%s has one nephew or niece recorded.' => 'Voor %s is een neef of nicht geregistreerd.',
+            '%s has %d nieces recorded.' => 'Voor %s zijn %d nichten geregistreerd.',
+            '%s has %d nephews recorded.' => 'Voor %s zijn %d neven geregistreerd.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
-                => 'Für %2$s sind %1$d Neffe und ' . I18N::PLURAL . 'Für %2$s sind %1$d Neffen und ',
-            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
-                => '%d Nichte verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Nichten verzeichnet (insgesamt %d).',                
+                => 'Voor %2$s is %1$d neef en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d neven en ',
+            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nichten geregistreerd (%d in total).' 
+                => '%d nicht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d nichten geregistreerd (%d in totaal).',          
         ];
     }
 
