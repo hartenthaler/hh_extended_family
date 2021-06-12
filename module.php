@@ -539,7 +539,49 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         
         return $mf;
     }
-
+    
+    /**
+     * find rufname of an individual (tag _RUFNAME or marked with '*'
+     *
+     * @param Individual $individual
+     *
+     * @return string (is empty if there is no rufname)
+     */
+    private function rufname(Individual $individual): string
+    {
+        $rn = $individual->facts(['NAME'])[0]->attribute('_RUFNAME');
+        if ($rn == '') {
+            $rufnameparts = explode('*', $individual->facts(['NAME'])[0]->value());
+            if ($rufnameparts[0] !== $individual->facts(['NAME'])[0]->value()) {
+                // there is a Rufname marked with *, but no tag _RUFNAME
+                $rufnameparts = explode(' ', $rufnameparts[0]);   
+                $rn = $rufnameparts[count($rufnameparts)-1];  // it has to be the last given name (before *)
+            }
+        }
+        return $rn;
+    }
+     
+    /**
+     * set name depending on sex of individual
+     *
+     * @param Individual $individual
+     * @param string $n_male
+     * @param string $n_female
+     * @param string $n_unknown
+     *
+     * @return string
+     */
+    private function nameSex(Individual $individual, string $n_male, string $n_female, string $n_unknown): string
+    {
+        if ($individual->sex() == 'M') {
+            return $n_male;
+        } elseif ($individual->sex() == 'F') {
+            return $n_female;
+        } else {
+            return $n_unknown;
+        }
+    }
+    
     /**
      * Find a short, nice name for a person
      * => use nickname ("Sepp") or Rufname or first of first names if one of these is available
@@ -552,40 +594,33 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function niceName(Individual $individual): string
     {
-        $nickname = '';                             // tbd
-        if ($nickname !== '') {
-            $nice = $nickname;
-        } else {
-            $rufname = '';                          // tbd
-            if ($rufname !== '') {
-                $nice = $rufname;
+        // an individual can have many names (we use only the first one) or no name
+        $name_facts = $individual->facts(['NAME']);
+        if (count($name_facts) > 0) {
+            $nickname = $name_facts[0]->attribute('NICK');
+            if ($nickname !== '') {
+                $nice = $nickname;
             } else {
-                $givennames = '';                   // tbd
-                if ($givennames !== '') {
-                    $givennameparts = explode( ',', $givennames);
-                    $givennameparts = explode( ' ', $givennameparts[0]);
-                    $nice = $givennameparts[0];
+                $rn = $this->rufname($individual);
+                if ($rn !== '') {
+                    $nice = $rn;
                 } else {
-                    $surname = '';                  // tbd
-                    if ($surname !== '') {
-                        if ($individual->sex() == 'M') {
-                            $nice = I18N::translate('Mr.') . ' ' . $surname;
-                        } elseif ($individual->sex() == 'F') {
-                            $nice = I18N::translate('Mrs.') . ' ' . $surname;
-                        } else {
-                            $nice = $surname;
-                        }
+                    $givensurnames = explode('/', $name_facts[0]->value());
+                    if ($givensurnames[0] !== '') {
+                        $givennameparts = explode( ' ', $givensurnames[0]);
+                        $nice = $givennameparts[0];     // this is the first given name
                     } else {
-                        if ($individual->sex() == 'M') {
-                            $nice = I18N::translate('He');
-                        } elseif ($individual->sex() == 'F') {
-                            $nice = I18N::translate('She');
+                        $surname = $givensurnames[1];
+                        if ($surname !== '') {
+                            $nice = $this->nameSex($individual, I18N::translate('Mr.') . ' ' . $surname, I18N::translate('Mrs.') . ' ' . $surname, $surname);
                         } else {
-                            $nice = I18N::translate('He/she');
+                            $nice = $this->nameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
                         }
                     }
                 }
             }
+        } else {
+            $nice = $this->nameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
         }
         return $nice;
     }
