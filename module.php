@@ -69,7 +69,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.15';
+    public const CUSTOM_VERSION = '2.0.16.16';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -1159,7 +1159,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
                 => '%d tante geregistreerd (%d in totaal).' . I18N::PLURAL . '%d tantes geregistreerd (%d in totaal).',
 
-            'Cousins' => 'Neven en nichten',
+            'Cousins' => 'Neven en nichten (kinderen van oom of tante)',
             '%s has no first cousins recorded.' => 'Voor %s zijn geen eerstegraads neven en nichten geregistreerd.',
             '%s has one female first cousin recorded.' => 'Voor %s is een eerstegraads nicht geregistreerd.',
             '%s has one male first cousin recorded.' => 'Voor %s is een eerstegraads neef geregistreerd.',
@@ -1180,7 +1180,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has %d nephews recorded.' => 'Voor %s zijn %d neven geregistreerd.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
                 => 'Voor %2$s is %1$d neef en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d neven en ',
-            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nichten geregistreerd (%d in total).' 
+            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
                 => '%d nicht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d nichten geregistreerd (%d in totaal).',          
         ];
     }
