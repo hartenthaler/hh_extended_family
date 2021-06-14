@@ -598,32 +598,33 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         $found = 0;
    
-        foreach ($extendedFamilyPart->families as $fam) {
-            foreach ($fam->members as $member) {
-                if ($member === $individual) {
+        foreach ($extendedFamilyPart->families as $famobj) {
+            foreach ($famobj->members as $member) {
+                if ($member == $individual) {
                     $found = 1;
-                    echo 'Person ist bereits vorhanden.';
+                    //echo 'Person ' . $individual->xref() . ' ist bereits in Objekt für Familie ' . $famobj->family->xref() . ' vorhanden. ';
                     break;
                 }
             }
             break;
         }
         
-        if ($found == 0) {
-            foreach ($extendedFamilyPart->families as $fam) {
-                if ($fam == $family) {
+        if ($found == 0) {                                          // individual has to be added 
+            foreach ($extendedFamilyPart->families as $famobj) {
+                if ($famobj->family == $family) {
                     $famkey = key($extendedFamilyPart->families);
-                    echo 'famkey in bereits vorhandener Familie: ' . $famkey .'; ';
+                    //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->families[$famkey]->family->xref() . '); ';
                     $extendedFamilyPart->families[$famkey]->members[] = $individual;
                     $found = 1;
                     break;
                 }
             }
-            if ($found == 0) {
-                $extendedFamilyPart->families[] = $family;
-                $famkey = key($extendedFamilyPart->families);
-                echo 'famkey in neu hinzugefügter Familie: ' . $famkey .'; ';
+            if ($found == 0) {                                      // individual not found and family not found
+                $famkey = count($extendedFamilyPart->families);
+                $extendedFamilyPart->families[$famkey] = (object)[];
+                $extendedFamilyPart->families[$famkey]->family = $family;
                 $extendedFamilyPart->families[$famkey]->members[] = $individual;
+                //echo 'famkey in neu hinzugefügter Familie: ' . $famkey . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->families[$famkey]->family->xref() . '); ';
             }
             
         }
@@ -1143,7 +1144,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has no parents recorded.' => 'Für %s sind keine Eltern verzeichnet.',
             '%s has one mother recorded.' => 'Für %s ist eine Mutter verzeichnet.',
             '%s has one father recorded.' => 'Für %s ist ein Vater verzeichnet.',
-            '%s has one grandparent recorded.' => 'Für %s ist ein Elternteil verzeichnet.',
+            '%s has one parent recorded.' => 'Für %s ist ein Elternteil verzeichnet.',
             '%s has %d mothers recorded.' => 'Für %s sind %d Mütter verzeichnet.',
             '%s has %d fathers recorded.' => 'Für %s sind %d Väter verzeichnet.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
@@ -1352,7 +1353,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Father\'s family (%d)' => 'Familie van de vader (%d)',
             'Mother\'s family (%d)' => 'Familie van de moeder (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Familie van de vader en de moeder (%d)',
-            
+                
             'Grandparents' => 'Grootouders',
             '%s has no grandparents recorded.' => 'Voor %s zijn geen grootouders geregistreerd.', 
             '%s has one grandmother recorded.' => 'Voor %s is een grootmoeder geregistreerd.',
@@ -1365,18 +1366,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d grootmoeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d grootmoeders geregistreerd (%d in totaal).',
                 
-            'Grandchildren' => 'Kleinkinderen',
-            '%s has no grandchildren recorded.' => 'Voor %s zijn geen kleinkinderen geregistreerd.',
-            '%s has one female grandchild recorded.' => 'Voor %s is een kleindochter geregistreerd.',
-            '%s has one male grandchild recorded.' => 'Voor %s is een kleinzoon geregistreerd.',
-            '%s has one grandchild recorded.' => 'Voor %s is een kleinkind geregistreerd.',
-            '%s has %d female grandchildren recorded.' => 'Voor %s zijn %d kleindochters geregistreerd.',
-            '%s has %d male grandchildren recorded.' => 'Voor %s zijn %d kleinzoons geregistreerd.',
-            '%2$s has %1$d male grandchild and ' . I18N::PLURAL . '%2$s has %1$d male grandchildren and ' 
-                => 'Voor %2$s is %1$d kleinzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzoons en ',
-            '%d female grandchild recorded (%d in total).' . I18N::PLURAL . '%d female grandchildren recorded (%d in total).' 
-                => '%d kleindochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d kleindochters geregistreerd (%d in totaal).',
-            
+            'Parents' => 'Ouders',
+            '%s has no parents recorded.' => 'Voor %s zijn geen ouders geregistreerd.',
+            '%s has one mother recorded.' => 'Voor %s is een moeder geregistreerd.',
+            '%s has one father recorded.' => 'Voor %s is een vader geregistreerd.',
+            '%s has one parent recorded.' => 'Voor %s is een ouder geregistreerd.',
+            '%s has %d mothers recorded.' => 'Voor %s zijn %d moeders geregistreerd.',
+            '%s has %d fathers recorded.' => 'Voor %s zijn %d vaders geregistreerd.',
+            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
+                => 'Voor %2$s zijn %1$d vader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders en ',
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
+                => '%d moeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d moeders geregistreerd (%d in totaal).',
+                
             'Uncles and Aunts' => 'Ooms en tantes',
             '%s has no uncles or aunts recorded.' => 'Voor %s zijn geen ooms en tantes geregistreerd.',
             '%s has one aunt recorded.' => 'Voor %s is een tante geregistreerd.',
@@ -1388,7 +1389,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Voor %2$s zijn %1$d oom en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms en ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
                 => '%d tante geregistreerd (%d in totaal).' . I18N::PLURAL . '%d tantes geregistreerd (%d in totaal).',
-
+                
             'Cousins' => 'Neven en nichten (kinderen van oom of tante)',
             '%s has no first cousins recorded.' => 'Voor %s zijn geen eerstegraads neven en nichten geregistreerd.',
             '%s has one female first cousin recorded.' => 'Voor %s is een eerstegraads nicht geregistreerd.',
@@ -1401,6 +1402,30 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
                 => '%d eerstegraads nicht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d eerstegraads nichten geregistreerd (%d in totaal).',
                 
+            'Siblings' => 'Broers en zussen',
+            '%s has no siblings recorded.' => 'Voor %s zijn geen broers of zussen geregistreerd.',
+            '%s has one sister recorded.' => 'Voor %s is een zus geregistreerd.',
+            '%s has one brother recorded.' => 'Voor %s is een broer geregistreerd.',
+            '%s has one brother or sister recorded.' => 'Voor %s is een broer of zus geregistreerd.',
+            '%s has %d sisters recorded.' => 'Voor %s zijn %d zussen geregistreerd.',
+            '%s has %d brothers recorded.' => 'Voor %s zijn %d broers geregistreerd.',
+            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
+                => 'Voor %2$s zijn %1$d broer en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers en ',
+            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
+                => '%d zus geregistreerd (%d in totaal).' . I18N::PLURAL . '%d zussen geregistreerd (%d in totaal).',
+                                
+            'Spouses' => 'Partners',
+            '%s has no spouses recorded.' => 'Voor %s zijn geen partners geregistreerd.',
+            '%s has one wife recorded.' => 'Voor %s is een partner/echtgenote geregistreerd.',
+            '%s has one husband recorded.' => 'Voor %s is een partner/echtgenoot geregistreerd.',
+            '%s has one spouse recorded.' => 'Voor %s is een partner geregistreerd.',
+            '%s has %d wifes recorded.' => 'Voor %s zijn %d partners/echtgenotes geregistreerd.',
+            '%s has %d husbands recorded.' => 'Voor %s zijn %d partners/echtgenoten geregistreerd.',
+            '%2$s has %1$d husband and ' . I18N::PLURAL . '%2$s has %1$d husbands and ' 
+                => 'Voor %2$s zijn %1$d partner/echtgenoot en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners/echtgenoten en ',
+            '%d wife recorded (%d in total).' . I18N::PLURAL . '%d wifes recorded (%d in total).' 
+                => '%d partner/echtgenote geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners/echtgenotes geregistreerd (%d in totaal).',
+                
             'Nephews and Nieces' => 'Neven en nichten (kinderen van broer of zus)',
             '%s has no nephews or nieces recorded.' => 'Voor %s zijn geen neven of nichten geregistreerd.',
             '%s has one niece recorded.' => 'Voor %s is een nicht geregistreerd.',
@@ -1409,9 +1434,33 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has %d nieces recorded.' => 'Voor %s zijn %d nichten geregistreerd.',
             '%s has %d nephews recorded.' => 'Voor %s zijn %d neven geregistreerd.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
-                => 'Voor %2$s is %1$d neef en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d neven en ',
+                => 'Voor %2$s zijn %1$d neef en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d neven en ',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
-                => '%d nicht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d nichten geregistreerd (%d in totaal).',          
+                => '%d nicht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d nichten geregistreerd (%d in totaal).', 
+                
+            'Children' => 'Kinderen',
+            '%s has no children recorded.' => 'Voor %s zijn geen kinderen geregistreerd.',
+            '%s has one daughter recorded.' => 'Voor %s is een dochter geregistreerd.',
+            '%s has one son recorded.' => 'Voor %s is een zoon geregistreerd.',
+            '%s has one child recorded.' => 'Voor %s is een kind geregistreerd.',
+            '%s has %d daughters recorded.' => 'Voor %s zijn %d dochters geregistreerd.',
+            '%s has %d sons recorded.' => 'Voor %s zijn %d zonen geregistreerd.',
+            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
+                => 'Voor %2$s zijn %1$d zoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d zonen en ',
+            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
+                => '%d dochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d dochters geregistreerd (%d in totaal).', 
+                
+            'Grandchildren' => 'Kleinkinderen',
+            '%s has no grandchildren recorded.' => 'Voor %s zijn geen kleinkinderen geregistreerd.',
+            '%s has one female grandchild recorded.' => 'Voor %s is een kleindochter geregistreerd.',
+            '%s has one male grandchild recorded.' => 'Voor %s is een kleinzoon geregistreerd.',
+            '%s has one grandchild recorded.' => 'Voor %s is een kleinkind geregistreerd.',
+            '%s has %d female grandchildren recorded.' => 'Voor %s zijn %d kleindochters geregistreerd.',
+            '%s has %d male grandchildren recorded.' => 'Voor %s zijn %d kleinzoons geregistreerd.',
+            '%2$s has %1$d male grandchild and ' . I18N::PLURAL . '%2$s has %1$d male grandchildren and ' 
+                => 'Voor %2$s zijn %1$d kleinzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzoons en ',
+            '%d female grandchild recorded (%d in total).' . I18N::PLURAL . '%d female grandchildren recorded (%d in total).' 
+                => '%d kleindochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d kleindochters geregistreerd (%d in totaal).',
         ];
     }
 

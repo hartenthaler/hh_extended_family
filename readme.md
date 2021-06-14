@@ -9,10 +9,9 @@
 
 ## Description
 
-This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the extended family of that person: grandparents, grandchildren, uncles, aunts, cousins, nephews and nieces.
+This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person: grandparents, parents, uncles, aunts, siblings, spouses, cousins, nephews, nieces, children and grandchildren.
 
-This module version is derived from vytux_cousins. There are some additional features:
-* beside cousins: including grandparents, grandchildren, uncles, aunts, nephews and nieces
+This module version is derived from vytux_cousins. There are additional features
 * admin can decide in control panel which extended family parts should be shown
 * addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
 * don't show empty tables for "Father's family" and "Mother's family"
@@ -29,15 +28,21 @@ The readme contains the following main sections:
 
 *   [Description](#Description)
 *   [Contents](#Contents)
-*   [Screenshot](#Screenshot)
+*   [Screenshots](#Screenshots)
 *   [Requirements](#Requirements)
 *   [Installation](#Installation)
 *   [Upgrade](#upgrade)
+*   [Translation](#translation)
 *   [Contact Support](#Support)
 
-<a name="Screenshot"></a>
+<a name="Screenshots"></a>
 
-## Screenshot
+## Screenshots
+
+Screenshot of module
+<p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="67%"></p>
+
+Screenshot of control panel menu
 <p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="67%"></p>
 
 <a name="Requirements"></a>
@@ -68,6 +73,16 @@ This section documents installation instructions for hh_cousins.
 ## Upgrade
 
 To update simply replace the hh_extended_family files with the new ones from the latest download.
+
+<a name="translation"></a>
+
+## Translation
+
+If you like to translate the text fragments in this module, contact me, please!
+
+There are now, beside English and German translations to
+* dutch by @TheDutchJewel
+* czech (in progress)
 
 <a name="Support"></a>
 

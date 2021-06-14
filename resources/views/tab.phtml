@@ -307,11 +307,11 @@
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->Siblings->families as $family): ?>
+                        <?php foreach ($extfam_obj->Siblings->families as $famobj): ?>
                             <div id="extended_family_g">
-                                <h4><?= I18N::translate('Family with x / Family x and y') ?></h4>
-                                <?php $i = 1; ?>
-                                <?php  foreach ($family->members as $indi) : ?>
+                                
+                                <?php    $i = 1; ?>
+                                <?php  foreach ($famobj->members as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -358,11 +358,11 @@
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->Spouses->families as $family): ?>
+                        <?php foreach ($extfam_obj->Spouses->families as $famobj): ?>
                             <div id="extended_family_g">
-                                <h4><?= I18N::translate('Family with x / Family x and y') ?></h4>
-                                <?php $i = 1; ?>
-                                <?php  foreach ($family->members as $indi) : ?>
+                                
+                                <?php    $i = 1; ?>
+                                <?php  foreach ($famobj->members as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -565,11 +565,11 @@
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->Children->families as $family): ?>
+                        <?php foreach ($extfam_obj->Children->families as $famobj): ?>
                             <div id="extended_family_g">
-                                <h4><?= I18N::translate('Family with x / Family x and y') ?></h4>
-                                <?php $i = 1; ?>
-                                <?php  foreach ($family->members as $indi) : ?>
+                                
+                                <?php    $i = 1; ?>
+                                <?php  foreach ($famobj->members as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -616,16 +616,11 @@
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->Grandchildren->families as $family): ?>
+                        <?php foreach ($extfam_obj->Grandchildren->families as $famobj): ?>
                             <div id="extended_family_g">
-                                <h4><?= I18N::translate('Family with x / Family x and y') ?></h4>
-                                <?php $prev_fam_id = '-1'; ?>
-                                <?php $i = 1; ?>
-                                <?php  foreach ($family->members as $indi) : ?>
-                                    <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
-                                        <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
-                                        <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url());?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
-                                    <?php endif ?>
+                                
+                                <?php    $i = 1; ?>
+                                <?php  foreach ($famobj->members as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
