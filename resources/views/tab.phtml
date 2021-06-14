@@ -8,7 +8,7 @@
 
 <div class="wt-tab-hh-extended-family py-4">
     <?php if ($extfam_obj->allCount > 0): ?>
-    
+
         <?php if ( $extfam_obj->showFamilyPart['grandparents'] ): ?>
             <div class="hh-extended-family-grandparents">
                 <?php if ($extfam_obj->Grandparents->allCount): ?>
@@ -53,11 +53,11 @@
                                 <?php $i++; endforeach ?>
                             </div>    
                         <?php endif ?>
-                        <?php if ($extfam_obj->Grandparents->mothersFamilyCount): ?>
-                            <div id="extended_family_m">
-                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->Grandparents->mothersFamilyCount) ?></h4>
+                        <?php if ($extfam_obj->Grandparents->fathersAndMothersFamilyCount): ?>
+                            <div id="extended_family_fm">
+                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->Grandparents->fathersAndMothersFamilyCount)?></h4>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->Grandparents->motherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->Grandparents->fatherAndMotherFamily as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -70,11 +70,11 @@
                                 <?php $i++; endforeach ?>
                             </div>
                         <?php endif ?>
-                        <?php if ($extfam_obj->Grandparents->fathersAndMothersFamilyCount): ?>
-                            <div id="extended_family_fm">
-                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->Grandparents->fathersAndMothersFamilyCount)?></h4>
+                        <?php if ($extfam_obj->Grandparents->mothersFamilyCount): ?>
+                            <div id="extended_family_m">
+                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->Grandparents->mothersFamilyCount) ?></h4>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->Grandparents->fatherAndMotherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->Grandparents->motherFamily as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -94,6 +94,91 @@
             </div>
         <?php endif ?>
 
+        <?php if ( $extfam_obj->showFamilyPart['parents'] ): ?>
+            <div class="hh-extended-family-parents">
+                <?php if ($extfam_obj->Parents->allCount): ?>
+                    <h2><?= I18N::translate('Parents') ?></h2>
+                    <?php if ($extfam_obj->Parents->allCount == 1): ?>
+                        <?php if ($extfam_obj->Parents->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one mother recorded.', $extfam_obj->Self->niceName) ?></h3>
+                        <?php else: ?>
+                            <?php if ($extfam_obj->Parents->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one father recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php else: ?>
+                                <h3><?= I18N::translate('%s has one parent recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php else: ?>
+                        <?php if ($extfam_obj->Parents->maleCount == 0): ?>
+                            <h3><?= I18N::translate('%s has %d mothers recorded.', $extfam_obj->Self->niceName, $extfam_obj->Parents->femaleCount) ?></h3>
+                        <?php else: ?>
+                            <?php if ($extfam_obj->Parents->femaleCount == 0): ?>
+                                <h3><?= I18N::translate('%s has %d fathers recorded.', $extfam_obj->Self->niceName, $extfam_obj->Parents->maleCount) ?></h3>
+                            <?php else: ?>
+                                <h3><?= I18N::plural('%2$s has %1$d father and ', '%2$s has %1$d fathers and ', $extfam_obj->Parents->maleCount, $extfam_obj->Parents->maleCount, $extfam_obj->Self->niceName) ?>
+                                    <?= I18N::plural('%d mother recorded (%d in total).', '%d mothers recorded (%d in total).', $extfam_obj->Parents->femaleCount, $extfam_obj->Parents->femaleCount, $extfam_obj->Parents->allCount) ?></h3>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php endif ?>
+                    <div id="hh_extended_family_content">
+                        <?php if ($extfam_obj->Parents->fathersFamilyCount): ?>
+                            <div id="extended_family_f">
+                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->Parents->fathersFamilyCount) ?></h4>
+                                <?php $i = 1; ?>
+                                <?php  foreach ($extfam_obj->Parents->fatherFamily as $indi) : ?>
+                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                        <span class="extended_family_counter"><?= $i ?> </span>
+                                        <?php if ($indi->canShow()): ?>
+                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                        <?php else: ?>
+                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
+                                        <?php endif ?>
+                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>    
+                        <?php endif ?>
+                        <?php if ($extfam_obj->Parents->fathersAndMothersFamilyCount): ?>
+                            <div id="extended_family_fm">
+                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->Parents->fathersAndMothersFamilyCount)?></h4>
+                                <?php $i = 1; ?>
+                                <?php  foreach ($extfam_obj->Parents->fatherAndMotherFamily as $indi) : ?>
+                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                        <span class="extended_family_counter"><?= $i ?> </span>
+                                        <?php if ($indi->canShow()): ?>
+                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                        <?php else: ?>
+                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
+                                        <?php endif ?>
+                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>
+                        <?php endif ?>
+                        <?php if ($extfam_obj->Parents->mothersFamilyCount): ?>
+                            <div id="extended_family_m">
+                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->Parents->mothersFamilyCount) ?></h4>
+                                <?php $i = 1; ?>
+                                <?php  foreach ($extfam_obj->Parents->motherFamily as $indi) : ?>
+                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                        <span class="extended_family_counter"><?= $i ?> </span>
+                                        <?php if ($indi->canShow()): ?>
+                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                        <?php else: ?>
+                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
+                                        <?php endif ?>
+                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>
+                        <?php endif ?>
+                    </div>
+                <?php else: ?>
+                    <h3><?= I18N::translate('%s has no parents recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
+        
         <?php if ( $extfam_obj->showFamilyPart['uncles_and_aunts'] ): ?>
             <div class="hh-extended-family-uncles-aunts">
                 <?php if ($extfam_obj->UnclesAunts->allCount): ?>
@@ -143,28 +228,6 @@
                                 <?php $i++; endforeach ?>
                             </div>    
                         <?php endif ?>
-                        <?php if ($extfam_obj->UnclesAunts->mothersFamilyCount): ?>
-                            <div id="extended_family_m">
-                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->UnclesAunts->mothersFamilyCount) ?></h4>
-                                <?php $prev_fam_id = '-1'; ?>
-                                <?php  foreach ($extfam_obj->UnclesAunts->motherFamily as $indi) : ?>
-                                    <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
-                                        <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
-                                        <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
-                                    <?php endif ?>
-                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
-                                        <span class="extended_family_counter"><?= $i ?> </span>
-                                        <?php if ($indi->canShow()): ?>
-                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
-                                        <?php else: ?>
-                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
-                                        <?php endif ?>
-                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
-                                        <span class="extended_family_pedi"><?= $module_obj->getChildLabel($indi) ?></span>
-                                    </div>
-                                <?php $i++; endforeach ?>
-                            </div>
-                        <?php endif ?>
                         <?php if ($extfam_obj->UnclesAunts->fathersAndMothersFamilyCount): ?>
                             <div id="extended_family_fm">
                                 <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->UnclesAunts->fathersAndMothersFamilyCount)?></h4>
@@ -187,9 +250,134 @@
                                 <?php $i++; endforeach ?>
                             </div>
                         <?php endif ?>
+                        <?php if ($extfam_obj->UnclesAunts->mothersFamilyCount): ?>
+                            <div id="extended_family_m">
+                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->UnclesAunts->mothersFamilyCount) ?></h4>
+                                <?php $prev_fam_id = '-1'; ?>
+                                <?php  foreach ($extfam_obj->UnclesAunts->motherFamily as $indi) : ?>
+                                    <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
+                                        <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
+                                        <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
+                                    <?php endif ?>
+                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                        <span class="extended_family_counter"><?= $i ?> </span>
+                                        <?php if ($indi->canShow()): ?>
+                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                        <?php else: ?>
+                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
+                                        <?php endif ?>
+                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                        <span class="extended_family_pedi"><?= $module_obj->getChildLabel($indi) ?></span>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>
+                        <?php endif ?>
                     </div>
                 <?php else: ?>
                     <h3><?= I18N::translate('%s has no uncles or aunts recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
+        
+        
+        <?php if ( $extfam_obj->showFamilyPart['siblings'] ): ?>
+            <div class="hh-extended-family-siblings">
+                <?php if ($extfam_obj->Siblings->allCount): ?>
+                    <h2><?= I18N::translate('Siblings') ?></h2>
+                    <?php if ($extfam_obj->Siblings->allCount == 1): ?>
+                        <?php if ($extfam_obj->Siblings->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one sister recorded.', $extfam_obj->Self->niceName) ?></h3>
+                        <?php else: ?>
+                            <?php if ($extfam_obj->Siblings->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one brother recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php else: ?>
+                                <h3><?= I18N::translate('%s has one brother or sister recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php else: ?>
+                        <?php if ($extfam_obj->Siblings->maleCount == 0): ?>
+                            <h3><?= I18N::translate('%s has %d sisters recorded.', $extfam_obj->Self->niceName, $extfam_obj->Siblings->femaleCount) ?></h3>
+                        <?php else: ?>
+                            <?php if ($extfam_obj->Siblings->femaleCount == 0): ?>
+                                <h3><?= I18N::translate('%s has %d brothers recorded.', $extfam_obj->Self->niceName, $extfam_obj->Siblings->maleCount) ?></h3>
+                            <?php else: ?>
+                                <h3><?= I18N::plural('%2$s has %1$d brother and ', '%2$s has %1$d brothers and ', $extfam_obj->Siblings->maleCount, $extfam_obj->Siblings->maleCount, $extfam_obj->Self->niceName) ?>
+                                    <?= I18N::plural('%d sister recorded (%d in total).', '%d sisters recorded (%d in total).', $extfam_obj->Siblings->femaleCount, $extfam_obj->Siblings->femaleCount, $extfam_obj->Siblings->allCount) ?></h3>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php endif ?>
+                    <div id="hh_extended_family_content">
+                        <?php foreach ($extfam_obj->Siblings->families as $family): ?>
+                            <div id="extended_family_g">
+                                <h4><?= I18N::translate('Family with x / Family x and y') ?></h4>
+                                <?php $i = 1; ?>
+                                <?php  foreach ($family->members as $indi) : ?>
+                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                        <span class="extended_family_counter"><?= $i ?> </span>
+                                        <?php if ($indi->canShow()): ?>
+                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                        <?php else: ?>
+                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
+                                        <?php endif ?>
+                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>    
+                        <?php endforeach ?>
+                    </div>
+                <?php else: ?>
+                    <h3><?= I18N::translate('%s has no siblings recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
+        
+        <?php if ( $extfam_obj->showFamilyPart['spouses'] ): ?>
+            <div class="hh-extended-family-spouses">
+                <?php if ($extfam_obj->Spouses->allCount): ?>
+                    <h2><?= I18N::translate('Spouses') ?></h2>
+                    <?php if ($extfam_obj->Spouses->allCount == 1): ?>
+                        <?php if ($extfam_obj->Spouses->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one wife recorded.', $extfam_obj->Self->niceName) ?></h3>
+                        <?php else: ?>
+                            <?php if ($extfam_obj->Spouses->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one husband recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php else: ?>
+                                <h3><?= I18N::translate('%s has one spouse recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php else: ?>
+                        <?php if ($extfam_obj->Spouses->maleCount == 0): ?>
+                            <h3><?= I18N::translate('%s has %d wifes recorded.', $extfam_obj->Self->niceName, $extfam_obj->Spouses->femaleCount) ?></h3>
+                        <?php else: ?>
+                            <?php if ($extfam_obj->Spouses->femaleCount == 0): ?>
+                                <h3><?= I18N::translate('%s has %d husbands recorded.', $extfam_obj->Self->niceName, $extfam_obj->Spouses->maleCount) ?></h3>
+                            <?php else: ?>
+                                <h3><?= I18N::plural('%2$s has %1$d husband and ', '%2$s has %1$d husbands and ', $extfam_obj->Spouses->maleCount, $extfam_obj->Spouses->maleCount, $extfam_obj->Self->niceName) ?>
+                                    <?= I18N::plural('%d wife recorded (%d in total).', '%d wifes recorded (%d in total).', $extfam_obj->Spouses->femaleCount, $extfam_obj->Spouses->femaleCount, $extfam_obj->Spouses->allCount) ?></h3>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php endif ?>
+                    <div id="hh_extended_family_content">
+                        <?php foreach ($extfam_obj->Spouses->families as $family): ?>
+                            <div id="extended_family_g">
+                                <h4><?= I18N::translate('Family with x / Family x and y') ?></h4>
+                                <?php $i = 1; ?>
+                                <?php  foreach ($family->members as $indi) : ?>
+                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                        <span class="extended_family_counter"><?= $i ?> </span>
+                                        <?php if ($indi->canShow()): ?>
+                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                        <?php else: ?>
+                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
+                                        <?php endif ?>
+                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>    
+                        <?php endforeach ?>
+                    </div>
+                <?php else: ?>
+                    <h3><?= I18N::translate('%s has no spouses recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
                 <?php endif ?>
             </div>
         <?php endif ?>
@@ -243,28 +431,6 @@
                                 <?php $i++; endforeach ?>
                             </div>    
                         <?php endif ?>
-                        <?php if ($extfam_obj->Cousins->mothersFamilyCount): ?>
-                            <div id="extended_family_m">
-                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->Cousins->mothersFamilyCount) ?></h4>
-                                <?php $prev_fam_id = '-1'; ?>
-                                <?php  foreach ($extfam_obj->Cousins->motherFamily as $indi) : ?>
-                                    <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
-                                        <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
-                                        <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
-                                    <?php endif ?>
-                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
-                                        <span class="extended_family_counter"><?= $i ?> </span>
-                                        <?php if ($indi->canShow()): ?>
-                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
-                                        <?php else: ?>
-                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
-                                        <?php endif ?>
-                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
-                                        <span class="extended_family_pedi"><?= $module_obj->getChildLabel($indi) ?></span>
-                                    </div>
-                                <?php $i++; endforeach ?>
-                            </div>
-                        <?php endif ?>
                         <?php if ($extfam_obj->Cousins->fathersAndMothersFamilyCount): ?>
                             <div id="extended_family_fm">
                                 <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->Cousins->fathersAndMothersFamilyCount)?></h4>
@@ -287,49 +453,14 @@
                                 <?php $i++; endforeach ?>
                             </div>
                         <?php endif ?>
-                    </div>
-                <?php else: ?>
-                    <h3><?= I18N::translate('%s has no first cousins recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
-                <?php endif ?>
-            </div>
-        <?php endif ?>
-        
-        <?php if ( $extfam_obj->showFamilyPart['children'] ): ?>
-            <div class="hh-extended-family-children">
-                <?php if ($extfam_obj->Children->allCount): ?>
-                    <h2><?= I18N::translate('Children') ?></h2>
-                    <?php if ($extfam_obj->Children->allCount == 1): ?>
-                        <?php if ($extfam_obj->Children->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one daughter recorded.', $extfam_obj->Self->niceName) ?></h3>
-                        <?php else: ?>
-                            <?php if ($extfam_obj->Children->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one son recorded.', $extfam_obj->Self->niceName) ?></h3>
-                            <?php else: ?>
-                                <h3><?= I18N::translate('%s has one child recorded.', $extfam_obj->Self->niceName) ?></h3>
-                            <?php endif ?>
-                        <?php endif ?>
-                    <?php else: ?>
-                        <?php if ($extfam_obj->Children->maleCount == 0): ?>
-                            <h3><?= I18N::translate('%s has %d daughters recorded.', $extfam_obj->Self->niceName, $extfam_obj->Children->femaleCount) ?></h3>
-                        <?php else: ?>
-                            <?php if ($extfam_obj->Children->femaleCount == 0): ?>
-                                <h3><?= I18N::translate('%s has %d sons recorded.', $extfam_obj->Self->niceName, $extfam_obj->Children->maleCount) ?></h3>
-                            <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $extfam_obj->Children->maleCount, $extfam_obj->Children->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d daughter recorded (%d in total).', '%d daughters recorded (%d in total).', $extfam_obj->Children->femaleCount, $extfam_obj->Children->femaleCount, $extfam_obj->Children->allCount) ?></h3>
-                            <?php endif ?>
-                        <?php endif ?>
-                    <?php endif ?>
-                    <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->Children->families as $family): ?>
-                            <div id="extended_family_g">
-                                <h4><?= I18N::translate(/*'Family with x / Family x and y'*/'') ?></h4>
+                        <?php if ($extfam_obj->Cousins->mothersFamilyCount): ?>
+                            <div id="extended_family_m">
+                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->Cousins->mothersFamilyCount) ?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
-                                <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->Children->families[0]->members as $indi) : ?>
+                                <?php  foreach ($extfam_obj->Cousins->motherFamily as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
-                                        <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url());?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
+                                        <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
                                     <?php endif ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
@@ -339,13 +470,14 @@
                                             <span class="extended_family_name"><?= $indi->fullName() ?></span>
                                         <?php endif ?>
                                         <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                        <span class="extended_family_pedi"><?= $module_obj->getChildLabel($indi) ?></span>
                                     </div>
                                 <?php $i++; endforeach ?>
-                            </div>    
-                        <?php endforeach ?>
+                            </div>
+                        <?php endif ?>
                     </div>
                 <?php else: ?>
-                    <h3><?= I18N::translate('%s has no children recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
+                    <h3><?= I18N::translate('%s has no first cousins recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
                 <?php endif ?>
             </div>
         <?php endif ?>
@@ -405,6 +537,57 @@
                 <?php endif ?>
             </div>
         <?php endif ?>
+
+        <?php if ( $extfam_obj->showFamilyPart['children'] ): ?>
+            <div class="hh-extended-family-children">
+                <?php if ($extfam_obj->Children->allCount): ?>
+                    <h2><?= I18N::translate('Children') ?></h2>
+                    <?php if ($extfam_obj->Children->allCount == 1): ?>
+                        <?php if ($extfam_obj->Children->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one daughter recorded.', $extfam_obj->Self->niceName) ?></h3>
+                        <?php else: ?>
+                            <?php if ($extfam_obj->Children->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one son recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php else: ?>
+                                <h3><?= I18N::translate('%s has one child recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php else: ?>
+                        <?php if ($extfam_obj->Children->maleCount == 0): ?>
+                            <h3><?= I18N::translate('%s has %d daughters recorded.', $extfam_obj->Self->niceName, $extfam_obj->Children->femaleCount) ?></h3>
+                        <?php else: ?>
+                            <?php if ($extfam_obj->Children->femaleCount == 0): ?>
+                                <h3><?= I18N::translate('%s has %d sons recorded.', $extfam_obj->Self->niceName, $extfam_obj->Children->maleCount) ?></h3>
+                            <?php else: ?>
+                                <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $extfam_obj->Children->maleCount, $extfam_obj->Children->maleCount, $extfam_obj->Self->niceName) ?>
+                                    <?= I18N::plural('%d daughter recorded (%d in total).', '%d daughters recorded (%d in total).', $extfam_obj->Children->femaleCount, $extfam_obj->Children->femaleCount, $extfam_obj->Children->allCount) ?></h3>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php endif ?>
+                    <div id="hh_extended_family_content">
+                        <?php foreach ($extfam_obj->Children->families as $family): ?>
+                            <div id="extended_family_g">
+                                <h4><?= I18N::translate('Family with x / Family x and y') ?></h4>
+                                <?php $i = 1; ?>
+                                <?php  foreach ($family->members as $indi) : ?>
+                                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                        <span class="extended_family_counter"><?= $i ?> </span>
+                                        <?php if ($indi->canShow()): ?>
+                                            <span class="extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                        <?php else: ?>
+                                            <span class="extended_family_name"><?= $indi->fullName() ?></span>
+                                        <?php endif ?>
+                                        <span class="extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                    </div>
+                                <?php $i++; endforeach ?>
+                            </div>    
+                        <?php endforeach ?>
+                    </div>
+                <?php else: ?>
+                    <h3><?= I18N::translate('%s has no children recorded.', $extfam_obj->Self->indi->fullName()) ?></h3>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
         
         <?php if ( $extfam_obj->showFamilyPart['grandchildren'] ): ?>
             <div class="hh-extended-family-grandchildren">
@@ -435,10 +618,10 @@
                     <div id="hh_extended_family_content">
                         <?php foreach ($extfam_obj->Grandchildren->families as $family): ?>
                             <div id="extended_family_g">
-                                <h4><?= I18N::translate(/*'Family with x / Family x and y'*/'') ?></h4>
+                                <h4><?= I18N::translate('Family with x / Family x and y') ?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->Grandchildren->families[0]->members as $indi) : ?>
+                                <?php  foreach ($family->members as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                         <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url());?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
