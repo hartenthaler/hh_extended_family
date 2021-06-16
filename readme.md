@@ -40,10 +40,10 @@ The readme contains the following main sections:
 ## Screenshots
 
 Screenshot of module
-<p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="67%"></p>
+<p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="80%"></p>
 
 Screenshot of control panel menu
-<p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="67%"></p>
+<p align="center"><img src="screenshot_control_panel.png" alt="Screenshot control panel" align="center" width="40%"></p>
 
 <a name="Requirements"></a>
 
