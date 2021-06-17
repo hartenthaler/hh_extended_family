@@ -69,7 +69,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.18';
+    public const CUSTOM_VERSION = '2.0.16.19';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -598,7 +598,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         $found = 0;
    
-        foreach ($extendedFamilyPart->families as $famobj) {
+        foreach ($extendedFamilyPart->families as $famobj) {        // check if individual is already a member of this part of the exetnded family        
             foreach ($famobj->members as $member) {
                 if ($member == $individual) {
                     $found = 1;
@@ -610,7 +610,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         }
         
         if ($found == 0) {                                          // individual has to be added 
-            foreach ($extendedFamilyPart->families as $famobj) {
+            foreach ($extendedFamilyPart->families as $famobj) {    // check if this family is already stored in this part of the extended family
                 if ($famobj->family == $family) {
                     $famkey = key($extendedFamilyPart->families);
                     //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->families[$famkey]->family->xref() . '); ';
@@ -762,9 +762,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function niceName(Individual $individual): string
     {
-        // an individual can have many names (we use only the first one) or no name
+        // an individual can have no name or many names (then we use only the first one)
         $name_facts = $individual->facts(['NAME']);
-        if (count($name_facts) > 0) {       // check if there is at least one name            
+        if (count($name_facts) > 0) {                       // check if there is at least one name            
             $nickname = $name_facts[0]->attribute('NICK');
             if ($nickname !== '') {
                 $nice = $nickname;
@@ -774,9 +774,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     $nice = $rn;
                 } else {
                     $givensurnames = explode('/', $name_facts[0]->value());
-                    if ($givensurnames[0] !== '') {     // are there given names?
+                    if ($givensurnames[0] !== '') {         // are there given names?
                         $givennameparts = explode( ' ', $givensurnames[0]);
-                        $nice = $givennameparts[0];     // this is the first given name
+                        $nice = $givennameparts[0];         // this is the first given name
                     } else {
                         $surname = $givensurnames[1];
                         if ($surname !== '') {
@@ -803,7 +803,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function getChildLabel(Individual $individual): string
     {
         if (preg_match('/\n1 FAMC @' . $individual->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $individual->gedcom(), $match)) {
-            // A specified pedigree
+            // a specified pedigree
             return GedcomCodePedi::getValue($match[1],$individual->getInstance($individual->xref(),$individual->tree()));
         }
 
@@ -1063,6 +1063,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         // If you had .MO files, you could use them with:
         // return (new Translation('path/to/file.mo'))->asArray();
         switch ($language) {
+            case 'cs':
+                return $this->czechTranslations();
             case 'da':
                 return $this->danishTranslations();
             case 'de':
@@ -1088,6 +1090,137 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 return [];
         }
     }
+
+    /**
+     * @return array
+     */
+    protected function czechTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Extended family' => 'Širší rodina',
+            'A tab showing the extended family of an individual.' => 'Panel širší rodiny dané osoby.',
+            'Are these parts of the extended family to be shown?' => 'Mají se tyto části širší rodiny zobrazit?',
+            'He' => 'on', // Kontext "Für ihn"
+            'She' => 'ona', // Kontext "Für sie"
+            'He/she' => 'on/ona', // Kontext "Für ihn/sie"
+            'Mr.' => 'Pan', // Kontext "Für Herrn xxx"
+            'Mrs.' => 'Paní', // Kontext "Für Frau xxx"
+            'No family available' => 'Rodina chybí',
+            'Father\'s family (%d)' => 'Otcova rodina (%d)',
+            'Mother\'s family (%d)' => 'Matčina rodina (%d)',
+            'Father\'s and Mother\'s family (%d)' => 'Otcova a matčina rodina (%d)',
+
+            'Grandparents' => 'Prarodiče',
+            '%s has no grandparents recorded.' => '%s zde nemá žádné prarodiče.',
+            '%s has one grandmother recorded.' => '%s má jednu bábu.',
+            '%s has one grandfather recorded.' => '%s má jednoho děda.',
+            '%s has one grandparent recorded.' => '%s má jednoho prarodiče.',
+            '%s has %d grandmothers recorded.' => '%s má %d báby.',
+            '%s has %d grandfathers recorded.' => '%s má %d dědy.',
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
+                => '%2$s má %1$d děda a ' . I18N::PLURAL . '%2$s má %1$d dědy a ' . I18N::PLURAL . '%2$s má %1$d dědů a ',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+                => '%d bábu (celkem %d).' . I18N::PLURAL . '%d báby (celkem %d).' . I18N::PLURAL . '%d bab (celkem %d).',
+
+            'Parents' => 'Rodiče',
+            '%s has no parents recorded.' => '%s zde nemá žádné rodiče.',
+            '%s has one mother recorded.' => '%s má jednu matku.',
+            '%s has one father recorded.' => '%s má jednoho otce.',
+            '%s has one grandparent recorded.' => '%s má jednoho rodiče.',
+            '%s has %d mothers recorded.' => '%s má %d matky.',
+            '%s has %d fathers recorded.' => '%s má %d otce.',
+            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
+                => '%2$s má %1$d otce a ' . I18N::PLURAL . '%2$s má %1$d otce a ' . I18N::PLURAL . '%2$s má %1$d otců a ',
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
+                => '%d matku (celkem %d).' . I18N::PLURAL . '%d matky (celkem %d).' . I18N::PLURAL . '%d matek (celkem %d).',
+
+            'Uncles and Aunts' => 'Strýcové a tety',
+            '%s has no uncles or aunts recorded.' => '%s zde nemá žádné strýce ani tety.',
+            '%s has one aunt recorded.' => '%s má jednu tetu.',
+            '%s has one uncle recorded.' => '%s má jednoho strýce.',
+            '%s has one uncle or aunt recorded.' => '%s jednoho strýce nebo jednu tetu.',
+            '%s has %d aunts recorded.' => '%s má %d tety.',
+            '%s has %d uncles recorded.' => '%s má %d strýce.',
+            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
+                => '%2$s má %1$d strýce a ' . I18N::PLURAL . '%2$s má %1$d strýce a ' . I18N::PLURAL . '%2$s má %1$d strýců a ',
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d tetu (celkem %d).' . I18N::PLURAL . '%d tety (celkem %d).' . I18N::PLURAL . '%d tet (celkem %d).', 
+
+            'Siblings' => 'Sourozenci',
+            '%s has no siblings recorded.' => '%s zde nemá žádné sourozence.',
+            '%s has one sister recorded.' => '%s má jednu sestru.',
+            '%s has one brother recorded.' => '%s má jednoho bratra.',
+            '%s has one brother or sister recorded.' => '%s má jednoho sourozence.',
+            '%s has %d sisters recorded.' => '%s má %d sestry.',
+            '%s has %d brothers recorded.' => '%s má %d bratry.',
+            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
+                => '%2$s má %1$d bratra a ' . I18N::PLURAL . '%2$s má %1$d bratry a ' . I18N::PLURAL . '%2$s má %1$d bratrů a ',
+            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
+                => '%d sestru (celkem %d).' . I18N::PLURAL . '%d sestry (celkem %d).' . I18N::PLURAL . '%d sester (celkem %d).',
+                                
+            'Partners' => 'Partneři',
+            '%s has no partners recorded.' => '%s zde nemá žádného partnera.',
+            '%s has one female partner recorded.' => '%s má jednu manželku.',
+            '%s has one male partner recorded.' => '%s má jednoho manžela.',
+            '%s has one partner recorded.' => '%s má jednoho partnera.',
+            '%s has %d female partners recorded.' => '%s má %d manželky.',
+            '%s has %d male partners recorded.' => '%s má %d manžele.',
+            '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
+                => '%2$s má %1$d manžela a ' . I18N::PLURAL . '%2$s má %1$d manžely a ' . I18N::PLURAL . '%2$s má %1$d manželů a ',
+            '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
+                => '%d manželku (celkem %d).' . I18N::PLURAL . '%d manželky (celkem %d).' . I18N::PLURAL . '%d manželek (celkem %d).',
+
+            'Cousins' => 'Bratranci a sestřenice',
+            '%s has no first cousins recorded.' => '%s zde nemá žádné bratrance ani sestřenice.',
+            '%s has one female first cousin recorded.' => '%s má jednu sestřenici.',
+            '%s has one male first cousin recorded.' => '%s má jednoho bratrance.',
+            '%s has one first cousin recorded.' => '%s má jednoho bratrance příp. jednu sestřenici.',
+            '%s has %d female first cousins recorded.' => '%s má %d sestřenice.',
+            '%s has %d male first cousins recorded.' => '%s má %d bratrance.',
+            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
+                => '%2$s má %1$d bratrance a ' . I18N::PLURAL . '%2$s má %1$d bratrance a ' . I18N::PLURAL . '%2$s má %1$d bratranců a ',
+            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
+                => '%d sestřenici (celkem %d).' . I18N::PLURAL . '%d sestřenice (celkem %d).' . I18N::PLURAL . '%d sestřenic (celkem %d).',
+                
+            'Nephews and Nieces' => 'Synovci a neteře',
+            '%s has no nephews or nieces recorded.' => '%s zde nemá žádné synovce ani neteře.',
+            '%s has one niece recorded.' => '%s má jednu neteř.',
+            '%s has one nephew recorded.' => '%s má jednoho synovce.',
+            '%s has one nephew or niece recorded.' => '%s má jednoho synovce nebo jednu neteř.',
+            '%s has %d nieces recorded.' => '%s má %d neteře.',
+            '%s has %d nephews recorded.' => '%s má %d synovce.',
+            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
+                => '%2$s má %1$d synovce a ' . I18N::PLURAL . '%2$s má %1$d synovce a ' . I18N::PLURAL . '%2$s má %1$d synovců a ',
+            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
+                => '%d neteř (celkem %d).' . I18N::PLURAL . '%d neteře (celkem %d).' . I18N::PLURAL . '%d neteří (celkem %d).',
+
+            'Children' => 'Děti',
+            '%s has no children recorded.' => '%s zde nemá žádné děti.',
+            '%s has one daughter recorded.' => '%s má jednu dceru.',
+            '%s has one son recorded.' => '%s má jednoho syna.',
+            '%s has one child recorded.' => '%s má jedno dítě.',
+            '%s has %d daughters recorded.' => '%s má %d dcery.',
+            '%s has %d sons recorded.' => '%s má %d syny.',
+            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
+                => '%2$s má %1$d syna a ' . I18N::PLURAL . '%2$s má %1$d syny a ' . I18N::PLURAL . '%2$s má %1$d synů a ',
+            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
+                => '%d dceru (celkem %d).' . I18N::PLURAL . '%d dcery (celkem %d).' . I18N::PLURAL . '%d dcer (celkem %d).',
+
+            'Grandchildren' => 'Vnoučata',
+            '%s has no grandchildren recorded.' => '%s zde nemá žádná vnoučata.',
+            '%s has one female grandchild recorded.' => '%s má jednu vnučku.',
+            '%s has one male grandchild recorded.' => '%s má jednoho vnuka.',
+            '%s has one grandchild recorded.' => '%s má jedno vnouče.',
+            '%s has %d female grandchildren recorded.' => '%s má %d vnučky.',
+            '%s has %d male grandchildren recorded.' => '%s má %d vnuky.',
+            '%2$s has %1$d male grandchild and ' . I18N::PLURAL . '%2$s has %1$d male grandchildren and ' 
+                => '%2$s má %1$d vnuka a ' . I18N::PLURAL . '%2$s má %1$d vnuky a ' . I18N::PLURAL . '%2$s má %1$d vnuků a ',
+            '%d female grandchild recorded (%d in total).' . I18N::PLURAL . '%d female grandchildren recorded (%d in total).' 
+                => '%d vnučku (celkem %d).' . I18N::PLURAL . '%d vnučky (celkem %d).' . I18N::PLURAL . '%d vnuček (celkem %d).',            
+        ];
+    }
+
 
     /**
      * @return array
