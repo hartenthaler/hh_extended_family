@@ -82,7 +82,8 @@ If you like to translate the text fragments in this module, contact me, please!
 
 There are now, beside English and German translations to
 * dutch by @TheDutchJewel
-* czech (in progress)
+* czech by @jpretired
+
 
 <a name="Support"></a>
 
