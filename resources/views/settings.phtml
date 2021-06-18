@@ -9,13 +9,13 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
 <?= view('components/breadcrumbs', ['links' => [route(ControlPanel::class) => I18N::translate('Control panel'), $title]]) ?>
 
 <h1><?= $title ?></h1>
-<h3><?= I18N::translate('Are these parts of the extended family to be shown?') ?></h3>
 
 <div class="hh-extended-family mb-5">
     <form method="post">
         <?= csrf_field() ?>
         <input type="hidden" name="save" id="save" value="1">
 		
+        <h3><?= I18N::translate('Are these parts of the extended family to be shown?') ?></h3>
         <!-- grandparents -->
         <fieldset class="form-group">
             <div class="row">
@@ -64,10 +64,10 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Spouses') ?>
+                    <?= I18N::translate('Partners') ?>
                 </legend>
                 <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'spouses', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$spouses]) ?>
+                    <?= view('components/radios-inline', ['name' => 'partners', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$partners]) ?>
                 </div>
             </div>
         </fieldset>
@@ -116,6 +116,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
             </div>
         </fieldset>
 		
+        
         <button type="submit" class="btn btn-primary">
             <?= view('icons/save') ?>
             <?= I18N::translate('save') ?>
@@ -123,7 +124,3 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
     </form>
 </div>
 
-<?php View::push('javascript') ?>
-<script>
-</script>
-<?php View::endpush() ?>

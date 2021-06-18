@@ -69,7 +69,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.19';
+    public const CUSTOM_VERSION = '2.0.16.20';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -84,6 +84,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {      
 		$extfamObj = (object)[];
         $extfamObj->showFamilyPart = $this->showFamilyPart();
+        $extfamObj->showEmptyBlock = $this->showEmptyBlock();
 		$extfamObj->allCount = 0;
 		$extfamObj->Self = $this->getSelf( $individual );
 		
@@ -103,9 +104,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 			$extfamObj->Siblings = $this->getSiblings( $individual );
 			$extfamObj->allCount += $extfamObj->Siblings->allCount;
 		}
-        if ($extfamObj->showFamilyPart['spouses']) {                                // generation  0
-			$extfamObj->Spouses = $this->getSpouses( $individual );
-			$extfamObj->allCount += $extfamObj->Spouses->allCount;
+        if ($extfamObj->showFamilyPart['partners']) {                               // generation  0
+			$extfamObj->Partners = $this->getPartners( $individual );
+			$extfamObj->allCount += $extfamObj->Partners->allCount;
 		}
         if ($extfamObj->showFamilyPart['cousins']) {                                // generation  0
 			$extfamObj->Cousins = $this->getCousins( $individual );
@@ -349,31 +350,31 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
     
     /**
-     * Find spouses including spouses of spouses
+     * Find partners including partners of partners
      *
      * @param Individual $individual
      *
      * @return object
      */
-    private function getSpouses(Individual $individual): object
+    private function getPartners(Individual $individual): object
     {      
-        $SpousesObj = $this->initializedFamilyPartObject('descendants');
+        $PartnersObj = $this->initializedFamilyPartObject('descendants');
         
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
                     foreach ($family2->spouses() as $spouse2) {                                 // Gen  0 P
                         if ($spouse2 !== $individual) {
-                            $this->addIndividualToDescendantsFamily( $spouse2, $SpousesObj, $family1 );
+                            $this->addIndividualToDescendantsFamily( $spouse2, $PartnersObj, $family1 );
                         }
                     }
                 }
             }
         }
 
-        $this->addCountersToFamilyPartObject( $SpousesObj, 'descendants' );
+        $this->addCountersToFamilyPartObject( $PartnersObj, 'descendants' );
 
-        return $SpousesObj;
+        return $PartnersObj;
     }
     
     /**
@@ -979,17 +980,23 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function getAdminAction(ServerRequestInterface $request): ResponseInterface
     {
         $this->layout = 'layouts/administration';
+        $showEmptyBlocks = [
+            'always at standard location',
+            'collect messages about empty blocks at the end',
+            'never',
+        ];
 
         return $this->viewResponse($this->name() . '::settings', [
             'grandparents'          => $this->getPreference('grandparents'),
-            'parents'              => $this->getPreference('parents'),
+            'parents'               => $this->getPreference('parents'),
 			'uncles_and_aunts'      => $this->getPreference('uncles_and_aunts'),
             'siblings'              => $this->getPreference('siblings'),
-            'spouses'              => $this->getPreference('spouses'),
+            'partners'              => $this->getPreference('partners'),
             'cousins'               => $this->getPreference('cousins'),
             'nephews_and_nieces'    => $this->getPreference('nephews_and_nieces'),
             'children'              => $this->getPreference('children'),
             'grandchildren'         => $this->getPreference('grandchildren'),
+            'showEmptyBlocks'       => $showEmptyBlocks,
             'title'                 => $this->title(),
         ]);
     }
@@ -1008,7 +1015,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'parents',
             'uncles_and_aunts',
             'siblings',
-            'spouses',
+            'partners',
             'cousins',
             'nephews_and_nieces',
             'children',
@@ -1021,12 +1028,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             foreach ($preferencesfamilyparts as $familypart) {
                 $this->setPreference($familypart, $params[$familypart]);
 			}
+            $this->setPreference('showEmptyBlock', $params['showEmptyBlock']);
             FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
         }
 
         return redirect($this->getConfigLink());
     }
-
+    
     /**
      * parts of extended family which should be shown
      * set default values in case the settings are not stored in the database yet
@@ -1035,21 +1043,31 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function showFamilyPart(): array
     {    
-        // yes should be no and no should be yes, because I don't know how to set the default in settings.phtml radio buttons
 		$sp = [
-			'grandparents' 		    => !$this->getPreference('grandparents', '1'),
-            'parents' 		    => !$this->getPreference('parents', '1'),
-			'uncles_and_aunts'	    => !$this->getPreference('uncles_and_aunts', '1'),
-            'siblings' 		    => !$this->getPreference('siblings', '1'),
-            'spouses' 		    => !$this->getPreference('spouses', '1'),
-			'cousins'			    => !$this->getPreference('cousins', '1'),
-            'nephews_and_nieces'    => !$this->getPreference('nephews_and_nieces', '1'),
-            'children' 	            => !$this->getPreference('children', '1'),
-            'grandchildren' 	    => !$this->getPreference('grandchildren', '1'),
+			'grandparents' 		    => !$this->getPreference('grandparents', '0'),
+            'parents' 		        => !$this->getPreference('parents', '0'),
+			'uncles_and_aunts'	    => !$this->getPreference('uncles_and_aunts', '0'),
+            'siblings' 		        => !$this->getPreference('siblings', '0'),
+            'partners' 		        => !$this->getPreference('partners', '0'),
+			'cousins'			    => !$this->getPreference('cousins', '0'),
+            'nephews_and_nieces'    => !$this->getPreference('nephews_and_nieces', '0'),
+            'children' 	            => !$this->getPreference('children', '0'),
+            'grandchildren' 	    => !$this->getPreference('grandchildren', '0'),
 		];
         return $sp;
     }
-
+    
+    /**
+     * how should empty parts of the extended family be presented
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return array 
+     */
+    public function showEmptyBlock(): bool
+    {
+        return !$this->getPreference('showEmptyBlock', 'never');
+    }
+    
     /**
      * Additional/updated translations.
      *
@@ -1101,9 +1119,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Extended family' => 'Širší rodina',
             'A tab showing the extended family of an individual.' => 'Panel širší rodiny dané osoby.',
             'Are these parts of the extended family to be shown?' => 'Mají se tyto části širší rodiny zobrazit?',
-            'He' => 'on', // Kontext "Für ihn"
-            'She' => 'ona', // Kontext "Für sie"
-            'He/she' => 'on/ona', // Kontext "Für ihn/sie"
+            'He' => 'On', // Kontext "Für ihn"
+            'She' => 'Ona', // Kontext "Für sie"
+            'He/she' => 'On/ona', // Kontext "Für ihn/sie"
             'Mr.' => 'Pan', // Kontext "Für Herrn xxx"
             'Mrs.' => 'Paní', // Kontext "Für Frau xxx"
             'No family available' => 'Rodina chybí',
@@ -1161,15 +1179,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                                 
             'Partners' => 'Partneři',
             '%s has no partners recorded.' => '%s zde nemá žádného partnera.',
-            '%s has one female partner recorded.' => '%s má jednu manželku.',
-            '%s has one male partner recorded.' => '%s má jednoho manžela.',
+            '%s has one female partner recorded.' => '%s má jednu partnerku.',
+            '%s has one male partner recorded.' => '%s má jednoho partnera.',
             '%s has one partner recorded.' => '%s má jednoho partnera.',
-            '%s has %d female partners recorded.' => '%s má %d manželky.',
-            '%s has %d male partners recorded.' => '%s má %d manžele.',
+            '%s has %d female partners recorded.' => '%s má %d partnerky.',
+            '%s has %d male partners recorded.' => '%s má %d partnery.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
-                => '%2$s má %1$d manžela a ' . I18N::PLURAL . '%2$s má %1$d manžely a ' . I18N::PLURAL . '%2$s má %1$d manželů a ',
+                => '%2$s má %1$d partnera a ' . I18N::PLURAL . '%2$s má %1$d partnery a ' . I18N::PLURAL . '%2$s má %1$d partnerů a ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
-                => '%d manželku (celkem %d).' . I18N::PLURAL . '%d manželky (celkem %d).' . I18N::PLURAL . '%d manželek (celkem %d).',
+                => '%d partnerku (celkem %d).' . I18N::PLURAL . '%d partnerky (celkem %d).' . I18N::PLURAL . '%d partnerek (celkem %d).',
 
             'Cousins' => 'Bratranci a sestřenice',
             '%s has no first cousins recorded.' => '%s zde nemá žádné bratrance ani sestřenice.',
@@ -1209,18 +1227,19 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
             'Grandchildren' => 'Vnoučata',
             '%s has no grandchildren recorded.' => '%s zde nemá žádná vnoučata.',
-            '%s has one female grandchild recorded.' => '%s má jednu vnučku.',
-            '%s has one male grandchild recorded.' => '%s má jednoho vnuka.',
+            '%s has one granddaughter recorded.' => '%s má jednu vnučku.',
+            '%s has one grandson recorded.' => '%s má jednoho vnuka.',
             '%s has one grandchild recorded.' => '%s má jedno vnouče.',
-            '%s has %d female grandchildren recorded.' => '%s má %d vnučky.',
-            '%s has %d male grandchildren recorded.' => '%s má %d vnuky.',
-            '%2$s has %1$d male grandchild and ' . I18N::PLURAL . '%2$s has %1$d male grandchildren and ' 
+            '%s has %d granddaughter recorded.' . I18N::PLURAL . '%s has %d granddaughters recorded.'
+                => '%s má %d vnučku.' . I18N::PLURAL . '%s má %d vnučky.' . I18N::PLURAL . '%s má %d vnučků.',
+            '%s has %d grandson recorded.' . I18N::PLURAL . '%s has %d grandsons recorded.'
+                => '%s má %d vnuka.' . I18N::PLURAL . '%s má %d vnuky.' . I18N::PLURAL . '%s má %d vnuků.',
+            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
                 => '%2$s má %1$d vnuka a ' . I18N::PLURAL . '%2$s má %1$d vnuky a ' . I18N::PLURAL . '%2$s má %1$d vnuků a ',
-            '%d female grandchild recorded (%d in total).' . I18N::PLURAL . '%d female grandchildren recorded (%d in total).' 
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
                 => '%d vnučku (celkem %d).' . I18N::PLURAL . '%d vnučky (celkem %d).' . I18N::PLURAL . '%d vnuček (celkem %d).',            
         ];
     }
-
 
     /**
      * @return array
@@ -1359,15 +1378,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
             'Grandchildren' => 'Enkelkinder',
             '%s has no grandchildren recorded.' => 'Für %s sind keine Enkelkinder verzeichnet.',
-            '%s has one female grandchild recorded.' => 'Für %s ist ein weibliches Enkelkind verzeichnet.',
-            '%s has one male grandchild recorded.' => 'Für %s ist ein männliches Enkelkind verzeichnet.',
+            '%s has one granddaughter recorded.' => 'Für %s ist eine Enkeltochter verzeichnet.',
+            '%s has one grandson recorded.' => 'Für %s ist ein Enkelsohn verzeichnet.',
             '%s has one grandchild recorded.' => 'Für %s ist ein Enkelkind verzeichnet.',
-            '%s has %d female grandchildren recorded.' => 'Für %s sind %d weibliche Enkelkinder verzeichnet.',
-            '%s has %d male grandchildren recorded.' => 'Für %s sind %d männliche Enkelkinder verzeichnet.',
-            '%2$s has %1$d male grandchild and ' . I18N::PLURAL . '%2$s has %1$d male grandchildren and ' 
-                => 'Für %2$s sind %1$d männliches Enkelkind und ' . I18N::PLURAL . 'Für %2$s sind %1$d männliche Enkelkinder und ',
-            '%d female grandchild recorded (%d in total).' . I18N::PLURAL . '%d female grandchildren recorded (%d in total).' 
-                => '%d weibliches Enkelkind verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d weibliche Enkelkinder verzeichnet (insgesamt %d).',                
+            '%s has %d granddaughter recorded.' . I18N::PLURAL . '%s has %d granddaughters recorded.'
+                => 'Für %s ist %d Enkeltochter verzeichnet.' . I18N::PLURAL . 'Für %s sind %d Enkeltöchter verzeichnet.',
+            '%s has %d grandson recorded.' . I18N::PLURAL . '%s has %d grandsons recorded.'
+                => 'Für %s ist %d Enkelsohn verzeichnet.' . I18N::PLURAL . 'Für %s sind %d Enkelsöhne verzeichnet.',
+            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
+                => 'Für %2$s sind %1$d Enkelsohn und ' . I18N::PLURAL . 'Für %2$s sind %1$d Enkelsöhne und ',
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
+                => '%d Enkeltochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Enkeltöchter verzeichnet (insgesamt %d).',                
         ];
     }
 
@@ -1585,14 +1606,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 
             'Grandchildren' => 'Kleinkinderen',
             '%s has no grandchildren recorded.' => 'Voor %s zijn geen kleinkinderen geregistreerd.',
-            '%s has one female grandchild recorded.' => 'Voor %s is een kleindochter geregistreerd.',
-            '%s has one male grandchild recorded.' => 'Voor %s is een kleinzoon geregistreerd.',
+            '%s has one granddaughter recorded.' => 'Voor %s is een kleindochter geregistreerd.',
+            '%s has one grandson recorded.' => 'Voor %s is een kleinzoon geregistreerd.',
             '%s has one grandchild recorded.' => 'Voor %s is een kleinkind geregistreerd.',
-            '%s has %d female grandchildren recorded.' => 'Voor %s zijn %d kleindochters geregistreerd.',
-            '%s has %d male grandchildren recorded.' => 'Voor %s zijn %d kleinzoons geregistreerd.',
-            '%2$s has %1$d male grandchild and ' . I18N::PLURAL . '%2$s has %1$d male grandchildren and ' 
+            '%s has %d granddaughter recorded.' . I18N::PLURAL . '%s has %d granddaughters recorded.'
+                => 'Voor %s is %d kleindochter geregistreerd.' . I18N::PLURAL . 'Voor %s zijn %d kleindochters geregistreerd.',
+            '%s has %d grandson recorded.' . I18N::PLURAL . '%s has %d grandsons recorded.'
+                => 'Voor %s is %d kleinzoon geregistreerd.' . I18N::PLURAL . 'Voor %s zijn %d kleinzoons geregistreerd.',
+            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
                 => 'Voor %2$s zijn %1$d kleinzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzoons en ',
-            '%d female grandchild recorded (%d in total).' . I18N::PLURAL . '%d female grandchildren recorded (%d in total).' 
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
                 => '%d kleindochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d kleindochters geregistreerd (%d in totaal).',
         ];
     }
