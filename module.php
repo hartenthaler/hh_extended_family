@@ -69,7 +69,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.21';
+    public const CUSTOM_VERSION = '2.0.16.22';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -1040,7 +1040,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             foreach ($preferencesfamilyparts as $familypart) {
                 $this->setPreference($familypart, $params[$familypart]);
 			}
-            $this->setPreference('showEmptyBlock', $params['showEmptyBlock']);
+            //$this->setPreference('showEmptyBlock', $params['showEmptyBlock']);
             FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
         }
 
