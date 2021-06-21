@@ -69,7 +69,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.22';
+    public const CUSTOM_VERSION = '2.0.16.23';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -763,7 +763,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function niceName(Individual $individual): string
     {
-        $optionFullName = 0;                                                        // should be an option in control panel
+        $optionFullName = !$this->showShortName();
         if ($optionFullName) {
             $nice = $individual->fullname();
         } else {
@@ -1008,7 +1008,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'nephews_and_nieces'    => $this->getPreference('nephews_and_nieces'),
             'children'              => $this->getPreference('children'),
             'grandchildren'         => $this->getPreference('grandchildren'),
-            'showEmptyBlocks'       => $showEmptyBlocks,
+            'show_short_name'       => $this->getPreference('show_short_name'),
+            // 'showEmptyBlocks'       => $showEmptyBlocks,
             'title'                 => $this->title(),
         ]);
     }
@@ -1022,7 +1023,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function postAdminAction(ServerRequestInterface $request): ResponseInterface
     {
-        $preferencesfamilyparts = [
+        $preferences = [
             'grandparents',
             'parents',
             'uncles_and_aunts',
@@ -1032,15 +1033,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'nephews_and_nieces',
             'children',
             'grandchildren',
+            'show_short_name',
         ];
         $params = (array) $request->getParsedBody();
 
         // store the preferences in the database
         if ($params['save'] === '1') {
-            foreach ($preferencesfamilyparts as $familypart) {
-                $this->setPreference($familypart, $params[$familypart]);
+            foreach ($preferences as $preference) {
+                $this->setPreference($preference, $params[$preference]);
 			}
-            //$this->setPreference('showEmptyBlock', $params['showEmptyBlock']);
             FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
         }
 
@@ -1075,9 +1076,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return array 
      */
+    public function showShortName(): bool
+    {
+        return !$this->getPreference('show_short_name', '0');
+    }
+    
+    /**
+     * how should empty parts of the extended family be presented
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return array 
+     */
     public function showEmptyBlock(): bool
     {
-        return !$this->getPreference('showEmptyBlock', 'never');
+        return !$this->getPreference('show_empty_block', 'never');
     }
     
     /**
@@ -1131,6 +1143,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Extended family' => 'Širší rodina',
             'A tab showing the extended family of an individual.' => 'Panel širší rodiny dané osoby.',
             'Are these parts of the extended family to be shown?' => 'Mají se tyto části širší rodiny zobrazit?',
+            'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
+            'Show short name' => 'Zeige die Kurzform des Namens',
             'He' => 'On', // Kontext "Für ihn"
             'She' => 'Ona', // Kontext "Für sie"
             'He/she' => 'On/ona', // Kontext "Für ihn/sie"
@@ -1289,6 +1304,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Extended family' => 'Großfamilie',
             'A tab showing the extended family of an individual.' => 'Reiter zeigt die Großfamilie einer Person.',
             'Are these parts of the extended family to be shown?' => 'Sollen diese Teile der erweiterten Familie angezeigt werden?',
+            'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
+            'Show short name' => 'Zeige die Kurzform des Namens',
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
             'He/she' => 'ihn/sie', // Kontext "Für ihn/sie"
@@ -1533,6 +1551,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Extended family' => 'Uitgebreide familie',
             'A tab showing the extended family of an individual.' => 'Tab laat de uitgebreide familie van deze persoon zien.',
             'Are these parts of the extended family to be shown?' => 'Wilt u deze delen van de uitgebreide familie weergeven?',
+            'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
+            'Show short name' => 'Zeige die Kurzform des Namens',
             'He' => 'hem', // context "Für ihn/Voor ..."
             'She' => 'haar', // context "Für sie/Voor ..."
             'He/she' => 'hem/haar', // context "Für ihn/sie"
@@ -1549,9 +1570,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandfather recorded.' => 'Voor %s is een grootvader geregistreerd.',
             '%s has one grandparent recorded.' => 'Voor %s is een grootouder geregistreerd.',
             '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
-                => 'Für %2$s is %1$d grootmoeder geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d grootmoeders geregistreerd.',
+                => 'Voor %2$s is %1$d grootmoeder geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootmoeders geregistreerd.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
-                => 'Für %2$s is %1$d grootvader geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d grootvaders geregistreerd.',
+                => 'Voor %2$s is %1$d grootvader geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootvaders geregistreerd.',
             '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
                 => 'Voor %2$s zijn %1$d grootvader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootvaders en ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
@@ -1563,9 +1584,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one father recorded.' => 'Voor %s is een vader geregistreerd.',
             '%s has one parent recorded.' => 'Voor %s is een ouder geregistreerd.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.'
-                => 'Für %2$s is %1$d moeder geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d moeders geregistreerd.',
+                => 'Voor %2$s is %1$d moeder geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d moeders geregistreerd.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
-                => 'Für %2$s is %1$d vader geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d vaders geregistreerd.',
+                => 'Voor %2$s is %1$d vader geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders geregistreerd.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
                 => 'Voor %2$s zijn %1$d vader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders en ',
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
@@ -1577,9 +1598,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one uncle recorded.' => 'Voor %s is een oom geregistreerd.',
             '%s has one uncle or aunt recorded.' => 'Voor %s is een oom of tante geregistreerd.',
             '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
-                => 'Für %2$s is %1$d tante geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d tantes geregistreerd.',
+                => 'Voor %2$s is %1$d tante geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d tantes geregistreerd.',
             '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
-                => 'Für %2$s is %1$d oom geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d ooms geregistreerd.',
+                => 'Voor %2$s is %1$d oom geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms geregistreerd.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
                 => 'Voor %2$s zijn %1$d oom en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms en ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
@@ -1591,9 +1612,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one brother recorded.' => 'Voor %s is een broer geregistreerd.',
             '%s has one brother or sister recorded.' => 'Voor %s is een broer of zus geregistreerd.',
             '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
-                => 'Für %2$s is %1$d zus geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d zussen geregistreerd.',
+                => 'Voor %2$s is %1$d zus geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d zussen geregistreerd.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
-                => 'Für %2$s is %1$d broer geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d broers geregistreerd.',
+                => 'Voor %2$s is %1$d broer geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers geregistreerd.',
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
                 => 'Voor %2$s zijn %1$d broer en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers en ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
@@ -1605,9 +1626,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one male partner recorded.' => 'Voor %s is een partner geregistreerd.',
             '%s has one partner recorded.' => 'Voor %s is een partner geregistreerd.',
             '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
-                => 'Für %2$s is %1$d partner geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d partners geregistreerd.',
+                => 'Voor %2$s is %1$d partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners geregistreerd.',
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
-                => 'Für %2$s is %1$d partner geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d partners geregistreerd.',
+                => 'Voor %2$s is %1$d partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners geregistreerd.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
                 => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
@@ -1619,9 +1640,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one male first cousin recorded.' => 'Voor %s is een volle neef geregistreerd.',
             '%s has one first cousin recorded.' => 'Voor %s is een volle neef of nicht geregistreerd.',
             '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
-                => 'Für %2$s is %1$d volle nicht geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d volle nichten geregistreerd.',
+                => 'Voor %2$s is %1$d volle nicht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle nichten geregistreerd.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
-                => 'Für %2$s is %1$d volle neef geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d volle neven geregistreerd.',
+                => 'Voor %2$s is %1$d volle neef geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle neven geregistreerd.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
                 => 'Voor %2$s zijn %1$d volle neef en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle neven en ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
@@ -1633,9 +1654,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one nephew recorded.' => 'Voor %s is een neefje geregistreerd.',
             '%s has one nephew or niece recorded.' => 'Voor %s is een neefje of nichtje geregistreerd.',
             '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
-                => 'Für %2$s is %1$d nichtje geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d nichtjes geregistreerd.',
+                => 'Voor %2$s is %1$d nichtje geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d nichtjes geregistreerd.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
-                => 'Für %2$s is %1$d neefje geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d neefjes geregistreerd.',
+                => 'Voor %2$s is %1$d neefje geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d neefjes geregistreerd.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
                 => 'Voor %2$s zijn %1$d neefje en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d neefjes en ',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
@@ -1647,9 +1668,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one son recorded.' => 'Voor %s is een zoon geregistreerd.',
             '%s has one child recorded.' => 'Voor %s is een kind geregistreerd.',
             '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
-                => 'Für %2$s is %1$d dochter geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d dochters geregistreerd.',
+                => 'Voor %2$s is %1$d dochter geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d dochters geregistreerd.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
-                => 'Für %2$s is %1$d zoon geregistreerd.' . I18N::PLURAL . 'Für %2$s zijn %1$d zonen geregistreerd.',
+                => 'Voor %2$s is %1$d zoon geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d zonen geregistreerd.',
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
                 => 'Voor %2$s zijn %1$d zoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d zonen en ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 

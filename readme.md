@@ -18,6 +18,7 @@ This module version is derived from vytux_cousins. There are additional features
 * beside father's and mother's family, now there can be a third category "father's and mother's family" if members of the extended family are related to both sides
 * count separately for each sex (this supports translation if there are for example different words for male and female cousins)
 * new text added if there is a family but no members in a part of the extended family (e.g. "... has no first cousins recorded.")
+* name of proband can be full name or a short version (option in control panel)
 * tab is greyed out if the extended family is empty
 
 <a name="Contents"></a>

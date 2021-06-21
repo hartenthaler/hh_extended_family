@@ -116,6 +116,19 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
             </div>
         </fieldset>
 		
+        <h3><?= I18N::translate('Show name of proband as short name or as full name?') ?></h3>
+        <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
+        <!-- nice_name -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show short name') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_short_name', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_short_name]) ?>
+                </div>
+            </div>
+        </fieldset>
         
         <button type="submit" class="btn btn-primary">
             <?= view('icons/save') ?>
