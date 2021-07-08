@@ -1283,6 +1283,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
             'Show short name' => 'Zeige die Kurzform des Namens',
+            
             'He' => 'On', // Kontext "Für ihn"
             'She' => 'Ona', // Kontext "Für sie"
             'He/she' => 'On/ona', // Kontext "Für ihn/sie"
@@ -1712,12 +1713,21 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Show name of proband as short name or as full name?' => 'Naam van proband weergeven als korte naam of als volledige naam?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'De korte naam is gebaseerd op de roepnaam of bijnaam van de proband. Als deze niet beschikbaar zijn, wordt de eerste van de voornamen gebruikt, als er een is opgegeven. Anders wordt de achternaam gebruikt.',
             'Show short name' => 'Korte naam weergeven',
+            'How should empty parts of extended family be presented?' => 'Hoe moeten lege onderdelen van de uitgebreide familie worden weergegeven?',
+            'Show empty block' => 'Leeg blok weergeven',
+            'yes, always at standard location' => 'ja, altijd op de standaardlocatie',
+            'no, but collect messages about empty blocks at the end' => 'nee, maar verzamel berichten over lege blokken aan het eind',
+            'never' => 'nooit',
+            
             'He' => 'hem', // context "Für ihn/Voor ..."
             'She' => 'haar', // context "Für sie/Voor ..."
             'He/she' => 'hem/haar', // context "Für ihn/sie"
             'Mr.' => 'de heer', // context "Für Herrn xxx"
             'Mrs.' => 'mevrouw', // context "Für Frau xxx" `
             'No family available' => 'Geen familie gevonden',
+            'Parts of extended family without recorded information' => 'Onderdelen van uitgebreide familie zonder geregistreerde informatie',
+            '%s has no %s recorded.' => 'Voor %s zijn geen %s geregistreerd.',
+            '%s has no %s, and no %s recorded.' => 'Voor %s zijn geen %s en geen %s geregistreerd.',
             'Father\'s family (%d)' => 'Familie van de vader (%d)',
             'Mother\'s family (%d)' => 'Familie van de moeder (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Familie van de vader en de moeder (%d)',
@@ -1929,14 +1939,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandmother recorded.' => '%s має запис про одну бабусю.',
             '%s has one grandfather recorded.' => '%s має запис про одного дідуся.',
             '%s has one grandparent recorded.' => '%s має запис про одного дідуся чи бабусю.',
-            '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
-                => '%2$s має %1$d запис бабусі.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.',
-            '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
-                => '%2$s має %1$d запис дідуся.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.',
-            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
-                => '%2$s має %1$d запис дідуся та ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ',
-            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
-                => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).',
+            '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.' => '%2$s має %1$d запис бабусі.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.',
+            '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.' => '%2$s має %1$d запис дідуся.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.',
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' => '%2$s має %1$d запис дідуся та ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).',
+
 
             'Parents' => 'Батьки',
             '%s has no parents recorded.' => '%s не має записів батьків.',
@@ -2062,19 +2069,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         // Note the special characters used in plural and context-sensitive translations.
         return [
             'Extended family' => 'Thông tin thêm về gia đình',
-            'has' => 'có',
-            'grandfather' => 'ông nội',
-            'grandmother' => 'bà nội',
             'A tab showing the extended family of an individual.' => 'Một bảng hiển thị gia đình mở rộng của một cá nhân.',
             'Are these parts of the extended family to be shown?' => 'Những phần này của đại gia đình có được hiển thị không?',
             'Show name of proband as short name or as full name?' => 'Hiển thị tên dưới dạng tên ngắn hay tên đầy đủ?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Tên viết tắt dựa  hoặc biệt danh. Nếu chúng không có sẵn, tên đầu tiên trong số các tên đã cho sẽ được sử dụng, nếu một tên được đưa ra. Nếu không, họ sẽ được sử dụng.',
             'Show short name' => 'Hiển thị tên rút gọn',
-            'He' => 'Anh', // Kontext "Für ihn"
-            'She' => 'Cô', // Kontext "Für sie"
-            'He/she' => 'Anh/Cô', // Kontext "Für ihn/sie"
-            'Mr.' => 'Ông', // Kontext "Für Herrn xxx"
-            'Mrs.' => 'Bà', // Kontext "Für Frau xxx"
+            
+            'He' => 'Anh',
+            'She' => 'Cô',
+            'He/she' => 'Anh/Cô',
+            'Mr.' => 'Ông',
+            'Mrs.' => 'Bà',
             'No family available' => 'Không có thông tin về gia đình',
             'Father\'s family (%d)' => 'Gia đình bên Bố (%d)',
             'Mother\'s family (%d)' => 'Gia đình bên Mẹ (%d)',
@@ -2089,9 +2094,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s có %1$d bà nội.' . I18N::PLURAL . '%2$s có %1$d bà nội.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
                 => '%2$s có %1$d ông nội.' . I18N::PLURAL . '%2$s có %1$d ông nội.',
-            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and '
                 => '%2$s có %1$d ông nội và ' . I18N::PLURAL . '%2$s có %1$d các ông nội và ',
-            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).'
                 => '%d bà nội (tổng %d).' . I18N::PLURAL . '%d các bà nội (tổng %d).',
             
             'Parents' => 'Bố mẹ',
@@ -2104,7 +2109,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s có %1$d bố.' . I18N::PLURAL . '%2$s má %1$d bố.' . I18N::PLURAL . '%2$s má %1$d những người bố.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
                 => '%2$s có %1$d bố và ' . I18N::PLURAL . '%2$s có %1$d bố và ' . I18N::PLURAL . '%2$s có %1$d những người bố ',
-            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).'
                 => '%d mẹ ( tổng %d).' . I18N::PLURAL . '%d các bà mẹ ( tổng %d).' . I18N::PLURAL . '%d các bà mẹ (tổng %d).',
 
             'Uncles and Aunts' => 'Bác/Chú và cô',
