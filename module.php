@@ -129,6 +129,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 		$extfamObj->efp->allCount = 0;
 		$extfamObj->Self = $this->getSelf( $individual );
 		
+        // tbd: harmonize uncles_and_aunts with UnclesAunts etc.
+        // tbd: use array instead of object, ie efp['grandparents' => $this->getGrandparents( $individual ) , ...] instead of efp->Grandparents, ...
+        // tbd: Schwager/Schwägerinnen, Schwiegereltern, Schwippschwager/Schwippschwägerinnen ergänzen
+        // tbd: Stiefcousins testen (siehe Onkel Walter)
         foreach ($efps as $efp) {
             if ($extfamObj->config->showFamilyPart[$efp]) {
                 switch ($efp) {
@@ -1898,20 +1902,28 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Extended family' => 'Розширена сім`я',
             'A tab showing the extended family of an individual.' => 'Додає вкладку з розширеним виглядом родини для картки персони',
             'Are these parts of the extended family to be shown?' => 'Чи будуть показані ці частини розширеної сім`ї?',
-            'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім'."'".'я об`єкту (пробанду)?',
-            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об'."'".'єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
+            'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об`єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
             'Show short name' => 'Показати коротку форму імені',
+            'How should empty parts of extended family be presented?' => 'Як відображати порожні блоки розширеної сім`ї?',
+            'Show empty block' => 'Показати пусті блоки',
+            'yes, always at standard location' => 'так, завжди на звичайному місці',
+            'no, but collect messages about empty blocks at the end' => 'ні, але збирати повідомлення про порожні блоки в кінці',
+            'never' => 'ніколи',
             'He' => 'йому', // Kontext "ihn"
             'She' => 'їй', // Kontext "sie"
             'He/she' => 'йому/їй', // Kontext "ihn/sie"
-            'Mr.' => 'Пана', // Kontext "Herrn xxx"
+            'Mr.' => 'Пан', // Kontext "Herrn xxx"
             'Mrs.' => 'Пані', // Kontext "Frau xxx"
             'No family available' => 'Не знайдено жодної сім`ї.',
+            'Parts of extended family without recorded information' => 'Частини розширеної сім`ї, що не містять записаної інформації',
+            '%s has no %s recorded.' => 'Для %s не записано %s.',
+            '%s has no %s, and no %s recorded.' => 'Для %s не записано %s і %s.',
             'Father\'s family (%d)' => 'Сім`я батька (%d)',
             'Mother\'s family (%d)' => 'Сім`я матері (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Сім`я батька і матері (%d)',
 
-            'Grandparents' => 'Бабуся і дідусь',
+            'Grandparents' => 'Бабусі і дідусі',
             '%s has no grandparents recorded.' => '%s не має жодного запису про бабусю чи дідуся.',
             '%s has one grandmother recorded.' => '%s має запис про одну бабусю.',
             '%s has one grandfather recorded.' => '%s має запис про одного дідуся.',
@@ -1920,7 +1932,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s має %1$d запис бабусі.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
                 => '%2$s має %1$d запис дідуся.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.',
-            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and '
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
                 => '%2$s має %1$d запис дідуся та ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).',
