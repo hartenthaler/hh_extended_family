@@ -89,7 +89,7 @@ There are now, beside English and German, translations to
 * dutch by @TheDutchJewel
 * ukrainian by @z-yurets
 * slovak by @ro-la
-* vietnamese by @ngohuuthuan (not finished yet)
+* vietnamese by @ngohuuthuan
 
 
 <a name="Support"></a>
