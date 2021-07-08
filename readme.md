@@ -21,7 +21,7 @@ This module version is derived from vytux_cousins. There are additional features
 
 The admin can decide in control panel 
 * which extended family parts should be shown
-* if name of proband is a full name or a short version
+* wheter the name of proband is a full name or a short version
 * how empty parts of extended family should be presented
 
 <a name="Contents"></a>
