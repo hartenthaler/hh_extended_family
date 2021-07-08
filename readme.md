@@ -88,6 +88,7 @@ There are now, beside English and German, translations to
 * czech by @jpretired
 * dutch by @TheDutchJewel
 * ukrainian by @z-yurets
+* slovak by @ro-la
 * vietnamese by @ngohuuthuan (not finished yet)
 
 
