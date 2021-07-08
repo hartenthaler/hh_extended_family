@@ -130,10 +130,22 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
             </div>
         </fieldset>
         
+        <h3><?= I18N::translate('How should empty parts of extended family be presented?') ?></h3>
+        <!-- show empty block -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show empty block') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/select', ['name' => 'show_empty_block', 'options' => [I18N::translate('yes, always at standard location'), I18N::translate('no, but collect messages about empty blocks at the end'), I18N::translate('never')], 'selected' => (int)$show_empty_block]) ?>
+                </div>
+            </div>
+        </fieldset>
+        
         <button type="submit" class="btn btn-primary">
             <?= view('icons/save') ?>
             <?= I18N::translate('save') ?>
         </button>
     </form>
 </div>
-

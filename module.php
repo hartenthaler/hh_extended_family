@@ -69,7 +69,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.23';
+    public const CUSTOM_VERSION = '2.0.16.24';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -79,51 +79,100 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @param Individual $individual
      *
      * @return object
+     *  ->Self->indi                                            object individual
+     *        ->niceName                                        string
+     *  ->efp->allCount                                         integer
+     *       ->summaryMessageEmptyBlocks                        string
+     *       ->Grandparents->father                             object individual
+     *                     ->mother                             object individual
+     *                     ->fatherFamily[]                     array of object individual 
+     *                     ->motherFamily[]                     array of object individual
+     *                     ->fatherAndMotherFamily[]            array of object individual    
+     *                     ->fathersFamilyCount                 integer
+     *                     ->mothersFamilyCount                 integer
+     *                     ->fathersAndMothersFamilyCount       integer    
+     *                     ->fathersMaleCount                   integer
+     *                     ->fathersFemaleCount                 integer
+     *                     ->mothersMaleCount                   integer
+     *                     ->mothersFemaleCount                 integer    
+     *                     ->fathersAndMothersMaleCount         integer
+     *                     ->fathersAndMothersFemaleCount       integer
+     *                     ->maleCount                          integer    
+     *                     ->femaleCount                        integer
+     *                     ->allCount                           integer
+     *                     ->partName                           string
+     *       ->Parents                                          see Grandparents
+     *       ->UnclesAunts                                      see Grandparents
+     *       ->Siblings                                         see NephewsNieces    
+     *       ->Partners                                         see NephewsNieces
+     *       ->Cousins                                          see Grandparents
+     *       ->NephewsNieces->families[]->members[]             array of object individual
+     *                                  ->family                object family
+     *                      ->maleCount                         integer    
+     *                      ->femaleCount                       integer
+     *                      ->allCount                          integer
+     *                      ->partName                          string
+     *       ->Children                                         see NephewsNieces
+     *       ->Grandchildren                                    see NephewsNieces
+     *  ->config->showFamilyPart[]                              array of bool
+     *          ->showEmptyBlock                                integer [0,1,2]
      */
     private function getExtendedFamily(Individual $individual): object
     {      
-		$extfamObj = (object)[];
-        $extfamObj->showFamilyPart = $this->showFamilyPart();
-        $extfamObj->showEmptyBlock = $this->showEmptyBlock();
-		$extfamObj->allCount = 0;
+		$efps = $this->listOfFamilyParts();
+        
+        $extfamObj = (object)[];
+        $extfamObj->efp = (object)[];
+        $extfamObj->config = (object)[];
+        $extfamObj->config->showFamilyPart = $this->showFamilyPart();
+        $extfamObj->config->showEmptyBlock = $this->showEmptyBlock();
+		$extfamObj->efp->allCount = 0;
 		$extfamObj->Self = $this->getSelf( $individual );
 		
-		if ($extfamObj->showFamilyPart['grandparents']) {                           // generation +2
-			$extfamObj->Grandparents = $this->getGrandparents( $individual );
-			$extfamObj->allCount += $extfamObj->Grandparents->allCount;
-		}
-        if ($extfamObj->showFamilyPart['parents']) {                                // generation +1
-			$extfamObj->Parents = $this->getParents( $individual );
-			$extfamObj->allCount += $extfamObj->Parents->allCount;
-		}
-        if ($extfamObj->showFamilyPart['uncles_and_aunts']) {                       // generation +1
-			$extfamObj->UnclesAunts = $this->getUnclesAunts( $individual );
-			$extfamObj->allCount += $extfamObj->UnclesAunts->allCount;
-		}
-        if ($extfamObj->showFamilyPart['siblings']) {                               // generation  0
-			$extfamObj->Siblings = $this->getSiblings( $individual );
-			$extfamObj->allCount += $extfamObj->Siblings->allCount;
-		}
-        if ($extfamObj->showFamilyPart['partners']) {                               // generation  0
-			$extfamObj->Partners = $this->getPartners( $individual );
-			$extfamObj->allCount += $extfamObj->Partners->allCount;
-		}
-        if ($extfamObj->showFamilyPart['cousins']) {                                // generation  0
-			$extfamObj->Cousins = $this->getCousins( $individual );
-			$extfamObj->allCount += $extfamObj->Cousins->allCount;
-		}
-        if ($extfamObj->showFamilyPart['nephews_and_nieces']) {                     // generation -1
-			$extfamObj->NephewsNieces = $this->getNephewsNieces( $individual );
-			$extfamObj->allCount += $extfamObj->NephewsNieces->allCount;
-		}
-        if ($extfamObj->showFamilyPart['children']) {                               // generation -1
-			$extfamObj->Children = $this->getChildren( $individual );
-			$extfamObj->allCount += $extfamObj->Children->allCount;
+        foreach ($efps as $efp) {
+            if ($extfamObj->config->showFamilyPart[$efp]) {
+                switch ($efp) {
+                    case 'grandparents':
+                        $extfamObj->efp->Grandparents = $this->getGrandparents( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->Grandparents->allCount;
+                        break;
+                    case 'parents':
+                        $extfamObj->efp->Parents = $this->getParents( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->Parents->allCount;
+                        break;
+                    case 'uncles_and_aunts':
+                        $extfamObj->efp->UnclesAunts = $this->getUnclesAunts( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->UnclesAunts->allCount;
+                        break;
+                    case 'siblings':
+                        $extfamObj->efp->Siblings = $this->getSiblings( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->Siblings->allCount;
+                        break;
+                    case 'partners':
+                        $extfamObj->efp->Partners = $this->getPartners( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->Partners->allCount;
+                        break;
+                    case 'cousins':
+                        $extfamObj->efp->Cousins = $this->getCousins( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->Cousins->allCount;
+                        break;
+                    case 'nephews_and_nieces':
+                        $extfamObj->efp->NephewsNieces = $this->getNephewsNieces( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->NephewsNieces->allCount;
+                        break;
+                    case 'children':
+                        $extfamObj->efp->Children = $this->getChildren( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->Children->allCount;
+                        break;
+                    case 'grandchildren':
+                        $extfamObj->efp->Grandchildren = $this->getGrandchildren( $individual );
+                        $extfamObj->efp->allCount += $extfamObj->efp->Grandchildren->allCount;
+                        break;
+                }
+            }
         }
-        if ($extfamObj->showFamilyPart['grandchildren']) {                          // generation -2
-			$extfamObj->Grandchildren = $this->getGrandchildren( $individual );
-			$extfamObj->allCount += $extfamObj->Grandchildren->allCount;
-		}
+        $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
+
        return $extfamObj;
     }
     
@@ -191,7 +240,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getGrandparents(Individual $individual): object
     {      
-        $GrandparentsObj = $this->initializedFamilyPartObject('ancestors');
+        $GrandparentsObj = $this->initializedFamilyPartObject('grandparents');
         
         if ($individual->childFamilies()->first()) {
             
@@ -202,7 +251,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->getGrandparentsOneSide( $GrandparentsObj, 'father');
             $this->getGrandparentsOneSide( $GrandparentsObj, 'mother');
              
-            $this->addCountersToFamilyPartObject( $GrandparentsObj, 'ancestors' );
+            $this->addCountersToFamilyPartObject( $GrandparentsObj );
         }
 
         return $GrandparentsObj;
@@ -244,7 +293,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getParents(Individual $individual): object
     {      
-        $ParentsObj = $this->initializedFamilyPartObject('ancestors');
+        $ParentsObj = $this->initializedFamilyPartObject('parents');
         
         if ($individual->childFamilies()->first()) {
             
@@ -255,7 +304,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->getParentsOneSide( $ParentsObj, 'father');
             $this->getParentsOneSide( $ParentsObj, 'mother');
              
-            $this->addCountersToFamilyPartObject( $ParentsObj, 'ancestors' );
+            $this->addCountersToFamilyPartObject( $ParentsObj  );
         }
 
         return $ParentsObj;
@@ -305,7 +354,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getUnclesAunts(Individual $individual): object
     {
-        $unclesAuntsObj = $this->initializedFamilyPartObject('ancestors');
+        $unclesAuntsObj = $this->initializedFamilyPartObject('uncles_and_aunts');
         
         if ($individual->childFamilies()->first()) {
             
@@ -315,7 +364,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'father');
             $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'mother');
            
-            $this->addCountersToFamilyPartObject( $unclesAuntsObj, 'ancestors' );
+            $this->addCountersToFamilyPartObject( $unclesAuntsObj );
         }
 
         return $unclesAuntsObj;
@@ -330,7 +379,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getSiblings(Individual $individual): object
     {      
-        $SiblingsObj = $this->initializedFamilyPartObject('descendants');
+        $SiblingsObj = $this->initializedFamilyPartObject('siblings');
         
         foreach ($individual->childFamilies() as $family1) {                                    // Gen  1 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
@@ -344,7 +393,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
 
-        $this->addCountersToFamilyPartObject( $SiblingsObj, 'descendants' );
+        $this->addCountersToFamilyPartObject( $SiblingsObj );
 
         return $SiblingsObj;
     }
@@ -358,7 +407,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getPartners(Individual $individual): object
     {      
-        $PartnersObj = $this->initializedFamilyPartObject('descendants');
+        $PartnersObj = $this->initializedFamilyPartObject('partners');
         
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
@@ -372,7 +421,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
 
-        $this->addCountersToFamilyPartObject( $PartnersObj, 'descendants' );
+        $this->addCountersToFamilyPartObject( $PartnersObj );
 
         return $PartnersObj;
     }
@@ -421,7 +470,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getCousins(Individual $individual): object
     {
-        $CousinsObj = $this->initializedFamilyPartObject('ancestors');
+        $CousinsObj = $this->initializedFamilyPartObject('cousins');
         
         if ($individual->childFamilies()->first()) {
             
@@ -431,7 +480,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->getCousinsOneSide( $CousinsObj, 'father');
             $this->getCousinsOneSide( $CousinsObj, 'mother');
              
-            $this->addCountersToFamilyPartObject( $CousinsObj, 'ancestors' );
+            $this->addCountersToFamilyPartObject( $CousinsObj );
         }
 
         return $CousinsObj;
@@ -446,7 +495,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getNephewsNieces(Individual $individual): object
     {      
-        $NephewsNiecesObj = $this->initializedFamilyPartObject('descendants');
+        $NephewsNiecesObj = $this->initializedFamilyPartObject('nephews_and_nieces');
           
         foreach ($individual->childFamilies() as $family1) {                                    // Gen  1 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
@@ -468,7 +517,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
           
-        $this->addCountersToFamilyPartObject( $NephewsNiecesObj, 'descendants' );
+        $this->addCountersToFamilyPartObject( $NephewsNiecesObj );
 
         return $NephewsNiecesObj;
     }
@@ -482,7 +531,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getChildren(Individual $individual): object
     {      
-        $ChildrenObj = $this->initializedFamilyPartObject('descendants');
+        $ChildrenObj = $this->initializedFamilyPartObject('children');
         
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
@@ -494,7 +543,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
 
-        $this->addCountersToFamilyPartObject( $ChildrenObj, 'descendants' );
+        $this->addCountersToFamilyPartObject( $ChildrenObj );
 
         return $ChildrenObj;
     }
@@ -508,7 +557,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getGrandchildren(Individual $individual): object
     {      
-        $GrandchildrenObj = $this->initializedFamilyPartObject('descendants');
+        $GrandchildrenObj = $this->initializedFamilyPartObject('grandchildren');
         
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
@@ -528,32 +577,73 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
             
-        $this->addCountersToFamilyPartObject( $GrandchildrenObj, 'descendants' );
+        $this->addCountersToFamilyPartObject( $GrandchildrenObj );
 
         return $GrandchildrenObj;
     }
     
     /**
+     * list of parts of extended family
+     *
+     * @return array
+     */
+    private function listOfFamilyParts(): array
+    {    
+        $efp = [
+            'grandparents',                             // generation +2
+            'parents',                                  // generation +1
+            'uncles_and_aunts',                         // generation +1
+            'siblings',                                 // generation  0
+            'partners',                                 // generation  0
+            'cousins',                                  // generation  0
+            'nephews_and_nieces',                       // generation -1
+            'children',                                 // generation -1
+            'grandchildren',                            // generation -2
+        ];
+        
+        return $efp;
+    }
+    
+    /**
      * initialize part of extended family (object contains arrays of individuals or families and several counter values)
      *
-     * @param string type of part of extended family ('ancestors', 'descendants')
+     * @param string name of part of extended family
      * @return initialized object
      */
-    private function initializedFamilyPartObject(string $type): object
+    private function initializedFamilyPartObject(string $partName): object
     {    
         $efpObj = (object)[];
+        $efpObj->partName = $partName;
+        $efpObj->allCount = 0;
         
-        if ($type == 'ancestors') {
+        if ($this->typeOfFamilyPart($partName) == 'ancestors') {
             $efpObj->fatherFamily = [];
             $efpObj->motherFamily = [];
             $efpObj->fatherAndMotherFamily = [];
-        } elseif ($type == 'descendants') {
+        } elseif ($this->typeOfFamilyPart($partName) == 'descendants') {
             $efpObj->families = [];
         }
         
-        $efpObj->allCount = 0;
-        
         return $efpObj;
+    }
+    
+    /**
+     * type of part of extended family
+     *
+     * @param name of part of extended family 
+     * @return string ['ancestors', 'descendants']
+     */
+    private function typeOfFamilyPart(string $partName): string
+    {       
+        switch ($partName) {
+            case 'grandparents':
+            case 'parents':
+            case 'uncles_and_aunts':
+            case 'cousins': 
+                return 'ancestors';
+            default:
+                return 'descendants';
+        }
     }
     
    /**
@@ -637,12 +727,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * count individuals per family (maybe including mother/father/motherAndFather families) and per sex
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param string type of part of extended family ('ancestors', 'descendants')
      */
-    private function addCountersToFamilyPartObject( object $extendedFamilyPart, string $type )
+    private function addCountersToFamilyPartObject( object $extendedFamilyPart )
     {
         
-        if ($type == 'ancestors') {
+        if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == 'ancestors') {
             $extendedFamilyPart->fathersFamilyCount = sizeof( $extendedFamilyPart->fatherFamily );
             $extendedFamilyPart->mothersFamilyCount = sizeof( $extendedFamilyPart->motherFamily );
             $extendedFamilyPart->fathersAndMothersFamilyCount = sizeof( $extendedFamilyPart->fatherAndMotherFamily );
@@ -662,7 +751,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $extendedFamilyPart->maleCount = $extendedFamilyPart->fathersMaleCount + $extendedFamilyPart->mothersMaleCount + $extendedFamilyPart->fathersAndMothersMaleCount;
             $extendedFamilyPart->femaleCount = $extendedFamilyPart->fathersFemaleCount + $extendedFamilyPart->mothersFemaleCount + $extendedFamilyPart->fathersAndMothersFemaleCount;
             $extendedFamilyPart->allCount = $extendedFamilyPart->fathersFamilyCount + $extendedFamilyPart->mothersFamilyCount + $extendedFamilyPart->fathersAndMothersFamilyCount;
-        } elseif ($type == 'descendants') {
+        } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == 'descendants') {
             $countMale = 0;
             $countFemale = 0;
             $countOthers = 0;
@@ -708,13 +797,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         
         return $mf;
     }
-    
+        
     /**
      * find rufname of an individual (tag _RUFNAME or marked with '*'
      *
      * @param Individual $individual
      *
-     * @return string (is empty if there is no rufname)
+     * @return string (is empty if there is no Rufname)
      */
     private function rufname(Individual $individual): string
     {
@@ -925,7 +1014,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function isGrayedOut(Individual $individual): bool
     {
-        if ($this->getExtendedFamily( $individual )->allCount == 0) {      
+        if ($this->getExtendedFamily( $individual )->efp->allCount == 0) {      
         // tbd: use another function which is more efficient (stops if the first memeber of extended family is found)
             return true;
         } else {
@@ -985,6 +1074,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * generate list of preferences
+     *
+     * @return array of string
+     */
+    public function listOfPreferences(): array
+    {
+        $preferences = $this->listOfFamilyParts();
+        $preferences[] = 'show_short_name';
+        $preferences[] = 'show_empty_block';
+
+        return $preferences;
+    }
+
+    /**
      * @param ServerRequestInterface $request
      *
      * @return ResponseInterface
@@ -992,26 +1095,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function getAdminAction(ServerRequestInterface $request): ResponseInterface
     {
         $this->layout = 'layouts/administration';
-        $showEmptyBlocks = [
-            'always at standard location',
-            'collect messages about empty blocks at the end',
-            'never',
-        ];
+        
+        $preferences = $this->listOfPreferences();
+        $response = [];
+        foreach ($preferences as $preference) {
+           $response[$preference] = $this->getPreference($preference);
+        }
+        $response['title'] = $this->title();
 
-        return $this->viewResponse($this->name() . '::settings', [
-            'grandparents'          => $this->getPreference('grandparents'),
-            'parents'               => $this->getPreference('parents'),
-			'uncles_and_aunts'      => $this->getPreference('uncles_and_aunts'),
-            'siblings'              => $this->getPreference('siblings'),
-            'partners'              => $this->getPreference('partners'),
-            'cousins'               => $this->getPreference('cousins'),
-            'nephews_and_nieces'    => $this->getPreference('nephews_and_nieces'),
-            'children'              => $this->getPreference('children'),
-            'grandchildren'         => $this->getPreference('grandchildren'),
-            'show_short_name'       => $this->getPreference('show_short_name'),
-            // 'showEmptyBlocks'       => $showEmptyBlocks,
-            'title'                 => $this->title(),
-        ]);
+        return $this->viewResponse($this->name() . '::settings', $response);
     }
 
     /**
@@ -1023,18 +1115,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function postAdminAction(ServerRequestInterface $request): ResponseInterface
     {
-        $preferences = [
-            'grandparents',
-            'parents',
-            'uncles_and_aunts',
-            'siblings',
-            'partners',
-            'cousins',
-            'nephews_and_nieces',
-            'children',
-            'grandchildren',
-            'show_short_name',
-        ];
+        $preferences = $this->listOfPreferences();
         $params = (array) $request->getParsedBody();
 
         // store the preferences in the database
@@ -1056,17 +1137,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function showFamilyPart(): array
     {    
-		$sp = [
-			'grandparents' 		    => !$this->getPreference('grandparents', '0'),
-            'parents' 		        => !$this->getPreference('parents', '0'),
-			'uncles_and_aunts'	    => !$this->getPreference('uncles_and_aunts', '0'),
-            'siblings' 		        => !$this->getPreference('siblings', '0'),
-            'partners' 		        => !$this->getPreference('partners', '0'),
-			'cousins'			    => !$this->getPreference('cousins', '0'),
-            'nephews_and_nieces'    => !$this->getPreference('nephews_and_nieces', '0'),
-            'children' 	            => !$this->getPreference('children', '0'),
-            'grandchildren' 	    => !$this->getPreference('grandchildren', '0'),
-		];
+        $efps = $this->listOfFamilyParts();
+        $sp = [];
+        foreach ($efps as $efp) {
+           $sp[$efp] = !$this->getPreference($efp, '0');
+        }
+
         return $sp;
     }
     
@@ -1087,13 +1163,66 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return array 
      */
-    public function showEmptyBlock(): bool
+    public function showEmptyBlock(): string
     {
-        return !$this->getPreference('show_empty_block', 'never');
+        return $this->getPreference('show_empty_block', '0');
+    }
+    
+   /**
+    * summary message for all empty blocks (needed for showEmptyBlock == 1)
+    *
+    * @param object extended family
+    *
+    * @return string
+    */
+    private function summaryMessageEmptyBlocks(object $extendedFamily): string
+    {
+        $summary_message = '';
+        $empty = [];
+        
+        foreach ($extendedFamily->efp as $propName => $propValue) {
+            if ($propName !== 'allCount' && $propName !== 'summaryMessageEmptyBlocks' && $extendedFamily->efp->$propName->allCount == 0) {
+                $empty[] = $propName;
+            }
+        }
+        if (count($empty) > 0) {
+            if (count($empty) == 1) {
+                $summary_list = $this->translateFamilyPart($empty[0]);
+                $summary_message = I18N::translate('%s has no %s recorded.', $extendedFamily->Self->niceName, $summary_list);
+            }
+            else {
+                $summary_list_a = $this->translateFamilyPart($empty[0]);
+                for ( $i = 1; $i <= count($empty)-2; $i++ ) {
+                    $summary_list_a .= ', ' . $this->translateFamilyPart($empty[$i]);
+                }
+                $summary_list_b = $this->translateFamilyPart($empty[count($empty)-1]);
+                $summary_message = I18N::translate('%s has no %s, and no %s recorded.', $extendedFamily->Self->niceName, $summary_list_a, $summary_list_b);
+            }
+        }
+        return $summary_message;      
+    }
+    
+   /**
+    * translate family parts (needed for showEmptyBlock == 1)
+    *
+    * @param string $type
+    *
+    * @return string
+    */
+    private function translateFamilyPart($type): string
+    {
+        switch ($type) {
+            case 'UnclesAunts':
+                return I18N::translate('Uncles and Aunts');
+            case 'NephewsNieces':
+                return I18N::translate('Nephews and Nieces');
+            default:
+                return I18N::translate($type);
+        };
     }
     
     /**
-     * Additional/updated translations.
+     * Additional translations
      *
      * @param string $language
      *
@@ -1127,7 +1256,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             case 'nn':
                 return $this->norwegianNynorskTranslations();
             case 'sv':
-                return $this->swedishTranslations();               
+                return $this->swedishTranslations();
+            case 'uk':
+                return $this->ukrainianTranslations();
+            case 'vi':
+                return $this->vietnameseTranslations();
             default:
                 return [];
         }
@@ -1276,6 +1409,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * tbd
+     *
      * @return array
      */
     protected function danishTranslations(): array
@@ -1307,12 +1442,21 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
             'Show short name' => 'Zeige die Kurzform des Namens',
+			'How should empty parts of extended family be presented?' => 'Wie sollen leere Blöcke der erweiterten Familie angezeigt werden?',
+			'Show empty block' => 'Zeige leere Blöcke',
+			'yes, always at standard location' => 'ja, immer am normalen Platz',
+			'no, but collect messages about empty blocks at the end' => 'nein, aber sammle Nachrichten über leere Blöcke am Ende',
+			'never' => 'niemals',
+			
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
             'He/she' => 'ihn/sie', // Kontext "Für ihn/sie"
             'Mr.' => 'Herrn', // Kontext "Für Herrn xxx"
             'Mrs.' => 'Frau', // Kontext "Für Frau xxx"
             'No family available' => 'Es wurde keine Familie gefunden.',
+            'Parts of extended family without recorded information' => 'Teile der erweiterten Familie ohne Angaben',
+            '%s has no %s recorded.' => 'Für %s sind keine %s verzeichnet.',
+            '%s has no %s, and no %s recorded.' => 'Für %s sind keine %s und keine %s verzeichnet.',
             'Father\'s family (%d)' => 'Familie des Vaters (%d)',
             'Mother\'s family (%d)' => 'Familie der Mutter (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Familie des Vaters und der Mutter (%d)',
@@ -1446,6 +1590,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * tbd
+     *
      * @return array
      */
     protected function finnishTranslations(): array
@@ -1465,6 +1611,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * tbd
+     *
      * @return array
      */
     protected function frenchTranslations(): array
@@ -1484,6 +1632,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * tbd
+     *
      * @return array
      */
     protected function hebrewTranslations(): array
@@ -1503,6 +1653,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * tbd
+     *
      * @return array
      */
     protected function lithuanianTranslations(): array
@@ -1523,6 +1675,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * tbd
+     *
      * @return array
      */
     protected function norwegianBokmålTranslations(): array
@@ -1693,6 +1847,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * tbd
+     *
      * @return array
      */
     protected function norwegianNynorskTranslations(): array
@@ -1712,6 +1868,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
   
     /**
+     * tbd
+     *
      * @return array
      */
     protected function swedishTranslations(): array
@@ -1729,7 +1887,169 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 I18N::PLURAL . '%2$s har %1$d registrerade kusiner.',
         ];
     }
+  
+    /**
+     * @return array
+     */
+    protected function ukrainianTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Extended family' => 'Розширена сім`я',
+            'A tab showing the extended family of an individual.' => 'Додає вкладку з розширеним виглядом родини для картки персони',
+            'Are these parts of the extended family to be shown?' => 'Чи будуть показані ці частини розширеної сім`ї?',
+            'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім'."'".'я об`єкту (пробанду)?',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об'."'".'єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
+            'Show short name' => 'Показати коротку форму імені',
+            'He' => 'йому', // Kontext "ihn"
+            'She' => 'їй', // Kontext "sie"
+            'He/she' => 'йому/їй', // Kontext "ihn/sie"
+            'Mr.' => 'Пана', // Kontext "Herrn xxx"
+            'Mrs.' => 'Пані', // Kontext "Frau xxx"
+            'No family available' => 'Не знайдено жодної сім`ї.',
+            'Father\'s family (%d)' => 'Сім`я батька (%d)',
+            'Mother\'s family (%d)' => 'Сім`я матері (%d)',
+            'Father\'s and Mother\'s family (%d)' => 'Сім`я батька і матері (%d)',
 
+            'Grandparents' => 'Бабуся і дідусь',
+            '%s has no grandparents recorded.' => '%s не має жодного запису про бабусю чи дідуся.',
+            '%s has one grandmother recorded.' => '%s має запис про одну бабусю.',
+            '%s has one grandfather recorded.' => '%s має запис про одного дідуся.',
+            '%s has one grandparent recorded.' => '%s має запис про одного дідуся чи бабусю.',
+            '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
+                => '%2$s має %1$d запис бабусі.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.',
+            '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
+                => '%2$s має %1$d запис дідуся.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.',
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and '
+                => '%2$s має %1$d запис дідуся та ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+                => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).',
+
+            'Parents' => 'Батьки',
+            '%s has no parents recorded.' => '%s не має записів батьків.',
+            '%s has one mother recorded.' => '%s має тільки запис матері.',
+            '%s has one father recorded.' => '%s має тільки запис батька.',
+            '%s has one parent recorded.' => '%s має запис одного з батьків.',
+            '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.'
+                => '%2$s має %1$d запис про мати.' . I18N::PLURAL . '%2$s має %1$d записи про матерів.',
+            '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
+                => '%2$s має %1$d запис про батька.' . I18N::PLURAL . '%2$s має %1$d записів про батьків.',
+            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
+                => '%2$s має %1$d запис про батька та ' . I18N::PLURAL . '%2$s має %1$d записи про батьків і ',
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
+                => '%d мати (загалом %d).' . I18N::PLURAL . '%d матерів (загалом %d).',
+
+            'Uncles and Aunts' => 'Дядьки і тітки',
+            '%s has no uncles or aunts recorded.' => '%s не має записів про дядьків і тіток.',
+            '%s has one aunt recorded.' => '%s має запис про одну тітку.',
+            '%s has one uncle recorded.' => '%s має запис про одного дядька.',
+            '%s has one uncle or aunt recorded.' => '%s має запис про одного дядька чи тітку.',
+            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
+                => '%2$s має %1$d запис про дядька.' . I18N::PLURAL . '%2$s має %1$d записи про дядьків.',
+            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
+                => '%2$s має %1$d запис про тіток.' . I18N::PLURAL . '%2$s має %1$d записи про тіток.',
+            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
+                => '%2$s має %1$d запис про дядька та ' . I18N::PLURAL . '%2$s має %1$d записи про дядьків і ',
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d тітку (загалом %d).' . I18N::PLURAL . '%d тіток (загалом %d).', 
+
+            'Siblings' => 'Брати і сестри',
+            '%s has no siblings recorded.' => '%s не має записів про братів і сестер.',
+            '%s has one sister recorded.' => '%s має запис про одну сестру.',
+            '%s has one brother recorded.' => '%s має запис про одного брата.',
+            '%s has one brother or sister recorded.' => '%s має записи про одного брата чи сестру.',
+            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
+                => '%2$s має %1$d запис про сестру.' . I18N::PLURAL . '%2$s має %1$d записи про сестер.',
+            '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
+                => '%2$s має %1$d запис про брата.' . I18N::PLURAL . '%2$s має %1$d записи про братів.',
+            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
+                => '%2$s має %1$d запис про брата і ' . I18N::PLURAL . '%2$s має %1$d записи про братів і ',
+            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
+                => '%d сестру (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).',
+                                
+            'Partners' => 'Партнери',
+            '%s has no partners recorded.' => '%s не має записів про партнерів.',
+            '%s has one female partner recorded.' => '%s має запис про одну партнерку.',
+            '%s has one male partner recorded.' => '%s має запис про одного партнера.',
+            '%s has one partner recorded.' => '%s має запис про одного партнера.',
+            '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
+                => '%2$s має %1$d запис про партнерку.' . I18N::PLURAL . '%2$s має %1$d записи про партнерок.',
+            '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
+                => '%2$s має %1$d запис про партнера.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.',
+            '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
+                => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d запис про партнера і ',
+            '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
+                => '%d партнерку (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).',
+
+            'Cousins' => 'Двоюрідні брати і сестри',
+            '%s has no first cousins recorded.' => '%s не має записів про двоюрідних братів і сестер.',
+            '%s has one female first cousin recorded.' => '%s має запис про одну двоюрідну сестру.',
+            '%s has one male first cousin recorded.' => '%s має запис про одного двоюрідного брата.',
+            '%s has one first cousin recorded.' => '%s має запис про одного двоюрідного брата чи сестру.',
+            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female firts cousins recorded.'
+                => '%2$s має %1$d запис про двоюрідну сестру.' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних сестер.',
+            '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
+                => '%2$s має %1$d запис про двоюрідного брата.' . I18N::PLURAL . '%2$s має %1$d записи про двюрідних братів.',
+            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
+                => '%2$s має %1$d запис про двоюрідного брата і ' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних братів і ',
+            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
+                => '%d двоюрідну сестру (загалом %d).' . I18N::PLURAL . '%d двоюрідних сестер (загалом %d).',
+                
+            'Nephews and Nieces' => 'Племінники та племінниці',
+            '%s has no nephews or nieces recorded.' => '%s не має записів про племінників чи племінниць.',
+            '%s has one niece recorded.' => '%s має запис про одну племінницю.',
+            '%s has one nephew recorded.' => '%s має запис про одного племінника.',
+            '%s has one nephew or niece recorded.' => '%s має запис про одного племінника чи племінницю.',
+            '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
+                => '%2$s має %1$d запис про племінницю.' . I18N::PLURAL . '%2$s має %1$d записи про племінниць.',
+            '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
+                => '%2$s має %1$d запис про племінника.' . I18N::PLURAL . '%2$s має %1$d записи про племінників.',
+            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
+                => '%2$s має %1$d запис про племінника та ' . I18N::PLURAL . '%2$s має %1$d записи про племінників і ',
+            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
+                => '%d племінницю (загалом %d).' . I18N::PLURAL . '%d племінниць (загалом %d).',
+
+            'Children' => 'Діти',
+            '%s has no children recorded.' => '%s не має записів про дітей.',
+            '%s has one daughter recorded.' => '%s має запис про одного сина.',
+            '%s has one son recorded.' => '%s має запис про одну дочку.',
+            '%s has one child recorded.' => '%s запис про одну дитину.',
+            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d ddaughters recorded.'
+                => '%2$s має %1$d запис про дочку.' . I18N::PLURAL . '%2$s має %1$d записи про дочок.',
+            '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
+                => '%2$s має %1$d запис про сина.' . I18N::PLURAL . '%2$s має %1$d записи про синів.',
+            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
+                => '%2$s має %1$d запис про сина та ' . I18N::PLURAL . '%2$s має %1$d записи про синів і ',
+            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
+                => '%d дочку (загалом %d).' . I18N::PLURAL . '%d дочок (загалом %d).',
+
+            'Grandchildren' => 'Онуки',
+            '%s has no grandchildren recorded.' => '%s не має записів про онуків.',
+            '%s has one granddaughter recorded.' => '%s має запис про одну онуку.',
+            '%s has one grandson recorded.' => '%s має запис про одного внука.',
+            '%s has one grandchild recorded.' => '%s має запис про одного внука чи онуку.',
+            '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
+                => '%2$s має %1$d запис про онуку.' . I18N::PLURAL . '%2$s має %1$d записи про онук.',
+            '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
+                => '%2$s має %1$d запис про внука.' . I18N::PLURAL . '%2$s має %1$d записів про внуків.',
+            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
+                => '%2$s має %1$d запис про внука та ' . I18N::PLURAL . '%2$s має %1$d записи про внуків і ',
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
+                => '%d онуку (загалом %d).' . I18N::PLURAL . '%d онуок (загалом %d).',  
+        ];
+    }
+    
+    /**
+     * tbd
+     *
+     * @return array
+     */
+    protected function vietnameseTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+        ];
+    }
 };
 
 return new ExtendedFamilyTabModule;

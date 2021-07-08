@@ -12,14 +12,17 @@
 This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person: grandparents, parents, uncles, aunts, siblings, spouses, cousins, nephews, nieces, children and grandchildren.
 
 This module version is derived from vytux_cousins. There are additional features
-* admin can decide in control panel which extended family parts should be shown
 * addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
 * don't show empty tables for "Father's family" and "Mother's family"
 * beside father's and mother's family, now there can be a third category "father's and mother's family" if members of the extended family are related to both sides
-* count separately for each sex (this supports translation if there are for example different words for male and female cousins)
+* count individuals separately for each sex (this supports translation if there are for example different words for male and female cousins)
 * new text added if there is a family but no members in a part of the extended family (e.g. "... has no first cousins recorded.")
-* name of proband can be full name or a short version (option in control panel)
 * tab is greyed out if the extended family is empty
+
+The admin can decide in control panel 
+* which extended family parts should be shown
+* if name of proband is a full name or a short version
+* how empty parts of extended family should be presented
 
 <a name="Contents"></a>
 
@@ -81,9 +84,11 @@ To update simply replace the hh_extended_family files with the new ones from the
 
 If you like to translate the text fragments in this module, contact me, please!
 
-There are now, beside English and German translations to
-* dutch by @TheDutchJewel
+There are now, beside English and German, translations to
 * czech by @jpretired
+* dutch by @TheDutchJewel
+* ukrainian by @z-yurets
+* vietnamese by @ngohuuthuan (not finished yet)
 
 
 <a name="Support"></a>
