@@ -9,7 +9,9 @@
 
 ## Description
 
-This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person: grandparents, parents, uncles, aunts, siblings, spouses, cousins, nephews, nieces, children and grandchildren.
+This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person:
+grandparents, parents, uncles, aunts, siblings, spouses, cousins, nephews, nieces, children and grandchildren.
+This module is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
 
 This module version is derived from vytux_cousins. There are additional features
 * addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).

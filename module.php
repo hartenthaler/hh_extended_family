@@ -123,6 +123,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *                     ->femaleCount                        integer
      *                     ->allCount                           integer
      *                     ->partName                           string
+	 *					   ->partName_translated				string
+	 *					   ->type								string
      *       ->parents                                          see grandparents
      *       ->uncles_and_aunts                                 see grandparents
      *       ->siblings                                         see nephews_and_nieces    
@@ -134,6 +136,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *                           ->femaleCount                  integer
      *                           ->allCount                     integer
      *                           ->partName                     string
+	 *					   	     ->partName_translated			string
+	 *					   		 ->type							string
      *       ->children                                         see nephews_and_nieces
      *       ->grandchildren                                    see nephews_and_nieces
      *  ->config->showFamilyPart[]                              array of bool
@@ -566,13 +570,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {    
         $efpObj = (object)[];
         $efpObj->partName = $partName;
+		$efpObj->partName_translated = $this->translateFamilyPart($partName);
+		$efpObj->type = $this->typeOfFamilyPart($partName);
         $efpObj->allCount = 0;
         
-        if ($this->typeOfFamilyPart($partName) == 'ancestors') {
+        if ($efpObj->type == 'ancestors') {
             $efpObj->fatherFamily = [];
             $efpObj->motherFamily = [];
             $efpObj->fatherAndMotherFamily = [];
-        } elseif ($this->typeOfFamilyPart($partName) == 'descendants') {
+        } elseif ($efpObj->type == 'descendants') {
             $efpObj->families = [];
         }
         
@@ -848,7 +854,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
     
    /**
-    * summary message for all empty blocks (needed for showEmptyBlock == 1)
+    * generate summary message for all empty blocks (needed for showEmptyBlock == 1)
     *
     * @param object extended family
     *
@@ -867,7 +873,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         if (count($empty) > 0) {
             if (count($empty) == 1) {
                 $summary_list = $this->translateFamilyPart($empty[0]);
-                $summary_message = I18N::translate('%s has no %s recorded.', $extendedFamily->Self->niceName, $summary_list);
+                $summary_message = I18N::translate('%s has no %s recorded.', $extendedFamily->self->niceName, $summary_list);
             }
             else {
                 $summary_list_a = $this->translateFamilyPart($empty[0]);
@@ -882,7 +888,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * A label for a parental family group
+     * generate a label for a parental family group
      *
      * @param Individual $individual
      *
@@ -895,8 +901,103 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             return GedcomCodePedi::getValue($match[1],$individual->getInstance($individual->xref(),$individual->tree()));
         }
 
-        // Default (birth) pedigree
+        // default (birth) pedigree
         return GedcomCodePedi::getValue('',$individual->getInstance($individual->xref(),$individual->tree()));
+    }
+
+    /**
+     * generate list of preferences
+     *
+     * @return array of string
+     */
+    public function listOfPreferences(): array
+    {
+        $preferences = $this->listOfFamilyParts();
+        $preferences[] = 'show_short_name';
+        $preferences[] = 'show_empty_block';
+
+        return $preferences;
+    }
+
+    /**
+     * @param ServerRequestInterface $request
+     *
+     * @return ResponseInterface
+     */
+    public function getAdminAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $this->layout = 'layouts/administration';
+        
+        $preferences = $this->listOfPreferences();
+        $response = [];
+        foreach ($preferences as $preference) {
+           $response[$preference] = $this->getPreference($preference);
+        }
+        $response['title'] = $this->title();
+
+        return $this->viewResponse($this->name() . '::settings', $response);
+    }
+
+    /**
+     * Save the user preference.
+     *
+     * @param ServerRequestInterface $request
+     *
+     * @return ResponseInterface
+     */
+    public function postAdminAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $preferences = $this->listOfPreferences();
+        $params = (array) $request->getParsedBody();
+
+        // store the preferences in the database
+        if ($params['save'] === '1') {
+            foreach ($preferences as $preference) {
+                $this->setPreference($preference, $params[$preference]);
+			}
+            FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
+        }
+
+        return redirect($this->getConfigLink());
+    }
+    
+    /**
+     * parts of extended family which should be shown
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return array 
+     */
+    public function showFamilyPart(): array
+    {    
+        $efps = $this->listOfFamilyParts();
+        $sp = [];
+        foreach ($efps as $efp) {
+           $sp[$efp] = !$this->getPreference($efp, '0');
+        }
+
+        return $sp;
+    }
+    
+    /**
+     * should a short name of proband be shown
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return array 
+     */
+    public function showShortName(): bool
+    {
+        return !$this->getPreference('show_short_name', '0');
+    }
+    
+    /**
+     * how should empty parts of the extended family be presented
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return array 
+     */
+    public function showEmptyBlock(): string
+    {
+        return $this->getPreference('show_empty_block', '0');
     }
 
     /**
@@ -1058,101 +1159,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         // to access the file ./resources/views/fish.phtml
         View::registerNamespace($this->name(), __DIR__ . '/resources/views/');
     }
-
-    /**
-     * generate list of preferences
-     *
-     * @return array of string
-     */
-    public function listOfPreferences(): array
-    {
-        $preferences = $this->listOfFamilyParts();
-        $preferences[] = 'show_short_name';
-        $preferences[] = 'show_empty_block';
-
-        return $preferences;
-    }
-
-    /**
-     * @param ServerRequestInterface $request
-     *
-     * @return ResponseInterface
-     */
-    public function getAdminAction(ServerRequestInterface $request): ResponseInterface
-    {
-        $this->layout = 'layouts/administration';
-        
-        $preferences = $this->listOfPreferences();
-        $response = [];
-        foreach ($preferences as $preference) {
-           $response[$preference] = $this->getPreference($preference);
-        }
-        $response['title'] = $this->title();
-
-        return $this->viewResponse($this->name() . '::settings', $response);
-    }
-
-    /**
-     * Save the user preference.
-     *
-     * @param ServerRequestInterface $request
-     *
-     * @return ResponseInterface
-     */
-    public function postAdminAction(ServerRequestInterface $request): ResponseInterface
-    {
-        $preferences = $this->listOfPreferences();
-        $params = (array) $request->getParsedBody();
-
-        // store the preferences in the database
-        if ($params['save'] === '1') {
-            foreach ($preferences as $preference) {
-                $this->setPreference($preference, $params[$preference]);
-			}
-            FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
-        }
-
-        return redirect($this->getConfigLink());
-    }
-    
-    /**
-     * parts of extended family which should be shown
-     * set default values in case the settings are not stored in the database yet
-     *
-     * @return array 
-     */
-    public function showFamilyPart(): array
-    {    
-        $efps = $this->listOfFamilyParts();
-        $sp = [];
-        foreach ($efps as $efp) {
-           $sp[$efp] = !$this->getPreference($efp, '0');
-        }
-
-        return $sp;
-    }
-    
-    /**
-     * should a short name of proband be shown
-     * set default values in case the settings are not stored in the database yet
-     *
-     * @return array 
-     */
-    public function showShortName(): bool
-    {
-        return !$this->getPreference('show_short_name', '0');
-    }
-    
-    /**
-     * how should empty parts of the extended family be presented
-     * set default values in case the settings are not stored in the database yet
-     *
-     * @return array 
-     */
-    public function showEmptyBlock(): string
-    {
-        return $this->getPreference('show_empty_block', '0');
-    }
     
    /**
     * translate family parts (needed for showEmptyBlock == 1)
@@ -1230,16 +1236,24 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Extended family' => 'Širší rodina',
             'A tab showing the extended family of an individual.' => 'Panel širší rodiny dané osoby.',
             'Are these parts of the extended family to be shown?' => 'Mají se tyto části širší rodiny zobrazit?',
-            'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
-            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
-            'Show short name' => 'Zeige die Kurzform des Namens',
+            'Show name of proband as short name or as full name?' => 'Má se jméno probanta zobrazit jako zkrácené jméno, nebo jako úplné jméno?',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Za zkrácené probantovo jméno se vezme domácké jméno nebo přezdívka. Pokud neexistuje, vezme se první křestní jméno, je-li k dispozici. Pokud ani to ne, vezme se příjmení.',
+            'Show short name' => 'Zobrazit zkrácené jméno',
+            'How should empty parts of extended family be presented?' => 'Jak se mají zobrazit prázdné části (bloky) širší rodiny?',
+            'Show empty block' => 'Zobrazit prázdné bloky',
+            'yes, always at standard location' => 'ano, vždy na obvyklém místě',
+            'no, but collect messages about empty blocks at the end' => 'ne, ale uvést prázdné bloky na konci výpisu',
+            'never' => 'nikdy',
             
-            'He' => 'On', // Kontext "Für ihn"
-            'She' => 'Ona', // Kontext "Für sie"
-            'He/she' => 'On/ona', // Kontext "Für ihn/sie"
-            'Mr.' => 'Pan', // Kontext "Für Herrn xxx"
-            'Mrs.' => 'Paní', // Kontext "Für Frau xxx"
+            'He' => 'On',
+            'She' => 'Ona',
+            'He/she' => 'On/ona',
+            'Mr.' => 'Pan',
+            'Mrs.' => 'Paní',
             'No family available' => 'Rodina chybí',
+            'Parts of extended family without recorded information' => 'Chybějící části širší rodiny',
+            '%s has no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s.',
+            '%s has no %s, and no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s a %s.',
             'Father\'s family (%d)' => 'Otcova rodina (%d)',
             'Mother\'s family (%d)' => 'Matčina rodina (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Otcova a matčina rodina (%d)',
@@ -2119,7 +2133,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Mrs.' => 'Bà', // Kontext "Für Frau xxx"
             'No family available' => 'Không có thông tin về gia đình',
             'Parts of extended family without recorded information' => 'Các mối quan hệ khác trong gia đình không có thông tin được ghi lại',
-            '%s has no %s recorded.' => 'Für %s sind keine %s verzeichnet.',
+            '%s has no %s recorded.' => '%s không có %s thông tin được ghi lại.',
             '%s has no %s, and no %s recorded.' => '%s không có %s và không có %s thông tin được ghi lại.',
             'Father\'s family (%d)' => 'Gia đình bên Bố (%d)',
             'Mother\'s family (%d)' => 'Gia đình bên Mẹ (%d)',
