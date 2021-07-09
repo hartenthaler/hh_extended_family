@@ -72,6 +72,28 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const CUSTOM_VERSION = '2.0.16.25';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
+
+    /**
+     * list of parts of extended family
+     *
+     * @return array
+     */
+    private function listOfFamilyParts(): array
+    {    
+        $efp = [
+            'grandparents',                             // generation +2
+            'parents',                                  // generation +1
+            'uncles_and_aunts',                         // generation +1
+            'siblings',                                 // generation  0
+            'partners',                                 // generation  0
+            'cousins',                                  // generation  0
+            'nephews_and_nieces',                       // generation -1
+            'children',                                 // generation -1
+            'grandchildren',                            // generation -2
+        ];
+        
+        return $efp;
+    }
    
     /**
      * Find members of extended family
@@ -116,52 +138,24 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *       ->grandchildren                                    see nephews_and_nieces
      *  ->config->showFamilyPart[]                              array of bool
      *          ->showEmptyBlock                                integer [0,1,2]
+     *
+     * tbd: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
+     * tbd: Stiefcousins testen (siehe Onkel Walter)
      */
     private function getExtendedFamily(Individual $individual): object
-    {      
-		$efps = $this->listOfFamilyParts();
-        
+    {             
         $extfamObj = (object)[];
+        $extfamObj->self = $this->get_self( $individual );
         $extfamObj->efp = (object)[];
+        $extfamObj->efp->allCount = 0;
         $extfamObj->config = (object)[];
         $extfamObj->config->showFamilyPart = $this->showFamilyPart();
         $extfamObj->config->showEmptyBlock = $this->showEmptyBlock();
-		$extfamObj->efp->allCount = 0;
-		$extfamObj->self = $this->getSelf( $individual );
-		
-        // tbd: use array instead of object, ie efp['grandparents' => $this->getGrandparents( $individual ) , ...] instead of efp->Grandparents, ...
-        // tbd: Stiefcousins testen (siehe Onkel Walter)
+
+        $efps = $this->listOfFamilyParts();
         foreach ($efps as $efp) {
             if ($extfamObj->config->showFamilyPart[$efp]) {
-                switch ($efp) {
-                    case 'grandparents':
-                        $extfamObj->efp->$efp = $this->callFunc( 'get_' . $efp, $individual );
-                        break;
-                    case 'parents':
-                        $extfamObj->efp->$efp = $this->getParents( $individual );
-                        break;
-                    case 'uncles_and_aunts':
-                        $extfamObj->efp->$efp = $this->getUnclesAunts( $individual );
-                        break;
-                    case 'siblings':
-                        $extfamObj->efp->$efp = $this->getSiblings( $individual );
-                        break;
-                    case 'partners':
-                        $extfamObj->efp->$efp = $this->getPartners( $individual );
-                        break;
-                    case 'cousins':
-                        $extfamObj->efp->$efp = $this->getCousins( $individual );
-                        break;
-                    case 'nephews_and_nieces':
-                        $extfamObj->efp->$efp = $this->getNephewsNieces( $individual );
-                        break;
-                    case 'children':
-                        $extfamObj->efp->$efp = $this->getChildren( $individual );
-                        break;
-                    case 'grandchildren':
-                        $extfamObj->efp->$efp = $this->getGrandchildren( $individual );
-                        break;
-                }
+                $extfamObj->efp->$efp = $this->callFunction( 'get_' . $efp, $individual );
                 $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
             }
         }
@@ -169,8 +163,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
        return $extfamObj;
     }
-    
-    private function callFunc($name, $parameter)
+
+    /**
+     * call functions to get extended family parts
+     *
+     * @param $name name of function to be called
+     * @param $parameter parameter to be transfered to the called function
+     *
+     * @return object
+     */   
+    private function callFunction($name, $parameter)
     {
         return $this->$name($parameter);
     }
@@ -182,7 +184,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getSelf(Individual $individual): object
+    private function get_self(Individual $individual): object
     {
         $selfObj = (object)[];
         
@@ -197,14 +199,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
      * @param string family side ('father', 'mother'); father is default
      */
-    private function getGrandparentsOneSide(object $extendedFamilyPart, string $side)
+    private function get_grandparentsOneSide(object $extendedFamilyPart, string $side)
     {
-        if ($side == 'mother') {
-            $parent = $extendedFamilyPart->mother;
-        } else {
-            $parent = $extendedFamilyPart->father;
-        }
-        
+        $parent = $extendedFamilyPart->$side;
         if ($parent instanceof Individual) {                                                    // Gen 1 P
             foreach ($parent->spouseFamilies() as $family1) {                                   // Gen 1 F
                 foreach ($family1->spouses() as $spouse) {                                      // Gen 1 P
@@ -247,8 +244,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $GrandparentsObj->father = $individual->childFamilies()->first()->husband();
             $GrandparentsObj->mother = $individual->childFamilies()->first()->wife();
 
-            $this->getGrandparentsOneSide( $GrandparentsObj, 'father');
-            $this->getGrandparentsOneSide( $GrandparentsObj, 'mother');
+            $this->get_grandparentsOneSide( $GrandparentsObj, 'father');
+            $this->get_grandparentsOneSide( $GrandparentsObj, 'mother');
              
             $this->addCountersToFamilyPartObject( $GrandparentsObj );
         }
@@ -262,14 +259,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
      * @param string family side ('father', 'mother'); father is default
      */
-    private function getParentsOneSide(object $extendedFamilyPart, string $side)
+    private function get_parentsOneSide(object $extendedFamilyPart, string $side)
     {
-        if ($side == 'mother') {
-            $parent = $extendedFamilyPart->mother;
-        } else {
-            $parent = $extendedFamilyPart->father;
-        }
-        
+        $parent = $extendedFamilyPart->$side;
         if ($parent instanceof Individual) {                                                    // Gen 1 P
             foreach ($parent->spouseFamilies() as $family1) {                                   // Gen 1 F
                 foreach ($family1->spouses() as $spouse) {                                      // Gen 1 P
@@ -290,7 +282,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getParents(Individual $individual): object
+    private function get_parents(Individual $individual): object
     {      
         $ParentsObj = $this->initializedFamilyPartObject('parents');
         
@@ -300,8 +292,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $ParentsObj->father = $individual->childFamilies()->first()->husband();
             $ParentsObj->mother = $individual->childFamilies()->first()->wife();
 
-            $this->getParentsOneSide( $ParentsObj, 'father');
-            $this->getParentsOneSide( $ParentsObj, 'mother');
+            $this->get_parentsOneSide( $ParentsObj, 'father');
+            $this->get_parentsOneSide( $ParentsObj, 'mother');
              
             $this->addCountersToFamilyPartObject( $ParentsObj  );
         }
@@ -315,14 +307,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
      * @param string family side ('father', 'mother'); father is default
      */
-    private function getUnclesAuntsOneSide(object $extendedFamilyPart, string $side)
+    private function get_uncles_and_auntsOneSide(object $extendedFamilyPart, string $side)
     {
-        if ($side == 'mother') {
-            $parent = $extendedFamilyPart->mother;
-        } else {
-            $parent = $extendedFamilyPart->father;
-        }
-        
+        $parent = $extendedFamilyPart->$side;
         if ($parent instanceof Individual) {                                            // Gen 1 P
            foreach ($parent->childFamilies() as $family1) {                             // Gen 2 F
               foreach ($family1->spouses() as $grandparent) {                           // Gen 2 P
@@ -351,7 +338,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getUnclesAunts(Individual $individual): object
+    private function get_uncles_and_aunts(Individual $individual): object
     {
         $unclesAuntsObj = $this->initializedFamilyPartObject('uncles_and_aunts');
         
@@ -360,8 +347,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
             $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
 
-            $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'father');
-            $this->getUnclesAuntsOneSide( $unclesAuntsObj, 'mother');
+            $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, 'father');
+            $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, 'mother');
            
             $this->addCountersToFamilyPartObject( $unclesAuntsObj );
         }
@@ -376,7 +363,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getSiblings(Individual $individual): object
+    private function get_siblings(Individual $individual): object
     {      
         $SiblingsObj = $this->initializedFamilyPartObject('siblings');
         
@@ -404,10 +391,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getPartners(Individual $individual): object
+    private function get_partners(Individual $individual): object
     {      
         $PartnersObj = $this->initializedFamilyPartObject('partners');
-        
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
@@ -419,7 +405,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-
         $this->addCountersToFamilyPartObject( $PartnersObj );
 
         return $PartnersObj;
@@ -431,14 +416,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
      * @param string family side ('father', 'mother'); father is default
      */
-    private function getCousinsOneSide(object $extendedFamilyPart, string $side)
+    private function get_cousinsOneSide(object $extendedFamilyPart, string $side)
     {
-        if ($side == 'mother') {
-            $parent = $extendedFamilyPart->mother;
-        } else {
-            $parent = $extendedFamilyPart->father;
-        }
-        
+        $parent = $extendedFamilyPart->$side;
         if ($parent instanceof Individual) {                                            // Gen 1 P    
            foreach ($parent->childFamilies() as $family1) {                             // Gen 2 F
                 foreach ($family1->spouses() as $grandparent) {                         // Gen 2 P
@@ -467,17 +447,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getCousins(Individual $individual): object
+    private function get_cousins(Individual $individual): object
     {
         $CousinsObj = $this->initializedFamilyPartObject('cousins');
         
         if ($individual->childFamilies()->first()) {
-            
             $CousinsObj->father = $individual->childFamilies()->first()->husband();
             $CousinsObj->mother = $individual->childFamilies()->first()->wife();
 
-            $this->getCousinsOneSide( $CousinsObj, 'father');
-            $this->getCousinsOneSide( $CousinsObj, 'mother');
+            $this->get_cousinsOneSide( $CousinsObj, 'father');
+            $this->get_cousinsOneSide( $CousinsObj, 'mother');
              
             $this->addCountersToFamilyPartObject( $CousinsObj );
         }
@@ -492,7 +471,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getNephewsNieces(Individual $individual): object
+    private function get_nephews_and_nieces(Individual $individual): object
     {      
         $NephewsNiecesObj = $this->initializedFamilyPartObject('nephews_and_nieces');
           
@@ -528,10 +507,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getChildren(Individual $individual): object
+    private function get_children(Individual $individual): object
     {      
         $ChildrenObj = $this->initializedFamilyPartObject('children');
-        
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
@@ -541,7 +519,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-
         $this->addCountersToFamilyPartObject( $ChildrenObj );
 
         return $ChildrenObj;
@@ -554,10 +531,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function getGrandchildren(Individual $individual): object
+    private function get_grandchildren(Individual $individual): object
     {      
         $GrandchildrenObj = $this->initializedFamilyPartObject('grandchildren');
-        
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
@@ -575,32 +551,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-            
         $this->addCountersToFamilyPartObject( $GrandchildrenObj );
 
         return $GrandchildrenObj;
-    }
-    
-    /**
-     * list of parts of extended family
-     *
-     * @return array
-     */
-    private function listOfFamilyParts(): array
-    {    
-        $efp = [
-            'grandparents',                             // generation +2
-            'parents',                                  // generation +1
-            'uncles_and_aunts',                         // generation +1
-            'siblings',                                 // generation  0
-            'partners',                                 // generation  0
-            'cousins',                                  // generation  0
-            'nephews_and_nieces',                       // generation -1
-            'children',                                 // generation -1
-            'grandchildren',                            // generation -2
-        ];
-        
-        return $efp;
     }
     
     /**
