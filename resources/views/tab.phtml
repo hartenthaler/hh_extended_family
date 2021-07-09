@@ -10,38 +10,38 @@
     <?php if ($extfam_obj->efp->allCount > 0): ?>
         <?php if ( $extfam_obj->config->showFamilyPart['grandparents'] ): ?>
             <div class="hh-extended-family-grandparents">
-				<?php if (($extfam_obj->efp->Grandparents->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->grandparents->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Grandparents') ?></h2>
 				<?php endif ?>
-                <?php if ($extfam_obj->efp->Grandparents->allCount): ?>
-                    <?php if ($extfam_obj->efp->Grandparents->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->Grandparents->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one grandmother recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->grandparents->allCount): ?>
+                    <?php if ($extfam_obj->efp->grandparents->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->grandparents->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one grandmother recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Grandparents->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one grandfather recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->grandparents->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one grandfather recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one grandparent recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one grandparent recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->Grandparents->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d grandmother recorded.',  '%2$s has %1$d grandmothers recorded.', $extfam_obj->efp->Grandparents->femaleCount, $extfam_obj->efp->Grandparents->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->grandparents->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d grandmother recorded.',  '%2$s has %1$d grandmothers recorded.', $extfam_obj->efp->grandparents->femaleCount, $extfam_obj->efp->grandparents->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Grandparents->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d grandfather recorded.', '%2$s has %1$d grandfathers recorded.', $extfam_obj->efp->Grandparents->maleCount, $extfam_obj->efp->Grandparents->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->grandparents->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d grandfather recorded.', '%2$s has %1$d grandfathers recorded.', $extfam_obj->efp->grandparents->maleCount, $extfam_obj->efp->grandparents->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d grandfather and ', '%2$s has %1$d grandfathers and ', $extfam_obj->efp->Grandparents->maleCount, $extfam_obj->efp->Grandparents->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d grandmother recorded (%d in total).', '%d grandmothers recorded (%d in total).', $extfam_obj->efp->Grandparents->femaleCount, $extfam_obj->efp->Grandparents->femaleCount, $extfam_obj->efp->Grandparents->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d grandfather and ', '%2$s has %1$d grandfathers and ', $extfam_obj->efp->grandparents->maleCount, $extfam_obj->efp->grandparents->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d grandmother recorded (%d in total).', '%d grandmothers recorded (%d in total).', $extfam_obj->efp->grandparents->femaleCount, $extfam_obj->efp->grandparents->femaleCount, $extfam_obj->efp->grandparents->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php if ($extfam_obj->efp->Grandparents->fathersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->grandparents->fathersFamilyCount): ?>
                             <div id="extended_family_f">
-                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->efp->Grandparents->fathersFamilyCount) ?></h4>
+                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->efp->grandparents->fathersFamilyCount) ?></h4>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->efp->Grandparents->fatherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->grandparents->fatherFamily as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -54,11 +54,11 @@
                                 <?php $i++; endforeach ?>
                             </div>    
                         <?php endif ?>
-                        <?php if ($extfam_obj->efp->Grandparents->fathersAndMothersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->grandparents->fathersAndMothersFamilyCount): ?>
                             <div id="extended_family_fm">
-                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->efp->Grandparents->fathersAndMothersFamilyCount)?></h4>
+                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->efp->grandparents->fathersAndMothersFamilyCount)?></h4>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->efp->Grandparents->fatherAndMotherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->grandparents->fatherAndMotherFamily as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -71,11 +71,11 @@
                                 <?php $i++; endforeach ?>
                             </div>
                         <?php endif ?>
-                        <?php if ($extfam_obj->efp->Grandparents->mothersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->grandparents->mothersFamilyCount): ?>
                             <div id="extended_family_m">
-                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->efp->Grandparents->mothersFamilyCount) ?></h4>
+                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->efp->grandparents->mothersFamilyCount) ?></h4>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->efp->Grandparents->motherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->grandparents->motherFamily as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -91,7 +91,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no grandparents recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no grandparents recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
@@ -99,38 +99,38 @@
 
         <?php if ( $extfam_obj->config->showFamilyPart['parents'] ): ?>
             <div class="hh-extended-family-parents">
-				<?php if (($extfam_obj->efp->Parents->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->parents->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Parents') ?></h2>
 				<?php endif ?>
-                <?php if ($extfam_obj->efp->Parents->allCount): ?>
-                    <?php if ($extfam_obj->efp->Parents->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->Parents->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one mother recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->parents->allCount): ?>
+                    <?php if ($extfam_obj->efp->parents->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->parents->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one mother recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Parents->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one father recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->parents->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one father recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one parent recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one parent recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->Parents->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d mother recorded.',  '%2$s has %1$d mothers recorded.', $extfam_obj->efp->Parents->femaleCount, $extfam_obj->efp->Parents->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->parents->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d mother recorded.',  '%2$s has %1$d mothers recorded.', $extfam_obj->efp->parents->femaleCount, $extfam_obj->efp->parents->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Parents->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d father recorded.', '%2$s has %1$d fathers recorded.', $extfam_obj->efp->Parents->maleCount, $extfam_obj->efp->Parents->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->parents->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d father recorded.', '%2$s has %1$d fathers recorded.', $extfam_obj->efp->parents->maleCount, $extfam_obj->efp->parents->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d father and ', '%2$s has %1$d fathers and ', $extfam_obj->efp->Parents->maleCount, $extfam_obj->efp->Parents->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d mother recorded (%d in total).', '%d mothers recorded (%d in total).', $extfam_obj->efp->Parents->femaleCount, $extfam_obj->efp->Parents->femaleCount, $extfam_obj->efp->Parents->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d father and ', '%2$s has %1$d fathers and ', $extfam_obj->efp->parents->maleCount, $extfam_obj->efp->parents->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d mother recorded (%d in total).', '%d mothers recorded (%d in total).', $extfam_obj->efp->parents->femaleCount, $extfam_obj->efp->parents->femaleCount, $extfam_obj->efp->parents->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php if ($extfam_obj->efp->Parents->fathersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->parents->fathersFamilyCount): ?>
                             <div id="extended_family_f">
-                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->efp->Parents->fathersFamilyCount) ?></h4>
+                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->efp->parents->fathersFamilyCount) ?></h4>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->efp->Parents->fatherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->parents->fatherFamily as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -143,11 +143,11 @@
                                 <?php $i++; endforeach ?>
                             </div>    
                         <?php endif ?>
-                        <?php if ($extfam_obj->efp->Parents->fathersAndMothersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->parents->fathersAndMothersFamilyCount): ?>
                             <div id="extended_family_fm">
-                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->efp->Parents->fathersAndMothersFamilyCount)?></h4>
+                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->efp->parents->fathersAndMothersFamilyCount)?></h4>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->efp->Parents->fatherAndMotherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->parents->fatherAndMotherFamily as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -160,11 +160,11 @@
                                 <?php $i++; endforeach ?>
                             </div>
                         <?php endif ?>
-                        <?php if ($extfam_obj->efp->Parents->mothersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->parents->mothersFamilyCount): ?>
                             <div id="extended_family_m">
-                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->efp->Parents->mothersFamilyCount) ?></h4>
+                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->efp->parents->mothersFamilyCount) ?></h4>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->efp->Parents->motherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->parents->motherFamily as $indi) : ?>
                                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                         <span class="extended_family_counter"><?= $i ?> </span>
                                         <?php if ($indi->canShow()): ?>
@@ -180,7 +180,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no parents recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no parents recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
@@ -188,38 +188,38 @@
         
         <?php if ( $extfam_obj->config->showFamilyPart['uncles_and_aunts'] ): ?>
             <div class="hh-extended-family-uncles-aunts">
-				<?php if (($extfam_obj->efp->UnclesAunts->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->uncles_and_aunts->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Uncles and Aunts') ?></h2>
 				<?php endif ?>
-                <?php if ($extfam_obj->efp->UnclesAunts->allCount): ?>
-                    <?php if ($extfam_obj->efp->UnclesAunts->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->UnclesAunts->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one aunt recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->uncles_and_aunts->allCount): ?>
+                    <?php if ($extfam_obj->efp->uncles_and_aunts->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->uncles_and_aunts->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one aunt recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->UnclesAunts->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one uncle recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->uncles_and_aunts->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one uncle recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one uncle or aunt recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one uncle or aunt recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->UnclesAunts->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d aunt recorded.',  '%2$s has %1$d aunts recorded.', $extfam_obj->efp->UnclesAunts->femaleCount, $extfam_obj->efp->UnclesAunts->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->uncles_and_aunts->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d aunt recorded.',  '%2$s has %1$d aunts recorded.', $extfam_obj->efp->uncles_and_aunts->femaleCount, $extfam_obj->efp->uncles_and_aunts->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->UnclesAunts->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d uncle recorded.', '%2$s has %1$d uncles recorded.', $extfam_obj->efp->UnclesAunts->maleCount, $extfam_obj->efp->UnclesAunts->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->uncles_and_aunts->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d uncle recorded.', '%2$s has %1$d uncles recorded.', $extfam_obj->efp->uncles_and_aunts->maleCount, $extfam_obj->efp->uncles_and_aunts->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d uncle and ', '%2$s has %1$d uncles and ', $extfam_obj->efp->UnclesAunts->maleCount, $extfam_obj->efp->UnclesAunts->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d aunt recorded (%d in total).', '%d aunts recorded (%d in total).', $extfam_obj->efp->UnclesAunts->femaleCount, $extfam_obj->efp->UnclesAunts->femaleCount, $extfam_obj->efp->UnclesAunts->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d uncle and ', '%2$s has %1$d uncles and ', $extfam_obj->efp->uncles_and_aunts->maleCount, $extfam_obj->efp->uncles_and_aunts->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d aunt recorded (%d in total).', '%d aunts recorded (%d in total).', $extfam_obj->efp->uncles_and_aunts->femaleCount, $extfam_obj->efp->uncles_and_aunts->femaleCount, $extfam_obj->efp->uncles_and_aunts->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php if ($extfam_obj->efp->UnclesAunts->fathersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->uncles_and_aunts->fathersFamilyCount): ?>
                             <div id="extended_family_f">
-                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->efp->UnclesAunts->fathersFamilyCount) ?></h4>
+                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->efp->uncles_and_aunts->fathersFamilyCount) ?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
-                                <?php  foreach ($extfam_obj->efp->UnclesAunts->fatherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->uncles_and_aunts->fatherFamily as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                         <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
@@ -237,11 +237,11 @@
                                 <?php $i++; endforeach ?>
                             </div>    
                         <?php endif ?>
-                        <?php if ($extfam_obj->efp->UnclesAunts->fathersAndMothersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->uncles_and_aunts->fathersAndMothersFamilyCount): ?>
                             <div id="extended_family_fm">
-                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->efp->UnclesAunts->fathersAndMothersFamilyCount)?></h4>
+                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->efp->uncles_and_aunts->fathersAndMothersFamilyCount)?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
-                                <?php  foreach ($extfam_obj->efp->UnclesAunts->fatherAndMotherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->uncles_and_aunts->fatherAndMotherFamily as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                         <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
@@ -259,11 +259,11 @@
                                 <?php $i++; endforeach ?>
                             </div>
                         <?php endif ?>
-                        <?php if ($extfam_obj->efp->UnclesAunts->mothersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->uncles_and_aunts->mothersFamilyCount): ?>
                             <div id="extended_family_m">
-                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->efp->UnclesAunts->mothersFamilyCount) ?></h4>
+                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->efp->uncles_and_aunts->mothersFamilyCount) ?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
-                                <?php  foreach ($extfam_obj->efp->UnclesAunts->motherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->uncles_and_aunts->motherFamily as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                         <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
@@ -284,7 +284,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no uncles or aunts recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no uncles or aunts recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
@@ -293,34 +293,34 @@
         
         <?php if ( $extfam_obj->config->showFamilyPart['siblings'] ): ?>
             <div class="hh-extended-family-siblings">
-				<?php if (($extfam_obj->efp->Siblings->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->siblings->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Siblings') ?></h2>
 				<?php endif ?>
-                <?php if ($extfam_obj->efp->Siblings->allCount): ?>
-                    <?php if ($extfam_obj->efp->Siblings->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->Siblings->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one sister recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->siblings->allCount): ?>
+                    <?php if ($extfam_obj->efp->siblings->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->siblings->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one sister recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Siblings->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one brother recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->siblings->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one brother recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one brother or sister recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one brother or sister recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->Siblings->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d sister recorded.',  '%2$s has %1$d sisters recorded.', $extfam_obj->efp->Siblings->femaleCount, $extfam_obj->efp->Siblings->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->siblings->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d sister recorded.',  '%2$s has %1$d sisters recorded.', $extfam_obj->efp->siblings->femaleCount, $extfam_obj->efp->siblings->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Siblings->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d brother recorded.', '%2$s has %1$d brothers recorded.', $extfam_obj->efp->Siblings->maleCount, $extfam_obj->efp->Siblings->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->siblings->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d brother recorded.', '%2$s has %1$d brothers recorded.', $extfam_obj->efp->siblings->maleCount, $extfam_obj->efp->siblings->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d brother and ', '%2$s has %1$d brothers and ', $extfam_obj->efp->Siblings->maleCount, $extfam_obj->efp->Siblings->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d sister recorded (%d in total).', '%d sisters recorded (%d in total).', $extfam_obj->efp->Siblings->femaleCount, $extfam_obj->efp->Siblings->femaleCount, $extfam_obj->efp->Siblings->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d brother and ', '%2$s has %1$d brothers and ', $extfam_obj->efp->siblings->maleCount, $extfam_obj->efp->siblings->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d sister recorded (%d in total).', '%d sisters recorded (%d in total).', $extfam_obj->efp->siblings->femaleCount, $extfam_obj->efp->siblings->femaleCount, $extfam_obj->efp->siblings->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->efp->Siblings->families as $famobj): ?>
+                        <?php foreach ($extfam_obj->efp->siblings->families as $famobj): ?>
                             <div id="extended_family_g">
                                 
                                 <?php    $i = 1; ?>
@@ -340,7 +340,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no siblings recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no siblings recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
@@ -348,34 +348,34 @@
         
         <?php if ( $extfam_obj->config->showFamilyPart['partners'] ): ?>
             <div class="hh-extended-family-partners">
-				<?php if (($extfam_obj->efp->Partners->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->partners->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Partners') ?></h2>
 				<?php endif ?>
-                <?php if ($extfam_obj->efp->Partners->allCount): ?>
-                    <?php if ($extfam_obj->efp->Partners->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->Partners->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one female partner recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->partners->allCount): ?>
+                    <?php if ($extfam_obj->efp->partners->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->partners->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one female partner recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Partners->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one male partner recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->partners->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one male partner recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one partner recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one partner recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->Partners->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d female partner recorded.',  '%2$s has %1$d female partners recorded.', $extfam_obj->efp->Partners->femaleCount, $extfam_obj->efp->Partners->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->partners->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d female partner recorded.',  '%2$s has %1$d female partners recorded.', $extfam_obj->efp->partners->femaleCount, $extfam_obj->efp->partners->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Partners->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d male partner recorded.', '%2$s has %1$d male partners recorded.', $extfam_obj->efp->Partners->maleCount, $extfam_obj->efp->Partners->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->partners->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d male partner recorded.', '%2$s has %1$d male partners recorded.', $extfam_obj->efp->partners->maleCount, $extfam_obj->efp->partners->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $extfam_obj->efp->Partners->maleCount, $extfam_obj->efp->Partners->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d female partner recorded (%d in total).', '%d female partners recorded (%d in total).', $extfam_obj->efp->Partners->femaleCount, $extfam_obj->efp->Partners->femaleCount, $extfam_obj->efp->Partners->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $extfam_obj->efp->partners->maleCount, $extfam_obj->efp->partners->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d female partner recorded (%d in total).', '%d female partners recorded (%d in total).', $extfam_obj->efp->partners->femaleCount, $extfam_obj->efp->partners->femaleCount, $extfam_obj->efp->partners->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->efp->Partners->families as $famobj): ?>
+                        <?php foreach ($extfam_obj->efp->partners->families as $famobj): ?>
                             <div id="extended_family_g">
                                 
                                 <?php    $i = 1; ?>
@@ -395,7 +395,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no partners recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no partners recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
@@ -403,38 +403,38 @@
         
         <?php if ( $extfam_obj->config->showFamilyPart['cousins'] ): ?>
             <div class="hh-extended-family-cousins">
-				<?php if (($extfam_obj->efp->Cousins->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->cousins->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Cousins') ?></h2>
 				<?php endif ?>					
-                <?php if ($extfam_obj->efp->Cousins->allCount): ?>
-                    <?php if ($extfam_obj->efp->Cousins->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->Cousins->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one female first cousin recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->cousins->allCount): ?>
+                    <?php if ($extfam_obj->efp->cousins->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->cousins->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one female first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Cousins->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one male first cousin recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->cousins->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one male first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one first cousin recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->Cousins->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d female first cousin recorded.',  '%2$s has %1$d female first cousins recorded.', $extfam_obj->efp->Cousins->femaleCount, $extfam_obj->efp->Cousins->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->cousins->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d female first cousin recorded.',  '%2$s has %1$d female first cousins recorded.', $extfam_obj->efp->cousins->femaleCount, $extfam_obj->efp->cousins->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Cousins->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d male first cousin recorded.', '%2$s has %1$d male first cousins recorded.', $extfam_obj->efp->Cousins->maleCount, $extfam_obj->efp->Cousins->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->cousins->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d male first cousin recorded.', '%2$s has %1$d male first cousins recorded.', $extfam_obj->efp->cousins->maleCount, $extfam_obj->efp->cousins->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d male first cousin and ', '%2$s has %1$d male first cousins and ', $extfam_obj->efp->Cousins->maleCount, $extfam_obj->efp->Cousins->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d female first cousin recorded (%d in total).', '%d female first cousins recorded (%d in total).', $extfam_obj->efp->Cousins->femaleCount, $extfam_obj->efp->Cousins->femaleCount, $extfam_obj->efp->Cousins->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d male first cousin and ', '%2$s has %1$d male first cousins and ', $extfam_obj->efp->cousins->maleCount, $extfam_obj->efp->cousins->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d female first cousin recorded (%d in total).', '%d female first cousins recorded (%d in total).', $extfam_obj->efp->cousins->femaleCount, $extfam_obj->efp->cousins->femaleCount, $extfam_obj->efp->cousins->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php if ($extfam_obj->efp->Cousins->fathersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->cousins->fathersFamilyCount): ?>
                             <div id="extended_family_f">
-                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->efp->Cousins->fathersFamilyCount) ?></h4>
+                                <h4><?= I18N::translate('Father\'s family (%d)', $extfam_obj->efp->cousins->fathersFamilyCount) ?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
-                                <?php  foreach ($extfam_obj->efp->Cousins->fatherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->cousins->fatherFamily as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                         <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
@@ -452,11 +452,11 @@
                                 <?php $i++; endforeach ?>
                             </div>    
                         <?php endif ?>
-                        <?php if ($extfam_obj->efp->Cousins->fathersAndMothersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->cousins->fathersAndMothersFamilyCount): ?>
                             <div id="extended_family_fm">
-                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->efp->Cousins->fathersAndMothersFamilyCount)?></h4>
+                                <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $extfam_obj->efp->cousins->fathersAndMothersFamilyCount)?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
-                                <?php  foreach ($extfam_obj->efp->Cousins->fatherAndMotherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->cousins->fatherAndMotherFamily as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                         <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
@@ -474,11 +474,11 @@
                                 <?php $i++; endforeach ?>
                             </div>
                         <?php endif ?>
-                        <?php if ($extfam_obj->efp->Cousins->mothersFamilyCount): ?>
+                        <?php if ($extfam_obj->efp->cousins->mothersFamilyCount): ?>
                             <div id="extended_family_m">
-                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->efp->Cousins->mothersFamilyCount) ?></h4>
+                                <h4><?= I18N::translate('Mother\'s family (%d)', $extfam_obj->efp->cousins->mothersFamilyCount) ?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
-                                <?php  foreach ($extfam_obj->efp->Cousins->motherFamily as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->cousins->motherFamily as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                         <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
@@ -499,7 +499,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no first cousins recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no first cousins recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
@@ -507,39 +507,39 @@
         
         <?php if ( $extfam_obj->config->showFamilyPart['nephews_and_nieces'] ): ?>
             <div class="hh-extended-family-nephews-nieces">
-				<?php if (($extfam_obj->efp->NephewsNieces->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->nephews_and_nieces->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Nephews and Nieces') ?></h2>
 				<?php endif ?>
-                <?php if ($extfam_obj->efp->NephewsNieces->allCount): ?>
-                    <?php if ($extfam_obj->efp->NephewsNieces->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->NephewsNieces->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one niece recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->nephews_and_nieces->allCount): ?>
+                    <?php if ($extfam_obj->efp->nephews_and_nieces->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->nephews_and_nieces->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one niece recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->NephewsNieces->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one nephew recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->nephews_and_nieces->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one nephew recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one nephew or niece recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one nephew or niece recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->NephewsNieces->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d niece recorded.',  '%2$s has %1$d nieces recorded.', $extfam_obj->efp->NephewsNieces->femaleCount, $extfam_obj->efp->NephewsNieces->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->nephews_and_nieces->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d niece recorded.',  '%2$s has %1$d nieces recorded.', $extfam_obj->efp->nephews_and_nieces->femaleCount, $extfam_obj->efp->nephews_and_nieces->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->NephewsNieces->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d nephew recorded.', '%2$s has %1$d nephews recorded.', $extfam_obj->efp->NephewsNieces->maleCount, $extfam_obj->efp->NephewsNieces->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->nephews_and_nieces->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d nephew recorded.', '%2$s has %1$d nephews recorded.', $extfam_obj->efp->nephews_and_nieces->maleCount, $extfam_obj->efp->nephews_and_nieces->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d nephew and ', '%2$s has %1$d nephews and ', $extfam_obj->efp->NephewsNieces->maleCount, $extfam_obj->efp->NephewsNieces->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d niece recorded (%d in total).', '%d nieces recorded (%d in total).', $extfam_obj->efp->NephewsNieces->femaleCount, $extfam_obj->efp->NephewsNieces->femaleCount, $extfam_obj->efp->NephewsNieces->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d nephew and ', '%2$s has %1$d nephews and ', $extfam_obj->efp->nephews_and_nieces->maleCount, $extfam_obj->efp->nephews_and_nieces->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d niece recorded (%d in total).', '%d nieces recorded (%d in total).', $extfam_obj->efp->nephews_and_nieces->femaleCount, $extfam_obj->efp->nephews_and_nieces->femaleCount, $extfam_obj->efp->nephews_and_nieces->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->efp->NephewsNieces->families as $family): ?>
+                        <?php foreach ($extfam_obj->efp->nephews_and_nieces->families as $family): ?>
                             <div id="extended_family_g">
                                 <h4><?= I18N::translate(/*'Family with x / Family x and y'*/'') ?></h4>
                                 <?php $prev_fam_id = '-1'; ?>
                                 <?php $i = 1; ?>
-                                <?php  foreach ($extfam_obj->efp->NephewsNieces->families[0]->members as $indi) : ?>
+                                <?php  foreach ($extfam_obj->efp->nephews_and_nieces->families[0]->members as $indi) : ?>
                                     <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                         <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                         <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
@@ -559,7 +559,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no nephews or nieces recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no nephews or nieces recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
@@ -567,34 +567,34 @@
 
         <?php if ( $extfam_obj->config->showFamilyPart['children'] ): ?>
             <div class="hh-extended-family-children">
-				<?php if (($extfam_obj->efp->Children->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->children->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Children') ?></h2>
 				<?php endif ?>
-                <?php if ($extfam_obj->efp->Children->allCount): ?>
-                    <?php if ($extfam_obj->efp->Children->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->Children->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one daughter recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->children->allCount): ?>
+                    <?php if ($extfam_obj->efp->children->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->children->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one daughter recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Children->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one son recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->children->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one son recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one child recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one child recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->Children->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d daughter recorded.',  '%2$s has %1$d daughters recorded.', $extfam_obj->efp->Children->femaleCount, $extfam_obj->efp->Children->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->children->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d daughter recorded.',  '%2$s has %1$d daughters recorded.', $extfam_obj->efp->children->femaleCount, $extfam_obj->efp->children->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Children->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d son recorded.', '%2$s has %1$d sons recorded.', $extfam_obj->efp->Children->maleCount, $extfam_obj->efp->Children->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->children->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d son recorded.', '%2$s has %1$d sons recorded.', $extfam_obj->efp->children->maleCount, $extfam_obj->efp->children->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $extfam_obj->efp->Children->maleCount, $extfam_obj->efp->Children->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d daughter recorded (%d in total).', '%d daughters recorded (%d in total).', $extfam_obj->efp->Children->femaleCount, $extfam_obj->efp->Children->femaleCount, $extfam_obj->efp->Children->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $extfam_obj->efp->children->maleCount, $extfam_obj->efp->children->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d daughter recorded (%d in total).', '%d daughters recorded (%d in total).', $extfam_obj->efp->children->femaleCount, $extfam_obj->efp->children->femaleCount, $extfam_obj->efp->children->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->efp->Children->families as $famobj): ?>
+                        <?php foreach ($extfam_obj->efp->children->families as $famobj): ?>
                             <div id="extended_family_g">
                                 <?php $prev_fam_id = '-1'; ?>
                                 <?php $i = 1; ?>
@@ -618,7 +618,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no children recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no children recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
@@ -626,34 +626,34 @@
         
         <?php if ( $extfam_obj->config->showFamilyPart['grandchildren'] ): ?>
             <div class="hh-extended-family-grandchildren">
-				<?php if (($extfam_obj->efp->Grandchildren->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+				<?php if (($extfam_obj->efp->grandchildren->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
 					<h2><?= I18N::translate('Grandchildren') ?></h2>
 				<?php endif ?>
-                <?php if ($extfam_obj->efp->Grandchildren->allCount): ?>
-                    <?php if ($extfam_obj->efp->Grandchildren->allCount == 1): ?>
-                        <?php if ($extfam_obj->efp->Grandchildren->femaleCount == 1): ?>
-                            <h3><?= I18N::translate('%s has one granddaughter recorded.', $extfam_obj->Self->niceName) ?></h3>
+                <?php if ($extfam_obj->efp->grandchildren->allCount): ?>
+                    <?php if ($extfam_obj->efp->grandchildren->allCount == 1): ?>
+                        <?php if ($extfam_obj->efp->grandchildren->femaleCount == 1): ?>
+                            <h3><?= I18N::translate('%s has one granddaughter recorded.', $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Grandchildren->maleCount == 1): ?>
-                                <h3><?= I18N::translate('%s has one grandson recorded.', $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->grandchildren->maleCount == 1): ?>
+                                <h3><?= I18N::translate('%s has one grandson recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has one grandchild recorded.', $extfam_obj->Self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has one grandchild recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php else: ?>
-                        <?php if ($extfam_obj->efp->Grandchildren->maleCount == 0): ?>
-                            <h3><?= I18N::plural('%2$s has %1$d granddaughter recorded.',  '%2$s has %1$d granddaughters recorded.', $extfam_obj->efp->Grandchildren->femaleCount, $extfam_obj->efp->Grandchildren->femaleCount, $extfam_obj->Self->niceName) ?></h3>
+                        <?php if ($extfam_obj->efp->grandchildren->maleCount == 0): ?>
+                            <h3><?= I18N::plural('%2$s has %1$d granddaughter recorded.',  '%2$s has %1$d granddaughters recorded.', $extfam_obj->efp->grandchildren->femaleCount, $extfam_obj->efp->grandchildren->femaleCount, $extfam_obj->self->niceName) ?></h3>
                         <?php else: ?>
-                            <?php if ($extfam_obj->efp->Grandchildren->femaleCount == 0): ?>
-                                <h3><?= I18N::plural('%2$s has %1$d grandson recorded.', '%2$s has %1$d grandsons recorded.', $extfam_obj->efp->Grandchildren->maleCount, $extfam_obj->efp->Grandchildren->maleCount, $extfam_obj->Self->niceName) ?></h3>
+                            <?php if ($extfam_obj->efp->grandchildren->femaleCount == 0): ?>
+                                <h3><?= I18N::plural('%2$s has %1$d grandson recorded.', '%2$s has %1$d grandsons recorded.', $extfam_obj->efp->grandchildren->maleCount, $extfam_obj->efp->grandchildren->maleCount, $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::plural('%2$s has %1$d grandson and ', '%2$s has %1$d grandsons and ', $extfam_obj->efp->Grandchildren->maleCount, $extfam_obj->efp->Grandchildren->maleCount, $extfam_obj->Self->niceName) ?>
-                                    <?= I18N::plural('%d granddaughter recorded (%d in total).', '%d granddaughters recorded (%d in total).', $extfam_obj->efp->Grandchildren->femaleCount, $extfam_obj->efp->Grandchildren->femaleCount, $extfam_obj->efp->Grandchildren->allCount) ?></h3>
+                                <h3><?= I18N::plural('%2$s has %1$d grandson and ', '%2$s has %1$d grandsons and ', $extfam_obj->efp->grandchildren->maleCount, $extfam_obj->efp->grandchildren->maleCount, $extfam_obj->self->niceName) ?>
+                                    <?= I18N::plural('%d granddaughter recorded (%d in total).', '%d granddaughters recorded (%d in total).', $extfam_obj->efp->grandchildren->femaleCount, $extfam_obj->efp->grandchildren->femaleCount, $extfam_obj->efp->grandchildren->allCount) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endif ?>
                     <div id="hh_extended_family_content">
-                        <?php foreach ($extfam_obj->efp->Grandchildren->families as $famobj): ?>
+                        <?php foreach ($extfam_obj->efp->grandchildren->families as $famobj): ?>
                             <div id="extended_family_g">
                                 <?php $prev_fam_id = '-1'; ?>
                                 <?php $i = 1; ?>
@@ -677,7 +677,7 @@
                     </div>
                 <?php else: ?>
 					<?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-						<h3><?= I18N::translate('%s has no grandchildren recorded.', $extfam_obj->Self->niceName) ?></h3>
+						<h3><?= I18N::translate('%s has no grandchildren recorded.', $extfam_obj->self->niceName) ?></h3>
 					<?php endif ?>
                 <?php endif ?>
             </div>
