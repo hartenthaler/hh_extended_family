@@ -2104,144 +2104,153 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'A tab showing the extended family of an individual.' => 'Một bảng hiển thị gia đình mở rộng của một cá nhân.',
             'Are these parts of the extended family to be shown?' => 'Những phần này của đại gia đình có được hiển thị không?',
             'Show name of proband as short name or as full name?' => 'Hiển thị tên dưới dạng tên ngắn hay tên đầy đủ?',
-            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Tên viết tắt dựa  hoặc biệt danh. Nếu chúng không có sẵn, tên đầu tiên trong số các tên đã cho sẽ được sử dụng, nếu một tên được đưa ra. Nếu không, họ sẽ được sử dụng.',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Tên viết tắt dựa hoặc biệt danh. Nếu chúng không có sẵn, tên đầu tiên trong số các tên đã cho sẽ được sử dụng, nếu một tên được đưa ra. Nếu không, họ sẽ được sử dụng.',
             'Show short name' => 'Hiển thị tên rút gọn',
-            'How should empty parts of extended family be presented?' => 'Kiểu trình bày các phần trống của đại gia đình?',
-            'Show empty block' => 'Hiển thị khối trống',
-            'yes, always at standard location' => 'Vâng, luôn ở vị trí tiêu chuẩn',
+            'How should empty parts of extended family be presented?' => 'Các quan hệ không có thông tin của đại gia đình được trình bày như thế nào?',
+            'Show empty block' => 'Các quan hệ không có thông tin',
+            'yes, always at standard location' => 'Có, luôn ở vị trí tiêu chuẩn',
             'no, but collect messages about empty blocks at the end' => 'Không, nhưng thu thập thông báo về các khối trống ở cuối',
-            'never' => 'Không bao giờ',
-            
-            'He' => 'Anh',
-            'She' => 'Cô',
-            'He/she' => 'Anh/Cô',
-            'Mr.' => 'Ông',
-            'Mrs.' => 'Bà',
+            'never' => 'Không hiển thị',
+
+            'He' => 'Anh', // Kontext "Für ihn"
+            'She' => 'Cô', // Kontext "Für sie"
+            'He/she' => 'Anh/Cô', // Kontext "Für ihn/sie"
+            'Mr.' => 'Ông', // Kontext "Für Herrn xxx"
+            'Mrs.' => 'Bà', // Kontext "Für Frau xxx"
             'No family available' => 'Không có thông tin về gia đình',
-            'Parts of extended family without recorded information' => 'Các thành phần của đại gia đình không có thông tin được ghi lại',
-            '%s has no %s recorded.' => '%s không có %s thông tin được ghi lại.',
+            'Parts of extended family without recorded information' => 'Các mối quan hệ khác trong gia đình không có thông tin được ghi lại',
+            '%s has no %s recorded.' => 'Für %s sind keine %s verzeichnet.',
             '%s has no %s, and no %s recorded.' => '%s không có %s và không có %s thông tin được ghi lại.',
             'Father\'s family (%d)' => 'Gia đình bên Bố (%d)',
             'Mother\'s family (%d)' => 'Gia đình bên Mẹ (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Gia đình của Bố và Mẹ (%d)',
 
             'Grandparents' => 'Ông bà',
-            '%s has no grandparents recorded.' => '%s không có thông tin về ông bà.', 
+            '%s has no grandparents recorded.' => '%s không có thông tin về ông bà.',
             '%s has one grandmother recorded.' => '%s có một người bà.',
             '%s has one grandfather recorded.' => '%s có một người ông.',
-            '%s has one grandparent recorded.' => '%s có một ông bà.',
+            '%s has one grandparent recorded.' => '%s có ông bà.',
             '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
                 => '%2$s có %1$d bà nội.' . I18N::PLURAL . '%2$s có %1$d bà nội.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
                 => '%2$s có %1$d ông nội.' . I18N::PLURAL . '%2$s có %1$d ông nội.',
-            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and '
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
                 => '%2$s có %1$d ông nội và ' . I18N::PLURAL . '%2$s có %1$d các ông nội và ',
-            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).'
-                => '%d bà nội (tổng %d).' . I18N::PLURAL . '%d các bà nội (tổng %d).',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+                => '%d bà nội (insgesamt %d).' . I18N::PLURAL . '%d các bà nội (insgesamt %d).',
+
             
             'Parents' => 'Bố mẹ',
             '%s has no parents recorded.' => '%s không có thông tin về bố mẹ.',
             '%s has one mother recorded.' => '%s có một người mẹ.',
             '%s has one father recorded.' => '%s có một người bố.',
             '%s has one grandparent recorded.' => '%s có một ông bà.',
-            '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' => '%2$s có %1$d mẹ.' . I18N::PLURAL . '%2$s có %1$d các bà mẹ.' . I18N::PLURAL . '%2$s có %1$d các bà mẹ.',
+            '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' 
+                => '%2$s có %1$d mẹ.' . I18N::PLURAL . '%2$s có %1$d các bà mẹ.' . I18N::PLURAL . '%2$s có %1$d các bà mẹ.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.' 
                 => '%2$s có %1$d bố.' . I18N::PLURAL . '%2$s má %1$d bố.' . I18N::PLURAL . '%2$s má %1$d những người bố.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
                 => '%2$s có %1$d bố và ' . I18N::PLURAL . '%2$s có %1$d bố và ' . I18N::PLURAL . '%2$s có %1$d những người bố ',
-            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).'
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
                 => '%d mẹ ( tổng %d).' . I18N::PLURAL . '%d các bà mẹ ( tổng %d).' . I18N::PLURAL . '%d các bà mẹ (tổng %d).',
 
-            'Uncles and Aunts' => 'Bác/Chú và cô',
-            '%s has no uncles or aunts recorded.' => '%s không có thông tin về bác / chú và cô.',
-            '%s has one aunt recorded.' => '%s có một người bác gái hoặc cô.',
-            '%s has one uncle recorded.' => '%s Có một người bác trai hoặc chú.',
-            '%s has one uncle or aunt recorded.' => '%s có một người bác trai, chú hoặc cô.',
-            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.' => '%2$s có %1$d cô.' . I18N::PLURAL . '%2$s có %1$d cô.' . I18N::PLURAL . '%2$s có %1$d các cô.',
-            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.' 
-                => '%2$s có %1$d bác hoặc chú.' . I18N::PLURAL . '%2$s có %1$d bác hoặc chú.' . I18N::PLURAL . '%2$s có %1$d các bác hoặc các chú.',
+            'Uncles and Aunts' => 'Bác / cô và chú',
+            '%s has no uncles or aunts recorded.' => '%s không có thiing tin về bác / cô chú.',
+            '%s has one aunt recorded.' => '%s có một bác gái hoặc cô.',
+            '%s has one uncle recorded.' => '%s có một bác trai hoặc chú.',
+            '%s has one uncle or aunt recorded.' => '%s có một bác trai/bác gái hoặc cô/chú.',
+            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
+                => '%2$s có %1$d bác gái hoặc cô.' . I18N::PLURAL . '%2$s có %1$d các bác gái hoặc các cô.',
+            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
+                => '%2$s có %1$d bác trai hoặc chú.' . I18N::PLURAL . '%2$s có %1$d các bác trai hoặc các chú.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
-                => '%2$s có %1$d bác hoặc chú và ' . I18N::PLURAL . '%2$s có %1$d bác hoặc chú và ' . I18N::PLURAL . '%2$s có %1$d bác hoặc chú và ',
+                => '%2$s có %1$d bác trai hoặc chú và ' . I18N::PLURAL . '%2$s có %1$d các bác trai hoặc các chú và ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d tetu (celkem %d).' . I18N::PLURAL . '%d tety (celkem %d).' . I18N::PLURAL . '%d tet (celkem %d).', 
+                => '%d bác gái hoặc cô (tổng %d).' . I18N::PLURAL . '%d các bác gái hoặc các cô (tổng %d).', 
 
             'Siblings' => 'Anh chị em ruột',
             '%s has no siblings recorded.' => '%s không có thông tin về anh chị em ruột.',
             '%s has one sister recorded.' => '%s có một chị gái hoặc em gái.',
             '%s has one brother recorded.' => '%s có một anh trai hoặc em trai.',
-            '%s has one brother or sister recorded.' => '%s có một anh chị em.',
-            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.' => '%2$s má %1$d dceru.' . I18N::PLURAL . '%2$s má %1$d dcery.' . I18N::PLURAL . '%2$s má %1$d dcer.',
-            '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.' 
-                => '%2$s má %1$d bratra.' . I18N::PLURAL . '%2$s má %1$d bratry.' . I18N::PLURAL . '%2$s má %1$d bratrů.',
+            '%s has one brother or sister recorded.' => '%s có môt anh trai/em trai hoặc chị gái/em gái.',
+            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
+                => '%2$s có %1$d chị gái/em gái.' . I18N::PLURAL . '%2$s có %1$d các chị gái/các em gái.',
+            '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
+                => '%2$s có %1$d anh trai/em trai.' . I18N::PLURAL . '%2$s có %1$d các anh trai/các em trai.',
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
-                => '%2$s má %1$d bratra a ' . I18N::PLURAL . '%2$s má %1$d bratry a ' . I18N::PLURAL . '%2$s má %1$d bratrů a ',
+                => '%2$s có %1$d anh trai/em trai và ' . I18N::PLURAL . '%2$s có %1$d các anh trai/các em trai ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
-                => '%d sestru (celkem %d).' . I18N::PLURAL . '%d sestry (celkem %d).' . I18N::PLURAL . '%d sester (celkem %d).',
+                => '%d chị gái/em gái (tổng %d).' . I18N::PLURAL . '%d các chị gái/các em gái (tổng %d).',
                                 
             'Partners' => 'Vợ/Chồng',
             '%s has no partners recorded.' => '%s không có thông tin về vợ/chồng.',
             '%s has one female partner recorded.' => 'Ông %s có một người vợ.',
             '%s has one male partner recorded.' => '%s có một người chồng.',
             '%s has one partner recorded.' => '%s có một vợ/chồng.',
-            '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.' => '%2$s má %1$d partnerku.' . I18N::PLURAL . '%2$s má %1$d partnerky.' . I18N::PLURAL . '%2$s má %1$d partnerek.',
-            '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.' 
-                => '%2$s má %1$d partnera.' . I18N::PLURAL . '%2$s má %1$d partnery.' . I18N::PLURAL . '%2$s má %1$d partnerů.',
+            '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
+                => '%2$s có %1$d một người vợ.' . I18N::PLURAL . '%2$s có %1$d các người vợ.',
+            '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
+                => '%2$s có %1$d một người chồng.' . I18N::PLURAL . '%2$s có %1$d các người chồng.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
-                => '%2$s má %1$d partnera a ' . I18N::PLURAL . '%2$s má %1$d partnery a ' . I18N::PLURAL . '%2$s má %1$d partnerů a ',
+                => '%2$s có %1$d một người chồng và ' . I18N::PLURAL . '%2$s có %1$d các người chồng và ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
-                => '%d partnerku (celkem %d).' . I18N::PLURAL . '%d partnerky (celkem %d).' . I18N::PLURAL . '%d partnerek (celkem %d).',
+                => '%d một người vợ (tổng %d).' . I18N::PLURAL . '%d các người vợ (tổng %d).',
 
             'Cousins' => 'Anh chị em họ',
             '%s has no first cousins recorded.' => '%s không có thông tin về anh em họ.',
             '%s has one female first cousin recorded.' => '%s có một chị em họ.',
             '%s has one male first cousin recorded.' => '%s có một anh em họ.',
             '%s has one first cousin recorded.' => '%s có một anh em họ.',
-            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.' => '%2$s má %1$d sestřenici.' . I18N::PLURAL . '%2$s má %1$d sestřenice.' . I18N::PLURAL . '%2$s má %1$d sestřenic.',
-            '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.' 
-                => '%2$s má %1$d bratrance.' . I18N::PLURAL . '%2$s má %1$d bratrance.' . I18N::PLURAL . '%2$s má %1$d bratranců.',
+            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female firts cousins recorded.'
+                => '%2$s có %1$d chị họ/em gái họ.' . I18N::PLURAL . '%2$s có %1$d các chị họ/các em gái họ.',
+            '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
+                => '%2$s có %1$d anh/em họ.' . I18N::PLURAL . '%2$s có %1$d các anh/em họ.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
-                => '%2$s má %1$d bratrance a ' . I18N::PLURAL . '%2$s má %1$d bratrance a ' . I18N::PLURAL . '%2$s má %1$d bratranců a ',
+                => '%2$s có %1$d anh/em họ và ' . I18N::PLURAL . '%2$s có %1$d các anh/em họ và ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
-                => '%d sestřenici (celkem %d).' . I18N::PLURAL . '%d sestřenice (celkem %d).' . I18N::PLURAL . '%d sestřenic (celkem %d).',
+                => '%d chị/em gái họ (tổng %d).' . I18N::PLURAL . '%d các chị/em gái họ (tổng %d).',
                 
             'Nephews and Nieces' => 'Cháu (Là con của anh chị em ruột)',
             '%s has no nephews or nieces recorded.' => '%s không có thông tin về con của anh chị em ruột.',
             '%s has one niece recorded.' => '%s có một cháu gái.',
             '%s has one nephew recorded.' => '%s có một cháu trai.',
             '%s has one nephew or niece recorded.' => '%s có một cháu trai hoặc một cháu gái.',
-            '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.' => '%2$s má %1$d sestřenici.' . I18N::PLURAL . '%2$s má %1$d sestřenice.' . I18N::PLURAL . '%2$s má %1$d sestřenic.',
-            '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.' 
-                => '%2$s má %1$d synovce.' . I18N::PLURAL . '%2$s má %1$d synovce.' . I18N::PLURAL . '%2$s má %1$d synovců.',
+            '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
+                => '%2$s có %1$d một cháu gái.' . I18N::PLURAL . '%2$s  %1$d các cháu gái.',
+            '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
+                => '%2$s có %1$d một cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
-                => '%2$s má %1$d synovce a ' . I18N::PLURAL . '%2$s má %1$d synovce a ' . I18N::PLURAL . '%2$s má %1$d synovců a ',
+                => '%2$s có %1$d cháu trai và' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
-                => '%d neteř (celkem %d).' . I18N::PLURAL . '%d neteře (celkem %d).' . I18N::PLURAL . '%d neteří (celkem %d).',
+                => '%d cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).',
 
             'Children' => 'Các con',
             '%s has no children recorded.' => '%s không có thông tin về con cái.',
             '%s has one daughter recorded.' => '%s có một con gái.',
             '%s has one son recorded.' => '%s có một con trai.',
             '%s has one child recorded.' => '%s có một người con được.',
-            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.' => '%2$s má %1$d dceru.' . I18N::PLURAL . '%2$s má %1$d dcery.' . I18N::PLURAL . '%2$s má %1$d dcer.',
-            '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.' 
-                => '%2$s má %1$d syna.' . I18N::PLURAL . '%2$s má %1$d syny.' . I18N::PLURAL . '%2$s má %1$d synů.',
+            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
+                => '%2$s có %1$d con gái.' . I18N::PLURAL . '%2$s có %1$d các con gái.',
+            '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
+                => '%2$s có %1$d con trai.' . I18N::PLURAL . '%2$s có %1$d các con trai.',
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
-                => '%2$s má %1$d syna a ' . I18N::PLURAL . '%2$s má %1$d syny a ' . I18N::PLURAL . '%2$s má %1$d synů a ',
+                => '%2$s có %1$d con trai và ' . I18N::PLURAL . '%2$s có %1$d các con trai và ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
-                => '%d dceru (celkem %d).' . I18N::PLURAL . '%d dcery (celkem %d).' . I18N::PLURAL . '%d dcer (celkem %d).',
+                => '%d con gái (tổng %d).' . I18N::PLURAL . '%d các con gái (tổng %d).',
 
             'Grandchildren' => 'Cháu nội',
             '%s has no grandchildren recorded.' => '%s không có thông tin về cháu nội.',
             '%s has one granddaughter recorded.' => '%s có một cháu gái.',
             '%s has one grandson recorded.' => '%s có một cháu trai.',
             '%s has one grandchild recorded.' => '%s có một cháu.',
-            '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.' => '%2$s má %1$d vnučku.' . I18N::PLURAL . '%2$s má %1$d vnučky.' . I18N::PLURAL . '%2$s má %1$d vnuček.',
-            '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.' 
-                => '%2$s má %1$d vnuka.' . I18N::PLURAL . '%2$s má %1$d vnuky.' . I18N::PLURAL . '%2$s má %1$d vnuků.',
+            '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
+                => '%2$s có %1$d cháu gái.' . I18N::PLURAL . '%2$s có %1$d các cháu gái.',
+            '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
+                => '%2$s có %1$d cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.',
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
-                => '%2$s má %1$d vnuka a ' . I18N::PLURAL . '%2$s má %1$d vnuky a ' . I18N::PLURAL . '%2$s má %1$d vnuků a ',
+                => '%2$s có %1$d cháu trai và ' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
-                => '%d vnučku (celkem %d).' . I18N::PLURAL . '%d vnučky (celkem %d).' . I18N::PLURAL . '%d vnuček (celkem %d).',            
+                => '%d cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).',
         ];
     }
 }
