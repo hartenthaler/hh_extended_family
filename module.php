@@ -1515,7 +1515,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one female first cousin recorded.' => 'Für %s ist eine Cousine ersten Grades verzeichnet.',
             '%s has one male first cousin recorded.' => 'Für %s ist ein Cousin ersten Grades verzeichnet.',
             '%s has one first cousin recorded.' => 'Für %s ist ein Cousin bzw. eine Cousine ersten Grades verzeichnet.',
-            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female firts cousins recorded.'
+            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
                 => 'Für %2$s ist %1$d Cousine ersten Grades verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Cousinen ersten Grades verzeichnet.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
                 => 'Für %2$s ist %1$d Cousin ersten Grades verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Cousins ersten Grades verzeichnet.',
@@ -1543,7 +1543,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one daughter recorded.' => 'Für %s ist eine Tochter verzeichnet.',
             '%s has one son recorded.' => 'Für %s ist ein Sohn verzeichnet.',
             '%s has one child recorded.' => 'Für %s ist ein Kind verzeichnet.',
-            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d ddaughters recorded.'
+            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
                 => 'Für %2$s ist %1$d Tochter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Töchter verzeichnet.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
                 => 'Für %2$s ist %1$d Sohn verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Söhne verzeichnet.',
@@ -1977,7 +1977,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return [
             'Extended family' => 'Розширена сім`я',
             'A tab showing the extended family of an individual.' => 'Додає вкладку з розширеним виглядом родини для картки персони',
-            'Are these parts of the extended family to be shown?' => 'Чи будуть показані ці частини розширеної сім`ї?',
+            'In which sequence should the parts of the extended family be shown?' => '*** In which sequence should the parts of the extended family be shown?',
+            'Family part' => '*** Family part',
             'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об`єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
             'Show short name' => 'Показати коротку форму імені',
@@ -1987,9 +1988,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'no, but collect messages about empty blocks at the end' => 'ні, але збирати повідомлення про порожні блоки в кінці',
             'never' => 'ніколи',
             
-            'He' => 'йому', // Kontext "ihn"
-            'She' => 'їй', // Kontext "sie"
-            'He/she' => 'йому/їй', // Kontext "ihn/sie"
+            'He' => 'йому',
+            'She' => 'їй',
+            'He/she' => 'йому/їй',
             'Mr.' => 'Пан',
             'Mrs.' => 'Пані',
             'No family available' => 'Не знайдено жодної сім`ї.',
@@ -2005,10 +2006,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandmother recorded.' => '%s має запис про одну бабусю.',
             '%s has one grandfather recorded.' => '%s має запис про одного дідуся.',
             '%s has one grandparent recorded.' => '%s має запис про одного дідуся чи бабусю.',
-            '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.' => '%2$s має %1$d запис бабусі.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.',
-            '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.' => '%2$s має %1$d запис дідуся.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.',
-            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' => '%2$s має %1$d запис дідуся та ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ',
-            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).',
+            '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.' 
+                => '%2$s має %1$d запис бабусі.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.',
+            '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.' 
+                => '%2$s має %1$d запис дідуся.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.',
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
+                => '%2$s має %1$d запис дідуся та ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+                => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).',
 
 
             'Parents' => 'Батьки',
@@ -2017,13 +2022,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one father recorded.' => '%s має тільки запис батька.',
             '%s has one parent recorded.' => '%s має запис одного з батьків.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.'
-                => '%2$s має %1$d запис про мати.' . I18N::PLURAL . '%2$s має %1$d записи про матерів.',
+                => '%2$s має %1$d запис про мати.' . I18N::PLURAL . '%2$s має %1$d записи про матерів.' . I18N::PLURAL . '%2$s має %1$d записи про матерів.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
-                => '%2$s має %1$d запис про батька.' . I18N::PLURAL . '%2$s має %1$d записів про батьків.',
+                => '%2$s має %1$d запис про батька.' . I18N::PLURAL . '%2$s має %1$d записів про батьків.' . I18N::PLURAL . '%2$s має %1$d записів про батьків.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
-                => '%2$s має %1$d запис про батька та ' . I18N::PLURAL . '%2$s має %1$d записи про батьків і ',
+                => '%2$s має %1$d запис про батька та ' . I18N::PLURAL . '%2$s має %1$d записи про батьків і ' . I18N::PLURAL . '%2$s має %1$d записи про батьків і ',
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
-                => '%d мати (загалом %d).' . I18N::PLURAL . '%d матерів (загалом %d).',
+                => '%d мати (загалом %d).' . I18N::PLURAL . '%d матерів (загалом %d).' . I18N::PLURAL . '%d матерів (загалом %d).',
 
             'Uncles and Aunts' => 'Дядьки і тітки',
             '%s has no uncles or aunts recorded.' => '%s не має записів про дядьків і тіток.',
@@ -2031,13 +2036,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one uncle recorded.' => '%s має запис про одного дядька.',
             '%s has one uncle or aunt recorded.' => '%s має запис про одного дядька чи тітку.',
             '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
-                => '%2$s має %1$d запис про дядька.' . I18N::PLURAL . '%2$s має %1$d записи про дядьків.',
+                => '%2$s має %1$d запис про дядька.' . I18N::PLURAL . '%2$s має %1$d записи про дядьків.' . I18N::PLURAL . '%2$s має %1$d записи про дядьків.',
             '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
-                => '%2$s має %1$d запис про тіток.' . I18N::PLURAL . '%2$s має %1$d записи про тіток.',
+                => '%2$s має %1$d запис про тіток.' . I18N::PLURAL . '%2$s має %1$d записи про тіток.' . I18N::PLURAL . '%2$s має %1$d записи про тіток.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
-                => '%2$s має %1$d запис про дядька та ' . I18N::PLURAL . '%2$s має %1$d записи про дядьків і ',
+                => '%2$s має %1$d запис про дядька та ' . I18N::PLURAL . '%2$s має %1$d записи про дядьків і ' . I18N::PLURAL . '%2$s має %1$d записи про дядьків і ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d тітку (загалом %d).' . I18N::PLURAL . '%d тіток (загалом %d).', 
+                => '%d тітку (загалом %d).' . I18N::PLURAL . '%d тіток (загалом %d).' . I18N::PLURAL . '%d тіток (загалом %d).', 
 
             'Siblings' => 'Брати і сестри',
             '%s has no siblings recorded.' => '%s не має записів про братів і сестер.',
@@ -2045,13 +2050,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one brother recorded.' => '%s має запис про одного брата.',
             '%s has one brother or sister recorded.' => '%s має записи про одного брата чи сестру.',
             '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
-                => '%2$s має %1$d запис про сестру.' . I18N::PLURAL . '%2$s має %1$d записи про сестер.',
+                => '%2$s має %1$d запис про сестру.' . I18N::PLURAL . '%2$s має %1$d записи про сестер.' . I18N::PLURAL . '%2$s має %1$d записи про сестер.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
-                => '%2$s має %1$d запис про брата.' . I18N::PLURAL . '%2$s має %1$d записи про братів.',
+                => '%2$s має %1$d запис про брата.' . I18N::PLURAL . '%2$s має %1$d записи про братів.' . I18N::PLURAL . '%2$s має %1$d записи про братів.',
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
-                => '%2$s має %1$d запис про брата і ' . I18N::PLURAL . '%2$s має %1$d записи про братів і ',
+                => '%2$s має %1$d запис про брата і ' . I18N::PLURAL . '%2$s має %1$d записи про братів і ' . I18N::PLURAL . '%2$s має %1$d записи про братів і ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
-                => '%d сестру (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).',
+                => '%d сестру (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).',
                                 
             'Partners' => 'Партнери',
             '%s has no partners recorded.' => '%s не має записів про партнерів.',
@@ -2059,27 +2064,27 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one male partner recorded.' => '%s має запис про одного партнера.',
             '%s has one partner recorded.' => '%s має запис про одного партнера.',
             '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
-                => '%2$s має %1$d запис про партнерку.' . I18N::PLURAL . '%2$s має %1$d записи про партнерок.',
+                => '%2$s має %1$d запис про партнерку.' . I18N::PLURAL . '%2$s має %1$d записи про партнерок.' . I18N::PLURAL . '%2$s має %1$d записи про партнерок.',
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
-                => '%2$s має %1$d запис про партнера.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.',
+                => '%2$s має %1$d запис про партнера.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
-                => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d запис про партнера і ',
+                => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d запис про партнера і ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
-                => '%d партнерку (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).',
+                => '%d партнерку (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).',
 
             'Cousins' => 'Двоюрідні брати і сестри',
             '%s has no first cousins recorded.' => '%s не має записів про двоюрідних братів і сестер.',
             '%s has one female first cousin recorded.' => '%s має запис про одну двоюрідну сестру.',
             '%s has one male first cousin recorded.' => '%s має запис про одного двоюрідного брата.',
             '%s has one first cousin recorded.' => '%s має запис про одного двоюрідного брата чи сестру.',
-            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female firts cousins recorded.'
-                => '%2$s має %1$d запис про двоюрідну сестру.' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних сестер.',
+            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
+                => '%2$s має %1$d запис про двоюрідну сестру.' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних сестер.' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних сестер.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
-                => '%2$s має %1$d запис про двоюрідного брата.' . I18N::PLURAL . '%2$s має %1$d записи про двюрідних братів.',
+                => '%2$s має %1$d запис про двоюрідного брата.' . I18N::PLURAL . '%2$s має %1$d записи про двюрідних братів.' . I18N::PLURAL . '%2$s має %1$d записи про двюрідних братів.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
-                => '%2$s має %1$d запис про двоюрідного брата і ' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних братів і ',
+                => '%2$s має %1$d запис про двоюрідного брата і ' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних братів і ' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних братів і ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
-                => '%d двоюрідну сестру (загалом %d).' . I18N::PLURAL . '%d двоюрідних сестер (загалом %d).',
+                => '%d двоюрідну сестру (загалом %d).' . I18N::PLURAL . '%d двоюрідних сестер (загалом %d).' . I18N::PLURAL . '%d двоюрідних сестер (загалом %d).',
                 
             'Nephews and Nieces' => 'Племінники та племінниці',
             '%s has no nephews or nieces recorded.' => '%s не має записів про племінників чи племінниць.',
@@ -2087,27 +2092,27 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one nephew recorded.' => '%s має запис про одного племінника.',
             '%s has one nephew or niece recorded.' => '%s має запис про одного племінника чи племінницю.',
             '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
-                => '%2$s має %1$d запис про племінницю.' . I18N::PLURAL . '%2$s має %1$d записи про племінниць.',
+                => '%2$s має %1$d запис про племінницю.' . I18N::PLURAL . '%2$s має %1$d записи про племінниць.' . I18N::PLURAL . '%2$s має %1$d записи про племінниць.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
-                => '%2$s має %1$d запис про племінника.' . I18N::PLURAL . '%2$s має %1$d записи про племінників.',
+                => '%2$s має %1$d запис про племінника.' . I18N::PLURAL . '%2$s має %1$d записи про племінників.' . I18N::PLURAL . '%2$s має %1$d записи про племінників.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
-                => '%2$s має %1$d запис про племінника та ' . I18N::PLURAL . '%2$s має %1$d записи про племінників і ',
+                => '%2$s має %1$d запис про племінника та ' . I18N::PLURAL . '%2$s має %1$d записи про племінників і ' . I18N::PLURAL . '%2$s має %1$d записи про племінників і ',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
-                => '%d племінницю (загалом %d).' . I18N::PLURAL . '%d племінниць (загалом %d).',
+                => '%d племінницю (загалом %d).' . I18N::PLURAL . '%d племінниць (загалом %d).' . I18N::PLURAL . '%d племінниць (загалом %d).',
 
             'Children' => 'Діти',
             '%s has no children recorded.' => '%s не має записів про дітей.',
             '%s has one daughter recorded.' => '%s має запис про одного сина.',
             '%s has one son recorded.' => '%s має запис про одну дочку.',
             '%s has one child recorded.' => '%s запис про одну дитину.',
-            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d ddaughters recorded.'
-                => '%2$s має %1$d запис про дочку.' . I18N::PLURAL . '%2$s має %1$d записи про дочок.',
+            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
+                => '%2$s має %1$d запис про дочку.' . I18N::PLURAL . '%2$s має %1$d записи про дочок.' . I18N::PLURAL . '%2$s має %1$d записи про дочок.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
-                => '%2$s має %1$d запис про сина.' . I18N::PLURAL . '%2$s має %1$d записи про синів.',
+                => '%2$s має %1$d запис про сина.' . I18N::PLURAL . '%2$s має %1$d записи про синів.' . I18N::PLURAL . '%2$s має %1$d записи про синів.',
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
-                => '%2$s має %1$d запис про сина та ' . I18N::PLURAL . '%2$s має %1$d записи про синів і ',
+                => '%2$s має %1$d запис про сина та ' . I18N::PLURAL . '%2$s має %1$d записи про синів і ' . I18N::PLURAL . '%2$s має %1$d записи про синів і ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
-                => '%d дочку (загалом %d).' . I18N::PLURAL . '%d дочок (загалом %d).',
+                => '%d дочку (загалом %d).' . I18N::PLURAL . '%d дочок (загалом %d).' . I18N::PLURAL . '%d дочок (загалом %d).',
 
             'Grandchildren' => 'Онуки',
             '%s has no grandchildren recorded.' => '%s не має записів про онуків.',
@@ -2115,13 +2120,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandson recorded.' => '%s має запис про одного внука.',
             '%s has one grandchild recorded.' => '%s має запис про одного внука чи онуку.',
             '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
-                => '%2$s має %1$d запис про онуку.' . I18N::PLURAL . '%2$s має %1$d записи про онук.',
-            '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
-                => '%2$s має %1$d запис про внука.' . I18N::PLURAL . '%2$s має %1$d записів про внуків.',
+                => '%2$s має %1$d запис про онуку.' . I18N::PLURAL . '%2$s має %1$d записи про онук.' . I18N::PLURAL . '%2$s має %1$d записи про онук.',
+            '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.' 
+                => '%2$s має %1$d запис про внука.' . I18N::PLURAL . '%2$s має %1$d записів про внуків.' . I18N::PLURAL . '%2$s має %1$d записів про внуків.',
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
-                => '%2$s має %1$d запис про внука та ' . I18N::PLURAL . '%2$s має %1$d записи про внуків і ',
-            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
-                => '%d онуку (загалом %d).' . I18N::PLURAL . '%d онуок (загалом %d).',  
+                => '%2$s має %1$d запис про внука та ' . I18N::PLURAL . '%2$s має %1$d записи про внуків і ' . I18N::PLURAL . '%2$s має %1$d записи про внуків і ',
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).'
+                => '%d онуку (загалом %d).' . I18N::PLURAL . '%d онуок (загалом %d).' . I18N::PLURAL . '%d онуок (загалом %d).',
         ];
     }
     
@@ -2136,7 +2141,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return [
             'Extended family' => 'Thông tin thêm về gia đình',
             'A tab showing the extended family of an individual.' => 'Một bảng hiển thị gia đình mở rộng của một cá nhân.',
-            'Are these parts of the extended family to be shown?' => 'Những phần này của đại gia đình có được hiển thị không?',
+            'In which sequence should the parts of the extended family be shown?' => '*** In which sequence should the parts of the extended family be shown?',
+            'Family part' => '*** Family part',
             'Show name of proband as short name or as full name?' => 'Hiển thị tên dưới dạng tên ngắn hay tên đầy đủ?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Tên viết tắt dựa hoặc biệt danh. Nếu chúng không có sẵn, tên đầu tiên trong số các tên đã cho sẽ được sử dụng, nếu một tên được đưa ra. Nếu không, họ sẽ được sử dụng.',
             'Show short name' => 'Hiển thị tên rút gọn',
@@ -2146,11 +2152,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'no, but collect messages about empty blocks at the end' => 'Không, nhưng thu thập thông báo về các khối trống ở cuối',
             'never' => 'Không hiển thị',
 
-            'He' => 'Anh', // Kontext "Für ihn"
-            'She' => 'Cô', // Kontext "Für sie"
-            'He/she' => 'Anh/Cô', // Kontext "Für ihn/sie"
-            'Mr.' => 'Ông', // Kontext "Für Herrn xxx"
-            'Mrs.' => 'Bà', // Kontext "Für Frau xxx"
+            'He' => 'Anh',
+            'She' => 'Cô',
+            'He/she' => 'Anh/Cô',
+            'Mr.' => 'Ông',
+            'Mrs.' => 'Bà',
             'No family available' => 'Không có thông tin về gia đình',
             'Parts of extended family without recorded information' => 'Các mối quan hệ khác trong gia đình không có thông tin được ghi lại',
             '%s has no %s recorded.' => '%s không có %s thông tin được ghi lại.',
@@ -2165,13 +2171,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandfather recorded.' => '%s có một người ông.',
             '%s has one grandparent recorded.' => '%s có ông bà.',
             '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
-                => '%2$s có %1$d bà nội.' . I18N::PLURAL . '%2$s có %1$d bà nội.',
+                => '%2$s có %1$d bà nội.' . I18N::PLURAL . '%2$s có %1$d bà nội.' . I18N::PLURAL . '%2$s có %1$d bà nội.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
-                => '%2$s có %1$d ông nội.' . I18N::PLURAL . '%2$s có %1$d ông nội.',
+                => '%2$s có %1$d ông nội.' . I18N::PLURAL . '%2$s có %1$d ông nội.' . I18N::PLURAL . '%2$s có %1$d ông nội.',
             '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
-                => '%2$s có %1$d ông nội và ' . I18N::PLURAL . '%2$s có %1$d các ông nội và ',
+                => '%2$s có %1$d ông nội và ' . I18N::PLURAL . '%2$s có %1$d các ông nội và ' . I18N::PLURAL . '%2$s có %1$d các ông nội và ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
-                => '%d bà nội (insgesamt %d).' . I18N::PLURAL . '%d các bà nội (insgesamt %d).',
+                => '%d bà nội (insgesamt %d).' . I18N::PLURAL . '%d các bà nội (insgesamt %d).' . I18N::PLURAL . '%d các bà nội (insgesamt %d).',
 
             
             'Parents' => 'Bố mẹ',
@@ -2235,14 +2241,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one female first cousin recorded.' => '%s có một chị em họ.',
             '%s has one male first cousin recorded.' => '%s có một anh em họ.',
             '%s has one first cousin recorded.' => '%s có một anh em họ.',
-            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female firts cousins recorded.'
-                => '%2$s có %1$d chị họ/em gái họ.' . I18N::PLURAL . '%2$s có %1$d các chị họ/các em gái họ.',
+            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
+                => '%2$s có %1$d chị họ/em gái họ.' . I18N::PLURAL . '%2$s có %1$d các chị họ/các em gái họ.' . I18N::PLURAL . '%2$s có %1$d các chị họ/các em gái họ.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
-                => '%2$s có %1$d anh/em họ.' . I18N::PLURAL . '%2$s có %1$d các anh/em họ.',
+                => '%2$s có %1$d anh/em họ.' . I18N::PLURAL . '%2$s có %1$d các anh/em họ.' . I18N::PLURAL . '%2$s có %1$d các anh/em họ.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
-                => '%2$s có %1$d anh/em họ và ' . I18N::PLURAL . '%2$s có %1$d các anh/em họ và ',
+                => '%2$s có %1$d anh/em họ và ' . I18N::PLURAL . '%2$s có %1$d các anh/em họ và ' . I18N::PLURAL . '%2$s có %1$d các anh/em họ và ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
-                => '%d chị/em gái họ (tổng %d).' . I18N::PLURAL . '%d các chị/em gái họ (tổng %d).',
+                => '%d chị/em gái họ (tổng %d).' . I18N::PLURAL . '%d các chị/em gái họ (tổng %d).' . I18N::PLURAL . '%d các chị/em gái họ (tổng %d).',
                 
             'Nephews and Nieces' => 'Cháu (Là con của anh chị em ruột)',
             '%s has no nephews or nieces recorded.' => '%s không có thông tin về con của anh chị em ruột.',
@@ -2250,13 +2256,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one nephew recorded.' => '%s có một cháu trai.',
             '%s has one nephew or niece recorded.' => '%s có một cháu trai hoặc một cháu gái.',
             '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
-                => '%2$s có %1$d một cháu gái.' . I18N::PLURAL . '%2$s  %1$d các cháu gái.',
+                => '%2$s có %1$d một cháu gái.' . I18N::PLURAL . '%2$s  %1$d các cháu gái.' . I18N::PLURAL . '%2$s  %1$d các cháu gái.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
-                => '%2$s có %1$d một cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.',
+                => '%2$s có %1$d một cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
-                => '%2$s có %1$d cháu trai và' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ',
+                => '%2$s có %1$d cháu trai và' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
-                => '%d cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).',
+                => '%d cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).',
 
             'Children' => 'Các con',
             '%s has no children recorded.' => '%s không có thông tin về con cái.',
@@ -2264,13 +2270,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one son recorded.' => '%s có một con trai.',
             '%s has one child recorded.' => '%s có một người con được.',
             '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
-                => '%2$s có %1$d con gái.' . I18N::PLURAL . '%2$s có %1$d các con gái.',
+                => '%2$s có %1$d con gái.' . I18N::PLURAL . '%2$s có %1$d các con gái.' . I18N::PLURAL . '%2$s có %1$d các con gái.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
-                => '%2$s có %1$d con trai.' . I18N::PLURAL . '%2$s có %1$d các con trai.',
+                => '%2$s có %1$d con trai.' . I18N::PLURAL . '%2$s có %1$d các con trai.' . I18N::PLURAL . '%2$s có %1$d các con trai.',
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
-                => '%2$s có %1$d con trai và ' . I18N::PLURAL . '%2$s có %1$d các con trai và ',
+                => '%2$s có %1$d con trai và ' . I18N::PLURAL . '%2$s có %1$d các con trai và ' . I18N::PLURAL . '%2$s có %1$d các con trai và ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
-                => '%d con gái (tổng %d).' . I18N::PLURAL . '%d các con gái (tổng %d).',
+                => '%d con gái (tổng %d).' . I18N::PLURAL . '%d các con gái (tổng %d).' . I18N::PLURAL . '%d các con gái (tổng %d).',
 
             'Grandchildren' => 'Cháu nội',
             '%s has no grandchildren recorded.' => '%s không có thông tin về cháu nội.',
@@ -2278,13 +2284,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandson recorded.' => '%s có một cháu trai.',
             '%s has one grandchild recorded.' => '%s có một cháu.',
             '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
-                => '%2$s có %1$d cháu gái.' . I18N::PLURAL . '%2$s có %1$d các cháu gái.',
+                => '%2$s có %1$d cháu gái.' . I18N::PLURAL . '%2$s có %1$d các cháu gái.' . I18N::PLURAL . '%2$s có %1$d các cháu gái.',
             '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
-                => '%2$s có %1$d cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.',
+                => '%2$s có %1$d cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.',
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
-                => '%2$s có %1$d cháu trai và ' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ',
+                => '%2$s có %1$d cháu trai và ' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
-                => '%d cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).',
+                => '%d cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).',
         ];
     }
 }
