@@ -1421,10 +1421,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
             'Show short name' => 'Zeige die Kurzform des Namens',
-			'How should empty parts of extended family be presented?' => 'Wie sollen leere Blöcke der erweiterten Familie angezeigt werden?',
-			'Show empty block' => 'Zeige leere Blöcke',
+			'How should empty parts of extended family be presented?' => 'Wie sollen leere Teile der erweiterten Familie angezeigt werden?',
+			'Show empty block' => 'Zeige leere Familienteile',
 			'yes, always at standard location' => 'ja, immer am normalen Platz',
-			'no, but collect messages about empty blocks at the end' => 'nein, aber sammle Nachrichten über leere Blöcke am Ende',
+			'no, but collect messages about empty blocks at the end' => 'nein, aber sammle Nachrichten über leere Familienteile am Ende',
 			'never' => 'niemals',
 			
             'He' => 'ihn', // Kontext "Für ihn"
