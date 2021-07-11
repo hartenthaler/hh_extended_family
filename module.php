@@ -1253,7 +1253,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return [
             'Extended family' => 'Širší rodina',
             'A tab showing the extended family of an individual.' => 'Panel širší rodiny dané osoby.',
-            'Are these parts of the extended family to be shown?' => 'Mají se tyto části širší rodiny zobrazit?',
+            'In which sequence should the parts of the extended family be shown?' => 'V jakém pořadí se části širší rodiny zobrazí?',
+            'Family part' => 'Část rodiny',
             'Show name of proband as short name or as full name?' => 'Má se jméno probanta zobrazit jako zkrácené jméno, nebo jako úplné jméno?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Za zkrácené probantovo jméno se vezme domácké jméno nebo přezdívka. Pokud neexistuje, vezme se první křestní jméno, je-li k dispozici. Pokud ani to ne, vezme se příjmení.',
             'Show short name' => 'Zobrazit zkrácené jméno',
