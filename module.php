@@ -956,8 +956,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             foreach ($preferences as $preference) {
                 $this->setPreference($preference, $params[$preference]);
 			}
-            $order_string = implode(",",$params['order']);
-            $this->setPreference('order', $order_string);
+            
+            $order = implode(",",$params['order']);
+            $this->setPreference('order', $order);
+            
+            $efps = $this->listOfFamilyParts();
+            foreach ($efps as $efp) {
+                $this->setPreference('status-' . $efp, '0');
+			}
             foreach ($params as $key => $value) {
                 if (str_starts_with($key, 'status-')) {
                     $this->setPreference($key, $value);
@@ -984,7 +990,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         foreach ($order as $efp) {
            $efpObj = (object)[];
            $efpObj->name = $this->translateFamilyPart($efp);
-           $efpObj->enabled = $this->getPreference('status-' . $efp, '1');
+           $efpObj->enabled = $this->getPreference('status-' . $efp, 'on');
            $sp[$efp] = $efpObj;
         }
         return $sp;
