@@ -41,7 +41,7 @@ The admin can decide in the control panel
 * wheter the name of proband is a full name or a short version
 * how empty parts of extended family should be presented
 
-The default presentation sequence of the extended family parts is oriented at the generation of the peoples in this part, relative to the proband
+The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
 * grandparents                             // generation +2
 * parents                                  // generation +1
 * uncles_and_aunts                         // generation +1
@@ -98,11 +98,11 @@ To update simply replace the hh_extended_family files with the new ones from the
 If you like to translate the text fragments in this module, contact me, please!
 
 There are now, beside English and German, translations to
-* czech by @jpretired
-* dutch by @TheDutchJewel
-* ukrainian by @z-yurets
-* slovak by @ro-la
-* vietnamese by @ngohuuthuan
+* Czech by @jpretired
+* Dutch by @TheDutchJewel
+* Ukrainian by @z-yurets
+* Slovak by @ro-la
+* Vietnamese by @ngohuuthuan
 
 
 <a name="Support"></a>
