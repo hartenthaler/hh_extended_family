@@ -69,7 +69,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.25';
+    public const CUSTOM_VERSION = '2.0.16.26';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
@@ -140,8 +140,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 	 *					   		 ->type							string
      *       ->children                                         see nephews_and_nieces
      *       ->grandchildren                                    see nephews_and_nieces
-     *  ->config->showFamilyPart[]                              array of bool
-     *          ->showEmptyBlock                                integer [0,1,2]
+     *  ->config->showEmptyBlock                                integer [0,1,2]
      *
      * tbd: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
      * tbd: Stiefcousins testen (siehe Onkel Walter)
@@ -153,12 +152,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $extfamObj->efp = (object)[];
         $extfamObj->efp->allCount = 0;
         $extfamObj->config = (object)[];
-        $extfamObj->config->showFamilyPart = $this->showFamilyPart();
         $extfamObj->config->showEmptyBlock = $this->showEmptyBlock();
 
-        $efps = $this->listOfFamilyParts();
-        foreach ($efps as $efp) {
-            if ($extfamObj->config->showFamilyPart[$efp]) {
+        $efps = $this->showFamilyParts();
+        foreach ($efps as $efp => $value) {
+            if ($efps[$efp]->enabled == true) {
                 $extfamObj->efp->$efp = $this->callFunction( 'get_' . $efp, $individual );
                 $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
             }
@@ -802,7 +800,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * Find a short, nice name for a person
      * => use Rufname or nickname ("Sepp") or first of first names if one of these is available
      *    => otherwise use surname if available ("Mr. xxx", "Mrs. xxx", or "xxx" if sex is not F or M
-     *       => otherwise use "He" or "She" or "She/he" if sex is not F or M
+     *       => otherwise use "He" or "She" (or "She/he" if sex is not F or M)
      *
      * @param Individual $individual
      *
@@ -906,17 +904,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * generate list of preferences
+     * generate list of other preferences (control panel options beside the options related to the extended family parts itself)
      *
      * @return array of string
      */
-    public function listOfPreferences(): array
+    public function listOfOtherPreferences(): array
     {
-        $preferences = $this->listOfFamilyParts();
-        $preferences[] = 'show_short_name';
-        $preferences[] = 'show_empty_block';
-
-        return $preferences;
+        return [
+            'show_short_name',
+            'show_empty_block',
+        ];
     }
 
     /**
@@ -927,19 +924,24 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function getAdminAction(ServerRequestInterface $request): ResponseInterface
     {
         $this->layout = 'layouts/administration';
-        
-        $preferences = $this->listOfPreferences();
         $response = [];
+        
+        $preferences = $this->listOfOtherPreferences();
         foreach ($preferences as $preference) {
            $response[$preference] = $this->getPreference($preference);
         }
+
+        $response['efps'] = $this->showFamilyParts();
+        
         $response['title'] = $this->title();
+        $response['description'] = $this->description();
+        $response['uses_sorting'] = true;
 
         return $this->viewResponse($this->name() . '::settings', $response);
     }
 
     /**
-     * Save the user preference.
+     * save the user preferences in the database
      *
      * @param ServerRequestInterface $request
      *
@@ -947,13 +949,19 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function postAdminAction(ServerRequestInterface $request): ResponseInterface
     {
-        $preferences = $this->listOfPreferences();
         $params = (array) $request->getParsedBody();
 
-        // store the preferences in the database
         if ($params['save'] === '1') {
+            $preferences = $this->listOfOtherPreferences();
             foreach ($preferences as $preference) {
                 $this->setPreference($preference, $params[$preference]);
+			}
+            $order_string = implode(",",$params['order']);
+            $this->setPreference('order', $order_string);
+            foreach ($params as $key => $value) {
+                if (str_starts_with($key, 'status-')) {
+                    $this->setPreference($key, $value);
+                }
 			}
             FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
         }
@@ -962,19 +970,23 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
     
     /**
-     * parts of extended family which should be shown
+     * parts of extended family which should be shown (order and enabled/disabled)
      * set default values in case the settings are not stored in the database yet
      *
-     * @return array 
+     * @return array of objects 
      */
-    public function showFamilyPart(): array
+    public function showFamilyParts(): array
     {    
-        $efps = $this->listOfFamilyParts();
+        $order_default = implode(",", $this->listOfFamilyParts());
+        $order = explode(',', $this->getPreference('order', $order_default));
+        
         $sp = [];
-        foreach ($efps as $efp) {
-           $sp[$efp] = !$this->getPreference($efp, '0');
+        foreach ($order as $efp) {
+           $efpObj = (object)[];
+           $efpObj->name = $this->translateFamilyPart($efp);
+           $efpObj->enabled = $this->getPreference('status-' . $efp, '1');
+           $sp[$efp] = $efpObj;
         }
-
         return $sp;
     }
     
@@ -1161,7 +1173,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
     
    /**
-    * translate family parts (needed for showEmptyBlock == 1)
+    * translate family part names
     *
     * @param string $type
     *
@@ -1195,28 +1207,28 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             case 'cs':
                 return $this->czechTranslations();
             case 'da':
-                return $this->danishTranslations();
+                return $this->danishTranslations();             // tbd
             case 'de':
                 return $this->germanTranslations();
             case 'fi':
-                return $this->finnishTranslations();
+                return $this->finnishTranslations();            // tbd
             case 'fr':
             case 'fr-CA':
-                return $this->frenchTranslations();
+                return $this->frenchTranslations();             // tbd
             case 'he':
-                return $this->hebrewTranslations();
+                return $this->hebrewTranslations();             // tbd
             case 'lt':
-                return $this->lithuanianTranslations();
+                return $this->lithuanianTranslations();         // tbd
             case 'nb':
-                return $this->norwegianBokmålTranslations();
+                return $this->norwegianBokmålTranslations();    // tbd
             case 'nl':
                 return $this->dutchTranslations();
             case 'nn':
-                return $this->norwegianNynorskTranslations();
+                return $this->norwegianNynorskTranslations();   // tbd
             case 'sk':
                 return $this->slovakTranslations();     
             case 'sv':
-                return $this->swedishTranslations();
+                return $this->swedishTranslations();            // tbd
             case 'uk':
                 return $this->ukrainianTranslations();
             case 'vi':
@@ -1398,7 +1410,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return [
             'Extended family' => 'Großfamilie',
             'A tab showing the extended family of an individual.' => 'Reiter zeigt die Großfamilie einer Person.',
-            'Are these parts of the extended family to be shown?' => 'Sollen diese Teile der erweiterten Familie angezeigt werden?',
+            'In which sequence should the parts of the extended family be shown?' => 'In welcher Reihenfolge sollen die Teile der erweiterten Familie angezeigt werden?',
+            'Family part' => 'Familienteil',
             'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
             'Show short name' => 'Zeige die Kurzform des Namens',

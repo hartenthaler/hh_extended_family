@@ -3,119 +3,70 @@
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
+use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 
 ?>
 
 <?= view('components/breadcrumbs', ['links' => [route(ControlPanel::class) => I18N::translate('Control panel'), $title]]) ?>
 
 <h1><?= $title ?></h1>
+<p><?= $description ?></p>
 
 <div class="hh-extended-family mb-5">
     <form method="post">
         <?= csrf_field() ?>
         <input type="hidden" name="save" id="save" value="1">
 		
-        <h3><?= I18N::translate('Are these parts of the extended family to be shown?') ?></h3>
-        <!-- grandparents -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Grandparents') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'grandparents', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$grandparents]) ?>
-                </div>
-            </div>
-        </fieldset>
-        <!-- parents -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Parents') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'parents', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$parents]) ?>
-                </div>
-            </div>
-        </fieldset>
-		<!-- uncles and aunts -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Uncles and Aunts') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'uncles_and_aunts', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$uncles_and_aunts]) ?>
-                </div>
-            </div>
-        </fieldset>
-        <!-- siblings -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Siblings') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'siblings', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$siblings]) ?>
-                </div>
-            </div>
-        </fieldset>
-        <!-- spouses -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Partners') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'partners', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$partners]) ?>
-                </div>
-            </div>
-        </fieldset>
-		<!-- cousins -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Cousins') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'cousins', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$cousins]) ?>
-                </div>
-            </div>
-        </fieldset>
-        <!-- nephews and nieces -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Nephews and Nieces') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'nephews_and_nieces', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$nephews_and_nieces]) ?>
-                </div>
-            </div>
-        </fieldset>
-        <!-- children -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Children') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'children', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$children]) ?>
-                </div>
-            </div>
-        </fieldset>
-        <!-- grandchildren -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Grandchildren') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'grandchildren', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$grandchildren]) ?>
-                </div>
-            </div>
-        </fieldset>
-		
+        <h3><?= I18N::translate('In which sequence should the parts of the extended family be shown?') ?></h3>
+        <table class="table table-bordered wt-table-menu">
+            <thead>
+                <tr>
+                    <th><?= I18N::translate('Family part') ?></th>
+                    <th class="text-center"><?= I18N::translate('Enabled') ?></th>
+                    <?php if ($uses_sorting) : ?>
+                      <th class="text-center"><?= I18N::translateContext('as in "Move up"', 'Move') ?></th>
+                      <th class="text-center"><?= I18N::translateContext('as in "Move down"', 'Move') ?></th>
+                    <?php endif ?>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php foreach ($efps as $efp => $value) : ?>
+                    <tr>
+                        <th scope="col">
+                            <input type="hidden" name="order[]" value="<?= $efp ?>"?>
+                            <span title="<?= $efps[$efp]->name ?>">
+                                <?= $efps[$efp]->name ?>
+                            </span>                          
+                        </th>
+
+                        <td class="text-center">
+                            <label class="d-block">
+                                <input type="checkbox" name="status-<?= $efp ?>" id="status-<?= $efp ?>" <?= $efps[$efp]->enabled ? 'checked' : '' ?>>
+                                <span class="sr-only">
+                                    <?= I18N::translate('Enabled') ?>
+                                </span>
+                            </label>
+                        </td>
+
+                        <?php if ($uses_sorting) : ?>
+                            <td class="move up text-center">
+                                <a href="#" title="<?= I18N::translate('Move up') ?>">
+                                    <?= view('icons/arrow-up') ?>
+                                </a>
+                            </td>
+
+                            <td class="move down text-center">
+                                <a href="#" title="<?= I18N::translate('Move down') ?>">
+                                    <?= view('icons/arrow-down') ?>
+                                </a>
+                            </td>
+                        <?php endif ?>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+
         <h3><?= I18N::translate('Show name of proband as short name or as full name?') ?></h3>
         <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
         <!-- nice_name -->
@@ -149,3 +100,30 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         </button>
     </form>
 </div>
+
+<?php View::push('javascript') ?>
+<script>
+  $('.wt-table-menu td.move').click(function () {
+      var row = $(this).closest('tr');
+
+      if ($(this).hasClass('up')) {
+          row.prev().before(row);
+      } else {
+          row.next().after(row);
+      }
+
+      return false;
+  });
+</script>
+<?php View::endpush() ?>
+
+<?php View::push('styles') ?>
+<style>
+    .wt-table-menu tr:first-child .wt-icon-arrow-up {
+        display:none;
+    }
+    .wt-table-menu tr:last-child .wt-icon-arrow-down {
+        display:none;
+    }
+</style>
+<?php View::endpush() ?>

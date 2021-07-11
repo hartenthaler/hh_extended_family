@@ -5,32 +5,14 @@
 ![webtrees Major Version](https://img.shields.io/badge/webtrees-v2.x-green)
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 
-<a name="Description"></a>
-
-## Description
-
 This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person:
 grandparents, parents, uncles, aunts, siblings, spouses, cousins, nephews, nieces, children and grandchildren.
-This module is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
-
-This module version is derived from vytux_cousins. There are additional features
-* addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
-* don't show empty tables for "Father's family" and "Mother's family"
-* beside father's and mother's family, now there can be a third category "father's and mother's family" if members of the extended family are related to both sides
-* count individuals separately for each sex (this supports translation if there are for example different words for male and female cousins)
-* new text added if there is a family but no members in a part of the extended family (e.g. "... has no first cousins recorded.")
-* tab is greyed out if the extended family is empty
-
-The admin can decide in control panel 
-* which extended family parts should be shown
-* wheter the name of proband is a full name or a short version
-* how empty parts of extended family should be presented
 
 <a name="Contents"></a>
 
 ## Contents
 
-The readme contains the following main sections:
+This Readme contains the following main sections
 
 *   [Description](#Description)
 *   [Contents](#Contents)
@@ -40,6 +22,35 @@ The readme contains the following main sections:
 *   [Upgrade](#upgrade)
 *   [Translation](#translation)
 *   [Contact Support](#Support)
+<a name="Description"></a>
+
+## Description
+
+This module presents the core and the extended family of a proband. It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
+
+The module was derived from the module vytux_cousins. There are additional features
+* addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
+* don't show empty tables for "Father's family" and "Mother's family"
+* beside father's and mother's family, now there can be a third category "father's and mother's family" if members of the extended family are related to both sides
+* count individuals separately for each sex (this supports translation if there are for example different words for male and female cousins)
+* new text added if there is a family but no members in a part of the extended family (e.g. "... has no first cousins recorded.")
+* tab is greyed out if the extended family is empty
+
+The admin can decide in the control panel 
+* which extended family parts should be shown and in which sequence they should be presented
+* wheter the name of proband is a full name or a short version
+* how empty parts of extended family should be presented
+
+The default presentation sequence of the extended family parts is oriented at the generation of the peoples in this part, relative to the proband
+* grandparents                             // generation +2
+* parents                                  // generation +1
+* uncles_and_aunts                         // generation +1
+* siblings                                 // generation  0
+* partners                                 // generation  0
+* cousins                                  // generation  0
+* nephews_and_nieces                       // generation -1
+* children                                 // generation -1
+* grandchildren                            // generation -2
 
 <a name="Screenshots"></a>
 
