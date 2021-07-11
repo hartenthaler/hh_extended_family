@@ -1643,9 +1643,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'De korte naam is gebaseerd op de roepnaam of bijnaam van de proband. Als deze niet beschikbaar zijn, wordt de eerste van de voornamen gebruikt, als er een is opgegeven. Anders wordt de achternaam gebruikt.',
             'Show short name' => 'Korte naam weergeven',
             'How should empty parts of extended family be presented?' => 'Hoe moeten lege delen van de uitgebreide familie worden weergegeven?',
-            'Show empty block' => 'Leeg blok weergeven',
+            'Show empty block' => 'Lege familiedelen weergeven',
             'yes, always at standard location' => 'ja, altijd op de standaardlocatie',
-            'no, but collect messages about empty blocks at the end' => 'nee, maar verzamel berichten over lege blokken aan het eind',
+            'no, but collect messages about empty blocks at the end' => 'nee, maar verzamel berichten over lege familiedelen aan het eind',
             'never' => 'nooit',
             
             'He' => 'hem',
