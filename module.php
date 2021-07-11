@@ -2171,28 +2171,27 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandfather recorded.' => '%s có một người ông.',
             '%s has one grandparent recorded.' => '%s có ông bà.',
             '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
-                => '%2$s có %1$d bà nội.' . I18N::PLURAL . '%2$s có %1$d bà nội.' . I18N::PLURAL . '%2$s có %1$d bà nội.',
+                => '%2$s có %1$d bà nội.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
-                => '%2$s có %1$d ông nội.' . I18N::PLURAL . '%2$s có %1$d ông nội.' . I18N::PLURAL . '%2$s có %1$d ông nội.',
+                => '%2$s có %1$d ông nội.',
             '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
-                => '%2$s có %1$d ông nội và ' . I18N::PLURAL . '%2$s có %1$d các ông nội và ' . I18N::PLURAL . '%2$s có %1$d các ông nội và ',
+                => '%2$s có %1$d ông nội và ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
-                => '%d bà nội (insgesamt %d).' . I18N::PLURAL . '%d các bà nội (insgesamt %d).' . I18N::PLURAL . '%d các bà nội (insgesamt %d).',
+                => '%d bà nội (tổng %d).',
 
-            
             'Parents' => 'Bố mẹ',
             '%s has no parents recorded.' => '%s không có thông tin về bố mẹ.',
             '%s has one mother recorded.' => '%s có một người mẹ.',
             '%s has one father recorded.' => '%s có một người bố.',
             '%s has one grandparent recorded.' => '%s có một ông bà.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' 
-                => '%2$s có %1$d mẹ.' . I18N::PLURAL . '%2$s có %1$d các bà mẹ.' . I18N::PLURAL . '%2$s có %1$d các bà mẹ.',
+                => '%2$s có %1$d mẹ.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.' 
-                => '%2$s có %1$d bố.' . I18N::PLURAL . '%2$s má %1$d bố.' . I18N::PLURAL . '%2$s má %1$d những người bố.',
+                => '%2$s có %1$d bố.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
-                => '%2$s có %1$d bố và ' . I18N::PLURAL . '%2$s có %1$d bố và ' . I18N::PLURAL . '%2$s có %1$d những người bố ',
+                => '%2$s có %1$d bố và ',
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
-                => '%d mẹ ( tổng %d).' . I18N::PLURAL . '%d các bà mẹ ( tổng %d).' . I18N::PLURAL . '%d các bà mẹ (tổng %d).',
+                => '%d mẹ (tổng %d).',
 
             'Uncles and Aunts' => 'Bác / cô và chú',
             '%s has no uncles or aunts recorded.' => '%s không có thiing tin về bác / cô chú.',
@@ -2200,13 +2199,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one uncle recorded.' => '%s có một bác trai hoặc chú.',
             '%s has one uncle or aunt recorded.' => '%s có một bác trai/bác gái hoặc cô/chú.',
             '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
-                => '%2$s có %1$d bác gái hoặc cô.' . I18N::PLURAL . '%2$s có %1$d các bác gái hoặc các cô.',
+                => '%2$s có %1$d bác gái hoặc cô.',
             '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
-                => '%2$s có %1$d bác trai hoặc chú.' . I18N::PLURAL . '%2$s có %1$d các bác trai hoặc các chú.',
+                => '%2$s có %1$d bác trai hoặc chú.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
-                => '%2$s có %1$d bác trai hoặc chú và ' . I18N::PLURAL . '%2$s có %1$d các bác trai hoặc các chú và ',
+                => '%2$s có %1$d bác trai hoặc chú và ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d bác gái hoặc cô (tổng %d).' . I18N::PLURAL . '%d các bác gái hoặc các cô (tổng %d).', 
+                => '%d bác gái hoặc cô (tổng %d).', 
 
             'Siblings' => 'Anh chị em ruột',
             '%s has no siblings recorded.' => '%s không có thông tin về anh chị em ruột.',
@@ -2214,13 +2213,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one brother recorded.' => '%s có một anh trai hoặc em trai.',
             '%s has one brother or sister recorded.' => '%s có môt anh trai/em trai hoặc chị gái/em gái.',
             '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
-                => '%2$s có %1$d chị gái/em gái.' . I18N::PLURAL . '%2$s có %1$d các chị gái/các em gái.',
+                => '%2$s có %1$d chị gái/em gái.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
-                => '%2$s có %1$d anh trai/em trai.' . I18N::PLURAL . '%2$s có %1$d các anh trai/các em trai.',
+                => '%2$s có %1$d anh trai/em trai.',
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
-                => '%2$s có %1$d anh trai/em trai và ' . I18N::PLURAL . '%2$s có %1$d các anh trai/các em trai ',
+                => '%2$s có %1$d anh trai/em trai và ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
-                => '%d chị gái/em gái (tổng %d).' . I18N::PLURAL . '%d các chị gái/các em gái (tổng %d).',
+                => '%d chị gái/em gái (tổng %d).',
                                 
             'Partners' => 'Vợ/Chồng',
             '%s has no partners recorded.' => '%s không có thông tin về vợ/chồng.',
@@ -2228,13 +2227,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one male partner recorded.' => '%s có một người chồng.',
             '%s has one partner recorded.' => '%s có một vợ/chồng.',
             '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
-                => '%2$s có %1$d một người vợ.' . I18N::PLURAL . '%2$s có %1$d các người vợ.',
+                => '%2$s có %1$d một người vợ.',
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
-                => '%2$s có %1$d một người chồng.' . I18N::PLURAL . '%2$s có %1$d các người chồng.',
+                => '%2$s có %1$d một người chồng.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
-                => '%2$s có %1$d một người chồng và ' . I18N::PLURAL . '%2$s có %1$d các người chồng và ',
+                => '%2$s có %1$d một người chồng và ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
-                => '%d một người vợ (tổng %d).' . I18N::PLURAL . '%d các người vợ (tổng %d).',
+                => '%d một người vợ (tổng %d).',
 
             'Cousins' => 'Anh chị em họ',
             '%s has no first cousins recorded.' => '%s không có thông tin về anh em họ.',
@@ -2242,13 +2241,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one male first cousin recorded.' => '%s có một anh em họ.',
             '%s has one first cousin recorded.' => '%s có một anh em họ.',
             '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
-                => '%2$s có %1$d chị họ/em gái họ.' . I18N::PLURAL . '%2$s có %1$d các chị họ/các em gái họ.' . I18N::PLURAL . '%2$s có %1$d các chị họ/các em gái họ.',
+                => '%2$s có %1$d chị họ/em gái họ.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
-                => '%2$s có %1$d anh/em họ.' . I18N::PLURAL . '%2$s có %1$d các anh/em họ.' . I18N::PLURAL . '%2$s có %1$d các anh/em họ.',
+                => '%2$s có %1$d anh/em họ.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
-                => '%2$s có %1$d anh/em họ và ' . I18N::PLURAL . '%2$s có %1$d các anh/em họ và ' . I18N::PLURAL . '%2$s có %1$d các anh/em họ và ',
+                => '%2$s có %1$d anh/em họ và ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
-                => '%d chị/em gái họ (tổng %d).' . I18N::PLURAL . '%d các chị/em gái họ (tổng %d).' . I18N::PLURAL . '%d các chị/em gái họ (tổng %d).',
+                => '%d chị/em gái họ (tổng %d).',
                 
             'Nephews and Nieces' => 'Cháu (Là con của anh chị em ruột)',
             '%s has no nephews or nieces recorded.' => '%s không có thông tin về con của anh chị em ruột.',
@@ -2256,13 +2255,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one nephew recorded.' => '%s có một cháu trai.',
             '%s has one nephew or niece recorded.' => '%s có một cháu trai hoặc một cháu gái.',
             '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
-                => '%2$s có %1$d một cháu gái.' . I18N::PLURAL . '%2$s  %1$d các cháu gái.' . I18N::PLURAL . '%2$s  %1$d các cháu gái.',
+                => '%2$s có %1$d một cháu gái.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
-                => '%2$s có %1$d một cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.',
+                => '%2$s có %1$d một cháu trai.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
-                => '%2$s có %1$d cháu trai và' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ',
+                => '%2$s có %1$d cháu trai và',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
-                => '%d cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).',
+                => '%d cháu gái (tổng %d).',
 
             'Children' => 'Các con',
             '%s has no children recorded.' => '%s không có thông tin về con cái.',
@@ -2270,13 +2269,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one son recorded.' => '%s có một con trai.',
             '%s has one child recorded.' => '%s có một người con được.',
             '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
-                => '%2$s có %1$d con gái.' . I18N::PLURAL . '%2$s có %1$d các con gái.' . I18N::PLURAL . '%2$s có %1$d các con gái.',
+                => '%2$s có %1$d con gái.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
-                => '%2$s có %1$d con trai.' . I18N::PLURAL . '%2$s có %1$d các con trai.' . I18N::PLURAL . '%2$s có %1$d các con trai.',
+                => '%2$s có %1$d con trai.',
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
-                => '%2$s có %1$d con trai và ' . I18N::PLURAL . '%2$s có %1$d các con trai và ' . I18N::PLURAL . '%2$s có %1$d các con trai và ',
+                => '%2$s có %1$d con trai và ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
-                => '%d con gái (tổng %d).' . I18N::PLURAL . '%d các con gái (tổng %d).' . I18N::PLURAL . '%d các con gái (tổng %d).',
+                => '%d con gái (tổng %d).',
 
             'Grandchildren' => 'Cháu nội',
             '%s has no grandchildren recorded.' => '%s không có thông tin về cháu nội.',
@@ -2284,13 +2283,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandson recorded.' => '%s có một cháu trai.',
             '%s has one grandchild recorded.' => '%s có một cháu.',
             '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
-                => '%2$s có %1$d cháu gái.' . I18N::PLURAL . '%2$s có %1$d các cháu gái.' . I18N::PLURAL . '%2$s có %1$d các cháu gái.',
+                => '%2$s có %1$d cháu gái.',
             '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
-                => '%2$s có %1$d cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.' . I18N::PLURAL . '%2$s có %1$d các cháu trai.',
+                => '%2$s có %1$d cháu trai.',
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
-                => '%2$s có %1$d cháu trai và ' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ' . I18N::PLURAL . '%2$s có %1$d các cháu trai và ',
+                => '%2$s có %1$d cháu trai và ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
-                => '%d cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).' . I18N::PLURAL . '%d các cháu gái (tổng %d).',
+                => '%d cháu gái (tổng %d).',
         ];
     }
 }
