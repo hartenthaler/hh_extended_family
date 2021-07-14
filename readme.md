@@ -38,8 +38,9 @@ The module was derived from the module vytux_cousins. There are additional featu
 
 The admin can decide in the control panel 
 * which extended family parts should be shown and in which sequence they should be presented
-* wheter the name of proband is a full name or a short version
 * how empty parts of extended family should be presented
+* wheter the name of proband is a full name or a short version
+* whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
 * grandparents                             // generation +2
