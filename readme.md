@@ -59,6 +59,9 @@ The default presentation sequence of the extended family parts is oriented at th
 Screenshot of module
 <p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="80%"></p>
 
+Screenshot showing photo as well as birth and death information
+<p align="center"><img src="screenshot_full.png" alt="Screenshot with photo as well as birth and death information" align="center" width="80%"></p>
+
 Screenshot of control panel menu
 <p align="center"><img src="screenshot_control_panel.png" alt="Screenshot control panel" align="center" width="80%"></p>
 
