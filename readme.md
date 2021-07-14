@@ -100,10 +100,9 @@ If you like to translate the text fragments in this module, contact me, please!
 There are now, beside English and German, translations to
 * Czech by @jpretired
 * Dutch by @TheDutchJewel
-* Ukrainian by @z-yurets
 * Slovak by @ro-la
+* Ukrainian by @z-yurets
 * Vietnamese by @ngohuuthuan
-
 
 <a name="Support"></a>
 

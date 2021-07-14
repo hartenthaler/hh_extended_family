@@ -69,7 +69,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.27';
+    public const CUSTOM_VERSION = '2.0.16.28';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
@@ -107,9 +107,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *       ->summaryMessageEmptyBlocks                        string
      *       ->grandparents->father                             object individual
      *                     ->mother                             object individual
-     *                     ->fatherFamily[]                     array of object individual 
-     *                     ->motherFamily[]                     array of object individual
-     *                     ->fatherAndMotherFamily[]            array of object individual    
+     *                     ->families->fatherFamily[]           array of object individual 
+     *                               ->motherFamily[]           array of object individual
+     *                               ->fatherAndMotherFamily[]  array of object individual    
      *                     ->fathersFamilyCount                 integer
      *                     ->mothersFamilyCount                 integer
      *                     ->fathersAndMothersFamilyCount       integer    
@@ -141,18 +141,22 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *       ->children                                         see nephews_and_nieces
      *       ->grandchildren                                    see nephews_and_nieces
      *  ->config->showEmptyBlock                                integer [0,1,2]
+     *          ->use_compact_design                            bool
+     *          ->show_thumbnail                                bool
      *
      * tbd: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
      * tbd: Stiefcousins testen (siehe Onkel Walter)
      */
     private function getExtendedFamily(Individual $individual): object
-    {             
+    {
         $extfamObj = (object)[];
         $extfamObj->self = $this->get_self( $individual );
         $extfamObj->efp = (object)[];
         $extfamObj->efp->allCount = 0;
         $extfamObj->config = (object)[];
         $extfamObj->config->showEmptyBlock = $this->showEmptyBlock();
+        $extfamObj->config->use_compact_design = $this->use_compact_design();
+        $extfamObj->config->show_thumbnail = $this->show_thumbnail( $individual );
 
         $efps = $this->showFamilyParts();
         foreach ($efps as $efp => $value) {
@@ -573,9 +577,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $efpObj->allCount = 0;
         
         if ($efpObj->type == 'ancestors') {
-            $efpObj->fatherFamily = [];
-            $efpObj->motherFamily = [];
-            $efpObj->fatherAndMotherFamily = [];
+            $efpObj->families = (object)[];
+            $efpObj->families->fatherFamily = [];
+            $efpObj->families->motherFamily = [];
+            $efpObj->families->fatherAndMotherFamily = [];
         } elseif ($efpObj->type == 'descendants') {
             $efpObj->families = [];
         }
@@ -612,22 +617,22 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function addIndividualToAncestorsFamily(Individual $individual, object $extendedFamilyPart, string $side)
     {
         if ($side == 'mother') {
-            if ( in_array( $individual, $extendedFamilyPart->fatherAndMotherFamily )){
+            if ( in_array( $individual, $extendedFamilyPart->families->fatherAndMotherFamily )){
                 // already stored in father's and mother's array: do nothing
-            } elseif ( in_array( $individual, $extendedFamilyPart->fatherFamily )){
-                $extendedFamilyPart->fatherAndMotherFamily[] = $individual;
-                unset($extendedFamilyPart->fatherFamily[array_search($individual,$extendedFamilyPart->fatherFamily)]);
-            } elseif ( !in_array( $individual, $extendedFamilyPart->motherFamily ) ) {
-                $extendedFamilyPart->motherFamily[] = $individual;
+            } elseif ( in_array( $individual, $extendedFamilyPart->families->fatherFamily )){
+                $extendedFamilyPart->families->fatherAndMotherFamily[] = $individual;
+                unset($extendedFamilyPart->families->fatherFamily[array_search($individual,$extendedFamilyPart->families->fatherFamily)]);
+            } elseif ( !in_array( $individual, $extendedFamilyPart->families->motherFamily ) ) {
+                $extendedFamilyPart->families->motherFamily[] = $individual;
             }
-        } elseif ( !in_array( $individual, $extendedFamilyPart->fatherFamily ) ) {
-            if ( in_array( $individual, $extendedFamilyPart->fatherAndMotherFamily )){
+        } elseif ( !in_array( $individual, $extendedFamilyPart->families->fatherFamily ) ) {
+            if ( in_array( $individual, $extendedFamilyPart->families->fatherAndMotherFamily )){
                 // already stored in father's and mother's array: do nothing
-            } elseif ( in_array( $individual, $extendedFamilyPart->motherFamily )){
-                $extendedFamilyPart->fatherAndMotherFamily[] = $individual;
-                unset($extendedFamilyPart->motherFamily[array_search($individual,$extendedFamilyPart->motherFamily)]);
-            } elseif ( !in_array( $individual, $extendedFamilyPart->fatherFamily ) ) {
-                $extendedFamilyPart->fatherFamily[] = $individual;
+            } elseif ( in_array( $individual, $extendedFamilyPart->families->motherFamily )){
+                $extendedFamilyPart->families->fatherAndMotherFamily[] = $individual;
+                unset($extendedFamilyPart->families->motherFamily[array_search($individual,$extendedFamilyPart->families->motherFamily)]);
+            } elseif ( !in_array( $individual, $extendedFamilyPart->families->fatherFamily ) ) {
+                $extendedFamilyPart->families->fatherFamily[] = $individual;
             }
         }
         
@@ -688,19 +693,19 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         
         if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == 'ancestors') {
-            $extendedFamilyPart->fathersFamilyCount = sizeof( $extendedFamilyPart->fatherFamily );
-            $extendedFamilyPart->mothersFamilyCount = sizeof( $extendedFamilyPart->motherFamily );
-            $extendedFamilyPart->fathersAndMothersFamilyCount = sizeof( $extendedFamilyPart->fatherAndMotherFamily );
+            $extendedFamilyPart->fathersFamilyCount = sizeof( $extendedFamilyPart->families->fatherFamily );
+            $extendedFamilyPart->mothersFamilyCount = sizeof( $extendedFamilyPart->families->motherFamily );
+            $extendedFamilyPart->fathersAndMothersFamilyCount = sizeof( $extendedFamilyPart->families->fatherAndMotherFamily );
             
-            $count = $this->countMaleFemale( $extendedFamilyPart->fatherFamily );
+            $count = $this->countMaleFemale( $extendedFamilyPart->families->fatherFamily );
             $extendedFamilyPart->fathersMaleCount = $count->male;
             $extendedFamilyPart->fathersFemaleCount = $count->female;
                                   
-            $count = $this->countMaleFemale( $extendedFamilyPart->motherFamily );
+            $count = $this->countMaleFemale( $extendedFamilyPart->families->motherFamily );
             $extendedFamilyPart->mothersMaleCount = $count->male;
             $extendedFamilyPart->mothersFemaleCount = $count->female;
                                               
-            $count = $this->countMaleFemale( $extendedFamilyPart->fatherAndMotherFamily );
+            $count = $this->countMaleFemale( $extendedFamilyPart->families->fatherAndMotherFamily );
             $extendedFamilyPart->fathersAndMothersMaleCount = $count->male;
             $extendedFamilyPart->fathersAndMothersFemaleCount = $count->female;
 
@@ -911,8 +916,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function listOfOtherPreferences(): array
     {
         return [
-            'show_short_name',
             'show_empty_block',
+            'show_short_name',
+            'use_compact_design',
         ];
     }
 
@@ -1000,24 +1006,55 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * should a short name of proband be shown
      * set default values in case the settings are not stored in the database yet
      *
-     * @return array 
+     * @return bool 
      */
     public function showShortName(): bool
     {
-        return !$this->getPreference('show_short_name', '0');
+        return ($this->getPreference('show_short_name', '0') == '0') ? true : false;
     }
-    
+
     /**
      * how should empty parts of the extended family be presented
      * set default values in case the settings are not stored in the database yet
      *
-     * @return array 
+     * @return string 
      */
     public function showEmptyBlock(): string
     {
         return $this->getPreference('show_empty_block', '0');
     }
 
+    /**
+     * use compact design for individual blocks or show additional information (photo, birth and death information)
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool 
+     */
+    public function use_compact_design(): bool
+    {
+        return ($this->getPreference('use_compact_design', '0') == '0') ? true : false;
+    }
+
+    /**
+     * get preference in tis tree to show thumbnails
+     *
+     * @return bool 
+     */
+    public function get_tree_preference_show_thumbnails(Individual $individual): bool
+    {
+        return ($individual->tree()->getPreference('SHOW_HIGHLIGHT_IMAGES') == '1') ? true : false;
+    }
+
+    /**
+     * show thumbnail if compact design is not selected and if global preference allows to show thumbnails
+     *
+     * @return bool 
+     */
+    public function show_thumbnail(Individual $individual): bool
+    {
+        return (!$this->use_compact_design() && $this->get_tree_preference_show_thumbnails( $individual ));
+    }
+    
     /**
      * How should this module be identified in the control panel, etc.?
      *
@@ -1420,13 +1457,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'In which sequence should the parts of the extended family be shown?' => 'In welcher Reihenfolge sollen die Teile der erweiterten Familie angezeigt werden?',
             'Family part' => 'Familienteil',
             'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
-            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
-            'Show short name' => 'Zeige die Kurzform des Namens',
 			'How should empty parts of extended family be presented?' => 'Wie sollen leere Teile der erweiterten Familie angezeigt werden?',
 			'Show empty block' => 'Zeige leere Familienteile',
 			'yes, always at standard location' => 'ja, immer am normalen Platz',
 			'no, but collect messages about empty blocks at the end' => 'nein, aber sammle Nachrichten über leere Familienteile am Ende',
 			'never' => 'niemals',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
+            'Show short name' => 'Zeige die Kurzform des Namens',
+            'Use the compact design?' => 'Soll das kompakte Design verwendet werden?',
+            'Use the compact design' => 'Kompaktes Design anwenden',
+            'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Das kompakte Design zeigt für jede Person nur den Namen und die Lebensspanne. Das angereicherte Design zeigt zusätzlich ein Foto (wenn dies für diesen Baum aktiviert ist) sowie Geburts- und Sterbeinformationen.',
 			
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
@@ -1978,8 +2018,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return [
             'Extended family' => 'Розширена сім`я',
             'A tab showing the extended family of an individual.' => 'Додає вкладку з розширеним виглядом родини для картки персони',
-            'In which sequence should the parts of the extended family be shown?' => '*** In which sequence should the parts of the extended family be shown?',
-            'Family part' => '*** Family part',
+            'In which sequence should the parts of the extended family be shown?' => 'У якій послідовності будуть показані блоки розширеної сім`ї?',
+            'Family part' => 'Блоки сім`ї',
             'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об`єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
             'Show short name' => 'Показати коротку форму імені',

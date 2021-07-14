@@ -29,6 +29,10 @@
     padding: 10px 0 2px 0;
 }
 
+#hh-extended-family-ancestors,
+#hh-extended-family-descendants,
+#hh_extended_family_summary {}
+
 #hh_extended_family_content {
     border-spacing: 10px;
     display: inline-table;
@@ -47,10 +51,10 @@
     width: 99%;
 }
 
-#extended_family_f,
-#extended_family_m,
-#extended_family_fm,
-#extended_family_g {
+#hh_extended_family_f,
+#hh_extended_family_m,
+#hh_extended_family_fm,
+#hh_extended_family_g {
     border: 1px solid grey;
     border-radius: 5px;
     display: table-cell;
@@ -58,12 +62,18 @@
     width: 31%;
 }
 
+#hh_extended_family_birth_death {
+    font-size: 12px;
+    margin: 0;
+    padding: 2px 0;
+}
+
 /* Mobile low resolution viewport */
 @media (max-width: 600px) {
-    #extended_family_f,
-    #extended_family_m,
-    #extended_family_fm,
-    #extended_family_g {
+    #hh_extended_family_f,
+    #hh_extended_family_m,
+    #hh_extended_family_fm,
+    #hh_extended_family_g {
         border: 1px solid grey;
         border-radius: 5px;
         display: table-caption;
@@ -73,19 +83,19 @@
     }
 }
 
-.extended_family_name {}
+.hh_extended_family_name {}
 
-.extended_family_lifespan,
-.extended_family_pedi {
+.hh_extended_family_lifespan,
+.hh_extended_family_pedi {
     font-size: 9px;
     padding: 3px 5px 5px 5px;
 }
 
-.extended_family_counter {
+.hh_extended_family_counter {
     margin: 0 3px;
     font-size: 75%;
 }
 
-.extended_family_counter:after {
+.hh_extended_family_counter:after {
     content: ". ";
 }
