@@ -6,7 +6,7 @@
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 
 This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person:
-grandparents, parents, uncles, aunts, siblings, spouses, cousins, nephews, nieces, children and grandchildren.
+grandparents, parents, parents-in-law, uncles, aunts, siblings, spouses, cousins, nephews, nieces, children and grandchildren.
 
 <a name="Contents"></a>
 
@@ -45,6 +45,7 @@ The admin can decide in the control panel
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
 * grandparents                             // generation +2
 * parents                                  // generation +1
+* parents-in-law                           // generation +1
 * uncles_and_aunts                         // generation +1
 * siblings                                 // generation  0
 * partners                                 // generation  0
@@ -61,10 +62,10 @@ Screenshot of module
 <p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="80%"></p>
 
 Screenshot showing photo as well as birth and death information
-<p align="center"><img src="screenshot_full.png" alt="Screenshot with photo as well as birth and death information" align="center" width="80%"></p>
+<p align="center"><img src="screenshot_full.png" alt="Screenshot with photo as well as birth and death information" align="center" width="85%"></p>
 
 Screenshot of control panel menu
-<p align="center"><img src="screenshot_control_panel.png" alt="Screenshot control panel" align="center" width="80%"></p>
+<p align="center"><img src="screenshot_control_panel.png" alt="Screenshot control panel" align="center" width="85%"></p>
 
 <a name="Requirements"></a>
 
