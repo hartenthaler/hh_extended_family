@@ -25,6 +25,18 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
 */
 
+/*
+ * tbd: Option für thumbnail size???
+ * tbd: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
+ * tbd: Stiefcousins testen (siehe Onkel Walter)
+ * tbd: Gruppierung und Überschriften für groups bei descendants (siehe module_20210716.php !!!)
+ * tbd: Blöcke in "partners" oben bündig machen
+ * tbd: bei parents-in-law setzen von married und partner
+ * tbd: globale variable, damit man bei show_thumbnail keinen Parameter mit individual braucht
+ * tbd: eventuell auch andere Verwandtschaftssysteme als nur das Eskimo-System implementieren
+ * tbd: for-Schleifen wieder durch foreach-Schleifen ersetzen in addIndividualToDescendantsFamily
+*/
+
 declare(strict_types=1);
 
 namespace Hartenthaler\WebtreesModules\hh_extended_family;
@@ -154,9 +166,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *  ->config->showEmptyBlock                                integer [0,1,2]
      *          ->use_compact_design                            bool
      *          ->show_thumbnail                                bool
-     *
-     * tbd: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
-     * tbd: Stiefcousins testen (siehe Onkel Walter)
      */
     private function getExtendedFamily(Individual $individual): object
     {
@@ -952,6 +961,26 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return GedcomCodePedi::getValue('',$individual->getInstance($individual->xref(),$individual->tree()));
     }
 
+    /**
+     * size for thumbnails W
+     *
+     * @return int
+     */
+    public function getSizeThumbnailW(): int
+    {
+        return 33;
+    }
+
+    /**
+     * size for thumbnails H
+     *
+     * @return int
+     */
+    public function getSizeThumbnailH(): int
+    {
+        return 50;
+    }
+    
     /**
      * generate list of other preferences (control panel options beside the options related to the extended family parts itself)
      *
@@ -2131,7 +2160,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).',
 
-
             'Parents' => 'Батьки',
             '%s has no parents recorded.' => '%s не має записів батьків.',
             '%s has one mother recorded.' => '%s має тільки запис матері.',
@@ -2146,6 +2174,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
                 => '%d мати (загалом %d).' . I18N::PLURAL . '%d матерів (загалом %d).' . I18N::PLURAL . '%d матерів (загалом %d).',
 
+            'Parents-in-law' => 'Тесті і свекри',
+            '%s has no parents-in-law recorded.' => '%s не має записів про батьків.',
+            '%s has one mother-in-law recorded.' => '%s має один запис про тещу або свекруху.',
+            '%s has one father-in-law recorded.' => '%s має один запис про тестя або свекра',
+            '%s has one parent-in-law recorded.' => '%s має запис одного з батьків.',
+            '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.'
+                => '%2$s має %1$d запис про тещу або свекруху.' . I18N::PLURAL . '%2$s має %1$d записи про тещ або свекрух.' . I18N::PLURAL . '%2$s має %1$d записи про тещ або свекрух.',
+            '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.'
+                => '%2$s має %1$d запис про тестя або свекра.' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів.' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів.',
+            '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
+                => '%2$s має %1$d запис про тестя або свекра і ' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів і ' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів і ',
+            '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
+                => '%d тещу або свекруху (загалом %d).' . I18N::PLURAL . '%d тещ або свекрух (загалом %d).' . I18N::PLURAL . '%d тещ або свекрух (загалом %d).',
+                        
             'Uncles and Aunts' => 'Дядьки і тітки',
             '%s has no uncles or aunts recorded.' => '%s не має записів про дядьків і тіток.',
             '%s has one aunt recorded.' => '%s має запис про одну тітку.',
