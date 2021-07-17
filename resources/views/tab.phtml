@@ -28,10 +28,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d grandmother recorded.',  '%2$s has %1$d grandmothers recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d grandfather recorded.', '%2$s has %1$d grandfathers recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d grandfather and ', '%2$s has %1$d grandfathers and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -51,10 +51,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d mother recorded.',  '%2$s has %1$d mothers recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d father recorded.', '%2$s has %1$d fathers recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d father and ', '%2$s has %1$d fathers and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -74,10 +74,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d aunt recorded.',  '%2$s has %1$d aunts recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d uncle recorded.', '%2$s has %1$d uncles recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d uncle and ', '%2$s has %1$d uncles and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -97,10 +97,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d female first cousin recorded.',  '%2$s has %1$d female first cousins recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d male first cousin recorded.', '%2$s has %1$d male first cousins recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d male first cousin and ', '%2$s has %1$d male first cousins and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -233,10 +233,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d sister recorded.',  '%2$s has %1$d sisters recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d brother recorded.', '%2$s has %1$d brothers recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d brother and ', '%2$s has %1$d brothers and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -256,10 +256,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d female partner recorded.',  '%2$s has %1$d female partners recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d male partner recorded.', '%2$s has %1$d male partners recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -279,10 +279,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d mother-in-law recorded.',  '%2$s has %1$d mothers-in-law recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d father-in-law recorded.', '%2$s has %1$d fathers-in-law recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d father-in-law and ', '%2$s has %1$d fathers-in-law and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -302,10 +302,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d niece recorded.',  '%2$s has %1$d nieces recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d nephew recorded.', '%2$s has %1$d nephews recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d nephew and ', '%2$s has %1$d nephews and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -325,10 +325,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d daughter recorded.',  '%2$s has %1$d daughters recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d son recorded.', '%2$s has %1$d sons recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -348,10 +348,10 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->maleCount == 0): ?>
+                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d granddaughter recorded.',  '%2$s has %1$d granddaughters recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
                                         <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->femaleCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d grandson recorded.', '%2$s has %1$d grandsons recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d grandson and ', '%2$s has %1$d grandsons and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
@@ -365,7 +365,6 @@
                                 <?php if ($propName == 'siblings' || $propName == 'nephews_and_nieces' || $propName == 'children' || $propName == 'grandchildren'): ?>
                                     <?php foreach ($extfam_obj->efp->$propName->groups as $group): ?>
                                         <div id="hh_extended_family_g">
-                                            
                                             <?php $prev_fam_id = -1; ?>
                                             <?php  foreach ($group->members as $indi) : ?>
                                                 <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>

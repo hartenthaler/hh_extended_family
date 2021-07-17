@@ -2201,7 +2201,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has no parents recorded.' => '%s nemá zaznamenaných žiadnych rodičov.',
             '%s has one mother recorded.' => '%s má zaznamenanú jednu matku.',
             '%s has one father recorded.' => '%s má zaznamenaného jedného otca.',
-            '%s has one grandparent recorded.' => '%s má jedného rodiča.',
+            '%s has one parent recorded.' => '%s má jedného rodiča.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' => '%2$s má zaznamenanú %1$d matku.' . I18N::PLURAL . '%2$s má zaznamenané %1$d matky.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d matiek.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.' 
                 => '%2$s má zaznamenaného %1$d otca.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d otcov.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d otcov.',
@@ -2551,7 +2551,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has no parents recorded.' => '%s không có thông tin về bố mẹ.',
             '%s has one mother recorded.' => '%s có một người mẹ.',
             '%s has one father recorded.' => '%s có một người bố.',
-            '%s has one grandparent recorded.' => '%s có một ông bà.',
+            '%s has one parent recorded.' => '%s có một ông bà.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' 
                 => '%2$s có %1$d mẹ.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.' 
