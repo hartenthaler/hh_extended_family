@@ -106,6 +106,7 @@ There are now, beside English and German, translations to
 * Czech by @jpretired
 * Dutch by @TheDutchJewel
 * Slovak by @ro-la
+* Spanish by @yako1984
 * Ukrainian by @z-yurets
 * Vietnamese by @ngohuuthuan
 

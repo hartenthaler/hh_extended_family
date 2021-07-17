@@ -81,7 +81,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.29';
+    public const CUSTOM_VERSION = '2.0.16.30';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
 
@@ -1337,6 +1337,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 return $this->danishTranslations();             // tbd
             case 'de':
                 return $this->germanTranslations();
+            case 'es':
+                return $this->spanishTranslations();
             case 'fi':
                 return $this->finnishTranslations();            // tbd
             case 'fr':
@@ -1360,8 +1362,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 return $this->ukrainianTranslations();
             case 'vi':
                 return $this->vietnameseTranslations();
-	    case 'es':
-		return $this->spanishTranslations();	
             default:
                 return [];
         }
@@ -1386,6 +1386,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'yes, always at standard location' => 'ano, vždy na obvyklém místě',
             'no, but collect messages about empty blocks at the end' => 'ne, ale uvést prázdné bloky na konci výpisu',
             'never' => 'nikdy',
+            'Use the compact design?' => 'Má se použít kompaktní vzhled?',
+            'Use the compact design' => 'Použít kompaktní vzhled',
+            'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'V kompaktním vzhledu se u osob zobrazuje jen jméno a životní letopočty. V obohaceném vzhledu se zobrazí také foto (pokud je pro daný strom aktivováno) a údaje o narození a úmrtí.',
             
             'He' => 'On',
             'She' => 'Ona',
@@ -1417,7 +1420,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has no parents recorded.' => '%s zde nemá žádné rodiče.',
             '%s has one mother recorded.' => '%s má jednu matku.',
             '%s has one father recorded.' => '%s má jednoho otce.',
-            '%s has one grandparent recorded.' => '%s má jednoho rodiče.',
+            '%s has one parent recorded.' => '%s má jednoho rodiče.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' => '%2$s má %1$d matku.' . I18N::PLURAL . '%2$s má %1$d matky.' . I18N::PLURAL . '%2$s má %1$d matek.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.' 
                 => '%2$s má %1$d otce.' . I18N::PLURAL . '%2$s má %1$d otce.' . I18N::PLURAL . '%2$s má %1$d otců.',
@@ -1425,6 +1428,19 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s má %1$d otce a ' . I18N::PLURAL . '%2$s má %1$d otce a ' . I18N::PLURAL . '%2$s má %1$d otců a ',
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
                 => '%d matku (celkem %d).' . I18N::PLURAL . '%d matky (celkem %d).' . I18N::PLURAL . '%d matek (celkem %d).',
+
+            'Parents-in-law' => 'Tcháni a tchyně',
+            '%s has no parents-in-law recorded.' => '%s zde nemá žádného tchána ani tchyni.',
+            '%s has one mother-in-law recorded.' => '%s má jednu tchyni.',
+            '%s has one father-in-law recorded.' => '%s má jednoho tchána.',
+            '%s has one parent-in-law recorded.' => '%s má jednoho tchána či tchyni.',
+            '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.' => '%2$s má %1$d tchyni.' . I18N::PLURAL . '%2$s má %1$d tchyně.' . I18N::PLURAL . '%2$s má %1$d tchyní.',
+            '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.' 
+                => '%2$s má %1$d tchána.' . I18N::PLURAL . '%2$s má %1$d tchány.' . I18N::PLURAL . '%2$s má %1$d tchánů.',
+            '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
+                => '%2$s má %1$d tchána a ' . I18N::PLURAL . '%2$s má %1$d tchány a ' . I18N::PLURAL . '%2$s má %1$d tchánů a ',
+            '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
+                => '%d tchyni (celkem %d).' . I18N::PLURAL . '%d tchyně (celkem %d).' . I18N::PLURAL . '%d tchyní (celkem %d).',
 
             'Uncles and Aunts' => 'Strýcové a tety',
             '%s has no uncles or aunts recorded.' => '%s zde nemá žádné strýce ani tety.',
@@ -1444,7 +1460,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one sister recorded.' => '%s má jednu sestru.',
             '%s has one brother recorded.' => '%s má jednoho bratra.',
             '%s has one brother or sister recorded.' => '%s má jednoho sourozence.',
-            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.' => '%2$s má %1$d dceru.' . I18N::PLURAL . '%2$s má %1$d dcery.' . I18N::PLURAL . '%2$s má %1$d dcer.',
+            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.' => '%2$s má %1$d sestru.' . I18N::PLURAL . '%2$s má %1$d sestry.' . I18N::PLURAL . '%2$s má %1$d sester.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.' 
                 => '%2$s má %1$d bratra.' . I18N::PLURAL . '%2$s má %1$d bratry.' . I18N::PLURAL . '%2$s má %1$d bratrů.',
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
@@ -1708,6 +1724,184 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%d Enkeltochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Enkeltöchter verzeichnet (insgesamt %d).',                
         ];
     }
+    
+    /**
+     * @return array
+     */
+    protected function spanishTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Extended family' => 'Familia extendida',
+            'A tab showing the extended family of an individual.' => 'Esta pestaña muestra todos los vinculos familiares de una persona',
+            'In which sequence should the parts of the extended family be shown?' => '¿Que bloques de la familia quieres que se muestren, y en que orden, en la pestaña "Familia extendida"?',
+            'Family part' => 'Bloques de la familia',
+            'Show name of proband as short name or as full name?' => '¿Debe mostrarse una forma abreviada o el nombre completo de la persona que realiza la prueba?',
+	        'How should empty parts of extended family be presented?' => '¿Cómo quieres que se muestren los bloques vacíos en la pestaña "Familia extendida"?',
+            'Show empty block' => 'Quieres que se muestren los bloques sin infromación?',
+	        'yes, always at standard location' => 'Sí, mostrar bloques sin información en su posición estándar',
+	        'no, but collect messages about empty blocks at the end' => 'No mostrar bloques sin información, pero poner una descripcción de los bloques que faltan al final',
+	        'never' => 'No mostrar los bloques sin información',
+            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'El nombre corto se basa en los apodos. Si estos no están disponibles, se utiliza el primero de los nombres de pila, si se da alguno. De lo contrario, se utiliza el apellido.',
+            'Show short name' => 'Mostrar nombre corto',
+            'Use the compact design?' => 'Usar el diseño compacto?',
+            'Use the compact design' => 'Usar el diseño compacto',
+            'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'El diseño compacto solo muestra el nombre, fecha de nacimiento y fecha de la muerte de cada persona. El diseño enriquecido también muestra una foto (si tienes fotos en el perfil de los familiares en el árbol) así como información sobre el nacimiento y la muerte.',
+			
+            'He' => 'él',
+            'She' => 'ella',
+            'He/she' => 'él/ella',
+            'Mr.' => 'Sr.',
+            'Mrs.' => 'Sra.',
+            'No family available' => 'No hay familia disponible',
+            'Parts of extended family without recorded information' => 'Familia sin información registrada',
+            '%s has no %s recorded.' => '%s no tiene %s registrados.',
+            '%s has no %s, and no %s recorded.' => '%s no tiene %s ni %s registrados.',
+            'Father\'s family (%d)' => 'Familia del padre (%d)',
+            'Mother\'s family (%d)' => 'Familia de la madre (%d)',
+            'Father\'s and Mother\'s family (%d)' => 'Familia del padre y de la Madre (%d)',
+
+            'Grandparents' => 'Abuelos',
+            '%s has no grandparents recorded.' => '%s no tiene Abuelos registrados.',
+            '%s has one grandmother recorded.' => '%s tiene una Abuela registrada.',
+            '%s has one grandfather recorded.' => '%s tiene un Abuelo registrado.',
+            '%s has one grandparent recorded.' => '%s tiene un Abuelo registrado.',
+            '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
+                => '%2$s tiene %1$d Abuela registrada.' . I18N::PLURAL . '%2$s tiene %1$d Abuelas registradas.',
+            '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
+                => '%2$s tiene %1$d Abuelo registrado.' . I18N::PLURAL . '%2$s tiene %1$d Abuelos registrados.',
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
+                => '%2$s tiene %1$d Abuelo y ' . I18N::PLURAL . '%2$s tiene %1$d Abuelos y ',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+                => '%d Abuela registrada (%d en total).' . I18N::PLURAL . '%d Abuelas registrados (%d en total).',
+
+            'Parents' => 'Padres',
+            '%s has no parents recorded.' => '%s no tiene Padres registrados.',
+            '%s has one mother recorded.' => '%s tiene una Madre registrados.',
+            '%s has one father recorded.' => '%s tiene un Padre registrados.',
+            '%s has one parent recorded.' => '%s tiene uno de los Padres registrados.',
+            '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.'
+                => '%2$s tiene %1$d Madre registrada.' . I18N::PLURAL . '%2$s tiene %1$d Madres registradas.',
+            '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
+                => '%2$s tiene %1$d Padre registrado.' . I18N::PLURAL . '%2$s tiene %1$d Padres registrados.',
+            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
+                => '%2$s tiene %1$d Padre y ' . I18N::PLURAL . '%2$s tiene %1$d Padres y ',
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
+                => '%d Madre registrados (%d en total).' . I18N::PLURAL . '%d Madres registrados (%d en total).',
+            
+            'Parents-in-law' => 'Suegros',
+            '%s has no parents_in_law recorded.' => '%s no tiene Suegros registrados.', // Bugfix change parents-in-law for parents_in_law
+            '%s has one mother-in-law recorded.' => '%s tiene una Suegra registrada.',
+            '%s has one father-in-law recorded.' => '%s tiene un Suegro registrado.',
+            '%s has one parent-in-law recorded.' => '%s tine un suegro registrados.',
+            '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.'
+                => '%2$s tiene %1$d Suegra registrados.' . I18N::PLURAL . '%2$s tiene %1$d Suegras registrados.',
+            '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.'
+                => '%2$s tiene %1$d Suegro registrado.' . I18N::PLURAL . '%2$s tiene %1$d Suegros registrados.',
+            '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
+                => '%2$s tiene %1$d Suegro y ' . I18N::PLURAL . '%2$s tiene %1$d Suegros y ',
+            '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
+                => '%d Suegra registrados (%d en total).' . I18N::PLURAL . '%d Suegras registrados (%d en total).',
+
+            'Uncles and Aunts' => 'Tíos y Tías',
+            '%s has no uncles or aunts recorded.' => '%s no tiene Tíos registrados.',
+            '%s has one aunt recorded.' => '%s tiene una Tía registrados.',
+            '%s has one uncle recorded.' => '%s tiene un Tío registrados.',
+            '%s has one uncle or aunt recorded.' => '%s tiene un Tío o Tía registrados.',
+            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
+                => '%2$s tiene %1$d Tía registrada.' . I18N::PLURAL . '%2$s tiene %1$d Tías registradas.',
+            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
+                => '%2$s tiene %1$d Tío registrado.' . I18N::PLURAL . '%2$s tiene %1$d Tíos registrados.',
+            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
+                => '%2$s tiene %1$d Tío y ' . I18N::PLURAL . '%2$s tiene %1$d Tíos y ',
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d Tía registrados (%d en total).' . I18N::PLURAL . '%d Tíos registrados (%d en total).', 
+
+            'Siblings' => 'Hermanos/as', 
+            '%s has no siblings recorded.' => '%s no tiene Hermanos/as registrados.',
+            '%s has one sister recorded.' => '%s tiene una Hermana registrada.',
+            '%s has one brother recorded.' => '%s tiene un  Hermano registrado.',
+            '%s has one brother or sister recorded.' => '%s tiene un Hermano o Hermana registrados.',
+            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
+                => '%2$s tiene %1$d Hermana registrada.' . I18N::PLURAL . '%2$s tiene %1$d Hermanas registradas.',
+            '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
+                => '%2$s tiene %1$d Hermano registrado.' . I18N::PLURAL . '%2$s tiene %1$d Hermanos registrados.',
+            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
+                => '%2$s tiene %1$d Hermano y ' . I18N::PLURAL . '%2$s tiene %1$d Hermanos y ',
+            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
+                => '%d Hermana registrados (%d en total).' . I18N::PLURAL . '%d Hermanas registrados (%d en total).',
+                                
+            'Partners' => 'Cónyuge', 
+            '%s has no partners recorded.' => '%s no tiene Cónyuge registrado.',
+            '%s has one female partner recorded.' => '%s tiene un Cónyuge registrado.',
+            '%s has one male partner recorded.' => '%s tiene un Cónyuge registrado.',
+            '%s has one partner recorded.' => '%s sólo tiene un Cónyuge registrado.',
+            '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
+                => '%2$s tiene %1$d Cónyuge registrado.' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges registrados.',
+            '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
+                => '%2$s tiene %1$d Cónyuge registrado.' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges registrados.',
+            '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
+                => '%2$s tiene %1$d Cónyuge y ' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges y ',
+            '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
+                => '%d Cónyuge registrado (%d en total).' . I18N::PLURAL . '%d Cónyuges registrados (%d en total).',
+
+            'Cousins' => 'Primos y Primas', 
+            '%s has no first cousins recorded.' => '%s no tiene Primos ni Primas registrados.',
+            '%s has one female first cousin recorded.' => '%s tiene una Prima registrada.',
+            '%s has one male first cousin recorded.' => '%s tiene un Primo registrado.',
+            '%s has one first cousin recorded.' => '%s tiene un Primo o Prima registrados.',
+            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
+                => '%2$s tiene %1$d Prima registrada.' . I18N::PLURAL . '%2$s tiene %1$d Primas registradas.',
+            '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
+                => '%2$s tiene %1$d Primo registrado.' . I18N::PLURAL . '%2$s tiene %1$d Primos registrados.',
+            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
+                => '%2$s tiene %1$d Primo y ' . I18N::PLURAL . '%2$s tiene %1$d Primos y ',
+            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
+                => '%d Prima registrados (%d en total).' . I18N::PLURAL . '%d Primas registrados (%d en total).',
+                
+            'Nephews and Nieces' => 'Sobrinos y Sobrinas', 
+            '%s has no nephews or nieces recorded.' => '%s no tiene Sobrinos ni Sobrinas registrados.',
+            '%s has one niece recorded.' => '%s tiene una Sobrina registrada.',
+            '%s has one nephew recorded.' => '%s tiene un Sobrino registrado.',
+            '%s has one nephew or niece recorded.' => '%s tiene una Sobrina o Sobrino registrados.',
+            '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
+                => '%2$s tiene %1$d Sobrina registrada.' . I18N::PLURAL . '%2$s tiene %1$d Sobrinas registradas.',
+            '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
+                => '%2$s tiene %1$d Sobrino registrado.' . I18N::PLURAL . '%2$s tiene %1$d Sobrinos registrados.',
+            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
+                => '%2$s tiene %1$d Sobrino y ' . I18N::PLURAL . '%2$s tiene %1$d Sobrinos y ',
+            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
+                => '%d Sobrina registrados (%d en total).' . I18N::PLURAL . '%d Sobrinas registrados (%d en total).',
+
+            'Children' => 'Hijos/as',   
+            '%s has no children recorded.' => '%s no tiene Hijos registrados.',
+            '%s has one daughter recorded.' => '%s tiene una Hija registrado.',
+            '%s has one son recorded.' => '%s tiene un Hijo registrado.',
+            '%s has one child recorded.' => '%s tiene un Hijo o Hija registrados.',
+            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
+                => '%2$s tiene %1$d Hija registrada.' . I18N::PLURAL . '%2$s tiene %1$d Hijas registradas.',
+            '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
+                => '%2$s tiene %1$d Hijo registrado.' . I18N::PLURAL . '%2$s tiene %1$d Hijos registrados.',
+            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
+                => '%2$s tiene %1$d Hijo y ' . I18N::PLURAL . '%2$s tiene %1$d Hijos y ',
+            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
+                => '%d Hija registrados (%d en total).' . I18N::PLURAL . '%d Hijas registrados (%d en total).',
+
+            'Grandchildren' => 'Nietos/as', 
+            '%s has no grandchildren recorded.' => '%s no tiene Nietos registrados.',
+            '%s has one granddaughter recorded.' => '%s tiene una Nieta registrada.',
+            '%s has one grandson recorded.' => '%s tiene un Nieto registrado.',
+            '%s has one grandchild recorded.' => '%s tiene un Nieto o Nieta registrados.',
+            '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
+                => '%2$s ist %1$d Nieta registrada.' . I18N::PLURAL . '%2$s tiene %1$d Nietas registradas.',
+            '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
+                => '%2$s ist %1$d Nieto registrado.' . I18N::PLURAL . '%2$s tiene %1$d Nietos registrados.',
+            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
+                => '%2$s tiene %1$d Nieto y ' . I18N::PLURAL . '%2$s tiene %1$d Nietos y ',
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
+                => '%d Nieta registrados (%d en total).' . I18N::PLURAL . '%d Nietas registrados (%d en total).',
+        ];
+    }
 
     /**
      * tbd
@@ -1960,7 +2154,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     *
      * @return array
      */
     protected function slovakTranslations(): array
@@ -2303,188 +2496,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%d онуку (загалом %d).' . I18N::PLURAL . '%d онуок (загалом %d).' . I18N::PLURAL . '%d онуок (загалом %d).',
         ];
     }
-    
-     /**
-     * @return array
-     */
-    protected function spanishTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-            'Extended family' => 'Familia extendida',
-            'A tab showing the extended family of an individual.' => 'Esta pestaña muestra todos los vinculos familiares de una persona',
-            'In which sequence should the parts of the extended family be shown?' => '¿Que bloques de la familia quieres que se muestren, y en que orden, en la pestaña "Familia extendida"?',
-            'Family part' => 'Bloques de la familia',
-            'Show name of proband as short name or as full name?' => '¿Debe mostrarse una forma abreviada o el nombre completo de la persona que realiza la prueba?',
-	        'How should empty parts of extended family be presented?' => '¿Cómo quieres que se muestren los bloques vacíos en la pestaña "Familia extendida"?',
-            'Show empty block' => 'Quieres que se muestren los bloques sin infromación?',
-	        'yes, always at standard location' => 'Sí, mostrar bloques sin información en su posición estándar',
-	        'no, but collect messages about empty blocks at the end' => 'No mostrar bloques sin información, pero poner una descripcción de los bloques que faltan al final',
-	        'never' => 'No mostrar los bloques sin información',
-            'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'El nombre corto se basa en los apodos. Si estos no están disponibles, se utiliza el primero de los nombres de pila, si se da alguno. De lo contrario, se utiliza el apellido.',
-            'Show short name' => 'Mostrar nombre corto',
-            'Use the compact design?' => 'Usar el diseño compacto?',
-            'Use the compact design' => 'Usar el diseño compacto',
-            'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'El diseño compacto solo muestra el nombre, fecha de nacimiento y fecha de la muerte de cada persona. El diseño enriquecido también muestra una foto (si tienes fotos en el perfil de los familiares en el árbol) así como información sobre el nacimiento y la muerte.',
-			
-            'He' => 'él', // Kontext "ihn"
-            'She' => 'ella', // Kontext "sie"
-            'He/she' => 'él/ella', // Kontext "ihn/sie"
-            'Mr.' => 'Sr.', // Kontext "Herrn xxx"
-            'Mrs.' => 'Sra.', // Kontext "Frau xxx"
-            'No family available' => 'No hay familia disponible',
-            'Parts of extended family without recorded information' => 'Familia sin información registrada',
-            '%s has no %s recorded.' => '%s no tiene %s registrados.',
-            '%s has no %s, and no %s recorded.' => '%s no tiene %s ni %s registrados.',
-            'Father\'s family (%d)' => 'Familia del padre (%d)',
-            'Mother\'s family (%d)' => 'Familia de la madre (%d)',
-            'Father\'s and Mother\'s family (%d)' => 'Familia del padre y de la Madre (%d)',
-
-            'Grandparents' => 'Abuelos',
-            '%s has no grandparents recorded.' => '%s no tiene Abuelos registrados.',
-            '%s has one grandmother recorded.' => '%s tiene una Abuela registrada.',
-            '%s has one grandfather recorded.' => '%s tiene un Abuelo registrado.',
-            '%s has one grandparent recorded.' => '%s tiene un Abuelo registrado.',
-            '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
-                => '%2$s tiene %1$d Abuela registrada.' . I18N::PLURAL . '%2$s tiene %1$d Abuelas registradas.',
-            '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
-                => '%2$s tiene %1$d Abuelo registrado.' . I18N::PLURAL . '%2$s tiene %1$d Abuelos registrados.',
-            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
-                => '%2$s tiene %1$d Abuelo y ' . I18N::PLURAL . '%2$s tiene %1$d Abuelos y ',
-            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
-                => '%d Abuela registrada (%d en total).' . I18N::PLURAL . '%d Abuelas registrados (%d en total).',
-
-            'Parents' => 'Padres',
-            '%s has no parents recorded.' => '%s no tiene Padres registrados.',
-            '%s has one mother recorded.' => '%s tiene una Madre registrados.',
-            '%s has one father recorded.' => '%s tiene un Padre registrados.',
-            '%s has one parent recorded.' => '%s tiene uno de los Padres registrados.',
-            '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.'
-                => '%2$s tiene %1$d Madre registrada.' . I18N::PLURAL . '%2$s tiene %1$d Madres registradas.',
-            '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
-                => '%2$s tiene %1$d Padre registrado.' . I18N::PLURAL . '%2$s tiene %1$d Padres registrados.',
-            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
-                => '%2$s tiene %1$d Padre y ' . I18N::PLURAL . '%2$s tiene %1$d Padres y ',
-            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
-                => '%d Madre registrados (%d en total).' . I18N::PLURAL . '%d Madres registrados (%d en total).',
-            
-            'Parents-in-law' => 'Suegros',
-            '%s has no parents_in_law recorded.' => '%s no tiene Suegros registrados.', // Bugfix change parents-in-law for parents_in_law
-            '%s has one mother-in-law recorded.' => '%s tiene una Suegra registrada.',
-            '%s has one father-in-law recorded.' => '%s tiene un Suegro registrado.',
-            '%s has one parent-in-law recorded.' => '%s tine un suegro registrados.',
-            '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.'
-                => '%2$s tiene %1$d Suegra registrados.' . I18N::PLURAL . '%2$s tiene %1$d Suegras registrados.',
-            '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.'
-                => '%2$s tiene %1$d Suegro registrado.' . I18N::PLURAL . '%2$s tiene %1$d Suegros registrados.',
-            '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
-                => '%2$s tiene %1$d Suegro y ' . I18N::PLURAL . '%2$s tiene %1$d Suegros y ',
-            '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
-                => '%d Suegra registrados (%d en total).' . I18N::PLURAL . '%d Suegras registrados (%d en total).',
-
-            'Uncles and Aunts' => 'Tíos y Tías',
-            '%s has no uncles or aunts recorded.' => '%s no tiene Tíos registrados.',
-            '%s has one aunt recorded.' => '%s tiene una Tía registrados.',
-            '%s has one uncle recorded.' => '%s tiene un Tío registrados.',
-            '%s has one uncle or aunt recorded.' => '%s tiene un Tío o Tía registrados.',
-            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
-                => '%2$s tiene %1$d Tía registrada.' . I18N::PLURAL . '%2$s tiene %1$d Tías registradas.',
-            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
-                => '%2$s tiene %1$d Tío registrado.' . I18N::PLURAL . '%2$s tiene %1$d Tíos registrados.',
-            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
-                => '%2$s tiene %1$d Tío y ' . I18N::PLURAL . '%2$s tiene %1$d Tíos y ',
-            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d Tía registrados (%d en total).' . I18N::PLURAL . '%d Tíos registrados (%d en total).', 
-
-            'Siblings' => 'Hermanos/as', 
-            '%s has no siblings recorded.' => '%s no tiene Hermanos/as registrados.',
-            '%s has one sister recorded.' => '%s tiene una Hermana registrada.',
-            '%s has one brother recorded.' => '%s tiene un  Hermano registrado.',
-            '%s has one brother or sister recorded.' => '%s tiene un Hermano o Hermana registrados.',
-            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
-                => '%2$s tiene %1$d Hermana registrada.' . I18N::PLURAL . '%2$s tiene %1$d Hermanas registradas.',
-            '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
-                => '%2$s tiene %1$d Hermano registrado.' . I18N::PLURAL . '%2$s tiene %1$d Hermanos registrados.',
-            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
-                => '%2$s tiene %1$d Hermano y ' . I18N::PLURAL . '%2$s tiene %1$d Hermanos y ',
-            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
-                => '%d Hermana registrados (%d en total).' . I18N::PLURAL . '%d Hermanas registrados (%d en total).',
-                                
-            'Partners' => 'Cónyuge', 
-            '%s has no partners recorded.' => '%s no tiene Cónyuge registrado.',
-            '%s has one female partner recorded.' => '%s tiene un Cónyuge registrado.',
-            '%s has one male partner recorded.' => '%s tiene un Cónyuge registrado.',
-            '%s has one partner recorded.' => '%s sólo tiene un Cónyuge registrado.',
-            '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
-                => '%2$s tiene %1$d Cónyuge registrado.' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges registrados.',
-            '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
-                => '%2$s tiene %1$d Cónyuge registrado.' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges registrados.',
-            '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
-                => '%2$s tiene %1$d Cónyuge y ' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges y ',
-            '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
-                => '%d Cónyuge registrado (%d en total).' . I18N::PLURAL . '%d Cónyuges registrados (%d en total).',
-
-            'Cousins' => 'Primos y Primas', 
-            '%s has no first cousins recorded.' => '%s no tiene Primos ni Primas registrados.',
-            '%s has one female first cousin recorded.' => '%s tiene una Prima registrada.',
-            '%s has one male first cousin recorded.' => '%s tiene un Primo registrado.',
-            '%s has one first cousin recorded.' => '%s tiene un Primo o Prima registrados.',
-            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
-                => '%2$s tiene %1$d Prima registrada.' . I18N::PLURAL . '%2$s tiene %1$d Primas registradas.',
-            '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
-                => '%2$s tiene %1$d Primo registrado.' . I18N::PLURAL . '%2$s tiene %1$d Primos registrados.',
-            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
-                => '%2$s tiene %1$d Primo y ' . I18N::PLURAL . '%2$s tiene %1$d Primos y ',
-            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
-                => '%d Prima registrados (%d en total).' . I18N::PLURAL . '%d Primas registrados (%d en total).',
-                
-            'Nephews and Nieces' => 'Sobrinos y Sobrinas', 
-            '%s has no nephews or nieces recorded.' => '%s no tiene Sobrinos ni Sobrinas registrados.',
-            '%s has one niece recorded.' => '%s tiene una Sobrina registrada.',
-            '%s has one nephew recorded.' => '%s tiene un Sobrino registrado.',
-            '%s has one nephew or niece recorded.' => '%s tiene una Sobrina o Sobrino registrados.',
-            '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
-                => '%2$s tiene %1$d Sobrina registrada.' . I18N::PLURAL . '%2$s tiene %1$d Sobrinas registradas.',
-            '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
-                => '%2$s tiene %1$d Sobrino registrado.' . I18N::PLURAL . '%2$s tiene %1$d Sobrinos registrados.',
-            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
-                => '%2$s tiene %1$d Sobrino y ' . I18N::PLURAL . '%2$s tiene %1$d Sobrinos y ',
-            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
-                => '%d Sobrina registrados (%d en total).' . I18N::PLURAL . '%d Sobrinas registrados (%d en total).',
-
-            'Children' => 'Hijos/as',   
-            '%s has no children recorded.' => '%s no tiene Hijos registrados.',
-            '%s has one daughter recorded.' => '%s tiene una Hija registrado.',
-            '%s has one son recorded.' => '%s tiene un Hijo registrado.',
-            '%s has one child recorded.' => '%s tiene un Hijo o Hija registrados.',
-            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
-                => '%2$s tiene %1$d Hija registrada.' . I18N::PLURAL . '%2$s tiene %1$d Hijas registradas.',
-            '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
-                => '%2$s tiene %1$d Hijo registrado.' . I18N::PLURAL . '%2$s tiene %1$d Hijos registrados.',
-            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
-                => '%2$s tiene %1$d Hijo y ' . I18N::PLURAL . '%2$s tiene %1$d Hijos y ',
-            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
-                => '%d Hija registrados (%d en total).' . I18N::PLURAL . '%d Hijas registrados (%d en total).',
-
-            'Grandchildren' => 'Nietos/as', 
-            '%s has no grandchildren recorded.' => '%s no tiene Nietos registrados.',
-            '%s has one granddaughter recorded.' => '%s tiene una Nieta registrada.',
-            '%s has one grandson recorded.' => '%s tiene un Nieto registrado.',
-            '%s has one grandchild recorded.' => '%s tiene un Nieto o Nieta registrados.',
-            '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
-                => '%2$s ist %1$d Nieta registrada.' . I18N::PLURAL . '%2$s tiene %1$d Nietas registradas.',
-            '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
-                => '%2$s ist %1$d Nieto registrado.' . I18N::PLURAL . '%2$s tiene %1$d Nietos registrados.',
-            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
-                => '%2$s tiene %1$d Nieto y ' . I18N::PLURAL . '%2$s tiene %1$d Nietos y ',
-            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
-                => '%d Nieta registrados (%d en total).' . I18N::PLURAL . '%d Nietas registrados (%d en total).',
-        ];
-    }
 	
     /**
-     * tbd
-     *
      * @return array
      */
     protected function vietnameseTranslations(): array
