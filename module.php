@@ -2457,137 +2457,137 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one grandfather recorded.' => '%s має запис про одного дідуся.',
             '%s has one grandparent recorded.' => '%s має запис про одного дідуся чи бабусю.',
             '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.' 
-                => '%2$s має %1$d запис бабусі.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.',
+                => '%2$s має %1$d запис бабусі.' . I18N::PLURAL . '%2$s має %1$d записи бабусь.' . I18N::PLURAL . '%2$s має %1$d записів бабусь.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.' 
-                => '%2$s має %1$d запис дідуся.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.',
+                => '%2$s має %1$d запис дідуся.' . I18N::PLURAL . '%2$s має %1$d записи дідусів.' . I18N::PLURAL . '%2$s має %1$d записів дідусів.',
             '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
-                => '%2$s має %1$d запис дідуся та ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ',
+                => '%2$s має %1$d запис дідуся та ' . I18N::PLURAL . '%2$s має %1$d записи дідусів і ' . I18N::PLURAL . '%2$s має %1$d записів дідусів і ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
-                => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).',
+                => '%d бабусю (загалом %d).' . I18N::PLURAL . '%d бабусі (загалом %d).' . I18N::PLURAL . '%d бабусь (загалом %d).',
 
             'Parents' => 'Батьки',
-            '%s has no parents recorded.' => '%s не має записів батьків.',
+            '%s has no parents recorded.' => '%s не має жодного запису про батьків.',
             '%s has one mother recorded.' => '%s має тільки запис матері.',
             '%s has one father recorded.' => '%s має тільки запис батька.',
-            '%s has one parent recorded.' => '%s має запис одного з батьків.',
+            '%s has one parent recorded.' => '%s має запис про одного з батьків.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.'
-                => '%2$s має %1$d запис про мати.' . I18N::PLURAL . '%2$s має %1$d записи про матерів.' . I18N::PLURAL . '%2$s має %1$d записи про матерів.',
+                => '%2$s має %1$d запис про мати.' . I18N::PLURAL . '%2$s має %1$d записи про матерів.' . I18N::PLURAL . '%2$s має %1$d записів про матерів.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
-                => '%2$s має %1$d запис про батька.' . I18N::PLURAL . '%2$s має %1$d записів про батьків.' . I18N::PLURAL . '%2$s має %1$d записів про батьків.',
+                => '%2$s має %1$d запис про батька.' . I18N::PLURAL . '%2$s має %1$d записи про батьків.' . I18N::PLURAL . '%2$s має %1$d записів про батьків.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
-                => '%2$s має %1$d запис про батька та ' . I18N::PLURAL . '%2$s має %1$d записи про батьків і ' . I18N::PLURAL . '%2$s має %1$d записи про батьків і ',
+                => '%2$s має %1$d запис про батька та ' . I18N::PLURAL . '%2$s має %1$d записи про батьків і ' . I18N::PLURAL . '%2$s має %1$d записів про батьків і ',
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
                 => '%d мати (загалом %d).' . I18N::PLURAL . '%d матерів (загалом %d).' . I18N::PLURAL . '%d матерів (загалом %d).',
 
             'Parents-in-law' => 'Тесті і свекри',
-            '%s has no parents-in-law recorded.' => '%s не має записів про батьків.',
+            '%s has no parents-in-law recorded.' => '%s не має жодного запису про батьків.',
             '%s has one mother-in-law recorded.' => '%s має один запис про тещу або свекруху.',
             '%s has one father-in-law recorded.' => '%s має один запис про тестя або свекра',
-            '%s has one parent-in-law recorded.' => '%s має запис одного з батьків.',
+            '%s has one parent-in-law recorded.' => '%s має запис про одного з батьків.',
             '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.'
-                => '%2$s має %1$d запис про тещу або свекруху.' . I18N::PLURAL . '%2$s має %1$d записи про тещ або свекрух.' . I18N::PLURAL . '%2$s має %1$d записи про тещ або свекрух.',
+                => '%2$s має %1$d запис про тещу або свекруху.' . I18N::PLURAL . '%2$s має %1$d записи про тещ або свекрух.' . I18N::PLURAL . '%2$s має %1$d записів про тещ або свекрух.',
             '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.'
-                => '%2$s має %1$d запис про тестя або свекра.' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів.' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів.',
+                => '%2$s має %1$d запис про тестя або свекра.' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів.' . I18N::PLURAL . '%2$s має %1$d записів про тестів або свекрів.',
             '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
-                => '%2$s має %1$d запис про тестя або свекра і ' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів і ' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів і ',
+                => '%2$s має %1$d запис про тестя або свекра і ' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів і ' . I18N::PLURAL . '%2$s має %1$d записів про тестів або свекрів і ',
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
-                => '%d тещу або свекруху (загалом %d).' . I18N::PLURAL . '%d тещ або свекрух (загалом %d).' . I18N::PLURAL . '%d тещ або свекрух (загалом %d).',
+                => '%d тещу або свекруху (загалом %d).' . I18N::PLURAL . '%d тещі або свекрухи (загалом %d).' . I18N::PLURAL . '%d тещ або свекрух (загалом %d).',
                         
             'Uncles and Aunts' => 'Дядьки і тітки',
-            '%s has no uncles or aunts recorded.' => '%s не має записів про дядьків і тіток.',
+            '%s has no uncles or aunts recorded.' => '%s не має жодного запису про дядьків і тіток.',
             '%s has one aunt recorded.' => '%s має запис про одну тітку.',
             '%s has one uncle recorded.' => '%s має запис про одного дядька.',
             '%s has one uncle or aunt recorded.' => '%s має запис про одного дядька чи тітку.',
             '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
-                => '%2$s має %1$d запис про дядька.' . I18N::PLURAL . '%2$s має %1$d записи про дядьків.' . I18N::PLURAL . '%2$s має %1$d записи про дядьків.',
+                => '%2$s має %1$d запис про дядька.' . I18N::PLURAL . '%2$s має %1$d записи про дядьків.' . I18N::PLURAL . '%2$s має %1$d записів про дядьків.',
             '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
-                => '%2$s має %1$d запис про тіток.' . I18N::PLURAL . '%2$s має %1$d записи про тіток.' . I18N::PLURAL . '%2$s має %1$d записи про тіток.',
+                => '%2$s має %1$d запис про тіток.' . I18N::PLURAL . '%2$s має %1$d записи про тіток.' . I18N::PLURAL . '%2$s має %1$d записів про тіток.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
-                => '%2$s має %1$d запис про дядька та ' . I18N::PLURAL . '%2$s має %1$d записи про дядьків і ' . I18N::PLURAL . '%2$s має %1$d записи про дядьків і ',
+                => '%2$s має %1$d запис про дядька та ' . I18N::PLURAL . '%2$s має %1$d записи про дядьків і ' . I18N::PLURAL . '%2$s має %1$d записів про дядьків і ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
                 => '%d тітку (загалом %d).' . I18N::PLURAL . '%d тіток (загалом %d).' . I18N::PLURAL . '%d тіток (загалом %d).', 
 
             'Siblings' => 'Брати і сестри',
-            '%s has no siblings recorded.' => '%s не має записів про братів і сестер.',
+            '%s has no siblings recorded.' => '%s не має жодного запису про братів і сестер.',
             '%s has one sister recorded.' => '%s має запис про одну сестру.',
             '%s has one brother recorded.' => '%s має запис про одного брата.',
-            '%s has one brother or sister recorded.' => '%s має записи про одного брата чи сестру.',
+            '%s has one brother or sister recorded.' => '%s має запис про одного брата чи сестру.',
             '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
-                => '%2$s має %1$d запис про сестру.' . I18N::PLURAL . '%2$s має %1$d записи про сестер.' . I18N::PLURAL . '%2$s має %1$d записи про сестер.',
+                => '%2$s має %1$d запис про сестру.' . I18N::PLURAL . '%2$s має %1$d записи про сестер.' . I18N::PLURAL . '%2$s має %1$d записів про сестер.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
-                => '%2$s має %1$d запис про брата.' . I18N::PLURAL . '%2$s має %1$d записи про братів.' . I18N::PLURAL . '%2$s має %1$d записи про братів.',
+                => '%2$s має %1$d запис про брата.' . I18N::PLURAL . '%2$s має %1$d записи про братів.' . I18N::PLURAL . '%2$s має %1$d записів про братів.',
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
-                => '%2$s має %1$d запис про брата і ' . I18N::PLURAL . '%2$s має %1$d записи про братів і ' . I18N::PLURAL . '%2$s має %1$d записи про братів і ',
+                => '%2$s має %1$d запис про брата і ' . I18N::PLURAL . '%2$s має %1$d записи про братів і ' . I18N::PLURAL . '%2$s має %1$d записів про братів і ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
                 => '%d сестру (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).',
                                 
             'Partners' => 'Партнери',
-            '%s has no partners recorded.' => '%s не має записів про партнерів.',
+            '%s has no partners recorded.' => '%s не має жодного запису про партнерів.',
             '%s has one female partner recorded.' => '%s має запис про одну партнерку.',
             '%s has one male partner recorded.' => '%s має запис про одного партнера.',
             '%s has one partner recorded.' => '%s має запис про одного партнера.',
             '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
-                => '%2$s має %1$d запис про партнерку.' . I18N::PLURAL . '%2$s має %1$d записи про партнерок.' . I18N::PLURAL . '%2$s має %1$d записи про партнерок.',
+                => '%2$s має %1$d запис про партнерку.' . I18N::PLURAL . '%2$s має %1$d записи про партнерок.' . I18N::PLURAL . '%2$s має %1$d записів про партнерок.',
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
-                => '%2$s має %1$d запис про партнера.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.',
+                => '%2$s має %1$d запис про партнера.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.' . I18N::PLURAL . '%2$s має %1$d записів про партнерів.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
-                => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d запис про партнера і ',
+                => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерів і ' . I18N::PLURAL . '%2$s має %1$d запиів про партнерів і ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d партнерку (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).',
 
             'Cousins' => 'Двоюрідні брати і сестри',
-            '%s has no first cousins recorded.' => '%s не має записів про двоюрідних братів і сестер.',
+            '%s has no first cousins recorded.' => '%s не має жодного запису про двоюрідних братів і сестер.',
             '%s has one female first cousin recorded.' => '%s має запис про одну двоюрідну сестру.',
             '%s has one male first cousin recorded.' => '%s має запис про одного двоюрідного брата.',
             '%s has one first cousin recorded.' => '%s має запис про одного двоюрідного брата чи сестру.',
             '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
-                => '%2$s має %1$d запис про двоюрідну сестру.' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних сестер.' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних сестер.',
+                => '%2$s має %1$d запис про двоюрідну сестру.' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних сестер.' . I18N::PLURAL . '%2$s має %1$d записів про двоюрідних сестер.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
-                => '%2$s має %1$d запис про двоюрідного брата.' . I18N::PLURAL . '%2$s має %1$d записи про двюрідних братів.' . I18N::PLURAL . '%2$s має %1$d записи про двюрідних братів.',
+                => '%2$s має %1$d запис про двоюрідного брата.' . I18N::PLURAL . '%2$s має %1$d записи про двюрідних братів.' . I18N::PLURAL . '%2$s має %1$d записів про двюрідних братів.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
-                => '%2$s має %1$d запис про двоюрідного брата і ' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних братів і ' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних братів і ',
+                => '%2$s має %1$d запис про двоюрідного брата і ' . I18N::PLURAL . '%2$s має %1$d записи про двоюрідних братів і ' . I18N::PLURAL . '%2$s має %1$d записів про двоюрідних братів і ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
                 => '%d двоюрідну сестру (загалом %d).' . I18N::PLURAL . '%d двоюрідних сестер (загалом %d).' . I18N::PLURAL . '%d двоюрідних сестер (загалом %d).',
                 
             'Nephews and Nieces' => 'Племінники та племінниці',
-            '%s has no nephews or nieces recorded.' => '%s не має записів про племінників чи племінниць.',
+            '%s has no nephews or nieces recorded.' => '%s не має жодного запису про племінників чи племінниць.',
             '%s has one niece recorded.' => '%s має запис про одну племінницю.',
             '%s has one nephew recorded.' => '%s має запис про одного племінника.',
             '%s has one nephew or niece recorded.' => '%s має запис про одного племінника чи племінницю.',
             '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
-                => '%2$s має %1$d запис про племінницю.' . I18N::PLURAL . '%2$s має %1$d записи про племінниць.' . I18N::PLURAL . '%2$s має %1$d записи про племінниць.',
+                => '%2$s має %1$d запис про племінницю.' . I18N::PLURAL . '%2$s має %1$d записи про племінниць.' . I18N::PLURAL . '%2$s має %1$d записів про племінниць.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
-                => '%2$s має %1$d запис про племінника.' . I18N::PLURAL . '%2$s має %1$d записи про племінників.' . I18N::PLURAL . '%2$s має %1$d записи про племінників.',
+                => '%2$s має %1$d запис про племінника.' . I18N::PLURAL . '%2$s має %1$d записи про племінників.' . I18N::PLURAL . '%2$s має %1$d записів про племінників.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
-                => '%2$s має %1$d запис про племінника та ' . I18N::PLURAL . '%2$s має %1$d записи про племінників і ' . I18N::PLURAL . '%2$s має %1$d записи про племінників і ',
+                => '%2$s має %1$d запис про племінника та ' . I18N::PLURAL . '%2$s має %1$d записи про племінників і ' . I18N::PLURAL . '%2$s має %1$d записів про племінників і ',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
                 => '%d племінницю (загалом %d).' . I18N::PLURAL . '%d племінниць (загалом %d).' . I18N::PLURAL . '%d племінниць (загалом %d).',
 
             'Children' => 'Діти',
-            '%s has no children recorded.' => '%s не має записів про дітей.',
+            '%s has no children recorded.' => '%s не має жодного запису про дітей.',
             '%s has one daughter recorded.' => '%s має запис про одного сина.',
             '%s has one son recorded.' => '%s має запис про одну дочку.',
             '%s has one child recorded.' => '%s запис про одну дитину.',
             '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
-                => '%2$s має %1$d запис про дочку.' . I18N::PLURAL . '%2$s має %1$d записи про дочок.' . I18N::PLURAL . '%2$s має %1$d записи про дочок.',
+                => '%2$s має %1$d запис про дочку.' . I18N::PLURAL . '%2$s має %1$d записи про дочок.' . I18N::PLURAL . '%2$s має %1$d записів про дочок.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
-                => '%2$s має %1$d запис про сина.' . I18N::PLURAL . '%2$s має %1$d записи про синів.' . I18N::PLURAL . '%2$s має %1$d записи про синів.',
+                => '%2$s має %1$d запис про сина.' . I18N::PLURAL . '%2$s має %1$d записи про синів.' . I18N::PLURAL . '%2$s має %1$d записів про синів.',
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
-                => '%2$s має %1$d запис про сина та ' . I18N::PLURAL . '%2$s має %1$d записи про синів і ' . I18N::PLURAL . '%2$s має %1$d записи про синів і ',
+                => '%2$s має %1$d запис про сина та ' . I18N::PLURAL . '%2$s має %1$d записи про синів і ' . I18N::PLURAL . '%2$s має %1$d записів про синів і ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
                 => '%d дочку (загалом %d).' . I18N::PLURAL . '%d дочок (загалом %d).' . I18N::PLURAL . '%d дочок (загалом %d).',
 
             'Grandchildren' => 'Онуки',
-            '%s has no grandchildren recorded.' => '%s не має записів про онуків.',
+            '%s has no grandchildren recorded.' => '%s не має жодного запису про онуків.',
             '%s has one granddaughter recorded.' => '%s має запис про одну онуку.',
             '%s has one grandson recorded.' => '%s має запис про одного внука.',
             '%s has one grandchild recorded.' => '%s має запис про одного внука чи онуку.',
             '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
-                => '%2$s має %1$d запис про онуку.' . I18N::PLURAL . '%2$s має %1$d записи про онук.' . I18N::PLURAL . '%2$s має %1$d записи про онук.',
+                => '%2$s має %1$d запис про онуку.' . I18N::PLURAL . '%2$s має %1$d записи про онук.' . I18N::PLURAL . '%2$s має %1$d записів про онук.',
             '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.' 
-                => '%2$s має %1$d запис про внука.' . I18N::PLURAL . '%2$s має %1$d записів про внуків.' . I18N::PLURAL . '%2$s має %1$d записів про внуків.',
+                => '%2$s має %1$d запис про внука.' . I18N::PLURAL . '%2$s має %1$d записи про внуків.' . I18N::PLURAL . '%2$s має %1$d записів про внуків.',
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
-                => '%2$s має %1$d запис про внука та ' . I18N::PLURAL . '%2$s має %1$d записи про внуків і ' . I18N::PLURAL . '%2$s має %1$d записи про внуків і ',
+                => '%2$s має %1$d запис про внука та ' . I18N::PLURAL . '%2$s має %1$d записи про внуків і ' . I18N::PLURAL . '%2$s має %1$d записів про внуків і ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).'
                 => '%d онуку (загалом %d).' . I18N::PLURAL . '%d онуок (загалом %d).' . I18N::PLURAL . '%d онуок (загалом %d).',
         ];
