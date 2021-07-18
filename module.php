@@ -26,15 +26,13 @@
 */
 
 /*
- * tbd: Option für thumbnail size???
+ * tbd: Option für thumbnail size??? oder css für shilouette?
  * tbd: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
  * tbd: Stiefcousins testen (siehe Onkel Walter)
- * tbd: Gruppierung und Überschriften für groups bei descendants (siehe module_20210716.php !!!)
- * tbd: Blöcke in "partners" oben bündig machen
- * tbd: bei parents-in-law setzen von married und partner
+ * tbd: Gruppierung und Überschriften für groups bei siblings, nephews_and_nieces, children und grandchildren
  * tbd: globale variable, damit man bei show_thumbnail keinen Parameter mit individual braucht
  * tbd: eventuell auch andere Verwandtschaftssysteme als nur das Eskimo-System implementieren
- * tbd: for-Schleifen wieder durch foreach-Schleifen ersetzen in addIndividualToDescendantsFamily
+ * tbd: php-Klassen-Konzept verwenden
 */
 
 declare(strict_types=1);
@@ -47,6 +45,7 @@ use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Registry;
 use Fisharebest\Webtrees\Individual;
+//use Fisharebest\Webtrees\Functions;
 use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Gedcom;
 use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
@@ -81,9 +80,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.30';
+    public const CUSTOM_VERSION = '2.0.16.31';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
+    
+    public const ANCESTORS = 'ancestors';
+    public const DESCENDANTS = 'descendants';
 
     /**
      * list of parts of extended family
@@ -116,54 +118,63 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @return object
      *  ->self->indi                                            object individual
      *        ->niceName                                        string
-     *  ->efp->allCount                                         integer
+     *  ->efp->allCount                                         int
      *       ->summaryMessageEmptyBlocks                        string
      *       ->grandparents->father                             object individual
      *                     ->mother                             object individual
      *                     ->families->fatherFamily[]           array of object individual 
      *                               ->motherFamily[]           array of object individual
      *                               ->fatherAndMotherFamily[]  array of object individual    
-     *                     ->fathersFamilyCount                 integer
-     *                     ->mothersFamilyCount                 integer
-     *                     ->fathersAndMothersFamilyCount       integer    
-     *                     ->fathersMaleCount                   integer
-     *                     ->fathersFemaleCount                 integer
-     *                     ->mothersMaleCount                   integer
-     *                     ->mothersFemaleCount                 integer    
-     *                     ->fathersAndMothersMaleCount         integer
-     *                     ->fathersAndMothersFemaleCount       integer
-     *                     ->maleCount                          integer    
-     *                     ->femaleCount                        integer
-     *                     ->allCount                           integer
+     *                     ->fathersFamilyCount                 int
+     *                     ->mothersFamilyCount                 int
+     *                     ->fathersAndMothersFamilyCount       int    
+     *                     ->fathersMaleCount                   int
+     *                     ->fathersFemaleCount                 int
+     *                     ->mothersMaleCount                   int
+     *                     ->mothersFemaleCount                 int    
+     *                     ->fathersAndMothersMaleCount         int
+     *                     ->fathersAndMothersFemaleCount       int
+     *                     ->maleCount                          int    
+     *                     ->femaleCount                        int
+     *                     ->allCount                           int
      *                     ->partName                           string
 	 *					   ->partName_translated				string
 	 *					   ->type								string
      *       ->parents                                          see grandparents
      *       ->uncles_and_aunts                                 see grandparents
      *       ->siblings                                         see nephews_and_nieces    
-     *       ->partners                                         see nephews_and_nieces
-     *       ->parents_in_law->groups[]->members[]              array of object individual
+     *       ->partners->groups[]->members[]                    array of object individual   (index of groups is XREF)
+     *                           ->partner                      object individual
+     *                 ->pCount                                 int
+     *                 ->popCount                               int
+     *                 ->maleCount                              int    
+     *                 ->femaleCount                            int
+     *                 ->allCount                               int
+     *                 ->partName                               string
+	 *				   ->partName_translated			        string
+	 *				   ->type							        string
+     *       ->parents_in_law->groups[]->members[]              array of object individual   (index of groups is int)
      *                                  ->family                object family
-     *                                  ->married               bool
+     *                                  ->married               string
      *                                  ->partner               object individual
-     *                       ->maleCount                        integer    
-     *                       ->femaleCount                      integer
-     *                       ->allCount                         integer
+     *                       ->maleCount                        int    
+     *                       ->femaleCount                      int
+     *                       ->allCount                         int
      *                       ->partName                         string
 	 *					   	 ->partName_translated			    string
 	 *					   	 ->type						        string
      *       ->cousins                                          see grandparents
-     *       ->nephews_and_nieces->groups[]->members[]          array of object individual
+     *       ->nephews_and_nieces->groups[]->members[]          array of object individual   (index of groups is int)
      *                                     ->family             object family
-     *                           ->maleCount                    integer    
-     *                           ->femaleCount                  integer
-     *                           ->allCount                     integer
+     *                           ->maleCount                    int    
+     *                           ->femaleCount                  int
+     *                           ->allCount                     int
      *                           ->partName                     string
 	 *					   	     ->partName_translated			string
 	 *					   		 ->type							string
      *       ->children                                         see nephews_and_nieces
      *       ->grandchildren                                    see nephews_and_nieces
-     *  ->config->showEmptyBlock                                integer [0,1,2]
+     *  ->config->showEmptyBlock                                int [0,1,2]
      *          ->use_compact_design                            bool
      *          ->show_thumbnail                                bool
      */
@@ -420,12 +431,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function get_partners(Individual $individual): object
     {      
         $PartnersObj = $this->initializedFamilyPartObject('partners');
-        foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
-                    foreach ($family2->spouses() as $spouse2) {                                 // Gen  0 P
-                        if ($spouse2 !== $individual) {
-                            $this->addIndividualToDescendantsFamily( $spouse2, $PartnersObj, $family2 );
+        foreach ($individual->spouseFamilies() as $family1) {                                                   // Gen  0 F
+            foreach ($family1->spouses() as $spouse1) {                                                         // Gen  0 P
+                if ( $spouse1 !== $individual ) {
+                    $this->addIndividualToDescendantsFamilyAsPartner( $spouse1, $PartnersObj, $individual );
+                }
+                foreach ($spouse1->spouseFamilies() as $family2) {                                              // Gen  0 F
+                    foreach ($family2->spouses() as $spouse2) {                                                 // Gen  0 P
+                        if ( $spouse2 !== $spouse1 && $spouse2 !== $individual ) {
+                            $this->addIndividualToDescendantsFamilyAsPartner( $spouse2, $PartnersObj, $spouse1 );
                         }
                     }
                 }
@@ -450,10 +464,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             foreach ($family->spouses() as $spouse) {                                           // Gen  0 P
                 if ($spouse !== $individual) {
                     if (($spouse->childFamilies()->first()) && ($spouse->childFamilies()->first()->husband() instanceof Individual)) {
-                        $this->addIndividualToDescendantsFamily( $spouse->childFamilies()->first()->husband(), $Parents_in_lawObj, $family );
+                        $this->addIndividualToDescendantsFamily( $spouse->childFamilies()->first()->husband(), $Parents_in_lawObj, $family, $individual );
                     }
                     if (($spouse->childFamilies()->first()) && ($spouse->childFamilies()->first()->wife() instanceof Individual)) {
-                        $this->addIndividualToDescendantsFamily( $spouse->childFamilies()->first()->wife(), $Parents_in_lawObj, $family );
+                        $this->addIndividualToDescendantsFamily( $spouse->childFamilies()->first()->wife(), $Parents_in_lawObj, $family, $individual );
                     }
                 }
             }
@@ -623,12 +637,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 		$efpObj->type = $this->typeOfFamilyPart($partName);
         $efpObj->allCount = 0;
         
-        if ($efpObj->type == 'ancestors') {
+        if ($efpObj->type == self::ANCESTORS) {
             $efpObj->families = (object)[];
             $efpObj->families->fatherFamily = [];
             $efpObj->families->motherFamily = [];
             $efpObj->families->fatherAndMotherFamily = [];
-        } elseif ($efpObj->type == 'descendants') {
+        } elseif ($efpObj->type == self::DESCENDANTS) {
             $efpObj->groups = [];
         }
         
@@ -639,7 +653,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * type of part of extended family
      *
      * @param name of part of extended family 
-     * @return string ['ancestors', 'descendants']
+     * @return string [ANCESTORS, self::DESCENDANTS]
      */
     private function typeOfFamilyPart(string $partName): string
     {       
@@ -648,14 +662,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             case 'parents':
             case 'uncles_and_aunts':
             case 'cousins': 
-                return 'ancestors';
+                return self::ANCESTORS;
             default:
-                return 'descendants';
+                return self::DESCENDANTS;
         }
     }
     
    /**
-    * add an individual to the extended family (of type 'ancestors') if it is not already member of this extended family
+    * add an individual to the extended family (of type self::ANCESTORS) if it is not already member of this extended family
     *
     * @param individual
     * @param object part of extended family
@@ -687,22 +701,21 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
     
    /**
-    * add an individual to the extended family (of type 'descendants') if it is not already member of this extended family
+    * add an individual to the extended family (of type self::DESCENDANTS) if it is not already member of this extended family
     *
     * @param individual
     * @param object part of extended family
     * @param object family (on level of proband) to which these descendants are belonging
+    * @param (optional) individual proband
     */
-    private function addIndividualToDescendantsFamily(Individual $individual, object $extendedFamilyPart, object $family)
+    private function addIndividualToDescendantsFamily(Individual $individual, object $extendedFamilyPart, object $family, Individual $proband = null)
     {
         $found = false;
         //echo 'Soll ' . $individual->xref() . ' der Familie ' . $family->xref() . ' hinzugefügt werden? ';
-        for ($i = 0; $i < count($extendedFamilyPart->groups); $i++) {              // check if individual is already a member of this part of the exetnded family   
-            $groupObj = $extendedFamilyPart->groups[$i];                             
+        foreach ($extendedFamilyPart->groups as $i => $groupObj) {                  // check if individual is already a member of this part of the exetnded family   
             //echo 'Teste groups Nr. ' . $i . ': ';
-            for ($j = 0; $j < count($groupObj->members); $j++) {
-                $member = $groupObj->members[$j];
-                //echo 'Teste member Nr. ' . $j . ' = ' . $member->xref() . ': ';
+            foreach ($groupObj->members as $member) {
+                //echo 'Teste member = ' . $member->xref() . ': ';
                 if ($member->xref() == $individual->xref()) {
                     $found = true;
                     //echo 'Person ' . $individual->xref() . ' ist bereits in group-Objekt für Familie ' . $groupObj->family->xref() . ' vorhanden. ';
@@ -713,7 +726,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         
         if (!$found) {                                                              // individual has to be added 
             foreach ($extendedFamilyPart->groups as $famkey => $groupObj) {         // check if this family is already stored in this part of the extended family
-                if ($groupObj->family->xref() == $family->xref()) {                   // family exists already    
+                if ($groupObj->family->xref() == $family->xref()) {                 // family exists already    
                     //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$famkey]->family->xref() . '); ';
                     $extendedFamilyPart->groups[$famkey]->members[] = $individual;
                     $found = true;
@@ -722,16 +735,85 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
             if (!$found) {                                                          // individual not found and family not found
                 $newObj = (object)[];
-                $newObj->family = $family;
-                $newObj->married = true;             // tbd:  Status der $family: true wenn MARR event existiert
-                $newObj->partner = $individual;      // tbd:  Ehegatte aus $family, der ungleich dem Probanden ist
                 $newObj->members[] = $individual;
-                $extendedFamilyPart->groups[] = $newObj;
-                $count = count($extendedFamilyPart->groups)-1;
+                $newObj->family = $family;
                 
+                if ( $extendedFamilyPart->partName == 'parents_in_law') {
+                    $newObj->married = $this->getFamilyStatus($family);
+                    foreach ($family->spouses() as $spouse) {                       // find spouse in family which is not equal to proband
+                        if ( $spouse->xref() !== $proband->xref() ) {
+                            $newObj->partner = $spouse;
+                            break;
+                        }
+                    }
+                }
+                
+                $extendedFamilyPart->groups[] = $newObj;
+                
+                //$count = count($extendedFamilyPart->groups)-1;
                 //echo 'Neu hinzugefügte Familie: ' . $count . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$count]->family->xref() . '); ';
             }
-            
+        }
+        
+        return;
+    }
+    
+   /**
+    * get status of a family
+    *
+    * @param object family
+    *
+    * @return string
+    */
+    private function getFamilyStatus($family): string
+    { 
+        $event = $family->facts(['ANUL', 'DIV', 'ENGA', 'MARR'], true)->last();
+        if ($event instanceof Fact) {
+            switch ($event->tag()) {
+                case 'FAM:ANUL':
+                case 'FAM:DIV':
+                    return I18N::translate('Ex-marriage');
+                case 'FAM:MARR':
+                    return I18N::translate('Marriage');
+                case 'FAM:ENGA':
+                    return I18N::translate('Fiancée');
+            }
+        }
+        return I18N::translate('Partnership');;
+    }
+ 
+   /**
+    * add an individual to the extended family 'partners' if it is not already member of this extended family
+    *
+    * @param individual
+    * @param object part of extended family
+    * @param individual spouse to which these partners are belonging
+    */
+    private function addIndividualToDescendantsFamilyAsPartner(Individual $individual, object $extendedFamilyPart, Individual $spouse)
+    {
+        $found = false;
+        //echo 'Soll ' . $individual->xref() . ' als Partner von ' . $spouse->xref() . ' hinzugefügt werden? ';
+        if ( array_key_exists ( $spouse->xref(), $extendedFamilyPart->groups) ) {               // check if this spouse is already stored as group in this part of the extended family   
+            //echo $spouse->xref() . ' definiert bereits eine Gruppe. ';
+            $efp = $extendedFamilyPart->groups[$spouse->xref()];
+            foreach ($efp->members as $member) {                                                // check if individual is already a partner of this partner   
+                //echo 'Teste Ehepartner ' . $member->xref() . ' in Gruppe für ' . $spouse->xref() . ': ';
+                if ( $individual->xref() == $member->xref() ) {
+                    $found = true;
+                    //echo 'Person ' . $individual->xref() . ' ist bereits als Partner von ' . $spouse->xref() . ' vorhanden. ';
+                    break;
+                }
+            }
+            if ( !$found ) {                                                                    // add individual to existing partner group
+                //echo 'Person ' . $individual->xref() . ' wird als Partner von ' . $spouse->xref() . ' hinzugefügt. ';
+                $extendedFamilyPart->groups[$spouse->xref()]->members[] = $individual;
+            }
+        } else {                                                                                // generate new group of partners
+            $newObj = (object)[];
+            $newObj->members[] = $individual;
+            $newObj->partner = $spouse;
+            $extendedFamilyPart->groups[$spouse->xref()] = $newObj;
+            //echo 'Neu hinzugefügte Gruppe für: ' . $spouse->xref() . ' (Person ' . $individual->xref() . ' als Partner hier hinzugefügt). ';
         }
         
         return;
@@ -745,7 +827,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function addCountersToFamilyPartObject( object $extendedFamilyPart )
     {
         
-        if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == 'ancestors') {
+        if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::ANCESTORS) {
             $extendedFamilyPart->fathersFamilyCount = sizeof( $extendedFamilyPart->families->fatherFamily );
             $extendedFamilyPart->mothersFamilyCount = sizeof( $extendedFamilyPart->families->motherFamily );
             $extendedFamilyPart->fathersAndMothersFamilyCount = sizeof( $extendedFamilyPart->families->fatherAndMotherFamily );
@@ -765,7 +847,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $extendedFamilyPart->maleCount = $extendedFamilyPart->fathersMaleCount + $extendedFamilyPart->mothersMaleCount + $extendedFamilyPart->fathersAndMothersMaleCount;
             $extendedFamilyPart->femaleCount = $extendedFamilyPart->fathersFemaleCount + $extendedFamilyPart->mothersFemaleCount + $extendedFamilyPart->fathersAndMothersFemaleCount;
             $extendedFamilyPart->allCount = $extendedFamilyPart->fathersFamilyCount + $extendedFamilyPart->mothersFamilyCount + $extendedFamilyPart->fathersAndMothersFamilyCount;
-        } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == 'descendants') {
+        } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::DESCENDANTS) {
             $countMale = 0;
             $countFemale = 0;
             $countOthers = 0;
@@ -778,6 +860,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $extendedFamilyPart->maleCount = $countMale;
             $extendedFamilyPart->femaleCount = $countFemale;
             $extendedFamilyPart->allCount = $countMale + $countFemale + $countOthers;
+            if ( $extendedFamilyPart->allCount > 0 && $extendedFamilyPart->partName == 'partners') {
+                $extendedFamilyPart->pCount = count($extendedFamilyPart->groups[array_key_first($extendedFamilyPart->groups)]->members);
+                $extendedFamilyPart->popCount = $extendedFamilyPart->allCount - $extendedFamilyPart->pCount;
+            }
         }
         
         return;
@@ -788,7 +874,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @param array of individuals
      *
-     * @return object with three elements: male, female and unknown_others (integer >= 0)
+     * @return object with three elements: male, female and unknown_others (int >= 0)
      */
     private function countMaleFemale(array $indilist): object
     {
@@ -1570,6 +1656,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design' => 'Kompaktes Design anwenden',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Das kompakte Design zeigt für jede Person nur den Namen und die Lebensspanne. Das angereicherte Design zeigt zusätzlich ein Foto (wenn dies für diesen Baum aktiviert ist) sowie Geburts- und Sterbeinformationen.',
 			
+            'Marriage' => 'Ehe',
+            'Ex-marriage' => 'Geschiedene Ehe',
+            'Partnership' => 'Partnerschaft',
+            'Fiancée' => 'Verlobung',
+            ' with ' => ' mit ',
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
             'He/she' => 'ihn/sie', // Kontext "Für ihn/sie"
@@ -1666,6 +1757,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Für %2$s sind %1$d Partner und ' . I18N::PLURAL . 'Für %2$s sind %1$d Partner und ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d Partnerin verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partnerinnen verzeichnet (insgesamt %d).',
+            'Partner of ' => 'Partner von ',
+            '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
+                => 'Für %2$s sind %1$d Partner und ' . I18N::PLURAL . 'Für %2$s sind %1$d Partner und ',
+            '%d partner of partners recorded (%d in total).' . I18N::PLURAL . '%d partners of partners recorded (%d in total).'
+                => '%d Partner von Partnern verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partner von Partnern verzeichnet (insgesamt %d).',
 
             'Cousins' => 'Cousins und Cousinen',
             '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
@@ -1985,7 +2081,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design?' => 'Compact ontwerp gebruiken?',
             'Use the compact design' => 'Gebruik compact ontwerp',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Het compacte ontwerp toont alleen de naam en de levensduur voor elke persoon. Het verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd), en geboorte- en overlijdensinformatie',
-            
+
             'He' => 'hem',
             'She' => 'haar',
             'He/she' => 'hem/haar',
