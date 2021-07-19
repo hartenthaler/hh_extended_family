@@ -1886,7 +1886,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%d Madre registrados (%d en total).' . I18N::PLURAL . '%d Madres registrados (%d en total).',
             
             'Parents-in-law' => 'Suegros',
-            '%s has no parents_in_law recorded.' => '%s no tiene Suegros registrados.', // Bugfix change parents-in-law for parents_in_law
+            '%s has no parents-in-law recorded.' => '%s no tiene Suegros registrados.',
             '%s has one mother-in-law recorded.' => '%s tiene una Suegra registrada.',
             '%s has one father-in-law recorded.' => '%s tiene un Suegro registrado.',
             '%s has one parent-in-law recorded.' => '%s tine un suegro registrados.',
@@ -1911,7 +1911,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
                 => '%2$s tiene %1$d Tío y ' . I18N::PLURAL . '%2$s tiene %1$d Tíos y ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d Tía registrados (%d en total).' . I18N::PLURAL . '%d Tíos registrados (%d en total).', 
+                => '%d Tía registrados (%d en total).' . I18N::PLURAL . '%d Tías registrados (%d en total).', 
 
             'Siblings' => 'Hermanos/as', 
             '%s has no siblings recorded.' => '%s no tiene Hermanos/as registrados.',
