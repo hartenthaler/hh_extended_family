@@ -2081,7 +2081,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design?' => 'Compact ontwerp gebruiken?',
             'Use the compact design' => 'Gebruik compact ontwerp',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Het compacte ontwerp toont alleen de naam en de levensduur voor elke persoon. Het verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd), en geboorte- en overlijdensinformatie',
-
+                
+            'Marriage' => 'Huwelijk',
+            'Ex-marriage' => 'Ex-huwelijk',
+            'Partnership' => 'Relatie',
+            'Fiancée' => 'Verloving',
+            ' with ' => ' met ',
             'He' => 'hem',
             'She' => 'haar',
             'He/she' => 'hem/haar',
@@ -2178,6 +2183,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d partner geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners geregistreerd (%d in totaal).',
+            'Partner of ' => 'Partner van ',
+            '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
+                => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
+            '%d partner of partners recorded (%d in total).' . I18N::PLURAL . '%d partners of partners recorded (%d in total).'
+                => '%d partner van partners geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners van partners geregistreerd (%d in totaal).',
             
             'Cousins' => 'Volle neven en nichten (kinderen van oom of tante)',
             '%s has no first cousins recorded.' => 'Voor %s zijn geen volle neven en nichten geregistreerd.',
