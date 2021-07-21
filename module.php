@@ -26,21 +26,27 @@
 */
 
 /*
- * tbd: siehe issues in github
- * tbd: Zusammenfassen der beiden Statements bei Partnern
- * tbd: Gruppierung und Überschriften für groups bei siblings und nephews_and_nieces
- * tbd: childLabel <pedi> für Adoptivkind und Pflegekind wieder einbauen
- * tbd: Label für Partner neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
- * tbd: Ablaufreihenfolge in function addIndividualToDescendantsFamily() umbauen wie function addIndividualToDescendantsFamilyAsPartner()
- * tbd: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
- * tbd: Stiefcousins testen (siehe Onkel Walter)
- * tbd: globale variable, damit man bei show_thumbnail keinen Parameter mit individual braucht
- * tbd: eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
- * tbd: Übersetzungen auslagern in eigene Dateien
- * tbd: verwendete Systemfunktionen wie explode etc. auflisten
- * tbd: eventuell auch andere Verwandtschaftssysteme als nur das Eskimo-System implementieren
- * tbd: php-Klassen-Konzept verwenden
- * tbd: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern: Option für thumbnail size? oder css für shilouette? Gibt es einen Zusammenhnag oder sind sie unabhängig? Wie genau wirken sie sich aus? siehe issue von Sir Peter
+ * tbd: Offene Punkte nach Priorität geordnet
+ * ------------------------------------------
+ * Zusammenfassen der beiden Statements bei Partnern
+ * Anzahl in den Gruppen in <h4> in Klammern am Ende ergänzen
+ * Gruppierung und Überschriften für groups bei siblings und nephews_and_nieces
+ * neue Screenshots für README
+ * siehe sonstige issues in github
+ * childLabel <pedi> für Adoptivkind und Pflegekind wieder einbauen
+ * Label für Partner neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
+ * Ablaufreihenfolge in function addIndividualToDescendantsFamily() umbauen wie function addIndividualToDescendantsFamilyAsPartner()
+ * Abbruch der Suche für isGrayedOut-tab sobald eine Person gefunden worden ist
+ * use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
+ * Stiefcousins testen (siehe Onkel Walter)
+ * globale Variable, damit man bei show_thumbnail keinen Parameter mit individual braucht
+ * eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
+ * Übersetzungen auslagern in eigene Dateien
+ * fehlende Übersetzungen in french, norwegian (2x), finish und andere organisieren
+ * verwendete Systemfunktionen wie explode etc. auflisten
+ * eventuell auch andere Verwandtschaftssysteme als nur das Eskimo-System implementieren
+ * php-Klassen-Konzept verwenden
+ * Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern: Option für thumbnail size? oder css für shilouette? Gibt es einen Zusammenhnag oder sind sie unabhängig? Wie genau wirken sie sich aus? siehe issue von Sir Peter
 */
 
 declare(strict_types=1);
@@ -2709,8 +2715,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         // Note the special characters used in plural and context-sensitive translations.
         return [
             'Extended family' => 'Gia đình mở rộng',
-            'A tab showing the extended family of an individual.' => 'Một bảng hiển thị thêm các thành phần gia đình mở rộng của một cá nhân.',
-            'In which sequence should the parts of the extended family be shown?' => 'Thứ tự các thành phần trong gia đình mở rộng được hiển thị?',
+            'A tab showing the extended family of an individual.' => 'Một bảng hiển thị thêm các thành phần gia đình mở rộng của một cá nhân.',            'In which sequence should the parts of the extended family be shown?' => 'Thứ tự các thành phần trong gia đình mở rộng được hiển thị?',
             'Family part' => 'Thành phần gia đình',
             'Show name of proband as short name or as full name?' => 'Hiển thị tên dưới dạng tên ngắn hay tên đầy đủ?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Tên viết tắt dựa hoặc biệt danh. Nếu chúng không có sẵn, tên đầu tiên trong số các tên đã cho sẽ được sử dụng, nếu một tên được đưa ra. Nếu không, họ sẽ được sử dụng.',
@@ -2723,6 +2728,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design?' => 'Hiển thị các thông tin rút gọn?',
             'Use the compact design' => 'Áp dụng hiển thị thông tin rút gọn',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Hiển thị rút gọn chỉ ghi tên, năm sinh năm mất cho mỗi người. Hiển thị đầy đủ sẽ bao gồm một bức ảnh (nếu điều này được kích hoạt cho cây gia đình này) cũng như thông tin về ngày sinh, nơi sinh và ngày mất, nơi mất của một cá nhân.',
+
+            'Marriage' => 'Kết hôn',
+            'Ex-marriage' => 'Kết hôn lại',
+            'Partnership' => 'Quan hệ hôn nhân',
+            'Fiancée' => 'Hôn ước',
+            ' with ' => ' với ',
+            'Biological children' => 'Con ruột',
+            'Stepchildren' => 'Con riêng',
+            'Biological grandchildren' => 'Cháu ruột',
+            'Stepchildren of children' => 'Cháu - con của con riêng',
+            'Children of stepchildren' => 'Con của con riêng',
+            'Stepchildren of stepchildren' => 'Con riêng của con riêng',
 
             'He' => 'Anh',
             'She' => 'Cô',
@@ -2783,15 +2800,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has no siblings recorded.' => '%s không có thông tin về anh chị em ruột.',
             '%s has one sister recorded.' => '%s có một chị gái hoặc em gái.',
             '%s has one brother recorded.' => '%s có một anh trai hoặc em trai.',
-            '%s has one brother or sister recorded.' => '%s có môt anh trai/em trai hoặc chị gái/em gái.',
+            '%s has one brother or sister recorded.' => '%s có môt anh em trai hoặc một chị em gái.',
             '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
-                => '%2$s có %1$d chị gái/em gái.',
+                => '%2$s có %1$d chị em gái.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
-                => '%2$s có %1$d người anh/em trai.',
+                => '%2$s có %1$d người anh em trai.',
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
-                => '%2$s có %1$d anh trai/em trai và ',
+                => '%2$s có %1$d anh em trai và ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
-                => '%d chị gái/em gái (tổng %d).', 
+                => '%d chị em gái (tổng %d).', 
                                 
             'Partners' => 'Vợ / Chồng',
             '%s has no partners recorded.' => '%s không có thông tin về vợ/chồng.',
@@ -2806,25 +2823,25 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s có %1$d một người chồng và ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d một người vợ (tổng %d).',
-        'Partner of ' => 'Vợ / chồng của ',
+            'Partner of ' => 'Vợ / chồng của ',
             '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
-                => '%2$s có %1$d một người vợ/chồng ' . I18N::PLURAL . '%2$s có %1$d những người vợ/chồng ',
+                => '%2$s có %1$d một người vợ/chồng ',
             '%d partner of partners recorded (%d in total).' . I18N::PLURAL . '%d partners of partners recorded (%d in total).'
-                => '%d vợ/chồng của chồng/vợ (két hôn thêm) (tổng %d).' . I18N::PLURAL . '%d những người vợ/chồng của những người chồng/vợ (kết hôn thêm) (tổng %d).',
+                => '%d vợ/chồng của chồng/vợ (két hôn thêm) (tổng %d).',
 
-        'Parents-in-law' => 'Schwiegereltern',
+            'Parents-in-law' => 'Schwiegereltern',
             '%s has no parents-in-law recorded.' => 'Für %s sind keine Schwiegereltern verzeichnet.',
             '%s has one mother-in-law recorded.' => 'Für %s ist eine Schwiegermutter verzeichnet.',
             '%s has one father-in-law recorded.' => 'Für %s ist ein Schwiegervater verzeichnet.',
             '%s has one parent-in-law recorded.' => 'Für %s ist ein Schwiegerelternteil verzeichnet.',
             '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.'
-                => 'Für %2$s ist %1$d Schwiegermutter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegermütter verzeichnet.',
+                => 'Für %2$s ist %1$d Schwiegermutter verzeichnet.',
             '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.'
-                => 'Für %2$s ist %1$d Schwiegervater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerväter verzeichnet.',
+                => 'Für %2$s ist %1$d Schwiegervater verzeichnet.',
             '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
-                => 'Für %2$s sind %1$d Schwiegervater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerväter und ',
+                => 'Für %2$s sind %1$d Schwiegervater und ',
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
-                => '%d Schwiegermutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegermütter verzeichnet (insgesamt %d).',
+                => '%d Schwiegermutter verzeichnet (insgesamt %d).',
 
             'Cousins' => 'Anh chị em họ',
             '%s has no first cousins recorded.' => '%s không có thông tin về anh em họ.',
@@ -2834,12 +2851,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
                 => '%2$s có %1$d chị họ/em gái họ.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
-                => '%2$s có %1$d anh/em họ.',
+                => '%2$s có %1$d anh/em trai họ.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
-                => '%2$s có %1$d anh/em họ và ',
+                => '%2$s có %1$d anh/em trai họ và ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
-                => '%d chị/em họ (tổng %d).',
-                
+                => '%d chị/em gái họ (tổng %d).',
+
             'Nephews and Nieces' => 'Cháu (Là con của anh chị em ruột)',
             '%s has no nephews or nieces recorded.' => '%s không có thông tin về con của anh chị em ruột.',
             '%s has one niece recorded.' => '%s có một cháu gái.',
@@ -2854,7 +2871,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
                 => '%d cháu gái (tổng %d).',
 
-            'Children' => 'Các con',
+            'Children' => 'Con',
             '%s has no children recorded.' => '%s không có thông tin về con cái.',
             '%s has one daughter recorded.' => '%s có một con gái.',
             '%s has one son recorded.' => '%s có một con trai.',
@@ -2868,8 +2885,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
                 => '%d con gái (tổng %d người con).',
 
-            'Grandchildren' => 'Cháu nội',
-            '%s has no grandchildren recorded.' => '%s không có thông tin về cháu nội.',
+            'Grandchildren' => 'Cháu',
+            '%s has no grandchildren recorded.' => '%s không có thông tin về cháu.',
             '%s has one granddaughter recorded.' => '%s có một cháu gái.',
             '%s has one grandson recorded.' => '%s có một cháu trai.',
             '%s has one grandchild recorded.' => '%s có một cháu.',
