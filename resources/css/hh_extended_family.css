@@ -85,10 +85,17 @@
 
 .hh_extended_family_name {}
 
-.hh_extended_family_lifespan,
-.hh_extended_family_pedi {
-    font-size: 9px;
+.hh_extended_family_lifespan {
+    font-size: 10px;
     padding: 3px 5px 5px 5px;
+}
+
+.hh_extended_family_pedi {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 5px 5px 5px;
+    background-color: lightgrey;
+    color: green;
 }
 
 .hh_extended_family_counter {

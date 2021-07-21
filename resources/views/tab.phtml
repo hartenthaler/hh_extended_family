@@ -256,19 +256,24 @@
                                             <?php endif ?>
                                         <?php endif ?>
                                     <?php else: ?>
-                                        <?php if ($extfam_obj->efp->$propName->popCount > 0): ?>
-                                                <h3><?= I18N::plural('%2$s has %1$d partner and ', '%2$s has %1$d partners and ', $extfam_obj->efp->$propName->pCount, $extfam_obj->efp->$propName->pCount, $extfam_obj->self->niceName) ?>
-                                                    <?= I18N::plural('%d partner of partners recorded (%d in total).', '%d partners of partners recorded (%d in total).', $extfam_obj->efp->$propName->popCount, $extfam_obj->efp->$propName->popCount, $extfam_obj->efp->$propName->allCount) ?>
-                                                </h3>
-                                        <?php endif ?>
-                                        <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d female partner recorded.',  '%2$s has %1$d female partners recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                        <?php else: ?>
-                                            <?php if ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
+                                        <?php if ($extfam_obj->efp->$propName->popCount == 0): ?>
+                                            <?php if ($extfam_obj->efp->$propName->femaleCount == $extfam_obj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d female partner recorded.',  '%2$s has %1$d female partners recorded.', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php elseif ($extfam_obj->efp->$propName->maleCount == $extfam_obj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d male partner recorded.', '%2$s has %1$d male partners recorded.', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $extfam_obj->efp->$propName->maleCount, $extfam_obj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
                                                     <?= I18N::plural('%d female partner recorded (%d in total).', '%d female partners recorded (%d in total).', $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->femaleCount, $extfam_obj->efp->$propName->allCount) ?>
+                                                </h3>
+                                            <?php endif ?>
+                                        <?php else: ?>
+                                            <?php if ($extfam_obj->self->indi->sex() == 'M'): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d female partner and ', '%2$s has %1$d female partners and ', $extfam_obj->efp->$propName->pfemaleCount, $extfam_obj->efp->$propName->pfemaleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d male partner of female partners recorded (%d in total).', '%d male partners of female partners recorded (%d in total).', $extfam_obj->efp->$propName->popmaleCount, $extfam_obj->efp->$propName->popmaleCount, $extfam_obj->efp->$propName->allCount) ?>
+                                                </h3>
+                                            <?php elseif ($extfam_obj->self->indi->sex() == 'F'): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $extfam_obj->efp->$propName->pmaleCount, $extfam_obj->efp->$propName->pmaleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d female partner of male partners recorded (%d in total).', '%d female partners of male partners recorded (%d in total).', $extfam_obj->efp->$propName->popfemaleCount, $extfam_obj->efp->$propName->popfemaleCount, $extfam_obj->efp->$propName->allCount) ?>
                                                 </h3>
                                             <?php endif ?>
                                         <?php endif ?>
@@ -436,6 +441,7 @@
                                                                 <?php endif ?>
                                                             </div>
                                                         <?php endif ?>
+                                                        <span class="hh_extended_family_pedi"><?= $module_obj->getChildLabel($indi) ?></span>
                                                     <?php else: ?>
                                                         <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
                                                     <?php endif ?>

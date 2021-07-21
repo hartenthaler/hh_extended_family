@@ -28,11 +28,10 @@
 /*
  * tbd: Offene Punkte nach Priorität geordnet
  * ------------------------------------------
- * Zusammenfassen der beiden Statements bei Partnern
- * Gruppierung und Überschriften für groups bei siblings und nephews_and_nieces
+ * Statements bei Partnern: Problem wenn Proband->sex() == U und wenn Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt
+ * Gruppierung und Überschriften für groups bei nephews_and_nieces
  * neue Screenshots für README
  * siehe sonstige issues in github
- * childLabel <pedi> für Adoptivkind und Pflegekind wieder einbauen
  * Label für Partner neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
  * Ablaufreihenfolge in function addIndividualToDescendantsFamily() umbauen wie function addIndividualToDescendantsFamilyAsPartner()
  * Abbruch der Suche für isGrayedOut-tab sobald eine Person gefunden worden ist
@@ -95,7 +94,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.34';
+    public const CUSTOM_VERSION = '2.0.16.35';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -185,7 +184,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *       ->partners->groups[]->members[]                    array of object individual   (index of groups is XREF)
      *                           ->partner                      object individual
      *                 ->pCount                                 int
+     *                 ->pmaleCount                             int
+     *                 ->pfemaleCount                           int
      *                 ->popCount                               int
+     *                 ->popmaleCount                           int
+     *                 ->popfemaleCount                         int
      *                 ->maleCount                              int    
      *                 ->femaleCount                            int
      *                 ->allCount                               int
@@ -983,7 +986,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $extendedFamilyPart->allCount = $countMale + $countFemale + $countOthers;
             
             if ( $extendedFamilyPart->allCount > 0 && $extendedFamilyPart->partName == 'partners' ) {
-                $extendedFamilyPart->pCount = count($extendedFamilyPart->groups[array_key_first($extendedFamilyPart->groups)]->members);
+                $count = $this->countMaleFemale( $extendedFamilyPart->groups[array_key_first($extendedFamilyPart->groups)]->members );
+                $extendedFamilyPart->pmaleCount = $count->male;
+                $extendedFamilyPart->pfemaleCount = $count->female;
+                $extendedFamilyPart->pCount = $count->male + $count->female + $count->unknown_others;
+                $extendedFamilyPart->popmaleCount = $extendedFamilyPart->maleCount - $count->male;
+                $extendedFamilyPart->popfemaleCount = $extendedFamilyPart->femaleCount - $count->female;
                 $extendedFamilyPart->popCount = $extendedFamilyPart->allCount - $extendedFamilyPart->pCount;
             }
         }
@@ -1152,7 +1160,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * generate a label for a parental family group
+     * generate a label for a child
      *
      * @param Individual $individual
      *
@@ -1876,6 +1884,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%d Schwester verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwestern verzeichnet (insgesamt %d).',
                                 
             'Partners' => 'Partner',
+            'Partner of ' => 'Partner von ',
             '%s has no partners recorded.' => 'Für %s sind keine Partner verzeichnet.',
             '%s has one female partner recorded.' => 'Für %s ist eine Partnerin verzeichnet.',
             '%s has one male partner recorded.' => 'Für %s ist ein Partner verzeichnet.',
@@ -1886,13 +1895,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Für %2$s ist %1$d Partner verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Partner verzeichnet.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
                 => 'Für %2$s sind %1$d Partner und ' . I18N::PLURAL . 'Für %2$s sind %1$d Partner und ',
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
+                => 'Für %2$s sind %1$d Partnerin und ' . I18N::PLURAL . 'Für %2$s sind %1$d Partnerinnen und ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d Partnerin verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partnerinnen verzeichnet (insgesamt %d).',
-            'Partner of ' => 'Partner von ',
             '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
                 => 'Für %2$s sind %1$d Partner und ' . I18N::PLURAL . 'Für %2$s sind %1$d Partner und ',
-            '%d partner of partners recorded (%d in total).' . I18N::PLURAL . '%d partners of partners recorded (%d in total).'
-                => '%d Partner von Partnern verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partner von Partnern verzeichnet (insgesamt %d).',
+            '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'
+                => '%d Partner von Partnerinnen verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partner von Partnerinnen verzeichnet (insgesamt %d).',
+            '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'
+                => '%d Partnerin von Partnern verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partnerinnen von Partnern verzeichnet (insgesamt %d).',
 
             'Cousins' => 'Cousins und Cousinen',
             '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
