@@ -29,7 +29,6 @@
  * tbd: Offene Punkte nach Priorität geordnet
  * ------------------------------------------
  * Zusammenfassen der beiden Statements bei Partnern
- * Anzahl in den Gruppen in <h4> in Klammern am Ende ergänzen
  * Gruppierung und Überschriften für groups bei siblings und nephews_and_nieces
  * neue Screenshots für README
  * siehe sonstige issues in github
@@ -96,7 +95,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.33';
+    public const CUSTOM_VERSION = '2.0.16.34';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -121,6 +120,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const GROUP_GRANDCHILDREN_STEP_CHILD = 'Stepchildren of children';
     public const GROUP_GRANDCHILDREN_CHILD_STEP = 'Children of stepchildren';
     public const GROUP_GRANDCHILDREN_STEP_STEP  = 'Stepchildren of stepchildren';
+    
+    public const GROUP_SIBLINGS_FULL    = 'Full siblings';
+    public const GROUP_SIBLINGS_HALF    = 'Half siblings';          // including more than half siblings (if parents are related to each other)
+    public const GROUP_SIBLINGS_STEP    = 'Stepsiblings';
     
     /**
      * list of parts of extended family
@@ -178,7 +181,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 	 *					   ->type								string
      *       ->parents                                          see grandparents
      *       ->uncles_and_aunts                                 see grandparents
-     *       ->siblings                                         see nephews_and_nieces    
+     *       ->siblings                                         see children    
      *       ->partners->groups[]->members[]                    array of object individual   (index of groups is XREF)
      *                           ->partner                      object individual
      *                 ->pCount                                 int
@@ -461,7 +464,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * Find siblings including step-siblings
+     * Find full and half siblings, as well as stepsiblings
      *
      * @param Individual $individual
      *
@@ -471,18 +474,39 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {      
         $SiblingsObj = $this->initializedFamilyPartObject('siblings');
         
+        foreach ($individual->childFamilies() as $family) {                                     // Gen  1 F
+            foreach ($family->children() as $sibling_full) {                                    // Gen  0 P
+                if ($sibling_full !== $individual) {
+                    $this->addIndividualToDescendantsFamily( $sibling_full, $SiblingsObj, $family, null, self::GROUP_SIBLINGS_FULL );
+                }
+            }
+        }
         foreach ($individual->childFamilies() as $family1) {                                    // Gen  1 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
-                    foreach ($family2->children() as $child) {                                  // Gen  0 P
-                        if ($child !== $individual) {
-                            $this->addIndividualToDescendantsFamily( $child, $SiblingsObj, $family1 );
+                    foreach ($family2->children() as $sibling_half) {                           // Gen  0 P
+                        if ($sibling_half !== $individual) {
+                            $this->addIndividualToDescendantsFamily( $sibling_half, $SiblingsObj, $family1, null, self::GROUP_SIBLINGS_HALF );
                         }
                     }
                 }
             }
         }
-
+        foreach ($individual->childFamilies() as $family1) {                                    // Gen  1 F
+            foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
+                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
+                    foreach ($family2->spouses() as $spouse2) {                                 // Gen  1 P
+                        foreach ($spouse2->spouseFamilies() as $family3) {                      // Gen  1 F
+                            foreach ($family3->children() as $sibling_step) {                   // Gen  0 P
+                                if ($sibling_step !== $individual) {
+                                    $this->addIndividualToDescendantsFamily( $sibling_step, $SiblingsObj, $family1, null, self::GROUP_SIBLINGS_STEP );
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         $this->addCountersToFamilyPartObject( $SiblingsObj );
 
         return $SiblingsObj;
@@ -810,7 +834,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
         
-        if (!$found) {                                                                // individual has to be added 
+        if (!$found) {                                                                  // individual has to be added 
             if ($groupName == '') {
                 foreach ($extendedFamilyPart->groups as $famkey => $groupObj) {         // check if this family is already stored in this part of the extended family
                     if ($groupObj->family->xref() == $family->xref()) {                 // family exists already    
@@ -1765,6 +1789,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Stepchildren of children' => 'Stiefkinder der Kinder',
             'Children of stepchildren' => 'Kinder der Stiefkinder',
             'Stepchildren of stepchildren' => 'Stiefkinder der Stiefkinder',
+            'Full siblings' => 'Vollbürtige Geschwister',
+            'Half siblings' => 'Halbbürtige Geschwister',
+            'Stepsiblings' => 'Stiefgeschwister',
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
             'He/she' => 'ihn/sie', // Kontext "Für ihn/sie"

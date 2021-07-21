@@ -368,7 +368,7 @@
                                 <?php endif ?>
                             </div>
                             <div id="hh_extended_family_content">
-                                <?php if ($propName == 'siblings' || $propName == 'nephews_and_nieces'): ?>
+                                <?php if ($propName == 'nephews_and_nieces'): ?>
                                     <?php foreach ($extfam_obj->efp->$propName->groups as $group): ?>
                                         <div id="hh_extended_family_g">
                                             <?php $prev_fam_id = -1; ?>
@@ -405,10 +405,10 @@
                                             <?php $i++; endforeach ?>
                                         </div>    
                                     <?php endforeach ?>
-                                <?php elseif ($propName == 'children' || $propName == 'grandchildren'): ?>
+                                <?php elseif ($propName == 'children' || $propName == 'grandchildren' || $propName == 'siblings'): ?>
                                     <?php foreach ($extfam_obj->efp->$propName->groups as $group): ?>
                                         <div id="hh_extended_family_g">
-                                            <h4><?= I18N::translate($group->groupName); ?></h4>
+                                            <h4><?= I18N::translate($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
                                             <?php $prev_fam_id = -1; ?>
                                             <?php  foreach ($group->members as $indi) : ?>
                                                 <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
@@ -456,6 +456,7 @@
                                                         <span class="hh_extended_family_name"><?= $group->partner->fullName() ?></span>
                                                     <?php endif ?>
                                                 <?php endif ?>
+                                                &nbsp;(<?= count($group->members) ?>)
                                             </h4>
                                             <?php $i = 1; ?>
                                             <?php foreach ($group->members as $indi) : ?>
@@ -497,6 +498,7 @@
                                                 <?php else: ?>
                                                     <span class="hh_extended_family_name"><?= $group->partner->fullName() ?></span>
                                                 <?php endif ?>
+                                                &nbsp;(<?= count($group->members) ?>)
                                             </h4>
                                             <?php $prev_fam_id = '-1'; ?>
                                             <?php if ($group->family->xref() != $prev_fam_id) : ?>
