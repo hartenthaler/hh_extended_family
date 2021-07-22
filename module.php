@@ -28,6 +28,7 @@
 /*
  * tbd: Offene Punkte nach Priorität geordnet
  * ------------------------------------------
+ * leeres Label nicht anzeigen
  * Statements bei Partnern: Problem wenn Proband->sex() == U und wenn Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt
  * Gruppierung und Überschriften für groups bei nephews_and_nieces
  * neue Screenshots für README
@@ -215,6 +216,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 	 *					   	     ->partName_translated			string
 	 *					   		 ->type							string
      *       ->children->groups[]->members[]                    array of object individual   (index of groups is groupName)
+     *                           ->labels[]                     array of string
      *                           ->groupName                    string [GROUP_CHILDREN_BIO, GROUP_CHILDREN_STEP]
      *                 ->maleCount                              int    
      *                 ->femaleCount                            int
@@ -843,6 +845,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     if ($groupObj->family->xref() == $family->xref()) {                 // family exists already    
                         //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$famkey]->family->xref() . '); ';
                         $extendedFamilyPart->groups[$famkey]->members[] = $individual;
+                        if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings' ) {
+                            $extendedFamilyPart->groups[$famkey]->labels[] = $this->getChildLabel($individual);
+                        }
                         $found = true;
                         break;
                     }
@@ -850,13 +855,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             } elseif ( array_key_exists($groupName, $extendedFamilyPart->groups) ) {
                 //echo 'In bereits vorhandener Gruppe "' . $groupName . '" Person ' . $individual->xref() . ' hinzugefügt. ';
                 $extendedFamilyPart->groups[$groupName]->members[] = $individual;
+                if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings' ) {
+                    $extendedFamilyPart->groups[$groupName]->labels[] = $this->getChildLabel($individual);
+                }
                 $found = true;
             }
             if (!$found) {                                                              // individual not found and family not found
                 $newObj = (object)[];
-                $newObj->members[] = $individual;
                 $newObj->family = $family;
-                
+                $newObj->members[] = $individual;
+                if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings') {
+                    $newObj->labels[] = $this->getChildLabel($individual);
+                }
                 if ( $extendedFamilyPart->partName == 'parents_in_law' ) {
                     $newObj->married = $this->getFamilyStatus($family);
                     foreach ($family->spouses() as $spouse) {                           // find spouse in family which is not equal to proband
@@ -868,7 +878,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 } elseif ( $groupName !== '' ) {
                     $newObj->groupName = $groupName;
                 }
-                
                 if ($groupName == '') {
                     $extendedFamilyPart->groups[] = $newObj;
                     //echo 'Neu hinzugefügte Familie Nr. ' . count($extendedFamilyPart->groups)-1 . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$count]->family->xref() . '); ';

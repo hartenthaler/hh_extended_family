@@ -415,7 +415,7 @@
                                         <div id="hh_extended_family_g">
                                             <h4><?= I18N::translate($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
                                             <?php $prev_fam_id = -1; ?>
-                                            <?php  foreach ($group->members as $indi) : ?>
+                                            <?php  foreach ($group->members as $key => $indi) : ?>
                                                 <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
                                                     <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
                                                     <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
@@ -441,7 +441,9 @@
                                                                 <?php endif ?>
                                                             </div>
                                                         <?php endif ?>
-                                                        <span class="hh_extended_family_pedi"><?= $module_obj->getChildLabel($indi) ?></span>
+                                                        <?php if ($group->labels[$key]): ?>
+                                                            <span class="hh_extended_family_pedi"><?= $group->labels[$key] ?></span>
+                                                        <?php endif ?>
                                                     <?php else: ?>
                                                         <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
                                                     <?php endif ?>
