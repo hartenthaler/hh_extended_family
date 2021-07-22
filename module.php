@@ -28,7 +28,6 @@
 /*
  * tbd: Offene Punkte nach Priorität geordnet
  * ------------------------------------------
- * leeres Label nicht anzeigen
  * Statements bei Partnern: Problem wenn Proband->sex() == U und wenn Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt
  * Gruppierung und Überschriften für groups bei nephews_and_nieces
  * neue Screenshots für README
@@ -95,7 +94,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.35';
+    public const CUSTOM_VERSION = '2.0.16.36';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -2244,6 +2243,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Biological grandchildren' => 'Biologische kleinkinderen',
             'Stepchildren of children' => 'Stiefkinderen van kinderen',
             'Children of stepchildren' => 'Kinderen van stiefkinderen',
+            'Full siblings' => 'Volle broers en zussen',
+            'Half siblings' => 'Halfbroers en -zussen',
             'Stepchildren of stepchildren' => 'Stiefkinderen van stiefkinderen',
             'He' => 'hem',
             'She' => 'haar',
@@ -2329,6 +2330,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%d zus geregistreerd (%d in totaal).' . I18N::PLURAL . '%d zussen geregistreerd (%d in totaal).',
                                 
             'Partners' => 'Partners',
+            'Partner of ' => 'Partner van ',
             '%s has no partners recorded.' => 'Voor %s zijn geen partners geregistreerd.',
             '%s has one female partner recorded.' => 'Voor %s is een partner geregistreerd.',
             '%s has one male partner recorded.' => 'Voor %s is een partner geregistreerd.',
@@ -2339,12 +2341,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Voor %2$s is %1$d partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners geregistreerd.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
                 => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
+                => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d partner geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners geregistreerd (%d in totaal).',
             'Partner of ' => 'Partner van ',
             '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
                 => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
-            '%d partner of partners recorded (%d in total).' . I18N::PLURAL . '%d partners of partners recorded (%d in total).'
+            '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'
+                => '%d partner van partners geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners van partners geregistreerd (%d in totaal).',
+            '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'
                 => '%d partner van partners geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners van partners geregistreerd (%d in totaal).',
             
             'Cousins' => 'Volle neven en nichten (kinderen van oom of tante)',
