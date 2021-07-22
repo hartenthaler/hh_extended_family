@@ -2612,6 +2612,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design' => 'Застосувати компактний дизайн',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Компактний дизайн показує лише ім`я та тривалість життя для кожної людини. Розширений дизайн також містить фотографію (якщо це дозволено для цього дерева), а також дати народження та смерті.',
             
+            'Marriage' => 'Шлюб',
+            'Ex-marriage' => 'Розвід',
+            'Partnership' => 'Відносини',
+            'Fiancée' => 'Заручини',
+            ' with ' => ' із ',
+            'Biological children' => 'Рідні діти',
+            'Stepchildren' => 'Прийомні діти',
+            'Biological grandchildren' => 'Рідні онуки',
+            'Stepchildren of children' => 'Прийомні онуки від рідних дітей',
+            'Children of stepchildren' => 'Онки від прийомних дітей',
+            'Stepchildren of stepchildren' => 'Прийомні онуки від прийомних дітей',
+            'Full siblings' => 'Рідні брати і сестри',
+            'Half siblings' => 'Напіврідні брати і сестри',
+            'Stepsiblings' => 'Зведені брати і сестри',
             'He' => 'йому',
             'She' => 'їй',
             'He/she' => 'йому/їй',
@@ -2696,6 +2710,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%d сестру (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).',
                                 
             'Partners' => 'Партнери',
+	    'Partner of ' => 'Партнер для ',
             '%s has no partners recorded.' => '%s не має жодного запису про партнерів.',
             '%s has one female partner recorded.' => '%s має запис про одну партнерку.',
             '%s has one male partner recorded.' => '%s має запис про одного партнера.',
@@ -2706,8 +2721,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s має %1$d запис про партнера.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.' . I18N::PLURAL . '%2$s має %1$d записів про партнерів.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
                 => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерів і ' . I18N::PLURAL . '%2$s має %1$d запиів про партнерів і ',
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
+                => '%2$s має %1$d запис про партнерку і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерок і ' . I18N::PLURAL . '%2$s має %1$d запиів про партнерок і ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d партнерку (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).',
+	    '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
+                => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерів і ' . I18N::PLURAL . '%2$s має %1$d записів про партнерів і ',
+            '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'
+                => '%d партнера для партнерок (загалом %d).' . I18N::PLURAL . '%d партнери для партнерок (загалом %d).' . I18N::PLURAL . '%d партнерів для партнерок (загалом %d).',
+            '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'
+                => '%d партнерку для партнерів (загалом %d).' . I18N::PLURAL . '%d партнери для партнерок (загалом %d).' . I18N::PLURAL . '%d партнерів для партнерок (загалом %d).',
 
             'Cousins' => 'Двоюрідні брати і сестри',
             '%s has no first cousins recorded.' => '%s не має жодного запису про двоюрідних братів і сестер.',
@@ -2775,7 +2798,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         // Note the special characters used in plural and context-sensitive translations.
         return [
             'Extended family' => 'Gia đình mở rộng',
-            'A tab showing the extended family of an individual.' => 'Một bảng hiển thị thêm các thành phần gia đình mở rộng của một cá nhân.',            'In which sequence should the parts of the extended family be shown?' => 'Thứ tự các thành phần trong gia đình mở rộng được hiển thị?',
+            'A tab showing the extended family of an individual.' => 'Một bảng hiển thị thêm các thành phần gia đình mở rộng của một cá nhân.',
+            'In which sequence should the parts of the extended family be shown?' => 'Thứ tự các thành phần trong gia đình mở rộng được hiển thị?',
             'Family part' => 'Thành phần gia đình',
             'Show name of proband as short name or as full name?' => 'Hiển thị tên dưới dạng tên ngắn hay tên đầy đủ?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Tên viết tắt dựa hoặc biệt danh. Nếu chúng không có sẵn, tên đầu tiên trong số các tên đã cho sẽ được sử dụng, nếu một tên được đưa ra. Nếu không, họ sẽ được sử dụng.',
