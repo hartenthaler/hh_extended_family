@@ -28,21 +28,32 @@
 /*
  * tbd: Offene Punkte nach Priorität geordnet
  * ------------------------------------------
- * Statements bei Partnern: Problem wenn Proband->sex() == U und wenn Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt
- * Gruppierung und Überschriften für groups bei nephews_and_nieces
- * neue Screenshots für README
- * siehe sonstige issues in github
- * Label für Partner neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
+ * Partnerketten: derzeit: von Gerlinde geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette von Dieter zu Gabi, d.h. dies als zweite Info ergänzen
+ * Zusammenfassung bei Partnern: Problem mit Zusammenfassung wenn Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt ist
+ * siehe issues/enhancements in github
+ * Label für Partner: neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
+ * Label für Eltern: biologosche Eltern, Stiefeltern, Adoptiveltern, Pflegeeltern
+ * Label oder Gruppe bei Onkel/Tante: Halbonkel/-tante = Halbbruder/-schwester eines biologichen Elternteils
+ * Label bei Geschwistern für Zwillinge/Drillinge/... ergänzen
+ * Geschwister: eventuell statt Label eigene Kategorie für Adoptiv- und Pflegekinder; Stillmutter testen
  * Ablaufreihenfolge in function addIndividualToDescendantsFamily() umbauen wie function addIndividualToDescendantsFamilyAsPartner()
  * Abbruch der Suche für isGrayedOut-tab sobald eine Person gefunden worden ist
  * use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
- * Stiefcousins testen (siehe Onkel Walter)
+ * Test: Stiefcousins (siehe Onkel Walter)
+ * Test: Schwagerehe (etwa Levirat oder Sororat)
  * globale Variable, damit man bei show_thumbnail keinen Parameter mit individual braucht
  * eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
  * Übersetzungen auslagern in eigene Dateien
  * fehlende Übersetzungen in french, norwegian (2x), finish und andere organisieren
  * verwendete Systemfunktionen wie explode etc. auflisten
+ * neue Idee: Statistikfunktion für webtrees zur Ermittlung der längsten und der umfangreichsten Heiratsketten in einem Tree
+ * neue Idee: Liste der Spitzenahnen
+ * neue Idee: Kette zum entferntesten Vorfahren
+ * neue Idee: Kette zum entferntesten Nachkommen
  * eventuell auch andere Verwandtschaftssysteme als nur das Eskimo-System implementieren
+ * Onkel als Vater- oder Mutterbruder ausweisen für Übersetzung (Label?); Tante als Vater- oder Mutterschwester ausweisen für Übersetzung (Label?);
+ * Brüder und Schwestern als jüngere oder ältere Geschwister ausweisen für Übersetzung (in Bezugg auf Proband) (Label?)
+ * Ergänzung der genetischen Nähe der jeweiligen Personengruppe in % (als Mouse-over?)
  * php-Klassen-Konzept verwenden
  * Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern: Option für thumbnail size? oder css für shilouette? Gibt es einen Zusammenhnag oder sind sie unabhängig? Wie genau wirken sie sich aus? siehe issue von Sir Peter
 */
@@ -94,7 +105,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.36';
+    public const CUSTOM_VERSION = '2.0.16.37';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -124,12 +135,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const GROUP_SIBLINGS_HALF    = 'Half siblings';          // including more than half siblings (if parents are related to each other)
     public const GROUP_SIBLINGS_STEP    = 'Stepsiblings';
     
+    public const GROUP_NEPHEW_NIECES_CHILD_SIBLING = 'Child of sibling';
+    public const GROUP_NEPHEW_NIECES_CHILD_IN_LAW = 'Child of sibling-in-law';
+    
     /**
      * list of parts of extended family
      *
      * @return array
      */
-    private function listOfFamilyParts(): array
+    private function listOfFamilyParts(): array         // new elements can be added, but not changed or deleted
     {    
         return [
             'grandparents',                             // generation +2
@@ -138,6 +152,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'uncles_and_aunts',                         // generation +1
             'siblings',                                 // generation  0
             'partners',                                 // generation  0
+            'partner_chains',                           // generation  0
             'cousins',                                  // generation  0
             'nephews_and_nieces',                       // generation -1
             'children',                                 // generation -1
@@ -152,10 +167,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      *  ->config->showEmptyBlock                                int [0,1,2]
-     *          ->use_compact_design                            bool
-     *          ->show_thumbnail                                bool
+     *          ->showLabels                                    bool
+     *          ->useCompactDesign                              bool
+     *          ->showThumbnail                                 bool
      *  ->self->indi                                            object individual
      *        ->niceName                                        string
+     *        ->label                                           string
      *  ->efp->allCount                                         int
      *       ->summaryMessageEmptyBlocks                        string
      *       ->grandparents->father                             object individual
@@ -224,6 +241,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *				   ->partName_translated			        string
      *				   ->type							        string
      *       ->grandchildren                                    see children
+     *       ->partner_chains->chains[]                         array of object (marriage chain nodes)
+     *                       ->displayChains[]                  array of chain (array of chainPerson objects)
+     *                       ->chainsCount                      int (number of chains)
+     *                       ->longestChainCount                int
+     *                       ->mostDistantPartner               individual (first one if there are more than one)
+     *                       ->maleCount                        int    
+     *                       ->femaleCount                      int
+     *                       ->allCount                         int
+     *                       ->partName                         string
+     *				         ->partName_translated			    string
+     *				         ->type							    string
      */
     private function getExtendedFamily(Individual $individual): object
     {
@@ -233,12 +261,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $extfamObj->efp->allCount = 0;
         $extfamObj->config = (object)[];
         $extfamObj->config->showEmptyBlock = $this->showEmptyBlock();
-        $extfamObj->config->use_compact_design = $this->use_compact_design();
-        $extfamObj->config->show_thumbnail = $this->show_thumbnail( $individual );
+        $extfamObj->config->showLabels = $this->showLabels();
+        $extfamObj->config->useCompactDesign = $this->useCompactDesign();
+        $extfamObj->config->showThumbnail = $this->showThumbnail( $individual->tree() );
 
         $efps = $this->showFamilyParts();
         foreach ($efps as $efp => $value) {
-            if ($efps[$efp]->enabled == true) {
+            if ( $efps[$efp]->enabled ) {
                 $extfamObj->efp->$efp = $this->callFunction( 'get_' . $efp, $individual );
                 $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
             }
@@ -274,6 +303,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         
         $selfObj->indi = $individual;
         $selfObj->niceName = $this->niceName( $individual );
+        $selfObj->label = $this->getChildLabel( $individual );
         return $selfObj;
     }
     
@@ -371,7 +401,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $ParentsObj = $this->initializedFamilyPartObject('parents');
         
         if ($individual->childFamilies()->first()) {
-            
             // husband() or wife() may not exist
             $ParentsObj->father = $individual->childFamilies()->first()->husband();
             $ParentsObj->mother = $individual->childFamilies()->first()->wife();
@@ -543,6 +572,67 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $this->addCountersToFamilyPartObject( $PartnersObj );
 
         return $PartnersObj;
+    }
+
+    /**
+     * Find a chain of partners
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function get_partner_chains(Individual $individual): object
+    {      
+        $TreeObj = $this->initializedFamilyPartObject('partner_chains');
+        
+        $chainRootNode = (object)[];
+        $chainRootNode->chains = [];
+        $chainRootNode->indi = $individual;
+        
+        $stop = (object)[];                                 // avoid endless loops
+        $stop->indiList = [];
+        $stop->indiList[] = $individual->xref();
+        $stop->familyList = [];
+        
+        $TreeObj->chains = $this->get_partner_chains_recursive ($chainRootNode, $stop);
+        $TreeObj->displayChains = $this->get_display_object_partner_chains($individual, $TreeObj);
+        $this->addCountersToFamilyPartObject( $TreeObj );
+        return $TreeObj;
+    }
+    
+    /**
+     * Find chains of partners recursive
+     *
+     * @param object $node
+     * @param object stoplist with arrays of indi-xref and fam-xref
+     *
+     * @return array
+     */
+    private function get_partner_chains_recursive(object $node, object &$stop): array
+    {      
+        $new_nodes = [];            // array of object ($node->indi; $node->chains)
+        $i = 0;
+        foreach ($node->indi->spouseFamilies() as $family) {
+            if (!in_array($family->xref(), $stop->familyList)) {
+                foreach ($family->spouses() as $spouse) {
+                    if ( $spouse->xref() !== $node->indi->xref() ) {
+                        if (!in_array($spouse->xref(), $stop->indiList)) {
+                            $new_node = (object)[];
+                            $new_node->chains = [];
+                            $new_node->indi = $spouse;
+                            $stop->indiList[] = $spouse->xref();
+                            $stop->familyList[] = $family->xref();
+                            $new_node->chains = $this->get_partner_chains_recursive($new_node, $stop);
+                            $new_nodes[$i] = $new_node;
+                            $i++;
+                        } else {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return $new_nodes;
     }
 
     /**
@@ -810,13 +900,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
     
    /**
-    * add an individual to the extended family (of type self::DESCENDANTS) if it is not already member of this extended family
+    * add an individual to the extended family (of type DESCENDANTS) if it is not already member of this extended family
     *
     * @param individual
     * @param object part of extended family
     * @param object family (on level of proband) to which these descendants are belonging
     * @param (optional) individual proband
-    * @param (optional) name of group
+    * @param (optional) string name of group
     */
     private function addIndividualToDescendantsFamily(Individual $individual, object $extendedFamilyPart, object $family, Individual $proband = null, string $groupName = '')
     {
@@ -980,27 +1070,49 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $extendedFamilyPart->femaleCount = $extendedFamilyPart->fathersFemaleCount + $extendedFamilyPart->mothersFemaleCount + $extendedFamilyPart->fathersAndMothersFemaleCount;
             $extendedFamilyPart->allCount = $extendedFamilyPart->fathersFamilyCount + $extendedFamilyPart->mothersFamilyCount + $extendedFamilyPart->fathersAndMothersFamilyCount;
         } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::DESCENDANTS) {
-            $countMale = 0;
-            $countFemale = 0;
-            $countOthers = 0;
-            foreach ($extendedFamilyPart->groups as $group) {
-                $count = $this->countMaleFemale( $group->members );
-                $countMale += $count->male;
-                $countFemale += $count->female;
-                $countOthers += $count->unknown_others;
+            list ( $countMale, $countFemale, $countOthers ) = [0, 0 , 0];
+            if ( $extendedFamilyPart->partName == 'partner_chains' ) {
+                $counter = $this->countMaleFemaleMarriageChain( $extendedFamilyPart->chains );
+                list ( $countMale, $countFemale, $countOthers ) = [$counter->male, $counter->female, $counter->unknown_others];
+            } else {
+                foreach ($extendedFamilyPart->groups as $group) {
+                    $counter = $this->countMaleFemale( $group->members );
+                    $countMale += $counter->male;
+                    $countFemale += $counter->female;
+                    $countOthers += $counter->unknown_others;
+                }
             }
-            $extendedFamilyPart->maleCount = $countMale;
-            $extendedFamilyPart->femaleCount = $countFemale;
-            $extendedFamilyPart->allCount = $countMale + $countFemale + $countOthers;
+            list ( $extendedFamilyPart->maleCount, $extendedFamilyPart->femaleCount, $extendedFamilyPart->allCount ) = [$countMale, $countFemale, $countMale + $countFemale + $countOthers];
             
-            if ( $extendedFamilyPart->allCount > 0 && $extendedFamilyPart->partName == 'partners' ) {
-                $count = $this->countMaleFemale( $extendedFamilyPart->groups[array_key_first($extendedFamilyPart->groups)]->members );
-                $extendedFamilyPart->pmaleCount = $count->male;
-                $extendedFamilyPart->pfemaleCount = $count->female;
-                $extendedFamilyPart->pCount = $count->male + $count->female + $count->unknown_others;
-                $extendedFamilyPart->popmaleCount = $extendedFamilyPart->maleCount - $count->male;
-                $extendedFamilyPart->popfemaleCount = $extendedFamilyPart->femaleCount - $count->female;
-                $extendedFamilyPart->popCount = $extendedFamilyPart->allCount - $extendedFamilyPart->pCount;
+            if ( $extendedFamilyPart->allCount > 0) {
+                if ( $extendedFamilyPart->partName == 'partners' ) {
+                    $count = $this->countMaleFemale( $extendedFamilyPart->groups[array_key_first($extendedFamilyPart->groups)]->members );
+                    $extendedFamilyPart->pmaleCount = $count->male;
+                    $extendedFamilyPart->pfemaleCount = $count->female;
+                    $extendedFamilyPart->pCount = $count->male + $count->female + $count->unknown_others;
+                    $extendedFamilyPart->popmaleCount = $extendedFamilyPart->maleCount - $count->male;
+                    $extendedFamilyPart->popfemaleCount = $extendedFamilyPart->femaleCount - $count->female;
+                    $extendedFamilyPart->popCount = $extendedFamilyPart->allCount - $extendedFamilyPart->pCount;
+                } elseif ( $extendedFamilyPart->partName == 'partner_chains' ) {
+                    $extendedFamilyPart->chainsCount = count($extendedFamilyPart->displayChains);
+                    $lc = 0;
+                    $i = 1;
+                    $lc_node = (object)[];
+                    $max = 0;
+                    $max_node = (object)[];
+                    foreach ($extendedFamilyPart->chains as $chain) { 
+                        $this->countLongestChainRecursive($chain, $i, $lc, $lc_node);
+                        if ($lc > $max) {
+                            $max = $lc;
+                            $max_node = $lc_node;
+                        }
+                    }
+                    $extendedFamilyPart->longestChainCount = $max+1;
+                    $extendedFamilyPart->mostDistantPartner = $max_node->indi;
+                    if ($extendedFamilyPart->longestChainCount <= 2) {                                             // normal marriage is no marriage chain
+                        $extendedFamilyPart->allCount = 0;
+                    }
+                }
             }
         }
         
@@ -1016,26 +1128,162 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function countMaleFemale(array $indilist): object
     {
-        $mf = (object)[];
-        $mf->male = 0;
-        $mf->female = 0;
-        $mf->unknown_others=0;
+        $mfu = (object)[];
+        list ( $mfu->male, $mfu->female, $mfu->unknown_others ) = [0, 0, 0];
     
         foreach ($indilist as $il) {
             if ($il instanceof Individual) {
                 if ($il->sex() == "M") {
-                    $mf->male++;
+                    $mfu->male++;
                 } elseif ($il->sex() == "F") {
-                    $mf->female++;
+                    $mfu->female++;
                 } else {
-                   $mf->unknown_others++; 
+                   $mfu->unknown_others++; 
                 }
             }
         }
         
-        return $mf;
+        return $mfu;
     }
+
+    /**
+     * count male and female individuals in marriage chains
+     *
+     * @param array of marriage chain nodes
+     *
+     * @return object
+     */
+    private function countMaleFemaleMarriageChain(array $chains): object
+    { 
+        $mfu = (object)[];
+        list ( $mfu->male, $mfu->female, $mfu->unknown_others ) = [0, 0, 0];
+        list ( $countMale, $countFemale, $countOthers ) = [0, 0, 0];
+        foreach ($chains as $chain) {
+            $this->countMaleFemaleMarriageChainRecursive( $chain, $mfu );
+            $countMale += $mfu->male;
+            $countFemale += $mfu->female;
+            $countOthers += $mfu->unknown_others;
+        }
+        return $mfu;
+    }   
+
+    /**
+     * count male and female individuals in marriage chains
+     *
+     * @param array of marriage chain nodes
+     * @param object counter for sex of individuals (modified by function)
+     */
+    private function countMaleFemaleMarriageChainRecursive(object $node, object &$mfu)
+    { 
+        if ($node && $node->indi instanceof Individual) {
+            if ($node->indi->sex() == "M") {
+                $mfu->male++;
+            } elseif ($node->indi->sex() == "F") {
+                $mfu->female++;
+            } else {
+               $mfu->unknown_others++; 
+            }
+            foreach($node->chains as $chain) {
+                $this->countMaleFemaleMarriageChainRecursive($chain, $mfu);
+            }   
+        }
+        return;
+    }
+
+    /**
+     * count longest chain in marriage chains
+     *
+     * @param array of marriage chain nodes
+     * @param int recursion counter (modified by function)
+     * @param int counter for longest chain (modified by function)
+     * @param node most distant partner
+     */
+    private function countLongestChainRecursive(object $node, int &$i, int &$lc, object &$lc_node)
+    {
+        if ($node && $node->indi instanceof Individual) {
+            if ($i > $lc) {
+                $lc = $i;
+                $lc_node = $node;
+            }
+            $i++;
+            foreach($node->chains as $chain) {
+                $this->countLongestChainRecursive($chain, $i, $lc, $lc_node);
+            }
+        }
+        $i--;
+        return;
+    }
+
+    /**
+     * build object to display all partner chains
+     *
+     * @param individual
+     * @param extended family part object
+     *
+     * @return object
+     */
+    private function get_display_object_partner_chains(Individual $individual, object $efp): array
+    {      
+        $chains = [];                                                       // array of chain (chain is an array of chainPerson) 
         
+        $chain_string = '0§1§' . $individual->fullname() . '§' . $individual->url() . '∞';
+        foreach($efp->chains as $chain) {
+            $i = 1;
+            $this->string_partner_chains_recursive($chain, $chain_string, $i);
+        }
+        do {                                                                // remove redundant recursion back step indicators
+            $chain_string = str_replace("||", "|", $chain_string, $count);
+        } while ($count > 0);
+        $chainString = rtrim($chain_string,'|§∞ ');
+        //echo "chainString=" . $chainString . ". ";
+        $chainStrings = explode('|', $chain_string);
+        foreach ($chainStrings as $chainString) {
+            $personStrings = explode('∞', $chainString);
+            $chain = [];                                                    // array of chainPerson
+            foreach ($personStrings as $personString) {
+                $attributes = explode('§', $personString);
+                if (count($attributes) == 4) {
+                    $chainPerson = (object)[];                                  // object (attributes: step, canShow, fullName, url)
+                    $chainPerson->step = $attributes[0];
+                    $chainPerson->canShow = ($attributes[1] == '1') ? true : false;
+                    $chainPerson->fullName = $attributes[2];
+                    $chainPerson->url = $attributes[3];
+                    $chain[] = $chainPerson;
+                }
+            }
+            if (count($chain) > 0) {
+                $chains[] = $chain;
+            }
+        }
+        
+        return $chains;
+    }
+
+    /**
+     * build string of all partners in marriage chains
+     * names and urls should not contain
+     * '|' used to seperate chains
+     * '∞' used to seperate individuals
+     * '§' used to seperate information fields for one individual: step, canShow, fullName, url
+     *
+     * @param object $node
+     * @param string modified in function
+     * @param int recursion step modified in function
+     */
+    private function string_partner_chains_recursive(object $node, string &$chain_string, int &$i)
+    {      
+        if ($node && $node->indi instanceof Individual) {
+            $chain_string .= strval($i) . '§' . (($node->indi->canShow()) ? '1' : '0') . '§' . $node->indi->fullname() . '§' . $node->indi->url() . '∞';
+            foreach($node->chains as $chain) {
+                $i++;
+                $this->string_partner_chains_recursive($chain, $chain_string, $i);
+            }
+        }
+        $i--;
+        $chain_string = rtrim($chain_string, '∞') . '|';
+        return;
+    }
+    
     /**
      * find rufname of an individual (tag _RUFNAME or marked with '*'
      *
@@ -1176,9 +1424,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function getChildLabel(Individual $individual): string
     {
-        if (preg_match('/\n1 FAMC @' . $individual->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $individual->gedcom(), $match)) {
-            // a specified pedigree
-            return GedcomCodePedi::getValue($match[1],$individual->getInstance($individual->xref(),$individual->tree()));
+        if ( $individual->childFamilies()->first() ) {
+            if (preg_match('/\n1 FAMC @' . $individual->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $individual->gedcom(), $match)) {
+                // a specified pedigree
+                return GedcomCodePedi::getValue($match[1],$individual->getInstance($individual->xref(),$individual->tree()));
+            }
         }
 
         // default (birth) pedigree
@@ -1215,6 +1465,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         return [
             'show_empty_block',
             'show_short_name',
+            'show_labels',
             'use_compact_design',
         ];
     }
@@ -1307,17 +1558,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         }
         return $sp;
     }
-    
-    /**
-     * should a short name of proband be shown
-     * set default values in case the settings are not stored in the database yet
-     *
-     * @return bool 
-     */
-    public function showShortName(): bool
-    {
-        return ($this->getPreference('show_short_name', '0') == '0') ? true : false;
-    }
 
     /**
      * how should empty parts of the extended family be presented
@@ -1331,34 +1571,62 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * should a short name of proband be shown
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool 
+     */
+    public function showShortName(): bool
+    {
+        return ($this->getPreference('show_short_name', '0') == '0') ? true : false;
+    }
+        
+    /**
+     * should a label be shown
+     * labels are shown for special situations like:
+     * person: adopted person
+     * siblings and children: adopted or foster child
+     *
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool 
+     */
+    public function showLabels(): bool
+    {
+        return ($this->getPreference('show_labels', '0') == '0') ? true : false;
+    }
+
+    /**
      * use compact design for individual blocks or show additional information (photo, birth and death information)
      * set default values in case the settings are not stored in the database yet
      *
      * @return bool 
      */
-    public function use_compact_design(): bool
+    public function useCompactDesign(): bool
     {
         return ($this->getPreference('use_compact_design', '0') == '0') ? true : false;
     }
 
     /**
      * get preference in tis tree to show thumbnails
+     * @param $tree
      *
      * @return bool 
      */
-    public function get_tree_preference_show_thumbnails(Individual $individual): bool
+    public function get_tree_preference_show_thumbnails(object $tree): bool
     {
-        return ($individual->tree()->getPreference('SHOW_HIGHLIGHT_IMAGES') == '1') ? true : false;
+        return ($tree->getPreference('SHOW_HIGHLIGHT_IMAGES') == '1') ? true : false;
     }
 
     /**
      * show thumbnail if compact design is not selected and if global preference allows to show thumbnails
+     * @param $tree
      *
      * @return bool 
      */
-    public function show_thumbnail(Individual $individual): bool
+    public function showThumbnail(object $tree): bool
     {
-        return (!$this->use_compact_design() && $this->get_tree_preference_show_thumbnails( $individual ));
+        return (!$this->useCompactDesign() && $this->get_tree_preference_show_thumbnails( $tree ));
     }
     
     /**
@@ -1537,6 +1805,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 return I18N::translate('Nephews and Nieces');
             case 'parents_in_law':
                 return I18N::translate('Parents-in-law');
+            case 'partner_chains':
+                return I18N::translate('Partner chains');
             default:
                 return I18N::translate(ucfirst($type));
         };
@@ -1790,6 +2060,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 			'never' => 'niemals',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Der Kurzname basiert auf dem Rufnamen oder dem Spitznamen des Probanden. Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet.',
             'Show short name' => 'Zeige die Kurzform des Namens',
+            'Show labels in special situations?' => 'Sollen in besonderen Situationen Etiketten gezeigt werden?',
+            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'Etiketten werden beispielsweise für Adoptivpersonen oder Pflegekinder verwendet. ',
+            'Show labels' => 'Zeige Etiketten',
             'Use the compact design?' => 'Soll das kompakte Design verwendet werden?',
             'Use the compact design' => 'Kompaktes Design anwenden',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Das kompakte Design zeigt für jede Person nur den Namen und die Lebensspanne. Das angereicherte Design zeigt zusätzlich ein Foto (wenn dies für diesen Baum aktiviert ist) sowie Geburts- und Sterbeinformationen.',
@@ -1914,6 +2187,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'
                 => '%d Partnerin von Partnern verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partnerinnen von Partnern verzeichnet (insgesamt %d).',
 
+            'Partner chains' => 'Partnerketten',
+            '%s has no members of a partner chain recorded.' => 'Für %s sind keine Mitglieder einer Partnerkette verzeichnet.', 
+            'There are %d branches in the partner chain. ' => 'Es gibt %d Zweige in der Partnerkette.',
+            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Der längste Zweig in der Partnerkette zu %2$s besteht aus %1$d Partnern (einschließlich %3$s).',
+            '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
+                =>'%d Partnerin in dieser Partnerkette verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partnerinnen in dieser Partnerkette verzeichnet (insgesamt %d).',
+            
             'Cousins' => 'Cousins und Cousinen',
             '%s has no first cousins recorded.' => 'Für %s sind keine Cousins und Cousinen ersten Grades verzeichnet.',
             '%s has one female first cousin recorded.' => 'Für %s ist eine Cousine ersten Grades verzeichnet.',
@@ -1968,7 +2248,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
                 => 'Für %2$s sind %1$d Enkelsohn und ' . I18N::PLURAL . 'Für %2$s sind %1$d Enkelsöhne und ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
-                => '%d Enkeltochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Enkeltöchter verzeichnet (insgesamt %d).',                
+                => '%d Enkeltochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Enkeltöchter verzeichnet (insgesamt %d).',           
         ];
     }
     
@@ -2824,6 +3104,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Stepchildren of children' => 'Cháu - con của con riêng',
             'Children of stepchildren' => 'Con của con riêng',
             'Stepchildren of stepchildren' => 'Con riêng của con riêng',
+            'Full siblings' => 'Anh chị em ruột',
+            'Half siblings' => 'Anh chị em cùng cha khác mẹ',
+            'Stepsiblings' => 'Anh chị em kế',
 
             'He' => 'Anh',
             'She' => 'Cô',

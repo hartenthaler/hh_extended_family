@@ -6,7 +6,7 @@
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 
 This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person:
-grandparents, parents, parents-in-law, uncles, aunts, siblings, spouses, cousins, nephews, nieces, children and grandchildren.
+grandparents, parents, parents-in-law, uncles, aunts, siblings, partners, cousins, nephews, nieces, children and grandchildren.
 
 <a name="Contents"></a>
 
@@ -40,6 +40,7 @@ The admin can decide in the control panel
 * which extended family parts should be shown and in which sequence they should be presented
 * how empty parts of extended family should be presented
 * wheter the name of proband is a full name or a short version
+* wheter labels like "adopted" or "foster" should be used to indicate special situations
 * whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
@@ -100,7 +101,10 @@ To update simply replace the hh_extended_family files with the new ones from the
 
 ## Translation
 
-If you like to translate the text fragments in this module, contact me, please!
+You can help to translate this module. The language information is at the end of the file module.php.
+The German part is the most actual and can be used as a base for your translation.
+Use a local editor, like notepad++ to make the translations and send it back to me. You can do this via a pull request (if you know how) or by e-mail.
+Updated translations will be included in the next release of this module.
 
 There are now, beside English and German, translations to
 * Czech by @jpretired
