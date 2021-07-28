@@ -59,14 +59,17 @@ The default presentation sequence of the extended family parts is oriented at th
 
 ## Screenshots
 
-Screenshot of module
-<p align="center"><img src="screenshot.png" alt="Screenshot" align="center" width="80%"></p>
+Screenshot of tab
+<p align="center"><img src="screenshot.png" alt="Screenshot of tab" align="center" width="80%"></p>
 
 Screenshot showing photo as well as birth and death information
-<p align="center"><img src="screenshot_full.png" alt="Screenshot with photo as well as birth and death information" align="center" width="85%"></p>
+<p align="center"><img src="screenshot_full.png" alt="Screenshot showing photo as well as birth and death information" align="center" width="85%"></p>
+
+Screenshot showing chain of partners
+<p align="center"><img src="screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
 
 Screenshot of control panel menu
-<p align="center"><img src="screenshot_control_panel.png" alt="Screenshot control panel" align="center" width="85%"></p>
+<p align="center"><img src="screenshot_control_panel.png" alt="Screenshot of control panel menue" align="center" width="85%"></p>
 
 <a name="Requirements"></a>
 
