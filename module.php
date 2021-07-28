@@ -2508,6 +2508,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'never' => 'nooit',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'De korte naam is gebaseerd op de roepnaam of bijnaam van de proband. Als deze niet beschikbaar zijn, wordt de eerste van de voornamen gebruikt, als er een is opgegeven. Anders wordt de achternaam gebruikt.',
             'Show short name' => 'Korte naam weergeven',
+            'Show labels in special situations?' => 'Labels weergeven in bijzondere situaties?',
+            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'Labels worden gebruikt voor bijvoorbeeld geadopteerde personen of pleegkinderen.',
+            'Show labels' => 'Labels weergeven',
             'Use the compact design?' => 'Compact ontwerp gebruiken?',
             'Use the compact design' => 'Gebruik compact ontwerp',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Het compacte ontwerp toont alleen de naam en de levensduur voor elke persoon. Het verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd), en geboorte- en overlijdensinformatie',
@@ -2611,26 +2614,33 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partners' => 'Partners',
             'Partner of ' => 'Partner van ',
             '%s has no partners recorded.' => 'Voor %s zijn geen partners geregistreerd.',
-            '%s has one female partner recorded.' => 'Voor %s is een partner geregistreerd.',
-            '%s has one male partner recorded.' => 'Voor %s is een partner geregistreerd.',
+            '%s has one female partner recorded.' => 'Voor %s is een vrouwelijke partner geregistreerd.',
+            '%s has one male partner recorded.' => 'Voor %s is een mannelijke partner geregistreerd.',
             '%s has one partner recorded.' => 'Voor %s is een partner geregistreerd.',
             '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
-                => 'Voor %2$s is %1$d partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners geregistreerd.',
+                => 'Voor %2$s is %1$d vrouwelijke partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d vrouwelijke partners geregistreerd.',
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
-                => 'Voor %2$s is %1$d partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners geregistreerd.',
+                => 'Voor %2$s is %1$d mannelijke partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners geregistreerd.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
-                => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
+                => 'Voor %2$s zijn %1$d mannelijke en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke en ',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
-                => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
+                => 'Voor %2$s zijn %1$d vrouwelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vrouwelijke partners en ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
-                => '%d partner geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners geregistreerd (%d in totaal).',
+                => '%d vrouwelijke partner geregistreerd (%d in totaal).' . I18N::PLURAL . '%d vrouwelijke partners geregistreerd (%d in totaal).',
             'Partner of ' => 'Partner van ',
             '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
                 => 'Voor %2$s zijn %1$d partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners en ',
             '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'
-                => '%d partner van partners geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners van partners geregistreerd (%d in totaal).',
+                => '%d mannelijke partner van vrouwelijke partners geregistreerd (%d in totaal).' . I18N::PLURAL . '%d mannelijke partners van vrouwelijke partners geregistreerd (%d in totaal).',
             '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'
-                => '%d partner van partners geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners van partners geregistreerd (%d in totaal).',
+                => '%d vrouwelijke partner van mannelijke partners geregistreerd (%d in totaal).' . I18N::PLURAL . '%d vrouwelijke partners van mannelijke partners geregistreerd (%d in totaal).',
+            
+            'Partner chains' => 'Partnerketens',
+            '%s has no members of a partner chain recorded.' => 'Voor %s zijn geen leden van een partnerketen geregistreerd.', 
+            'There are %d branches in the partner chain. ' => 'Er zijn %d takken in de partnerketen.',
+            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s).',
+            '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
+                =>'%d vrouwelijke partner in deze partnerketen geregistreerd (%d in totaal).' . I18N::PLURAL . '%d vrouwelijke partners in deze partnerketen geregistreerd (%d in totaal).',
             
             'Cousins' => 'Volle neven en nichten (kinderen van oom of tante)',
             '%s has no first cousins recorded.' => 'Voor %s zijn geen volle neven en nichten geregistreerd.',
