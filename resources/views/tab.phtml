@@ -143,7 +143,7 @@
                                                         <?php if ($extfam_obj->config->useCompactDesign): ?>
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
-                                                            <div id="hh_extended_family_birth_death">
+                                                            <span class="hh_extended_family_birth_death">
                                                                 <?php $event = $indi->facts(['BIRT'])->first(); ?>
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
@@ -152,7 +152,7 @@
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
                                                                 <?php endif ?>
-                                                            </div>
+                                                            </span>
                                                         <?php endif ?>
                                                     <?php else: ?>
                                                         <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
@@ -193,7 +193,7 @@
                                                         <?php if ($extfam_obj->config->useCompactDesign): ?>
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
-                                                            <div id="hh_extended_family_birth_death">
+                                                            <span class="hh_extended_family_birth_death">
                                                                 <?php $event = $indi->facts(['BIRT'])->first(); ?>
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
@@ -202,7 +202,7 @@
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
                                                                 <?php endif ?>
-                                                            </div>
+                                                            </span>
                                                         <?php endif ?>
                                                     <?php else: ?>
                                                         <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
@@ -387,7 +387,11 @@
                                     <?php endif ?>
                                 <?php endif ?>
                             </div>
+                            <?php if ($extfam_obj->config->useCompactDesign): ?>
+                            <div id="hh_extended_family_content_compact">
+                            <?php else: ?>
                             <div id="hh_extended_family_content">
+                            <?php endif ?>
                                 <?php if ($propName == 'nephews_and_nieces'): ?>
                                     <?php foreach ($extfam_obj->efp->$propName->groups as $group): ?>
                                         <div id="hh_extended_family_g">
@@ -407,7 +411,7 @@
                                                         <?php if ($extfam_obj->config->useCompactDesign): ?>
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
-                                                            <div id="hh_extended_family_birth_death">
+                                                            <span class="hh_extended_family_birth_death">
                                                                 <?php $event = $indi->facts(['BIRT'])->first(); ?>
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
@@ -416,7 +420,7 @@
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
                                                                 <?php endif ?>
-                                                            </div>
+                                                            </span>
                                                         <?php endif ?>
                                                     <?php else: ?>
                                                         <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
@@ -445,7 +449,7 @@
                                                         <?php if ($extfam_obj->config->useCompactDesign): ?>
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
-                                                            <div id="hh_extended_family_birth_death">
+                                                            <span class="hh_extended_family_birth_death">
                                                                 <?php $event = $indi->facts(['BIRT'])->first(); ?>
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
@@ -454,7 +458,7 @@
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
                                                                 <?php endif ?>
-                                                            </div>
+                                                            </span>
                                                         <?php endif ?>
                                                         <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
                                                             <span class="hh_extended_family_pedi"><?= $group->labels[$key] ?></span>
@@ -493,7 +497,7 @@
                                                         <?php if ($extfam_obj->config->useCompactDesign): ?>
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
-                                                            <div id="hh_extended_family_birth_death">
+                                                            <span class="hh_extended_family_birth_death">
                                                                 <?php $event = $indi->facts(['BIRT'])->first(); ?>
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
@@ -502,7 +506,7 @@
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
                                                                 <?php endif ?>
-                                                            </div>
+                                                            </span>
                                                         <?php endif ?>
                                                     <?php else: ?>
                                                         <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
@@ -513,27 +517,25 @@
                                     <?php endforeach ?>
                                 <?php elseif ($propName == 'partner_chains'): ?>
                                     <div id="hh_extended_family_g">
-                                        
-                                            <?php $i = 1; ?>
-                                            <?php foreach ($extfam_obj->efp->$propName->displayChains as $chain) : ?>
-                                                <?php if ($i > 1): ?>
-                                                    <hr>
+                                        <?php $i = 1; ?>
+                                        <?php foreach ($extfam_obj->efp->$propName->displayChains as $chain) : ?>
+                                            <?php if ($i > 1): ?>
+                                                <hr>
+                                            <?php endif ?>
+                                            <?php $j = 1; ?>                                                
+                                            <?php foreach ($chain as $indi) : ?>
+                                                <?php if ($j > 1): ?>
+                                                    <?php echo ' ∞ ' ?>
                                                 <?php endif ?>
-                                                <?php $j = 1; ?>                                                
-                                                <?php foreach ($chain as $indi) : ?>
-                                                    <?php if ($j > 1): ?>
-                                                        <?php echo ' ∞ ' ?>
-                                                    <?php endif ?>
-                                                    <?php if ($indi->canShow): ?>
-                                                        <span class="hh_extended_family_counter"><?= $indi->step ?></span>
-                                                        <span class="hh_extended_family_name"><a href="<?= e($indi->url) ?>"><?= $indi->fullName ?></a></span>
-                                                    <?php else: ?>
-                                                        <span class="hh_extended_family_counter"><?= $indi->step ?></span>
-                                                        <span class="hh_extended_family_name"><?= $indi->fullName ?></span>
-                                                    <?php endif ?>
-                                                <?php $j++; endforeach ?>
-                                            <?php $i++; endforeach ?>
-                                        
+                                                <?php if ($indi->canShow): ?>
+                                                    <span class="hh_extended_family_counter"><?= $indi->step ?></span>
+                                                    <span class="hh_extended_family_name"><a href="<?= e($indi->url) ?>"><?= $indi->fullName ?></a></span>
+                                                <?php else: ?>
+                                                    <span class="hh_extended_family_counter"><?= $indi->step ?></span>
+                                                    <span class="hh_extended_family_name"><?= $indi->fullName ?></span>
+                                                <?php endif ?>
+                                            <?php $j++; endforeach ?>
+                                        <?php $i++; endforeach ?>
                                     </div>
                                 <?php elseif ($propName == 'parents_in_law'): ?>
                                     <?php foreach ($extfam_obj->efp->$propName->groups as $group): ?>
@@ -563,7 +565,7 @@
                                                         <?php if ($extfam_obj->config->useCompactDesign): ?>
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
-                                                            <div id="hh_extended_family_birth_death">
+                                                            <span class="hh_extended_family_birth_death">
                                                                 <?php $event = $indi->facts(['BIRT'])->first(); ?>
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
@@ -572,7 +574,7 @@
                                                                 <?php if ($event instanceof Fact): ?>
                                                                     <?= $event->summary(); ?>
                                                                 <?php endif ?>
-                                                            </div>
+                                                            </span>
                                                         <?php endif ?>
                                                     <?php else: ?>
                                                         <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
@@ -582,7 +584,11 @@
                                         </div>    
                                     <?php endforeach ?>
                                 <?php endif ?>
+                            <?php if ($extfam_obj->config->useCompactDesign): ?>
                             </div>
+                            <?php else: ?>
+                            </div>
+                            <?php endif ?>
                         </div>
                     <?php endif ?>
                 <?php else: ?>

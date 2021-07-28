@@ -33,6 +33,27 @@
 #hh-extended-family-descendants,
 #hh_extended_family_summary {}
 
+#hh_extended_family_content_compact {
+    border-spacing: 10px;
+    display: inline-table;
+    margin: 0 10px;
+    overflow: hidden;
+    padding: 0;
+    width: 98%;
+}
+
+#hh_extended_family_content_compact .wt-chart-box-m,
+#hh_extended_family_content_compact .wt-chart-box-f,
+#hh_extended_family_content_compact .wt-chart-box-u {
+    display: flex;
+    align-items: center;
+    clear: left;
+    float: left;
+    border-radius: 5px;
+    margin: 2px 0;
+    width: 99%;
+}
+
 #hh_extended_family_content {
     border-spacing: 10px;
     display: inline-table;
@@ -50,12 +71,6 @@
     border-radius: 5px;
     margin: 2px 0;
     width: 99%;
-}
-
-#hh_extended_family_birth_death {
-    font-size: 12px;
-    margin: 0;
-    padding: 2px 0;
 }
 
 #hh_extended_family_f,
@@ -86,9 +101,24 @@
 
 .hh_extended_family_name {}
 
+.hh_extended_family_birth_death {
+    font-size: 12px;
+    margin: 0;
+    padding: 2px 0;
+}
+
 .hh_extended_family_lifespan {
     font-size: 10px;
-    padding: 3px 5px 5px 5px;
+    padding: 3px 5px 0px 5px;
+}
+
+.hh_extended_family_counter {
+    margin: 0 3px;
+    font-size: 75%;
+}
+
+.hh_extended_family_counter:after {
+    content: ". ";
 }
 
 .hh_extended_family_pedi {
@@ -104,18 +134,13 @@
 
 #hh_extended_family_content .wt-chart-box-m .hh_extended_family_pedi,
 #hh_extended_family_content .wt-chart-box-f .hh_extended_family_pedi,
-#hh_extended_family_content .wt-chart-box-u .hh_extended_family_pedi {
+#hh_extended_family_content .wt-chart-box-u .hh_extended_family_pedi,
+#hh_extended_family_content_compact .wt-chart-box-m .hh_extended_family_pedi,
+#hh_extended_family_content_compact .wt-chart-box-f .hh_extended_family_pedi,
+#hh_extended_family_content_compact .wt-chart-box-u .hh_extended_family_pedi {
     font-size: 10px;
     padding: 1px 5px 1px 5px;
     margin: 0px 0px 0px 0px;
-    
 }
 
-.hh_extended_family_counter {
-    margin: 0 3px;
-    font-size: 75%;
-}
 
-.hh_extended_family_counter:after {
-    content: ". ";
-}
