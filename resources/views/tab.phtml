@@ -113,7 +113,11 @@
                                     <?php endif ?>
                                 <?php endif ?>
                             </div>
+                            <?php if ($extfam_obj->config->useCompactDesign): ?>
+                            <div id="hh_extended_family_content_compact">
+                            <?php else: ?>
                             <div id="hh_extended_family_content">
+                            <?php endif ?>
                                 <?php if ($propName == 'uncles_and_aunts' || $propName == 'cousins'): ?>
                                     <?php foreach ($extfam_obj->efp->$propName->families as $f_fm_m => $f) : ?>
                                         <?php if (($f_fm_m == 'fatherFamily' && $extfam_obj->efp->$propName->fathersFamilyCount)|| ($f_fm_m == 'fatherAndMotherFamily' && $extfam_obj->efp->$propName->fathersAndMothersFamilyCount) || ($f_fm_m == 'motherFamily' && $extfam_obj->efp->$propName->mothersFamilyCount)): ?>
@@ -219,7 +223,11 @@
                                         <?php endif ?>
                                     <?php endforeach ?>
                                 <?php endif ?>
+                            <?php if ($extfam_obj->config->useCompactDesign): ?>
                             </div>
+                            <?php else: ?>
+                            </div>
+                            <?php endif ?>
                         </div>
                     <?php elseif ( $extfam_obj->efp->$propName->type == 'descendants'): ?>
                         <div class="hh-extended-family-descendants">
