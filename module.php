@@ -2897,6 +2897,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об`єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
             'Show short name' => 'Показати коротку форму імені',
+            'Show labels in special situations?' => 'Показувати мітки для особливих ситуацій?',
+            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'Мітки (або наклейки) використовуються, наприклад, для усиновлених або прийомних дітей..',
+            'Show labels' => 'Показувати мітки',
             'Use the compact design?' => 'Чи використовувати компактний дизайн?',
             'Use the compact design' => 'Застосувати компактний дизайн',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Компактний дизайн показує лише ім`я та тривалість життя для кожної людини. Розширений дизайн також містить фотографію (якщо це дозволено для цього дерева), а також дати народження та смерті.',
@@ -3009,9 +3012,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
                 => '%2$s має %1$d запис про партнера.' . I18N::PLURAL . '%2$s має %1$d записи про партнерів.' . I18N::PLURAL . '%2$s має %1$d записів про партнерів.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
-                => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерів і ' . I18N::PLURAL . '%2$s має %1$d запиів про партнерів і ',
+                => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерів і ' . I18N::PLURAL . '%2$s має %1$d записів про партнерів і ',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
-                => '%2$s має %1$d запис про партнерку і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерок і ' . I18N::PLURAL . '%2$s має %1$d запиів про партнерок і ',
+                => '%2$s має %1$d запис про партнерку і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерок і ' . I18N::PLURAL . '%2$s має %1$d записів про партнерок і ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d партнерку (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).',
 	    '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
@@ -3021,7 +3024,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'
                 => '%d партнерку для партнерів (загалом %d).' . I18N::PLURAL . '%d партнери для партнерок (загалом %d).' . I18N::PLURAL . '%d партнерів для партнерок (загалом %d).',
 
-            'Cousins' => 'Двоюрідні брати і сестри',
+            'Partner chains' => 'Низка партнерів',
+            '%s has no members of a partner chain recorded.' => 'Для %s немає записів учасників для утворення низки партнерів.', 
+            'There are %d branches in the partner chain. ' => 'Низка партнерів має %d відгалужень.',
+            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Найдовша гілка низки партнерів до %2$s складається з %1$d осіб (включаючи %3$s).',
+            '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
+                =>'%d партнерку в цій низці партнерів (загалом %d).' . I18N::PLURAL . '%d партнерки в цій низці партнерів (загалом %d).' . I18N::PLURAL . '%d партнерок в цій низці партнерів (загалом %d).',
+
+	    'Cousins' => 'Двоюрідні брати і сестри',
             '%s has no first cousins recorded.' => '%s не має жодного запису про двоюрідних братів і сестер.',
             '%s has one female first cousin recorded.' => '%s має запис про одну двоюрідну сестру.',
             '%s has one male first cousin recorded.' => '%s має запис про одного двоюрідного брата.',
