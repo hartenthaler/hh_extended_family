@@ -47,8 +47,15 @@
 #hh_extended_family_content .wt-chart-box-u {
     clear: left;
     float: left;
-    margin: 1px 0;
+    border-radius: 5px;
+    margin: 2px 0;
     width: 99%;
+}
+
+#hh_extended_family_birth_death {
+    font-size: 12px;
+    margin: 0;
+    padding: 2px 0;
 }
 
 #hh_extended_family_f,
@@ -62,12 +69,6 @@
     width: 31%;
 }
 
-#hh_extended_family_birth_death {
-    font-size: 12px;
-    margin: 0;
-    padding: 2px 0;
-}
-
 /* Mobile low resolution viewport */
 @media (max-width: 600px) {
     #hh_extended_family_f,
@@ -77,8 +78,8 @@
         border: 1px solid grey;
         border-radius: 5px;
         display: table-caption;
-        padding: 10px;
         width: 90%;
+        padding: 10px;
         margin-bottom: 10px;
     }
 }
@@ -91,11 +92,23 @@
 }
 
 .hh_extended_family_pedi {
-    font-size: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px 10px 2px 10px;
+    margin: 0px 20px;
+    font-size: 14px;
     font-weight: bold;
-    padding: 3px 5px 5px 5px;
     background-color: lightgrey;
     color: green;
+}
+
+#hh_extended_family_content .wt-chart-box-m .hh_extended_family_pedi,
+#hh_extended_family_content .wt-chart-box-f .hh_extended_family_pedi,
+#hh_extended_family_content .wt-chart-box-u .hh_extended_family_pedi {
+    font-size: 10px;
+    padding: 1px 5px 1px 5px;
+    margin: 0px 0px 0px 0px;
+    
 }
 
 .hh_extended_family_counter {

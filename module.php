@@ -41,7 +41,6 @@
  * use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
  * Test: Stiefcousins (siehe Onkel Walter)
  * Test: Schwagerehe (etwa Levirat oder Sororat)
- * globale Variable, damit man bei show_thumbnail keinen Parameter mit individual braucht
  * eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
  * Übersetzungen auslagern in eigene Dateien
  * fehlende Übersetzungen in french, norwegian (2x), finish und andere organisieren
@@ -1193,10 +1192,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     /**
      * count longest chain in marriage chains
      *
-     * @param array of marriage chain nodes
+     * @param object of marriage chain nodes
      * @param int recursion counter (modified by function)
      * @param int counter for longest chain (modified by function)
-     * @param node most distant partner
+     * @param object most distant partner (modified by function)
      */
     private function countLongestChainRecursive(object $node, int &$i, int &$lc, object &$lc_node)
     {
@@ -1220,18 +1219,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @param individual
      * @param extended family part object
      *
-     * @return object
+     * @return array
      */
     private function get_display_object_partner_chains(Individual $individual, object $efp): array
     {      
-        $chains = [];                                                       // array of chain (chain is an array of chainPerson) 
+        $chains = [];                                                           // array of chain (chain is an array of chainPerson) 
         
         $chain_string = '0§1§' . $individual->fullname() . '§' . $individual->url() . '∞';
         foreach($efp->chains as $chain) {
             $i = 1;
             $this->string_partner_chains_recursive($chain, $chain_string, $i);
         }
-        do {                                                                // remove redundant recursion back step indicators
+        do {                                                                    // remove redundant recursion back step indicators
             $chain_string = str_replace("||", "|", $chain_string, $count);
         } while ($count > 0);
         $chainString = rtrim($chain_string,'|§∞ ');
@@ -1239,7 +1238,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $chainStrings = explode('|', $chain_string);
         foreach ($chainStrings as $chainString) {
             $personStrings = explode('∞', $chainString);
-            $chain = [];                                                    // array of chainPerson
+            $chain = [];                                                        // array of chainPerson
             foreach ($personStrings as $personString) {
                 $attributes = explode('§', $personString);
                 if (count($attributes) == 4) {
@@ -1533,7 +1532,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * parts of extended family which should be shown (order and enabled/disabled)
      * set default values in case the settings are not stored in the database yet
      *
-     * @return array of objects 
+     * @return array of ordered objects 
      */
     public function showFamilyParts(): array
     {    
