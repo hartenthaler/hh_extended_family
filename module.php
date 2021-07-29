@@ -28,33 +28,34 @@
 /*
  * tbd: Offene Punkte nach Priorität geordnet
  * ------------------------------------------
+ * Label für Stiefkinder: etwa bei meinen Neffen Fabian, Felix, Jason und Sam
  * Partnerketten: derzeit: von Gerlinde geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette von Dieter zu Gabi, d.h. dies als zweite Info ergänzen
  * Zusammenfassung bei Partnern: Problem mit Zusammenfassung wenn Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt ist
  * siehe issues/enhancements in github
  * Label für Partner: neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
  * Label für Eltern: biologosche Eltern, Stiefeltern, Adoptiveltern, Pflegeeltern
  * Label oder Gruppe bei Onkel/Tante: Halbonkel/-tante = Halbbruder/-schwester eines biologichen Elternteils
- * Label bei Geschwistern für Zwillinge/Drillinge/... ergänzen
+ * Label bei Geschwistern: für Zwillinge/Drillinge/... ergänzen
  * Geschwister: eventuell statt Label eigene Kategorie für Adoptiv- und Pflegekinder; Stillmutter testen
- * Ablaufreihenfolge in function addIndividualToDescendantsFamily() umbauen wie function addIndividualToDescendantsFamilyAsPartner()
- * Abbruch der Suche für isGrayedOut-tab sobald eine Person gefunden worden ist
- * use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
+ * Code: Ablaufreihenfolge in function addIndividualToDescendantsFamily() umbauen wie function addIndividualToDescendantsFamilyAsPartner()
+ * Code: Abbruch der Suche für isGrayedOut-tab sobald eine Person gefunden worden ist
+ * Code: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
  * Test: Stiefcousins (siehe Onkel Walter)
  * Test: Schwagerehe (etwa Levirat oder Sororat)
- * eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
- * Übersetzungen auslagern in eigene Dateien
- * fehlende Übersetzungen in french, norwegian (2x), finish und andere organisieren
- * verwendete Systemfunktionen wie explode etc. auflisten
- * neue Idee: Statistikfunktion für webtrees zur Ermittlung der längsten und der umfangreichsten Heiratsketten in einem Tree
- * neue Idee: Liste der Spitzenahnen
- * neue Idee: Kette zum entferntesten Vorfahren
- * neue Idee: Kette zum entferntesten Nachkommen
+ * Code: eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
+ * Code: php-Klassen-Konzept verwenden
+ * Übersetzungen: auslagern in eigene Dateien
+ * Übersetzungen: fehlende für french, norwegian (2x), finish und andere organisieren
+ * Doku: verwendete Systemfunktionen wie explode etc. auflisten
  * eventuell auch andere Verwandtschaftssysteme als nur das Eskimo-System implementieren
  * Onkel als Vater- oder Mutterbruder ausweisen für Übersetzung (Label?); Tante als Vater- oder Mutterschwester ausweisen für Übersetzung (Label?);
  * Brüder und Schwestern als jüngere oder ältere Geschwister ausweisen für Übersetzung (in Bezugg auf Proband) (Label?)
  * Ergänzung der genetischen Nähe der jeweiligen Personengruppe in % (als Mouse-over?)
- * php-Klassen-Konzept verwenden
- * Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern: Option für thumbnail size? oder css für shilouette? Gibt es einen Zusammenhnag oder sind sie unabhängig? Wie genau wirken sie sich aus? siehe issue von Sir Peter
+ * Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern: Option für thumbnail size? oder css für shilouette? Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus? siehe issue von Sir Peter
+ * neue Idee: Statistikfunktion für webtrees zur Ermittlung der längsten und der umfangreichsten Heiratsketten in einem Tree
+ * neue Idee: Liste der Spitzenahnen
+ * neue Idee: Kette zum entferntesten Vorfahren
+ * neue Idee: Kette zum entferntesten Nachkommen
 */
 
 declare(strict_types=1);
@@ -104,7 +105,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.39';
+    public const CUSTOM_VERSION = '2.0.16.40';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -134,8 +135,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const GROUP_SIBLINGS_HALF    = 'Half siblings';          // including more than half siblings (if parents are related to each other)
     public const GROUP_SIBLINGS_STEP    = 'Stepsiblings';
     
-    public const GROUP_NEPHEW_NIECES_CHILD_SIBLING = 'Child of sibling';
-    public const GROUP_NEPHEW_NIECES_CHILD_IN_LAW = 'Child of sibling-in-law';
+    public const GROUP_NEPHEW_NIECES_CHILD_SIBLING = 'Children of siblings';
+    public const GROUP_NEPHEW_NIECES_CHILD_IN_LAW = 'Children of siblings-in-law';
     
     /**
      * list of parts of extended family
@@ -222,14 +223,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 	 *					   	 ->partName_translated			    string
 	 *					   	 ->type						        string
      *       ->cousins                                          see grandparents
-     *       ->nephews_and_nieces->groups[]->members[]          array of object individual   (index of groups is int)
-     *                                     ->family             object family
-     *                           ->maleCount                    int    
-     *                           ->femaleCount                  int
-     *                           ->allCount                     int
-     *                           ->partName                     string
-	 *					   	     ->partName_translated			string
-	 *					   		 ->type							string
+     *       ->nephews_and_nieces                               see children
      *       ->children->groups[]->members[]                    array of object individual   (index of groups is groupName)
      *                           ->labels[]                     array of string
      *                           ->groupName                    string [GROUP_CHILDREN_BIO, GROUP_CHILDREN_STEP]
@@ -708,7 +702,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                                 foreach ($family3->spouses() as $parent) {                      // Gen  0 P
                                     foreach ($parent->spouseFamilies() as $family4) {           // Gen  0 F    
                                         foreach ($family4->children() as $nephewniece) {        // Gen -1 P
-                                            $this->addIndividualToDescendantsFamily( $nephewniece, $NephewsNiecesObj, $family1 );
+                                            $this->addIndividualToDescendantsFamily( $nephewniece, $NephewsNiecesObj, $family1, null, self::GROUP_NEPHEW_NIECES_CHILD_SIBLING );
                                         }
                                     }
                                 }
@@ -718,7 +712,31 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-          
+        foreach ($individual->spouseFamilies() as $family) {                                                // Gen  0 F
+            foreach ($family->spouses() as $spouse0) {                                                      // Gen  0 P
+                if ( $spouse0 !== $individual ) {
+                    foreach ($spouse0->childFamilies() as $family0) {                                       // Gen  1 F
+                        foreach ($family0->spouses() as $spouse1) {                                         // Gen  1 P
+                            foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
+                                foreach ($family2->children() as $sibling_in_law) {                         // Gen  0 P
+                                    if ( $sibling_in_law !== $spouse0) {
+                                        foreach ($sibling_in_law->spouseFamilies() as $family3) {           // Gen  0 F
+                                            foreach ($family3->spouses() as $parent) {                      // Gen  0 P
+                                                foreach ($parent->spouseFamilies() as $family4) {           // Gen  0 F    
+                                                    foreach ($family4->children() as $nephewniece) {        // Gen -1 P
+                                                        $this->addIndividualToDescendantsFamily( $nephewniece, $NephewsNiecesObj, $family, null, self::GROUP_NEPHEW_NIECES_CHILD_IN_LAW );
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         $this->addCountersToFamilyPartObject( $NephewsNiecesObj );
 
         return $NephewsNiecesObj;
@@ -933,7 +951,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     if ($groupObj->family->xref() == $family->xref()) {                 // family exists already    
                         //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$famkey]->family->xref() . '); ';
                         $extendedFamilyPart->groups[$famkey]->members[] = $individual;
-                        if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings' ) {
+                        if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings' || $extendedFamilyPart->partName == 'nephews_and_nieces' ) {
                             $extendedFamilyPart->groups[$famkey]->labels[] = $this->getChildLabel($individual);
                         }
                         $found = true;
@@ -943,7 +961,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             } elseif ( array_key_exists($groupName, $extendedFamilyPart->groups) ) {
                 //echo 'In bereits vorhandener Gruppe "' . $groupName . '" Person ' . $individual->xref() . ' hinzugefügt. ';
                 $extendedFamilyPart->groups[$groupName]->members[] = $individual;
-                if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings' ) {
+                if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings' || $extendedFamilyPart->partName == 'nephews_and_nieces' ) {
                     $extendedFamilyPart->groups[$groupName]->labels[] = $this->getChildLabel($individual);
                 }
                 $found = true;
@@ -952,7 +970,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 $newObj = (object)[];
                 $newObj->family = $family;
                 $newObj->members[] = $individual;
-                if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings') {
+                if ( $extendedFamilyPart->partName == 'children' || $extendedFamilyPart->partName == 'grandchildren' || $extendedFamilyPart->partName == 'siblings'  || $extendedFamilyPart->partName == 'nephews_and_nieces' ) {
                     $newObj->labels[] = $this->getChildLabel($individual);
                 }
                 if ( $extendedFamilyPart->partName == 'parents_in_law' ) {
@@ -2080,6 +2098,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Full siblings' => 'Vollbürtige Geschwister',
             'Half siblings' => 'Halbbürtige Geschwister',
             'Stepsiblings' => 'Stiefgeschwister',
+            'Children of siblings' => 'Kinder der Geschwister',
+            'Children of siblings-in-law' => 'Kinder von Schwager oder Schwägerin',
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
             'He/she' => 'ihn/sie', // Kontext "Für ihn/sie"
@@ -3002,7 +3022,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%d сестру (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).',
                                 
             'Partners' => 'Партнери',
-	    'Partner of ' => 'Партнер для ',
+            'Partner of ' => 'Партнер для ',
             '%s has no partners recorded.' => '%s не має жодного запису про партнерів.',
             '%s has one female partner recorded.' => '%s має запис про одну партнерку.',
             '%s has one male partner recorded.' => '%s має запис про одного партнера.',
@@ -3017,7 +3037,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s має %1$d запис про партнерку і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерок і ' . I18N::PLURAL . '%2$s має %1$d записів про партнерок і ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
                 => '%d партнерку (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).' . I18N::PLURAL . '%d партнерок (загалом %d).',
-	    '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
+            '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
                 => '%2$s має %1$d запис про партнера і ' . I18N::PLURAL . '%2$s має %1$d записи про партнерів і ' . I18N::PLURAL . '%2$s має %1$d записів про партнерів і ',
             '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'
                 => '%d партнера для партнерок (загалом %d).' . I18N::PLURAL . '%d партнери для партнерок (загалом %d).' . I18N::PLURAL . '%d партнерів для партнерок (загалом %d).',
@@ -3031,7 +3051,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
                 =>'%d партнерку в цій низці партнерів (загалом %d).' . I18N::PLURAL . '%d партнерки в цій низці партнерів (загалом %d).' . I18N::PLURAL . '%d партнерок в цій низці партнерів (загалом %d).',
 
-	    'Cousins' => 'Двоюрідні брати і сестри',
+            'Cousins' => 'Двоюрідні брати і сестри',
             '%s has no first cousins recorded.' => '%s не має жодного запису про двоюрідних братів і сестер.',
             '%s has one female first cousin recorded.' => '%s має запис про одну двоюрідну сестру.',
             '%s has one male first cousin recorded.' => '%s має запис про одного двоюрідного брата.',

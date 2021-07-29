@@ -400,44 +400,7 @@
                             <?php else: ?>
                             <div id="hh_extended_family_content">
                             <?php endif ?>
-                                <?php if ($propName == 'nephews_and_nieces'): ?>
-                                    <?php foreach ($extfam_obj->efp->$propName->groups as $group): ?>
-                                        <div id="hh_extended_family_g">
-                                            <?php $prev_fam_id = -1; ?>
-                                            <?php  foreach ($group->members as $indi) : ?>
-                                                <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
-                                                    <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
-                                                    <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
-                                                <?php endif ?>
-                                                <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
-                                                    <?php if ($indi->canShow()): ?>
-                                                        <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
-                                                        <?php endif ?>
-                                                        <span class="hh_extended_family_counter"><?= $i ?></span>
-                                                        <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
-                                                        <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                                            <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
-                                                        <?php else: ?>
-                                                            <span class="hh_extended_family_birth_death">
-                                                                <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                <?php if ($event instanceof Fact): ?>
-                                                                    <?= $event->summary(); ?>
-                                                                <?php endif ?>
-                                                                <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                <?php if ($event instanceof Fact): ?>
-                                                                    <?= $event->summary(); ?>
-                                                                <?php endif ?>
-                                                            </span>
-                                                        <?php endif ?>
-                                                    <?php else: ?>
-                                                        <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
-                                                    <?php endif ?>
-                                                </div>
-                                            <?php $i++; endforeach ?>
-                                        </div>    
-                                    <?php endforeach ?>
-                                <?php elseif ($propName == 'children' || $propName == 'grandchildren' || $propName == 'siblings'): ?>
+                                <?php if ($propName == 'children' || $propName == 'grandchildren' || $propName == 'siblings' || $propName == 'nephews_and_nieces' ): ?>
                                     <?php foreach ($extfam_obj->efp->$propName->groups as $group): ?>
                                         <div id="hh_extended_family_g">
                                             <h4><?= I18N::translate($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
