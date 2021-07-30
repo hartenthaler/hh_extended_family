@@ -136,7 +136,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const GROUP_SIBLINGS_STEP    = 'Stepsiblings';
     
     public const GROUP_NEPHEW_NIECES_CHILD_SIBLING = 'Children of siblings';
-    public const GROUP_NEPHEW_NIECES_CHILD_IN_LAW = 'Children of siblings-in-law';
+    public const GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING = 'Siblings\' stepchildren';
+    public const GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER = 'Children of siblings of partners';
     
     /**
      * list of parts of extended family
@@ -699,10 +700,25 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     foreach ($family2->children() as $sibling) {                                // Gen  0 P
                         if ( $sibling !== $individual) {
                             foreach ($sibling->spouseFamilies() as $family3) {                  // Gen  0 F
+                                foreach ($family3->children() as $nephewniece) {                // Gen -1 P
+                                    $this->addIndividualToDescendantsFamily( $nephewniece, $NephewsNiecesObj, $family1, null, self::GROUP_NEPHEW_NIECES_CHILD_SIBLING );
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        foreach ($individual->childFamilies() as $family1) {                                    // Gen  1 F
+            foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
+                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
+                    foreach ($family2->children() as $sibling) {                                // Gen  0 P
+                        if ( $sibling !== $individual ) {
+                            foreach ($sibling->spouseFamilies() as $family3) {                  // Gen  0 F
                                 foreach ($family3->spouses() as $parent) {                      // Gen  0 P
                                     foreach ($parent->spouseFamilies() as $family4) {           // Gen  0 F    
                                         foreach ($family4->children() as $nephewniece) {        // Gen -1 P
-                                            $this->addIndividualToDescendantsFamily( $nephewniece, $NephewsNiecesObj, $family1, null, self::GROUP_NEPHEW_NIECES_CHILD_SIBLING );
+                                            $this->addIndividualToDescendantsFamily( $nephewniece, $NephewsNiecesObj, $family1, null, self::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING );
                                         }
                                     }
                                 }
@@ -712,21 +728,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        foreach ($individual->spouseFamilies() as $family) {                                                // Gen  0 F
-            foreach ($family->spouses() as $spouse0) {                                                      // Gen  0 P
+        foreach ($individual->spouseFamilies() as $family0) {                                               // Gen  0 F
+            foreach ($family0->spouses() as $spouse0) {                                                     // Gen  0 P
                 if ( $spouse0 !== $individual ) {
-                    foreach ($spouse0->childFamilies() as $family0) {                                       // Gen  1 F
-                        foreach ($family0->spouses() as $spouse1) {                                         // Gen  1 P
-                            foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
+                    foreach ($spouse0->childFamilies() as $family1) {                                       // Gen  1 F
+                        foreach ($family1->spouses() as $parent_in_law) {                                   // Gen  1 P
+                            foreach ($parent_in_law->spouseFamilies() as $family2) {                        // Gen  1 F
                                 foreach ($family2->children() as $sibling_in_law) {                         // Gen  0 P
                                     if ( $sibling_in_law !== $spouse0) {
-                                        foreach ($sibling_in_law->spouseFamilies() as $family3) {           // Gen  0 F
-                                            foreach ($family3->spouses() as $parent) {                      // Gen  0 P
-                                                foreach ($parent->spouseFamilies() as $family4) {           // Gen  0 F    
-                                                    foreach ($family4->children() as $nephewniece) {        // Gen -1 P
-                                                        $this->addIndividualToDescendantsFamily( $nephewniece, $NephewsNiecesObj, $family, null, self::GROUP_NEPHEW_NIECES_CHILD_IN_LAW );
-                                                    }
-                                                }
+                                        foreach ($sibling_in_law->spouseFamilies() as $family3) {           // Gen  0 F    
+                                            foreach ($family3->children() as $nephewniece) {                // Gen -1 P
+                                                $this->addIndividualToDescendantsFamily( $nephewniece, $NephewsNiecesObj, $family0, null, self::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER );
                                             }
                                         }
                                     }
@@ -2099,7 +2111,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Half siblings' => 'Halbbürtige Geschwister',
             'Stepsiblings' => 'Stiefgeschwister',
             'Children of siblings' => 'Kinder der Geschwister',
-            'Children of siblings-in-law' => 'Kinder von Schwager oder Schwägerin',
+            'Siblings\' stepchildren' => 'Stiefkinder der Geschwister',
+            'Children of siblings of partners' => 'Kinder der Geschwister der Partner',
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
             'He/she' => 'ihn/sie', // Kontext "Für ihn/sie"
