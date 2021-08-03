@@ -26,8 +26,8 @@
 */
 
 /*
- * tbd: Offene Punkte nach Priorität geordnet
- * ------------------------------------------
+ * tbd: Offene Punkte
+ * ------------------
  * siehe issues/enhancements in github
  * Familiengruppe Großeltern: Angabe "Familie des Vaters/der Mutter" stimmt nicht (etwa bei Konstantin-Niarchos-I7350)
  * Familiengruppe Schwäger und Schwägerinnen: Ergänzen der vollbürtigen Geschwister um halbbürtige und Stiefgeschwister
@@ -108,7 +108,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.41';
+    public const CUSTOM_VERSION = '2.0.16.42';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
