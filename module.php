@@ -3258,7 +3258,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Full siblings' => 'Anh chị em ruột',
             'Half siblings' => 'Anh chị em cùng cha khác mẹ',
             'Stepsiblings' => 'Anh chị em kế',
-
+            'Siblings of partners' => 'Anh chị em ruột của vợ hoặc chồng',
+            'Partners of siblings' => 'Vợ hoặc chồng của anh chị em ruột ',
+            'Children of siblings' => 'Con của anh chị em ruột',
+            'Siblings\' stepchildren' => 'Con riêng của anh chị em ruột',
+            'Children of siblings of partners' => 'Con của anh chị em của đối tác',
             'He' => 'Anh',
             'She' => 'Cô',
             'He/she' => 'Anh/Cô',
@@ -3341,6 +3345,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s có %1$d anh em trai và ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
                 => '%d chị em gái (tổng %d).', 
+
+            'Siblings-in-law' => 'Anh em rể và chị em dâu',
+            '%s has no siblings-in-law recorded.' => '%s không có anh em rể hoặc chị em dâu.',
+            '%s has one sister-in-law recorded.' => '%s có một người chị dâu hoặc em dâu.',
+            '%s has one brother-in-law recorded.' => '%s có một người anh rể hoặc em rể .',
+            '%s has one sibling-in-law recorded.' => '%s có một anh em rể hoặc chị em dâu.',
+            '%2$s has %1$d sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sisters-in-law recorded.'
+                => '%2$s có %1$d chị dâu hoặc em dâu.',
+            '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.'
+                => '%2$s có %1$d anh rể hoặc em rể.',
+            '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and ' 
+                => '%2$s có %1$d anh em rể và',
+            '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).' 
+                => '%d chị em dâu (tổng %d).',
                                 
             'Partners' => 'Vợ chồng',
             'Partner of ' => 'Vợ (chồng) của ',
