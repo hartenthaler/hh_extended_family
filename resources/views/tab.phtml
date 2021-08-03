@@ -451,7 +451,7 @@
                                                             <?php if ( $group->groupName == 'Partners of siblings' ) : ?>
                                                                 <h5><?= I18N::translate('Sibling')?>&nbsp;<?= $group->referencePersons[$key]->fullName() ?></h5>
                                                             <?php elseif ( $group->groupName == 'Siblings of partners' ) : ?>
-                                                                <h5><?= I18N::translate('Partnerx')?>&nbsp;<? $group->referencePersons[$key]->fullName() ?></h5>
+                                                                <h5><?= I18N::translate('Partner')?>&nbsp;<? $group->referencePersons[$key]->fullName() ?></h5>
                                                             <?php endif ?>
                                                         <?php endif ?>
                                                     <?php endif ?>
@@ -482,7 +482,7 @@
                                                                 <?php endif ?>
                                                             </span>
                                                         <?php endif ?>
-                                                        <?php if ($group->labels[$key]): ?>
+                                                        <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
                                                             <span class="hh_extended_family_pedi"><?= $group->labels[$key] ?></span>
                                                         <?php endif ?>
                                                     <?php else: ?>
