@@ -6,7 +6,7 @@
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 
 This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person:
-grandparents, parents, parents-in-law, uncles, aunts, siblings, partners, cousins, nephews, nieces, children and grandchildren.
+grandparents, parents, parents-in-law, uncles, aunts, partners, siblings, siblings-in-law, cousins, nephews, nieces, children and grandchildren.
 
 <a name="Contents"></a>
 
@@ -48,8 +48,9 @@ The default presentation sequence of the extended family parts is oriented at th
 * parents                                  // generation +1
 * parents-in-law                           // generation +1
 * uncles_and_aunts                         // generation +1
-* siblings                                 // generation  0
 * partners                                 // generation  0
+* siblings                                 // generation  0
+* siblings-in-law                          // generation  0
 * cousins                                  // generation  0
 * nephews_and_nieces                       // generation -1
 * children                                 // generation -1
