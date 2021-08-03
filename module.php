@@ -108,14 +108,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.42';
+    public const CUSTOM_VERSION = '2.0.16.43';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
     /**
      * list of const for extended family
      */    
-    public const ANCESTORS = 'ancestors';
+    public const ANCESTORS   = 'ancestors';
     public const DESCENDANTS = 'descendants';
     
     public const FAM_SIDE_FATHER = 'father';
@@ -126,13 +126,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const FAM_STATUS_FIANCEE     = 'Fiancée';
     public const FAM_STATUS_PARTNERSHIP = 'Partnership';
     
-    public const GROUP_CHILDREN_BIO     = 'Biological children';
-    public const GROUP_CHILDREN_STEP    = 'Stepchildren';
-    
-    public const GROUP_GRANDCHILDREN_BIO        = 'Biological grandchildren';
-    public const GROUP_GRANDCHILDREN_STEP_CHILD = 'Stepchildren of children';
-    public const GROUP_GRANDCHILDREN_CHILD_STEP = 'Children of stepchildren';
-    public const GROUP_GRANDCHILDREN_STEP_STEP  = 'Stepchildren of stepchildren';
+    public const GROUP_COPARENTSINLAW_BIO  = 'Co-parents-in-law of biological children';
+    public const GROUP_COPARENTSINLAW_STEP = 'Co-parents-in-law of stepchildren';
     
     public const GROUP_SIBLINGS_FULL = 'Full siblings';
     public const GROUP_SIBLINGS_HALF = 'Half siblings';          // including more than half siblings (if parents are related to each other)
@@ -141,9 +136,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const GROUP_SIBLINGS_IN_LAW_SIBOFP = 'Siblings of partners';
     public const GROUP_SIBLINGS_IN_LAW_POFSIB = 'Partners of siblings';         
     
-    public const GROUP_NEPHEW_NIECES_CHILD_SIBLING = 'Children of siblings';
+    public const GROUP_NEPHEW_NIECES_CHILD_SIBLING         = 'Children of siblings';
     public const GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING = 'Siblings\' stepchildren';
     public const GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER = 'Children of siblings of partners';
+
+    public const GROUP_CHILDREN_BIO  = 'Biological children';
+    public const GROUP_CHILDREN_STEP = 'Stepchildren';
+
+    public const GROUP_CHILDRENINLAW_BIO  = 'Partners of biological children';
+    public const GROUP_CHILDRENINLAW_STEP = 'Partners of stepchildren';
+    
+    public const GROUP_GRANDCHILDREN_BIO        = 'Biological grandchildren';
+    public const GROUP_GRANDCHILDREN_STEP_CHILD = 'Stepchildren of children';
+    public const GROUP_GRANDCHILDREN_CHILD_STEP = 'Children of stepchildren';
+    public const GROUP_GRANDCHILDREN_STEP_STEP  = 'Stepchildren of stepchildren';
     
     /**
      * list of parts of extended family
@@ -154,9 +160,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {    
         return [
             'grandparents',                             // generation +2
+            'uncles_and_aunts',                         // generation +1
             'parents',                                  // generation +1
             'parents_in_law',                           // generation +1
-            'uncles_and_aunts',                         // generation +1
+            'co_parents_in_law',                        // generation  0           
             'partners',                                 // generation  0
             'partner_chains',                           // generation  0
             'siblings',                                 // generation  0
@@ -164,6 +171,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'cousins',                                  // generation  0
             'nephews_and_nieces',                       // generation -1
             'children',                                 // generation -1
+            'children_in_law',                          // generation -1
             'grandchildren',                            // generation -2
         ];
     }
@@ -203,10 +211,19 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *                     ->partName                           string
 	 *					   ->partName_translated				string
 	 *					   ->type								string
-     *       ->parents                                          see grandparents
      *       ->uncles_and_aunts                                 see grandparents
-     *       ->siblings                                         see children 
-     *       ->siblings_in_law                                  see children
+     *       ->parents                                          see grandparents
+     *       ->parents_in_law->groups[]->members[]              array of object individual   (index of groups is int)
+     *                                  ->family                object family
+     *                                  ->familyStatus               string
+     *                                  ->partner               object individual
+     *                       ->maleCount                        int    
+     *                       ->femaleCount                      int
+     *                       ->allCount                         int
+     *                       ->partName                         string
+	 *					   	 ->partName_translated			    string
+	 *					   	 ->type						        string
+     *       ->co_parents_in_law                                see children
      *       ->partners->groups[]->members[]                    array of object individual   (index of groups is XREF)
      *                           ->partner                      object individual
      *                 ->pCount                                 int
@@ -232,16 +249,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *                       ->partName                         string
      *				         ->partName_translated			    string
      *				         ->type							    string
-     *       ->parents_in_law->groups[]->members[]              array of object individual   (index of groups is int)
-     *                                  ->family                object family
-     *                                  ->familyStatus               string
-     *                                  ->partner               object individual
-     *                       ->maleCount                        int    
-     *                       ->femaleCount                      int
-     *                       ->allCount                         int
-     *                       ->partName                         string
-	 *					   	 ->partName_translated			    string
-	 *					   	 ->type						        string
+     *       ->siblings                                         see children 
+     *       ->siblings_in_law                                  see children
      *       ->cousins                                          see grandparents
      *       ->nephews_and_nieces                               see children
      *       ->children->groups[]->members[]                    array of object individual   (index of groups is groupName)
@@ -255,6 +264,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *                 ->partName                               string
      *				   ->partName_translated			        string
      *				   ->type							        string
+     *       ->children_in_law                                  see children
      *       ->grandchildren                                    see children
      */
     private function getExtendedFamily(Individual $individual): object
@@ -372,6 +382,61 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * Find uncles and aunts for one side including uncles and aunts by marriage
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param string family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
+     */
+    private function get_uncles_and_auntsOneSide(object $extendedFamilyPart, string $side)
+    {
+        $parent = $extendedFamilyPart->$side;
+        if ($parent instanceof Individual) {                                            // Gen 1 P
+           foreach ($parent->childFamilies() as $family1) {                             // Gen 2 F
+              foreach ($family1->spouses() as $grandparent) {                           // Gen 2 P
+                 foreach ($grandparent->spouseFamilies() as $family2) {                 // Gen 2 F
+                    foreach ($family2->children() as $uncleaunt) {                      // Gen 1 P
+                        if($uncleaunt !== $parent) {
+                            //foreach ($uncleaunt->spouseFamilies() as $family3) {      // Gen 1 F    tbd: designed to include uncles/aunts by marriage; but how to group them with their partner in tab.html?
+                                //foreach ($family3->spouses() as $uncleaunt2) {        // Gen 1 P
+                                    $this->addIndividualToAncestorsFamily( $uncleaunt, $extendedFamilyPart, $side );
+                                //}
+                            //}
+                        }
+                    }
+                 }
+              }
+           }
+        }
+        
+        return;
+    }
+    
+    /**
+     * Find uncles and aunts
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function get_uncles_and_aunts(Individual $individual): object
+    {
+        $unclesAuntsObj = $this->initializedFamilyPartObject('uncles_and_aunts');
+        
+        if ($individual->childFamilies()->first()) {
+            
+            $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
+            $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
+
+            $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_FATHER);
+            $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_MOTHER);
+           
+            $this->addCountersToFamilyPartObject( $unclesAuntsObj );
+        }
+
+        return $unclesAuntsObj;
+    }
+
+    /**
      * Find parents for one side 
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
@@ -446,60 +511,56 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * Find uncles and aunts for one side including uncles and aunts by marriage
-     *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param string family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
-     */
-    private function get_uncles_and_auntsOneSide(object $extendedFamilyPart, string $side)
-    {
-        $parent = $extendedFamilyPart->$side;
-        if ($parent instanceof Individual) {                                            // Gen 1 P
-           foreach ($parent->childFamilies() as $family1) {                             // Gen 2 F
-              foreach ($family1->spouses() as $grandparent) {                           // Gen 2 P
-                 foreach ($grandparent->spouseFamilies() as $family2) {                 // Gen 2 F
-                    foreach ($family2->children() as $uncleaunt) {                      // Gen 1 P
-                        if($uncleaunt !== $parent) {
-                            //foreach ($uncleaunt->spouseFamilies() as $family3) {      // Gen 1 F    tbd: designed to include uncles/aunts by marriage; but how to group them with their partner in tab.html?
-                                //foreach ($family3->spouses() as $uncleaunt2) {        // Gen 1 P
-                                    $this->addIndividualToAncestorsFamily( $uncleaunt, $extendedFamilyPart, $side );
-                                //}
-                            //}
-                        }
-                    }
-                 }
-              }
-           }
-        }
-        
-        return;
-    }
-    
-    /**
-     * Find uncles and aunts
+     * Find co-parents-in-law (parents of children-in-law)
      *
      * @param Individual $individual
      *
      * @return object
      */
-    private function get_uncles_and_aunts(Individual $individual): object
-    {
-        $unclesAuntsObj = $this->initializedFamilyPartObject('uncles_and_aunts');
-        
-        if ($individual->childFamilies()->first()) {
-            
-            $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
-            $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
-
-            $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_FATHER);
-            $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_MOTHER);
-           
-            $this->addCountersToFamilyPartObject( $unclesAuntsObj );
+    private function get_co_parents_in_law(Individual $individual): object
+    {      
+        $coParents_in_lawObj = $this->initializedFamilyPartObject('co_parents_in_law');
+        foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->children() as $child) {                                          // Gen -1 P
+                foreach ($child->spouseFamilies() as $family2) {                                // Gen -1 F
+                    foreach ($family2->spouses() as $child_in_law) {                            // Gen -1 P
+                        if ($child_in_law !== $child) {
+                            if ( ($child_in_law->childFamilies()->first()) && ($child_in_law->childFamilies()->first()->husband() instanceof Individual) ) {        // husband() or wife() may not exist
+                                $this->addIndividualToDescendantsFamily( $child_in_law->childFamilies()->first()->husband(), $coParents_in_lawObj, $family2, null, self::GROUP_COPARENTSINLAW_BIO );
+                            }
+                            if ( ($child_in_law->childFamilies()->first()) && ($child_in_law->childFamilies()->first()->wife() instanceof Individual) ) {
+                                $this->addIndividualToDescendantsFamily( $child_in_law->childFamilies()->first()->wife(), $coParents_in_lawObj, $family2, null, self::GROUP_COPARENTSINLAW_BIO );
+                            }
+                        }
+                    }
+                }
+            }
         }
+        foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
+                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
+                    foreach ($family2->children() as $stepchild) {                              // Gen -1 P
+                        foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
+                            foreach ($family3->spouses() as $stepchild_in_law) {                // Gen -1 P
+                                if ($stepchild_in_law !== $stepchild) {
+                                    if ( ($stepchild_in_law->childFamilies()->first()) && ($stepchild_in_law->childFamilies()->first()->husband() instanceof Individual)) {        // husband() or wife() may not exist
+                                        $this->addIndividualToDescendantsFamily( $stepchild_in_law->childFamilies()->first()->husband(), $coParents_in_lawObj, $family2, null, self::GROUP_COPARENTSINLAW_STEP );
+                                    }
+                                    if ( ($stepchild_in_law->childFamilies()->first()) && ($stepchild_in_law->childFamilies()->first()->wife() instanceof Individual)) {
+                                        $this->addIndividualToDescendantsFamily( $stepchild_in_law->childFamilies()->first()->wife(), $coParents_in_lawObj, $family2, null, self::GROUP_COPARENTSINLAW_STEP );
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $this->addCountersToFamilyPartObject( $coParents_in_lawObj );
 
-        return $unclesAuntsObj;
+        return $coParents_in_lawObj;
     }
-
+    
     /**
      * Find full and half siblings, as well as stepsiblings
      *
@@ -842,6 +903,47 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
         return $ChildrenObj;
     }
+
+    /**
+     * Find children-in-law (partner of children and stepchildren)
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function get_children_in_law(Individual $individual): object
+    {      
+        $children_in_lawObj = $this->initializedFamilyPartObject('children_in_law');
+        foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->children() as $child) {                                          // Gen -1 P
+                foreach ($child->spouseFamilies() as $family2) {                                // Gen -1 F
+                    foreach ($family2->spouses() as $child_in_law) {                            // Gen -1 P
+                        if ($child_in_law !== $child) {
+                            $this->addIndividualToDescendantsFamily( $child_in_law, $children_in_lawObj, $family1, $child, self::GROUP_CHILDRENINLAW_BIO );
+                        }
+                    }
+                }
+            }
+        }
+        foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
+                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
+                    foreach ($family2->children() as $stepchild) {                              // Gen -1 P
+                        foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
+                            foreach ($family3->spouses() as $stepchild_in_law) {                // Gen -1 P
+                                if ($stepchild_in_law !== $stepchild) {
+                                    $this->addIndividualToDescendantsFamily( $stepchild_in_law, $children_in_lawObj, $family1, $stepchild, self::GROUP_CHILDRENINLAW_STEP );
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $this->addCountersToFamilyPartObject( $children_in_lawObj );
+
+        return $children_in_lawObj;
+    }
     
     /**
      * Find grandchildren including step- and step-step-grandchildren
@@ -1000,11 +1102,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function addIndividualToDescendantsFamily(Individual $individual, object $extendedFamilyPart, object $family, Individual $referencePerson = null, string $groupName = '' )
     {
         $efp_groups = [                     // family parts which are using "groups" and "labels"
-            'children',
-            'grandchildren',
+            'co_parents_in_law',
             'siblings',
             'siblings_in_law',
             'nephews_and_nieces',
+            'children',
+            'children_in_law',
+            'grandchildren',
         ];
         $found = false;
         //if ($groupName == '') {
@@ -2175,12 +2279,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Partnerschaft',
             'Fiancée' => 'Verlobung',
             ' with ' => ' mit ',
-            'Biological children' => 'Biologische Kinder',
-            'Stepchildren' => 'Stiefkinder',
-            'Biological grandchildren' => 'Biologische Enkelkinder',
-            'Stepchildren of children' => 'Stiefkinder der Kinder',
-            'Children of stepchildren' => 'Kinder der Stiefkinder',
-            'Stepchildren of stepchildren' => 'Stiefkinder der Stiefkinder',
+            'Co-parents-in-law of biological children' => 'Gegenschwiegereltern der biologischen Kinder',
+            'Co-parents-in-law of stepchildren' => 'Gegenschwiegereltern der Stiefkinder',
             'Full siblings' => 'Vollbürtige Geschwister',
             'Half siblings' => 'Halbbürtige Geschwister',
             'Stepsiblings' => 'Stiefgeschwister',
@@ -2189,6 +2289,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Children of siblings' => 'Kinder der Geschwister',
             'Siblings\' stepchildren' => 'Stiefkinder der Geschwister',
             'Children of siblings of partners' => 'Kinder der Geschwister der Partner',
+            'Biological children' => 'Biologische Kinder',
+            'Stepchildren' => 'Stiefkinder',
+            'Stepchild' => 'Stiefkind',
+            'Stepson' => 'Stiefsohn',
+            'Stepdaughter' => 'Stieftochter',
+            'Partners of biological children' => 'Partner der biologischen Kinder',
+            'Partners of stepchildren' => 'Partner der Stiefkinder',
+            'Biological grandchildren' => 'Biologische Enkelkinder',
+            'Stepchildren of children' => 'Stiefkinder der Kinder',
+            'Children of stepchildren' => 'Kinder der Stiefkinder',
+            'Stepchildren of stepchildren' => 'Stiefkinder der Stiefkinder',
+
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
             'He/she' => 'ihn/sie', // Kontext "Für ihn/sie"
@@ -2215,6 +2327,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Für %2$s sind %1$d Großvater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Großväter und ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d Großmutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Großmütter verzeichnet (insgesamt %d).',
+
+            'Uncles and Aunts' => 'Onkel und Tanten',
+            '%s has no uncles or aunts recorded.' => 'Für %s sind keine Onkel oder Tanten verzeichnet.',
+            '%s has one aunt recorded.' => 'Für %s ist eine Tante verzeichnet.',
+            '%s has one uncle recorded.' => 'Für %s ist ein Onkel verzeichnet.',
+            '%s has one uncle or aunt recorded.' => 'Für %s ist ein Onkel oder eine Tante verzeichnet.',
+            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
+                => 'Für %2$s ist %1$d Tante verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Tanten verzeichnet.',
+            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
+                => 'Für %2$s ist %1$d Onkel verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel verzeichnet.',
+            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
+                => 'Für %2$s sind %1$d Onkel und ' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel und ',
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d Tante verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Tanten verzeichnet (insgesamt %d).',
 
             'Parents' => 'Eltern',
             '%s has no parents recorded.' => 'Für %s sind keine Eltern verzeichnet.',
@@ -2243,21 +2369,21 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Für %2$s sind %1$d Schwiegervater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerväter und ',
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
                 => '%d Schwiegermutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegermütter verzeichnet (insgesamt %d).',
-
-            'Uncles and Aunts' => 'Onkel und Tanten',
-            '%s has no uncles or aunts recorded.' => 'Für %s sind keine Onkel oder Tanten verzeichnet.',
-            '%s has one aunt recorded.' => 'Für %s ist eine Tante verzeichnet.',
-            '%s has one uncle recorded.' => 'Für %s ist ein Onkel verzeichnet.',
-            '%s has one uncle or aunt recorded.' => 'Für %s ist ein Onkel oder eine Tante verzeichnet.',
-            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
-                => 'Für %2$s ist %1$d Tante verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Tanten verzeichnet.',
-            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
-                => 'Für %2$s ist %1$d Onkel verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel verzeichnet.',
-            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
-                => 'Für %2$s sind %1$d Onkel und ' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel und ',
-            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d Tante verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Tanten verzeichnet (insgesamt %d).', 
-
+ 
+            'Co-parents-in-law' => 'Gegenschwiegereltern',
+            '%s has no co-parents-in-law recorded.' => 'Für %s sind keine Gegenschwiegereltern verzeichnet.',
+            '%s has one co-mother-in-law recorded.' => 'Für %s ist eine Gegenschwiegermutter verzeichnet.',
+            '%s has one co-father-in-law recorded.' => 'Für %s ist ein Gegenschwiegervater verzeichnet.',
+            '%s has one co-parent-in-law recorded.' => 'Für %s ist ein Gegenschwiegerelternteil verzeichnet.',
+            '%2$s has %1$d co-mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law recorded.'
+                => 'Für %2$s ist %1$d Gegenschwiegermutter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Gegenschwiegermütter verzeichnet.',
+            '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.'
+                => 'Für %2$s ist %1$d Gegenschwiegervater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Gegenschwiegerväter verzeichnet.',
+            '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
+                => 'Für %2$s sind %1$d Gegenschwiegervater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Gegenschwiegerväter und ',
+            '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
+                => '%d Gegenschwiegermutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Gegenschwiegermütter verzeichnet (insgesamt %d).',
+                
             'Siblings' => 'Geschwister',
             '%s has no siblings recorded.' => 'Für %s sind keine Geschwister verzeichnet.',
             '%s has one sister recorded.' => 'Für %s ist eine Schwester verzeichnet.',
@@ -2358,6 +2484,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
                 => '%d Tochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Töchter verzeichnet (insgesamt %d).',
 
+            'Children-in-law' => 'Schwiegerkinder',
+            '%s has no children-in-law recorded.' => 'Für %s sind keine Schwiegerkinder verzeichnet.',
+            '%s has one daughter-in-law recorded.' => 'Für %s ist eine Schwiegertochter verzeichnet.',
+            '%s has one son-in-law recorded.' => 'Für %s ist ein Schwiegersohn verzeichnet.',
+            '%s has one child-in-law recorded.' => 'Für %s ist ein Schwiegerkind verzeichnet.',
+            '%2$s has %1$d daughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d daughters-in-law recorded.'
+                => 'Für %2$s ist %1$d Schwiegertochter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegertöchter verzeichnet.',
+            '%2$s has %1$d son-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sons-in-law recorded.'
+                => 'Für %2$s ist %1$d Schwiegersohn verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegersöhne verzeichnet.',
+            '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and ' 
+                => 'Für %2$s sind %1$d Schwiegersohn und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegersöhne und ',
+            '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).' 
+                => '%d Schwiegertochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegertöchter verzeichnet (insgesamt %d).',
+                
             'Grandchildren' => 'Enkelkinder',
             '%s has no grandchildren recorded.' => 'Für %s sind keine Enkelkinder verzeichnet.',
             '%s has one granddaughter recorded.' => 'Für %s ist eine Enkeltochter verzeichnet.',
