@@ -2619,7 +2619,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-            
             'Extended family' => 'Familia extendida',
             'A tab showing the extended family of an individual.' => 'Esta pestaña muestra todos los vinculos familiares de una persona',
             'In which sequence should the parts of the extended family be shown?' => '¿Que bloques de la familia quieres que se muestren, y en que orden, en la pestaña "Familia extendida"?',
