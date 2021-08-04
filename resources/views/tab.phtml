@@ -702,18 +702,16 @@
                 <?php else: ?>
                     <div class="hh-extended-family-summary">
                         <?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
-                            <?php if ($propName == 'parents_in_law'): ?>
-                                <h3><?= I18N::translate('%s has no parents-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                            <?php elseif ($propName == 'nephews_and_nieces'): ?>
-                                <h3><?= I18N::translate('%s has no nephews or nieces recorded.', $extfam_obj->self->niceName) ?></h3>
-                            <?php elseif ($propName == 'uncles_and_aunts'): ?>
+                            <?php if ($propName == 'uncles_and_aunts'): ?>
                                 <h3><?= I18N::translate('%s has no uncles or aunts recorded.', $extfam_obj->self->niceName) ?></h3>
-                            <?php elseif ($propName == 'cousins'): ?>
-                                <h3><?= I18N::translate('%s has no first cousins recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php elseif ($propName == 'partner_chains'): ?>
                                 <h3><?= I18N::translate('%s has no members of a partner chain recorded.', $extfam_obj->self->niceName) ?></h3>
+                            <?php elseif ($propName == 'cousins'): ?>
+                                <h3><?= I18N::translate('%s has no first cousins recorded.', $extfam_obj->self->niceName) ?></h3>
+                            <?php elseif ($propName == 'nephews_and_nieces'): ?>
+                                <h3><?= I18N::translate('%s has no nephews or nieces recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php else: ?>
-                                <h3><?= I18N::translate('%s has no ' . $propName . ' recorded.', $extfam_obj->self->niceName) ?></h3>
+                                <h3><?= I18N::translate('%s has no ' . str_replace('_', '-', $propName) . ' recorded.', $extfam_obj->self->niceName) ?></h3>
                             <?php endif ?>
                         <?php endif ?>
                     </div>

@@ -23,25 +23,31 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
-*/
+ */
 
 /*
  * tbd: Offene Punkte
  * ------------------
- * siehe issues/enhancements in github
+ * Gruppierung der Gegenschwiegereltern der Stiefkinder ist für mich (I318) nicht korrekt
  * Familiengruppe Großeltern: Angabe "Familie des Vaters/der Mutter" stimmt nicht (etwa bei Konstantin-Niarchos-I7350)
+ *
+ * siehe issues/enhancements in github
+ *
  * Familiengruppe Schwäger und Schwägerinnen: Ergänzen der vollbürtigen Geschwister um halbbürtige und Stiefgeschwister
+ * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt sein sollte
  * Familiengruppe Partnerketten: grafische Anzeige statt Textketten
  * Familiengruppe Partnerketten: von Gerlinde geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette von Dieter zu Gabi, d.h. dies als zweite Info ergänzen
  * Familiengruppe Geschwister: eventuell statt Label eigene Kategorie für Adoptiv- und Pflegekinder bzw. Stillmutter
- * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt sein sollte
+ *
  * Label für Stiefkinder: etwa bei meinen Neffen Fabian, Felix, Jason und Sam
  * Label für Partner: neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
  * Label für Eltern: biologische Eltern, Stiefeltern, Adoptiveltern, Pflegeeltern
  * Label oder Gruppe bei Onkel/Tante: Halbonkel/-tante = Halbbruder/-schwester eines biologichen Elternteils
  * Label bei Geschwistern: für Zwillinge/Drillinge/... ergänzen
+ *
  * Code: Ablaufreihenfolge in function addIndividualToDescendantsFamily() umbauen wie function addIndividualToDescendantsFamilyAsPartner()
  * Code: Abbruch der Suche für isGrayedOut-tab sobald eine Person gefunden worden ist
+ * Code: eventuell Verwendung der bestehenden Funktionen zum Aufbau von Familienteilen statt es jedes Mal vom Probanden aus komplett neu zu gestalten
  * Code: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
  * Code: eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
  * Code: php-Klassen-Konzept verwenden
@@ -55,11 +61,12 @@
  * andere Verwandtschaftssysteme: Brüder und Schwestern als jüngere oder ältere Geschwister ausweisen für Übersetzung (in Bezugg auf Proband) (Label?)
  * Ergänzung der genetischen Nähe der jeweiligen Personengruppe in % (als Mouse-over?)
  * Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern: Option für thumbnail size? oder css für shilouette? Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus? siehe issue von Sir Peter
+ *
  * neue Idee: Statistikfunktion für webtrees zur Ermittlung der längsten und der umfangreichsten Heiratsketten in einem Tree
  * neue Idee: Liste der Spitzenahnen
  * neue Idee: Kette zum entferntesten Vorfahren
  * neue Idee: Kette zum entferntesten Nachkommen
-*/
+ */
 
 declare(strict_types=1);
 
@@ -215,7 +222,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *       ->parents                                          see grandparents
      *       ->parents_in_law->groups[]->members[]              array of object individual   (index of groups is int)
      *                                  ->family                object family
-     *                                  ->familyStatus               string
+     *                                  ->familyStatus          string
      *                                  ->partner               object individual
      *                       ->maleCount                        int    
      *                       ->femaleCount                      int
@@ -270,14 +277,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function getExtendedFamily(Individual $individual): object
     {
         $extfamObj = (object)[];
+        $extfamObj->config = $this->get_config( $individual );
         $extfamObj->self = $this->get_self( $individual );
         $extfamObj->efp = (object)[];
         $extfamObj->efp->allCount = 0;
-        $extfamObj->config = (object)[];
-        $extfamObj->config->showEmptyBlock = $this->showEmptyBlock();
-        $extfamObj->config->showLabels = $this->showLabels();
-        $extfamObj->config->useCompactDesign = $this->useCompactDesign();
-        $extfamObj->config->showThumbnail = $this->showThumbnail( $individual->tree() );
 
         $efps = $this->showFamilyParts();
         foreach ($efps as $efp => $value) {
@@ -286,6 +289,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
             }
         }
+        
         $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
 
        return $extfamObj;
@@ -302,6 +306,23 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function callFunction($name, $parameter)
     {
         return $this->$name($parameter);
+    }
+     
+    /**
+     * store configuration information
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function get_config(Individual $individual): object
+    {
+        $configObj = (object)[];
+        $configObj->showEmptyBlock   = $this->showEmptyBlock();
+        $configObj->showLabels       = $this->showLabels();
+        $configObj->useCompactDesign = $this->useCompactDesign();
+        $configObj->showThumbnail    = $this->showThumbnail( $individual->tree() );
+        return $configObj;
     }
     
     /**
@@ -1095,7 +1116,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     *
     * @param individual
     * @param object part of extended family
-    * @param object family (on level of proband) to which these descendants are belonging
+    * @param object family to which these descendants are belonging
     * @param (optional) individual reference person
     * @param (optional) string name of group
     */
