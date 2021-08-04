@@ -93,6 +93,9 @@ use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 
+use function explode;
+use function implode;
+
 /**
  * Class ExtendedFamilyTabModule
  */
@@ -115,7 +118,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.43';
+    public const CUSTOM_VERSION = '2.0.16.44';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -396,7 +399,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->get_grandparentsOneSide( $GrandparentsObj, self::FAM_SIDE_FATHER);
             $this->get_grandparentsOneSide( $GrandparentsObj, self::FAM_SIDE_MOTHER);
              
-            $this->addCountersToFamilyPartObject( $GrandparentsObj );
+            $this->filterAndAddCountersToFamilyPartObject( $GrandparentsObj );
         }
 
         return $GrandparentsObj;
@@ -451,7 +454,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_FATHER);
             $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_MOTHER);
            
-            $this->addCountersToFamilyPartObject( $unclesAuntsObj );
+            $this->filterAndAddCountersToFamilyPartObject( $unclesAuntsObj );
         }
 
         return $unclesAuntsObj;
@@ -498,7 +501,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->get_parentsOneSide( $ParentsObj, self::FAM_SIDE_FATHER);
             $this->get_parentsOneSide( $ParentsObj, self::FAM_SIDE_MOTHER);
              
-            $this->addCountersToFamilyPartObject( $ParentsObj  );
+            $this->filterAndAddCountersToFamilyPartObject( $ParentsObj  );
         }
 
         return $ParentsObj;
@@ -526,7 +529,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $Parents_in_lawObj );
+        $this->filterAndAddCountersToFamilyPartObject( $Parents_in_lawObj );
 
         return $Parents_in_lawObj;
     }
@@ -577,7 +580,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $coParents_in_lawObj );
+        $this->filterAndAddCountersToFamilyPartObject( $coParents_in_lawObj );
 
         return $coParents_in_lawObj;
     }
@@ -626,7 +629,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $SiblingsObj );
+        $this->filterAndAddCountersToFamilyPartObject( $SiblingsObj );
 
         return $SiblingsObj;
     }
@@ -667,7 +670,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $SiblingsInLawObj );
+        $this->filterAndAddCountersToFamilyPartObject( $SiblingsInLawObj );
         /*foreach ($SiblingsInLawObj->groups as $group){
             echo "Group ".$group->groupName.": "; 
             foreach($group->members as $key=>$member){
@@ -705,7 +708,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $PartnersObj );
+        $this->filterAndAddCountersToFamilyPartObject( $PartnersObj );
 
         return $PartnersObj;
     }
@@ -819,7 +822,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $this->get_cousinsOneSide( $CousinsObj, self::FAM_SIDE_FATHER);
             $this->get_cousinsOneSide( $CousinsObj, self::FAM_SIDE_MOTHER);
              
-            $this->addCountersToFamilyPartObject( $CousinsObj );
+            $this->filterAndAddCountersToFamilyPartObject( $CousinsObj );
         }
 
         return $CousinsObj;
@@ -891,7 +894,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $NephewsNiecesObj );
+        $this->filterAndAddCountersToFamilyPartObject( $NephewsNiecesObj );
 
         return $NephewsNiecesObj;
     }
@@ -920,7 +923,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $ChildrenObj );
+        $this->filterAndAddCountersToFamilyPartObject( $ChildrenObj );
 
         return $ChildrenObj;
     }
@@ -961,7 +964,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $children_in_lawObj );
+        $this->filterAndAddCountersToFamilyPartObject( $children_in_lawObj );
 
         return $children_in_lawObj;
     }
@@ -1028,7 +1031,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->addCountersToFamilyPartObject( $GrandchildrenObj );
+        $this->filterAndAddCountersToFamilyPartObject( $GrandchildrenObj );
 
         return $GrandchildrenObj;
     }
@@ -1272,7 +1275,23 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * count individuals per family (maybe including mother/father/motherAndFather families) and per sex
+     * filter individuals and count them per family or per group and per sex
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     */
+    private function filterAndAddCountersToFamilyPartObject( object $extendedFamilyPart )
+    {
+        if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::ANCESTORS) {
+            $this->filterAncestors($extendedFamilyPart);
+        } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::DESCENDANTS) {
+            $this->filterDescendants($extendedFamilyPart);
+        }
+        $this->addCountersToFamilyPartObject( $extendedFamilyPart );
+        return;
+    }
+
+    /**
+     * count individuals per family (maybe including mother/father/motherAndFather families) or per group and per sex
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
      */
@@ -1436,12 +1455,70 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 $lc_node = $node;
             }
             $i++;
-            foreach($node->chains as $chain) {
+            foreach ($node->chains as $chain) {
                 $this->countLongestChainRecursive($chain, $i, $lc, $lc_node);
             }
         }
         $i--;
         return;
+    }
+
+    /**
+     * filter individuals in family parts of type ANCESTORS
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     */
+    private function filterAncestors( object $extendedFamilyPart )
+    {
+        $filter = $this->filterOption();
+        if ($filter !== 'all') {
+            foreach ($extendedFamilyPart->families->fatherFamily as $key => $member) {
+                if ( ($filter == 'only_alive' && $member->isDead()) || ($filter == 'only_dead' && !$member->isDead()) ) {
+                    unset($extendedFamilyPart->families->fatherFamily[$key]);
+                }
+            }
+            foreach ($extendedFamilyPart->families->motherFamily as $key => $member) {
+                if ( ($filter == 'only_alive' && $member->isDead()) || ($filter == 'only_dead' && !$member->isDead()) ) {
+                    unset($extendedFamilyPart->families->motherFamily[$key]);
+                }
+            }
+            foreach ($extendedFamilyPart->families->fatherAndMotherFamily as $key => $member) {
+                if ( ($filter == 'only_alive' && $member->isDead()) || ($filter == 'only_dead' && !$member->isDead()) ) {
+                    unset($extendedFamilyPart->families->fatherAndMotherFamily[$key]);
+                }
+            }
+        }
+        return;
+    }
+
+    /**
+     * filter individuals in family parts of type DESCENDANTS
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     */
+    private function filterDescendants( object $extendedFamilyPart )
+    {
+        $filter = $this->filterOption();
+        if ($filter !== 'all') {
+            foreach ($extendedFamilyPart->groups as $group) {
+                foreach ($group->members as $key => $member) {
+                    if ( ($filter == 'only_alive' && $member->isDead()) || ($filter == 'only_dead' && !$member->isDead()) ) {
+                        unset($group->members[$key]);
+                    }
+                }
+            }
+        }
+        return;
+    }
+
+    /**
+     * option to filter [only_dead, only_alive, all]
+     */
+    private function filterOption(): string
+    {
+        //return 'only_dead';
+        //return 'only_alive';
+        return 'all';
     }
 
     /**
