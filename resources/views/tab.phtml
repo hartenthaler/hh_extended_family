@@ -7,12 +7,45 @@
  
 <div class="wt-tab-hh-extended-family py-4">
     <?php if ($extfam_obj->config->filterOptionDead !== 'all'): ?>
-        <h2><?= I18N::translate('Filter dead/alive: %s.', $extfam_obj->config->filterOptionDead) ?></h2>
+        <h4><?= I18N::translate('Filter dead/alive: %s.', $extfam_obj->config->filterOptionDead) ?></h4>
     <?php endif ?>
     <?php if ($extfam_obj->config->filterOptionSex !== 'all'): ?>
-        <h2><?= I18N::translate('Filter sex: %s.', $extfam_obj->config->filterOptionSex) ?></h2>
+        <h4><?= I18N::translate('Filter sex: %s.', $extfam_obj->config->filterOptionSex) ?></h4>
     <?php endif ?>
     <?php if ($extfam_obj->efp->allCount > 0): ?>
+        <table>
+            <tr>
+                <th>
+                    <div class="btn-toolbar d-flex justify-content-between mb-2" role="toolbar">
+                        <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
+                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("Show only male persons.") ?>">
+                                <input type="checkbox" autocomplete="off">
+                                <span class="wt-icon-sex wt-icon-sex-m"><i class="fas fa-mars fa-fw" aria-hidden="true"></i></span>
+                            </label>
+                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("Show only female persons.") ?>">
+                                <input type="checkbox" autocomplete="off">
+                                <span class="wt-icon-sex wt-icon-sex-f"><i class="fas fa-venus fa-fw" aria-hidden="true"></i></span>
+                            </label>
+                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("Show only persons of unknown gender.") ?>">
+                                <input type="checkbox" autocomplete="off">
+                                <span class="wt-icon-sex wt-icon-sex-u"><i class="fas fa-genderless fa-fw" aria-hidden="true"></i></span>
+                            </label>
+                        </div>
+
+                        <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
+                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("Show only alive persons.") ?>">
+                                <input type="checkbox" autocomplete="off">
+                                <?= I18N::translate("alive") ?>
+                            </label>
+                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("Show only dead persons.") ?>">
+                                <input type="checkbox" autocomplete="off">
+                                <?= I18N::translate("dead") ?>                            
+                            </label>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </table>
 		<?php foreach ($extfam_obj->efp as $propName => $propValue) : ?>
             <?php if ($propName !== 'allCount' && $propName !== 'summaryMessageEmptyBlocks'): ?>
                 <?php if (($extfam_obj->efp->$propName->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>

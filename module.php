@@ -266,7 +266,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *                 ->partName                               string
 	 *				   ->partName_translated			        string
 	 *				   ->type							        string
-     *       ->partner_chains->chains[]                         array of object (marriage chain nodes)
+     *       ->partner_chains->chains[]                         array of object (tree of marriage chain nodes)
      *                       ->displayChains[]                  array of chain (array of chainPerson objects)
      *                       ->chainsCount                      int (number of chains)
      *                       ->longestChainCount                int
@@ -307,6 +307,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         foreach ($efps as $efp => $value) {
             if ( $efps[$efp]->enabled ) {
                 $extfamObj->efp->$efp = $this->callFunction( 'get_' . $efp, $individual );
+                $this->filterAndAddCountersToFamilyPartObject( $extfamObj->efp->$efp, $individual );
                 $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
             }
         }
@@ -410,16 +411,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {      
         $GrandparentsObj = $this->initializedFamilyPartObject('grandparents');
         
-        if ($individual->childFamilies()->first()) {
-            
-            // husband() or wife() may not exist
+        if ($individual->childFamilies()->first()) {                                    // husband() or wife() may not exist
             $GrandparentsObj->father = $individual->childFamilies()->first()->husband();
             $GrandparentsObj->mother = $individual->childFamilies()->first()->wife();
-
             $this->get_grandparentsOneSide( $GrandparentsObj, self::FAM_SIDE_FATHER);
             $this->get_grandparentsOneSide( $GrandparentsObj, self::FAM_SIDE_MOTHER);
-             
-            $this->filterAndAddCountersToFamilyPartObject( $GrandparentsObj );
         }
 
         return $GrandparentsObj;
@@ -467,14 +463,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $unclesAuntsObj = $this->initializedFamilyPartObject('uncles_and_aunts');
         
         if ($individual->childFamilies()->first()) {
-            
             $unclesAuntsObj->father = $individual->childFamilies()->first()->husband();
             $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
-
             $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_FATHER);
             $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_MOTHER);
-           
-            $this->filterAndAddCountersToFamilyPartObject( $unclesAuntsObj );
         }
 
         return $unclesAuntsObj;
@@ -513,15 +505,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {      
         $ParentsObj = $this->initializedFamilyPartObject('parents');
         
-        if ($individual->childFamilies()->first()) {
-            // husband() or wife() may not exist
+        if ($individual->childFamilies()->first()) {                                    // husband() or wife() may not exist
             $ParentsObj->father = $individual->childFamilies()->first()->husband();
             $ParentsObj->mother = $individual->childFamilies()->first()->wife();
-
             $this->get_parentsOneSide( $ParentsObj, self::FAM_SIDE_FATHER);
             $this->get_parentsOneSide( $ParentsObj, self::FAM_SIDE_MOTHER);
-             
-            $this->filterAndAddCountersToFamilyPartObject( $ParentsObj  );
         }
 
         return $ParentsObj;
@@ -549,7 +537,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $Parents_in_lawObj );
 
         return $Parents_in_lawObj;
     }
@@ -600,7 +587,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $coParents_in_lawObj );
 
         return $coParents_in_lawObj;
     }
@@ -649,7 +635,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $SiblingsObj );
 
         return $SiblingsObj;
     }
@@ -690,16 +675,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $SiblingsInLawObj );
-        /*foreach ($SiblingsInLawObj->groups as $group){
-            echo "Group ".$group->groupName.": "; 
-            foreach($group->members as $key=>$member){
-                echo "member=".$member->xref().", ";
-                echo "label=".$group->labels[$key].", ";
-                echo "family=".$group->families[$key].", ";
-                echo "familyStatus=".$group->familiesStatus[$key].". ";
-            }
-        }*/
 
         return $SiblingsInLawObj;
     }
@@ -728,7 +703,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $PartnersObj );
 
         return $PartnersObj;
     }
@@ -747,6 +721,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $chainRootNode = (object)[];
         $chainRootNode->chains = [];
         $chainRootNode->indi = $individual;
+        $chainRootNode->filterComment = '';
         
         $stop = (object)[];                                 // avoid endless loops
         $stop->indiList = [];
@@ -754,8 +729,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $stop->familyList = [];
         
         $TreeObj->chains = $this->get_partner_chains_recursive ($chainRootNode, $stop);
-        $TreeObj->displayChains = $this->get_display_object_partner_chains($individual, $TreeObj);
-        $this->addCountersToFamilyPartObject( $TreeObj );
+
         return $TreeObj;
     }
     
@@ -779,6 +753,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                             $new_node = (object)[];
                             $new_node->chains = [];
                             $new_node->indi = $spouse;
+                            $new_node->filterComment = '';
                             $stop->indiList[] = $spouse->xref();
                             $stop->familyList[] = $family->xref();
                             $new_node->chains = $this->get_partner_chains_recursive($new_node, $stop);
@@ -838,11 +813,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         if ($individual->childFamilies()->first()) {
             $CousinsObj->father = $individual->childFamilies()->first()->husband();
             $CousinsObj->mother = $individual->childFamilies()->first()->wife();
-
             $this->get_cousinsOneSide( $CousinsObj, self::FAM_SIDE_FATHER);
             $this->get_cousinsOneSide( $CousinsObj, self::FAM_SIDE_MOTHER);
-             
-            $this->filterAndAddCountersToFamilyPartObject( $CousinsObj );
         }
 
         return $CousinsObj;
@@ -914,7 +886,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $NephewsNiecesObj );
 
         return $NephewsNiecesObj;
     }
@@ -929,6 +900,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function get_children(Individual $individual): object
     {        
         $ChildrenObj = $this->initializedFamilyPartObject('children');
+        
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->children() as $child) {                                          // Gen -1 P
                 $this->addIndividualToDescendantsFamily( $child, $ChildrenObj, $family1, null, self::GROUP_CHILDREN_BIO );
@@ -943,7 +915,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $ChildrenObj );
 
         return $ChildrenObj;
     }
@@ -958,6 +929,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function get_children_in_law(Individual $individual): object
     {      
         $children_in_lawObj = $this->initializedFamilyPartObject('children_in_law');
+        
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->children() as $child) {                                          // Gen -1 P
                 foreach ($child->spouseFamilies() as $family2) {                                // Gen -1 F
@@ -984,7 +956,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $children_in_lawObj );
 
         return $children_in_lawObj;
     }
@@ -999,6 +970,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function get_grandchildren(Individual $individual): object
     {      
         $GrandchildrenObj = $this->initializedFamilyPartObject('grandchildren');
+        
         foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->children() as $biochild) {                                       // Gen -1 P
                 foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
@@ -1051,7 +1023,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             }
         }
-        $this->filterAndAddCountersToFamilyPartObject( $GrandchildrenObj );
 
         return $GrandchildrenObj;
     }
@@ -1299,12 +1270,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
      */
-    private function filterAndAddCountersToFamilyPartObject( object $extendedFamilyPart )
+    private function filterAndAddCountersToFamilyPartObject( object $extendedFamilyPart, Individual $individual )
     {
         if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::ANCESTORS) {
             $this->filterAncestors($extendedFamilyPart);
         } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::DESCENDANTS) {
-            $this->filterDescendants($extendedFamilyPart);               
+            $this->filterDescendants($extendedFamilyPart, $individual);
         }
         $this->addCountersToFamilyPartObject( $extendedFamilyPart );
         return;
@@ -1528,16 +1499,24 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * filter individuals in family parts of type DESCENDANTS
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param individual (proband)
      */
-    private function filterDescendants( object $extendedFamilyPart )
+    private function filterDescendants( object $extendedFamilyPart, Individual $individual )
     {
         list ($filterDead, $filterSex ) = $this->filterOptions();
         if ( ($filterDead !== 'all') || ($filterSex !== 'all') ) {
-            foreach ($extendedFamilyPart->groups as $group) {
-                foreach ($group->members as $key => $member) {
-                    if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
-                         ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
-                        unset($group->members[$key]);
+            if ($extendedFamilyPart->partName == 'partner_chains') {
+                foreach($extendedFamilyPart->chains as $chain) {
+                    $this->filterPartnerChainsRecursive($chain);
+                }
+                $extendedFamilyPart->displayChains = $this->get_display_object_partner_chains($individual, $extendedFamilyPart);
+            } else {
+                foreach ($extendedFamilyPart->groups as $group) {
+                    foreach ($group->members as $key => $member) {
+                        if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
+                             ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
+                            unset($group->members[$key]);
+                        }
                     }
                 }
             }
@@ -1551,14 +1530,46 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * filter individuals in family parts of type DESCENDANTS
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     */
+    private function filterPartnerChainsRecursive( object $node )
+    {
+        list ($filterDead, $filterSex ) = $this->filterOptions();
+        if ( ($filterDead !== 'all') || ($filterSex !== 'all') ) {
+            if ($node && $node->indi instanceof Individual) {
+                if ( $filterDead == 'only_alive' && $node->indi->isDead() ) {
+                    $node->filterComment = I18N::translate('a dead person');
+                } elseif ( $filterDead == 'only_dead' && !$node->indi->isDead() ) {
+                    $node->filterComment = I18N::translate('a living person');
+                }
+                if ($node->filterComment == '') {
+                    if ( $filterSex == 'only_M' && $node->indi->sex() !== 'M' ) {
+                        $node->filterComment = I18N::translate('not a male person');
+                    } elseif ( $filterSex == 'only_F' && $node->indi->sex() !== 'F' ) {
+                        $node->filterComment = I18N::translate('not a female person');
+                    } elseif ( $filterSex == 'only_U' && $node->indi->sex() !== 'U' ) {
+                        $node->filterComment = I18N::translate('not a person of unknown gender');
+                    }
+                }
+                foreach ($node->chains as $chain) {
+                    $this->filterPartnerChainsRecursive($chain);
+                }
+            }
+        }
+        return;
+    }
+
+    /**
      * option to filter [all, only_dead, only_alive]
      *
      * @return string
      */
     private function filterOptionDead(): string
     {
-        //return 'only_dead';
-        return 'only_alive';
+        return 'only_dead';
+        //return 'only_alive';
         //return 'all';
     }
 
@@ -1570,9 +1581,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function filterOptionSex(): string
     {
         //return 'only_M';
-        //return 'only_F';
+        return 'only_F';
         //return 'only_U';
-        return 'all';
+        //return 'all';
     }
 
     /**
@@ -1647,7 +1658,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function string_partner_chains_recursive(object $node, string &$chain_string, int &$i)
     {      
         if ($node && $node->indi instanceof Individual) {
-            $chain_string .= strval($i) . '§' . (($node->indi->canShow()) ? '1' : '0') . '§' . $node->indi->fullname() . '§' . $node->indi->url() . '∞';
+            $chain_string .= strval($i) . '§';
+            if ($node->filterComment == '') {
+                $chain_string .= (($node->indi->canShow()) ? '1' : '0') . '§' . $node->indi->fullname() . '§' . $node->indi->url() . '∞';
+            } else {
+                $chain_string .= '0§' . $node->filterComment . '§∞';
+            }
             foreach($node->chains as $chain) {
                 $i++;
                 $this->string_partner_chains_recursive($chain, $chain_string, $i);
@@ -2438,7 +2454,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design?' => 'Soll das kompakte Design verwendet werden?',
             'Use the compact design' => 'Kompaktes Design anwenden',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Das kompakte Design zeigt für jede Person nur den Namen und die Lebensspanne. Das angereicherte Design zeigt zusätzlich ein Foto (wenn dies für diesen Baum aktiviert ist) sowie Geburts- und Sterbeinformationen.',
-			
+
+            'Show only male persons.' => 'Zeige nur männliche Personen.',
+            'Show only female persons.' => 'Zeige nur weibliche Personen.',
+            'Show only persons of unknown gender.' => 'Zeige nur Personen unbekannten Geschlechts.',
+            'Show only alive persons.' => 'Zeige nur Personen, die noch leben.',
+            'Show only dead persons.' => 'Zeige nur Personen, die bereits verstorben sind.',
+            'alive' => 'lebend',
+            'dead' => 'verstorben',
+            'a dead person' => 'eine verstorbende Person',
+            'a living person' => 'eine lebende Person',
+            'not a male person' => 'keine männliche Person',
+            'not a female person' => 'keine weibliche Person',
+            'not a person of unknown gender' => 'keine Person unbekannten Geschlechts',
+
             'Marriage' => 'Ehe',
             'Ex-marriage' => 'Geschiedene Ehe',
             'Partnership' => 'Partnerschaft',
