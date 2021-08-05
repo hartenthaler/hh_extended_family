@@ -2741,7 +2741,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.'
                 => '%2$s tiene %1$d Consuegro registrado.' . I18N::PLURAL . '%2$s tiene %1$d Consuegros registrados.',
             '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
-                => '%2$s tiene %1$d Consuegro y ' . I18N::PLURAL . '%2$s tiene %1$d Consuegra y ',
+                => '%2$s tiene %1$d Consuegro y ' . I18N::PLURAL . '%2$s tiene %1$d Consuegros y ',
             '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
                 => '%d Consuegra registrada (%d en total).' . I18N::PLURAL . '%d Consuegras registrados (%d en total).',
 
