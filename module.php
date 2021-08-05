@@ -2881,8 +2881,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Relatie',
             'Fiancée' => 'Verloving',
             ' with ' => ' met ',
-            'Co-parents-in-law of biological children' => 'Medeschoonouders van biologische kinderen',
-            'Co-parents-in-law of stepchildren' => 'Medeschoonouders van stiefkinderen',
+            'Co-parents-in-law of biological children' => 'Schoonouders van biologische kinderen',
+            'Co-parents-in-law of stepchildren' => 'Schoonouders van stiefkinderen',
             'Full siblings' => 'Volle broers/zussen',
             'Half siblings' => 'Halfbroers/-zussen',
             'Stepsiblings' => 'Stiefbroers/-zussen',
@@ -2971,19 +2971,19 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).'
                 => '%d schoonmoeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d schoonmoeder geregistreerd (%d in totaal).',
 
-            'Co-parents-in-law' => 'Medeschoonouders',
-            '%s has no co-parents-in-law recorded.' => 'Voor %s zijn geen medeschoonouders geregistreerd.',
-            '%s has one co-mother-in-law recorded.' => 'Voor %s is een medeschoonmoeder geregistreerd.',
-            '%s has one co-father-in-law recorded.' => 'Voor %s is een medeschoonvader geregistreerd.',
-            '%s has one co-parent-in-law recorded.' => 'Voor %s is een medeschoonouder geregistreerd.',
+            'Co-parents-in-law' => 'Ouders van schoonkinderen',
+            '%s has no co-parents-in-law recorded.' => 'Voor %s zijn geen ouders van schoonkinderen geregistreerd.',
+            '%s has one co-mother-in-law recorded.' => 'Voor %s is een moeder van schoonkinderen geregistreerd.',
+            '%s has one co-father-in-law recorded.' => 'Voor %s is een vader van schoonkinderen geregistreerd.',
+            '%s has one co-parent-in-law recorded.' => 'Voor %s is een ouder van schoonkinderen geregistreerd.',
             '%2$s has %1$d co-mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law recorded.'
-                => 'Voor %2$s is %1$d medeschoonmoeder geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d medeschoonmoeders geregistreerd.',
+                => 'Voor %2$s is %1$d moeder van schoonkinderen geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d moeders van schoonkinderen geregistreerd.',
             '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.'
-                => 'Voor %2$s is %1$d medeschoonvader geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d medeschoonvaders geregistreerd.',
+                => 'Voor %2$s is %1$d vader van schoonkinderen geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders van schoonkinderen geregistreerd.',
             '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
-                => 'Voor %2$s zijn %1$d medeschoonvader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d medeschoonvaders en ',
+                => 'Voor %2$s zijn %1$d vader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders en ',
             '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
-                => '%d medeschoonmoeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d medeschoonmoeder geregistreerd (%d in totaal).',
+                => '%d moeder van schoonkinderen geregistreerd (%d in totaal).' . I18N::PLURAL . '%d moeders van schoonkinderen geregistreerd (%d in totaal).',
 
             'Siblings' => 'Broers en zussen',
             '%s has no siblings recorded.' => 'Voor %s zijn geen broers of zussen geregistreerd.',
