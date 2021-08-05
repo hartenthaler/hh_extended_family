@@ -6,6 +6,12 @@
  ?>
  
 <div class="wt-tab-hh-extended-family py-4">
+    <?php if ($extfam_obj->config->filterOptionDead !== 'all'): ?>
+        <h2><?= I18N::translate('Filter dead/alive: %s.', $extfam_obj->config->filterOptionDead) ?></h2>
+    <?php endif ?>
+    <?php if ($extfam_obj->config->filterOptionSex !== 'all'): ?>
+        <h2><?= I18N::translate('Filter sex: %s.', $extfam_obj->config->filterOptionSex) ?></h2>
+    <?php endif ?>
     <?php if ($extfam_obj->efp->allCount > 0): ?>
 		<?php foreach ($extfam_obj->efp as $propName => $propValue) : ?>
             <?php if ($propName !== 'allCount' && $propName !== 'summaryMessageEmptyBlocks'): ?>

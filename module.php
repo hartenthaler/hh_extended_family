@@ -28,7 +28,8 @@
 /*
  * tbd: Offene Punkte
  * ------------------
- * Gruppierung der Gegenschwiegereltern der Stiefkinder ist für mich (I318) nicht korrekt
+ * enhancement: Filter für Partnerketten: ersetzen der Namen durch "not dead/living" bzw. "not male/female/unknown"
+ * bug: Gruppierung der Gegenschwiegereltern der Stiefkinder ist für mich (I318) nicht korrekt
  * Familiengruppe Großeltern: Angabe "Familie des Vaters/der Mutter" stimmt nicht (etwa bei Konstantin-Niarchos-I7350)
  *
  * siehe issues/enhancements in github
@@ -47,6 +48,7 @@
  *
  * Code: Ablaufreihenfolge in function addIndividualToDescendantsFamily() umbauen wie function addIndividualToDescendantsFamilyAsPartner()
  * Code: Abbruch der Suche für isGrayedOut-tab sobald eine Person gefunden worden ist
+ * Code: alle eigenen Objekte mit new X() erzeugen
  * Code: eventuell Verwendung der bestehenden Funktionen zum Aufbau von Familienteilen statt es jedes Mal vom Probanden aus komplett neu zu gestalten
  * Code: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
  * Code: eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
@@ -93,8 +95,22 @@ use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 
+// general functions
+//use function instanceof;
+// string functions
+use function ucfirst;
+use function str_replace;
+use function preg_match;
+use function strval;
+use function rtrim;
+// array functions
 use function explode;
 use function implode;
+use function count;
+use function array_key_exists;
+use function array_search;
+use function in_array;
+//use function unset;
 
 /**
  * Class ExtendedFamilyTabModule
@@ -196,6 +212,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *          ->showLabels                                    bool
      *          ->useCompactDesign                              bool
      *          ->showThumbnail                                 bool
+     *          ->fiterOptionDead                               string
+     *          ->filterOptionSex                               string
      *  ->self->indi                                            object individual
      *        ->niceName                                        string
      *        ->label                                           string
@@ -224,9 +242,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *       ->uncles_and_aunts                                 see grandparents
      *       ->parents                                          see grandparents
      *       ->parents_in_law->groups[]->members[]              array of object individual   (index of groups is int)
-     *                                  ->family                object family
-     *                                  ->familyStatus          string
-     *                                  ->partner               object individual
+     *                                 ->family                 object family
+     *                                 ->familyStatus           string
+     *                                 ->partner                object individual
      *                       ->maleCount                        int    
      *                       ->femaleCount                      int
      *                       ->allCount                         int
@@ -325,6 +343,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $configObj->showLabels       = $this->showLabels();
         $configObj->useCompactDesign = $this->useCompactDesign();
         $configObj->showThumbnail    = $this->showThumbnail( $individual->tree() );
+        $configObj->filterOptionDead = $this->filterOptionDead();
+        $configObj->filterOptionSex  = $this->filterOptionSex();
         return $configObj;
     }
     
@@ -1284,7 +1304,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::ANCESTORS) {
             $this->filterAncestors($extendedFamilyPart);
         } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::DESCENDANTS) {
-            $this->filterDescendants($extendedFamilyPart);
+            $this->filterDescendants($extendedFamilyPart);               
         }
         $this->addCountersToFamilyPartObject( $extendedFamilyPart );
         return;
@@ -1299,9 +1319,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         
         if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::ANCESTORS) {
-            $extendedFamilyPart->fathersFamilyCount = sizeof( $extendedFamilyPart->families->fatherFamily );
-            $extendedFamilyPart->mothersFamilyCount = sizeof( $extendedFamilyPart->families->motherFamily );
-            $extendedFamilyPart->fathersAndMothersFamilyCount = sizeof( $extendedFamilyPart->families->fatherAndMotherFamily );
+            $extendedFamilyPart->fathersFamilyCount = count( $extendedFamilyPart->families->fatherFamily );
+            $extendedFamilyPart->mothersFamilyCount = count( $extendedFamilyPart->families->motherFamily );
+            $extendedFamilyPart->fathersAndMothersFamilyCount = count( $extendedFamilyPart->families->fatherAndMotherFamily );
             
             $count = $this->countMaleFemale( $extendedFamilyPart->families->fatherFamily );
             $extendedFamilyPart->fathersMaleCount = $count->male;
@@ -1470,20 +1490,33 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function filterAncestors( object $extendedFamilyPart )
     {
-        $filter = $this->filterOption();
-        if ($filter !== 'all') {
+        list ($filterDead, $filterSex ) = $this->filterOptions();
+        if ( ($filterDead !== 'all') || ($filterSex !== 'all') ) {
+            /*
+            foreach ( $extendedFamilyPart->families as $familypart) {
+                foreach ($familypart as $key => $member) {
+                    if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
+                         ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
+                        unset($familypart[$key]);
+                    }
+                }
+            }
+            */
             foreach ($extendedFamilyPart->families->fatherFamily as $key => $member) {
-                if ( ($filter == 'only_alive' && $member->isDead()) || ($filter == 'only_dead' && !$member->isDead()) ) {
+                if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
+                     ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
                     unset($extendedFamilyPart->families->fatherFamily[$key]);
                 }
             }
             foreach ($extendedFamilyPart->families->motherFamily as $key => $member) {
-                if ( ($filter == 'only_alive' && $member->isDead()) || ($filter == 'only_dead' && !$member->isDead()) ) {
+                if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
+                     ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
                     unset($extendedFamilyPart->families->motherFamily[$key]);
                 }
             }
             foreach ($extendedFamilyPart->families->fatherAndMotherFamily as $key => $member) {
-                if ( ($filter == 'only_alive' && $member->isDead()) || ($filter == 'only_dead' && !$member->isDead()) ) {
+                if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
+                     ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
                     unset($extendedFamilyPart->families->fatherAndMotherFamily[$key]);
                 }
             }
@@ -1498,27 +1531,61 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function filterDescendants( object $extendedFamilyPart )
     {
-        $filter = $this->filterOption();
-        if ($filter !== 'all') {
+        list ($filterDead, $filterSex ) = $this->filterOptions();
+        if ( ($filterDead !== 'all') || ($filterSex !== 'all') ) {
             foreach ($extendedFamilyPart->groups as $group) {
                 foreach ($group->members as $key => $member) {
-                    if ( ($filter == 'only_alive' && $member->isDead()) || ($filter == 'only_dead' && !$member->isDead()) ) {
+                    if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
+                         ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
                         unset($group->members[$key]);
                     }
                 }
+            }
+        }
+        foreach ($extendedFamilyPart->groups as $key => $group) {            
+            if (count($group->members) == 0) {
+                unset($extendedFamilyPart->groups[$key]);
             }
         }
         return;
     }
 
     /**
-     * option to filter [only_dead, only_alive, all]
+     * option to filter [all, only_dead, only_alive]
+     *
+     * @return string
      */
-    private function filterOption(): string
+    private function filterOptionDead(): string
     {
         //return 'only_dead';
-        //return 'only_alive';
+        return 'only_alive';
+        //return 'all';
+    }
+
+    /**
+     * option to filter [all, only_M, only_F, only_U]
+     *
+     * @return string
+     */
+    private function filterOptionSex(): string
+    {
+        //return 'only_M';
+        //return 'only_F';
+        //return 'only_U';
         return 'all';
+    }
+
+    /**
+     * option to filter
+     *
+     * @return array [dead, sex]
+     */
+    private function filterOptions(): array
+    {
+        return [
+            $this->filterOptionDead(),
+            $this->filterOptionSex(),
+        ];
     }
 
     /**
@@ -3527,7 +3594,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Tên viết tắt dựa hoặc biệt danh. Nếu chúng không có sẵn, tên đầu tiên trong số các tên đã cho sẽ được sử dụng, nếu một tên được đưa ra. Nếu không, họ sẽ được sử dụng.',
             'Show short name' => 'Hiển thị tên rút gọn', 
             'Show labels in special situations?' => 'Hiển thị nhãn trong các trường hợp đặc biệt?',
-            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'Nhãn (hoặc nhãn dán) được sử dụng chẳng hạn cho người được nhận nuôi hoặc con nuôi. ',
+            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'Nhãn (hoặc nhãn dán) được sử dụng chẳng hạn cho người được nhận nuôi hoặc cha/mẹ kế. ',
             'Show labels' => 'Hiển thị nhãn dán',
             'Use the compact design?' => 'Hiển thị các thông tin rút gọn?',
             'Use the compact design' => 'Áp dụng hiển thị thông tin rút gọn',
@@ -3538,12 +3605,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Quan hệ hôn nhân',
             'Fiancée' => 'Hôn ước',
             ' with ' => ' với ',
-            'Biological children' => 'Con ruột',
-            'Stepchildren' => 'Con riêng',
-            'Biological grandchildren' => 'Cháu ruột',
-            'Stepchildren of children' => 'Cháu - con của con riêng',
-            'Children of stepchildren' => 'Con của con riêng',
-            'Stepchildren of stepchildren' => 'Con riêng của con riêng',
+            'Co-parents-in-law of biological children' => 'Bố mẹ chồng của con đẻ',
+            'Co-parents-in-law of stepchildren' => 'Bố mẹ chồng của con riêng',
             'Full siblings' => 'Anh chị em ruột',
             'Half siblings' => 'Anh chị em cùng cha khác mẹ',
             'Stepsiblings' => 'Anh chị em kế',
@@ -3552,6 +3615,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Children of siblings' => 'Con của anh chị em ruột',
             'Siblings\' stepchildren' => 'Con riêng của anh chị em ruột',
             'Children of siblings of partners' => 'Con của anh chị em của đối tác',
+            'Biological children' => 'Con ',
+            'Stepchildren' => 'Con riêng',
+            'Stepchild' => 'Con riêng',
+            'Stepson' => 'Con trai riêng',
+            'Stepdaughter' => 'Con gái riêng',
+            'Partners of biological children' => 'Bạn đời của con ruột',
+            'Partners of stepchildren' => 'Bạn đời của con riêng',			
+            'Biological grandchildren' => 'Cháu ruột',
+            'Stepchildren of children' => 'Cháu - con của con riêng',
+            'Children of stepchildren' => 'Con của con riêng',
+            'Stepchildren of stepchildren' => 'Con riêng của con riêng',
+
             'He' => 'Anh',
             'She' => 'Cô',
             'He/she' => 'Anh/Cô',
@@ -3579,6 +3654,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d bà nội.',//có thể thay bằng '%d bà nội (tổng %d).' để xem có bao nhiêu ông và bà
 
+            'Uncles and Aunts' => 'Bác trai, bác gái, chú và cô',
+            '%s has no uncles or aunts recorded.' => '%s không có thông tin về bác / cô chú.',
+            '%s has one aunt recorded.' => '%s có một bác gái hoặc cô.',
+            '%s has one uncle recorded.' => '%s có một bác trai hoặc chú.',
+            '%s has one uncle or aunt recorded.' => '%s có một bác trai/bác gái hoặc cô/chú.',
+            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
+                => '%2$s có %1$d người là bác gái hoặc cô.',
+            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
+                => '%2$s có %1$d người là chú bác.',
+            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
+                => '%2$s có %1$d bác trai hoặc chú và ',
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d bác gái hoặc cô (%d người).',
+
             'Parents' => 'Bố mẹ',
             '%s has no parents recorded.' => '%s không có thông tin về bố mẹ.',
             '%s has one mother recorded.' => '%s có một người mẹ.',
@@ -3593,33 +3682,33 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
                 => '%d người mẹ.',//có thể thay bằng '%d người mẹ (tổng %d).' để xem có bao nhiêu bố, mẹ
 
-            'Parents-in-law' => 'Schwiegereltern',
-            '%s has no parents-in-law recorded.' => 'Für %s sind keine Schwiegereltern verzeichnet.',
-            '%s has one mother-in-law recorded.' => 'Für %s ist eine Schwiegermutter verzeichnet.',
-            '%s has one father-in-law recorded.' => 'Für %s ist ein Schwiegervater verzeichnet.',
-            '%s has one parent-in-law recorded.' => 'Für %s ist ein Schwiegerelternteil verzeichnet.',
+            'Parents-in-law' => 'Bố mẹ chồng',
+            '%s has no parents-in-law recorded.' => '%s không có thông tin về bố mẹ chồng.',
+            '%s has one mother-in-law recorded.' => '%s có một người mẹ chồng.',
+            '%s has one father-in-law recorded.' => '%s có một người bố chồng.',
+            '%s has one parent-in-law recorded.' => '%s có bố mẹ chồng.',
             '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.'
-                => 'Für %2$s ist %1$d Schwiegermutter verzeichnet.',
+                => '%2$s có %1$d mẹ chồng.',
             '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.'
-                => 'Für %2$s ist %1$d Schwiegervater verzeichnet.',
+                => '%2$s có %1$d bố chồng.',
             '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
-                => 'Für %2$s sind %1$d Schwiegervater und ',
+                => '%2$s có %1$d bố chồng và ',
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
-                => '%d Schwiegermutter verzeichnet (insgesamt %d).',
+                => '%d mẹ chồng (tổng %d).',
 
-            'Uncles and Aunts' => 'Bác trai, bác gái, chú và cô',
-            '%s has no uncles or aunts recorded.' => '%s không có thông tin về bác / cô chú.',
-            '%s has one aunt recorded.' => '%s có một bác gái hoặc cô.',
-            '%s has one uncle recorded.' => '%s có một bác trai hoặc chú.',
-            '%s has one uncle or aunt recorded.' => '%s có một bác trai/bác gái hoặc cô/chú.',
-            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
-                => '%2$s có %1$d người là bác gái hoặc cô.',
-            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
-                => '%2$s có %1$d người là chú bác.',
-            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
-                => '%2$s có %1$d bác trai hoặc chú và ',
-            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d bác gái hoặc cô (%d người).', 
+            'Co-parents-in-law' => 'Thông gia',
+            '%s has no co-parents-in-law recorded.' => '%s không có thông tin về gia đình thông gia.',
+            '%s has one co-mother-in-law recorded.' => '%s có một bà thông gia.',
+            '%s has one co-father-in-law recorded.' => '%s có một ông thông gia.',
+            '%s has one co-parent-in-law recorded.' => '%s có ông bà thông gia.',
+            '%2$s has %1$d co-mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law recorded.'
+                => '%2$s có %1$d bà thông gia.',
+            '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.'
+                => '%2$s có %1$d ông thông gia.',
+            '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
+                => '%2$s có %1$d ông thông gia và ',
+            '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
+                => '%d bà thông gia (tổng %d).',
 
             'Siblings' => 'Anh chị em ruột',
             '%s has no siblings recorded.' => '%s không có thông tin về anh chị em ruột.',
@@ -3641,9 +3730,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one brother-in-law recorded.' => '%s có một người anh rể hoặc em rể .',
             '%s has one sibling-in-law recorded.' => '%s có một anh em rể hoặc chị em dâu.',
             '%2$s has %1$d sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sisters-in-law recorded.'
-                => '%2$s có %1$d chị dâu hoặc em dâu.',
+                => '%2$s có %1$d chị em dâu.',
             '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.'
-                => '%2$s có %1$d anh rể hoặc em rể.',
+                => '%2$s có %1$d anh em rể.',
             '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and ' 
                 => '%2$s có %1$d anh em rể và',
             '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).' 
@@ -3656,7 +3745,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has one male partner recorded.' => '%s có một người chồng.',
             '%s has one partner recorded.' => '%s có một vợ/chồng.',
             '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
-                => '%2$s có %1$d một người vợ.',
+                => '%2$s có %1$d người vợ.',
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
                 => '%2$s có %1$d một người chồng.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
@@ -3693,7 +3782,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
                 => '%d chị/em gái họ (tổng %d).',
 
-            'Nephews and Nieces' => 'Cháu (Là con của anh chị em ruột)',
+            'Nephews and Nieces' => 'Cháu (Là con của anh em trai ruột)',
             '%s has no nephews or nieces recorded.' => '%s không có thông tin về con của anh chị em ruột.',
             '%s has one niece recorded.' => '%s có một cháu gái.',
             '%s has one nephew recorded.' => '%s có một cháu trai.',
@@ -3720,6 +3809,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s có %1$d con trai và ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
                 => '%d con gái (tổng %d người con).',
+
+            'Children-in-law' => 'Con dâu và con rể',
+            '%s has no children-in-law recorded.' => '%s không có thông tin về con dâu và con rể.',
+            '%s has one daughter-in-law recorded.' => '%s có một con dâu.',
+            '%s has one son-in-law recorded.' => '%s có một con rể.',
+            '%s has one child-in-law recorded.' => '%s có con dâu hoặc con rể.',
+            '%2$s has %1$d daughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d daughters-in-law recorded.'
+                => '%2$s có %1$d con dâu.',
+            '%2$s has %1$d son-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sons-in-law recorded.'
+                => '%2$s có %1$d con rể.',
+            '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and ' 
+                => '%2$s có %1$d con rể và ',
+            '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).' 
+                => '%d con dâu (tổng %d).',
 
             'Grandchildren' => 'Cháu nội',
             '%s has no grandchildren recorded.' => '%s không có thông tin về cháu.',
