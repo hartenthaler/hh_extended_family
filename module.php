@@ -28,7 +28,6 @@
 /*
  * tbd: Offene Punkte
  * ------------------
- * enhancement: Filter für Partnerketten: ersetzen der Namen durch "not dead/living" bzw. "not male/female/unknown"
  * bug: Gruppierung der Gegenschwiegereltern der Stiefkinder ist für mich (I318) nicht korrekt
  * Familiengruppe Großeltern: Angabe "Familie des Vaters/der Mutter" stimmt nicht (etwa bei Konstantin-Niarchos-I7350)
  *
@@ -53,6 +52,7 @@
  * Code: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
  * Code: eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
  * Code: php-Klassen-Konzept verwenden
+ *
  * Test: Stiefcousins (siehe Onkel Walter)
  * Test: Schwagerehe (etwa Levirat oder Sororat)
  * Übersetzungen: auslagern in eigene Dateien
@@ -95,8 +95,6 @@ use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 
-// general functions
-//use function instanceof;
 // string functions
 use function ucfirst;
 use function str_replace;
@@ -134,7 +132,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.44';
+    public const CUSTOM_VERSION = '2.0.16.45';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -311,10 +309,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
             }
         }
-        
+
         $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
 
-       return $extfamObj;
+        return $extfamObj;
     }
 
     /**
@@ -340,12 +338,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function get_config(Individual $individual): object
     {
         $configObj = (object)[];
-        $configObj->showEmptyBlock   = $this->showEmptyBlock();
-        $configObj->showLabels       = $this->showLabels();
-        $configObj->useCompactDesign = $this->useCompactDesign();
-        $configObj->showThumbnail    = $this->showThumbnail( $individual->tree() );
-        $configObj->filterOptionDead = $this->filterOptionDead();
-        $configObj->filterOptionSex  = $this->filterOptionSex();
+        $configObj->showEmptyBlock    = $this->showEmptyBlock();
+        $configObj->showLabels        = $this->showLabels();
+        $configObj->useCompactDesign  = $this->useCompactDesign();
+        $configObj->showThumbnail     = $this->showThumbnail( $individual->tree() );
+        $configObj->showFilterOptions = $this->showFilterOptions();
+        $configObj->filterOptionDead  = $this->filterOptionDead();
+        $configObj->filterOptionSex   = $this->filterOptionSex();
         return $configObj;
     }
     
@@ -1272,10 +1271,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function filterAndAddCountersToFamilyPartObject( object $extendedFamilyPart, Individual $individual )
     {
-        if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::ANCESTORS) {
-            $this->filterAncestors($extendedFamilyPart);
-        } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::DESCENDANTS) {
-            $this->filterDescendants($extendedFamilyPart, $individual);
+        if ( $this->showFilterOptions() ) {
+            if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::ANCESTORS) {
+                $this->filterAncestors($extendedFamilyPart);
+            } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::DESCENDANTS) {
+                $this->filterDescendants($extendedFamilyPart, $individual);
+            }
+        }
+        if ($extendedFamilyPart->partName == 'partner_chains') {
+            $extendedFamilyPart->displayChains = $this->get_display_object_partner_chains($individual, $extendedFamilyPart);
         }
         $this->addCountersToFamilyPartObject( $extendedFamilyPart );
         return;
@@ -1509,7 +1513,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 foreach($extendedFamilyPart->chains as $chain) {
                     $this->filterPartnerChainsRecursive($chain);
                 }
-                $extendedFamilyPart->displayChains = $this->get_display_object_partner_chains($individual, $extendedFamilyPart);
             } else {
                 foreach ($extendedFamilyPart->groups as $group) {
                     foreach ($group->members as $key => $member) {
@@ -1526,6 +1529,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 unset($extendedFamilyPart->groups[$key]);
             }
         }
+
         return;
     }
 
@@ -1568,9 +1572,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function filterOptionDead(): string
     {
-        return 'only_dead';
+        //return 'only_dead';
         //return 'only_alive';
-        //return 'all';
+        return 'all';
     }
 
     /**
@@ -1581,9 +1585,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function filterOptionSex(): string
     {
         //return 'only_M';
-        return 'only_F';
+        //return 'only_F';
         //return 'only_U';
-        //return 'all';
+        return 'all';
     }
 
     /**
@@ -1853,6 +1857,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function listOfOtherPreferences(): array
     {
         return [
+            'show_filter_options',
             'show_empty_block',
             'show_short_name',
             'show_labels',
@@ -1947,6 +1952,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
            $sp[$efp] = $efpObj;
         }
         return $sp;
+    }
+        
+    /**
+     * should filter options be shown (user can filter by gender or alive/dead)
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool 
+     */
+    public function showFilterOptions(): bool
+    {
+        return ($this->getPreference('show_filter_options', '0') == '0') ? true : false;
     }
 
     /**
@@ -2441,7 +2457,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'In which sequence should the parts of the extended family be shown?' => 'In welcher Reihenfolge sollen die Teile der erweiterten Familie angezeigt werden?',
             'Family part' => 'Familienteil',
             'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
-			'How should empty parts of extended family be presented?' => 'Wie sollen leere Teile der erweiterten Familie angezeigt werden?',
+			'Show options to filter the results (gender and alive/dead)?' => 'Optionen zum Filtern der Ergebnisse anzeigen (Geschlecht und lebend/tot)?',
+            'Show filter options' => 'Zeige Filteroptionen',
+            'How should empty parts of extended family be presented?' => 'Wie sollen leere Teile der erweiterten Familie angezeigt werden?',
 			'Show empty block' => 'Zeige leere Familienteile',
 			'yes, always at standard location' => 'ja, immer am normalen Platz',
 			'no, but collect messages about empty blocks at the end' => 'nein, aber sammle Nachrichten über leere Familienteile am Ende',

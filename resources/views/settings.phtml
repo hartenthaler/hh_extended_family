@@ -66,6 +66,19 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
                 <?php endforeach ?>
             </tbody>
         </table>
+        
+        <h3><?= I18N::translate('Show options to filter the results (gender and alive/dead)?') ?></h3>
+        <!-- show filter options -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show filter options') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_filter_options', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_filter_options]) ?>
+                </div>
+            </div>
+        </fieldset>
 
         <h3><?= I18N::translate('How should empty parts of extended family be presented?') ?></h3>
         <!-- show empty block -->
@@ -121,6 +134,7 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
                 </div>
             </div>
         </fieldset>
+        
         <button type="submit" class="btn btn-primary">
             <?= view('icons/save') ?>
             <?= I18N::translate('save') ?>
