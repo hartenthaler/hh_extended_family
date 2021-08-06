@@ -132,7 +132,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.45';
+    public const CUSTOM_VERSION = '2.0.16.44';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -1573,7 +1573,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function filterOptionDead(): string
     {
         //return 'only_dead';
-        //return 'only_alive';
+        return 'only_alive';
         return 'all';
     }
 
