@@ -28,8 +28,7 @@
 /*
  * tbd: Offene Punkte
  * ------------------
- * bug: Gruppierung der Gegenschwiegereltern der Stiefkinder ist für mich (I318) nicht korrekt
- * Familiengruppe Großeltern: Angabe "Familie des Vaters/der Mutter" stimmt nicht (etwa bei Konstantin-Niarchos-I7350)
+ * Filteroptionen durch Nutzer statt durch Administrator ermöglichen
  *
  * siehe issues/enhancements in github
  *
@@ -377,7 +376,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         if ($parent instanceof Individual) {                                                    // Gen 1 P
             foreach ($parent->spouseFamilies() as $family1) {                                   // Gen 1 F
                 foreach ($family1->spouses() as $spouse) {                                      // Gen 1 P
-                    if (!($side == self::FAM_SIDE_FATHER and $spouse == $extendedFamilyPart->mother) and !($side == self::FAM_SIDE_MOTHER and $spouse == $extendedFamilyPart->father)) {
+                    if (!($side == self::FAM_SIDE_FATHER and $spouse == $extendedFamilyPart->mother) && !($side == self::FAM_SIDE_MOTHER and $spouse == $extendedFamilyPart->father)) {
                         foreach ($spouse->childFamilies() as $family1) {                        // Gen 2 F
                             foreach ($family1->spouses() as $spouse1) {                         // Gen 2 P
                                 foreach ($spouse1->spouseFamilies() as $family2) {              // Gen 2 F
@@ -574,10 +573,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                             foreach ($family3->spouses() as $stepchild_in_law) {                // Gen -1 P
                                 if ($stepchild_in_law !== $stepchild) {
                                     if ( ($stepchild_in_law->childFamilies()->first()) && ($stepchild_in_law->childFamilies()->first()->husband() instanceof Individual)) {        // husband() or wife() may not exist
-                                        $this->addIndividualToDescendantsFamily( $stepchild_in_law->childFamilies()->first()->husband(), $coParents_in_lawObj, $family2, null, self::GROUP_COPARENTSINLAW_STEP );
+                                        $this->addIndividualToDescendantsFamily( $stepchild_in_law->childFamilies()->first()->husband(), $coParents_in_lawObj, $family3, $stepchild, self::GROUP_COPARENTSINLAW_STEP );
                                     }
                                     if ( ($stepchild_in_law->childFamilies()->first()) && ($stepchild_in_law->childFamilies()->first()->wife() instanceof Individual)) {
-                                        $this->addIndividualToDescendantsFamily( $stepchild_in_law->childFamilies()->first()->wife(), $coParents_in_lawObj, $family2, null, self::GROUP_COPARENTSINLAW_STEP );
+                                        $this->addIndividualToDescendantsFamily( $stepchild_in_law->childFamilies()->first()->wife(), $coParents_in_lawObj, $family3, $stepchild, self::GROUP_COPARENTSINLAW_STEP );
                                     }
                                 }
                             }
@@ -1081,13 +1080,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     */
     private function addIndividualToAncestorsFamily(Individual $individual, object $extendedFamilyPart, string $side)
     {
+        //echo " Add ".$individual->fullName()." on ".$side." side.";
         if ($side == self::FAM_SIDE_MOTHER) {
             if ( in_array( $individual, $extendedFamilyPart->families->fatherAndMotherFamily )){
-                // already stored in father's and mother's array: do nothing
+                //echo "Already stored in father's and mother's array: do nothing";
             } elseif ( in_array( $individual, $extendedFamilyPart->families->fatherFamily )){
+                //echo "Already found in father's side, add to both sides";
                 $extendedFamilyPart->families->fatherAndMotherFamily[] = $individual;
                 unset($extendedFamilyPart->families->fatherFamily[array_search($individual,$extendedFamilyPart->families->fatherFamily)]);
             } elseif ( !in_array( $individual, $extendedFamilyPart->families->motherFamily ) ) {
+                //echo "ok, new to mother's family, add there";
                 $extendedFamilyPart->families->motherFamily[] = $individual;
             }
         } elseif ( !in_array( $individual, $extendedFamilyPart->families->fatherFamily ) ) {
@@ -1566,28 +1568,41 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * option to filter [all, only_dead, only_alive]
-     *
-     * @return string
-     */
-    private function filterOptionDead(): string
-    {
-        //return 'only_dead';
-        return 'only_alive';
-        return 'all';
-    }
-
-    /**
      * option to filter [all, only_M, only_F, only_U]
      *
      * @return string
      */
     private function filterOptionSex(): string
     {
-        //return 'only_M';
-        //return 'only_F';
-        //return 'only_U';
-        return 'all';
+        switch ($this->getPreference('filter_sex', '0')) {
+            case '1':
+                return 'only_M';
+            case '2':
+                return 'only_F';
+            case '3':
+                return 'only_U';
+            case '0':
+            default:
+                return 'all';
+        }
+    }
+
+    /**
+     * option to filter [all, only_dead, only_alive]
+     *
+     * @return string
+     */
+    private function filterOptionDead(): string
+    {
+        switch ($this->getPreference('filter_dead_alive', '0')) {
+            case '1':
+                return 'only_dead';
+            case '2':
+                return 'only_alive';
+            case '0':
+            default:
+                return 'all';
+        }
     }
 
     /**
@@ -1858,6 +1873,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         return [
             'show_filter_options',
+            'filter_sex',
+            'filter_dead_alive',
             'show_empty_block',
             'show_short_name',
             'show_labels',
@@ -2459,6 +2476,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
 			'Show options to filter the results (gender and alive/dead)?' => 'Optionen zum Filtern der Ergebnisse anzeigen (Geschlecht und lebend/tot)?',
             'Show filter options' => 'Zeige Filteroptionen',
+            'Filter results (should be made available to be used by user instead of admin):' => 'Filtere die Ergebnisse (sollte zur Verwendug durch die Nutzer statt durch den Administrator bereit gestellt werden)',
+            'Filter by gender' => 'Filtere nach Geschlecht',
+            'Filter by alive/dead' => 'Filtere nach lebend/verstorben',
             'How should empty parts of extended family be presented?' => 'Wie sollen leere Teile der erweiterten Familie angezeigt werden?',
 			'Show empty block' => 'Zeige leere Familienteile',
 			'yes, always at standard location' => 'ja, immer am normalen Platz',
@@ -2473,11 +2493,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design' => 'Kompaktes Design anwenden',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Das kompakte Design zeigt für jede Person nur den Namen und die Lebensspanne. Das angereicherte Design zeigt zusätzlich ein Foto (wenn dies für diesen Baum aktiviert ist) sowie Geburts- und Sterbeinformationen.',
 
-            'Show only male persons.' => 'Zeige nur männliche Personen.',
-            'Show only female persons.' => 'Zeige nur weibliche Personen.',
-            'Show only persons of unknown gender.' => 'Zeige nur Personen unbekannten Geschlechts.',
-            'Show only alive persons.' => 'Zeige nur Personen, die noch leben.',
-            'Show only dead persons.' => 'Zeige nur Personen, die bereits verstorben sind.',
+            'don\'t use this filter' => 'verwende diesen Filter nicht',
+            'show only male persons' => 'zeige nur männliche Personen',
+            'show only female persons' => 'zeige nur weibliche Personen',
+            'show only persons of unknown gender' => 'zeige nur Personen unbekannten Geschlechts',
+            'show only alive persons' => 'zeige nur Personen, die noch leben',
+            'show only dead persons' => 'zeige nur Personen, die bereits verstorben sind',
             'alive' => 'lebend',
             'dead' => 'verstorben',
             'a dead person' => 'eine verstorbende Person',
@@ -2651,6 +2672,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has no members of a partner chain recorded.' => 'Für %s sind keine Mitglieder einer Partnerkette verzeichnet.', 
             'There are %d branches in the partner chain. ' => 'Es gibt %d Zweige in der Partnerkette.',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Der längste Zweig in der Partnerkette zu %2$s besteht aus %1$d Partnern (einschließlich %3$s).',
+            'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'Der längste Zweig in der Partnerkette besteht aus %1$d Partnern (einschließlich %2$s).',
             '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
                 =>'%d Partnerin in dieser Partnerkette verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partnerinnen in dieser Partnerkette verzeichnet (insgesamt %d).',
             
