@@ -2261,6 +2261,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 return $this->frenchTranslations();             // tbd
             case 'he':
                 return $this->hebrewTranslations();             // tbd
+            case 'it':
+                return $this->italianTranslations();
             case 'lt':
                 return $this->lithuanianTranslations();         // tbd
             case 'nb':
@@ -3040,6 +3042,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * @return array
+     */
+    protected function italianTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+        ];
+    }
+
+    /**
      * tbd
      *
      * @return array
@@ -3548,7 +3560,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Filter results (should be made available to be used by user instead of admin):' => 'Результати фільтрації (мають бути доступними для користувача замість адміністратора):',
             'Filter by gender' => 'Фільтрувати за статтю',
             'Filter by alive/dead' => 'Фільтрувати за живими/мертвими',
-	    'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
+            'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об`єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
             'Show short name' => 'Показати коротку форму імені',
             'Show labels in special situations?' => 'Показувати мітки для особливих ситуацій?',
