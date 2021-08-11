@@ -3522,7 +3522,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'yes, always at standard location' => 'так, завжди на звичайному місці',
             'no, but collect messages about empty blocks at the end' => 'ні, але збирати повідомлення про порожні блоки в кінці',
             'never' => 'ніколи',
-            'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
+            'Show options to filter the results (gender and alive/dead)?' => 'Показати параметри фільтрації результатів (стать, живий/мертвий)?',
+            'Show filter options' => 'Показати параметри фільтрації',
+            'Filter results (should be made available to be used by user instead of admin):' => 'Результати фільтрації (мають бути доступними для користувача замість адміністратора):',
+            'Filter by gender' => 'Фільтрувати за статтю',
+            'Filter by alive/dead' => 'Фільтрувати за живими/мертвими',
+	    'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об`єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
             'Show short name' => 'Показати коротку форму імені',
             'Show labels in special situations?' => 'Показувати мітки для особливих ситуацій?',
@@ -3531,14 +3536,35 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design?' => 'Чи використовувати компактний дизайн?',
             'Use the compact design' => 'Застосувати компактний дизайн',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Компактний дизайн показує лише ім`я та тривалість життя для кожної людини. Розширений дизайн також містить фотографію (якщо це дозволено для цього дерева), а також дати народження та смерті.',
-            
+
+            'don\'t use this filter' => 'не використовувати цей фільтр',
+            'show only male persons' => 'показати тільки чоловіків',
+            'show only female persons' => 'показати тільки фінок',
+            'show only persons of unknown gender' => 'показати тільки персон з невідомою статтю',
+            'show only alive persons' => 'показати тільки живих',
+            'show only dead persons' => 'показати тільки померлих',
+            'alive' => 'живий',
+            'dead' => 'померлий',
+            'a dead person' => 'жива людина',
+            'a living person' => 'померла людина',
+            'not a male person' => 'не є чоловіком',
+            'not a female person' => 'не є жінкою',
+            'not a person of unknown gender' => 'не є персоною з невідомою статтю',
+		
             'Marriage' => 'Шлюб',
             'Ex-marriage' => 'Розвід',
             'Partnership' => 'Відносини',
             'Fiancée' => 'Заручини',
             ' with ' => ' із ',
+            'Co-parents-in-law of biological children' => 'Свати через рідних дітей',
+            'Co-parents-in-law of stepchildren' => 'Свати через прийомних дітей',
             'Biological children' => 'Рідні діти',
             'Stepchildren' => 'Прийомні діти',
+            'Stepchild' => 'Прийомна дитина',
+            'Stepson' => 'Пасинок',
+            'Stepdaughter' => 'Падчерка',
+            'Partners of biological children' => 'Пртнери рідних дітей',
+            'Partners of stepchildren' => 'Партнери прийомних дітей',
             'Biological grandchildren' => 'Рідні онуки',
             'Stepchildren of children' => 'Прийомні онуки від рідних дітей',
             'Children of stepchildren' => 'Онки від прийомних дітей',
@@ -3546,9 +3572,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Full siblings' => 'Рідні брати і сестри',
             'Half siblings' => 'Напіврідні брати і сестри',
             'Stepsiblings' => 'Зведені брати і сестри',
+            'Siblings of partners' => 'Брати і сестри партнерів',
+            'Partners of siblings' => 'Партнери братів і сестер',
             'Children of siblings' => 'Діти братів і сестер',
             'Siblings\' stepchildren' => 'Прийомні діти братів і сестер',
             'Children of siblings of partners' => 'Діти партнерів братів і сестер',
+		
             'He' => 'йому',
             'She' => 'їй',
             'He/she' => 'йому/їй',
@@ -3603,6 +3632,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s має %1$d запис про тестя або свекра і ' . I18N::PLURAL . '%2$s має %1$d записи про тестів або свекрів і ' . I18N::PLURAL . '%2$s має %1$d записів про тестів або свекрів і ',
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
                 => '%d тещу або свекруху (загалом %d).' . I18N::PLURAL . '%d тещі або свекрухи (загалом %d).' . I18N::PLURAL . '%d тещ або свекрух (загалом %d).',
+
+            'Co-parents-in-law' => 'Свати',
+            '%s has no co-parents-in-law recorded.' => '%s не має жодного запису про сватів.',
+            '%s has one co-mother-in-law recorded.' => '%s має один запис про сваху.',
+            '%s has one co-father-in-law recorded.' => '%s має один запис про свата.',
+            '%s has one co-parent-in-law recorded.' => '%s має один запис про свата або сваху.',
+            '%2$s has %1$d co-mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law recorded.'
+                => '%2$s має %1$d запис про сваху.' . I18N::PLURAL . '%2$s має %1$d записи про свах.' . I18N::PLURAL . '%2$s має %1$d записів про свах.',
+            '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.'
+                => '%2$s має %1$d запис про свата.' . I18N::PLURAL . '%2$s має %1$d записи про сватів.' . I18N::PLURAL . '%2$s має %1$d записів про сватів.',
+            '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
+                => '%2$s має %1$d запис про свата і ' . I18N::PLURAL . '%2$s має %1$d записи про сватів і ' . I18N::PLURAL . '%2$s має %1$d записів про сватів і ',
+            '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
+                => '%d сваху (загалом %d).' . I18N::PLURAL . '%d свахи (загалом %d).' . I18N::PLURAL . '%d свах (загалом %d).',
                         
             'Uncles and Aunts' => 'Дядьки і тітки',
             '%s has no uncles or aunts recorded.' => '%s не має жодного запису про дядьків і тіток.',
@@ -3622,7 +3665,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has no siblings recorded.' => '%s не має жодного запису про братів і сестер.',
             '%s has one sister recorded.' => '%s має запис про одну сестру.',
             '%s has one brother recorded.' => '%s має запис про одного брата.',
-            '%s has one brother or sister recorded.' => '%s має запис про одного брата чи сестру.',
+            '%s has one brother or sister recorded.' => '%s має запис про одну сестру або брата.',
             '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
                 => '%2$s має %1$d запис про сестру.' . I18N::PLURAL . '%2$s має %1$d записи про сестер.' . I18N::PLURAL . '%2$s має %1$d записів про сестер.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
@@ -3631,7 +3674,21 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s має %1$d запис про брата і ' . I18N::PLURAL . '%2$s має %1$d записи про братів і ' . I18N::PLURAL . '%2$s має %1$d записів про братів і ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
                 => '%d сестру (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).' . I18N::PLURAL . '%d сестер (загалом %d).',
-                                
+            
+            'Siblings-in-law' => 'Брати та сестри подружжя',
+            '%s has no siblings-in-law recorded.' => '%s не має записів про братів і сестер партнера.',
+            '%s has one sister-in-law recorded.' => '%s має запис про одну зовицю чи своячку.',
+            '%s has one brother-in-law recorded.' => '%s має запис про одного дівера чи шурина.',
+            '%s has one sibling-in-law recorded.' => '%s має запис про одну сестру або брата партнера.',
+            '%2$s has %1$d sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sisters-in-law recorded.'
+                => '%2$s має %1$d запис про зовицю чи своячку.' . I18N::PLURAL . '%2$s має %1$d записи про зовиць чи своячок.' . I18N::PLURAL . '%2$s має %1$d записів про зовиць чи своячок.',
+            '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.'
+                => '%2$s має %1$d запис про дівера чи шурина.' . I18N::PLURAL . '%2$s має %1$d записи про діверів чи шуринів.' . I18N::PLURAL . '%2$s має %1$d записів про діверів чи шуринів.',
+            '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and ' 
+                => '%2$s має %1$d запис про дівера чи шурина і ' . I18N::PLURAL . '%2$s має %1$d записи про діверів чи шуринів і ' . I18N::PLURAL . '%2$s має %1$d записів про діверів чи шуринів і ',
+            '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).' 
+                => '%d зовицю чи своячку (загалом %d).' . I18N::PLURAL . '%d зовиці чи своячки (загалом %d).' . I18N::PLURAL . '%d зовиць чи своячок (загалом %d).',
+                                 
             'Partners' => 'Партнери',
             'Partner of ' => 'Партнер для ',
             '%s has no partners recorded.' => '%s не має жодного запису про партнерів.',
@@ -3692,8 +3749,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
             'Children' => 'Діти',
             '%s has no children recorded.' => '%s не має жодного запису про дітей.',
-            '%s has one daughter recorded.' => '%s має запис про одного сина.',
-            '%s has one son recorded.' => '%s має запис про одну дочку.',
+            '%s has one daughter recorded.' => '%s має запис про одну дочку.',
+            '%s has one son recorded.' => '%s має запис про одного сина.',
             '%s has one child recorded.' => '%s запис про одну дитину.',
             '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
                 => '%2$s має %1$d запис про дочку.' . I18N::PLURAL . '%2$s має %1$d записи про дочок.' . I18N::PLURAL . '%2$s має %1$d записів про дочок.',
@@ -3703,6 +3760,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => '%2$s має %1$d запис про сина та ' . I18N::PLURAL . '%2$s має %1$d записи про синів і ' . I18N::PLURAL . '%2$s має %1$d записів про синів і ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
                 => '%d дочку (загалом %d).' . I18N::PLURAL . '%d дочок (загалом %d).' . I18N::PLURAL . '%d дочок (загалом %d).',
+
+            'Children-in-law' => 'Зяті й невістки',
+            '%s has no children-in-law recorded.' => '%s не має записів про зятів і невісток.',
+            '%s has one daughter-in-law recorded.' => '%s має запис про одну невістку.',
+            '%s has one son-in-law recorded.' => '%s має запис про одного зятя.',
+            '%s has one child-in-law recorded.' => '%s має запис про одного зятя або невістку.',
+            '%2$s has %1$d daughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d daughters-in-law recorded.'
+                => '%2$s має %1$d запис про невістку.' . I18N::PLURAL . '%2$s має %1$d записи про невісток.' . I18N::PLURAL . '%2$s має %1$d записів про невісток.',
+            '%2$s has %1$d son-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sons-in-law recorded.'
+                => '%2$s має %1$d запис про зятя.' . I18N::PLURAL . '%2$s має %1$d записи про зятів.' . I18N::PLURAL . '%2$s має %1$d записів про зятів.',
+            '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and ' 
+                => '%2$s має %1$d запис про зятя і ' . I18N::PLURAL . '%2$s має %1$d записи про зятів і ' . I18N::PLURAL . '%2$s має %1$d записів про зятів і ',
+            '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).' 
+                => '%d невістку (загалом %d).' . I18N::PLURAL . '%d невісток (загалом %d).' . I18N::PLURAL . '%d невісток (загалом %d).',
 
             'Grandchildren' => 'Онуки',
             '%s has no grandchildren recorded.' => '%s не має жодного запису про онуків.',
@@ -3732,13 +3803,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'In which sequence should the parts of the extended family be shown?' => 'Thứ tự các thành phần trong gia đình mở rộng được hiển thị?',
             'Family part' => 'Thành phần gia đình',
             'Show name of proband as short name or as full name?' => 'Hiển thị tên dưới dạng tên ngắn hay tên đầy đủ?',
-            'Show options to filter the results (gender and alive/dead)?' => 'Hiển thị các tùy chọn để lọc kết quả (giới tính và còn sống / đã mất)?',
-            'Show filter options' => 'Hiển thị các tùy chọn bộ lọc',
-            'Filter results (should be made available to be used by user instead of admin):' => 'Lọc kết quả (nên được cung cấp để người dùng sử dụng thay vì quản trị viên)',
-            'Filter by gender' => 'Lọc theo giới tính',
-            'Filter by alive/dead' => 'Lọc theo còn sống / đã mất',
-            'How should empty parts of extended family be presented?' => 'Các thành phần gia đình không có thông tin được trình bày như thế nào?',
             'Show empty block' => 'Hiển thị thành phần gia đình không có thông tin',
+            'How should empty parts of extended family be presented?' => 'Các thành phần gia đình không có thông tin được trình bày như thế nào?',
             'yes, always at standard location' => 'Luôn hiển thị',
             'no, but collect messages about empty blocks at the end' => 'Không, nhưng thu thập thông báo về các khối trống ở cuối',
             'never' => 'Không hiển thị',
@@ -3750,20 +3816,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design?' => 'Hiển thị các thông tin rút gọn?',
             'Use the compact design' => 'Áp dụng hiển thị thông tin rút gọn',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Hiển thị rút gọn chỉ ghi tên, năm sinh năm mất cho mỗi người. Hiển thị đầy đủ sẽ bao gồm một bức ảnh (nếu điều này được kích hoạt cho cây gia đình này) cũng như thông tin về ngày sinh, nơi sinh và ngày mất, nơi mất của một cá nhân.',
-
-            'don\'t use this filter' => 'không sử dụng bộ lọc này',
-            'show only male persons' => 'chỉ hiển thị giới tính nam',
-            'show only female persons' => 'chỉ hiển thị giới tính nữ',
-            'show only persons of unknown gender' => 'chỉ hiển thị những người có giới tính không xác định',
-            'show only alive persons' => 'chỉ hiển thị những người còn sống',
-            'show only dead persons' => 'chỉ hiển thị những người đã mất',
-            'alive' => 'còn sống',
-            'dead' => 'đã mất',
-            'a dead person' => 'một người đã mất',
-            'a living person' => 'một người còn sống',
-            'not a male person' => 'không có người giới tính nam',
-            'not a female person' => 'không có người giới tính nữ',
-            'not a person of unknown gender' => 'không có người không xác định giới tính',
 
             'Marriage' => 'Kết hôn',
             'Ex-marriage' => 'Kết hôn lại',
