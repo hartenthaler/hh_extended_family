@@ -3075,6 +3075,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'In which sequence should the parts of the extended family be shown?' => 'In welke volgorde moeten de delen van de uitgebreide familie worden weergegeven?',
             'Family part' => 'Familiedeel',
             'Show name of proband as short name or as full name?' => 'Naam van proband weergeven als korte naam of als volledige naam?',
+            'Show options to filter the results (gender and alive/dead)?' => 'Filteropties weergeven (geslacht, levend/overleden)?',
+            'Show filter options' => 'Filteropties weergeven',
+            'Filter results (should be made available to be used by user instead of admin):' => 'Filter resultaten (in een latere versie moet de gebruiker dit zelf kunnen bepalen)',
+            'Filter by gender' => 'Filter op geslacht',
+            'Filter by alive/dead' => 'Filter op levend/overleden',
             'How should empty parts of extended family be presented?' => 'Hoe moeten lege delen van de uitgebreide familie worden weergegeven?',
             'Show empty block' => 'Lege familiedelen weergeven',
             'yes, always at standard location' => 'ja, altijd op de standaardlocatie',
@@ -3088,6 +3093,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design?' => 'Compact ontwerp gebruiken?',
             'Use the compact design' => 'Gebruik compact ontwerp',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Het compacte ontwerp toont alleen de naam en de levensduur voor elke persoon. Het verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd), en geboorte- en overlijdensinformatie',
+
+            'don\'t use this filter' => 'gebruik dit filter niet',
+            'show only male persons' => 'alleen mannelijke personen weergeven',
+            'show only female persons' => 'alleen vrouwelijke personen weergeven',
+            'show only persons of unknown gender' => 'alleen personen van onbekend geslacht weergeven',
+            'show only alive persons' => 'alleen levende personen weergeven',
+            'show only dead persons' => 'alleen overleden personen weergeven',
+            'alive' => 'levend',
+            'dead' => 'overleden',
+            'a dead person' => 'een overleden persoon',
+            'a living person' => 'een levend persoon',
+            'not a male person' => 'geen mannelijk persoon',
+            'not a female person' => 'geen vrouwelijk persoon',
+            'not a person of unknown gender' => 'geen persoon van onbekend geslacht',
 
             'Marriage' => 'Huwelijk',
             'Ex-marriage' => 'Ex-huwelijk',
@@ -3115,6 +3134,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Stepchildren of children' => 'Stiefkinderen van kinderen',
             'Children of stepchildren' => 'Kinderen van stiefkinderen',
             'Stepchildren of stepchildren' => 'Stiefkinderen van stiefkinderen',
+
             'He' => 'hem',
             'She' => 'haar',
             'He/she' => 'hem/haar',
@@ -3253,6 +3273,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%s has no members of a partner chain recorded.' => 'Voor %s zijn geen leden van een partnerketen geregistreerd.', 
             'There are %d branches in the partner chain. ' => 'Er zijn %d takken in de partnerketen.',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s).',
+            'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s).',
             '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
                 =>'%d vrouwelijke partner in deze partnerketen geregistreerd (%d in totaal).' . I18N::PLURAL . '%d vrouwelijke partners in deze partnerketen geregistreerd (%d in totaal).',
 
