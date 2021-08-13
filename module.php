@@ -3218,7 +3218,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'In which sequence should the parts of the extended family be shown?' => 'In welke volgorde moeten de delen van de uitgebreide familie worden weergegeven?',
             'Family part' => 'Familiedeel',
             'Show name of proband as short name or as full name?' => 'Naam van proband weergeven als korte naam of als volledige naam?',
-            'Show options to filter the results (gender and alive/dead)?' => 'Filteropties weergeven (geslacht, levend/overleden)?',
+            'Show options to filter the results (gender and alive/dead)?' => 'Filteropties (geslacht en levend/overleden) weergeven?',
             'Show filter options' => 'Filteropties weergeven',
             'How should empty parts of extended family be presented?' => 'Hoe moeten lege delen van de uitgebreide familie worden weergegeven?',
             'Show empty block' => 'Lege familiedelen weergeven',
@@ -3253,6 +3253,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Relatie',
             'Fiancée' => 'Verloving',
             ' with ' => ' met ',
+            'Siblings-in-law of father' => 'Zwagers en schoonzussen van de vader',
+            'Siblings-in-law of mother' => 'Zwagers en schoonzussen van de moeder',
             'Parents-in-law of biological children' => 'Schoonouders van biologische kinderen',
             'Parents-in-law of stepchildren' => 'Schoonouders van stiefkinderen',
             'Full siblings' => 'Volle broers/zussen',
@@ -3314,6 +3316,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
                 => 'Voor %2$s zijn %1$d oom en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms en ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d tante geregistreerd (%d in totaal).' . I18N::PLURAL . '%d tantes geregistreerd (%d in totaal).',
+
+            'Uncles and Aunts by marriage' => 'Aangetrouwde ooms en tantes',
+            '%s has no uncles or aunts by marriage recorded.' => 'Voor %s zijn geen aangetrouwde ooms of tantes geregistreerd.',
+            '%s has one aunt by marriage recorded.' => 'Voor %s is een aangetrouwde tante geregistreerd.',
+            '%s has one uncle by marriage recorded.' => 'Voor %s is een aangetrouwde oom geregistreerd.',
+            '%s has one uncle or aunt by marriage recorded.' => 'Voor %s is een aangetrouwde oom of tante geregistreerd.',
+            '%2$s has %1$d aunt by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d aunts by marriage recorded.'
+                => 'Voor %2$s is %1$d aangetrouwde tante geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d aangetrouwde tantes geregistreerd.',
+            '%2$s has %1$d uncle by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d uncles by marriage recorded.'
+                => 'Voor %2$s is %1$d aangetrouwde oom geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d aangetrouwde ooms geregistreerd.',
+            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and ' 
+                => 'Voor %2$s zijn %1$d aangetrouwde oom en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d aangetrouwde ooms en ',
+            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).' 
                 => '%d tante geregistreerd (%d in totaal).' . I18N::PLURAL . '%d tantes geregistreerd (%d in totaal).',
 
             'Parents' => 'Ouders',
