@@ -40,6 +40,7 @@ The user can filter the shown results by gender and dead/alive persons.
 
 The admin can decide in the control panel 
 * which extended family parts should be shown and in which sequence they should be presented
+* if filter options should be presented for users
 * how empty parts of extended family should be presented
 * wheter the name of proband is a full name or a short version
 * wheter labels like "adopted" or "foster" should be used to indicate special situations
