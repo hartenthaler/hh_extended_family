@@ -28,9 +28,9 @@
 /*
  * tbd: Offene Punkte
  * ------------------
- * wenn mit Filter all "keine Familie gefunden", dann Filter-Bar ausblenden
  * alle Familienteile von ancestors nach descendants verschieben und diese Trennung komplett über Bord werfen
  * zum Initalisieren der Objekte in den Familienzweigen den Namen der Funktion nutzen
+ *
  * siehe issues/enhancements in github
  *
  * Familiengruppe Angeheiratete Onkel/Tanten: 2-stufuge Gruppierung einführen: etwa für Tamara: 1. Bruder Micha 2. Ehe U. und Partnerschaft S.
@@ -3977,8 +3977,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'In which sequence should the parts of the extended family be shown?' => 'Thứ tự các thành phần trong gia đình mở rộng được hiển thị?',
             'Family part' => 'Thành phần gia đình',
             'Show name of proband as short name or as full name?' => 'Hiển thị tên dưới dạng tên ngắn hay tên đầy đủ?',
-            'Show empty block' => 'Hiển thị thành phần gia đình không có thông tin',
+            'Show options to filter the results (gender and alive/dead)?' => 'Hiển thị các tùy chọn để lọc kết quả (giới tính và còn sống / đã mất)?',
+            'Show filter options' => 'Hiển thị các tùy chọn bộ lọc',
+            'Filter results (should be made available to be used by user instead of admin):' => 'Lọc kết quả (nên được cung cấp để người dùng sử dụng thay vì quản trị viên)',
+            'Filter by gender' => 'Lọc theo giới tính',
+            'Filter by alive/dead' => 'Lọc theo còn sống / đã mất',
             'How should empty parts of extended family be presented?' => 'Các thành phần gia đình không có thông tin được trình bày như thế nào?',
+            'Show empty block' => 'Hiển thị thành phần gia đình không có thông tin',
             'yes, always at standard location' => 'Luôn hiển thị',
             'no, but collect messages about empty blocks at the end' => 'Không, nhưng thu thập thông báo về các khối trống ở cuối',
             'never' => 'Không hiển thị',
@@ -3991,13 +3996,30 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Use the compact design' => 'Áp dụng hiển thị thông tin rút gọn',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'Hiển thị rút gọn chỉ ghi tên, năm sinh năm mất cho mỗi người. Hiển thị đầy đủ sẽ bao gồm một bức ảnh (nếu điều này được kích hoạt cho cây gia đình này) cũng như thông tin về ngày sinh, nơi sinh và ngày mất, nơi mất của một cá nhân.',
 
+            'don\'t use this filter' => 'không sử dụng bộ lọc này',
+            'show only male persons' => 'Chỉ hiển thị giới tính nam',
+            'show only female persons' => 'Chỉ hiển thị giới tính nữ',
+            'show only persons of unknown gender' => 'Chỉ hiển thị những người có giới tính không xác định',
+            'show only alive persons' => 'Chỉ hiển thị những người còn sống',
+            'show only dead persons' => 'Chỉ hiển thị những người đã mất',
+            'alive' => 'Chỉ hiển thị người còn sống',
+            'dead' => 'Chỉ hiện thì người đã mất',
+            'a dead person' => 'một người đã mất',
+            'a living person' => 'một người còn sống',
+            'not a male person' => 'không có người giới tính nam',
+            'not a female person' => 'không có người giới tính nữ',
+            'not a person of unknown gender' => 'không có người không xác định giới tính',
+
+
             'Marriage' => 'Kết hôn',
             'Ex-marriage' => 'Kết hôn lại',
             'Partnership' => 'Quan hệ hôn nhân',
             'Fiancée' => 'Hôn ước',
             ' with ' => ' với ',
+            'Siblings-in-law of father' => 'Anh chị em dâu rể của bố',
+            'Siblings-in-law of mother' => 'Anh chị em dâu rể của mẹ',
             'Parents-in-law of biological children' => 'Bố mẹ chồng của con đẻ',
-            'Parents-in-law of stepchildren' => 'Bố mẹ chồng của con riêng',
+            'Parents-in-law of stepchildren' => 'Bố mẹ chồng của con riêng',			
             'Full siblings' => 'Anh chị em ruột',
             'Half siblings' => 'Anh chị em cùng cha khác mẹ',
             'Stepsiblings' => 'Anh chị em kế',
@@ -4057,7 +4079,21 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
                 => '%2$s có %1$d bác trai hoặc chú và ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d bác gái hoặc cô (%d người).',
+                => '%d bác gái hoặc cô (có tất cả là %d người).',
+
+            'Uncles and Aunts by marriage' => 'Các bác rể/chú rể và các bác dâu/thím dâu',
+            '%s has no uncles or aunts by marriage recorded.' => '%s Không có bác rể/chú rể hoặc bác/thím dâu nào.',
+            '%s has one aunt by marriage recorded.' => '%s có một bác dâu hoặc thím dâu.',
+            '%s has one uncle by marriage recorded.' => '%s có một bác rể hoặc chú rể.',
+            '%s has one uncle or aunt by marriage recorded.' => '%s có một bác rể/chú rể hoặc bác dâu/thím dâu.',
+            '%2$s has %1$d aunt by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d aunts by marriage recorded.'
+                => '%2$s có %1$d bác dâu/thím dâu.',
+            '%2$s has %1$d uncle by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d uncles by marriage recorded.'
+                => '%2$s có %1$d bác rể/chú rể.',
+            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and ' 
+                => '%2$s có %1$d bác rể/chú rể và ',
+            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).' 
+                => '%d bác dâu/thím dâu (có tất cả là %d người).',
 
             'Parents' => 'Bố mẹ',
             '%s has no parents recorded.' => '%s không có thông tin về bố mẹ.',
@@ -4085,7 +4121,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
                 => '%2$s có %1$d bố chồng và ',
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
-                => '%d mẹ chồng (tổng %d).',
+                => '%d mẹ chồng (có tất cả là %d người).',
 
             'Co-parents-in-law' => 'Thông gia',
             '%s has no co-parents-in-law recorded.' => '%s không có thông tin về gia đình thông gia.',
@@ -4099,7 +4135,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
                 => '%2$s có %1$d ông thông gia và ',
             '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
-                => '%d bà thông gia (tổng %d).',
+                => '%d bà thông gia (có tất cả là %d người).',
 
             'Siblings' => 'Anh chị em ruột',
             '%s has no siblings recorded.' => '%s không có thông tin về anh chị em ruột.',
@@ -4113,7 +4149,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
                 => '%2$s có %1$d anh em trai và ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
-                => '%d chị em gái (tổng %d).', 
+                => '%d chị em gái (có tất cả là %d người).', 
 
             'Siblings-in-law' => 'Anh em rể và chị em dâu',
             '%s has no siblings-in-law recorded.' => '%s không có anh em rể hoặc chị em dâu.',
@@ -4127,7 +4163,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and ' 
                 => '%2$s có %1$d anh em rể và',
             '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).' 
-                => '%d chị em dâu (tổng %d).',
+                => '%d chị em dâu (có tất cả là %d người).',
                                 
             'Partners' => 'Vợ chồng',
             'Partner of ' => 'Vợ (chồng) của ',
@@ -4144,20 +4180,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
                 => '%2$s có %1$d một người vợ và ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
-                => '%d một người vợ (tổng %d).',
+                => '%d một người vợ (%d người).',
             '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
                 => '%2$s có %1$d một người vợ/chồng và ',
             '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'
-                => '%d chồng của những người vợ (tổng %d).',
+                => '%d chồng của những người vợ (có tất cả là %d người).',
             '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'
-                => '%d vợ của những người chồng (tổng %d).',
+                => '%d vợ của những người chồng (có tất cả là %d người).',
 
             'Partner chains' => 'Chuỗi đối tác',
             '%s has no members of a partner chain recorded.' => '%s không có thành viên nào của chuỗi đối tác.', 
             'There are %d branches in the partner chain. ' => 'Có %d nhánh trong chuỗi đối tác.',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Nhánh dài nhất trong chuỗi đối tác đến %2$s bao gồm %1$d đối tác (kể cả %3$s).',
             '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
-                =>'%d đối tác nữ trong chuỗi đối tác này (tổng %d).',
+                =>'%d đối tác nữ trong chuỗi đối tác này (có tất cả là %d người).',
            
             'Cousins' => 'Anh chị em họ',
             '%s has no first cousins recorded.' => '%s không có thông tin về anh em họ.',
@@ -4171,7 +4207,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
                 => '%2$s có %1$d anh/em trai họ và ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
-                => '%d chị/em gái họ (tổng %d).',
+                => '%d chị/em gái họ (có tất cả là %d người).',
 
             'Nephews and Nieces' => 'Cháu (Là con của anh em trai ruột)',
             '%s has no nephews or nieces recorded.' => '%s không có thông tin về con của anh chị em ruột.',
@@ -4185,7 +4221,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
                 => '%2$s có %1$d cháu trai và',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
-                => '%d cháu gái (tổng %d).',
+                => '%d cháu gái có tất cả là (có có tất cả là %d người).',
 
             'Children' => 'Con',
             '%s has no children recorded.' => '%s không có thông tin về con cái.',
@@ -4199,7 +4235,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
                 => '%2$s có %1$d con trai và ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
-                => '%d con gái (tổng %d người con).',
+                => '%d con gái (có tất cả là %d người con).',
 
             'Children-in-law' => 'Con dâu và con rể',
             '%s has no children-in-law recorded.' => '%s không có thông tin về con dâu và con rể.',
@@ -4213,7 +4249,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and ' 
                 => '%2$s có %1$d con rể và ',
             '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).' 
-                => '%d con dâu (tổng %d).',
+                => '%d con dâu (có tất cả là %d người).',
 
             'Grandchildren' => 'Cháu nội',
             '%s has no grandchildren recorded.' => '%s không có thông tin về cháu.',
@@ -4227,7 +4263,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
                 => '%2$s có %1$d cháu trai và ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
-                => '%d cháu gái (tổng %d).',
+                => '%d cháu gái (có tất cả là %d người).',
         ];
     }
 }

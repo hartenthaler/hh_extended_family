@@ -6,7 +6,7 @@
  ?>
  
 <div class="wt-tab-hh-extended-family py-4">
-    <?php if ($extfam_obj->config->showFilterOptions): ?>
+    <?php if ( $extfam_obj->config->showFilterOptions && ($extfam_obj->filter['all']->efp->allCount > 0) ): ?>
         <table>
             <tr>
                 <div class="btn-toolbar d-flex justify-content-between mb-2" role="toolbar">
