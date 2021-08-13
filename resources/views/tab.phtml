@@ -807,7 +807,7 @@
   newSheet.setAttribute("href","<?= $extended_family_css ?>");
   document.head.appendChild(newSheet);
   
-  // initial status: show all (and filter reset)
+  // initial status: show only "all" (and filter reset)
   sessionStorage.removeItem('sexFilterValue');
   sessionStorage.removeItem('aliveFilterValue');
   $(".hh-extended-filter[data-filter-value='MY']").addClass('d-none');

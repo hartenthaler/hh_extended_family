@@ -28,8 +28,12 @@
 /*
  * tbd: Offene Punkte
  * ------------------
+ * wenn mit Filter all "keine Familie gefunden", dann Filter-Bar ausblenden
+ * alle Familienteile von ancestors nach descendants verschieben und diese Trennung komplett über Bord werfen
+ * zum Initalisieren der Objekte in den Familienzweigen den Namen der Funktion nutzen
  * siehe issues/enhancements in github
  *
+ * Familiengruppe Angeheiratete Onkel/Tanten: 2-stufuge Gruppierung einführen: etwa für Tamara: 1. Bruder Micha 2. Ehe U. und Partnerschaft S.
  * Familiengruppe Schwäger und Schwägerinnen: Ergänzen der vollbürtigen Geschwister um halbbürtige und Stiefgeschwister
  * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt sein sollte
  * Familiengruppe Partnerketten: grafische Anzeige statt Textketten
