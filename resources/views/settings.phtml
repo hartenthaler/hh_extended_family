@@ -79,30 +79,6 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
                 </div>
             </div>
         </fieldset>
-
-        <h3><?= I18N::translate('Filter results (should be made available to be used by user instead of admin):') ?></h3>
-        <!-- select by gender -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Filter by gender') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/select', ['name' => 'filter_sex', 'options' => [I18N::translate('don\'t use this filter'), I18N::translate('show only male persons'), I18N::translate('show only female persons'), I18N::translate('show only persons of unknown gender')], 'selected' => (int)$filter_sex]) ?>
-                </div>
-            </div>
-        </fieldset>
-        
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Filter by alive/dead') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/select', ['name' => 'filter_dead_alive', 'options' => [I18N::translate('don\'t use this filter'), I18N::translate('show only dead persons'), I18N::translate('show only alive persons')], 'selected' => (int)$filter_dead_alive]) ?>
-                </div>
-            </div>
-        </fieldset>
         
         <h3><?= I18N::translate('How should empty parts of extended family be presented?') ?></h3>
         <!-- show empty block -->

@@ -28,8 +28,6 @@
 /*
  * tbd: Offene Punkte
  * ------------------
- * Filteroptionen durch Nutzer statt durch Administrator ermöglichen
- *
  * siehe issues/enhancements in github
  *
  * Familiengruppe Schwäger und Schwägerinnen: Ergänzen der vollbürtigen Geschwister um halbbürtige und Stiefgeschwister
@@ -131,7 +129,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
     
-    public const CUSTOM_VERSION = '2.0.16.44';
+    public const CUSTOM_VERSION = '2.0.16.45';
 
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
@@ -148,9 +146,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const FAM_STATUS_MARRIAGE    = 'Marriage';
     public const FAM_STATUS_FIANCEE     = 'Fiancée';
     public const FAM_STATUS_PARTNERSHIP = 'Partnership';
-    
-    public const GROUP_COPARENTSINLAW_BIO  = 'Co-parents-in-law of biological children';
-    public const GROUP_COPARENTSINLAW_STEP = 'Co-parents-in-law of stepchildren';
+
+    public const GROUP_UNCLEAUNTBM_FATHER  = 'Siblings-in-law of father';
+    public const GROUP_UNCLEAUNTBM_MOTHER = 'Siblings-in-law of mother';
+
+    public const GROUP_COPARENTSINLAW_BIO  = 'Parents-in-law of biological children';
+    public const GROUP_COPARENTSINLAW_STEP = 'Parents-in-law of stepchildren';
     
     public const GROUP_SIBLINGS_FULL = 'Full siblings';
     public const GROUP_SIBLINGS_HALF = 'Half siblings';          // including more than half siblings (if parents are related to each other)
@@ -179,11 +180,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return array
      */
-    private function listOfFamilyParts(): array         // new elements can be added, but not changed or deleted
+    private function listOfFamilyParts(): array         // new elements can be added, but not changed or deleted; names of elements should be shorter than 25 characters
     {    
         return [
             'grandparents',                             // generation +2
             'uncles_and_aunts',                         // generation +1
+            'uncles_and_aunts_bm',                      // generation +1
             'parents',                                  // generation +1
             'parents_in_law',                           // generation +1
             'co_parents_in_law',                        // generation  0           
@@ -204,114 +206,120 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @param Individual $individual
      *
-     * @return object
-     *  ->config->showEmptyBlock                                int [0,1,2]
-     *          ->showLabels                                    bool
-     *          ->useCompactDesign                              bool
-     *          ->showThumbnail                                 bool
-     *          ->fiterOptionDead                               string
-     *          ->filterOptionSex                               string
-     *  ->self->indi                                            object individual
-     *        ->niceName                                        string
-     *        ->label                                           string
-     *  ->efp->allCount                                         int
-     *       ->summaryMessageEmptyBlocks                        string
-     *       ->grandparents->father                             object individual
-     *                     ->mother                             object individual
-     *                     ->families->fatherFamily[]           array of object individual 
-     *                               ->motherFamily[]           array of object individual
-     *                               ->fatherAndMotherFamily[]  array of object individual    
-     *                     ->fathersFamilyCount                 int
-     *                     ->mothersFamilyCount                 int
-     *                     ->fathersAndMothersFamilyCount       int    
-     *                     ->fathersMaleCount                   int
-     *                     ->fathersFemaleCount                 int
-     *                     ->mothersMaleCount                   int
-     *                     ->mothersFemaleCount                 int    
-     *                     ->fathersAndMothersMaleCount         int
-     *                     ->fathersAndMothersFemaleCount       int
-     *                     ->maleCount                          int    
-     *                     ->femaleCount                        int
-     *                     ->allCount                           int
-     *                     ->partName                           string
-	 *					   ->partName_translated				string
-	 *					   ->type								string
-     *       ->uncles_and_aunts                                 see grandparents
-     *       ->parents                                          see grandparents
-     *       ->parents_in_law->groups[]->members[]              array of object individual   (index of groups is int)
-     *                                 ->family                 object family
-     *                                 ->familyStatus           string
-     *                                 ->partner                object individual
-     *                       ->maleCount                        int    
-     *                       ->femaleCount                      int
-     *                       ->allCount                         int
-     *                       ->partName                         string
-	 *					   	 ->partName_translated			    string
-	 *					   	 ->type						        string
-     *       ->co_parents_in_law                                see children
-     *       ->partners->groups[]->members[]                    array of object individual   (index of groups is XREF)
-     *                           ->partner                      object individual
-     *                 ->pCount                                 int
-     *                 ->pmaleCount                             int
-     *                 ->pfemaleCount                           int
-     *                 ->popCount                               int
-     *                 ->popmaleCount                           int
-     *                 ->popfemaleCount                         int
-     *                 ->maleCount                              int    
-     *                 ->femaleCount                            int
-     *                 ->allCount                               int
-     *                 ->partName                               string
-	 *				   ->partName_translated			        string
-	 *				   ->type							        string
-     *       ->partner_chains->chains[]                         array of object (tree of marriage chain nodes)
-     *                       ->displayChains[]                  array of chain (array of chainPerson objects)
-     *                       ->chainsCount                      int (number of chains)
-     *                       ->longestChainCount                int
-     *                       ->mostDistantPartner               individual (first one if there are more than one)
-     *                       ->maleCount                        int    
-     *                       ->femaleCount                      int
-     *                       ->allCount                         int
-     *                       ->partName                         string
-     *				         ->partName_translated			    string
-     *				         ->type							    string
-     *       ->siblings                                         see children 
-     *       ->siblings_in_law                                  see children
-     *       ->cousins                                          see grandparents
-     *       ->nephews_and_nieces                               see children
-     *       ->children->groups[]->members[]                    array of object individual   (index of groups is groupName)
-     *                           ->labels[]                     array of string
-     *                           ->families[]                   array of object
-     *                           ->familiesStatus[]             string
-     *                           ->groupName                    string
-     *                 ->maleCount                              int    
-     *                 ->femaleCount                            int
-     *                 ->allCount                               int
-     *                 ->partName                               string
-     *				   ->partName_translated			        string
-     *				   ->type							        string
-     *       ->children_in_law                                  see children
-     *       ->grandchildren                                    see children
+     * @return object                                           
+     *  ->config->showEmptyBlock                                        int [0,1,2]
+     *          ->showLabels                                            bool
+     *          ->useCompactDesign                                      bool
+     *          ->showThumbnail                                         bool
+     *          ->filterOptions                                         array of string
+     *  ->self->indi                                                    object individual
+     *        ->niceName                                                string
+     *        ->label                                                   string
+     *  ->filter[]                                                      array of object (index is string filteroption)
+     *          ->efp->allCount                                         int
+     *               ->summaryMessageEmptyBlocks                        string
+     *               ->grandparents->father                             object individual
+     *                             ->mother                             object individual
+     *                             ->families->fatherFamily[]           array of object individual 
+     *                                       ->motherFamily[]           array of object individual
+     *                                       ->fatherAndMotherFamily[]  array of object individual    
+     *                             ->fathersFamilyCount                 int
+     *                             ->mothersFamilyCount                 int
+     *                             ->fathersAndMothersFamilyCount       int    
+     *                             ->fathersMaleCount                   int
+     *                             ->fathersFemaleCount                 int
+     *                             ->mothersMaleCount                   int
+     *                             ->mothersFemaleCount                 int    
+     *                             ->fathersAndMothersMaleCount         int
+     *                             ->fathersAndMothersFemaleCount       int
+     *                             ->maleCount                          int    
+     *                             ->femaleCount                        int
+     *                             ->allCount                           int
+     *                             ->partName                           string
+     *        					   ->partName_translated				string
+     *        					   ->type								string
+     *               ->uncles_and_aunts                                 see grandparents
+     *               ->uncles_and_aunts_bm                              see children
+     *               ->parents                                          see grandparents
+     *               ->parents_in_law->groups[]->members[]              array of object individual   (index of groups is int)
+     *                                         ->family                 object family
+     *                                         ->familyStatus           string
+     *                                         ->partner                object individual
+     *                               ->maleCount                        int    
+     *                               ->femaleCount                      int
+     *                               ->allCount                         int
+     *                               ->partName                         string
+     *        					   	 ->partName_translated			    string
+     *        					   	 ->type						        string
+     *               ->co_parents_in_law                                see children
+     *               ->partners->groups[]->members[]                    array of object individual   (index of groups is XREF)
+     *                                   ->partner                      object individual
+     *                         ->pCount                                 int
+     *                         ->pmaleCount                             int
+     *                         ->pfemaleCount                           int
+     *                         ->popCount                               int
+     *                         ->popmaleCount                           int
+     *                         ->popfemaleCount                         int
+     *                         ->maleCount                              int    
+     *                         ->femaleCount                            int
+     *                         ->allCount                               int
+     *                         ->partName                               string
+     *        				   ->partName_translated			        string
+     *        				   ->type							        string
+     *               ->partner_chains->chains[]                         array of object (tree of marriage chain nodes)
+     *                               ->displayChains[]                  array of chain (array of chainPerson objects)
+     *                               ->chainsCount                      int (number of chains)
+     *                               ->longestChainCount                int
+     *                               ->mostDistantPartner               individual (first one if there are more than one)
+     *                               ->maleCount                        int    
+     *                               ->femaleCount                      int
+     *                               ->allCount                         int
+     *                               ->partName                         string
+     *        				         ->partName_translated			    string
+     *        				         ->type							    string
+     *               ->siblings                                         see children 
+     *               ->siblings_in_law                                  see children
+     *               ->cousins                                          see grandparents
+     *               ->nephews_and_nieces                               see children
+     *               ->children->groups[]->members[]                    array of object individual   (index of groups is groupName)
+     *                                   ->labels[]                     array of string
+     *                                   ->families[]                   array of object
+     *                                   ->familiesStatus[]             string
+     *                                   ->groupName                    string
+     *                         ->maleCount                              int    
+     *                         ->femaleCount                            int
+     *                         ->allCount                               int
+     *                         ->partName                               string
+     *        				   ->partName_translated			        string
+     *        				   ->type							        string
+     *               ->children_in_law                                  see children
+     *               ->grandchildren                                    see children
      */
     private function getExtendedFamily(Individual $individual): object
     {
-        $extfamObj = (object)[];
-        $extfamObj->config = $this->get_config( $individual );
-        $extfamObj->self = $this->get_self( $individual );
-        $extfamObj->efp = (object)[];
-        $extfamObj->efp->allCount = 0;
-
-        $efps = $this->showFamilyParts();
-        foreach ($efps as $efp => $value) {
-            if ( $efps[$efp]->enabled ) {
-                $extfamObj->efp->$efp = $this->callFunction( 'get_' . $efp, $individual );
-                $this->filterAndAddCountersToFamilyPartObject( $extfamObj->efp->$efp, $individual );
-                $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
+        $obj = (object)[];
+        $obj->config = $this->get_config( $individual );
+        $obj->self = $this->get_self( $individual );
+        
+        $filter = [];
+        foreach ($obj->config->filterOptions as $filterOption) {
+            $extfamObj = (object)[];
+            $extfamObj->efp = (object)[];
+            $extfamObj->efp->allCount = 0;
+            $efps = $this->showFamilyParts();
+            foreach ($efps as $efp => $value) {
+                if ( $efps[$efp]->enabled ) {
+                    $extfamObj->efp->$efp = $this->callFunction( 'get_' . $efp, $individual );
+                    $this->filterAndAddCountersToFamilyPartObject( $extfamObj->efp->$efp, $individual, $filterOption );
+                    $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
+                }
             }
+            $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj, $obj->self->niceName);
+            $filter[$filterOption] = $extfamObj;
         }
-
-        $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
-
-        return $extfamObj;
+        
+        $obj->filter = $filter;
+        return $obj;
     }
 
     /**
@@ -337,13 +345,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function get_config(Individual $individual): object
     {
         $configObj = (object)[];
-        $configObj->showEmptyBlock    = $this->showEmptyBlock();
-        $configObj->showLabels        = $this->showLabels();
-        $configObj->useCompactDesign  = $this->useCompactDesign();
-        $configObj->showThumbnail     = $this->showThumbnail( $individual->tree() );
-        $configObj->showFilterOptions = $this->showFilterOptions();
-        $configObj->filterOptionDead  = $this->filterOptionDead();
-        $configObj->filterOptionSex   = $this->filterOptionSex();
+        $configObj->showEmptyBlock     = $this->showEmptyBlock();
+        $configObj->showLabels         = $this->showLabels();
+        $configObj->useCompactDesign   = $this->useCompactDesign();
+        $configObj->showThumbnail      = $this->showThumbnail( $individual->tree() );
+        $configObj->showFilterOptions  = $this->showFilterOptions();
+        $configObj->filterOptions      = $this->getFilterOptions();
+
         return $configObj;
     }
     
@@ -420,7 +428,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * Find uncles and aunts for one side including uncles and aunts by marriage
+     * Find uncles and aunts for one side (not including uncles and aunts by marriage)
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
      * @param string family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
@@ -434,23 +442,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                  foreach ($grandparent->spouseFamilies() as $family2) {                 // Gen 2 F
                     foreach ($family2->children() as $uncleaunt) {                      // Gen 1 P
                         if($uncleaunt !== $parent) {
-                            //foreach ($uncleaunt->spouseFamilies() as $family3) {      // Gen 1 F    tbd: designed to include uncles/aunts by marriage; but how to group them with their partner in tab.html?
-                                //foreach ($family3->spouses() as $uncleaunt2) {        // Gen 1 P
-                                    $this->addIndividualToAncestorsFamily( $uncleaunt, $extendedFamilyPart, $side );
-                                //}
-                            //}
+                            $this->addIndividualToAncestorsFamily( $uncleaunt, $extendedFamilyPart, $side );
                         }
                     }
                  }
               }
            }
         }
-        
         return;
     }
     
     /**
-     * Find uncles and aunts
+     * Find uncles and aunts (not including uncles and aunts by marriage)
      *
      * @param Individual $individual
      *
@@ -465,6 +468,58 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $unclesAuntsObj->mother = $individual->childFamilies()->first()->wife();
             $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_FATHER);
             $this->get_uncles_and_auntsOneSide( $unclesAuntsObj, self::FAM_SIDE_MOTHER);
+        }
+
+        return $unclesAuntsObj;
+    }
+
+    /**
+     * Find uncles and aunts by marriage for one side
+     *
+     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param Individual parent
+     * @param string family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
+     */
+    private function get_uncles_and_aunts_bmOneSide(object $extendedFamilyPart, Individual $parent, string $side)
+    {
+        foreach ($parent->childFamilies() as $family1) {                             // Gen 2 F
+            foreach ($family1->spouses() as $grandparent) {                           // Gen 2 P
+                foreach ($grandparent->spouseFamilies() as $family2) {                 // Gen 2 F
+                    foreach ($family2->children() as $uncleaunt) {                      // Gen 1 P
+                        if($uncleaunt !== $parent) {
+                            foreach ($uncleaunt->spouseFamilies() as $family3) {        // Gen 1 F    
+                                foreach ($family3->spouses() as $uncleaunt2) {          // Gen 1 P
+                                    if($uncleaunt2 !== $uncleaunt) {
+                                        $this->addIndividualToDescendantsFamily( $uncleaunt2, $extendedFamilyPart, $family3, $uncleaunt, $side );
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return;
+    }
+    
+    /**
+     * Find uncles and aunts by marriage
+     *
+     * @param Individual $individual
+     *
+     * @return object
+     */
+    private function get_uncles_and_aunts_bm(Individual $individual): object
+    {
+        $unclesAuntsObj = $this->initializedFamilyPartObject('uncles_and_aunts_bm');
+        
+        if ($individual->childFamilies()->first()) {
+            if ($individual->childFamilies()->first()->husband() instanceof Individual) {
+                $this->get_uncles_and_aunts_bmOneSide( $unclesAuntsObj, $individual->childFamilies()->first()->husband(), self::GROUP_UNCLEAUNTBM_FATHER);
+            }
+            if ($individual->childFamilies()->first()->wife() instanceof Individual) {
+                $this->get_uncles_and_aunts_bmOneSide( $unclesAuntsObj, $individual->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNTBM_MOTHER);
+            }
         }
 
         return $unclesAuntsObj;
@@ -1064,6 +1119,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             case 'grandparents':
             case 'parents':
             case 'uncles_and_aunts':
+            //case 'uncles_and_aunts_bm':
             case 'cousins': 
                 return self::ANCESTORS;
             default:
@@ -1118,6 +1174,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function addIndividualToDescendantsFamily(Individual $individual, object $extendedFamilyPart, object $family, Individual $referencePerson = null, string $groupName = '' )
     {
         $efp_groups = [                     // family parts which are using "groups" and "labels"
+            'uncles_and_aunts_bm',
             'co_parents_in_law',
             'siblings',
             'siblings_in_law',
@@ -1270,14 +1327,16 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * filter individuals and count them per family or per group and per sex
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param Individual
+     * @param string filterOption
      */
-    private function filterAndAddCountersToFamilyPartObject( object $extendedFamilyPart, Individual $individual )
+    private function filterAndAddCountersToFamilyPartObject( object $extendedFamilyPart, Individual $individual, $filterOption )
     {
-        if ( $this->showFilterOptions() ) {
+        if ( $filterOption !== 'all' ) {
             if ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::ANCESTORS) {
-                $this->filterAncestors($extendedFamilyPart);
+                $this->filterAncestors( $extendedFamilyPart, $this->filterOptions($filterOption) );
             } elseif ($this->typeOfFamilyPart($extendedFamilyPart->partName) == self::DESCENDANTS) {
-                $this->filterDescendants($extendedFamilyPart, $individual);
+                $this->filterDescendants( $extendedFamilyPart, $individual, $this->filterOptions($filterOption) );
             }
         }
         if ($extendedFamilyPart->partName == 'partner_chains') {
@@ -1464,36 +1523,36 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * filter individuals in family parts of type ANCESTORS
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param array of string filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
      */
-    private function filterAncestors( object $extendedFamilyPart )
+    private function filterAncestors( object $extendedFamilyPart, $filterOptions )
     {
-        list ($filterDead, $filterSex ) = $this->filterOptions();
-        if ( ($filterDead !== 'all') || ($filterSex !== 'all') ) {
+        if ( ($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all') ) {
             /*
             foreach ( $extendedFamilyPart->families as $familypart) {
                 foreach ($familypart as $key => $member) {
-                    if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
-                         ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
+                    if ( ($filterOptions['alive'] == 'only_alive' && $member->isDead()) || ($filterOptions['alive'] == 'only_dead' && !$member->isDead()) ||
+                         ($filterOptions['sex'] == 'only_M' && $member->sex() !== 'M') || ($filterOptions['sex'] == 'only_F' && $member->sex() !== 'F') || ($filterOptions['sex'] == 'only_U' && $member->sex() !== 'U') ) {
                         unset($familypart[$key]);
                     }
                 }
             }
             */
             foreach ($extendedFamilyPart->families->fatherFamily as $key => $member) {
-                if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
-                     ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
+                if ( ($filterOptions['alive'] == 'only_alive' && $member->isDead()) || ($filterOptions['alive'] == 'only_dead' && !$member->isDead()) ||
+                     ($filterOptions['sex'] == 'only_M' && $member->sex() !== 'M') || ($filterOptions['sex'] == 'only_F' && $member->sex() !== 'F') || ($filterOptions['sex'] == 'only_U' && $member->sex() !== 'U') ) {
                     unset($extendedFamilyPart->families->fatherFamily[$key]);
                 }
             }
             foreach ($extendedFamilyPart->families->motherFamily as $key => $member) {
-                if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
-                     ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
+                if ( ($filterOptions['alive'] == 'only_alive' && $member->isDead()) || ($filterOptions['alive'] == 'only_dead' && !$member->isDead()) ||
+                     ($filterOptions['sex'] == 'only_M' && $member->sex() !== 'M') || ($filterOptions['sex'] == 'only_F' && $member->sex() !== 'F') || ($filterOptions['sex'] == 'only_U' && $member->sex() !== 'U') ) {
                     unset($extendedFamilyPart->families->motherFamily[$key]);
                 }
             }
             foreach ($extendedFamilyPart->families->fatherAndMotherFamily as $key => $member) {
-                if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
-                     ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
+                if ( ($filterOptions['alive'] == 'only_alive' && $member->isDead()) || ($filterOptions['alive'] == 'only_dead' && !$member->isDead()) ||
+                     ($filterOptions['sex'] == 'only_M' && $member->sex() !== 'M') || ($filterOptions['sex'] == 'only_F' && $member->sex() !== 'F') || ($filterOptions['sex'] == 'only_U' && $member->sex() !== 'U') ) {
                     unset($extendedFamilyPart->families->fatherAndMotherFamily[$key]);
                 }
             }
@@ -1506,20 +1565,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
      * @param individual (proband)
+     * @param array of string filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
      */
-    private function filterDescendants( object $extendedFamilyPart, Individual $individual )
+    private function filterDescendants( object $extendedFamilyPart, Individual $individual, $filterOptions )
     {
-        list ($filterDead, $filterSex ) = $this->filterOptions();
-        if ( ($filterDead !== 'all') || ($filterSex !== 'all') ) {
+        if ( ($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all') ) {
             if ($extendedFamilyPart->partName == 'partner_chains') {
                 foreach($extendedFamilyPart->chains as $chain) {
-                    $this->filterPartnerChainsRecursive($chain);
+                    $this->filterPartnerChainsRecursive($chain, $filterOptions);
                 }
             } else {
                 foreach ($extendedFamilyPart->groups as $group) {
                     foreach ($group->members as $key => $member) {
-                        if ( ($filterDead == 'only_alive' && $member->isDead()) || ($filterDead == 'only_dead' && !$member->isDead()) ||
-                             ($filterSex == 'only_M' && $member->sex() !== 'M') || ($filterSex == 'only_F' && $member->sex() !== 'F') || ($filterSex == 'only_U' && $member->sex() !== 'U') ) {
+                        if ( ($filterOptions['alive'] == 'only_alive' && $member->isDead()) || ($filterOptions['alive'] == 'only_dead' && !$member->isDead()) ||
+                             ($filterOptions['sex'] == 'only_M' && $member->sex() !== 'M') || ($filterOptions['sex'] == 'only_F' && $member->sex() !== 'F') || ($filterOptions['sex'] == 'only_U' && $member->sex() !== 'U') ) {
                             unset($group->members[$key]);
                         }
                     }
@@ -1539,28 +1598,28 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * filter individuals in family parts of type DESCENDANTS
      *
      * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param array of string filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
      */
-    private function filterPartnerChainsRecursive( object $node )
+    private function filterPartnerChainsRecursive( object $node, array $filterOptions )
     {
-        list ($filterDead, $filterSex ) = $this->filterOptions();
-        if ( ($filterDead !== 'all') || ($filterSex !== 'all') ) {
+        if ( ($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all') ) {
             if ($node && $node->indi instanceof Individual) {
-                if ( $filterDead == 'only_alive' && $node->indi->isDead() ) {
+                if ( $filterOptions['alive'] == 'only_alive' && $node->indi->isDead() ) {
                     $node->filterComment = I18N::translate('a dead person');
-                } elseif ( $filterDead == 'only_dead' && !$node->indi->isDead() ) {
+                } elseif ( $filterOptions['alive'] == 'only_dead' && !$node->indi->isDead() ) {
                     $node->filterComment = I18N::translate('a living person');
                 }
                 if ($node->filterComment == '') {
-                    if ( $filterSex == 'only_M' && $node->indi->sex() !== 'M' ) {
+                    if ( $filterOptions['sex'] == 'only_M' && $node->indi->sex() !== 'M' ) {
                         $node->filterComment = I18N::translate('not a male person');
-                    } elseif ( $filterSex == 'only_F' && $node->indi->sex() !== 'F' ) {
+                    } elseif ( $filterOptions['sex'] == 'only_F' && $node->indi->sex() !== 'F' ) {
                         $node->filterComment = I18N::translate('not a female person');
-                    } elseif ( $filterSex == 'only_U' && $node->indi->sex() !== 'U' ) {
+                    } elseif ( $filterOptions['sex'] == 'only_U' && $node->indi->sex() !== 'U' ) {
                         $node->filterComment = I18N::translate('not a person of unknown gender');
                     }
                 }
                 foreach ($node->chains as $chain) {
-                    $this->filterPartnerChainsRecursive($chain);
+                    $this->filterPartnerChainsRecursive($chain, $filterOptions);
                 }
             }
         }
@@ -1568,53 +1627,107 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * option to filter [all, only_M, only_F, only_U]
+     * get list of options to filter by gender
      *
-     * @return string
+     * @return array of string
      */
-    private function filterOptionSex(): string
-    {
-        switch ($this->getPreference('filter_sex', '0')) {
-            case '1':
-                return 'only_M';
-            case '2':
-                return 'only_F';
-            case '3':
-                return 'only_U';
-            case '0':
-            default:
-                return 'all';
-        }
-    }
-
-    /**
-     * option to filter [all, only_dead, only_alive]
-     *
-     * @return string
-     */
-    private function filterOptionDead(): string
-    {
-        switch ($this->getPreference('filter_dead_alive', '0')) {
-            case '1':
-                return 'only_dead';
-            case '2':
-                return 'only_alive';
-            case '0':
-            default:
-                return 'all';
-        }
-    }
-
-    /**
-     * option to filter
-     *
-     * @return array [dead, sex]
-     */
-    private function filterOptions(): array
+    private function getFilterOptionsSex(): array
     {
         return [
-            $this->filterOptionDead(),
-            $this->filterOptionSex(),
+            'M',
+            'F',
+            'U',
+        ];
+    }
+
+    /**
+     * get list of options to filter by alive/dead
+     *
+     * @return array of string
+     */
+    private function getFilterOptionsAlive(): array
+    {
+        return [
+            'Y',
+            'N',
+        ];
+    }
+
+    /**
+     * get list of all combinations of filter options [all, M, F, U, Y, N, MY, FN, ...]
+     *
+     * @return array of string
+     */
+    private function getFilterOptions(): array
+    {
+        $options = [];
+        $options[] = 'all';
+        if ( $this->showFilterOptions() ) {
+            foreach($this->getFilterOptionsSex() as $option) {
+                $options[] = $option;
+            }
+            foreach($this->getFilterOptionsAlive() as $option) {
+                $options[] = $option;
+            }
+            foreach($this->getFilterOptionsSex() as $optionSex) {
+                foreach($this->getFilterOptionsAlive() as $optionAlive) {
+                    $options[] = $optionSex . $optionAlive;
+                }
+            }
+        }
+        return $options;
+    }
+    
+    /**
+     * convert combined filterOption to filter option for gender of a person [all, only_M, only_F, only_U]
+     *
+     * @param string [all, M, F, U, Y, N, MY, FN, ...]
+     *
+     * @return string
+     */
+    private function filterOptionSex($filterOption): string
+    {
+        foreach ($this->getFilterOptionsSex() as  $option) {
+            if ( str_contains($filterOption, $option) ) {
+                return 'only_' . $option;
+            }
+        }
+        return 'all';
+    }
+
+    /**
+     * convert combined filteroption to filter option for alive/dead status of a person [all, only_dead, only_alive]
+     *
+     * @param string [M, F, U, Y, N, MY, FN, ...]
+     *
+     * @return string
+     */
+    private function filterOptionAlive($filterOption): string
+    {
+        foreach ($this->getFilterOptionsAlive() as  $option) {
+            if ( str_contains($filterOption,$option) ) {
+                if ($option == 'Y') {
+                    return 'only_alive';
+                } else {
+                    return 'only_dead';
+                }
+            }
+        }
+        return 'all';            
+    }
+
+    /**
+     * convert combined filteroption to pair of filter options
+     *
+     * @param string [M, F, U, Y, N, MY, ...]
+     *
+     * @return array of string [sex, dead]
+     */
+    private function filterOptions($filterOption): array
+    {
+        return [
+            'sex'   => $this->filterOptionSex($filterOption),
+            'alive' => $this->filterOptionAlive($filterOption),
         ];
     }
 
@@ -1794,10 +1907,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     * generate summary message for all empty blocks (needed for showEmptyBlock == 1)
     *
     * @param object extended family
+    * @param string 
     *
     * @return string
     */
-    private function summaryMessageEmptyBlocks(object $extendedFamily): string
+    private function summaryMessageEmptyBlocks(object $extendedFamily, string $niceName): string
     {
         $summary_message = '';
         $empty = [];
@@ -1810,7 +1924,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         if (count($empty) > 0) {
             if (count($empty) == 1) {
                 $summary_list = $this->translateFamilyPart($empty[0]);
-                $summary_message = I18N::translate('%s has no %s recorded.', $extendedFamily->self->niceName, $summary_list);
+                $summary_message = I18N::translate('%s has no %s recorded.', $niceName, $summary_list);
             }
             else {
                 $summary_list_a = $this->translateFamilyPart($empty[0]);
@@ -1818,7 +1932,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     $summary_list_a .= ', ' . $this->translateFamilyPart($empty[$i]);
                 }
                 $summary_list_b = $this->translateFamilyPart($empty[count($empty)-1]);
-                $summary_message = I18N::translate('%s has no %s, and no %s recorded.', $extendedFamily->self->niceName, $summary_list_a, $summary_list_b);
+                $summary_message = I18N::translate('%s has no %s, and no %s recorded.', $niceName, $summary_list_a, $summary_list_b);
             }
         }
         return $summary_message;      
@@ -1873,8 +1987,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         return [
             'show_filter_options',
-            'filter_sex',
-            'filter_dead_alive',
             'show_empty_block',
             'show_short_name',
             'show_labels',
@@ -2003,7 +2115,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         return ($this->getPreference('show_short_name', '0') == '0') ? true : false;
     }
-        
+
     /**
      * should a label be shown
      * labels are shown for special situations like:
@@ -2153,7 +2265,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function isGrayedOut(Individual $individual): bool
     {
-        if ($this->getExtendedFamily( $individual )->efp->allCount == 0) {      
+        if ($this->getExtendedFamily( $individual )->filter['all']->efp->allCount == 0) {      
         // tbd: use another function which is more efficient (stops if the first memeber of extended family is found)
             return true;
         } else {
@@ -2224,6 +2336,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         switch ($type) {            
             case 'uncles_and_aunts':
                 return I18N::translate('Uncles and Aunts');
+            case 'uncles_and_aunts_bm':
+                return I18N::translate('Uncles and Aunts by marriage');
             case 'partner_chains':
                 return I18N::translate('Partner chains');
             case 'nephews_and_nieces':
@@ -2478,9 +2592,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Show name of proband as short name or as full name?' => 'Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?',
 			'Show options to filter the results (gender and alive/dead)?' => 'Optionen zum Filtern der Ergebnisse anzeigen (Geschlecht und lebend/tot)?',
             'Show filter options' => 'Zeige Filteroptionen',
-            'Filter results (should be made available to be used by user instead of admin):' => 'Filtere die Ergebnisse (sollte zur Verwendug durch die Nutzer statt durch den Administrator bereit gestellt werden)',
-            'Filter by gender' => 'Filtere nach Geschlecht',
-            'Filter by alive/dead' => 'Filtere nach lebend/verstorben',
             'How should empty parts of extended family be presented?' => 'Wie sollen leere Teile der erweiterten Familie angezeigt werden?',
 			'Show empty block' => 'Zeige leere Familienteile',
 			'yes, always at standard location' => 'ja, immer am normalen Platz',
@@ -2514,8 +2625,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Partnerschaft',
             'Fiancée' => 'Verlobung',
             ' with ' => ' mit ',
-            'Co-parents-in-law of biological children' => 'Gegenschwiegereltern der biologischen Kinder',
-            'Co-parents-in-law of stepchildren' => 'Gegenschwiegereltern der Stiefkinder',
+            'Siblings-in-law of father' => 'Schwager und Schwägerinnen des Vaters',
+            'Siblings-in-law of mother' => 'Schwager und Schwägerinnen der Mutter',
+            'Parents-in-law of biological children' => 'Schwiegereltern der biologischen Kinder',
+            'Parents-in-law of stepchildren' => 'Schwiegereltern der Stiefkinder',
             'Full siblings' => 'Vollbürtige Geschwister',
             'Half siblings' => 'Halbbürtige Geschwister',
             'Stepsiblings' => 'Stiefgeschwister',
@@ -2575,6 +2688,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
                 => 'Für %2$s sind %1$d Onkel und ' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel und ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+                => '%d Tante verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Tanten verzeichnet (insgesamt %d).',
+
+            'Uncles and Aunts by marriage' => 'Angeheiratete Onkel und Tanten',
+            '%s has no uncles or aunts by marriage recorded.' => 'Für %s sind keine angeheirateten Onkel oder Tanten verzeichnet.',
+            '%s has one aunt by marriage recorded.' => 'Für %s ist eine angeheiratete Tante verzeichnet.',
+            '%s has one uncle by marriage recorded.' => 'Für %s ist ein angeheirateter Onkel verzeichnet.',
+            '%s has one uncle or aunt by marriage recorded.' => 'Für %s ist ein angeheirateter Onkel oder eine angeheiratete Tante verzeichnet.',
+            '%2$s has %1$d aunt by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d aunts by marriage recorded.'
+                => 'Für %2$s ist %1$d angeheiratete Tante verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d angeheiratete Tanten verzeichnet.',
+            '%2$s has %1$d uncle by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d uncles by marriage recorded.'
+                => 'Für %2$s ist %1$d angeheirateter Onkel verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d angeheiratete Onkel verzeichnet.',
+            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and ' 
+                => 'Für %2$s sind %1$d angeheiratete Onkel und ' . I18N::PLURAL . 'Für %2$s sind %1$d angeheiratete Onkel und ',
+            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).' 
                 => '%d Tante verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Tanten verzeichnet (insgesamt %d).',
 
             'Parents' => 'Eltern',
@@ -2778,8 +2905,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Cónyugue',
             'Fiancée' => 'Novia',
             ' with ' => ' con ',
-            'Co-parents-in-law of biological children' => 'Suegros de sus hijos/as biólogicos',
-            'Co-parents-in-law of stepchildren' => 'Consuegros/as de hijastros',
+            'Parents-in-law of biological children' => 'Suegros de sus hijos/as biólogicos',
+            'Parents-in-law of stepchildren' => 'Consuegros/as de hijastros',
             'Full siblings' => 'Todos los hermanos',
             'Half siblings' => 'Cuñados y cuñadas',
             'Stepsiblings' => 'Hermanastros',
@@ -3089,9 +3216,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Show name of proband as short name or as full name?' => 'Naam van proband weergeven als korte naam of als volledige naam?',
             'Show options to filter the results (gender and alive/dead)?' => 'Filteropties weergeven (geslacht, levend/overleden)?',
             'Show filter options' => 'Filteropties weergeven',
-            'Filter results (should be made available to be used by user instead of admin):' => 'Filter resultaten (in een latere versie moet de gebruiker dit zelf kunnen bepalen)',
-            'Filter by gender' => 'Filter op geslacht',
-            'Filter by alive/dead' => 'Filter op levend/overleden',
             'How should empty parts of extended family be presented?' => 'Hoe moeten lege delen van de uitgebreide familie worden weergegeven?',
             'Show empty block' => 'Lege familiedelen weergeven',
             'yes, always at standard location' => 'ja, altijd op de standaardlocatie',
@@ -3125,8 +3249,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Relatie',
             'Fiancée' => 'Verloving',
             ' with ' => ' met ',
-            'Co-parents-in-law of biological children' => 'Schoonouders van biologische kinderen',
-            'Co-parents-in-law of stepchildren' => 'Schoonouders van stiefkinderen',
+            'Parents-in-law of biological children' => 'Schoonouders van biologische kinderen',
+            'Parents-in-law of stepchildren' => 'Schoonouders van stiefkinderen',
             'Full siblings' => 'Volle broers/zussen',
             'Half siblings' => 'Halfbroers/-zussen',
             'Stepsiblings' => 'Stiefbroers/-zussen',
@@ -3557,9 +3681,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'never' => 'ніколи',
             'Show options to filter the results (gender and alive/dead)?' => 'Показати параметри фільтрації результатів (стать, живий/мертвий)?',
             'Show filter options' => 'Показати параметри фільтрації',
-            'Filter results (should be made available to be used by user instead of admin):' => 'Результати фільтрації (мають бути доступними для користувача замість адміністратора):',
-            'Filter by gender' => 'Фільтрувати за статтю',
-            'Filter by alive/dead' => 'Фільтрувати за живими/мертвими',
             'Show name of proband as short name or as full name?' => 'Показувати коротке чи повне ім`я об`єкту (пробанду)?',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Коротке ім`я базується на прізвиську або псевдонімі об`єкту. Якщо вони не є доступними, використовується перше з наявних імен. В іншому випадку використовується прізвище.',
             'Show short name' => 'Показати коротку форму імені',
@@ -3589,8 +3710,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Відносини',
             'Fiancée' => 'Заручини',
             ' with ' => ' із ',
-            'Co-parents-in-law of biological children' => 'Свати через рідних дітей',
-            'Co-parents-in-law of stepchildren' => 'Свати через прийомних дітей',
+            'Parents-in-law of biological children' => 'Свати через рідних дітей',
+            'Parents-in-law of stepchildren' => 'Свати через прийомних дітей',
             'Biological children' => 'Рідні діти',
             'Stepchildren' => 'Прийомні діти',
             'Stepchild' => 'Прийомна дитина',
@@ -3855,8 +3976,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Quan hệ hôn nhân',
             'Fiancée' => 'Hôn ước',
             ' with ' => ' với ',
-            'Co-parents-in-law of biological children' => 'Bố mẹ chồng của con đẻ',
-            'Co-parents-in-law of stepchildren' => 'Bố mẹ chồng của con riêng',
+            'Parents-in-law of biological children' => 'Bố mẹ chồng của con đẻ',
+            'Parents-in-law of stepchildren' => 'Bố mẹ chồng của con riêng',
             'Full siblings' => 'Anh chị em ruột',
             'Half siblings' => 'Anh chị em cùng cha khác mẹ',
             'Stepsiblings' => 'Anh chị em kế',

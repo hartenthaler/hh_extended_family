@@ -36,6 +36,8 @@ The module was derived from the module vytux_cousins. There are additional featu
 * new text added if there is a family but no members in a part of the extended family (e.g. "... has no first cousins recorded.")
 * tab is greyed out if the extended family is empty
 
+The user can filter the shown results by gender and dead/alive persons.
+
 The admin can decide in the control panel 
 * which extended family parts should be shown and in which sequence they should be presented
 * how empty parts of extended family should be presented
@@ -45,7 +47,8 @@ The admin can decide in the control panel
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
 * grandparents                             // generation +2
-* uncles_and_aunts                         // generation +1
+* uncles and aunts                         // generation +1
+* uncles and aunts by marriage             // generation +1
 * parents                                  // generation +1
 * parents-in-law                           // generation +1
 * co-parents-in-law                        // generation +1
@@ -53,7 +56,7 @@ The default presentation sequence of the extended family parts is oriented at th
 * siblings                                 // generation  0
 * siblings-in-law                          // generation  0
 * cousins                                  // generation  0
-* nephews_and_nieces                       // generation -1
+* nephews and nieces                       // generation -1
 * children                                 // generation -1
 * children-in-law                          // generation -1
 * grandchildren                            // generation -2
