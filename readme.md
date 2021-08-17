@@ -43,7 +43,7 @@ The admin can decide in the control panel
 * if filter options should be presented for users
 * how empty parts of extended family should be presented
 * wheter the name of proband is a full name or a short version
-* wheter labels like "adopted" or "foster" should be used to indicate special situations
+* wheter labels like "adopted child", "foster child" or "twin" should be used to indicate special situations
 * whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
@@ -119,6 +119,7 @@ Updated translations will be included in the next release of this module.
 There are now, beside English and German, translations to
 * Czech by @jpretired
 * Dutch by @TheDutchJewel
+* Italian (under preparation)
 * Slovak by @ro-la
 * Spanish by @yako1984
 * Ukrainian by @z-yurets
