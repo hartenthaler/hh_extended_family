@@ -29,6 +29,7 @@
  * tbd: Offene Punkte
  * ------------------
  * alle Familienteile von ancestors nach descendants verschieben und diese Trennung komplett über Bord werfen
+ * Screenshots für README aktualisieren
  *
  * siehe issues/enhancements in github
  *
@@ -51,6 +52,7 @@
  * Code: use array instead of object, ie efp['grandparents' => $this->get_grandparents( $individual ) , ...] instead of efp->grandparents, ...
  * Code: eigentliche Modulfunktionen und Moduladministration in zwei Dateien auftrennen
  *
+ * Test: wie verhält es sich, wenn eine Person als Kind zu zwei Familien gehört
  * Test: Stiefcousins (siehe Onkel Walter)
  * Test: Schwagerehe (etwa Levirat oder Sororat)
  * Übersetzungen: auslagern in eigene Dateien
@@ -148,6 +150,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const FAM_STATUS_FIANCEE     = 'Fiancée';
     public const FAM_STATUS_PARTNERSHIP = 'Partnership';
 
+    public const GROUP_GRANDPARENTS_FATHER_BIO   = 'Biological parents of father';
+	public const GROUP_GRANDPARENTS_MOTHER_BIO   = 'Biological parents of mother';
+    public const GROUP_GRANDPARENTS_U_BIO        = 'Biological parents of parent';
+    public const GROUP_GRANDPARENTS_FATHER_STEP  = 'Stepparents of father';
+    public const GROUP_GRANDPARENTS_MOTHER_STEP  = 'Stepparents of mother';
+    public const GROUP_GRANDPARENTS_U_STEP       = 'Stepparents of parent';
+	public const GROUP_GRANDPARENTS_STEP_PARENTS = 'Parents of stepparents';
+	
     public const GROUP_UNCLEAUNT_FATHER  = 'Siblings of father';
     public const GROUP_UNCLEAUNT_MOTHER  = 'Siblings of mother';
 
@@ -225,8 +235,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *  ->filter[]                                                      array of object (index is string filteroption)
      *          ->efp->allCount                                         int
      *               ->summaryMessageEmptyBlocks                        string
-     *               ->grandparents->father                             object individual
-     *                             ->mother                             object individual
+	 *               ->cousins->father                                  object individual
+	 *							   ->mother								object individual
      *                             ->families->fatherFamily[]           array of object individual 
      *                                       ->motherFamily[]           array of object individual
      *                                       ->fatherAndMotherFamily[]  array of object individual    
@@ -245,6 +255,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *                             ->partName                           string
      *        					   ->partName_translated				string
      *        					   ->type								string
+	 *               ->grandparents                            			see parents-in-law
      *               ->uncles_and_aunts                                 see children
      *               ->uncles_and_aunts_bm                              see children
      *               ->parents                                          see parents_in_law
@@ -286,7 +297,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *        				         ->type							    string
      *               ->siblings                                         see children 
      *               ->siblings_in_law                                  see children
-     *               ->cousins                                          see grandparents
      *               ->nephews_and_nieces                               see children
      *               ->children->groups[]->members[]                    array of object individual   (index of groups is groupName)
      *                                   ->labels[]                     array of string
@@ -329,7 +339,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             foreach ($efps as $efp => $element) {
                 if ( $element->enabled ) {
                     $extfamObj->efp->$efp = $this->initializedFamilyPartObject($efp);
-                    $this->callFunction( 'get_' . $efp, $extfamObj->efp->$efp, $obj->self->indi );
+                    $this->callFunction2( 'get_' . $efp, $extfamObj->efp->$efp, $obj->self->indi );
                     $this->filterAndAddCountersToFamilyPartObject( $extfamObj->efp->$efp, $obj->self->indi, $filterOption );
                     $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
                 }
@@ -341,20 +351,32 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * call functions to get branch of family
+     *
+     * @param $name string (name of function to be called)
+     * @param $individual Individual
+     *
+     * @return array of object
+     */   
+    private function callFunction1($name, Individual $individual): array
+    {
+        return $this->$name($individual);
+    }
+
+    /**
      * call functions to get extended family parts
      *
-     * @param $name name of function to be called
-     * @param $parameter parameter to be transfered to the called function
-     *
-     * @return object
+     * @param $name string (name of function to be called)
+     * @param $efp extended family part (modified by function)
+     * @param $individual Individual
      */   
-    private function callFunction($name, object $efp, Individual $individual)
+    private function callFunction2($name, object $efp, Individual $individual)
     {
         return $this->$name($efp, $individual);
     }
 
     /**
-     * check if there is at least one person in one of the extended family parts (used to decide if tab is grayed out)
+     * check if there is at least one person in one of the selected extended family parts (used to decide if tab is grayed out)
      *
      * @param individual
      *
@@ -371,7 +393,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         foreach ($efps as $efp => $element) {
             if ( $element->enabled ) {
                 $extfamObj->efp->$efp = $this->initializedFamilyPartObject($efp);
-                $this->callFunction( 'get_' . $efp, $extfamObj->efp->$efp, $individual );
+                $this->callFunction2( 'get_' . $efp, $extfamObj->efp->$efp, $individual );
                 $this->filterAndAddCountersToFamilyPartObject( $extfamObj->efp->$efp, $individual, 'all' );
                 if ($extfamObj->efp->$efp->allCount >0) {
                     return true;
@@ -415,55 +437,52 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $selfObj->label     = $this->getChildLabel( $individual );
         return $selfObj;
     }
-    
+
     /**
-     * Find grandparents for one side 
+     * Find grandparents in one branch ['bio','step']
      *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param string family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
+     * @param string branch
+     * @param modified object extended family part
+     * @param Individual $individual
      */
-    private function get_grandparentsOneSide(object $extendedFamilyPart, string $side)
-    {
-        $parent = $extendedFamilyPart->$side;
-        if ($parent instanceof Individual) {                                                    // Gen 1 P
-            foreach ($parent->spouseFamilies() as $family1) {                                   // Gen 1 F
-                foreach ($family1->spouses() as $spouse) {                                      // Gen 1 P
-                    if (!($side == self::FAM_SIDE_FATHER and $spouse == $extendedFamilyPart->mother) && !($side == self::FAM_SIDE_MOTHER and $spouse == $extendedFamilyPart->father)) {
-                        foreach ($spouse->childFamilies() as $family1) {                        // Gen 2 F
-                            foreach ($family1->spouses() as $spouse1) {                         // Gen 2 P
-                                foreach ($spouse1->spouseFamilies() as $family2) {              // Gen 2 F
-                                    foreach ($family2->spouses() as $spouse2) {                 // Gen 2 P
-                                        foreach ($spouse2->spouseFamilies() as $family3) {      // Gen 2 F
-                                            foreach ($family3->spouses() as $spouse3) {         // Gen 2 P
-                                                $this->addIndividualToAncestorsFamily( $spouse3, $extendedFamilyPart, $side );
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+    private function get_grandparentsBranch(string $branch, object $extendedFamilyPart, Individual $individual)
+    {      
+        foreach ($this->get_bioparents_individuals($individual) as $parentObj) {
+            if ($parentObj->indi->sex() == 'M') {
+                foreach ($this->callFunction1('get_'.$branch.'parents_individuals', $parentObj->indi) as $grandparentObj) {
+                    $this->addIndividualToDescendantsFamily( $grandparentObj->indi, $extendedFamilyPart, $grandparentObj->family, $individual, (($branch == 'bio')? self::GROUP_GRANDPARENTS_FATHER_BIO : self::GROUP_GRANDPARENTS_FATHER_STEP) );
+                }
+            } elseif ($parentObj->indi->sex() == 'F') {
+                foreach ($this->callFunction1('get_'.$branch.'parents_individuals', $parentObj->indi) as $grandparentObj) {
+                    $this->addIndividualToDescendantsFamily( $grandparentObj->indi, $extendedFamilyPart, $grandparentObj->family, $individual, (($branch == 'bio')? self::GROUP_GRANDPARENTS_MOTHER_BIO : self::GROUP_GRANDPARENTS_MOTHER_STEP) );
+                }
+            } else {
+                foreach ($this->callFunction1('get_'.$branch.'parents_individuals', $parentObj->indi) as $grandparentObj) {
+                    $this->addIndividualToDescendantsFamily( $grandparentObj->indi, $extendedFamilyPart, $grandparentObj->family, $individual, (($branch == 'bio')? self::GROUP_GRANDPARENTS_U_BIO : self::GROUP_GRANDPARENTS_U_STEP) );
                 }
             }
-        }
-        
+		}
         return;
     }
-    
+
     /**
      * Find grandparents
      *
      * @param modified object extended family part
      * @param Individual $individual
      */
-    private function get_grandparents(object $efp, Individual $individual)
+    private function get_grandparents(object $extendedFamilyPart, Individual $individual)
     {      
-        if ($individual->childFamilies()->first()) {                                    // husband() or wife() may not exist
-            $efp->father = $individual->childFamilies()->first()->husband();
-            $efp->mother = $individual->childFamilies()->first()->wife();
-            $this->get_grandparentsOneSide( $efp, self::FAM_SIDE_FATHER);
-            $this->get_grandparentsOneSide( $efp, self::FAM_SIDE_MOTHER);
-        }
+        $this->get_grandparentsBranch('bio', $extendedFamilyPart, $individual);
+        $this->get_grandparentsBranch('step', $extendedFamilyPart, $individual);
+        foreach ($this->get_stepparents_individuals($individual) as $stepparentObj) {
+            foreach ($this->get_bioparents_individuals($stepparentObj->indi) as $grandparentObj) {
+                $this->addIndividualToDescendantsFamily( $grandparentObj->indi, $extendedFamilyPart, $grandparentObj->family, $individual, self::GROUP_GRANDPARENTS_STEP_PARENTS );
+            }
+            foreach ($this->get_stepparents_individuals($stepparentObj->indi) as $grandparentObj) {
+                $this->addIndividualToDescendantsFamily( $grandparentObj->indi, $extendedFamilyPart, $grandparentObj->family, $individual, self::GROUP_GRANDPARENTS_STEP_PARENTS );
+            }
+		}
         return;
     }
 
@@ -558,21 +577,75 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * Find stepparents
+     * Find spouses
      *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param Individual father or mother
+     * @param Individual
+	 *
+	 * @return array of object (Individual, family)
      */
-    private function get_stepParents(object $extendedFamilyPart, Individual $parent)
+    private function get_spouses_individuals(Individual $individual): array
     {
-        foreach ($parent->spouseFamilies() as $family) {                                   // Gen 1 F
+        $spouses = [];
+		foreach ($individual->spouseFamilies() as $family) {                               // Gen 1 F
             foreach ($family->spouses() as $spouse) {                                      // Gen 1 P
-                if ($spouse !== $parent) {
-                    $this->addIndividualToDescendantsFamily( $spouse, $extendedFamilyPart, $family, $parent, self::GROUP_PARENTS_STEP );
+                if ($spouse !== $individual) {
+                    $obj = (object)[];
+					$obj->indi = $spouse;
+					$obj->family = $family;
+					$spouses[] = $obj;
                 }
             }
         }
-        return;
+        return $spouses;
+    }
+    /**
+     * Find stepparents
+     *
+     * @param Individual
+	 *
+	 * @return array of object (Individual, family)
+     */
+    private function get_stepparents_individuals(Individual $individual): array
+    {
+        $stepparents = [];
+        foreach ($this->get_bioparents_individuals($individual) as $parentObj) {
+            foreach ($this->get_spouses_individuals($parentObj->indi) as $stepparentObj) {
+                if ($stepparentObj->indi->xref() !== $parentObj->indi->xref()) {
+                    $obj = (object)[];
+					$obj->indi = $stepparentObj->indi;
+					$obj->family = $stepparentObj->family;
+					$stepparents[] = $obj;
+                }
+            }
+        }
+        return $stepparents;
+    }
+
+    /**
+     * Find parents as list of individuals (in first family)
+     *
+     * @param Individual
+	 *
+	 * @return array of object (Individual, family)
+     */
+    private function get_bioparents_individuals(Individual $individual): array
+    {            
+        $parents = [];
+		if ($individual->childFamilies()->first()) {
+            if ($individual->childFamilies()->first()->husband() instanceof Individual) {
+				$obj = (object)[];
+                $obj->indi = $individual->childFamilies()->first()->husband();
+				$obj->family = $individual->childFamilies()->first();
+				$parents[] = $obj;
+            }
+            if ($individual->childFamilies()->first()->wife() instanceof Individual) {
+                $obj = (object)[];
+                $obj->indi = $individual->childFamilies()->first()->wife();
+				$obj->family = $individual->childFamilies()->first();
+				$parents[] = $obj;
+            }
+        }
+        return $parents;
     }
 
     /**
@@ -583,21 +656,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function get_parents(object $extendedFamilyPart, Individual $individual)
     {            
-        if ($individual->childFamilies()->first()) {
-            if ($individual->childFamilies()->first()->husband() instanceof Individual) {
-                $father = $individual->childFamilies()->first()->husband();
-                $this->addIndividualToDescendantsFamily( $father, $extendedFamilyPart, $individual->childFamilies()->first(), $father, self::GROUP_PARENTS_BIO );
-            }
-            if ($individual->childFamilies()->first()->wife() instanceof Individual) {
-                $mother = $individual->childFamilies()->first()->wife();
-                $this->addIndividualToDescendantsFamily( $mother, $extendedFamilyPart, $individual->childFamilies()->first(), $mother, self::GROUP_PARENTS_BIO );
-            }
-            if ($individual->childFamilies()->first()->husband() instanceof Individual) {
-                $this->get_stepParents($extendedFamilyPart, $father);
-            }
-            if ($individual->childFamilies()->first()->wife() instanceof Individual) {
-                $this->get_stepParents($extendedFamilyPart, $mother);
-            }
+		foreach ($this->get_bioparents_individuals($individual) as $parentObj) {
+			$this->addIndividualToDescendantsFamily( $parentObj->indi, $extendedFamilyPart, $parentObj->family, $individual, self::GROUP_PARENTS_BIO );
+		}
+        foreach ($this->get_stepparents_individuals($individual) as $stepparentObj) {
+            $this->addIndividualToDescendantsFamily( $stepparentObj->indi, $extendedFamilyPart, $stepparentObj->family, $individual, self::GROUP_PARENTS_STEP );
         }
         return;
     }
@@ -1116,7 +1179,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function typeOfFamilyPart(string $partName): string
     {       
         switch ($partName) {
-            case 'grandparents':
             case 'cousins': 
                 return self::ANCESTORS;
             default:
@@ -1171,6 +1233,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function addIndividualToDescendantsFamily(Individual $individual, object $extendedFamilyPart, object $family, Individual $referencePerson = null, string $groupName = '' )
     {
         $efp_groups = [                     // family parts which are using "groups" and "labels"
+            'grandparents',
             'uncles_and_aunts',
             'uncles_and_aunts_bm',
             'parents',
@@ -1237,7 +1300,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     $newObj->familiesStatus[] = $this->getFamilyStatus($family);
                     $newObj->referencePersons[] = $referencePerson;
                 }
-                if ( $extendedFamilyPart->partName == 'parents' || $extendedFamilyPart->partName == 'parents_in_law' ) {
+                if ( $extendedFamilyPart->partName == 'grandparents' || $extendedFamilyPart->partName == 'parents' || $extendedFamilyPart->partName == 'parents_in_law' ) {
                     $newObj->familyStatus = $this->getFamilyStatus($family);
                     foreach ($family->spouses() as $spouse) {                           // find spouse in family which is not equal to proband
                         if ( $spouse->xref() !== $referencePerson->xref() ) {
@@ -2661,6 +2724,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Partnership' => 'Partnerschaft',
             'Fiancée' => 'Verlobung',
             ' with ' => ' mit ',
+            'Biological parents of father' => 'Biologische Eltern des Vaters',
+            'Biological parents of mother' => 'Biologische Eltern der Mutter',
+            'Biological parents of parent' => 'Biologische Eltern eines Elternteils',
+            'Stepparents of father' => 'Stiefeltern des Vaters',
+            'Stepparents of mother' => 'Stiefeltern der Mutter',
+            'Stepparents of parent' => 'Stiefeltern eines Elternteils',
+            'Parents of stepparents' => 'Eltern eines Stiefelternteils',
             'Siblings of father' => 'Geschwister des Vaters',
             'Siblings of mother' => 'Geschwister der Mutter',
             'Siblings-in-law of father' => 'Schwäger und Schwägerinnen des Vaters',
@@ -3284,13 +3354,26 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'not a female person' => 'geen vrouwelijk persoon',
             'not a person of unknown gender' => 'geen persoon van onbekend geslacht',
 
+            'twin' => 'tweeling',
+            'triplet' => 'drieling',
+            'quadruplet' => 'vierling',
+            'quintuplet' => 'vijfling',
+            'sextuplet' => 'zesling',
+            'septuplet' => 'zevenling',
+            'octuplet' => 'achtling',
+            'nonuplet' => 'negenling',
+            'decuplet' => 'tienling',
             'Marriage' => 'Huwelijk',
             'Ex-marriage' => 'Ex-huwelijk',
             'Partnership' => 'Relatie',
             'Fiancée' => 'Verloving',
             ' with ' => ' met ',
+            'Siblings of father' => 'Broers/zussen van de vader',
+            'Siblings of mother' => 'Broers/zussen van de moeder',
             'Siblings-in-law of father' => 'Zwagers en schoonzussen van de vader',
             'Siblings-in-law of mother' => 'Zwagers en schoonzussen van de moeder',
+            'Biological parents' => 'Biologische ouders',
+            'Stepparents' => 'Stiefouders',
             'Parents-in-law of biological children' => 'Schoonouders van biologische kinderen',
             'Parents-in-law of stepchildren' => 'Schoonouders van stiefkinderen',
             'Full siblings' => 'Volle broers/zussen',
