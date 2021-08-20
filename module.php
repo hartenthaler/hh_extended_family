@@ -2672,7 +2672,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Children of full siblings of parent' => 'Kinder der vollbürtigen Geschwister eines Elternteils',
             'Children of half siblings of father' => 'Kinder der halbbürtigen Geschwister des Vaters',
             'Children of half siblings of mother' => 'Kinder der halbbürtigen Geschwister der Mutter',
-            'Children of full siblings of parent' => 'Kinder der halbbürtigen Geschwister eines Elternteils',
+            'Children of half siblings of parent' => 'Kinder der halbbürtigen Geschwister eines Elternteils',
             'Siblings of partners' => 'Geschwister der Partner',
             'Partners of siblings' => 'Partner der Geschwister',
             'Children of siblings' => 'Kinder der Geschwister',

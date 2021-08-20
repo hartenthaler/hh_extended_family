@@ -14,8 +14,8 @@ grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts, partner
 
 This Readme contains the following main sections
 
-*   [Description](#Description)
 *   [Contents](#Contents)
+*   [Description](#Description)
 *   [Screenshots](#Screenshots)
 *   [Requirements](#Requirements)
 *   [Installation](#Installation)
@@ -58,7 +58,7 @@ The default presentation sequence of the extended family parts is oriented at th
 
 ## Screenshots
 
-Screenshot of tab
+Screenshot of tab using the compact design
 <p align="center"><img src="screenshot.png" alt="Screenshot of tab" align="center" width="80%"></p>
 
 Screenshot showing photo as well as birth and death information
