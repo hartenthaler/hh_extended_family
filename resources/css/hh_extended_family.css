@@ -29,19 +29,6 @@
     padding: 10px 0 2px 0;
 }
 
-.comment {
-    border: 2px solid black;
-    border-radius: 4px;
-    padding: 2px 10px 2px 10px;
-    margin: 0px 10px;
-    text-align: center;
-    font-size: 14px;
-    background-color: lightgrey;
-    color: red;    
-}
-
-#hh-extended-family-ancestors,
-#hh-extended-family-descendants,
 #hh_extended_family_summary {
 }
 
@@ -87,10 +74,7 @@
     width: 99%;
 }
 
-#hh_extended_family_f,
-#hh_extended_family_m,
-#hh_extended_family_fm,
-#hh_extended_family_g {
+#hh_extended_family_box {
     border: 1px solid grey;
     border-radius: 5px;
     display: table-cell;
@@ -100,10 +84,7 @@
 
 /* Mobile low resolution viewport */
 @media (max-width: 600px) {
-    #hh_extended_family_f,
-    #hh_extended_family_m,
-    #hh_extended_family_fm,
-    #hh_extended_family_g {
+    #hh_extended_family_box {
         border: 1px solid grey;
         border-radius: 5px;
         display: table-caption;
@@ -157,4 +138,13 @@
     margin: 0px 0px 0px 0px;
 }
 
-
+.comment {
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 2px 10px 2px 10px;
+    margin: 0px 10px;
+    text-align: center;
+    font-size: 14px;
+    background-color: lightgrey;
+    color: red;    
+}

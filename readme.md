@@ -28,14 +28,6 @@ This Readme contains the following main sections
 
 This module presents the core and the extended family of a proband. It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
 
-The module was derived from the module vytux_cousins. There are additional features
-* addition for half-cousins from webtrees user [ardhtu](https://www.webtrees.net/index.php/en/forum/2-open-discussion/35751-vytux-cousins-children-of-half-sibblings-will-not-be-recognized-as-cousins#85279).
-* don't show empty tables for "Father's family" and "Mother's family"
-* beside father's and mother's family, now there can be a third category "father's and mother's family" if members of the extended family are related to both sides
-* count individuals separately for each sex (this supports translation if there are for example different words for male and female cousins)
-* new text added if there is a family but no members in a part of the extended family (e.g. "... has no first cousins recorded.")
-* tab is greyed out if the extended family is empty
-
 The user can filter the shown results by gender and dead/alive persons.
 
 The admin can decide in the control panel 
@@ -43,7 +35,7 @@ The admin can decide in the control panel
 * if filter options should be presented for users
 * how empty parts of extended family should be presented
 * wheter the name of proband is a full name or a short version
-* wheter labels like "adopted child", "foster child" or "twin" should be used to indicate special situations
+* wheter labels like "adopted child", "foster child" or "twin" should be used to indicate special situations (GEDCOM record to indicate that a person is a triplet, should look like "1 ASSO @I123@\n2 RELA triplet")
 * whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband

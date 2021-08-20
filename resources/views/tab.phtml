@@ -52,724 +52,611 @@
                             <h2><?= $filterObj->efp->$propName->partName_translated ?></h2>
                         <?php endif ?>
                         <?php if ($filterObj->efp->$propName->allCount): ?>
-                            <?php if ( $filterObj->efp->$propName->type == 'ancestors'): ?>
-                                <div class="hh-extended-family-ancestors">
-                                    <div class="hh-extended-family-summary">
-                                        <?php if ($propName == 'cousins'): ?>								
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one female first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one male first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                            <div class="hh-extended-family-summary">
+                                <?php if ($propName == 'grandparents'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one grandmother recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one grandfather recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d female first cousin recorded.',  '%2$s has %1$d female first cousins recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d male first cousin recorded.', '%2$s has %1$d male first cousins recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d male first cousin and ', '%2$s has %1$d male first cousins and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d female first cousin recorded (%d in total).', '%d female first cousins recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::translate('%s has one grandparent recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php endif ?>
                                         <?php endif ?>
-                                    </div>
-                                    <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                    <div id="hh_extended_family_content_compact">
                                     <?php else: ?>
-                                    <div id="hh_extended_family_content">
-                                    <?php endif ?>
-                                        <?php if ( $propName == 'cousins' ): ?>
-                                            <?php foreach ($filterObj->efp->$propName->families as $f_fm_m => $f) : ?>
-                                                <?php if (($f_fm_m == 'fatherFamily' && $filterObj->efp->$propName->fathersFamilyCount)|| ($f_fm_m == 'fatherAndMotherFamily' && $filterObj->efp->$propName->fathersAndMothersFamilyCount) || ($f_fm_m == 'motherFamily' && $filterObj->efp->$propName->mothersFamilyCount)): ?>
-                                                    <?php if ($f_fm_m == 'fatherFamily'): ?>
-                                                        <div id="hh_extended_family_f">
-                                                        <h4><?= I18N::translate('Father\'s family (%d)', $filterObj->efp->$propName->fathersFamilyCount) ?></h4>
-                                                    <?php elseif ($f_fm_m == 'fatherAndMotherFamily'): ?>
-                                                        <div id="hh_extended_family_fm">
-                                                        <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $filterObj->efp->$propName->fathersAndMothersFamilyCount)?></h4>
-                                                    <?php elseif ($f_fm_m == 'motherFamily'): ?>
-                                                        <div id="hh_extended_family_m">
-                                                        <h4><?= I18N::translate('Mother\'s family (%d)', $filterObj->efp->$propName->mothersFamilyCount) ?></h4>
-                                                    <?php endif ?>
-                                                    <?php $prev_fam_id = '-1'; ?>
-                                                    <?php  foreach ($f as $indi) : ?>
-                                                        <?php if ($indi->childFamilies()->first()->xref() != $prev_fam_id) : ?>
-                                                            <?php $prev_fam_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
-                                                            <h5><?= /* I18N: Do not translate. Already in webtrees core */ I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
-                                                        <?php endif ?>
-                                                        <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
-                                                            <?php if ($indi->canShow()): ?>
-                                                                <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                                    <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
-                                                                <?php endif ?>
-                                                                <span class="hh_extended_family_counter"><?= $i ?></span>
-                                                                <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
-                                                                <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                                                    <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
-                                                                <?php else: ?>
-                                                                    <span class="hh_extended_family_birth_death">
-                                                                        <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                        <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                    </span>
-                                                                <?php endif ?>
-                                                            <?php else: ?>
-                                                                <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
-                                                            <?php endif ?>
-                                                        </div>
-                                                    <?php $i++; endforeach ?>
-                                                    <?php if ($f_fm_m == 'fatherFamily'):    // for <div> matching in editor ?>
-                                                        </div>
-                                                    <?php elseif ($f_fm_m == 'fatherAndMotherFamily'): ?>
-                                                        </div>
-                                                    <?php elseif ($f_fm_m == 'motherFamily'): ?>
-                                                        </div>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php endforeach ?>
-                                        <?php elseif ($propName == 'grandparents'): ?>
-                                            <?php foreach ($filterObj->efp->$propName->families as $f_fm_m => $f) : ?>
-                                                <?php if ( ($f_fm_m == 'fatherFamily' && $filterObj->efp->$propName->fathersFamilyCount)  || ($f_fm_m == 'fatherAndMotherFamily' && $filterObj->efp->$propName->fathersAndMothersFamilyCount) || ($f_fm_m == 'motherFamily' && $filterObj->efp->$propName->mothersFamilyCount)): ?>
-                                                    <?php if ($f_fm_m == 'fatherFamily'): ?>
-                                                        <div id="hh_extended_family_f">
-                                                        <h4><?= I18N::translate('Father\'s family (%d)', $filterObj->efp->$propName->fathersFamilyCount) ?></h4>
-                                                    <?php elseif ($f_fm_m == 'fatherAndMotherFamily'): ?>
-                                                        <div id="hh_extended_family_fm">
-                                                        <h4><?= I18N::translate('Father\'s and Mother\'s family (%d)', $filterObj->efp->$propName->fathersAndMothersFamilyCount)?></h4>
-                                                    <?php elseif ($f_fm_m == 'motherFamily'): ?>
-                                                        <div id="hh_extended_family_m">
-                                                        <h4><?= I18N::translate('Mother\'s family (%d)', $filterObj->efp->$propName->mothersFamilyCount) ?></h4>
-                                                    <?php endif ?>
-                                                    <?php $i = 1; ?>
-                                                    <?php  foreach ($f as $indi) : ?>
-                                                        <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
-                                                            <?php if ($indi->canShow()): ?>
-                                                                <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                                    <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
-                                                                <?php endif ?>
-                                                                <span class="hh_extended_family_counter"><?= $i ?></span>
-                                                                <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
-                                                                <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                                                    <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
-                                                                <?php else: ?>
-                                                                    <span class="hh_extended_family_birth_death">
-                                                                        <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                        <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                    </span>
-                                                                <?php endif ?>
-                                                            <?php else: ?>
-                                                                <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
-                                                            <?php endif ?>
-                                                        </div>
-                                                    <?php $i++; endforeach ?>
-                                                    <?php if ($f_fm_m == 'fatherFamily'):    // for <div> matching in editor ?>
-                                                        </div>
-                                                    <?php elseif ($f_fm_m == 'fatherAndMotherFamily'): ?>
-                                                        </div>
-                                                    <?php elseif ($f_fm_m == 'motherFamily'): ?>
-                                                        </div>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php endforeach ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandmother recorded.',  '%2$s has %1$d grandmothers recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d grandfather recorded.', '%2$s has %1$d grandfathers recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d grandfather and ', '%2$s has %1$d grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d grandmother recorded (%d in total).', '%d grandmothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
                                         <?php endif ?>
-                                    <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                    </div>
-                                    <?php else: ?>
-                                    </div>
                                     <?php endif ?>
-                                </div>
-                            <?php elseif ( $filterObj->efp->$propName->type == 'descendants'): ?>
-                                <div class="hh-extended-family-descendants">
-                                    <div class="hh-extended-family-summary">
-                                        <?php if ($propName == 'grandparents'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one grandmother recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one grandfather recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one grandparent recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                <?php elseif ($propName == 'uncles_and_aunts'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one aunt recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one uncle recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d grandmother recorded.',  '%2$s has %1$d grandmothers recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d grandfather recorded.', '%2$s has %1$d grandfathers recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d grandfather and ', '%2$s has %1$d grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d grandmother recorded (%d in total).', '%d grandmothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::translate('%s has one uncle or aunt recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php endif ?>
-                                        <?php elseif ($propName == 'uncles_and_aunts'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one aunt recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one uncle recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one uncle or aunt recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d aunt recorded.',  '%2$s has %1$d aunts recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d uncle recorded.', '%2$s has %1$d uncles recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d aunt recorded.',  '%2$s has %1$d aunts recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d uncle recorded.', '%2$s has %1$d uncles recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d uncle and ', '%2$s has %1$d uncles and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d aunt recorded (%d in total).', '%d aunts recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d uncle and ', '%2$s has %1$d uncles and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d aunt recorded (%d in total).', '%d aunts recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                             <?php endif ?>
-                                        <?php elseif ($propName == 'uncles_and_aunts_bm'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one aunt by marriage recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one uncle by marriage recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one uncle or aunt by marriage recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'uncles_and_aunts_bm'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one aunt by marriage recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one uncle by marriage recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d aunt by marriage recorded.',  '%2$s has %1$d aunts by marriage recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d uncle by marriage recorded.', '%2$s has %1$d uncles by marriage recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d uncle by marriage and ', '%2$s has %1$d uncles by marriage and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d aunt by marriage recorded (%d in total).', '%d aunts by marriage recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::translate('%s has one uncle or aunt by marriage recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php endif ?>
-                                        <?php elseif ($propName == 'parents'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one mother recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one father recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one parent recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d aunt by marriage recorded.',  '%2$s has %1$d aunts by marriage recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d uncle by marriage recorded.', '%2$s has %1$d uncles by marriage recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d mother recorded.',  '%2$s has %1$d mothers recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d father recorded.', '%2$s has %1$d fathers recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d father and ', '%2$s has %1$d fathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d mother recorded (%d in total).', '%d mothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d uncle by marriage and ', '%2$s has %1$d uncles by marriage and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d aunt by marriage recorded (%d in total).', '%d aunts by marriage recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                             <?php endif ?>
-                                            <?php if ($extfam_obj->config->showLabels && $extfam_obj->self->label): ?>
-                                                <span class="hh_extended_family_pedi"><?= $extfam_obj->self->label ?></span>
-                                            <?php endif ?>
-                                        <?php elseif ($propName == 'co_parents_in_law'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one co-mother-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one co-father-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one co-parent-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'parents'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one mother recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one father recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d co-mother-in-law recorded.',  '%2$s has %1$d co-mothers-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d co-father-in-law recorded.', '%2$s has %1$d co-fathers-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d co-father-in-law and ', '%2$s has %1$d co-fathers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d co-mother-in-law recorded (%d in total).', '%d co-mothers-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::translate('%s has one parent recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php endif ?>
-                                            <?php if ($extfam_obj->config->showLabels && $extfam_obj->self->label): ?>
-                                                <span class="hh_extended_family_pedi"><?= $extfam_obj->self->label ?></span>
-                                            <?php endif ?>
-                                        <?php elseif ($propName == 'siblings'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one sister recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one brother recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one brother or sister recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d mother recorded.',  '%2$s has %1$d mothers recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d father recorded.', '%2$s has %1$d fathers recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d sister recorded.',  '%2$s has %1$d sisters recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d brother recorded.', '%2$s has %1$d brothers recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d brother and ', '%2$s has %1$d brothers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d sister recorded (%d in total).', '%d sisters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d father and ', '%2$s has %1$d fathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d mother recorded (%d in total).', '%d mothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                             <?php endif ?>
-                                            <?php if ($extfam_obj->config->showLabels && $extfam_obj->self->label): ?>
-                                                <span class="hh_extended_family_pedi"><?= $extfam_obj->self->label ?></span>
-                                            <?php endif ?>
-                                        <?php elseif ($propName == 'siblings_in_law'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one sister-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one brother-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one sibling-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                    <?php if ($extfam_obj->config->showLabels && $extfam_obj->self->label): ?>
+                                        <span class="hh_extended_family_pedi"><?= $extfam_obj->self->label ?></span>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'parents_in_law'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one mother-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one father-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d sister-in-law recorded.',  '%2$s has %1$d sisters-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d brother-in-law recorded.', '%2$s has %1$d brothers-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d brother-in-law and ', '%2$s has %1$d brothers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d sister-in-law recorded (%d in total).', '%d sisters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::translate('%s has one parent-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
                                             <?php endif ?>
-                                            <?php if ($extfam_obj->config->showLabels && $extfam_obj->self->label): ?>
-                                                <span class="hh_extended_family_pedi"><?= $extfam_obj->self->label ?></span>
-                                            <?php endif ?>
-                                        <?php elseif ($propName == 'partners'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one female partner recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one male partner recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one partner recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d mother-in-law recorded.',  '%2$s has %1$d mothers-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d father-in-law recorded.', '%2$s has %1$d fathers-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
                                             <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->popCount == 0): ?>
-                                                    <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d female partner recorded.',  '%2$s has %1$d female partners recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php elseif ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d male partner recorded.', '%2$s has %1$d male partners recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d female partner recorded (%d in total).', '%d female partners recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?>
-                                                        </h3>
-                                                    <?php endif ?>
-                                                <?php else: ?>
-                                                    <?php if ($extfam_obj->self->indi->sex() == 'M'): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d female partner and ', '%2$s has %1$d female partners and ', $filterObj->efp->$propName->pfemaleCount, $filterObj->efp->$propName->pfemaleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d male partner of female partners recorded (%d in total).', '%d male partners of female partners recorded (%d in total).', $filterObj->efp->$propName->popmaleCount, $filterObj->efp->$propName->popmaleCount, $filterObj->efp->$propName->allCount) ?>
-                                                        </h3>
-                                                    <?php elseif ($extfam_obj->self->indi->sex() == 'F'): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->pmaleCount, $filterObj->efp->$propName->pmaleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d female partner of male partners recorded (%d in total).', '%d female partners of male partners recorded (%d in total).', $filterObj->efp->$propName->popfemaleCount, $filterObj->efp->$propName->popfemaleCount, $filterObj->efp->$propName->allCount) ?>
-                                                        </h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d father-in-law and ', '%2$s has %1$d fathers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d mother-in-law recorded (%d in total).', '%d mothers-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                             <?php endif ?>
-                                        <?php elseif ($propName == 'partner_chains'): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                <?= I18N::plural('%d female partner in this partner chain recorded (%d in total).', '%d female partners in this partner chain recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?>
-                                            </h3>
-                                            <?php if ($filterObj->efp->$propName->chainsCount > 1): ?>
-                                                <h3><?= I18N::translate('There are %d branches in the partner chain. ', $filterObj->efp->$propName->chainsCount, $filterObj->efp->$propName->chainsCount) ?>
-                                                    <?php if ( $filterOption == 'all' ): ?>
-                                                        <?= I18N::translate('The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).', $filterObj->efp->$propName->longestChainCount, $filterObj->efp->$propName->mostDistantPartner->fullname(), $extfam_obj->self->niceName) ?>
-                                                    <?php else: ?>
-                                                        <?= I18N::translate('The longest branch in the partner chain consists of %1$d partners (including %2$s).', $filterObj->efp->$propName->longestChainCount, $extfam_obj->self->niceName) ?>
-                                                    <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'co_parents_in_law'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one co-mother-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one co-father-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one co-parent-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-mother-in-law recorded.',  '%2$s has %1$d co-mothers-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d co-father-in-law recorded.', '%2$s has %1$d co-fathers-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d co-father-in-law and ', '%2$s has %1$d co-fathers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d co-mother-in-law recorded (%d in total).', '%d co-mothers-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                    <?php if ($extfam_obj->config->showLabels && $extfam_obj->self->label): ?>
+                                        <span class="hh_extended_family_pedi"><?= $extfam_obj->self->label ?></span>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'partners'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one female partner recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one male partner recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one partner recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->popCount == 0): ?>
+                                            <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d female partner recorded.',  '%2$s has %1$d female partners recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php elseif ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male partner recorded.', '%2$s has %1$d male partners recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d female partner recorded (%d in total).', '%d female partners recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?>
                                                 </h3>
                                             <?php endif ?>
-                                        <?php elseif ($propName == 'parents_in_law'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one mother-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one father-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one parent-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d mother-in-law recorded.',  '%2$s has %1$d mothers-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d father-in-law recorded.', '%2$s has %1$d fathers-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d father-in-law and ', '%2$s has %1$d fathers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d mother-in-law recorded (%d in total).', '%d mothers-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php endif ?>
-                                        <?php elseif ($propName == 'nephews_and_nieces'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one niece recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one nephew recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one nephew or niece recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d niece recorded.',  '%2$s has %1$d nieces recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d nephew recorded.', '%2$s has %1$d nephews recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d nephew and ', '%2$s has %1$d nephews and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d niece recorded (%d in total).', '%d nieces recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php endif ?>
-                                        <?php elseif ($propName == 'children'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one daughter recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one son recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one child recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d daughter recorded.',  '%2$s has %1$d daughters recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d son recorded.', '%2$s has %1$d sons recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d daughter recorded (%d in total).', '%d daughters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php endif ?>
-                                        <?php elseif ($propName == 'children_in_law'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one daughter-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one son-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one child-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d daughter-in-law recorded.',  '%2$s has %1$d daughters-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d son-in-law recorded.', '%2$s has %1$d sons-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d son-in-law and ', '%2$s has %1$d sons-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d daughter-in-law recorded (%d in total).', '%d daughters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php endif ?>
-                                        <?php elseif ($propName == 'grandchildren'): ?>
-                                            <?php if ($filterObj->efp->$propName->allCount == 1): ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                                    <h3><?= I18N::translate('%s has one granddaughter recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
-                                                        <h3><?= I18N::translate('%s has one grandson recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::translate('%s has one grandchild recorded.', $extfam_obj->self->niceName) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
-                                            <?php else: ?>
-                                                <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                                    <h3><?= I18N::plural('%2$s has %1$d granddaughter recorded.',  '%2$s has %1$d granddaughters recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
-                                                <?php else: ?>
-                                                    <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d grandson recorded.', '%2$s has %1$d grandsons recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
-                                                    <?php else: ?>
-                                                        <h3><?= I18N::plural('%2$s has %1$d grandson and ', '%2$s has %1$d grandsons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
-                                                            <?= I18N::plural('%d granddaughter recorded (%d in total).', '%d granddaughters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
-                                                    <?php endif ?>
-                                                <?php endif ?>
+                                        <?php else: ?>
+                                            <?php if ($extfam_obj->self->indi->sex() == 'M'): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d female partner and ', '%2$s has %1$d female partners and ', $filterObj->efp->$propName->pfemaleCount, $filterObj->efp->$propName->pfemaleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d male partner of female partners recorded (%d in total).', '%d male partners of female partners recorded (%d in total).', $filterObj->efp->$propName->popmaleCount, $filterObj->efp->$propName->popmaleCount, $filterObj->efp->$propName->allCount) ?>
+                                                </h3>
+                                            <?php elseif ($extfam_obj->self->indi->sex() == 'F'): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->pmaleCount, $filterObj->efp->$propName->pmaleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d female partner of male partners recorded (%d in total).', '%d female partners of male partners recorded (%d in total).', $filterObj->efp->$propName->popfemaleCount, $filterObj->efp->$propName->popfemaleCount, $filterObj->efp->$propName->allCount) ?>
+                                                </h3>
                                             <?php endif ?>
                                         <?php endif ?>
-                                    </div>
-                                    <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                    <div id="hh_extended_family_content_compact">
-                                    <?php else: ?>
-                                    <div id="hh_extended_family_content">
                                     <?php endif ?>
-                                        <?php if ( $propName == 'grandparents' || $propName == 'uncles_and_aunts' || $propName == 'uncles_and_aunts_bm' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'siblings' || $propName == 'siblings_in_law' || $propName == 'nephews_and_nieces' || $propName == 'children' || $propName == 'children_in_law' || $propName == 'grandchildren' ): ?>
-                                            <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
-                                                <div id="hh_extended_family_g">
-                                                    <h4><?= I18N::translate($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
-                                                    <?php $prev_id = -1; ?>
-                                                    <?php  foreach ($group->members as $key => $indi) : ?>
-                                                        <?php if ( $propName == 'siblings_in_law' ) : ?>
-                                                            <?php if ( $group->referencePersons[$key]->xref() != $prev_id ) : ?>
-                                                                <?php $prev_id = $group->referencePersons[$key]->xref(); $i = 1; ?>
-                                                                <?php if ($group->referencePersons[$key]->canShow()): ?>
-                                                                    <?php if ( $group->groupName == 'Partners of siblings' ) : ?>
-                                                                        <?php if ( $group->referencePersons[$key]->sex() == 'M' ) : ?>
-                                                                            <h5><?= I18N::translate('Brother') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php elseif ( $group->referencePersons[$key]->sex() == 'F' ) : ?>
-                                                                            <h5><?= I18N::translate('Sister') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php else: ?>
-                                                                            <h5><?= I18N::translate('Sibling') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php endif ?>
-                                                                    <?php elseif ( $group->groupName == 'Siblings of partners' ) : ?>
-                                                                        <h5><?= $group->familiesStatus[$key] . I18N::translate(' with ') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                    <?php endif ?>
-                                                                <?php else: ?>
-                                                                    <?php if ( $group->groupName == 'Partners of siblings' ) : ?>
-                                                                        <h5><?= I18N::translate('Sibling')?>&nbsp;<?= $group->referencePersons[$key]->fullName() ?></h5>
-                                                                    <?php elseif ( $group->groupName == 'Siblings of partners' ) : ?>
-                                                                        <h5><?= I18N::translate('Partner')?>&nbsp;<? $group->referencePersons[$key]->fullName() ?></h5>
-                                                                    <?php endif ?>
-                                                                <?php endif ?>
-                                                            <?php endif ?>
-                                                        <?php elseif ( $propName == 'children_in_law' ) : ?>
-                                                            <?php if ( $group->referencePersons[$key]->xref() != $prev_id ) : ?>
-                                                                <?php $prev_id = $group->referencePersons[$key]->xref(); $i = 1; ?>
-                                                                <?php if ($group->referencePersons[$key]->canShow()): ?>
-                                                                    <?php if ( $group->groupName == 'Partners of biological children' ) : ?>
-                                                                        <?php if ( $group->referencePersons[$key]->sex() == 'M' ) : ?>
-                                                                            <h5><?= I18N::translate('Son') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php elseif ( $group->referencePersons[$key]->sex() == 'F' ) : ?>
-                                                                            <h5><?= I18N::translate('Daughter') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php else: ?>
-                                                                            <h5><?= I18N::translate('Child') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php endif ?>
-                                                                    <?php elseif ( $group->groupName == 'Partners of stepchildren' ) : ?>
-                                                                        <?php if ( $group->referencePersons[$key]->sex() == 'M' ) : ?>
-                                                                            <h5><?= I18N::translate('Stepson') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php elseif ( $group->referencePersons[$key]->sex() == 'F' ) : ?>
-                                                                            <h5><?= I18N::translate('Stepdaughter') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php else: ?>
-                                                                            <h5><?= I18N::translate('Stepchild') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                        <?php endif ?>
-                                                                    <?php endif ?>
-                                                                <?php else: ?>
-                                                                    <?php if ( $group->groupName == 'Partners of biological children' ) : ?>
-                                                                        <h5><?= I18N::translate('Child')?>&nbsp;<? $group->referencePersons[$key]->fullName() ?></h5>
-                                                                    <?php elseif ( $group->groupName == 'Partners of stepchildren' ) : ?>
-                                                                        <h5><?= I18N::translate('Stepchild')?>&nbsp;<? $group->referencePersons[$key]->fullName() ?></h5>
-                                                                    <?php endif ?>
-                                                                <?php endif ?>
-                                                            <?php endif ?>
-                                                        <?php elseif ( $propName == 'grandparents' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'uncles_and_aunts' || $propName == 'uncles_and_aunts_bm' ): ?>
-                                                            <?php if ( $group->families[$key]->xref() != $prev_id ) : ?>
-                                                                <?php $prev_id = $group->families[$key]->xref(); $i = 1; ?>
-                                                                <?php if ($group->families[$key]->canShow()): ?>
-                                                                    <h5><?= $group->familiesStatus[$key] ?><a href="<?= e($group->families[$key]->url()); ?>">&nbsp;<?= $group->families[$key]->fullName(); ?></a></h5>
-                                                                <?php else: ?>
-                                                                    <h5><?= I18N::translate('Partnership')?>&nbsp;<? $group->families[$key]->fullName() ?></h5>
-                                                                <?php endif ?>
-                                                            <?php endif ?>
-                                                        <?php else: ?>
-                                                            <?php if ( $indi->childFamilies()->first()->xref() != $prev_id ) : ?>
-                                                                <?php $prev_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
-                                                                <h5><?= I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
-                                                            <?php endif ?>
-                                                        <?php endif ?>
-                                                        <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
-                                                            <?php if ($indi->canShow()): ?>
-                                                                <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                                    <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
-                                                                <?php endif ?>
-                                                                <span class="hh_extended_family_counter"><?= $i ?></span>
-                                                                <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
-                                                                <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                                                    <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
-                                                                <?php else: ?>
-                                                                    <span class="hh_extended_family_birth_death">
-                                                                        <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                        <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                    </span>
-                                                                <?php endif ?>
-                                                                <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
-                                                                    <span class="hh_extended_family_pedi"><?= $group->labels[$key] ?></span>
-                                                                <?php endif ?>
-                                                            <?php else: ?>
-                                                                <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
-                                                            <?php endif ?>
-                                                        </div>
-                                                    <?php $i++; endforeach ?>
-                                                </div>    
-                                            <?php endforeach ?>
-                                        <?php elseif ($propName == 'partners'): ?>
-                                            <?php foreach ($filterObj->efp->$propName->groups as $key => $group): ?>
-                                                <div id="hh_extended_family_g">
-                                                    <h4><?= I18N::translate('Partner of ') ?>
-                                                        <?php if ($group->partner->xref() == $extfam_obj->self->indi->xref()): ?>
-                                                            <?= $extfam_obj->self->niceName ?>
-                                                        <?php else: ?>
-                                                            <?php if ($group->partner->canShow()): ?>
-                                                                <span class="hh_extended_family_name"><a href="<?= e($group->partner->url()) ?>"><?= $group->partner->fullName() ?></a></span>
-                                                            <?php else: ?>
-                                                                <span class="hh_extended_family_name"><?= $group->partner->fullName() ?></span>
-                                                            <?php endif ?>
-                                                        <?php endif ?>
-                                                        &nbsp;(<?= count($group->members) ?>)
-                                                    </h4>
-                                                    <?php $i = 1; ?>
-                                                    <?php foreach ($group->members as $indi) : ?>
-                                                        <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
-                                                            <?php if ($indi->canShow()): ?>
-                                                                <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                                    <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
-                                                                <?php endif ?>
-                                                                <span class="hh_extended_family_counter"><?= $i ?></span>
-                                                                <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
-                                                                <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                                                    <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
-                                                                <?php else: ?>
-                                                                    <span class="hh_extended_family_birth_death">
-                                                                        <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                        <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                    </span>
-                                                                <?php endif ?>
-                                                            <?php else: ?>
-                                                                <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
-                                                            <?php endif ?>
-                                                        </div>
-                                                    <?php $i++; endforeach ?>
-                                                </div>    
-                                            <?php endforeach ?>
-                                        <?php elseif ($propName == 'partner_chains'): ?>
-                                            <div id="hh_extended_family_g">
-                                                <?php $i = 1; ?>
-                                                <?php foreach ($filterObj->efp->$propName->displayChains as $chain) : ?>
-                                                    <?php if ($i > 1): ?>
-                                                        <hr>
-                                                    <?php endif ?>
-                                                    <?php $j = 1; ?>                                                
-                                                    <?php foreach ($chain as $indi) : ?>
-                                                        <?php if ($j > 1): ?>
-                                                            <?php echo ' ∞ ' ?>
-                                                        <?php endif ?>
-                                                        <?php if ($indi->canShow): ?>
-                                                            <span class="hh_extended_family_counter"><?= $indi->step ?></span>
-                                                            <span class="hh_extended_family_name"><a href="<?= e($indi->url) ?>"><?= $indi->fullName ?></a></span>
-                                                        <?php else: ?>
-                                                            <span class="hh_extended_family_counter"><?= $indi->step ?></span>
-                                                            <span class="hh_extended_family_name"><?= $indi->fullName ?></span>
-                                                        <?php endif ?>
-                                                    <?php $j++; endforeach ?>
-                                                <?php $i++; endforeach ?>
-                                            </div>
-                                        <?php elseif ( $propName == 'parents_in_law'): ?>
-                                            <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
-                                                <div id="hh_extended_family_g">
-                                                    <h4>
-                                                        <?php if ($group->partner->canShow()): ?>
-                                                            <span class="hh_extended_family_name"><?= $group->familyStatus . I18N::translate(' with ') ?><a href="<?= e($group->partner->url()) ?>"><?= $group->partner->fullName() ?></a></span>
-                                                        <?php else: ?>
-                                                            <span class="hh_extended_family_name"><?= I18N::translate('Partnership') . I18N::translate(' with ') . $group->partner->fullName() ?></span>
-                                                        <?php endif ?>
-                                                        &nbsp;(<?= count($group->members) ?>)
-                                                    </h4>
-                                                    <?php $prev_fam_id = '-1'; ?>
-                                                    <?php if ($group->family->xref() != $prev_fam_id) : ?>
-                                                            <?php $prev_fam_id = $group->family->xref(); $i = 1; ?>
-                                                            
-                                                    <?php endif ?>
-                                                    <?php foreach ($group->members as $indi) : ?>
-                                                        <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
-                                                            <?php if ($indi->canShow()): ?>
-                                                                <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                                    <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
-                                                                <?php endif ?>
-                                                                <span class="hh_extended_family_counter"><?= $i ?></span>
-                                                                <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
-                                                                <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                                                    <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
-                                                                <?php else: ?>
-                                                                    <span class="hh_extended_family_birth_death">
-                                                                        <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                        <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                        <?php if ($event instanceof Fact): ?>
-                                                                            <?= $event->summary(); ?>
-                                                                        <?php endif ?>
-                                                                    </span>
-                                                                <?php endif ?>
-                                                            <?php else: ?>
-                                                                <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
-                                                            <?php endif ?>
-                                                        </div>
-                                                    <?php $i++; endforeach ?>
-                                                </div>    
-                                            <?php endforeach ?>
+                                <?php elseif ($propName == 'partner_chains'): ?>
+                                    <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                        <?= I18N::plural('%d female partner in this partner chain recorded (%d in total).', '%d female partners in this partner chain recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?>
+                                    </h3>
+                                    <?php if ($filterObj->efp->$propName->chainsCount > 1): ?>
+                                        <h3><?= I18N::translate('There are %d branches in the partner chain. ', $filterObj->efp->$propName->chainsCount, $filterObj->efp->$propName->chainsCount) ?>
+                                            <?php if ( $filterOption == 'all' ): ?>
+                                                <?= I18N::translate('The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).', $filterObj->efp->$propName->longestChainCount, $filterObj->efp->$propName->mostDistantPartner->fullname(), $extfam_obj->self->niceName) ?>
+                                            <?php else: ?>
+                                                <?= I18N::translate('The longest branch in the partner chain consists of %1$d partners (including %2$s).', $filterObj->efp->$propName->longestChainCount, $extfam_obj->self->niceName) ?>
+                                            <?php endif ?>
+                                        </h3>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'siblings'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one sister recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one brother recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one brother or sister recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
                                         <?php endif ?>
-                                    <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                    </div>
                                     <?php else: ?>
-                                    </div>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d sister recorded.',  '%2$s has %1$d sisters recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d brother recorded.', '%2$s has %1$d brothers recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d brother and ', '%2$s has %1$d brothers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d sister recorded (%d in total).', '%d sisters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
                                     <?php endif ?>
-                                </div>
+                                    <?php if ($extfam_obj->config->showLabels && $extfam_obj->self->label): ?>
+                                        <span class="hh_extended_family_pedi"><?= $extfam_obj->self->label ?></span>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'siblings_in_law'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one sister-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one brother-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one sibling-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d sister-in-law recorded.',  '%2$s has %1$d sisters-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d brother-in-law recorded.', '%2$s has %1$d brothers-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d brother-in-law and ', '%2$s has %1$d brothers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d sister-in-law recorded (%d in total).', '%d sisters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                    <?php if ($extfam_obj->config->showLabels && $extfam_obj->self->label): ?>
+                                        <span class="hh_extended_family_pedi"><?= $extfam_obj->self->label ?></span>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'cousins'): ?>								
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one female first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one male first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one first cousin recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d female first cousin recorded.',  '%2$s has %1$d female first cousins recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male first cousin recorded.', '%2$s has %1$d male first cousins recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male first cousin and ', '%2$s has %1$d male first cousins and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d female first cousin recorded (%d in total).', '%d female first cousins recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'nephews_and_nieces'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one niece recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one nephew recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one nephew or niece recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d niece recorded.',  '%2$s has %1$d nieces recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d nephew recorded.', '%2$s has %1$d nephews recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d nephew and ', '%2$s has %1$d nephews and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d niece recorded (%d in total).', '%d nieces recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'children'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one daughter recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one son recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one child recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d daughter recorded.',  '%2$s has %1$d daughters recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d son recorded.', '%2$s has %1$d sons recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d daughter recorded (%d in total).', '%d daughters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'children_in_law'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one daughter-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one son-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one child-in-law recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d daughter-in-law recorded.',  '%2$s has %1$d daughters-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d son-in-law recorded.', '%2$s has %1$d sons-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d son-in-law and ', '%2$s has %1$d sons-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d daughter-in-law recorded (%d in total).', '%d daughters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'grandchildren'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one granddaughter recorded.', $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == 1): ?>
+                                                <h3><?= I18N::translate('%s has one grandson recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::translate('%s has one grandchild recorded.', $extfam_obj->self->niceName) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d granddaughter recorded.',  '%2$s has %1$d granddaughters recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->self->niceName) ?></h3>
+                                        <?php else: ?>
+                                            <?php if ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d grandson recorded.', '%2$s has %1$d grandsons recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?></h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d grandson and ', '%2$s has %1$d grandsons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->self->niceName) ?>
+                                                    <?= I18N::plural('%d granddaughter recorded (%d in total).', '%d granddaughters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php endif ?>
+                            </div>
+                            <?php if ($extfam_obj->config->useCompactDesign): ?>
+                            <div id="hh_extended_family_content_compact">
+                            <?php else: ?>
+                            <div id="hh_extended_family_content">
+                            <?php endif ?>
+                                <?php if ( $propName == 'grandparents' || $propName == 'uncles_and_aunts' || $propName == 'uncles_and_aunts_bm' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'siblings' || $propName == 'siblings_in_law' || $propName == 'cousins' || $propName == 'nephews_and_nieces' || $propName == 'children' || $propName == 'children_in_law' || $propName == 'grandchildren' ): ?>
+                                    <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
+                                        <div id="hh_extended_family_box">
+                                            <h4><?= I18N::translate($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
+                                            <?php $prev_id = -1; ?>
+                                            <?php  foreach ($group->members as $key => $indi) : ?>
+                                                <?php if ( $propName == 'siblings_in_law' ) : ?>
+                                                    <?php if ( $group->referencePersons[$key]->xref() != $prev_id ) : ?>
+                                                        <?php $prev_id = $group->referencePersons[$key]->xref(); $i = 1; ?>
+                                                        <?php if ($group->referencePersons[$key]->canShow()): ?>
+                                                            <?php if ( $group->groupName == 'Partners of siblings' ) : ?>
+                                                                <?php if ( $group->referencePersons[$key]->sex() == 'M' ) : ?>
+                                                                    <h5><?= I18N::translate('Brother') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php elseif ( $group->referencePersons[$key]->sex() == 'F' ) : ?>
+                                                                    <h5><?= I18N::translate('Sister') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php else: ?>
+                                                                    <h5><?= I18N::translate('Sibling') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php endif ?>
+                                                            <?php elseif ( $group->groupName == 'Siblings of partners' ) : ?>
+                                                                <h5><?= $group->familiesStatus[$key] . I18N::translate(' with ') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                            <?php endif ?>
+                                                        <?php else: ?>
+                                                            <?php if ( $group->groupName == 'Partners of siblings' ) : ?>
+                                                                <h5><?= I18N::translate('Sibling')?>&nbsp;<?= $group->referencePersons[$key]->fullName() ?></h5>
+                                                            <?php elseif ( $group->groupName == 'Siblings of partners' ) : ?>
+                                                                <h5><?= I18N::translate('Partner')?>&nbsp;<? $group->referencePersons[$key]->fullName() ?></h5>
+                                                            <?php endif ?>
+                                                        <?php endif ?>
+                                                    <?php endif ?>
+                                                <?php elseif ( $propName == 'children_in_law' ) : ?>
+                                                    <?php if ( $group->referencePersons[$key]->xref() != $prev_id ) : ?>
+                                                        <?php $prev_id = $group->referencePersons[$key]->xref(); $i = 1; ?>
+                                                        <?php if ($group->referencePersons[$key]->canShow()): ?>
+                                                            <?php if ( $group->groupName == 'Partners of biological children' ) : ?>
+                                                                <?php if ( $group->referencePersons[$key]->sex() == 'M' ) : ?>
+                                                                    <h5><?= I18N::translate('Son') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php elseif ( $group->referencePersons[$key]->sex() == 'F' ) : ?>
+                                                                    <h5><?= I18N::translate('Daughter') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php else: ?>
+                                                                    <h5><?= I18N::translate('Child') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php endif ?>
+                                                            <?php elseif ( $group->groupName == 'Partners of stepchildren' ) : ?>
+                                                                <?php if ( $group->referencePersons[$key]->sex() == 'M' ) : ?>
+                                                                    <h5><?= I18N::translate('Stepson') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php elseif ( $group->referencePersons[$key]->sex() == 'F' ) : ?>
+                                                                    <h5><?= I18N::translate('Stepdaughter') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php else: ?>
+                                                                    <h5><?= I18N::translate('Stepchild') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php endif ?>
+                                                            <?php endif ?>
+                                                        <?php else: ?>
+                                                            <?php if ( $group->groupName == 'Partners of biological children' ) : ?>
+                                                                <h5><?= I18N::translate('Child')?>&nbsp;<? $group->referencePersons[$key]->fullName() ?></h5>
+                                                            <?php elseif ( $group->groupName == 'Partners of stepchildren' ) : ?>
+                                                                <h5><?= I18N::translate('Stepchild')?>&nbsp;<? $group->referencePersons[$key]->fullName() ?></h5>
+                                                            <?php endif ?>
+                                                        <?php endif ?>
+                                                    <?php endif ?>
+                                                <?php elseif ( $propName == 'grandparents' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'uncles_and_aunts' || $propName == 'uncles_and_aunts_bm' ): ?>
+                                                    <?php if ( $group->families[$key]->xref() != $prev_id ) : ?>
+                                                        <?php $prev_id = $group->families[$key]->xref(); $i = 1; ?>
+                                                        <?php if ($group->families[$key]->canShow()): ?>
+                                                            <?php if ($group->groupName == 'Parents of stepparents' ): ?>
+                                                                <?php $link_parents = '<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>' ?>
+                                                                <?php $link_referencePerson = '<a href="'.e($group->referencePersons[$key]->url()).'">'.$group->referencePersons[$key]->fullName().'</a>' ?>
+                                                                <h5><?= I18N::translate('Parents %1$s (%2$s) of %3$s', $link_parents, $group->familiesStatus[$key], $link_referencePerson) ?></h5>
+                                                            <?php else: ?>
+                                                                <h5><?= $group->familiesStatus[$key] ?><a href="<?= e($group->families[$key]->url()); ?>">&nbsp;<?= $group->families[$key]->fullName(); ?></a></h5>
+                                                            <?php endif ?>
+                                                        <?php else: ?>
+                                                            <?php if ($group->groupName == 'Parents of stepparents' ): ?>
+                                                                <h5><?= I18N::translate('Parents %1$s of %2$s', $group->families[$key]->fullName(), $group->referencePersons[$key])->fullName() ?></h5>>
+                                                            <?php else: ?>
+                                                                <h5><?= I18N::translate('Partnership')?>&nbsp;<? $group->families[$key]->fullName() ?></h5>
+                                                            <?php endif ?>
+                                                        <?php endif ?>
+                                                    <?php endif ?>
+                                                <?php else: ?>
+                                                    <?php if ( $indi->childFamilies()->first()->xref() != $prev_id ) : ?>
+                                                        <?php $prev_id = $indi->childFamilies()->first()->xref(); $i = 1; ?>
+                                                        <h5><?= I18N::translate('Parents') ?><a href="<?= e($indi->childFamilies()->first()->url()); ?>">&nbsp;<?= $indi->childFamilies()->first()->fullName(); ?></a></h5>
+                                                    <?php endif ?>
+                                                <?php endif ?>
+                                                <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                                    <?php if ($indi->canShow()): ?>
+                                                        <?php if ($extfam_obj->config->showThumbnail): ?>
+                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                                                        <?php endif ?>
+                                                        <span class="hh_extended_family_counter"><?= $i ?></span>
+                                                        <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                                        <?php if ($extfam_obj->config->useCompactDesign): ?>
+                                                            <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                                        <?php else: ?>
+                                                            <span class="hh_extended_family_birth_death">
+                                                                <?php $event = $indi->facts(['BIRT'])->first(); ?>
+                                                                <?php if ($event instanceof Fact): ?>
+                                                                    <?= $event->summary(); ?>
+                                                                <?php endif ?>
+                                                                <?php $event = $indi->facts(['DEAT'])->first(); ?>
+                                                                <?php if ($event instanceof Fact): ?>
+                                                                    <?= $event->summary(); ?>
+                                                                <?php endif ?>
+                                                            </span>
+                                                        <?php endif ?>
+                                                        <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
+                                                            <span class="hh_extended_family_pedi"><?= $group->labels[$key] ?></span>
+                                                        <?php endif ?>
+                                                    <?php else: ?>
+                                                        <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
+                                                    <?php endif ?>
+                                                </div>
+                                            <?php $i++; endforeach ?>
+                                        </div>    
+                                    <?php endforeach ?>
+                                <?php elseif ($propName == 'partners'): ?>
+                                    <?php foreach ($filterObj->efp->$propName->groups as $key => $group): ?>
+                                        <div id="hh_extended_family_box">
+                                            <h4><?= I18N::translate('Partner of ') ?>
+                                                <?php if ($group->partner->xref() == $extfam_obj->self->indi->xref()): ?>
+                                                    <?= $extfam_obj->self->niceName ?>
+                                                <?php else: ?>
+                                                    <?php if ($group->partner->canShow()): ?>
+                                                        <span class="hh_extended_family_name"><a href="<?= e($group->partner->url()) ?>"><?= $group->partner->fullName() ?></a></span>
+                                                    <?php else: ?>
+                                                        <span class="hh_extended_family_name"><?= $group->partner->fullName() ?></span>
+                                                    <?php endif ?>
+                                                <?php endif ?>
+                                                &nbsp;(<?= count($group->members) ?>)
+                                            </h4>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($group->members as $indi) : ?>
+                                                <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                                    <?php if ($indi->canShow()): ?>
+                                                        <?php if ($extfam_obj->config->showThumbnail): ?>
+                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                                                        <?php endif ?>
+                                                        <span class="hh_extended_family_counter"><?= $i ?></span>
+                                                        <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                                        <?php if ($extfam_obj->config->useCompactDesign): ?>
+                                                            <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                                        <?php else: ?>
+                                                            <span class="hh_extended_family_birth_death">
+                                                                <?php $event = $indi->facts(['BIRT'])->first(); ?>
+                                                                <?php if ($event instanceof Fact): ?>
+                                                                    <?= $event->summary(); ?>
+                                                                <?php endif ?>
+                                                                <?php $event = $indi->facts(['DEAT'])->first(); ?>
+                                                                <?php if ($event instanceof Fact): ?>
+                                                                    <?= $event->summary(); ?>
+                                                                <?php endif ?>
+                                                            </span>
+                                                        <?php endif ?>
+                                                    <?php else: ?>
+                                                        <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
+                                                    <?php endif ?>
+                                                </div>
+                                            <?php $i++; endforeach ?>
+                                        </div>    
+                                    <?php endforeach ?>
+                                <?php elseif ($propName == 'partner_chains'): ?>
+                                    <div id="hh_extended_family_box">
+                                        <?php $i = 1; ?>
+                                        <?php foreach ($filterObj->efp->$propName->displayChains as $chain) : ?>
+                                            <?php if ($i > 1): ?>
+                                                <hr>
+                                            <?php endif ?>
+                                            <?php $j = 1; ?>                                                
+                                            <?php foreach ($chain as $indi) : ?>
+                                                <?php if ($j > 1): ?>
+                                                    <?php echo ' ∞ ' ?>
+                                                <?php endif ?>
+                                                <?php if ($indi->canShow): ?>
+                                                    <span class="hh_extended_family_counter"><?= $indi->step ?></span>
+                                                    <span class="hh_extended_family_name"><a href="<?= e($indi->url) ?>"><?= $indi->fullName ?></a></span>
+                                                <?php else: ?>
+                                                    <span class="hh_extended_family_counter"><?= $indi->step ?></span>
+                                                    <span class="hh_extended_family_name"><?= $indi->fullName ?></span>
+                                                <?php endif ?>
+                                            <?php $j++; endforeach ?>
+                                        <?php $i++; endforeach ?>
+                                    </div>
+                                <?php elseif ( $propName == 'parents_in_law'): ?>
+                                    <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
+                                        <div id="hh_extended_family_box">
+                                            <h4>
+                                                <?php if ($group->partner->canShow()): ?>
+                                                    <span class="hh_extended_family_name"><?= $group->familyStatus . I18N::translate(' with ') ?><a href="<?= e($group->partner->url()) ?>"><?= $group->partner->fullName() ?></a></span>
+                                                <?php else: ?>
+                                                    <span class="hh_extended_family_name"><?= I18N::translate('Partnership') . I18N::translate(' with ') . $group->partner->fullName() ?></span>
+                                                <?php endif ?>
+                                                &nbsp;(<?= count($group->members) ?>)
+                                            </h4>
+                                            <?php $prev_fam_id = '-1'; ?>
+                                            <?php if ($group->family->xref() != $prev_fam_id) : ?>
+                                                    <?php $prev_fam_id = $group->family->xref(); $i = 1; ?>
+                                                    
+                                            <?php endif ?>
+                                            <?php foreach ($group->members as $indi) : ?>
+                                                <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                                                    <?php if ($indi->canShow()): ?>
+                                                        <?php if ($extfam_obj->config->showThumbnail): ?>
+                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                                                        <?php endif ?>
+                                                        <span class="hh_extended_family_counter"><?= $i ?></span>
+                                                        <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
+                                                        <?php if ($extfam_obj->config->useCompactDesign): ?>
+                                                            <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                                        <?php else: ?>
+                                                            <span class="hh_extended_family_birth_death">
+                                                                <?php $event = $indi->facts(['BIRT'])->first(); ?>
+                                                                <?php if ($event instanceof Fact): ?>
+                                                                    <?= $event->summary(); ?>
+                                                                <?php endif ?>
+                                                                <?php $event = $indi->facts(['DEAT'])->first(); ?>
+                                                                <?php if ($event instanceof Fact): ?>
+                                                                    <?= $event->summary(); ?>
+                                                                <?php endif ?>
+                                                            </span>
+                                                        <?php endif ?>
+                                                    <?php else: ?>
+                                                        <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
+                                                    <?php endif ?>
+                                                </div>
+                                            <?php $i++; endforeach ?>
+                                        </div>    
+                                    <?php endforeach ?>
+                                <?php endif ?>
+                            <?php if ($extfam_obj->config->useCompactDesign): ?>
+                            </div>
+                            <?php else: ?>
+                            </div>
                             <?php endif ?>
                         <?php else: ?>
                             <div class="hh-extended-family-summary">
                                 <?php if ($extfam_obj->config->showEmptyBlock == 0): ?>
                                     <?php if ($propName == 'uncles_and_aunts'): ?>
                                         <h3><?= I18N::translate('%s has no uncles or aunts recorded.', $extfam_obj->self->niceName) ?></h3>
+                                    <?php elseif ($propName == 'uncles_and_aunts_bm'): ?>
+                                        <h3><?= I18N::translate('%s has no uncles or aunts by marriage recorded.', $extfam_obj->self->niceName) ?></h3>
                                     <?php elseif ($propName == 'partner_chains'): ?>
                                         <h3><?= I18N::translate('%s has no members of a partner chain recorded.', $extfam_obj->self->niceName) ?></h3>
                                     <?php elseif ($propName == 'cousins'): ?>
