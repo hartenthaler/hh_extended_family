@@ -6,7 +6,7 @@
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 
 This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person:
-grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts, partners, siblings, siblings-in-law, cousins, nephews, nieces, children, children-in-law, and grandchildren.
+grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts, partners, siblings, siblings-in-law, co-siblings-in-law, cousins, nephews, nieces, children, children-in-law, and grandchildren.
 
 <a name="Contents"></a>
 
@@ -35,7 +35,7 @@ The admin can decide in the control panel
 * if filter options should be presented for users
 * how empty parts of extended family should be presented
 * wheter the name of proband is a full name or a short version
-* wheter labels like "adopted child", "foster child" or "twin" should be used to indicate special situations (GEDCOM record to indicate that a person is a triplet, should look like "1 ASSO @I123@\n2 RELA triplet")
+* wheter labels like "adopted child", "foster child" or "triplet" should be used to indicate special situations (GEDCOM record to indicate that a person is a triplet, should look like "1 ASSO @I123@\n2 RELA triplet")
 * whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
@@ -48,6 +48,7 @@ The default presentation sequence of the extended family parts is oriented at th
 * partners and partner chains              // generation  0
 * siblings                                 // generation  0
 * siblings-in-law                          // generation  0
+* co-siblings-in-law			   // Generation  0
 * cousins                                  // generation  0
 * nephews and nieces                       // generation -1
 * children                                 // generation -1
@@ -64,7 +65,7 @@ Screenshot of tab using the compact design
 Screenshot showing photo as well as birth and death information
 <p align="center"><img src="screenshot_full.png" alt="Screenshot showing photo as well as birth and death information" align="center" width="85%"></p>
 
-Screenshot showing chain of partners
+Screenshot showing chain of partners (partner of partner of partner of ...)
 <p align="center"><img src="screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
 
 Screenshot of control panel menu
@@ -77,7 +78,7 @@ Screenshot of control panel menu
 This module requires **webtrees** version 2.0 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** 2.0.16 version.
+This module was tested with **webtrees** 2.0.16 version and all available themes.
 
 <a name="Installation"></a>
 

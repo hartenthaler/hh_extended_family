@@ -28,6 +28,7 @@
 /*
  * tbd: Offene Punkte
  * ------------------
+ * Anpassungen an Bootstrap 5 und webtrees 2.1 (neue Testumgebung aufsetzen)
  *
  * siehe issues/enhancements in github
  *
@@ -130,7 +131,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION = '2.0.16.47';
+    public const CUSTOM_VERSION = '2.0.16.48';
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
     /**
@@ -168,11 +169,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     // no groups for partners and partner chains
     
     public const GROUP_SIBLINGS_FULL = 'Full siblings';
-    public const GROUP_SIBLINGS_HALF = 'Half siblings';          // including more than half siblings (if parents are related to each other)
+    public const GROUP_SIBLINGS_HALF = 'Half siblings';                                 // including more than half siblings (if parents are related to each other)
     public const GROUP_SIBLINGS_STEP = 'Stepsiblings';
     
-    public const GROUP_SIBLINGS_IN_LAW_SIBOFP = 'Siblings of partners';
-    public const GROUP_SIBLINGS_IN_LAW_POFSIB = 'Partners of siblings';         
+    public const GROUP_SIBLINGSINLAW_SIBOFP = 'Siblings of partners';
+    public const GROUP_SIBLINGSINLAW_POFSIB = 'Partners of siblings';
+
+    public const GROUP_COSIBLINGSINLAW_SIBPARSIB = 'Siblings of siblings-in-law';       // sibling's partner's sibling
+    public const GROUP_COSIBLINGSINLAW_PARSIBPAR = 'Partners of siblings-in-law';       // partner's sibling's partner';    
     
     public const GROUP_COUSINS_FULL_FATHER = 'Children of full siblings of father';
     public const GROUP_COUSINS_FULL_MOTHER = 'Children of full siblings of mother';
@@ -214,6 +218,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'partner_chains',                           // generation  0
             'siblings',                                 // generation  0
             'siblings_in_law',                          // generation  0
+            'co_siblings_in_law',                       // generation  0
             'cousins',                                  // generation  0
             'nephews_and_nieces',                       // generation -1
             'children',                                 // generation -1
@@ -281,6 +286,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *        				           ->type					    string
      *                 ->siblings                                   see children 
      *                 ->siblings_in_law                            see children
+     *                 ->co_siblings_in_law                         see children
      *                 ->cousins                                    see children
      *                 ->nephews_and_nieces                         see children
      *                 ->children->groups[]->members[]              array of object individual   (index of groups is groupName)
@@ -776,7 +782,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     foreach ($sibling_full->spouseFamilies() as $family2) {                     // Gen  0 F
                         foreach ($family2->spouses() as $spouse) {                              // Gen  0 P
                             if ( $spouse !== $sibling_full ) {
-                                $this->addIndividualToFamily( $spouse, $efp, $family2, $sibling_full, self::GROUP_SIBLINGS_IN_LAW_POFSIB );
+                                $this->addIndividualToFamily( $spouse, $efp, $family2, $sibling_full, self::GROUP_SIBLINGSINLAW_POFSIB );
                             }
                         }
                     }
@@ -789,7 +795,58 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                     foreach ($spouse1->childFamilies() as $family2) {                           // Gen  1 F
                         foreach ($family2->children() as $sibling) {                            // Gen  0 P
                             if ($sibling !== $spouse1) {
-                                $this->addIndividualToFamily( $sibling, $efp, $family1, $spouse1, self::GROUP_SIBLINGS_IN_LAW_SIBOFP );
+                                $this->addIndividualToFamily( $sibling, $efp, $family1, $spouse1, self::GROUP_SIBLINGSINLAW_SIBOFP );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return;
+    }
+
+    /**
+     * Find co-siblings-in-law (partner's sibling's partner and sibling's partner's sibling)
+     *
+     * @param Individual $individual
+     *
+     * @param modified object extended family part
+     */
+    private function get_co_siblings_in_law(object $efp, Individual $individual)
+    {
+        foreach ($individual->childFamilies() as $family1) {                                    // Gen  1 F
+            foreach ($family1->children() as $sibling_full) {                                   // Gen  0 P
+                if ($sibling_full !== $individual) {
+                    foreach ($sibling_full->spouseFamilies() as $family2) {                     // Gen  0 F
+                        foreach ($family2->spouses() as $spouse) {                              // Gen  0 P
+                            if ( $spouse !== $sibling_full ) {
+                                foreach ($spouse->childFamilies() as $family3) {                // Gen  1 F
+                                    foreach ($family3->children() as $co_sibling_full) {        // Gen  0 P
+                                        if ($co_sibling_full !== $spouse) {
+                                            $this->addIndividualToFamily( $co_sibling_full, $efp, $family3, $spouse, self::GROUP_COSIBLINGSINLAW_SIBPARSIB );
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        foreach ($individual->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
+                if ( $spouse1 !== $individual ) {
+                    foreach ($spouse1->childFamilies() as $family2) {                           // Gen  1 F
+                        foreach ($family2->children() as $sibling) {                            // Gen  0 P
+                            if ($sibling !== $spouse1) {
+                                foreach ($sibling->spouseFamilies() as $family3) {
+                                    foreach ($family3->spouses() as $cosiblinginlaw) {
+                                        if ($cosiblinginlaw !== $sibling) {
+                                            $this->addIndividualToFamily( $cosiblinginlaw, $efp, $family3, $spouse1, self::GROUP_COSIBLINGSINLAW_PARSIBPAR );
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -2675,6 +2732,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'Children of half siblings of parent' => 'Kinder der halbbürtigen Geschwister eines Elternteils',
             'Siblings of partners' => 'Geschwister der Partner',
             'Partners of siblings' => 'Partner der Geschwister',
+            'Siblings of siblings-in-law' => 'Geschwister der Schwäger und Schwägerinnen',
+            'Partners of siblings-in-law' => 'Partner der Schwäger und Schwägerinnen',
             'Children of siblings' => 'Kinder der Geschwister',
             'Siblings\' stepchildren' => 'Stiefkinder der Geschwister',
             'Children of siblings of partners' => 'Kinder der Geschwister der Partner',
@@ -2816,7 +2875,21 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 => 'Für %2$s sind %1$d Schwager und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwäger und ',
             '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).' 
                 => '%d Schwägerin verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwägerinnen verzeichnet (insgesamt %d).',
-            
+                        
+            'Co-siblings-in-law' => 'Schwippschwäger und Schwippschwägerinnen',
+            '%s has no co-siblings-in-law recorded.' => 'Für %s sind weder Schwippschwäger noch Schwippschwägerinnen verzeichnet.',
+            '%s has one co-sister-in-law recorded.' => 'Für %s ist eine Schwippschwägerin verzeichnet.',
+            '%s has one co-brother-in-law recorded.' => 'Für %s ist ein Schwippschwager verzeichnet.',
+            '%s has one co-sibling-in-law recorded.' => 'Für %s ist ein Schwippschwager oder eine Schwippschwägerin verzeichnet.',
+            '%2$s has %1$d co-sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law recorded.'
+                => 'Für %2$s ist %1$d Schwippschwägerin verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwippschwägerinnen verzeichnet.',
+            '%2$s has %1$d co-brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law recorded.'
+                => 'Für %2$s ist %1$d Schwippschwager verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwippschwäger verzeichnet.',
+            '%2$s has %1$d co-brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law and ' 
+                => 'Für %2$s sind %1$d Schwippschwager und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwippschwäger und ',
+            '%d co-sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-sisters-in-law recorded (%d in total).' 
+                => '%d Schwippschwägerin verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwippschwägerinnen verzeichnet (insgesamt %d).',
+                
             'Partners' => 'Partner',
             'Partner of ' => 'Partner von ',
             '%s has no partners recorded.' => 'Für %s sind keine Partner verzeichnet.',
@@ -4107,33 +4180,59 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'not a female person' => 'không có người giới tính nữ',
             'not a person of unknown gender' => 'không có người không xác định giới tính',
 
+            'twin' => 'sinh đôi',
+            'triplet' => 'sinh ba',
+            'quadruplet' => 'sinh bốn',
+            'quintuplet' => 'sinh năm',
+            'sextuplet' => 'sinh sáu',
+            'septuplet' => 'sinh bảy',
+            'octuplet' => 'sinh tám',
+            'nonuplet' => 'sinh chín',
+            'decuplet' => 'sinh mười',
 
             'Marriage' => 'Kết hôn',
             'Ex-marriage' => 'Kết hôn lại',
             'Partnership' => 'Quan hệ hôn nhân',
             'Fiancée' => 'Hôn ước',
             ' with ' => ' với ',
+            'Biological parents of father' => 'Ông bà nội',
+            'Biological parents of mother' => 'Ông bà ngoại',
+            'Biological parents of parent' => 'Ông bà',
+            'Stepparents of father' => 'Bố mẹ kế của bố',
+            'Stepparents of mother' => 'Bố mẹ kế của mẹ',
+            'Stepparents of parent' => 'Bố mẹ kế của bố mẹ',
+            'Parents of stepparents' => 'Bố mẹ của bố mẹ kế',
+            'Siblings of father' => 'Anh chị em của bố',
+            'Siblings of mother' => 'Anh chị em của mẹ',
             'Siblings-in-law of father' => 'Anh chị em dâu rể của bố',
             'Siblings-in-law of mother' => 'Anh chị em dâu rể của mẹ',
+            'Biological parents' => 'Bố mẹ',
+            'Stepparents' => 'Bố/Mẹ kế',
             'Parents-in-law of biological children' => 'Bố mẹ chồng của con đẻ',
-            'Parents-in-law of stepchildren' => 'Bố mẹ chồng của con riêng',			
+            'Parents-in-law of stepchildren' => 'Bố mẹ chồng của con ghẻ',
             'Full siblings' => 'Anh chị em ruột',
-            'Half siblings' => 'Anh chị em cùng cha khác mẹ',
+            'Half siblings' => 'Anh chị em cùng cha khác mẹ/cùng mẹ khác cha',
             'Stepsiblings' => 'Anh chị em kế',
-            'Siblings of partners' => 'Anh chị em ruột của vợ hoặc chồng',
-            'Partners of siblings' => 'Vợ hoặc chồng của anh chị em ruột ',
+            'Children of full siblings of father' => 'Anh chị em cùng cha',
+            'Children of full siblings of mother' => 'Anh chị em cụng mẹ',
+            'Children of full siblings of parent' => 'Anh chị em cùng cha mẹ',
+            'Children of half siblings of father' => 'Anh chị em cùng cha khác mẹ',
+            'Children of half siblings of mother' => 'Anh chị em cùng mẹ khác cha',
+            'Children of full siblings of parent' => 'Anh chị em cùng cha mẹ',
+            'Siblings of partners' => 'Anh, chị, em ruột của chồng (vợ)',
+            'Partners of siblings' => 'Vợ/chồng của anh chị em',
             'Children of siblings' => 'Con của anh chị em ruột',
-            'Siblings\' stepchildren' => 'Con riêng của anh chị em ruột',
-            'Children of siblings of partners' => 'Con của anh chị em của đối tác',
-            'Biological children' => 'Con ',
-            'Stepchildren' => 'Con riêng',
+            'Siblings\' stepchildren' => 'Anh chị em là con riêng',
+            'Children of siblings of partners' => 'Con của anh, chị, em ruột của chồng/vợ',
+            'Biological children' => 'Con',
+            'Stepchildren' => 'Con ghẻ',
             'Stepchild' => 'Con riêng',
             'Stepson' => 'Con trai riêng',
             'Stepdaughter' => 'Con gái riêng',
             'Partners of biological children' => 'Bạn đời của con ruột',
-            'Partners of stepchildren' => 'Bạn đời của con riêng',			
-            'Biological grandchildren' => 'Cháu ruột',
-            'Stepchildren of children' => 'Cháu - con của con riêng',
+            'Partners of stepchildren' => 'Bạn đời của con riêng',
+            'Biological grandchildren' => 'Cháu',
+            'Stepchildren of children' => 'Con ghẻ của con',
             'Children of stepchildren' => 'Con của con riêng',
             'Stepchildren of stepchildren' => 'Con riêng của con riêng',
 
