@@ -44,7 +44,7 @@ The default presentation sequence of the extended family parts is oriented at th
 * uncles and aunts by marriage             // generation +1
 * parents                                  // generation +1
 * parents-in-law                           // generation +1
-* co-parents-in-law                        // generation +1
+* co-parents-in-law                        // generation  0
 * partners and partner chains              // generation  0
 * siblings                                 // generation  0
 * siblings-in-law                          // generation  0
