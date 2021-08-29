@@ -1291,11 +1291,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         ];
         
         $found = false;
-        //if ($groupName == '') {
-        //    echo 'Soll ' . $individual->xref() . ' der Familie ' . $family->xref() . ' hinzugefügt werden? ';
-        //} else {
-        //    echo 'Soll ' . $individual->xref() . ' der Gruppe "' . $groupName . '" hinzugefügt werden? ';
-        //}
+        /*
+        if ($groupName == '') {
+            error_log('Soll ' . $individual->fullName() . ' (' . $individual->xref() . ') der Familie ' . $family->fullName() . ' (' . $family->xref() . ') hinzugefuegt werden? ');
+        } else {
+            error_log('Soll ' . $individual->fullName() . ' (' . $individual->xref() . ') der Gruppe "' . $groupName . '" hinzugefuegt werden? ');
+        }
+        */
         foreach ($extendedFamilyPart->groups as $i => $groupObj) {                      // check if individual is already a member of this part of the exetnded family   
             //echo 'Teste groups Nr. ' . $i . ': ';
             foreach ($groupObj->members as $member) {
@@ -1402,28 +1404,29 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function addIndividualToFamilyAsPartner(Individual $individual, object $extendedFamilyPart, Individual $spouse)
     {
         $found = false;
-        //echo 'Soll ' . $individual->xref() . ' als Partner von ' . $spouse->xref() . ' hinzugefügt werden? ';
+        //error_log('Soll ' . $individual->xref() . ' als Partner von ' . $spouse->xref() . ' hinzugefuegt werden? ');
         if ( array_key_exists ( $spouse->xref(), $extendedFamilyPart->groups) ) {               // check if this spouse is already stored as group in this part of the extended family   
-            //echo $spouse->xref() . ' definiert bereits eine Gruppe. ';
+            //error_log($spouse->xref() . ' definiert bereits eine Gruppe. ');
             $efp = $extendedFamilyPart->groups[$spouse->xref()];
             foreach ($efp->members as $member) {                                                // check if individual is already a partner of this partner   
-                //echo 'Teste Ehepartner ' . $member->xref() . ' in Gruppe für ' . $spouse->xref() . ': ';
+                //error_log('Teste Ehepartner ' . $member->xref() . ' in Gruppe fuer ' . $spouse->xref() . ': ');
                 if ( $individual->xref() == $member->xref() ) {
                     $found = true;
-                    //echo 'Person ' . $individual->xref() . ' ist bereits als Partner von ' . $spouse->xref() . ' vorhanden. ';
+                    error_log('Person ' . $individual->xref() . ' ist bereits als Partner von ' . $spouse->xref() . ' vorhanden. ');
                     break;
                 }
             }
             if ( !$found ) {                                                                    // add individual to existing partner group
-                //echo 'Person ' . $individual->xref() . ' wird als Partner von ' . $spouse->xref() . ' hinzugefügt. ';
+                //error_log('Person ' . $individual->xref() . ' wird als Partner von ' . $spouse->xref() . ' hinzugefuegt. ');
                 $extendedFamilyPart->groups[$spouse->xref()]->members[] = $individual;
             }
         } else {                                                                                // generate new group of partners
             $newObj = (object)[];
             $newObj->members[] = $individual;
             $newObj->partner = $spouse;
+            //error_log(print_r($newObj, true));
             $extendedFamilyPart->groups[$spouse->xref()] = $newObj;
-            //echo 'Neu hinzugefügte Gruppe für: ' . $spouse->xref() . ' (Person ' . $individual->xref() . ' als Partner hier hinzugefügt). ';
+            //error_log('Neu hinzugefuegte Gruppe fuer: ' . $spouse->xref() . ' (Person ' . $individual->xref() . ' als Partner hier hinzugefuegt). ');
         }
         
         return;
