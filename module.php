@@ -92,6 +92,7 @@ use Fisharebest\Webtrees\Module\ModuleCustomTrait;
 use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
+use Cissee\Webtrees\Module\ExtendedRelationships;
 
 // string functions
 use function ucfirst;
@@ -106,6 +107,8 @@ use function implode;
 use function count;
 use function array_key_exists;
 use function in_array;
+use function array_merge;
+use function array_filter;
 //use function unset;
 
 /**
@@ -125,7 +128,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION = '2.0.16.48';
+    public const CUSTOM_VERSION = '2.0.16.49';
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
     /**
@@ -285,11 +288,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *                 ->cousins                                            see children
      *                 ->nephews_and_nieces                                 see children
      *                 ->children->groups[]->members[]                      array of object individual   (index of groups is groupName)
-     *                                     ->labels[]                       array of string
+     *                                     ->labels[]                       array of array of string
      *                                     ->families[]                     array of object
      *                                     ->familiesStatus[]               string
      *                                     ->referencePersons[]             Individual
-     *                                     ->$newObj->referencePersons2[]   Individual
+     *                                     ->referencePersons2[]            Individual
      *                                     ->groupName                      string
      *                           ->maleCount                                int    
      *                           ->femaleCount                              int
@@ -423,7 +426,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $selfObj = (object)[];
         $selfObj->indi      = $individual;
         $selfObj->niceName  = $this->niceName( $individual );
-        $selfObj->label     = $this->getChildLabel( $individual );
+        $selfObj->label     = implode(", ", $this->getChildLabels( $individual ));
         return $selfObj;
     }
 
@@ -1315,13 +1318,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 foreach ($extendedFamilyPart->groups as $famkey => $groupObj) {         // check if this family is already stored in this part of the extended family
                     if ($groupObj->family->xref() == $family->xref()) {                 // family exists already    
                         //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$famkey]->family->xref() . '); ';
-                        $extendedFamilyPart->groups[$famkey]->members[] = $individual;
                         if ( !in_array($extendedFamilyPart->partName, $nolabelGroups) ) {
-                            $extendedFamilyPart->groups[$famkey]->labels[] = $this->getChildLabel($individual);
-                            $extendedFamilyPart->groups[$famkey]->families[] = $family;
-                            $extendedFamilyPart->groups[$famkey]->familiesStatus[] = $this->getFamilyStatus($family);
-                            $extendedFamilyPart->groups[$famkey]->referencePersons[] = $referencePerson;
-                            $extendedFamilyPart->groups[$famkey]->referencePersons2[] = $referencePerson2;
+                            $this->addIndividualToGroup($extendedFamilyPart, $individual, $family, $groupName, $referencePerson, $referencePerson2);
                         }
                         $found = true;
                         break;
@@ -1329,22 +1327,29 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
             } elseif ( array_key_exists($groupName, $extendedFamilyPart->groups) ) {
                 //echo 'In bereits vorhandener Gruppe "' . $groupName . '" Person ' . $individual->xref() . ' hinzugefügt. ';
-                $extendedFamilyPart->groups[$groupName]->members[] = $individual;
                 if ( !in_array($extendedFamilyPart->partName, $nolabelGroups) ) {
-                    $extendedFamilyPart->groups[$groupName]->labels[] = $this->getChildLabel($individual);
-                    $extendedFamilyPart->groups[$groupName]->families[] = $family;
-                    $extendedFamilyPart->groups[$groupName]->familiesStatus[] = $this->getFamilyStatus($family);
-                    $extendedFamilyPart->groups[$groupName]->referencePersons[] = $referencePerson;
-                    $extendedFamilyPart->groups[$groupName]->referencePersons2[] = $referencePerson2;
+                    $this->addIndividualToGroup($extendedFamilyPart, $individual, $family, $groupName, $referencePerson, $referencePerson2);
                 }
                 $found = true;
             }
             if (!$found) {                                                              // individual not found and family not found
+                $labels = [];
                 $newObj = (object)[];
                 $newObj->family = $family;
                 $newObj->members[] = $individual;
                 if ( !in_array($extendedFamilyPart->partName, $nolabelGroups) ) {
-                    $newObj->labels[] = $this->getChildLabel($individual);
+                    /*
+                    if ($referencePerson) {                                             // tbd: Logik verkehrt !!!
+                        if ($this->VestaModulesAvailable(false)) {
+                            $labels[] = \Cissee\Webtrees\Module\ExtendedRelationships\ExtendedRelationshipModule::getRelationshipLink($this->name(), $individual->tree(), null, $referencePerson->xref(), $individual->xref(), 4);
+                            error_log("Vesta Modules available");
+                        } else {
+                            error_log("Vesta Modules not available");
+                        }
+                    }
+                    */
+                    $labels = array_merge($labels, $this->getChildLabels($individual));
+                    $newObj->labels[] = $labels;
                     $newObj->families[] = $family;
                     $newObj->familiesStatus[] = $this->getFamilyStatus($family);
                     $newObj->referencePersons[] = $referencePerson;
@@ -1352,14 +1357,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 }
                 if ( $extendedFamilyPart->partName == 'grandparents' || $extendedFamilyPart->partName == 'parents' || $extendedFamilyPart->partName == 'parents_in_law' ) {
                     $newObj->familyStatus = $this->getFamilyStatus($family);
-                    /*
-                    foreach ($family->spouses() as $spouse) {                           // find spouse in family which is not equal to proband
-                        if ( $spouse->xref() !== $referencePerson->xref() ) {
-                            $newObj->partner = $spouse;
-                            break;
-                        }
-                    }
-                    */
                     if ($referencePerson) {
                         $newObj->partner = $referencePerson;
                         if ($referencePerson2) {
@@ -1376,10 +1373,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                             $newObj->partnerFamilyStatus = 'Partnership';
                         }
                     }
-                    
-                } // elseif ( $groupName !== '' ) {
-                  //  $newObj->groupName = $groupName;
-                // }
+                }
                 if ($groupName == '') {
                     $extendedFamilyPart->groups[] = $newObj;
                     //echo 'Neu hinzugefügte Familie Nr. ' . count($extendedFamilyPart->groups)-1 . ' (Person ' . $individual->xref() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$count]->family->xref() . '); ';
@@ -1391,6 +1385,27 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
         
+        return;
+    }
+    
+   /**
+    * add an individual to a group of the extended family
+    *
+    * @param object part of extended family (modified by this function)
+    * @param Individual $individual
+    * @param object $family family to which this individual is belonging
+    * @param string name of group
+    * @param (optional) Individual reference person
+    * @param (optional) Individual reference person 2
+    */
+    private function addIndividualToGroup(object &$extendedFamilyPart, Individual $individual, object $family, string $groupName, Individual $referencePerson = null, Individual $referencePerson2 = null )
+    {
+        $extendedFamilyPart->groups[$groupName]->members[] = $individual;                                                                         // array of strings                                
+        $extendedFamilyPart->groups[$groupName]->labels[] = $this->getChildLabels($individual);
+        $extendedFamilyPart->groups[$groupName]->families[] = $family;
+        $extendedFamilyPart->groups[$groupName]->familiesStatus[] = $this->getFamilyStatus($family);
+        $extendedFamilyPart->groups[$groupName]->referencePersons[] = $referencePerson;
+        $extendedFamilyPart->groups[$groupName]->referencePersons2[] = $referencePerson2;
         return;
     }
 
@@ -1476,15 +1491,15 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * count individuals per family (maybe including mother/father/motherAndFather families) or per group and per sex
+     * count individuals per family or per group
      *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param object part of extended family (modified by this function)
      */
-    private function addCountersToFamilyPartObject( object $extendedFamilyPart )
+    private function addCountersToFamilyPartObject( object &$extendedFamilyPart )
     {
         list ( $countMale, $countFemale, $countOthers ) = [0, 0 , 0];
         if ( $extendedFamilyPart->partName == 'partner_chains' ) {
-            $counter = $this->countMaleFemaleMarriageChain( $extendedFamilyPart->chains );
+            $counter = $this->countMaleFemalePartnerChain( $extendedFamilyPart->chains );
             list ( $countMale, $countFemale, $countOthers ) = [$counter->male, $counter->female, $counter->unknown_others];
         } else {
             foreach ($extendedFamilyPart->groups as $group) {
@@ -1495,35 +1510,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
         list ( $extendedFamilyPart->maleCount, $extendedFamilyPart->femaleCount, $extendedFamilyPart->allCount ) = [$countMale, $countFemale, $countMale + $countFemale + $countOthers];
-        
         if ( $extendedFamilyPart->allCount > 0) {
             if ( $extendedFamilyPart->partName == 'partners' ) {
-                $count = $this->countMaleFemale( $extendedFamilyPart->groups[array_key_first($extendedFamilyPart->groups)]->members );
-                $extendedFamilyPart->pmaleCount = $count->male;
-                $extendedFamilyPart->pfemaleCount = $count->female;
-                $extendedFamilyPart->pCount = $count->male + $count->female + $count->unknown_others;
-                $extendedFamilyPart->popmaleCount = $extendedFamilyPart->maleCount - $count->male;
-                $extendedFamilyPart->popfemaleCount = $extendedFamilyPart->femaleCount - $count->female;
-                $extendedFamilyPart->popCount = $extendedFamilyPart->allCount - $extendedFamilyPart->pCount;
+                $this->addCountersToFamilyPartObject_forPartners($extendedFamilyPart);
             } elseif ( $extendedFamilyPart->partName == 'partner_chains' ) {
-                $extendedFamilyPart->chainsCount = count($extendedFamilyPart->displayChains);
-                $lc = 0;
-                $i = 1;
-                $lc_node = (object)[];
-                $max = 0;
-                $max_node = (object)[];
-                foreach ($extendedFamilyPart->chains as $chain) { 
-                    $this->countLongestChainRecursive($chain, $i, $lc, $lc_node);
-                    if ($lc > $max) {
-                        $max = $lc;
-                        $max_node = $lc_node;
-                    }
-                }
-                $extendedFamilyPart->longestChainCount = $max+1;
-                $extendedFamilyPart->mostDistantPartner = $max_node->indi;
-                if ($extendedFamilyPart->longestChainCount <= 2) {                                             // normal marriage is no marriage chain
-                    $extendedFamilyPart->allCount = 0;
-                }
+                $this->addCountersToFamilyPartObject_forPartnerChains($extendedFamilyPart);
             }
         }
         
@@ -1564,13 +1555,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return object
      */
-    private function countMaleFemaleMarriageChain(array $chains): object
+    private function countMaleFemalePartnerChain(array $chains): object
     { 
         $mfu = (object)[];
         list ( $mfu->male, $mfu->female, $mfu->unknown_others ) = [0, 0, 0];
         list ( $countMale, $countFemale, $countOthers ) = [0, 0, 0];
         foreach ($chains as $chain) {
-            $this->countMaleFemaleMarriageChainRecursive( $chain, $mfu );
+            $this->countMaleFemalePartnerChainRecursive( $chain, $mfu );
             $countMale += $mfu->male;
             $countFemale += $mfu->female;
             $countOthers += $mfu->unknown_others;
@@ -1579,12 +1570,57 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }   
 
     /**
+     * count individuals for partners
+     *
+     * @param object part of extended family (modified by this function)
+     */
+    private function addCountersToFamilyPartObject_forPartners( object &$extendedFamilyPart )
+    {
+        $count = $this->countMaleFemale( $extendedFamilyPart->groups[array_key_first($extendedFamilyPart->groups)]->members );
+        $extendedFamilyPart->pmaleCount = $count->male;
+        $extendedFamilyPart->pfemaleCount = $count->female;
+        $extendedFamilyPart->pCount = $count->male + $count->female + $count->unknown_others;
+        $extendedFamilyPart->popmaleCount = $extendedFamilyPart->maleCount - $count->male;
+        $extendedFamilyPart->popfemaleCount = $extendedFamilyPart->femaleCount - $count->female;
+        $extendedFamilyPart->popCount = $extendedFamilyPart->allCount - $extendedFamilyPart->pCount;
+        return;
+    }
+
+    /**
+     * count individuals for partner chainss
+     *
+     * @param object part of extended family (modified by this function)
+     */
+    private function addCountersToFamilyPartObject_forPartnerChains( object &$extendedFamilyPart )
+    {
+        $extendedFamilyPart->chainsCount = count($extendedFamilyPart->displayChains);
+        $lc = 0;
+        $i = 1;
+        $lc_node = (object)[];
+        $max = 0;
+        $max_node = (object)[];
+        foreach ($extendedFamilyPart->chains as $chain) { 
+            $this->countLongestChainRecursive($chain, $i, $lc, $lc_node);
+            if ($lc > $max) {
+                $max = $lc;
+                $max_node = $lc_node;
+            }
+        }
+        $extendedFamilyPart->longestChainCount = $max+1;
+        $extendedFamilyPart->mostDistantPartner = $max_node->indi;
+        if ($extendedFamilyPart->longestChainCount <= 2) {                                             // normal marriage is no marriage chain
+            $extendedFamilyPart->allCount = 0;
+        }
+        return;
+    }
+
+    /**
      * count male and female individuals in marriage chains
      *
      * @param array of marriage chain nodes
      * @param object counter for sex of individuals (modified by function)
      */
-    private function countMaleFemaleMarriageChainRecursive(object $node, object &$mfu)
+    private function countMaleFemalePartnerChainRecursive(object $node, object &$mfu)
     { 
         if ($node && $node->indi instanceof Individual) {
             if ($node->indi->sex() == "M") {
@@ -1595,7 +1631,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                $mfu->unknown_others++; 
             }
             foreach($node->chains as $chain) {
-                $this->countMaleFemaleMarriageChainRecursive($chain, $mfu);
+                $this->countMaleFemalePartnerChainRecursive($chain, $mfu);
             }   
         }
         return;
@@ -1930,43 +1966,58 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         } else {
             $nice = '';
             // an individual can have no name or many names (then we use only the first one)
-            $name_facts = $individual->facts(['NAME']);
-            if (count($name_facts) > 0) {                                           // check if there is at least one name            
-                $rn = $this->rufname($individual);
-                if ($rn !== '') {
-                    $nice = $rn;
-                } else {
-                    $nickname = $name_facts[0]->attribute('NICK');
-                    if ($nickname !== '') {
-                        $nice = $nickname;
-                    } else {
-                        $npfx = $name_facts[0]->attribute('NPFX');
-                        $givenAndSurnames = explode('/', $name_facts[0]->value());
-                        if ($givenAndSurnames[0] !== '') {                          // are there given names (or prefix nameparts)?
-                            $givennameparts = explode( ' ', $givenAndSurnames[0]);
-                            if ($npfx == '') {                                      // find the first given name
-                                $nice = $givennameparts[0];                         // the first given name
-                            } elseif (count(explode(' ',$npfx)) !== count($givennameparts)) {
-                                $nice = $givennameparts[count(explode(' ',$npfx))]; // the first given name after the prefix nameparts
-                            }
-                        }
-                    }
-                }
+            if (count($individual->facts(['NAME'])) > 0) {                                           // check if there is at least one name            
+                $nice = $this->niceNameFromNameParts($individual);
             } else {
                 $nice = $this->nameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
             }
-            if ($nice == '') {
-                $surname = $givenAndSurnames[1];
-                if ($surname !== '') {
-                    $nice = $this->nameSex($individual, I18N::translate('Mr.') . ' ' . $surname, I18N::translate('Mrs.') . ' ' . $surname, $surname);
+        }
+        return $nice;
+    }
+
+    /**
+     * Find a short, nice name for a person based on name facts
+     * => use Rufname or nickname ("Sepp") or first of first names if one of these is available
+     *    => otherwise use surname if available
+     *
+     * @param Individual $individual
+     *
+     * @return string
+     */
+    public function niceNameFromNameParts(Individual $individual): string
+    {
+        $nice = '';
+        $rn = $this->rufname($individual);
+        if ($rn !== '') {
+            $nice = $rn;
+        } else {
+            $name_facts = $individual->facts(['NAME']);
+            $nickname = $name_facts[0]->attribute('NICK');
+            if ($nickname !== '') {
+                $nice = $nickname;
+            } else {
+                $npfx = $name_facts[0]->attribute('NPFX');
+                $givenAndSurnames = explode('/', $name_facts[0]->value());
+                if ($givenAndSurnames[0] !== '') {                          // are there given names (or prefix nameparts)?
+                    $givennameparts = explode( ' ', $givenAndSurnames[0]);
+                    if ($npfx == '') {                                      // find the first given name
+                        $nice = $givennameparts[0];                         // the first given name
+                    } elseif (count(explode(' ',$npfx)) !== count($givennameparts)) {
+                        $nice = $givennameparts[count(explode(' ',$npfx))]; // the first given name after the prefix nameparts
+                    }
                 } else {
-                    $nice = $this->nameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
+                    $surname = $givenAndSurnames[1];
+                    if ($surname !== '') {
+                        $nice = $this->nameSex($individual, I18N::translate('Mr.') . ' ' . $surname, I18N::translate('Mrs.') . ' ' . $surname, $surname);
+                    } else {
+                        $nice = $this->nameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
+                    }
                 }
             }
         }
         return $nice;
     }
-    
+
    /**
     * generate summary message for all empty blocks (needed for showEmptyBlock == 1)
     *
@@ -2007,9 +2058,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @param Individual $individual
      *
-     * @return string
+     * @return array of string
      */
-    public function getChildLabel(Individual $individual): string
+    public function getChildLabels(Individual $individual): array
     {
         // default (birth) pedigree label
         $label = GedcomCodePedi::getValue('',$individual->getInstance($individual->xref(),$individual->tree()));
@@ -2020,12 +2071,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             }
         }
         $mbLabel = $this->getMultipleBirthLabel($individual);
-        $label = $label . (($label !== '' && $mbLabel !== '')?', ':'') . $mbLabel;
-        return $label;
+        return array_filter([$label, $mbLabel]);
     }
 
     /**
-     * generate a label for twins and triplets etc (GEDCOM record is for example "1 ASSO @I123@\n2 RELA triplet")
+     * generate a label for twins and triplets etc
+     * GEDCOM record is for example "1 ASSO @I123@\n2 RELA triplet" or "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet"
      *
      * @param Individual $individual
      *
@@ -2045,11 +2096,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             10 => 'decuplet',
         ];
         
-        if (preg_match('/\n1 ASSO @(.+)@\n2 RELA (.+)/', $individual->gedcom(), $match)) {
+        if ( preg_match('/\n1 ASSO @(.+)@\n2 RELA (.+)/', $individual->gedcom(), $match) ||
+             preg_match('/\n2 _ASSO @(.+)@\n3 RELA (.+)/', $individual->gedcom(), $match) ) {
             if (in_array($match[2], $multiple_birth)) {
                 return I18N::translate($match[2]);
             }
-        }
+        }        
 
         return '';
     }
@@ -2073,7 +2125,23 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         return 50;
     }
-    
+
+    /**
+     * dependency check if Vesta modules are available (needed for relationship name)
+     *
+     * @param bool $showErrorMessage
+     *
+     * @return bool
+     */
+    public function VestaModulesAvailable(bool $showErrorMessage): bool
+    {
+        $ok = class_exists("Cissee\WebtreesExt\AbstractModule", true);
+        if (!$ok && $showErrorMessage) {
+            FlashMessages::addMessage("Missing dependency - Make sure to install all Vesta modules!");
+        }
+        return $ok;
+    }
+
     /**
      * generate list of other preferences (control panel options beside the options related to the extended family parts itself)
      *

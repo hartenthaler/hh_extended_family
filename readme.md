@@ -36,7 +36,8 @@ The admin can decide in the control panel
 * if filter options should be presented for users
 * how empty parts of extended family should be presented
 * wheter the name of proband is a full name or a short version
-* wheter labels like "adopted child", "foster child" or "triplet" should be used to indicate special situations (GEDCOM record to indicate that a person is a triplet, should look like "1 ASSO @I123@\n2 RELA triplet")
+* wheter labels like "adopted child", "foster child" or "triplet" should be used to indicate special situations
+  (GEDCOM records to indicate that a person is e.g. a triplet, should look like "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet" or "1 ASSO @I123@\n2 RELA triplet")
 * whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband

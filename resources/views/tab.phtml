@@ -724,7 +724,11 @@
                                                             </span>
                                                         <?php endif ?>
                                                         <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
-                                                            <span class="hh_extended_family_pedi"><?= $group->labels[$key] ?></span>
+                                                            <?php foreach ($group->labels[$key] as $label): ?>
+                                                                <?php if ($label): ?>
+                                                                    <span class="hh_extended_family_pedi"><?= $label ?></span>
+                                                                <?php endif ?>
+                                                            <?php endforeach ?>
                                                         <?php endif ?>
                                                     <?php else: ?>
                                                         <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
