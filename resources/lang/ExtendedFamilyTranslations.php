@@ -29,10 +29,12 @@
     
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\I18N;
+
 /**
- * Class Translations
+ * Class ExtendedFamilyTranslations
  */
-class Translations
+class ExtendedFamilyTranslations
 {
     /**
      * @return array
