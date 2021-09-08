@@ -31,7 +31,9 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
 
 /**
  * Class ExtendedFamily
@@ -40,12 +42,78 @@ use Fisharebest\Webtrees\Individual;
  */
 class ExtendedFamily
 {
+    /**
+     * list of const for extended family
+     */    
+    public const FAM_STATUS_EX          = 'Ex-marriage';
+    public const FAM_STATUS_MARRIAGE    = 'Marriage';
+    public const FAM_STATUS_FIANCEE     = 'Fiancée';
+    public const FAM_STATUS_PARTNERSHIP = 'Partnership';
+
+    public const GROUP_GRANDPARENTS_FATHER_BIO   = 'Biological parents of father';
+	public const GROUP_GRANDPARENTS_MOTHER_BIO   = 'Biological parents of mother';
+    public const GROUP_GRANDPARENTS_U_BIO        = 'Biological parents of parent';
+    public const GROUP_GRANDPARENTS_FATHER_STEP  = 'Stepparents of father';
+    public const GROUP_GRANDPARENTS_MOTHER_STEP  = 'Stepparents of mother';
+    public const GROUP_GRANDPARENTS_U_STEP       = 'Stepparents of parent';
+	public const GROUP_GRANDPARENTS_STEP_PARENTS = 'Parents of stepparents';
+	
+    public const GROUP_UNCLEAUNT_FATHER  = 'Siblings of father';
+    public const GROUP_UNCLEAUNT_MOTHER  = 'Siblings of mother';
+
+    public const GROUP_UNCLEAUNTBM_FATHER = 'Siblings-in-law of father';
+    public const GROUP_UNCLEAUNTBM_MOTHER = 'Siblings-in-law of mother';
+
+    public const GROUP_PARENTS_BIO  = 'Biological parents';
+    public const GROUP_PARENTS_STEP = 'Stepparents';
+    
+    // named groups ar not used for parents in law (instead the marriages are used for grouping)
+    // public const GROUP_PARENTSINLAW_BIO  = 'Biological parents of partner'; 
+    // public const GROUP_PARENTSINLAW_STEP = 'Stepparents of partner';
+    
+    public const GROUP_COPARENTSINLAW_BIO  = 'Parents-in-law of biological children';
+    public const GROUP_COPARENTSINLAW_STEP = 'Parents-in-law of stepchildren';
+    
+    // no groups for partners and partner chains
+    
+    public const GROUP_SIBLINGS_FULL = 'Full siblings';
+    public const GROUP_SIBLINGS_HALF = 'Half siblings';                                 // including more than half siblings (if parents are related to each other)
+    public const GROUP_SIBLINGS_STEP = 'Stepsiblings';
+    
+    public const GROUP_SIBLINGSINLAW_SIBOFP = 'Siblings of partners';
+    public const GROUP_SIBLINGSINLAW_POFSIB = 'Partners of siblings';
+
+    public const GROUP_COSIBLINGSINLAW_SIBPARSIB = 'Siblings of siblings-in-law';       // sibling's partner's sibling
+    public const GROUP_COSIBLINGSINLAW_PARSIBPAR = 'Partners of siblings-in-law';       // partner's sibling's partner';    
+    
+    public const GROUP_COUSINS_FULL_FATHER = 'Children of full siblings of father';
+    public const GROUP_COUSINS_FULL_MOTHER = 'Children of full siblings of mother';
+    public const GROUP_COUSINS_FULL_U      = 'Children of full siblings of parent';
+    public const GROUP_COUSINS_HALF_FATHER = 'Children of half siblings of father';
+    public const GROUP_COUSINS_HALF_MOTHER = 'Children of half siblings of mother';
+    public const GROUP_COUSINS_HALF_U      = 'Children of half siblings of parent';
+    
+    public const GROUP_NEPHEW_NIECES_CHILD_SIBLING         = 'Children of siblings';
+    public const GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING = 'Siblings\' stepchildren';
+    public const GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER = 'Children of siblings of partners';
+
+    public const GROUP_CHILDREN_BIO  = 'Biological children';
+    public const GROUP_CHILDREN_STEP = 'Stepchildren';
+
+    public const GROUP_CHILDRENINLAW_BIO  = 'Partners of biological children';
+    public const GROUP_CHILDRENINLAW_STEP = 'Partners of stepchildren';
+    
+    public const GROUP_GRANDCHILDREN_BIO        = 'Biological grandchildren';
+    public const GROUP_GRANDCHILDREN_STEP_CHILD = 'Stepchildren of children';
+    public const GROUP_GRANDCHILDREN_CHILD_STEP = 'Children of stepchildren';
+    public const GROUP_GRANDCHILDREN_STEP_STEP  = 'Stepchildren of stepchildren';
     
     // ------------ definition of data structure
     
     /**
      * $Config                                      object
      *        ->showEmptyBlock                      int [0,1,2]
+     *        ->showShortName                       bool    
      *        ->showLabels                          bool
      *        ->useCompactDesign                    bool
      *        ->showThumbnail                       bool
@@ -57,7 +125,7 @@ class ExtendedFamily
      * $Proband                                     object
      *         ->indi                               Individual
      *         ->niceName                           string
-     *         ->label                              string
+     *         ->label                              string      // or should it be better an array of string?
      */
     private $Proband;
         
@@ -135,12 +203,13 @@ class ExtendedFamily
     /**
      * Extended Family Constructor
      *
-     * @param Individual $proband the proband for whom the extended family members are searched
+     * @param Individual $proband       the proband for whom the extended family members are searched
+     * @param object $config            configuration parameters
      */
-    public function __construct(Individual $proband)
+    public function __construct(Individual $proband, object $config)
     {
+        $this->constructConfig($config);
         $this->constructProband($proband); 
-        $this->constructConfig();
         $this->constructFiltersExtendedFamilyParts();
     }
     
@@ -175,6 +244,17 @@ class ExtendedFamily
     }
     
     /**
+     * construct object containing configuration information based on module parameters
+     *
+     * @param object $config    configuration parameters
+     */
+    private function constructConfig(object $config)
+    {
+        $this->Config = $config;
+        return;
+    }
+    
+    /**
      * construct object containing information related to the proband
      *
      * @param Individual $proband
@@ -183,38 +263,11 @@ class ExtendedFamily
     {
         $this->Proband = (object)[];
         $this->Proband->indi      = $proband;
-        $this->Proband->niceName  = 'Susi';
-        $this->Proband->label     = 'adopted, foster';
-        /*
         $this->Proband->niceName  = $this->niceName( $proband );
-        $this->Proband->label     = implode(", ", $this->getChildLabels( $proband ));
-        */
+        $this->Proband->label     = implode(", ", $this->getChildLabels( $proband ));       // tbd or should it be better an array of labels?
         return;
     }
-    
-    /**
-     * construct object containing configuration information based on module parameters
-     */
-    private function constructConfig()
-    {
-        $this->Config = (object)[];
-        $this->Config->showEmptyBlock     = 1;
-        $this->Config->showLabels         = true;
-        $this->Config->useCompactDesign   = true;
-        $this->Config->showThumbnail      = true;
-        $this->Config->showFilterOptions  = true;
-        $this->Config->filterOptions      = [$this->Proband->indi->fullName()];
-        /*
-        $this->Config->showEmptyBlock     = $this->showEmptyBlock();
-        $this->Config->showLabels         = $this->showLabels();
-        $this->Config->useCompactDesign   = $this->useCompactDesign();
-        $this->Config->showThumbnail      = $this->showThumbnail( $proband->tree() );
-        $this->Config->showFilterOptions  = $this->showFilterOptions();
-        $this->Config->filterOptions      = $this->getFilterOptions();
-        */
-        return;
-    }
-    
+
     /**
      * construct array of extended family parts for all combinations of filter options
      */
@@ -277,6 +330,193 @@ class ExtendedFamily
             'children_in_law',                          // generation -1
             'grandchildren',                            // generation -2
         ];
+    }
+        
+    /**
+     * find rufname of an individual (tag _RUFNAME or marked with '*'
+     *
+     * @param Individual $individual
+     *
+     * @return string (is empty if there is no Rufname)
+     */
+    private function rufname(Individual $individual): string
+    {
+        $rn = $individual->facts(['NAME'])[0]->attribute('_RUFNAME');
+        if ($rn == '') {
+            $rufnameparts = explode('*', $individual->facts(['NAME'])[0]->value());
+            if ($rufnameparts[0] !== $individual->facts(['NAME'])[0]->value()) {
+                // there is a Rufname marked with *, but no tag _RUFNAME
+                $rufnameparts = explode(' ', $rufnameparts[0]);   
+                $rn = $rufnameparts[count($rufnameparts)-1];                // it has to be the last given name (before *)
+            }
+        }
+        return $rn;
+    }
+     
+    /**
+     * set name depending on sex of individual
+     *
+     * @param Individual $individual
+     * @param string $n_male
+     * @param string $n_female
+     * @param string $n_unknown
+     *
+     * @return string
+     */
+    private function nameSex(Individual $individual, string $n_male, string $n_female, string $n_unknown): string
+    {
+        if ($individual->sex() == 'M') {
+            return $n_male;
+        } elseif ($individual->sex() == 'F') {
+            return $n_female;
+        } else {
+            return $n_unknown;
+        }
+    }
+    
+    /**
+     * Find a short, nice name for a person
+     * => use Rufname or nickname ("Sepp") or first of first names if one of these is available
+     *    => otherwise use surname if available ("Mr. xxx", "Mrs. xxx", or "xxx" if sex is not F or M
+     *       => otherwise use "He" or "She" (or "He/she" if sex is not F and not M)
+     *
+     * @param Individual $individual
+     *
+     * @return string
+     */
+    private function niceName(Individual $individual): string
+    {
+        if ($this->Config->showShortName) {
+            $nice = '';
+            // an individual can have no name or many names (then we use only the first one)
+            if (count($individual->facts(['NAME'])) > 0) {                                           // check if there is at least one name            
+                $nice = $this->niceNameFromNameParts($individual);
+            } else {
+                $nice = $this->nameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
+            }
+        } else {
+            $nice = $individual->fullname();
+        }
+        return $nice;
+    }
+
+    /**
+     * Find a short, nice name for a person based on name facts
+     * => use Rufname or nickname ("Sepp") or first of first names if one of these is available
+     *    => otherwise use surname if available
+     *
+     * @param Individual $individual
+     *
+     * @return string
+     */
+    private function niceNameFromNameParts(Individual $individual): string
+    {
+        $nice = '';
+        $rn = $this->rufname($individual);
+        if ($rn !== '') {
+            $nice = $rn;
+        } else {
+            $name_facts = $individual->facts(['NAME']);
+            $nickname = $name_facts[0]->attribute('NICK');
+            if ($nickname !== '') {
+                $nice = $nickname;
+            } else {
+                $npfx = $name_facts[0]->attribute('NPFX');
+                $givenAndSurnames = explode('/', $name_facts[0]->value());
+                if ($givenAndSurnames[0] !== '') {                          // are there given names (or prefix nameparts)?
+                    $givennameparts = explode( ' ', $givenAndSurnames[0]);
+                    if ($npfx == '') {                                      // find the first given name
+                        $nice = $givennameparts[0];                         // the first given name
+                    } elseif (count(explode(' ',$npfx)) !== count($givennameparts)) {
+                        $nice = $givennameparts[count(explode(' ',$npfx))]; // the first given name after the prefix nameparts
+                    }
+                } else {
+                    $surname = $givenAndSurnames[1];
+                    if ($surname !== '') {
+                        $nice = $this->nameSex($individual, I18N::translate('Mr.') . ' ' . $surname, I18N::translate('Mrs.') . ' ' . $surname, $surname);
+                    } else {
+                        $nice = $this->nameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
+                    }
+                }
+            }
+        }
+        return $nice;
+    }
+
+    /**
+     * generate a label for a child
+     *
+     * @param Individual $individual
+     *
+     * @return array of string
+     */
+    public function getChildLabels(Individual $individual): array
+    {
+        // default (birth) pedigree label
+        $label = GedcomCodePedi::getValue('',$individual->getInstance($individual->xref(),$individual->tree()));
+        if ( $individual->childFamilies()->first() ) {
+            if (preg_match('/\n1 FAMC @' . $individual->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $individual->gedcom(), $match)) {
+                // a specified pedigree
+                $label = GedcomCodePedi::getValue($match[1],$individual->getInstance($individual->xref(),$individual->tree()));
+            }
+        }
+        $mbLabel = $this->getMultipleBirthLabel($individual);
+        return array_filter([$label, $mbLabel]);
+    }
+
+    /**
+     * generate a label for twins and triplets etc
+     * GEDCOM record is for example "1 ASSO @I123@\n2 RELA triplet" or "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet"
+     *
+     * @param Individual $individual
+     *
+     * @return string
+     */
+    public function getMultipleBirthLabel(Individual $individual): string
+    {
+        $multiple_birth = [
+            2 => 'twin',
+            3 => 'triplet',
+            4 => 'quadruplet',
+            5 => 'quintuplet',
+            6 => 'sextuplet',
+            7 => 'septuplet',
+            8 => 'octuplet',
+            9 => 'nonuplet',
+            10 => 'decuplet',
+        ];
+        
+        if ( preg_match('/\n1 ASSO @(.+)@\n2 RELA (.+)/', $individual->gedcom(), $match) ||
+             preg_match('/\n2 _ASSO @(.+)@\n3 RELA (.+)/', $individual->gedcom(), $match) ) {
+            if (in_array($match[2], $multiple_birth)) {
+                return I18N::translate($match[2]);
+            }
+        }        
+
+        return '';
+    }
+
+   /**
+    * translate family part names
+    *
+    * @param string $type
+    *
+    * @return string
+    */
+    private function translateFamilyPart($type): string
+    {
+        switch ($type) {            
+            case 'uncles_and_aunts':
+                return I18N::translate('Uncles and Aunts');
+            case 'uncles_and_aunts_bm':
+                return I18N::translate('Uncles and Aunts by marriage');
+            case 'partner_chains':
+                return I18N::translate('Partner chains');
+            case 'nephews_and_nieces':
+                return I18N::translate('Nephews and Nieces');
+            default:
+                return I18N::translate(ucfirst(str_replace('_', '-', $type)));
+        };
     }
 }
 

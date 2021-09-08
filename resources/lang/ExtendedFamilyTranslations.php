@@ -23,7 +23,7 @@
  * tbd: Offene Punkte
  * ------------------
  *
- * Übersetzungen: für italian einbauen sobald zugeliefert
+ * Übersetzungen: für italian und chinese einbauen sobald sie zugeliefert wurden
  * Übersetzungen: fehlende für french, norwegian (2x), finish und andere organisieren
  */
     

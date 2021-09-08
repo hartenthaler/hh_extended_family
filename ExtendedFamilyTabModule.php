@@ -205,16 +205,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @return object 
      */
     private function getExtendedFamily(Individual $proband): object
-    {
-        $test = new ExtendedFamily($proband);
-        //print_r($test->getConfig());
-        //print_r($test->getProband());
-        //print_r($test->getFilters());
-        
-        $obj = (object)[];
-        $obj->config = $this->get_config( $proband );
-        $obj->self   = $this->get_self( $proband );        
-        $obj->filter = $this->getExtendedFamilyParts($obj);
+    {       
+        $ef = new ExtendedFamily( $proband, $this->get_config($proband) );
+        $obj = (object)[];                                                      // tbd replace $obj by $ef
+        $obj->config = $ef->getConfig();
+        $obj->self   = $ef->getProband();        
+        $obj->filter = $this->getExtendedFamilyParts($obj);                     // tbd replace $this... by $ef->getFilters();
         return $obj;
     }
 
@@ -338,6 +334,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         $configObj = (object)[];
         $configObj->showEmptyBlock     = $this->showEmptyBlock();
+        $configObj->showShortName      = $this->showShortName();
         $configObj->showLabels         = $this->showLabels();
         $configObj->useCompactDesign   = $this->useCompactDesign();
         $configObj->showThumbnail      = $this->showThumbnail( $proband->tree() );
