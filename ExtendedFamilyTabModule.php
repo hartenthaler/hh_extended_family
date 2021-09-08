@@ -93,6 +93,7 @@ use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Cissee\Webtrees\Module\ExtendedRelationships;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamily;
 
 // string functions
 use function ucfirst;
@@ -110,9 +111,6 @@ use function array_key_exists;
 use function in_array;
 use function array_merge;
 use function array_filter;
-
-//include ("class_extended_family_part.php");
-include ("resources/lang/ExtendedFamilyTranslations.php");
 
 /**
  * Class ExtendedFamilyTabModule
@@ -202,15 +200,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     
     /* Find members of extended family parts
      *
-     * @param Individual $individual
+     * @param Individual $proband
      *
      * @return object 
      */
-    private function getExtendedFamily(Individual $individual): object
+    private function getExtendedFamily(Individual $proband): object
     {
+        $test = new ExtendedFamily($proband);
+        //print_r($test->getConfig());
+        //print_r($test->getProband());
+        //print_r($test->getFilters());
+        
         $obj = (object)[];
-        $obj->config = $this->get_config( $individual );
-        $obj->self   = $this->get_self( $individual );        
+        $obj->config = $this->get_config( $proband );
+        $obj->self   = $this->get_self( $proband );        
         $obj->filter = $this->getExtendedFamilyParts($obj);
         return $obj;
     }
@@ -327,17 +330,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     /**
      * get configuration information
      *
-     * @param Individual $individual
+     * @param Individual $proband
      *
      * @return object
      */
-    private function get_config(Individual $individual): object
+    private function get_config(Individual $proband): object
     {
         $configObj = (object)[];
         $configObj->showEmptyBlock     = $this->showEmptyBlock();
         $configObj->showLabels         = $this->showLabels();
         $configObj->useCompactDesign   = $this->useCompactDesign();
-        $configObj->showThumbnail      = $this->showThumbnail( $individual->tree() );
+        $configObj->showThumbnail      = $this->showThumbnail( $proband->tree() );
         $configObj->showFilterOptions  = $this->showFilterOptions();
         $configObj->filterOptions      = $this->getFilterOptions();
         return $configObj;
@@ -2481,6 +2484,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 return ExtendedFamilyTranslations::ukrainianTranslations();
             case 'vi':
                 return ExtendedFamilyTranslations::vietnameseTranslations();
+            case 'zh':
+                return ExtendedFamilyTranslations::chineseTraditionalTranslations();  // tbd
+            case 'zh-CN':
+                return ExtendedFamilyTranslations::chineseSimplifiedTranslations();   // tbd
             default:
                 return [];
         }

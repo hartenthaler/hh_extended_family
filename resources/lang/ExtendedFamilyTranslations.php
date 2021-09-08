@@ -2052,4 +2052,28 @@ class ExtendedFamilyTranslations
                 => '%d cháu gái (có tất cả là %d người).',
         ];
     }
+    
+    /**
+     * tbd
+     *
+     * @return array
+     */
+    static function chineseTraditionalTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+        ];
+    }
+        
+    /**
+     * tbd
+     *
+     * @return array
+     */
+    static function chineseSimplifiedTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+        ];
+    }
 }
