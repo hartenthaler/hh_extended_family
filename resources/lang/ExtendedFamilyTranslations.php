@@ -945,6 +945,12 @@ class ExtendedFamilyTranslations
             'octuplet' => 'achtling',
             'nonuplet' => 'negenling',
             'decuplet' => 'tienling',
+            'stillborn' => 'levenloos geboren',
+            'died as infant' => 'als baby overleden',
+            'linkage challenged' => 'koppeling betwist',
+            'linkage disproven' => 'koppeling weerlegd',
+            'linkage proven' => 'koppeling bewezen',
+
             'Marriage' => 'Huwelijk',
             'Ex-marriage' => 'Ex-huwelijk',
             'Partnership' => 'Relatie',
