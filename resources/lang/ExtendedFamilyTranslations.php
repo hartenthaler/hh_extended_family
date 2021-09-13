@@ -267,6 +267,12 @@ class ExtendedFamilyTranslations
             'octuplet' => 'Achtling',
             'nonuplet' => 'Neunling',
             'decuplet' => 'Zehnling',
+            'stillborn' => 'tot geboren',
+            'died as infant' => 'als Kleinkind gestorben',
+            'linkage challenged' => 'Verbindung fragwürdig',
+            'linkage disproven' => 'Verbindung widerlegt',
+            'linkage proven' => 'Verbindung bewiesen',
+            
             'Marriage' => 'Ehe',
             'Ex-marriage' => 'Geschiedene Ehe',
             'Partnership' => 'Partnerschaft',
@@ -2052,6 +2058,20 @@ class ExtendedFamilyTranslations
                 => '%d cháu gái (có tất cả là %d người).',
         ];
     }
+         
+    /**
+     * tbd
+     *
+     * @return array
+     */
+    static function chineseSimplifiedTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Extended family' => '大家庭',
+            'Grandparents' => '祖父母',
+        ];
+    }
     
     /**
      * tbd
@@ -2062,18 +2082,8 @@ class ExtendedFamilyTranslations
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
-        ];
-    }
-        
-    /**
-     * tbd
-     *
-     * @return array
-     */
-    static function chineseSimplifiedTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
+            'Extended family' => '大家庭',
+            'Grandparents' => '祖父母',
         ];
     }
 }

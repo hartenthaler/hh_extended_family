@@ -36,9 +36,12 @@ The admin can decide in the control panel
 * if filter options should be presented for users
 * how empty parts of extended family should be presented
 * wheter the name of proband is a full name or a short version
-* wheter labels like "adopted child", "foster child" or "triplet" should be used to indicate special situations
-  (GEDCOM records to indicate that a person is e.g. a triplet, should look like "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet" or "1 ASSO @I123@\n2 RELA triplet")
 * whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
+* wheter labels like "adopted child", "foster child", "triplet", "stillborn", or "linkage challenged" should be used to indicate special situations
+  * GEDCOM records to indicate that a person
+    * is e.g. a triplet, should look like "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet" or "1 ASSO @I123@\n2 RELA triplet")
+    * is stillborn or died as an infant, should look like "1 BIRT\n2 AGE STILLBORN" or "1 DEAT\n2 AGE INFANT"
+    * has a special linkage status to the parent family (challenged, disproven, proven), should look like "1 FAMC @F123@\n2 STAT challenged"
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
 * grandparents                             // generation +2
