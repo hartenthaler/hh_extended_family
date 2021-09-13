@@ -580,30 +580,85 @@ class ExtendedFamilyTranslations
             'A tab showing the extended family of an individual.' => 'Esta pestaña muestra todos los vinculos familiares de una persona',
             'In which sequence should the parts of the extended family be shown?' => '¿Que bloques de la familia quieres que se muestren, y en que orden, en la pestaña "Familia extendida"?',
             'Family part' => 'Bloques de la familia',
-            'Show name of proband as short name or as full name?' => '¿Debe mostrarse una forma abreviada o el nombre completo de la persona que realiza la prueba?',
-	        'How should empty parts of extended family be presented?' => '¿Cómo quieres que se muestren los bloques vacíos en la pestaña "Familia extendida"?',
+            'Show name of proband as short name or as full name?' => '¿Debe mostrarse una forma abreviada o el nombre completo de la persona?',
+	    'Show options to filter the results (gender and alive/dead)?' => '¿Mostrar opciones para filtrar los resultados (género y vivo/muerto)?',
+            'Show filter options' => 'Mostrar opciones de filtro',
+            'How should empty parts of extended family be presented?' => '¿Cómo quieres que se muestren los bloques vacíos en la pestaña "Familia extendida"?',
             'Show empty block' => 'Quieres que se muestren los bloques sin infromación?',
-	        'yes, always at standard location' => 'Sí, mostrar bloques sin información en su posición estándar',
-	        'no, but collect messages about empty blocks at the end' => 'No mostrar bloques sin información, pero poner una descripcción de los bloques que faltan al final',
-	        'never' => 'No mostrar los bloques sin información',
+	    'yes, always at standard location' => 'Sí, mostrar bloques sin información en su posición estándar',
+	    'no, but collect messages about empty blocks at the end' => 'No mostrar bloques sin información, pero poner una descripcción de los bloques que faltan al final',
+	    'never' => 'No mostrar los bloques sin información',
             'The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'El nombre corto se basa en los apodos. Si estos no están disponibles, se utiliza el primero de los nombres de pila, si se da alguno. De lo contrario, se utiliza el apellido.',
             'Show short name' => 'Mostrar nombre corto',
+            'Show labels in special situations?' => '¿Mostrar etiquetas en situaciones especiales?',
+            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'Las etiquetas se utilizan, por ejemplo, para personas adoptadas o niños de acogida. ',
+            'Show labels' => 'Mostrar etiquetas',
             'Use the compact design?' => 'Usar el diseño compacto?',
             'Use the compact design' => 'Usar el diseño compacto',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'El diseño compacto solo muestra el nombre, fecha de nacimiento y fecha de la muerte de cada persona. El diseño enriquecido también muestra una foto (si tienes fotos en el perfil de los familiares en el árbol) así como información sobre el nacimiento y la muerte.',
 			
+            'don\'t use this filter' => 'no usar este filtro',
+            'show only male persons' => 'mostrar solo hombres',
+            'show only female persons' => 'mostrar solo mujeres',
+            'show only persons of unknown gender' => 'mostrar solo personas de género desconocido',
+            'show only alive persons' => 'mostrar solo personas vivas',
+            'show only dead persons' => 'mostrar solo personas fallecidas',
+            'alive' => 'vivo/a',
+            'dead' => 'fallecido/a',
+            'a dead person' => 'eine verstorbende Person',
+            'a living person' => 'eine lebende Person',
+            'not a male person' => 'no es un hombre',
+            'not a female person' => 'no es una mujer',
+            'not a person of unknown gender' => 'no es una persona de genero desconocido',            
+            
+            'twin' => 'Mellizo',
+            'triplet' => 'Trillizo',
+            'quadruplet' => 'cuatrillizo',
+            'quintuplet' => 'Quintillizo',
+            'sextuplet' => 'Sextillizo',
+            'septuplet' => 'Septillizo',
+            'octuplet' => 'Octillizo',
+            'nonuplet' => 'Nonallizos',
+            'decuplet' => 'Decillizos',
+            'stillborn' => 'nacido muerto',
+            'died as infant' => 'murió cuando era niño',
+            'linkage challenged' => 'Disputa para ser reconocido',
+            'linkage disproven' => 'No reconocido',
+            'linkage proven' => 'Reconocido',
+
             'Marriage' => 'Matrimonio',
             'Ex-marriage' => 'Ex-matrimonio',
             'Partnership' => 'Cónyugue',
             'Fiancée' => 'Novia',
             ' with ' => ' con ',
+            'Biological parents of father' => 'Abuelos biológicos por parte de padre',
+            'Biological parents of mother' => 'Abuelos biológicos por parte de madre',
+            'Biological parents of parent' => 'Padres biológicos',
+            'Stepparents of father' => 'Padrastros del padre',
+            'Stepparents of mother' => 'Padrastros de la madre',
+            'Stepparents of parent' => 'Padrastros de los padres',
+            'Parents of stepparents' => 'Padres de padrastros',
+            'Siblings of father' => 'Hermanos del padre',
+            'Siblings of mother' => 'Hermanos de la madre',
+            'Siblings-in-law of father' => 'Hermanos políticos del padre',
+            'Siblings-in-law of mother' => 'Hermanos políticos de la madre',
+            'Biological parents' => 'Padres biológicos',
+            'Stepparents' => 'Padrastros',
             'Parents-in-law of biological children' => 'Suegros de sus hijos/as biólogicos',
             'Parents-in-law of stepchildren' => 'Consuegros/as de hijastros',
             'Full siblings' => 'Todos los hermanos',
             'Half siblings' => 'Cuñados y cuñadas',
             'Stepsiblings' => 'Hermanastros',
-            'Siblings of partners' => 'Hermanos del cónyuge',
+            'Children of full siblings of father' => 'Hijos de hermanos completos del padre',
+            'Children of full siblings of mother' => 'Hijos de hermanos completos de la padre',
+            'Children of full siblings of parent' => 'Hijos de hermanos completos de los padres',
+            'Children of half siblings of father' => 'Hijos de medio hermanos del padre',
+            'Children of half siblings of mother' => 'Hijos de medio hermanos de la madre',
+            'Children of half siblings of parent' => 'Hijos de medio hermanos de los padres',
+            'Siblings of partners' => 'Hermanos/as del cónyuge',
             'Partners of siblings' => 'Cónyugues de sus hermanos/as',
+            'Siblings of siblings-in-law' => 'Concuñados/as',
+            'Partners of siblings-in-law' => 'Cónyuges de sus cuñados y cuñadas',
             'Children of siblings' => 'Hijos de hermanos',
             'Siblings\' stepchildren' => 'Hijastros de hermanos',
             'Children of siblings of partners' => 'Hijos de los hermanos del cónyuge',
@@ -631,7 +686,13 @@ class ExtendedFamilyTranslations
             'Father\'s family (%d)' => 'Familia del padre (%d)',
             'Mother\'s family (%d)' => 'Familia de la madre (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Familia del padre y de la Madre (%d)',
-
+            'Parents %1$s of %2$s' => 'Padres %1$s de %2$s',
+            'Parents %1$s (%2$s) of %3$s' => 'Padres %1$s (%2$s) de %3$s',
+            'Partners of %s' => 'Cónyuge de %s',
+            'Brother %1$s of partner %2$s' => 'Hermano %1$s de Cónyuge %2$s',
+            'Sister %1$s of partner %2$s' => 'Hermana %1$s de Cónyuge %2$s',
+            'Sibling %1$s of partner %2$s' => 'Hermanos %1$s de Cónyuge %2$s',
+            
             'Grandparents' => 'Abuelos',
             '%s has no grandparents recorded.' => '%s no tiene Abuelos registrados.',
             '%s has one grandmother recorded.' => '%s tiene una Abuela registrada.',
@@ -659,6 +720,20 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Tío y ' . I18N::PLURAL . '%2$s tiene %1$d Tíos y ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
                 => '%d Tía registrados (%d en total).' . I18N::PLURAL . '%d Tías registrados (%d en total).',
+
+            'Uncles and Aunts by marriage' => 'Tíos y tías políticos',
+            '%s has no uncles or aunts by marriage recorded.' => '%s no tiene Tíos políticos registrados.',
+            '%s has one aunt by marriage recorded.' => '%s tiene una Tía política registrada.',
+            '%s has one uncle by marriage recorded.' => '%s tiene un Tío político registrada.',
+            '%s has one uncle or aunt by marriage recorded.' => '%s tiene un Tío o Tía político registrado.',
+            '%2$s has %1$d aunt by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d aunts by marriage recorded.'
+                => '%2$s tiene %1$d Tía política registrada.' . I18N::PLURAL . '%2$s tiene %1$d Tías políticas registradas.',
+            '%2$s has %1$d uncle by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d uncles by marriage recorded.'
+                => '%2$s tiene %1$d Tío político registrado.' . I18N::PLURAL . '%2$s tiene %1$d Tíos políticos registrados.',
+            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and ' 
+                => '%2$s tiene %1$d Tío político y ' . I18N::PLURAL . '%2$s tiene %1$d Tíos políticos y ',
+            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).' 
+                => '%d Tía política registrados (%d en total).' . I18N::PLURAL . '%d Tías políticas registrados (%d en total).',
 
             'Parents' => 'Padres',
             '%s has no parents recorded.' => '%s no tiene Padres registrados.',
@@ -702,7 +777,7 @@ class ExtendedFamilyTranslations
             '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
                 => '%d Consuegra registrada (%d en total).' . I18N::PLURAL . '%d Consuegras registrados (%d en total).',
 
-            'Siblings' => 'Hermanos/as',
+            'Siblings' => 'Hermanos y Hermanas',
             '%s has no siblings recorded.' => '%s no tiene Hermanos/as registrados.',
             '%s has one sister recorded.' => '%s tiene una Hermana registrada.',
             '%s has one brother recorded.' => '%s tiene un  Hermano registrado.',
@@ -716,11 +791,11 @@ class ExtendedFamilyTranslations
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
                 => '%d Hermana registrados (%d en total).' . I18N::PLURAL . '%d Hermanas registrados (%d en total).',
             
-            'Siblings-in-law' => 'Cuñados/as',
+            'Siblings-in-law' => 'Cuñados y Cuñadas',
             '%s has no siblings-in-law recorded.' => '%s no tiene cuñados/as registrados.',
             '%s has one sister-in-law recorded.' => '%s tiene una cuñada registrada.',
             '%s has one brother-in-law recorded.' => '%s un cuñado registrado.',
-            '%s has one sibling-in-law recorded.' => '%s tiene un coñado/a registrado.',
+            '%s has one sibling-in-law recorded.' => '%s tiene un cuñado/a registrado.',
             '%2$s has %1$d sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sisters-in-law recorded.'
                 => '%2$s tiene %1$d Cuñada registrada.' . I18N::PLURAL . '%2$s tiene %1$d Cuñadas registradas.',
             '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.'
@@ -729,9 +804,23 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Cuñado y ' . I18N::PLURAL . '%2$s tiene %1$d Cuñados y ',
             '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).' 
                 => '%d Cuñada (%d en total).' . I18N::PLURAL . '%d Cuñadas registrados (%d en total).',
-                            
+
+            'Co-siblings-in-law' => 'Concuñados y Concuñadas',
+            '%s has no co-siblings-in-law recorded.' => '%s no tiene concuñados/as registrados.',
+            '%s has one co-sister-in-law recorded.' => '%s tiene una concuñada registrada.',
+            '%s has one co-brother-in-law recorded.' => '%s un concuñado registrado.',
+            '%s has one co-sibling-in-law recorded.' => '%s tiene un concuñado/a registrado.',
+            '%2$s has %1$d co-sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law recorded.'
+                => '%2$s tiene %1$d Concuñada registrada.' . I18N::PLURAL . '%2$s tiene %1$d Concuñadas registradas.',
+            '%2$s has %1$d co-brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law recorded.'
+                => '%2$s tiene %1$d Concuñado registrado.' . I18N::PLURAL . '%2$s tiene %1$d Concuñados registrados.',
+            '%2$s has %1$d co-brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law and ' 
+                => '%2$s tiene %1$d Concuñado y ' . I18N::PLURAL . '%2$s tiene %1$d Concuñados y ',
+            '%d co-sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-sisters-in-law recorded (%d in total).' 
+                => '%d Concuñada (%d en total).' . I18N::PLURAL . '%d Concuñadas registrados (%d en total).',
+                                
             'Partners' => 'Cónyuge',
-            'Partner of ' => 'Cónyuge de ', 
+            'Partner of ' => 'Cónyuge de ',
             '%s has no partners recorded.' => '%s no tiene Cónyuge registrado.',
             '%s has one female partner recorded.' => '%s tiene un Cónyuge registrado.',
             '%s has one male partner recorded.' => '%s tiene un Cónyuge registrado.',
@@ -742,16 +831,25 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Cónyuge registrado.' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges registrados.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
                 => '%2$s tiene %1$d Cónyuge y ' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges y ',
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
+                => '%2$s tiene %1$d Cónyuge y ' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges y ',
             '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
+                => '%d Cónyuge registrado (%d en total).' . I18N::PLURAL . '%d Cónyuges registrados (%d en total).',
+            '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
+                => '%2$s tiene %1$d Cónyuge y ' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges y ',
+            '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'
+                => '%d Cónyuge registrado (%d en total).' . I18N::PLURAL . '%d Cónyuges registrados (%d en total).',
+            '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'
                 => '%d Cónyuge registrado (%d en total).' . I18N::PLURAL . '%d Cónyuges registrados (%d en total).',
 
             'Partner chains' => 'Partnerketten',
-            '%s has no members of a partner chain recorded.' => 'Für %s sind keine Mitglieder einer Partnerkette registrado.', 
+            '%s has no members of a partner chain recorded.' => 'Für %s sind keine Mitglieder einer Partnerkette verzeichnet.', 
             'There are %d branches in the partner chain. ' => 'Es gibt %d Zweige in der Partnerkette.',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Der längste Zweig in der Partnerkette zu %2$s besteht aus %1$d Partnern (einschließlich %3$s).',
+            'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'Der längste Zweig in der Partnerkette besteht aus %1$d Partnern (einschließlich %2$s).',
             '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
-                =>'%d Partnerin in dieser Partnerkette registrado (%d en total).' . I18N::PLURAL . '%d Partnerinnen in dieser Partnerkette registrados (%d en total).',
-
+                =>'%d Partnerin in dieser Partnerkette verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partnerinnen in dieser Partnerkette verzeichnet (insgesamt %d).',
+            
             'Cousins' => 'Primos y Primas', 
             '%s has no first cousins recorded.' => '%s no tiene Primos ni Primas registrados.',
             '%s has one female first cousin recorded.' => '%s tiene una Prima registrada.',
@@ -780,7 +878,7 @@ class ExtendedFamilyTranslations
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
                 => '%d Sobrina registrados (%d en total).' . I18N::PLURAL . '%d Sobrinas registrados (%d en total).',
 
-            'Children' => 'Hijos/as',   
+            'Children' => 'Hijos e Hijas',   
             '%s has no children recorded.' => '%s no tiene Hijos registrados.',
             '%s has one daughter recorded.' => '%s tiene una Hija registrado.',
             '%s has one son recorded.' => '%s tiene un Hijo registrado.',
@@ -808,7 +906,7 @@ class ExtendedFamilyTranslations
             '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).' 
                 => '%d Hijas políticas registradas (%d en total).' . I18N::PLURAL . '%d Hijas políticas registrados (%d en total).',
 
-            'Grandchildren' => 'Nietos/as', 
+            'Grandchildren' => 'Nietos y Nietas', 
             '%s has no grandchildren recorded.' => '%s no tiene Nietos registrados.',
             '%s has one granddaughter recorded.' => '%s tiene una Nieta registrada.',
             '%s has one grandson recorded.' => '%s tiene un Nieto registrado.',
