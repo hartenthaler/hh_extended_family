@@ -94,7 +94,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION = '2.0.16.51';
+    public const CUSTOM_VERSION = '2.0.16.52';
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
     
     /* find members of extended family parts
@@ -243,7 +243,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @param bool $showErrorMessage
      *
      * @return bool
-     */
+     
     static function VestaModulesAvailable(bool $showErrorMessage): bool
     {
         $ok = class_exists("Cissee\WebtreesExt\AbstractModule", true);
@@ -252,6 +252,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         }
         return $ok;
     }
+    */
 
     /**
      * generate list of other preferences (control panel options beside the options related to the extended family parts itself)
