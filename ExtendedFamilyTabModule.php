@@ -103,6 +103,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getExtendedFamily(Individual $proband): object
     {       
+        require_once(__DIR__ . '/ExtendedFamily.php');
         return new ExtendedFamily( $proband, $this->buildConfig($proband) );
     }
 
@@ -605,7 +606,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         // If you had .MO files, you could use them with:
         // return (new Translation('path/to/file.mo'))->asArray();
         
-        require_once(__DIR__ . '/resources/lang/ExtendedFamilyTranslations.php');   // tbd check why autoload does not load this module
+        require_once(__DIR__ . '/resources/lang/ExtendedFamilyTranslations.php');
         
         switch ($language) {
             case 'cs':

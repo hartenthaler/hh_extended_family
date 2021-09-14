@@ -115,9 +115,10 @@ Use a local editor, like notepad++ to make the translations and send it back to 
 Updated translations will be included in the next release of this module.
 
 There are now, beside English and German, translations to
+* Chinese by @dust2k (under preparation)
 * Czech by @jpretired
 * Dutch by @TheDutchJewel
-* Italian (under preparation)
+* Italian by @tonio (under preparation)
 * Slovak by @ro-la
 * Spanish by @yako1984
 * Ukrainian by @z-yurets

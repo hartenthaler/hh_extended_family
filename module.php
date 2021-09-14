@@ -22,14 +22,13 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Webtrees;
+
 use function app;
 
 //webtrees major version switch
 if (defined("WT_MODULES_DIR")) {
   // this is a webtrees 2.x module; it cannot be used with webtrees 1.x. See README.md.
   return;
-} else {
-  $modulesPath = Webtrees::MODULES_PATH;
 }
 
 // add our own dependencies if necesary
@@ -39,8 +38,6 @@ if (defined("WT_MODULES_DIR")) {
 // so we aren't loading 'too much' here.
 // DO NOT USE $file HERE! see Module.loadModule($file) - we must not change that var!
 
-foreach (glob(Webtrees::ROOT_DIR . $modulesPath . '*/autoload.php') as $autoloadFile) {
-  require_once $autoloadFile;
-}
+require_once(__DIR__ . '/ExtendedFamilyTabModule.php');
 
 return app(ExtendedFamilyTabModule::class);
