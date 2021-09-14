@@ -22,7 +22,7 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Webtrees;
-
+ 
 use function app;
 
 //webtrees major version switch

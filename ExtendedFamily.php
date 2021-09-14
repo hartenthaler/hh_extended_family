@@ -1342,11 +1342,11 @@ class ExtendedFamily
                 $newObj->family = $family;
                 $newObj->members[] = $individual;
                 if ( !in_array($extendedFamilyPart->partName, $nolabelGroups) ) {
-
+                    /*
                     if ($referencePerson) {                                             // tbd: Logik verkehrt !!! Richtige Personen auswählen (siehe Kommentar ganz oben)!
                         $this->getRelationshipName($referencePerson);
                     }
-
+                    */
                     $labels = array_merge($labels, $this->generateChildLabels($individual));
                     $newObj->labels[] = $labels;
                     $newObj->families[] = $family;
@@ -1401,7 +1401,7 @@ class ExtendedFamily
     * @param Individual $individual
     * 
     * @return string
-    */
+    
     private function getRelationshipName(Individual $individual): string
     {
         if (ExtendedFamilyTabModule::VestaModulesAvailable(false)) {
@@ -1412,7 +1412,8 @@ class ExtendedFamily
         }
         return '';
     }
-    
+    */
+
    /**
     * add an individual to a group of the extended family
     *
