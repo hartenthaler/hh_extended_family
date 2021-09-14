@@ -75,6 +75,8 @@ use function implode;
 use function count;
 use function in_array;
 
+require_once(__DIR__ . '/ExtendedFamily.php');
+
 /**
  * Class ExtendedFamilyTabModule
  */
@@ -103,7 +105,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getExtendedFamily(Individual $proband): object
     {       
-        require_once(__DIR__ . '/ExtendedFamily.php');
         return new ExtendedFamily( $proband, $this->buildConfig($proband) );
     }
 
