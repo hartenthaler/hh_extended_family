@@ -94,9 +94,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION = '2.0.16.53';
+    public const CUSTOM_VERSION = '2.0.16.54';
     public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
-    
+   
     /* find members of extended family parts
      *
      * @param Individual $proband
@@ -328,7 +328,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
         return redirect($this->getConfigLink());
     }
-    
+   
     /**
      * parts of extended family which should be shown (order and enabled/disabled)
      * set default values in case the settings are not stored in the database yet
@@ -358,7 +358,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         }
         return $sp;
     }
-        
+       
     /**
      * should filter options be shown (user can filter by gender or alive/dead)
      * set default values in case the settings are not stored in the database yet
@@ -439,7 +439,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         return (!$this->useCompactDesign() && $this->get_tree_preference_show_thumbnails( $tree ));
     }
-    
+ 
     /**
      * How should this module be identified in the control panel, etc.?
      *

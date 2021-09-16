@@ -2059,12 +2059,16 @@ class ExtendedFamily
      */
     public function generateChildLabels(Individual $child): array
     {
-        return array_filter([
-            $this->generatePedigreeLabel($child),
-            $this->generateChildLinkageStatusLabel($child),
-            $this->generateMultipleBirthLabel($child),
-            $this->generateAgeLabel($child),
-        ]);
+         if ($this->config->showLabels) {
+            return array_filter([
+                $this->generatePedigreeLabel($child),
+                $this->generateChildLinkageStatusLabel($child),
+                $this->generateMultipleBirthLabel($child),
+                $this->generateAgeLabel($child),
+            ]);
+        } else {
+            return [];
+        }
     }
 
     /**
@@ -2127,8 +2131,9 @@ class ExtendedFamily
             10 => 'decuplet',
         ];
         
-        if ( preg_match('/\n1 ASSO @(?:.+)@\n2 RELA (.+)/', $child->gedcom(), $match) ||
-             preg_match('/\n2 _ASSO @(?:.+)@\n3 RELA (.+)/', $child->gedcom(), $match) ) {
+        $childGedcom = $child->gedcom();
+        if ( preg_match('/\n1 ASSO @(?:.+)@\n2 RELA (.+)/', $childGedcom, $match) ||
+             preg_match('/\n2 _ASSO @(?:.+)@\n3 RELA (.+)/', $childGedcom, $match) ) {
             if (in_array(strtolower($match[1]), $multiple_birth)) {
                 return I18N::translate(strtolower($match[1]));
             }
@@ -2141,17 +2146,19 @@ class ExtendedFamily
      * generate a label for children that are stillborn or died as an infant
      * GEDCOM record is for example "1 DEAT\n2 AGE INFANT" or "1 BIRT\n2 AGE STILLBORN"
      *
+     * There was a performance bug when using preg_match('/\n1 BIRT((.|\s)*)\n2 AGE STILLBORN/i', $childGedcom, $match)
+     *
      * @param Individual $child
      *
      * @return string
      */
     public function generateAgeLabel(Individual $child): string
     {     
-        if ( preg_match('/\n1 BIRT((.|\s)*)\n2 AGE STILLBORN/i', $child->gedcom(), $match) ||
-             preg_match('/\n1 DEAT((.|\s)*)\n2 AGE STILLBORN/i', $child->gedcom(), $match) ) {
+        $childGedcom = $child->gedcom();
+        if ( preg_match('/\n2 AGE STILLBORN/i', $childGedcom, $match) ) {
             return I18N::translate('stillborn');
         }        
-        if ( preg_match('/\n1 DEAT((.|\s)*)\n2 AGE INFANT/i', $child->gedcom(), $match) ) {
+        if ( preg_match('/\n2 AGE INFANT/i', $childGedcom, $match) ) {
             return I18N::translate('died as infant');
         }
         return '';
