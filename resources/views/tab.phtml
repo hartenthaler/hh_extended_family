@@ -1,10 +1,11 @@
 <?php
-	use Fisharebest\Webtrees\Functions\FunctionsPrintFacts;
-	use Fisharebest\Webtrees\I18N;
-	use Fisharebest\Webtrees\View;
-    use Fisharebest\Webtrees\Fact;
-    use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamily;
-    
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\View;
+use Fisharebest\Webtrees\Fact;
+use Fisharebest\Webtrees\Functions\FunctionsPrintFacts;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamily;
+
 /*
  * (1) Special (not using groups)
  * (1a) partners (grouped by partners/partners of partners)
@@ -74,7 +75,7 @@
                 <?php foreach ($filterObj->efp as $propName => $propValue) : ?>
                     <?php if ($propName !== 'allCount' && $propName !== 'summaryMessageEmptyBlocks'): ?>
                         <?php if (($filterObj->efp->$propName->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
-                            <h2><?= $filterObj->efp->$propName->partName_translated ?></h2>
+                            <h2><?= ExtendedFamily::translateFamilyPart($filterObj->efp->$propName->partName) ?></h2>
                         <?php endif ?>
                         <?php if ($filterObj->efp->$propName->allCount): ?>
                             <div class="hh-extended-family-summary">
@@ -494,7 +495,7 @@
                                                 <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                                     <?php if ($indi->canShow()): ?>
                                                         <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($extfam_obj->config->SizeThumbnailW, $extfam_obj->config->SizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
                                                         <?php endif ?>
                                                         <span class="hh_extended_family_counter"><?= $i ?></span>
                                                         <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
@@ -565,7 +566,7 @@
                                                 <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                                     <?php if ($indi->canShow()): ?>
                                                         <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($extfam_obj->config->SizeThumbnailW, $extfam_obj->config->SizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
                                                         <?php endif ?>
                                                         <span class="hh_extended_family_counter"><?= $i ?></span>
                                                         <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>
@@ -756,7 +757,7 @@
                                                 <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                                     <?php if ($indi->canShow()): ?>
                                                         <?php if ($extfam_obj->config->showThumbnail): ?>
-                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($module_obj->getSizeThumbnailW(), $module_obj->getSizeThumbnailH(), 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                                                            <div class="wt-chart-box-thumbnail float-left mr-1"><?= $indi->displayImage($extfam_obj->config->SizeThumbnailW, $extfam_obj->config->SizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
                                                         <?php endif ?>
                                                         <span class="hh_extended_family_counter"><?= $i ?></span>
                                                         <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"><?= $indi->fullName() ?></a></span>

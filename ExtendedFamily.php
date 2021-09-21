@@ -91,7 +91,7 @@ use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
 // string functions
 use function str_replace;
 use function strtolower;
-use function str_contains;
+use function str_contains;  // will be added in PHP 8.0
 use function preg_match;
 use function strval;
 use function rtrim;
@@ -106,6 +106,10 @@ use function in_array;
 use function array_merge;
 use function array_filter;
 
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Parents.php');
+
 /**
  * class ExtendedFamily
  *
@@ -115,7 +119,7 @@ class ExtendedFamily
 {
     /**
      * list of const for extended family
-     */    
+     */
     public const FAM_STATUS_EX          = 'Ex-marriage';
     public const FAM_STATUS_MARRIAGE    = 'Marriage';
     public const FAM_STATUS_FIANCEE     = 'Fiancée';
@@ -135,9 +139,6 @@ class ExtendedFamily
     public const GROUP_UNCLEAUNTBM_FATHER = 'Siblings-in-law of father';
     public const GROUP_UNCLEAUNTBM_MOTHER = 'Siblings-in-law of mother';
 
-    public const GROUP_PARENTS_BIO  = 'Biological parents';
-    public const GROUP_PARENTS_STEP = 'Stepparents';
-    
     // named groups ar not used for parents in law (instead the marriages are used for grouping)
     // public const GROUP_PARENTSINLAW_BIO  = 'Biological parents of partner'; 
     // public const GROUP_PARENTSINLAW_STEP = 'Stepparents of partner';
@@ -193,6 +194,8 @@ class ExtendedFamily
      *        ->shownFamilyParts[]                  array of object
      *                            ->name            string
      *                            ->enabled         bool
+     *        ->SizeThumbnailW                      int (in pixel)
+     *        ->SizeThumbnailH                      int (in pixel)
      */
     public $config;
     
@@ -220,25 +223,25 @@ class ExtendedFamily
      *                                           ->partnerFamilyStatus      string
      *                                 ->maleCount                          int    
      *                                 ->femaleCount                        int
+     *                                 ->otherSexCount                      int
      *                                 ->allCount                           int
      *                                 ->partName                           string
-     *        					       ->partName_translated	            string
-     *        					       ->type					            string
      *                 ->co_parents_in_law                                  see children
      *                 ->partners->groups[]->members[]                      array of object individual   (index of groups is XREF)
      *                                     ->partner                        object individual
      *                           ->pCount                                   int
      *                           ->pmaleCount                               int
      *                           ->pfemaleCount                             int
+     *                           ->potherSexCount                           int
      *                           ->popCount                                 int
      *                           ->popmaleCount                             int
      *                           ->popfemaleCount                           int
+     *                           ->popotherSexCount                         int
      *                           ->maleCount                                int    
      *                           ->femaleCount                              int
+     *                           ->otherSexCount                            int
      *                           ->allCount                                 int
      *                           ->partName                                 string
-     *        				     ->partName_translated			            string
-     *        				     ->type							            string
      *                 ->partner_chains->chains[]                           array of object (tree of marriage chain nodes)
      *                                 ->displayChains[]                    array of chain (array of chainPerson objects)
      *                                 ->chainsCount                        int (number of chains)
@@ -246,10 +249,9 @@ class ExtendedFamily
      *                                 ->mostDistantPartner                 Individual (first one if there are more than one)
      *                                 ->maleCount                          int    
      *                                 ->femaleCount                        int
+     *                                 ->otherSexCount                      int
      *                                 ->allCount                           int
      *                                 ->partName                           string
-     *        				           ->partName_translated	            string
-     *        				           ->type					            string
      *                 ->siblings                                           see children 
      *                 ->siblings_in_law                                    see children
      *                 ->co_siblings_in_law                                 see children
@@ -264,10 +266,9 @@ class ExtendedFamily
      *                                     ->groupName                      string
      *                           ->maleCount                                int    
      *                           ->femaleCount                              int
+     *                           ->otherSexCount                            int
      *                           ->allCount                                 int
      *                           ->partName                                 string
-     *        				     ->partName_translated			            string
-     *        				     ->type							            string
      *                 ->children_in_law                                    see children
      *                 ->grandchildren                                      see children
      */
@@ -326,7 +327,6 @@ class ExtendedFamily
     private function constructConfig(object $config)
     {
         $this->config = $config;
-        return;
     }
     
     /**
@@ -339,8 +339,7 @@ class ExtendedFamily
         $this->proband = (object)[];
         $this->proband->indi     = $proband;
         $this->proband->niceName = $this->findNiceName( $proband );
-        $this->proband->labels   = $this->generateChildLabels( $proband ); 
-        return;
+        $this->proband->labels   = $this->generateChildLabels( $proband );
     }
 
     /**
@@ -356,16 +355,22 @@ class ExtendedFamily
             
             foreach ($this->config->shownFamilyParts as $efp => $element) {
                 if ( $element->enabled ) {
-                    $extfamObj->efp->$efp = $this->initializeFamilyPartObject($efp);
-                    $this->callFunction( 'find_' . $efp, $extfamObj->efp->$efp );
-                    $this->filterAndAddCountersToFamilyPartObject( $extfamObj->efp->$efp, $filterOption );
+                    if ($efp == 'parents') {
+                        $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption);
+                        $extfamObj->efp->$efp = $efpO->getEfpObject();
+                        //$extfamObj->efp->$efp = (object)[];
+                        //$extfamObj->efp->$efp->allCount = 0;
+                    } else {
+                        $extfamObj->efp->$efp = $this->initializeFamilyPartObject($efp);
+                        $this->callFunction('find_' . $efp, $extfamObj->efp->$efp);
+                        $this->filterAndAddCountersToFamilyPartObject($extfamObj->efp->$efp, $filterOption);
+                    }
                     $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
                 }
             }
             $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
             $this->filters[$filterOption] = $extfamObj;
         }
-        return;
     }
 
     /**
@@ -408,7 +413,7 @@ class ExtendedFamily
     /**
      * call functions to get a branch of an extended family part
      *
-     * @param string $name                  name of function to be called)
+     * @param string $name                  name of function to be called
      * @param Individual $individual        Individual
      * @param string $branch                e.g. ['bio', 'step', 'full', half']
      *
@@ -424,7 +429,7 @@ class ExtendedFamily
      *
      * @return array
      */
-    static function listOfFamilyParts(): array          // new elements can be added, but not changed or deleted
+    public static function listOfFamilyParts(): array   // new elements can be added, but not changed or deleted
                                                         // names of elements have to be shorter than 25 characters
                                                         // this sequence is the default order of family parts
     {    
@@ -451,7 +456,7 @@ class ExtendedFamily
     /**
      * Find grandparents
      *
-     * @param object extended family part (modified by this function)
+     * @param object $extendedFamilyPart
      */
     private function find_grandparents(object &$extendedFamilyPart)
     {      
@@ -473,7 +478,6 @@ class ExtendedFamily
                 $this->addIndividualToFamily( $extendedFamilyPart, $grandparentObj->indi, $grandparentObj->family, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparentObj->indi );
             }
 		}
-        return;
     }
     
     /**
@@ -491,15 +495,14 @@ class ExtendedFamily
                 $this->find_uncles_and_aunts_OneSide( $extendedFamilyPart, $this->proband->indi->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNT_MOTHER);
             }
         }
-        return;
     }
     
     /**
      * Find uncles and aunts for one side (husband/wife) (not including uncles and aunts by marriage)
      *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param Individual parent
-     * @param string family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
+     * @param object $extendedFamilyPart    part of extended family (grandparents, uncles/aunts, cousins, ...)
+     * @param Individual $parent
+     * @param string $side  family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
      */
     private function find_uncles_and_aunts_OneSide(object &$extendedFamilyPart, Individual $parent, string $side)
     {
@@ -514,7 +517,6 @@ class ExtendedFamily
                 }
             }
         }
-        return;
     }
     
     /**
@@ -532,7 +534,6 @@ class ExtendedFamily
                 $this->find_uncles_and_aunts_bmOneSide( $efp, $this->proband->indi->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNTBM_MOTHER);
             }
         }
-        return;
     }
     
     /**
@@ -561,23 +562,6 @@ class ExtendedFamily
                 }
             }
         }
-        return;
-    }
-
-    /**
-     * Find parents
-     *
-     * @param object extended family part (modified by this function)
-     */
-    private function find_parents(object &$extendedFamilyPart)
-    {            
-		foreach ($this->findBioparentsIndividuals($this->proband->indi) as $parentObj) {
-			$this->addIndividualToFamily( $extendedFamilyPart, $parentObj->indi, $parentObj->family, self::GROUP_PARENTS_BIO, $this->proband->indi );
-		}
-        foreach ($this->findStepparentsIndividuals($this->proband->indi) as $stepparentObj) {
-            $this->addIndividualToFamily( $extendedFamilyPart, $stepparentObj->indi, $stepparentObj->family, self::GROUP_PARENTS_STEP, $this->proband->indi );
-        }
-        return;
     }
 
     /**
@@ -599,7 +583,6 @@ class ExtendedFamily
                 }
             }
         }
-        return;
     }
 
     /**
@@ -670,7 +653,6 @@ class ExtendedFamily
             }
         }
 
-        return;
     }
 
     /**
@@ -691,7 +673,6 @@ class ExtendedFamily
         $stop->familyList = [];
         
         $extendedFamilyPart->chains = $this->findPartnerChainsRecursive ($chainRootNode, $stop);
-        return;
     }
     
     /**
@@ -771,7 +752,6 @@ class ExtendedFamily
             }
         }
 
-        return;
     }
 
     /**
@@ -807,8 +787,6 @@ class ExtendedFamily
                 }
             }
         }
-
-        return;
     }
 
     /**
@@ -856,8 +834,6 @@ class ExtendedFamily
                 }
             }
         }
-
-        return;
     }
     
     /**
@@ -874,8 +850,7 @@ class ExtendedFamily
             'full' => ['M' => self::GROUP_COUSINS_FULL_FATHER, 'F' => self::GROUP_COUSINS_FULL_MOTHER, 'U' => self::GROUP_COUSINS_FULL_U],
             'half' => ['M' => self::GROUP_COUSINS_HALF_FATHER, 'F' => self::GROUP_COUSINS_HALF_MOTHER, 'U' => self::GROUP_COUSINS_HALF_U],
         ];
-        $this->findFamilyBranches($config, $extendedFamilyPart, $this->proband->indi);
-        return;
+        $this->findFamilyBranches($config, $extendedFamilyPart);
     }
     
     /**
@@ -940,7 +915,6 @@ class ExtendedFamily
                 }
             }
         }
-        return;
     }
 
     /**
@@ -964,7 +938,6 @@ class ExtendedFamily
                 }
             }
         }
-        return;
     }
 
     /**
@@ -1062,31 +1035,28 @@ class ExtendedFamily
                 }
             }
         }
-        return;
     }
     
     /**
      * initialize part of extended family (object contains arrays of individuals or families and several counter values)
      *
-     * @param string name of part of extended family
-     * @return initialized object
+     * @param string $partName  name of part of extended family
+     * @return object           initialized object
      */
     private function initializeFamilyPartObject(string $partName): object
     {    
         $efpObj = (object)[];
         $efpObj->partName = $partName;
-		$efpObj->partName_translated = $this->translateFamilyPart($partName);
         $efpObj->allCount = 0;
         $efpObj->groups = [];
         return $efpObj;
     }
-    
+
     /**
      * Find individuals: biological parents (in first family)
      *
-     * @param Individual
-	 *
-	 * @return array of object (individual, family)
+     * @param Individual $individual
+     * @return array of object (individual, family)
      */
     private function findBioparentsIndividuals(Individual $individual): array
     {            
@@ -1151,7 +1121,7 @@ class ExtendedFamily
     /**
      * Find individuals: partners
      *
-     * @param Individual
+     * @param Individual $individual
 	 *
 	 * @return array of object (individual, family)
      */
@@ -1273,7 +1243,6 @@ class ExtendedFamily
                 }
             }
         }
-        return;
     }
     
    /**
@@ -1391,8 +1360,6 @@ class ExtendedFamily
                 }
             }
         }
-        
-        return;
     }
 
    /**
@@ -1414,16 +1381,16 @@ class ExtendedFamily
     }
     */
 
-   /**
-    * add an individual to a group of the extended family
-    *
-    * @param object part of extended family (modified by this function)
-    * @param Individual $individual
-    * @param object $family family to which this individual is belonging
-    * @param string $groupName
-    * @param (optional) Individual $referencePerson
-    * @param (optional) Individual $referencePerson2
-    */
+    /**
+     * add an individual to a group of the extended family
+     *
+     * @param object $extendedFamilyPart part of extended family (modified by this function)
+     * @param Individual $individual
+     * @param object $family family to which this individual is belonging
+     * @param string $groupName
+     * @param Individual|null $referencePerson
+     * @param Individual|null $referencePerson2
+     */
     private function addIndividualToGroup(object &$extendedFamilyPart, Individual $individual, object $family, string $groupName, Individual $referencePerson = null, Individual $referencePerson2 = null )
     {
         $extendedFamilyPart->groups[$groupName]->members[] = $individual;                                                                         // array of strings                                
@@ -1432,7 +1399,6 @@ class ExtendedFamily
         $extendedFamilyPart->groups[$groupName]->familiesStatus[] = $this->findFamilyStatus($family);
         $extendedFamilyPart->groups[$groupName]->referencePersons[] = $referencePerson;
         $extendedFamilyPart->groups[$groupName]->referencePersons2[] = $referencePerson2;
-        return;
     }
 
    /**
@@ -1469,8 +1435,6 @@ class ExtendedFamily
             $extendedFamilyPart->groups[$spouse->xref()] = $newObj;
             //error_log('Neu hinzugefuegte Gruppe fuer: ' . $spouse->xref() . ' (Person ' . $individual->xref() . ' als Partner hier hinzugefuegt). ');
         }
-        
-        return;
     }
 
     /**
@@ -1488,7 +1452,6 @@ class ExtendedFamily
             $extendedFamilyPart->displayChains = $this->buildDisplayObjectPartnerChains($extendedFamilyPart);
         }
         $this->addCountersToFamilyPartObject( $extendedFamilyPart );
-        return;
     }
 
     /**
@@ -1518,8 +1481,6 @@ class ExtendedFamily
                 $this->addCountersToFamilyPartObject_forPartnerChains($extendedFamilyPart);
             }
         }
-        
-        return;
     }
     
     /**
@@ -1550,9 +1511,9 @@ class ExtendedFamily
     }
 
     /**
-     * count male and female individuals in marriage chains
+     * count male and female individuals in partner chains
      *
-     * @param array of marriage chain nodes
+     * @param array of partner chain nodes
      *
      * @return object
      */
@@ -1584,7 +1545,6 @@ class ExtendedFamily
         $extendedFamilyPart->popmaleCount = $extendedFamilyPart->maleCount - $count->male;
         $extendedFamilyPart->popfemaleCount = $extendedFamilyPart->femaleCount - $count->female;
         $extendedFamilyPart->popCount = $extendedFamilyPart->allCount - $extendedFamilyPart->pCount;
-        return;
     }
 
     /**
@@ -1612,7 +1572,6 @@ class ExtendedFamily
         if ($extendedFamilyPart->longestChainCount <= 2) {                                             // normal marriage is no marriage chain
             $extendedFamilyPart->allCount = 0;
         }
-        return;
     }
 
     /**
@@ -1635,7 +1594,6 @@ class ExtendedFamily
                 $this->countMaleFemalePartnerChainRecursive($chain, $mfu);
             }   
         }
-        return;
     }
 
     /**
@@ -1659,7 +1617,6 @@ class ExtendedFamily
             }
         }
         $i--;
-        return;
     }
 
     /**
@@ -1724,7 +1681,6 @@ class ExtendedFamily
                 }
             }
         }
-        return;
     }
 
     /**
@@ -1732,7 +1688,7 @@ class ExtendedFamily
      *
      * @return array of string
      */
-    private function getFilterOptionsSex(): array
+    static function getFilterOptionsSex(): array
     {
         return [
             'M',
@@ -1746,7 +1702,7 @@ class ExtendedFamily
      *
      * @return array of string
      */
-    private function getFilterOptionsAlive(): array
+    static function getFilterOptionsAlive(): array
     {
         return [
             'Y',
@@ -1759,21 +1715,19 @@ class ExtendedFamily
      *
      * @return array of string
      */
-    private function getFilterOptions(): array
+    static function getFilterOptions(): array
     {
         $options = [];
         $options[] = 'all';
-        if ( $this->config->showFilterOptions ) {
-            foreach($this->getFilterOptionsSex() as $option) {
-                $options[] = $option;
-            }
-            foreach($this->getFilterOptionsAlive() as $option) {
-                $options[] = $option;
-            }
-            foreach($this->getFilterOptionsSex() as $optionSex) {
-                foreach($this->getFilterOptionsAlive() as $optionAlive) {
-                    $options[] = $optionSex . $optionAlive;
-                }
+        foreach(ExtendedFamily::getFilterOptionsSex() as $option) {
+            $options[] = $option;
+        }
+        foreach(ExtendedFamily::getFilterOptionsAlive() as $option) {
+            $options[] = $option;
+        }
+        foreach(ExtendedFamily::getFilterOptionsSex() as $optionSex) {
+            foreach(ExtendedFamily::getFilterOptionsAlive() as $optionAlive) {
+                $options[] = $optionSex . $optionAlive;
             }
         }
         return $options;
@@ -1786,9 +1740,9 @@ class ExtendedFamily
      *
      * @return string
      */
-    private function filterOptionSex($filterOption): string
+    static function filterOptionSex($filterOption): string
     {
-        foreach ($this->getFilterOptionsSex() as  $option) {
+        foreach (ExtendedFamily::getFilterOptionsSex() as  $option) {
             if ( str_contains($filterOption, $option) ) {
                 return 'only_' . $option;
             }
@@ -1803,9 +1757,9 @@ class ExtendedFamily
      *
      * @return string
      */
-    private function filterOptionAlive($filterOption): string
+    static function filterOptionAlive($filterOption): string
     {
-        foreach ($this->getFilterOptionsAlive() as  $option) {
+        foreach (ExtendedFamily::getFilterOptionsAlive() as  $option) {
             if ( str_contains($filterOption,$option) ) {
                 if ($option == 'Y') {
                     return 'only_alive';
@@ -1821,14 +1775,13 @@ class ExtendedFamily
      * convert combined filterOption to a pair of filter options
      *
      * @param string $filterOption  [M, F, U, Y, N, MY, ...]
-     *
      * @return array of string [sex, alive]
      */
-    private function convertFilterOptions(string $filterOption): array
+    static function convertFilterOptions(string $filterOption): array
     {
         return [
-            'sex'   => $this->filterOptionSex($filterOption),
-            'alive' => $this->filterOptionAlive($filterOption),
+            'sex'   => ExtendedFamily::filterOptionSex($filterOption),
+            'alive' => ExtendedFamily::filterOptionAlive($filterOption),
         ];
     }
 
@@ -1902,16 +1855,15 @@ class ExtendedFamily
         }
         $i--;
         $chainString = rtrim($chainString, '∞') . '|';
-        return;
     }
 
-   /**
-    * generate summary message for all empty blocks (needed for showEmptyBlock == 1)
-    *
-    * @param object extended family
-    *
-    * @return string
-    */
+    /**
+     * generate summary message for all empty blocks (needed for showEmptyBlock == 1)
+     *
+     * @param object $extendedFamily
+     *
+     * @return string
+     */
     private function summaryMessageEmptyBlocks(object $extendedFamily): string
     {
         $summaryMessage = '';
@@ -1994,7 +1946,6 @@ class ExtendedFamily
     private function findNiceName(Individual $individual): string
     {
         if ($this->config->showShortName) {
-            $niceName = '';
             // an individual can have no name or many names (then we use only the first one)
             if (count($individual->facts(['NAME'])) > 0) {                                           // check if there is at least one name            
                 $niceName = $this->findNiceNameFromNameParts($individual);
@@ -2054,21 +2005,16 @@ class ExtendedFamily
      * generate an array of labels for a child
      *
      * @param Individual $child
-     *
      * @return array of string with child labels
      */
-    public function generateChildLabels(Individual $child): array
+    public static function generateChildLabels(Individual $child): array
     {
-         if ($this->config->showLabels) {
-            return array_filter([
-                $this->generatePedigreeLabel($child),
-                $this->generateChildLinkageStatusLabel($child),
-                $this->generateMultipleBirthLabel($child),
-                $this->generateAgeLabel($child),
-            ]);
-        } else {
-            return [];
-        }
+        return array_filter([
+            ExtendedFamily::_generatePedigreeLabel($child),
+            ExtendedFamily::_generateChildLinkageStatusLabel($child),
+            ExtendedFamily::_generateMultipleBirthLabel($child),
+            ExtendedFamily::_generateAgeLabel($child),
+        ]);
     }
 
     /**
@@ -2076,10 +2022,9 @@ class ExtendedFamily
      * GEDCOM record is for example ""
      *
      * @param Individual $child
-     *
      * @return string
      */
-    public function generatePedigreeLabel(Individual $child): string
+    static function _generatePedigreeLabel(Individual $child): string
     {
         $label = GedcomCodePedi::getValue('',$child->getInstance($child->xref(),$child->tree()));
         if ( $child->childFamilies()->first() ) {
@@ -2097,10 +2042,9 @@ class ExtendedFamily
      * GEDCOM record is for example ""
      *
      * @param Individual $child
-     *
      * @return string
      */
-    public function generateChildLinkageStatusLabel(Individual $child): string
+    static function _generateChildLinkageStatusLabel(Individual $child): string
     {
         if ( $child->childFamilies()->first() ) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 STAT (.+)/', $child->gedcom(), $match)) {
@@ -2114,10 +2058,9 @@ class ExtendedFamily
      * GEDCOM record is for example "1 ASSO @I123@\n2 RELA triplet" or "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet"
      *
      * @param Individual $child
-     *
      * @return string
      */
-    public function generateMultipleBirthLabel(Individual $child): string
+    static function _generateMultipleBirthLabel(Individual $child): string
     {
         $multiple_birth = [
             2 => 'twin',
@@ -2149,10 +2092,9 @@ class ExtendedFamily
      * There was a performance bug when using preg_match('/\n1 BIRT((.|\s)*)\n2 AGE STILLBORN/i', $childGedcom, $match)
      *
      * @param Individual $child
-     *
      * @return string
      */
-    public function generateAgeLabel(Individual $child): string
+    static function _generateAgeLabel(Individual $child): string
     {     
         $childGedcom = $child->gedcom();
         if ( preg_match('/\n2 AGE STILLBORN/i', $childGedcom, $match) ) {
@@ -2168,13 +2110,13 @@ class ExtendedFamily
     * find status of a family
     *
     * @param object $family
-    *
     * @return string
     */
-    private function findFamilyStatus(object $family): string
+    public static function findFamilyStatus(object $family): string
     { 
         $event = $family->facts(['ANUL', 'DIV', 'ENGA', 'MARR'], true)->last();
         if ($event instanceof Fact) {
+            echo "<br>family tag=".$event->tag().". ";
             switch ($event->tag()) {
                 case 'FAM:ANUL':
                 case 'FAM:DIV':
@@ -2191,11 +2133,10 @@ class ExtendedFamily
    /**
     * translate family part names
     *
-    * @param string $type
-    *
+    * @param string $type (in lower case and using _)
     * @return string
     */
-    static function translateFamilyPart($type): string
+    public static function translateFamilyPart(string $type): string
     {
         switch ($type) {            
             case 'uncles_and_aunts':
@@ -2211,5 +2152,3 @@ class ExtendedFamily
         };
     }
 }
-
-?>

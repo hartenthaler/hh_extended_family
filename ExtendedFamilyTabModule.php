@@ -64,10 +64,9 @@ use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Cissee\Webtrees\Module\ExtendedRelationships;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamily;
 
 // string functions
-use function ucfirst;
+use function str_starts_with;   // will be added in PHP 8.0
 
 // array functions
 use function explode;
@@ -159,62 +158,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $configObj->useCompactDesign   = $this->useCompactDesign();
         $configObj->showThumbnail      = $this->showThumbnail( $proband->tree() );
         $configObj->showFilterOptions  = $this->showFilterOptions();
-        $configObj->filterOptions      = $this->getFilterOptions();
+        $configObj->filterOptions      = ($this->showFilterOptions()) ? ExtendedFamily::getFilterOptions(): ['all'];
         $configObj->shownFamilyParts   = $this->getShownFamilyParts();
+        $configObj->SizeThumbnailW     = $this->getSizeThumbnailW();
+        $configObj->SizeThumbnailH     = $this->getSizeThumbnailH();
         $configObj->name   = $this->name();                                     // tbd entfernen, falls Vesta-Module doch nicht genutzt werden sollten
         return $configObj;
-    }
-
-    /**
-     * get list of all combinations of filter options ['all', 'M', 'F', 'U', 'Y', 'N', 'MY', 'FN', ...]
-     *
-     * @return array of string
-     */
-    private function getFilterOptions(): array
-    {
-        $options = [];
-        $options[] = 'all';
-        if ( $this->showFilterOptions() ) {
-            foreach($this->getFilterOptionsSex() as $option) {
-                $options[] = $option;
-            }
-            foreach($this->getFilterOptionsAlive() as $option) {
-                $options[] = $option;
-            }
-            foreach($this->getFilterOptionsSex() as $optionSex) {
-                foreach($this->getFilterOptionsAlive() as $optionAlive) {
-                    $options[] = $optionSex . $optionAlive;
-                }
-            }
-        }
-        return $options;
-    }
-
-    /**
-     * get list of options to filter by gender
-     *
-     * @return array of string
-     */
-    private function getFilterOptionsSex(): array
-    {
-        return [
-            'M',
-            'F',
-            'U',
-        ];
-    }
-
-    /**
-     * get list of options to filter by alive/dead
-     *
-     * @return array of string
-     */
-    private function getFilterOptionsAlive(): array
-    {
-        return [
-            'Y',
-            'N',
-        ];
     }
 
     /**
@@ -222,9 +171,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return int
      */
-    public function getSizeThumbnailW(): int
+    private function getSizeThumbnailW(): int
     {
-        return 33;
+        return 66;
     }
 
     /**
@@ -232,9 +181,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return int
      */
-    public function getSizeThumbnailH(): int
+    private function getSizeThumbnailH(): int
     {
-        return 50;
+        return 100;
     }
 
     /**
@@ -420,9 +369,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
     /**
      * get preference in tis tree to show thumbnails
-     * @param $tree
+     * @param object $tree
      *
-     * @return bool 
+     * @return bool
      */
     private function get_tree_preference_show_thumbnails(object $tree): bool
     {
@@ -431,9 +380,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
     /**
      * show thumbnail if compact design is not selected and if global preference allows to show thumbnails
-     * @param $tree
+     * @param object $tree
      *
-     * @return bool 
+     * @return bool
      */
     private function showThumbnail(object $tree): bool
     {
@@ -491,7 +440,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * Where to get support for this module.  Perhaps a github respository?
+     * Where to get support for this module?  Perhaps a github respository?
      *
      * @return string
      */
@@ -501,7 +450,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
     
     /**
-     * Where does this module store its resources
+     * Where does this module store its resources?
      *
      * @return string
      */
@@ -511,7 +460,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * The default position for this tab.  It can be changed in the control panel.
+     * The default position for this tab can be changed in the control panel.
      *
      * @return int
      */
@@ -524,7 +473,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * Is this tab empty? If so, we don't always need to display it.
      *
      * @param Individual $individual
-     *
      * @return bool
      */
     public function hasTabContent(Individual $individual): bool
@@ -536,7 +484,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * A greyed out tab has no actual content, but may perhaps have options to create content.
      *
      * @param Individual $individual
-     *
      * @return bool
      */
     public function isGrayedOut(Individual $individual): bool
@@ -573,7 +520,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     *  Constructor.
+     *  constructor
      */
     public function __construct()
     {
@@ -582,7 +529,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     *  Boostrap.
+     *  bootstrap
      *
      * @param UserInterface $user A user (or visitor) object.
      * @param Tree|null     $tree Note that $tree can be null (if all trees are private).
@@ -599,7 +546,6 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * additional translations
      *
      * @param string $language
-     *
      * @return array of string
      */
     public function customTranslations(string $language): array
