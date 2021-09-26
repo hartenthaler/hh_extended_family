@@ -26,7 +26,6 @@
  * ------------------
  *
  * neue Subklasse für die Funktion personExistsInExtendedFamily(), damit die Funktion des ausgegrauten Tabs wieder funktioniert
- * neue Klassen für die einzelnen Zweige der erweiterten Familie mit den jeweiligen Hilfsfunktionen definieren (Factory-Pattern)
  *
  * siehe issues/enhancements in github
  *
@@ -234,14 +233,8 @@ class ExtendedFamily
             $extfamObj->efp->allCount = 0;
             foreach ($this->config->shownFamilyParts as $efp => $element) {
                 if ( $element->enabled ) {
-                    //if ($efp !== 'partners') {
-                        $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption);
-                        $extfamObj->efp->$efp = $efpO->getEfpObject();
-                        //echo "<br>".$extfamObj->efp->$efp->partName.": ".$extfamObj->efp->$efp->allCount.". ";
-                    /*} else {
-                        $extfamObj->efp->$efp = (object)[];
-                        $extfamObj->efp->$efp->allCount = 0;
-                    }*/
+                    $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption);
+                    $extfamObj->efp->$efp = $efpO->getEfpObject();
                     $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
                 }
             }
@@ -305,124 +298,6 @@ class ExtendedFamily
         ];
     }
 
-
-   /**
-    * add an individual to the extended family if it is not already member of this extended family
-    *
-    * @param object part of extended family (modified by this function)
-    * @param Individual $individual
-    * @param object $family family to which this individual is belonging
-    * @param (optional) string $groupName
-    * @param (optional) Individual $referencePerson
-    * @param (optional) Individual $referencePerson2
-    */
-    private function addIndividualToFamily(object &$extendedFamilyPart, Individual $individual, object $family, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null )
-    {
-        $nolabelGroups = [                                  // family parts which are not using "groups" and "labels"
-            'parents_in_law',
-            'partners',
-            'partner_chains'
-        ];
-        
-        $found = false;
-        /*
-        if ($groupName == '') {
-            error_log('Soll ' . $individual->fullName() . ' (' . $individual->xref() . ') der Familie ' . $family->fullName() . ' (' . $family->xref() . ') hinzugefuegt werden? ');
-        } else {
-            error_log('Soll ' . $individual->fullName() . ' (' . $individual->xref() . ') der Gruppe "' . $groupName . '" hinzugefuegt werden? ');
-        }
-        */
-        foreach ($extendedFamilyPart->groups as $i => $groupObj) {                      // check if individual is already a member of this part of the extended family   
-            //echo 'Teste groups Nr. ' . $i . ': ';
-            foreach ($groupObj->members as $member) {
-                //echo 'Teste member = ' . $member->xref() . ': ';
-                if ($member->xref() == $individual->xref()) {
-                    $found = true;
-                    //echo 'Person ' . $individual->fullName() . ' ist bereits in group-Objekt für Familie ' . $groupObj->family->fullName() . ' vorhanden. ';
-                    break;
-                }
-            }
-        }
-        
-        if (!$found) {                                                                  // individual has to be added 
-            //echo "add person: ".$individual->fullName().". <br>";
-            if ( $groupName == '' ) {
-                foreach ($extendedFamilyPart->groups as $famkey => $groupObj) {         // check if this family is already stored in this part of the extended family
-                    if ($groupObj->family->xref() == $family->xref()) {                 // family exists already    
-                        //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->fullName() .
-                        //     ' in Objekt für Familie ' . $extendedFamilyPart->groups[$famkey]->family->fullName() . '); ';
-                        $extendedFamilyPart->groups[$famkey]->members[] = $individual;
-                        if ( !in_array($extendedFamilyPart->partName, $nolabelGroups) ) {
-                            $this->addIndividualToGroup($extendedFamilyPart, $individual, $family, $groupName, $referencePerson, $referencePerson2);
-                        }
-                        $found = true;
-                        break;
-                    }
-                }
-            } elseif ( array_key_exists($groupName, $extendedFamilyPart->groups) ) {
-                //echo 'In bereits vorhandener Gruppe "' . $groupName . '" Person ' . $individual->xref() . ' hinzugefügt. ';
-                if ( !in_array($extendedFamilyPart->partName, $nolabelGroups) ) {
-                    $this->addIndividualToGroup($extendedFamilyPart, $individual, $family, $groupName, $referencePerson, $referencePerson2);
-                }
-                $found = true;
-            }
-            if (!$found) {                                                              // individual not found and family not found
-                $labels = [];
-                $newObj = (object)[];
-                $newObj->family = $family;
-                $newObj->members[] = $individual;
-                if ( !in_array($extendedFamilyPart->partName, $nolabelGroups) ) {
-                    /*
-                    if ($referencePerson) {                                             // tbd: Logik verkehrt !!! Richtige Personen auswählen (siehe Kommentar ganz oben)!
-                        $this->getRelationshipName($referencePerson);
-                    }
-                    */
-                    $labels = array_merge($labels, $this->generateChildLabels($individual));
-                    $newObj->labels[] = $labels;
-                    $newObj->families[] = $family;
-                    $newObj->familiesStatus[] = $this->findFamilyStatus($family);
-                    $newObj->referencePersons[] = $referencePerson;
-                    $newObj->referencePersons2[] = $referencePerson2;
-                }
-                if ( $extendedFamilyPart->partName == 'grandparents' || $extendedFamilyPart->partName == 'parents' || $extendedFamilyPart->partName == 'parents_in_law' ) {
-                    $newObj->familyStatus = $this->findFamilyStatus($family);
-                    if ($referencePerson) {
-                        $newObj->partner = $referencePerson;
-                        if ($referencePerson2) {
-                            foreach ($referencePerson2->spouseFamilies() as $fam) {
-                                //echo "Teste Familie ".$fam->fullName().":";
-                                foreach ($fam->spouses() as $partner) {
-                                    if ( $partner->xref() == $referencePerson->xref() ) {
-                                        //echo $referencePerson->fullName();
-                                        $newObj->partnerFamilyStatus = $this->findFamilyStatus($fam);
-                                    }
-                                }
-                            }
-                        } else {
-                            $newObj->partnerFamilyStatus = 'Partnership';
-                        }
-                    }
-                }
-                if ($groupName == '') {
-                    $extendedFamilyPart->groups[] = $newObj;
-                    /*
-                    echo 'Neu hinzugefügte Familie Nr. ' . 
-                        //count($extendedFamilyPart->groups)-1 .
-                        ' (Person ' . 
-                        $individual->fullName() . 
-                        ' in Objekt für Familie ' .
-                        //$extendedFamilyPart->groups[$count]->family->xref() .
-                        '); ';
-                    */
-                } else {
-                    $newObj->groupName = $groupName;
-                    $extendedFamilyPart->groups[$groupName] = $newObj;
-                    //echo 'Neu hinzugefügte Gruppe "' . $groupName . '" (Person ' . $individual->xref() . '). ';
-                }
-            }
-        }
-    }
-
    /**
     * get a name for the relationship between an individual and the proband
     *
@@ -441,134 +316,6 @@ class ExtendedFamily
         return '';
     }
     */
-
-    /**
-     * add an individual to a group of the extended family
-     *
-     * @param object $extendedFamilyPart part of extended family (modified by this function)
-     * @param Individual $individual
-     * @param object $family family to which this individual is belonging
-     * @param string $groupName
-     * @param Individual|null $referencePerson
-     * @param Individual|null $referencePerson2
-     */
-    private function addIndividualToGroup(object &$extendedFamilyPart, Individual $individual, object $family, string $groupName, Individual $referencePerson = null, Individual $referencePerson2 = null )
-    {
-        $extendedFamilyPart->groups[$groupName]->members[] = $individual;                                                                         // array of strings                                
-        $extendedFamilyPart->groups[$groupName]->labels[] = $this->generateChildLabels($individual);
-        $extendedFamilyPart->groups[$groupName]->families[] = $family;
-        $extendedFamilyPart->groups[$groupName]->familiesStatus[] = $this->findFamilyStatus($family);
-        $extendedFamilyPart->groups[$groupName]->referencePersons[] = $referencePerson;
-        $extendedFamilyPart->groups[$groupName]->referencePersons2[] = $referencePerson2;
-    }
-
-    /**
-     * filter individuals and count them per family or per group and per sex
-     *
-     * @param object $extendedFamilyPart part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param string $filterOption
-     */
-    private function filterAndAddCountersToFamilyPartObject( object $extendedFamilyPart, string $filterOption )
-    {
-        if ( $filterOption !== 'all' ) {
-            $this->filter( $extendedFamilyPart, $this->convertfilterOptions($filterOption) );
-        }
-        $this->addCountersToFamilyPartObject( $extendedFamilyPart );
-    }
-
-    /**
-     * count individuals per family or per group
-     *
-     * @param object part of extended family (modified by this function)
-     */
-    private function addCountersToFamilyPartObject( object &$extendedFamilyPart )
-    {
-        list ( $countMale, $countFemale, $countOthers ) = [0, 0 , 0];
-
-            foreach ($extendedFamilyPart->groups as $group) {
-                $counter = $this->countMaleFemale( $group->members );
-                $countMale += $counter->male;
-                $countFemale += $counter->female;
-                $countOthers += $counter->unknown_others;
-            }
-
-        list ( $extendedFamilyPart->maleCount, $extendedFamilyPart->femaleCount, $extendedFamilyPart->otherSexCount, $extendedFamilyPart->allCount ) = [$countMale, $countFemale, $countOthers, $countMale + $countFemale + $countOthers];
-        if ( $extendedFamilyPart->allCount > 0) {
-            if ( $extendedFamilyPart->partName == 'partners' ) {
-                $this->addCountersToFamilyPartObject_forPartners($extendedFamilyPart);
-            }
-        }
-    }
-    
-    /**
-     * count male and female individuals
-     *
-     * @param array of individuals
-     *
-     * @return object with three elements: male, female and unknown_others (int >= 0)
-     */
-    private function countMaleFemale(array $indilist): object
-    {
-        $mfu = (object)[];
-        list ( $mfu->male, $mfu->female, $mfu->unknown_others ) = [0, 0, 0];
-    
-        foreach ($indilist as $il) {
-            if ($il instanceof Individual) {
-                if ($il->sex() == "M") {
-                    $mfu->male++;
-                } elseif ($il->sex() == "F") {
-                    $mfu->female++;
-                } else {
-                   $mfu->unknown_others++; 
-                }
-            }
-        }
-        
-        return $mfu;
-    }
-
-    /**
-     * count individuals for partners
-     *
-     * @param object part of extended family (modified by this function)
-     */
-    private function addCountersToFamilyPartObject_forPartners( object &$extendedFamilyPart )
-    {
-        $count = $this->countMaleFemale( $extendedFamilyPart->groups[array_key_first($extendedFamilyPart->groups)]->members );
-        $extendedFamilyPart->pmaleCount = $count->male;
-        $extendedFamilyPart->pfemaleCount = $count->female;
-        $extendedFamilyPart->pCount = $count->male + $count->female + $count->unknown_others;
-        $extendedFamilyPart->popmaleCount = $extendedFamilyPart->maleCount - $count->male;
-        $extendedFamilyPart->popfemaleCount = $extendedFamilyPart->femaleCount - $count->female;
-        $extendedFamilyPart->popCount = $extendedFamilyPart->allCount - $extendedFamilyPart->pCount;
-    }
-
-    /**
-     * filter individuals in family part
-     *
-     * @param object part of extended family (grandparents, uncles/aunts, cousins, ...)
-     * @param array of string $filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
-     */
-    private function filter( object $extendedFamilyPart, array $filterOptions )
-    {
-        if ( ($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all') ) {
-
-                foreach ($extendedFamilyPart->groups as $group) {
-                    foreach ($group->members as $key => $member) {
-                        if ( ($filterOptions['alive'] == 'only_alive' && $member->isDead()) || ($filterOptions['alive'] == 'only_dead' && !$member->isDead()) ||
-                             ($filterOptions['sex'] == 'only_M' && $member->sex() !== 'M') || ($filterOptions['sex'] == 'only_F' && $member->sex() !== 'F') || ($filterOptions['sex'] == 'only_U' && $member->sex() !== 'U') ) {
-                            unset($group->members[$key]);
-                        }
-                    }
-                }
-
-        }
-        foreach ($extendedFamilyPart->groups as $key => $group) {            
-            if (count($group->members) == 0) {
-                unset($extendedFamilyPart->groups[$key]);
-            }
-        }
-    }
 
     /**
      * get list of options to filter by gender
@@ -676,7 +423,6 @@ class ExtendedFamily
      * generate summary message for all empty blocks (needed for showEmptyBlock == 1)
      *
      * @param object $extendedFamily
-     *
      * @return string
      */
     private function summaryMessageEmptyBlocks(object $extendedFamily): string
@@ -931,7 +677,7 @@ class ExtendedFamily
     { 
         $event = $family->facts(['ANUL', 'DIV', 'ENGA', 'MARR'], true)->last();
         if ($event instanceof Fact) {
-            echo "<br>family tag=".$event->tag().". ";
+            //echo "<br>family tag=".$event->tag().". ";
             switch ($event->tag()) {
                 case 'FAM:ANUL':
                 case 'FAM:DIV':

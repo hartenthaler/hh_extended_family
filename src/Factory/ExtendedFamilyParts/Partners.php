@@ -88,8 +88,7 @@ class Partners extends ExtendedFamilyPart
             $this->_filter( ExtendedFamily::convertfilterOptions($filterOption) );
         }
         $this->_addCountersToFamilyPartObject();
-        //echo "<br>Filteroption=".$filterOption;
-        $this->_addCountersPartners();
+        $this->_addAdditionalCountersPartners();
     }
 
     /**
@@ -102,7 +101,7 @@ class Partners extends ExtendedFamilyPart
      */
     protected function _addIndividualToFamily(IndividualFamily $indifam, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null )
     {
-        $this->_addIndividualToFamilyAsPartner($indifam->getIndividual(), $referencePerson);
+         // function $this->_addIndividualToFamilyAsPartner() is called in _addEfpMembers()
     }
 
     /**
@@ -143,11 +142,14 @@ class Partners extends ExtendedFamilyPart
     /**
      * additional counting of individuals for partners
      */
-    private function _addCountersPartners()
+    private function _addAdditionalCountersPartners()
     {
-        echo "<br>arry key first=".array_key_first($this->_efpObject->groups);
-        //$count = $this->_countMaleFemale( $this->_efpObject->groups[array_key_first($this->_efpObject->groups)]->members );
-        $count=(object)[]; $count->male=0; $count->female=0; $count->unknown_others=0;
+        if (array_key_first($this->_efpObject->groups)) {
+            $count = $this->_countMaleFemale($this->_efpObject->groups[array_key_first($this->_efpObject->groups)]->members);
+        } else {                            // error: this should not happen
+            $count=(object)[];
+            list ($count->male, $count->female, $count->unknown_others) = [0, 0, 0];
+        }
 
         $this->_efpObject->pmaleCount = $count->male;
         $this->_efpObject->pfemaleCount = $count->female;
