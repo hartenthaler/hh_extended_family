@@ -26,6 +26,7 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 use Fisharebest\Webtrees\Individual;
 
 require_once('Objects/IndividualFamily.php');
+require_once('Objects/FindBranchConfig.php');
 
 /**
  * abstract class ExtendedFamilyPart
@@ -37,9 +38,9 @@ abstract class ExtendedFamilyPart
     // ------------ definition of data structures
         
     /**
-     * @var object $_efpObject common data structure for all extended family parts
+     * @var object $_efpObject common data structure for all extended family parts; there are additional specific data structures for each extended family part
      *
-     *  ->groups[]                      array
+     *  ->groups[]                      array           // not used in extended family part "partner_chains"
      *  ->maleCount                     int    
      *  ->femaleCount                   int
      *  ->otherSexCount                 int
@@ -64,7 +65,7 @@ abstract class ExtendedFamilyPart
     {
         $this->_initialize($proband);
         $this->_addEfpMembers();
-        $this->_filterAndAddCountersToFamilyPartObject($filterOption);
+        $this->_filterAndAddCounters($filterOption);
     }
 
     /**
@@ -108,6 +109,13 @@ abstract class ExtendedFamilyPart
      * find members of this specific extended family part (has to be implemented for each extended family part)
      */
     abstract protected function _addEfpMembers();
+
+    /**
+     * filter and add counters to this specific extended family part (has to be implemented for each extended family part if it is specific)
+     */
+    protected function _filterAndAddCounters($filterOption) {
+        $this->_filterAndAddCountersToFamilyPartObject($filterOption);
+    }
 
     /**
      * find individuals: biological parents (in first family)
@@ -251,14 +259,14 @@ abstract class ExtendedFamilyPart
     /**
      * add cousins in both branches ['full','half'] or add grandparents in both branches ['bio','step']
      *
-     * @param object $config configuration parameters
+     * @param FindBranchConfig $config configuration parameters
      */
-    protected function _addFamilyBranches(object $config)
+    protected function _addFamilyBranches(FindBranchConfig $config)
     {
-        foreach ($config->branches as $branch) {
-            foreach ($this->_findBioparentsIndividuals($this->_proband) as $Parent) {
-                foreach ($this->_callFunction('_add'.$config->callFamilyPart.'BranchIndividuals', $Parent->getIndividual(), $branch) as $Obj) {
-                    $this->_addIndividualToFamily( $Obj, $config->const[$branch][$Parent->getIndividual()->sex()] );
+        foreach ($config->getBranches() as $branch) {
+            foreach ($this->_findBioparentsIndividuals($this->_proband) as $parent) {
+                foreach ($this->_callFunction('_find'.ucfirst($config->getCallFamilyPart()).'BranchIndividuals', $parent->getIndividual(), $branch) as $Obj) {
+                    $this->_addIndividualToFamily( $Obj, $config->getConst()[$branch][$parent->getIndividual()->sex()] );
                 }
             }
         }
@@ -378,12 +386,11 @@ abstract class ExtendedFamilyPart
                 if ($groupName == '') {
                     $this->_efpObject->groups[] = $newObj;
                     /*
-                    echo 'Neu hinzugefügte Familie Nr. ' .
-                        //count($extendedFamilyPart->groups)-1 .
+                    echo "<br>Neu hinzugefügte Familie Nr. " . (count($this->_efpObject->groups) - 1) .
                         ' (Person ' .
-                        $individual->fullName() .
+                        $indifam->getIndividual()->fullName() .
                         ' in Objekt für Familie ' .
-                        //$extendedFamilyPart->groups[$count]->family->xref() .
+                        $this->_efpObject->groups[count($this->_efpObject->groups) - 1]->family->xref() .
                         '); ';
                     */
                 } else {
@@ -418,7 +425,7 @@ abstract class ExtendedFamilyPart
      *
      * @param string $filterOption
      */
-    private function _filterAndAddCountersToFamilyPartObject(string $filterOption)
+    protected function _filterAndAddCountersToFamilyPartObject(string $filterOption)
     {
         if ( $filterOption !== 'all' ) {
             $this->_filter( ExtendedFamily::convertfilterOptions($filterOption) );
@@ -431,7 +438,7 @@ abstract class ExtendedFamilyPart
      *
      * @param array $filterOptions of string $filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
      */
-    private function _filter(array $filterOptions)
+    protected function _filter(array $filterOptions)
     {
         if ( ($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all') ) {
             foreach ($this->_efpObject->groups as $group) {
@@ -455,7 +462,7 @@ abstract class ExtendedFamilyPart
     /**
      * count individuals per family or per group and add them to this extended family part object
      */
-    private function _addCountersToFamilyPartObject()
+    protected function _addCountersToFamilyPartObject()
     {
         list ( $countMale, $countFemale, $countOthers ) = [0, 0 , 0];
         foreach ($this->_efpObject->groups as $group) {
@@ -464,7 +471,7 @@ abstract class ExtendedFamilyPart
             $countFemale += $counter->female;
             $countOthers += $counter->unknown_others;
         }
-        list ( $this->_efpObject->maleCount, $this->_efpObject->femaleCount, $this->_efpObject->allCount ) = [$countMale, $countFemale, $countMale + $countFemale + $countOthers];
+        list ( $this->_efpObject->maleCount, $this->_efpObject->femaleCount, $this->_efpObject->otherSexCount, $this->_efpObject->allCount ) = [$countMale, $countFemale, $countOthers, $countMale + $countFemale + $countOthers];
     }
 
     /**
@@ -473,7 +480,7 @@ abstract class ExtendedFamilyPart
      * @param array of individuals
      * @return object with three elements: male, female and unknown_others (int >= 0)
      */
-    private function _countMaleFemale(array $indilist): object
+    protected function _countMaleFemale(array $indilist): object
     {
         $mfu = (object)[];
         list ( $mfu->male, $mfu->female, $mfu->unknown_others ) = [0, 0, 0];

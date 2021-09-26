@@ -75,6 +75,7 @@ use function count;
 use function in_array;
 
 require_once(__DIR__ . '/ExtendedFamily.php');
+//require_once(__DIR__ . '/src/lang/ExtendedFamilyTranslations.php');
 
 /**
  * Class ExtendedFamilyTabModule

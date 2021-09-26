@@ -26,15 +26,21 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Individual;
+
 /**
- * class Parents
+ * class Cousins
  *
- * data and methods for extended family part "parents"
+ * data and methods for extended family part "cousins" as full and half cousins (children of full and half siblings of father and mother)
  */
-class Parents extends ExtendedFamilyPart
+class Cousins extends ExtendedFamilyPart
 {
-    public const GROUP_PARENTS_BIO  = 'Biological parents';
-    public const GROUP_PARENTS_STEP = 'Stepparents';
+    public const GROUP_COUSINS_FULL_FATHER = 'Children of full siblings of father';
+    public const GROUP_COUSINS_FULL_MOTHER = 'Children of full siblings of mother';
+    public const GROUP_COUSINS_FULL_U      = 'Children of full siblings of parent';
+    public const GROUP_COUSINS_HALF_FATHER = 'Children of half siblings of father';
+    public const GROUP_COUSINS_HALF_MOTHER = 'Children of half siblings of mother';
+    public const GROUP_COUSINS_HALF_U      = 'Children of half siblings of parent';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -48,11 +54,13 @@ class Parents extends ExtendedFamilyPart
      *  ->partName                      string
      *
      * special for this extended family part:
-     *  ->groups[]->members[]           array of Individual (index of groups is int)
-     *            ->family              object family
-     *            ->familyStatus        string
-     *            ->partner             Individual
-     *            ->partnerFamilyStatus string
+     *  ->groups[]->members[]           array of Individual (index of groups is groupName)
+     *            ->labels[]            array of array of string
+     *            ->families[]          array of object
+     *            ->familiesStatus[]    string
+     *            ->referencePersons[]  Individual
+     *            ->referencePersons2[] Individual
+     *            ->groupName           string
      */
 
     /**
@@ -60,11 +68,12 @@ class Parents extends ExtendedFamilyPart
      */
     protected function _addEfpMembers()
     {
-        foreach ($this->_findBioparentsIndividuals($this->_proband) as $parent) {
-            $this->_addIndividualToFamily( $parent, self::GROUP_PARENTS_BIO );
-        }
-        foreach ($this->_findStepparentsIndividuals($this->_proband) as $stepparent) {
-            $this->_addIndividualToFamily( $stepparent, self::GROUP_PARENTS_STEP );
-        }
+        $config = new FindBranchConfig(
+            'cousins',
+        [
+            'full' => ['M' => self::GROUP_COUSINS_FULL_FATHER, 'F' => self::GROUP_COUSINS_FULL_MOTHER, 'U' => self::GROUP_COUSINS_FULL_U],
+            'half' => ['M' => self::GROUP_COUSINS_HALF_FATHER, 'F' => self::GROUP_COUSINS_HALF_MOTHER, 'U' => self::GROUP_COUSINS_HALF_U],
+        ]);
+        $this->_addFamilyBranches($config);
     }
 }

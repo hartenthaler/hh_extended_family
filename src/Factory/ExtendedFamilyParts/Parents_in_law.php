@@ -22,19 +22,23 @@
 
 /* tbd
  *
+ * maybe use find...Individuals() instead of foreach-structures
  */
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Individual;
+
 /**
- * class Parents
+ * class Parents_in_law
  *
- * data and methods for extended family part "parents"
+ * data and methods for extended family part Parents-in-law
  */
-class Parents extends ExtendedFamilyPart
+class Parents_in_law extends ExtendedFamilyPart
 {
-    public const GROUP_PARENTS_BIO  = 'Biological parents';
-    public const GROUP_PARENTS_STEP = 'Stepparents';
+    // named groups ar not used for parents in law (instead the marriages are used for grouping)
+    // public const GROUP_PARENTSINLAW_BIO  = 'Biological parents of partner';
+    // public const GROUP_PARENTSINLAW_STEP = 'Stepparents of partner';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -60,11 +64,17 @@ class Parents extends ExtendedFamilyPart
      */
     protected function _addEfpMembers()
     {
-        foreach ($this->_findBioparentsIndividuals($this->_proband) as $parent) {
-            $this->_addIndividualToFamily( $parent, self::GROUP_PARENTS_BIO );
-        }
-        foreach ($this->_findStepparentsIndividuals($this->_proband) as $stepparent) {
-            $this->_addIndividualToFamily( $stepparent, self::GROUP_PARENTS_STEP );
+        foreach ($this->_proband->spouseFamilies() as $family) {                                // Gen  0 F
+            foreach ($family->spouses() as $spouse) {                                           // Gen  0 P
+                if ($spouse->xref() !== $this->_proband->xref()) {
+                    if (($spouse->childFamilies()->first()) && ($spouse->childFamilies()->first()->husband() instanceof Individual)) {
+                        $this->_addIndividualToFamily( new IndividualFamily($spouse->childFamilies()->first()->husband(), $spouse->childFamilies()->first()), '', $spouse, $this->_proband );
+                    }
+                    if (($spouse->childFamilies()->first()) && ($spouse->childFamilies()->first()->wife() instanceof Individual)) {
+                        $this->_addIndividualToFamily( new IndividualFamily($spouse->childFamilies()->first()->wife(), $spouse->childFamilies()->first()), '', $spouse, $this->_proband );
+                    }
+                }
+            }
         }
     }
 }
