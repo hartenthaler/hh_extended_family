@@ -287,6 +287,7 @@ abstract class ExtendedFamilyPart
 
     /**
      * add an individual and the corresponding family to the extended family part if it is not already member of this extended family part
+     * this functions is overloaded by a special version for: parents_in_law, partners and partner_chains
      *
      * @param IndividualFamily $indifam
      * @param string $groupName
@@ -295,12 +296,6 @@ abstract class ExtendedFamilyPart
      */
     protected function _addIndividualToFamily(IndividualFamily $indifam, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null )
     {
-        $nolabelGroups = [                                  // family parts which are not using "groups" and "labels"
-            'parents_in_law',
-            'partners',
-            'partner_chains'
-        ];
-
         if (!isset($referencePerson)) {
             $referencePerson = $this->_proband;
         }
@@ -323,49 +318,40 @@ abstract class ExtendedFamilyPart
                 }
             }
         }
-
         if (!$found) {                                                                              // individual has to be added
             //echo "add person: ".$indifam->getIndividual()->fullName().". <br>";
             if ( $groupName == '' ) {
                 foreach ($this->_efpObject->groups as $famkey => $groupObj) {                       // check if this family is already stored in this part of the extended family
                     if ($groupObj->family->xref() == $indifam->getFamily()->xref()) {               // family exists already
-                        //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->fullName() .
-                        //     ' in Objekt für Familie ' . $extendedFamilyPart->groups[$famkey]->family->fullName() . '); ';
-                        $this->_efpObject->groups[$famkey]->members[] = $indifam->getIndividual();
-                        if ( !in_array($this->_efpObject->partName, $nolabelGroups) ) {
-                            $this->_addIndividualToGroup($indifam, $groupName, $referencePerson, $referencePerson2);
-                        }
+                        //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->fullName() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$famkey]->family->fullName() . '); ';
+                        $this->_addIndividualToGroup($indifam, $groupName, $referencePerson, $referencePerson2);
                         $found = true;
                         break;
                     }
                 }
             } elseif ( array_key_exists($groupName, $this->_efpObject->groups) ) {
                 //echo 'In bereits vorhandener Gruppe "' . $groupName . '" Person ' . $individual->xref() . ' hinzugefügt. ';
-                if ( !in_array($this->_efpObject->partName, $nolabelGroups) ) {
-                    $this->_addIndividualToGroup($indifam, $groupName, $referencePerson, $referencePerson2);
-                }
+                $this->_addIndividualToGroup($indifam, $groupName, $referencePerson, $referencePerson2);
                 $found = true;
             }
-            if (!$found) {                                                              // individual not found and family not found
-                $labels = [];
+            if (!$found) {                                                                              // individual not found and family not found
                 $newObj = (object)[];
-                $newObj->family = $indifam->getFamily();
                 $newObj->members[] = $indifam->getIndividual();
-                if ( !in_array($this->_efpObject->partName, $nolabelGroups) ) {
-                    /*
-                    if ($referencePerson) {                                             // tbd: Logik verkehrt !!! Richtige Personen auswählen (siehe Kommentar ganz oben)!
-                        $this->getRelationshipName($referencePerson);
-                    }
-                    */
-                    $labels = array_merge($labels, ExtendedFamily::generateChildLabels($indifam->getIndividual()));
-                    $newObj->labels[] = $labels;
-                    $newObj->families[] = $indifam->getFamily();
-                    $newObj->familiesStatus[] = ExtendedFamily::findFamilyStatus($indifam->getIndividual());
-                    $newObj->referencePersons[] = $referencePerson;
-                    $newObj->referencePersons2[] = $referencePerson2;
+                $newObj->family = $indifam->getFamily();
+                /*
+                if ($referencePerson) {                                             // tbd: Logik verkehrt !!! Richtige Personen auswählen (siehe Kommentar ganz oben)!
+                    $this->getRelationshipName($referencePerson);
                 }
-                if ( $this->_efpObject->partName == 'grandparents' || $this->_efpObject->partName == 'parents' || $this->_efpObject->partName == 'parents_in_law' ) {
-                    $newObj->familyStatus = ExtendedFamily::findFamilyStatus($indifam->getIndividual());
+                */
+                $labels = [];
+                $labels = array_merge($labels, ExtendedFamily::generateChildLabels($indifam->getIndividual()));
+                $newObj->labels[] = $labels;
+                $newObj->families[] = $indifam->getFamily();
+                $newObj->familiesStatus[] = ExtendedFamily::findFamilyStatus($indifam->getFamily());
+                $newObj->referencePersons[] = $referencePerson;
+                $newObj->referencePersons2[] = $referencePerson2;
+                if ( $this->_efpObject->partName == 'grandparents' || $this->_efpObject->partName == 'parents' ) {
+                    $newObj->familyStatus = ExtendedFamily::findFamilyStatus($indifam->getFamily());
                     if ($referencePerson) {
                         $newObj->partner = $referencePerson;
                         if ($referencePerson2) {
@@ -385,14 +371,7 @@ abstract class ExtendedFamilyPart
                 }
                 if ($groupName == '') {
                     $this->_efpObject->groups[] = $newObj;
-                    /*
-                    echo "<br>Neu hinzugefügte Familie Nr. " . (count($this->_efpObject->groups) - 1) .
-                        ' (Person ' .
-                        $indifam->getIndividual()->fullName() .
-                        ' in Objekt für Familie ' .
-                        $this->_efpObject->groups[count($this->_efpObject->groups) - 1]->family->xref() .
-                        '); ';
-                    */
+                    //echo "<br>Neu hinzugefügte Familie Nr. " . (count($this->_efpObject->groups) - 1) . ' (Person ' . $indifam->getIndividual()->fullName() . ' in Objekt für Familie ' . $this->_efpObject->groups[count($this->_efpObject->groups) - 1]->family->xref() . '); ';
                 } else {
                     $newObj->groupName = $groupName;
                     $this->_efpObject->groups[$groupName] = $newObj;

@@ -98,7 +98,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                                             <h3><?= I18N::plural('%2$s has %1$d grandparent with unknown sex recorded.', '%2$s has %1$d grandparents with unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $extfam_obj->proband->niceName) ?></h3>
                                         <?php else: ?>
                                             <h3><?= I18N::plural('%2$s has %1$d grandfather and ', '%2$s has %1$d grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
-                                                <?= I18N::plural('%d grandmother recorded (%d in total).', '%d grandmothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>>
+                                                <?= I18N::plural('%d grandmother recorded (%d in total).', '%d grandmothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
                                 <?php elseif ($propName == 'uncles_and_aunts'): ?>

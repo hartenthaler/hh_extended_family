@@ -85,6 +85,7 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
 
 // string functions
@@ -106,21 +107,21 @@ require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
 
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandparents.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts_bm.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Parents.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Parents_in_law.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Co_parents_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Siblings.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Siblings_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Co_siblings_in_law.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partners.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partner_chains.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Cousins.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Nephews_and_nieces.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts_bm.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Co_parents_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partner_chains.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partners.php');
 
 /**
  * class ExtendedFamily
@@ -675,9 +676,10 @@ class ExtendedFamily
     */
     public static function findFamilyStatus(object $family): string
     { 
+        //echo "<br>Prüfe Familienstatus der Familie " . $family->fullName() . ": ";
         $event = $family->facts(['ANUL', 'DIV', 'ENGA', 'MARR'], true)->last();
         if ($event instanceof Fact) {
-            //echo "<br>family tag=".$event->tag().". ";
+            //echo "family tag=".$event->tag().". ";
             switch ($event->tag()) {
                 case 'FAM:ANUL':
                 case 'FAM:DIV':
@@ -688,7 +690,7 @@ class ExtendedFamily
                     return I18N::translate(self::FAM_STATUS_FIANCEE);
             }
         }
-        return I18N::translate(self::FAM_STATUS_PARTNERSHIP);                       // default if there is no MARR tag
+        return I18N::translate(self::FAM_STATUS_PARTNERSHIP);                       // default if there is no family status tag
     }
 
    /**
@@ -710,6 +712,6 @@ class ExtendedFamily
                 return I18N::translate('Nephews and Nieces');
             default:
                 return I18N::translate(ucfirst(str_replace('_', '-', $type)));
-        };
+        }
     }
 }

@@ -67,12 +67,12 @@ class Partners extends ExtendedFamilyPart
         foreach ($this->_proband->spouseFamilies() as $family1) {                                               // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                                         // Gen  0 P
                 if ( $spouse1->xref() !== $this->_proband->xref() ) {
-                    $this->_addIndividualToFamilyAsPartner( $spouse1, $this->_proband );
+                    $this->_addIndividualToFamily( new IndividualFamily($spouse1, null), '', $this->_proband );
                 }
                 foreach ($spouse1->spouseFamilies() as $family2) {                                              // Gen  0 F
                     foreach ($family2->spouses() as $spouse2) {                                                 // Gen  0 P
                         if ( $spouse2->xref() !== $spouse1->xref() && $spouse2->xref() !== $this->_proband->xref() ) {
-                            $this->_addIndividualToFamilyAsPartner( $spouse2, $spouse1 );
+                            $this->_addIndividualToFamily( new IndividualFamily($spouse2, null), '', $spouse1 );
                         }
                     }
                 }
@@ -101,7 +101,7 @@ class Partners extends ExtendedFamilyPart
      */
     protected function _addIndividualToFamily(IndividualFamily $indifam, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null )
     {
-         // function $this->_addIndividualToFamilyAsPartner() is called in _addEfpMembers()
+         $this->_addIndividualToFamilyAsPartner($indifam->getIndividual(), $referencePerson);
     }
 
     /**

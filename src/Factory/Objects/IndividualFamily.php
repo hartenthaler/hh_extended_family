@@ -45,9 +45,9 @@ class IndividualFamily
      * construct object
      *
      * @param Individual $individual
-     * @param object $family
+     * @param object|null $family
      */
-    public function __construct(Individual $individual, object $family)
+    public function __construct(Individual $individual, object $family = null)
     {
         $this->_object = (object)[];
         if (isset($individual) && ($individual instanceof Individual)) {
@@ -81,11 +81,14 @@ class IndividualFamily
     /**
      * get family of this object
      *
-     * @return object
+     * @return object|void
      */
-    public function getFamily(): object
+    public function getFamily()
     {
-        return $this->_object->family;
+       if (isset($this->_object->family)) {
+           return $this->_object->family;
+       }
+       return null;
     }
 
     /**
