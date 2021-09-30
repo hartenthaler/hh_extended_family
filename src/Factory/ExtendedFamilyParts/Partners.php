@@ -62,17 +62,17 @@ class Partners extends ExtendedFamilyPart
     /**
      * add members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
-        foreach ($this->_proband->spouseFamilies() as $family1) {                                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                                               // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                                         // Gen  0 P
-                if ( $spouse1->xref() !== $this->_proband->xref() ) {
-                    $this->_addIndividualToFamily( new IndividualFamily($spouse1, null), '', $this->_proband );
+                if ($spouse1->xref() !== $this->getProband()->xref()) {
+                    $this->addIndividualToFamily(new IndividualFamily($spouse1, null), '', $this->getProband());
                 }
                 foreach ($spouse1->spouseFamilies() as $family2) {                                              // Gen  0 F
                     foreach ($family2->spouses() as $spouse2) {                                                 // Gen  0 P
-                        if ( $spouse2->xref() !== $spouse1->xref() && $spouse2->xref() !== $this->_proband->xref() ) {
-                            $this->_addIndividualToFamily( new IndividualFamily($spouse2, null), '', $spouse1 );
+                        if ($spouse2->xref() !== $spouse1->xref() && $spouse2->xref() !== $this->getProband()->xref()) {
+                            $this->addIndividualToFamily(new IndividualFamily($spouse2, null), '', $spouse1);
                         }
                     }
                 }
@@ -83,12 +83,12 @@ class Partners extends ExtendedFamilyPart
     /**
      * filter individuals and count them per sex for this specific extended family part
      */
-    protected function _filterAndAddCounters($filterOption) {
+    protected function filterAndAddCounters($filterOption) {
         if ( $filterOption !== 'all' ) {
-            $this->_filter( ExtendedFamily::convertfilterOptions($filterOption) );
+            $this->filter( ExtendedFamily::convertfilterOptions($filterOption) );
         }
-        $this->_addCountersToFamilyPartObject();
-        $this->_addAdditionalCountersPartners();
+        $this->addCountersToFamilyPartObject();
+        $this->addAdditionalCountersPartners();
     }
 
     /**
@@ -99,9 +99,9 @@ class Partners extends ExtendedFamilyPart
      * @param Individual|null $referencePerson
      * @param Individual|null $referencePerson2
      */
-    protected function _addIndividualToFamily(IndividualFamily $indifam, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null )
+    protected function addIndividualToFamily(IndividualFamily $indifam, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null )
     {
-         $this->_addIndividualToFamilyAsPartner($indifam->getIndividual(), $referencePerson);
+         $this->addIndividualToFamilyAsPartner($indifam->getIndividual(), $referencePerson);
     }
 
     /**
@@ -110,7 +110,7 @@ class Partners extends ExtendedFamilyPart
      * @param Individual $individual
      * @param Individual $spouse to which these partners are belonging
      */
-    private function _addIndividualToFamilyAsPartner(Individual $individual, Individual $spouse)
+    private function addIndividualToFamilyAsPartner(Individual $individual, Individual $spouse)
     {
         $found = false;
         //error_log('Soll ' . $individual->xref() . ' als Partner von ' . $spouse->xref() . ' hinzugefuegt werden? ');
@@ -119,7 +119,7 @@ class Partners extends ExtendedFamilyPart
             $efp = $this->_efpObject->groups[$spouse->xref()];
             foreach ($efp->members as $member) {                                                // check if individual is already a partner of this partner
                 //error_log('Teste Ehepartner ' . $member->xref() . ' in Gruppe fuer ' . $spouse->xref() . ': ');
-                if ( $individual->xref() == $member->xref() ) {
+                if ($individual->xref() == $member->xref()) {
                     $found = true;
                     //error_log('Person ' . $individual->xref() . ' ist bereits als Partner von ' . $spouse->xref() . ' vorhanden. ');
                     break;
@@ -142,10 +142,10 @@ class Partners extends ExtendedFamilyPart
     /**
      * additional counting of individuals for partners
      */
-    private function _addAdditionalCountersPartners()
+    private function addAdditionalCountersPartners()
     {
         if (array_key_first($this->_efpObject->groups)) {
-            $count = $this->_countMaleFemale($this->_efpObject->groups[array_key_first($this->_efpObject->groups)]->members);
+            $count = $this->countMaleFemale($this->_efpObject->groups[array_key_first($this->_efpObject->groups)]->members);
         } else {                            // error: this should not happen
             $count=(object)[];
             list ($count->male, $count->female, $count->unknown_others) = [0, 0, 0];

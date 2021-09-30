@@ -64,36 +64,36 @@ class Grandchildren extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
-        foreach ($this->_proband->spouseFamilies() as $family1) {                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
             foreach ($family1->children() as $biochild) {                                       // Gen -1 P
                 foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
                     foreach ($family2->children() as $biograndchild) {                          // Gen -2 P
-                        $this->_addIndividualToFamily( new IndividualFamily($biograndchild, $family1), self::GROUP_GRANDCHILDREN_BIO );
+                        $this->addIndividualToFamily(new IndividualFamily($biograndchild, $family1), self::GROUP_GRANDCHILDREN_BIO);
                     }
                     foreach ($family2->spouses() as $spouse) {                                  // Gen -1 P
                         foreach ($spouse->spouseFamilies() as $family3) {                       // Gen -1 F
                             foreach ($family3->children() as $step_child) {                     // Gen -2 P
-                                $this->_addIndividualToFamily( new IndividualFamily($step_child, $family1), self::GROUP_GRANDCHILDREN_STEP_CHILD);
+                                $this->addIndividualToFamily(new IndividualFamily($step_child, $family1), self::GROUP_GRANDCHILDREN_STEP_CHILD);
                             }
                         }
                     }
                 }
             }
         }
-        foreach ($this->_proband->spouseFamilies() as $family1) {                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
                     foreach ($family2->children() as $stepchild) {                              // Gen -1 P
                         foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
                             foreach ($family3->children() as $child_step) {                     // Gen -2 P
-                                $this->_addIndividualToFamily(new IndividualFamily($child_step, $family1), self::GROUP_GRANDCHILDREN_CHILD_STEP);
+                                $this->addIndividualToFamily(new IndividualFamily($child_step, $family1), self::GROUP_GRANDCHILDREN_CHILD_STEP);
                             }
                             foreach ($family3->spouses() as $childstepchild) {                  // Gen -1 P
                                 foreach ($childstepchild->spouseFamilies() as $family4) {       // Gen -1 F
                                     foreach ($family4->children() as $step_step) {              // Gen -2 P
-                                        $this->_addIndividualToFamily( new IndividualFamily($step_step, $family1), self::GROUP_GRANDCHILDREN_STEP_STEP);
+                                        $this->addIndividualToFamily(new IndividualFamily($step_step, $family1), self::GROUP_GRANDCHILDREN_STEP_STEP);
                                     }
                                 }
                             }

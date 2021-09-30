@@ -94,7 +94,7 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
         </fieldset>
         
         <h3><?= I18N::translate('Show name of proband as short name or as full name?') ?></h3>
-        <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not avaiable, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
+        <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
         <!-- nice_name -->
         <fieldset class="form-group">
             <div class="row">
@@ -120,7 +120,21 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
                 </div>
             </div>
         </fieldset>
-        
+
+        <h3><?= I18N::translate('Show parameters of extended family part?') ?></h3>
+        <p><?= I18N::translate('Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.') ?></p>
+        <!-- show labels -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show parameters') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_parameters', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_parameters]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Use the compact design?') ?></h3>
         <p><?= I18N::translate('The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.') ?></p>
         <!-- use compact design -->

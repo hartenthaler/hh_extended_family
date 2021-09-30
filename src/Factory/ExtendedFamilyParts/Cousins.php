@@ -42,6 +42,8 @@ class Cousins extends ExtendedFamilyPart
     public const GROUP_COUSINS_HALF_MOTHER = 'Children of half siblings of mother';
     public const GROUP_COUSINS_HALF_U      = 'Children of half siblings of parent';
 
+    public const GROUP_COUSINS_FULL_BIO    = 'Children of full siblings of biological parents';
+
     /**
      * @var object $_efpObject data structure for this extended family part
      *
@@ -66,7 +68,7 @@ class Cousins extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
         $config = new FindBranchConfig(
             'cousins',
@@ -74,6 +76,6 @@ class Cousins extends ExtendedFamilyPart
             'full' => ['M' => self::GROUP_COUSINS_FULL_FATHER, 'F' => self::GROUP_COUSINS_FULL_MOTHER, 'U' => self::GROUP_COUSINS_FULL_U],
             'half' => ['M' => self::GROUP_COUSINS_HALF_FATHER, 'F' => self::GROUP_COUSINS_HALF_MOTHER, 'U' => self::GROUP_COUSINS_HALF_U],
         ]);
-        $this->_addFamilyBranches($config);
+        $this->addFamilyBranches($config);
     }
 }

@@ -20,10 +20,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 /**
@@ -40,6 +36,8 @@ class Grandparents extends ExtendedFamilyPart
     public const GROUP_GRANDPARENTS_MOTHER_STEP  = 'Stepparents of mother';
     public const GROUP_GRANDPARENTS_U_STEP       = 'Stepparents of parent';
     public const GROUP_GRANDPARENTS_STEP_PARENTS = 'Parents of stepparents';
+
+    public const GROUP_GRANDPARENTS_BIO          = 'Biological grandparents';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -63,7 +61,7 @@ class Grandparents extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
         $config = new FindBranchConfig(
             'parents',
@@ -72,15 +70,15 @@ class Grandparents extends ExtendedFamilyPart
             'step' => ['M' => self::GROUP_GRANDPARENTS_FATHER_STEP, 'F' => self::GROUP_GRANDPARENTS_MOTHER_STEP, 'U' => self::GROUP_GRANDPARENTS_U_STEP]
             ]
         );
-        $this->_addFamilyBranches($config);
+        $this->addFamilyBranches($config);
 
         // add biological parents and stepparents of stepparents
-        foreach ($this->_findStepparentsIndividuals($this->_proband) as $stepparent) {
-            foreach ($this->_findBioparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-                $this->_addIndividualToFamily( $grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparent->getIndividual() );
+        foreach ($this->findStepparentsIndividuals($this->getProband()) as $stepparent) {
+            foreach ($this->findBioparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
+                $this->addIndividualToFamily( $grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparent->getIndividual() );
             }
-            foreach ($this->_findStepparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-                $this->_addIndividualToFamily( $grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparent->getIndividual() );
+            foreach ($this->findStepparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
+                $this->addIndividualToFamily( $grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparent->getIndividual() );
             }
         }
     }

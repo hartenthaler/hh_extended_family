@@ -38,6 +38,8 @@ class Uncles_and_aunts extends ExtendedFamilyPart
     public const GROUP_UNCLEAUNT_FATHER  = 'Siblings of father';
     public const GROUP_UNCLEAUNT_MOTHER  = 'Siblings of mother';
 
+    public const GROUP_UNCLEAUNT_FULL_BIO  = 'Full siblings of biological parents';
+
     /**
      * @var object $_efpObject data structure for this extended family part
      *
@@ -62,32 +64,32 @@ class Uncles_and_aunts extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
-        if ($this->_proband->childFamilies()->first()) {
-            if ($this->_proband->childFamilies()->first()->husband() instanceof Individual) {
-                $this->_addUnclesAndAuntsOneSide( $this->_proband->childFamilies()->first()->husband(), self::GROUP_UNCLEAUNT_FATHER);
+        if ($this->getProband()->childFamilies()->first()) {
+            if ($this->getProband()->childFamilies()->first()->husband() instanceof Individual) {
+                $this->addUnclesAndAuntsOneSide( $this->getProband()->childFamilies()->first()->husband(), self::GROUP_UNCLEAUNT_FATHER);
             }
-            if ($this->_proband->childFamilies()->first()->wife() instanceof Individual) {
-                $this->_addUnclesAndAuntsOneSide($this->_proband->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNT_MOTHER);
+            if ($this->getProband()->childFamilies()->first()->wife() instanceof Individual) {
+                $this->addUnclesAndAuntsOneSide($this->getProband()->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNT_MOTHER);
             }
         }
     }
 
     /**
-     * Find uncles and aunts for one side (husband/wife) (not including uncles and aunts by marriage)
+     * Find uncles and aunts for one side (husband/wife) (only full siblings and not including uncles and aunts by marriage)
      *
      * @param Individual $parent
      * @param string $side  family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
      */
-    private function _addUnclesAndAuntsOneSide(Individual $parent, string $side)
+    private function addUnclesAndAuntsOneSide(Individual $parent, string $side)
     {
         foreach ($parent->childFamilies() as $family1) {                             // Gen 2 F
             foreach ($family1->spouses() as $grandparent) {                          // Gen 2 P
                 foreach ($grandparent->spouseFamilies() as $family2) {               // Gen 2 F
                     foreach ($family2->children() as $uncleaunt) {                   // Gen 1 P
                         if($uncleaunt->xref() !== $parent->xref()) {
-                            $this->_addIndividualToFamily(new IndividualFamily($uncleaunt, $family2), $side, $parent);
+                            $this->addIndividualToFamily(new IndividualFamily($uncleaunt, $family2), $side, $parent);
                         }
                     }
                 }

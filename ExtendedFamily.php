@@ -25,49 +25,36 @@
  * tbd: offene Punkte
  * ------------------
  *
- * neue Subklasse für die Funktion personExistsInExtendedFamily(), damit die Funktion des ausgegrauten Tabs wieder funktioniert
+ * Code: neue Subklasse für die Funktion personExistsInExtendedFamily(), damit die Funktion des ausgegrauten Tabs wieder funktioniert
  *
- * siehe issues/enhancements in github
+ * issues/enhancements: see GitHub
+ * #57 alle Fälle mit gemischtem Sex für Übersetzung vorbereiten, insbesondere bei den Partnern
+ * #108 Familienlabel kryptisch bei Visitor und nicht canShow()
  *
- * Anzeige der genetischen Nähe der jeweiligen Personengruppe als Verwandtschaftskoeffizient (Coefficient of relationship) als Mouse-over?
- *      [
- *           'grandparents',         => 0.25,
- *           'uncles_and_aunts',     => 0.25,
- *           'uncles_and_aunts_bm',  => 0,
- *           'parents',              => 0.5,
- *           'parents_in_law',       => 0,
- *           'co_parents_in_law',    => 0,           
- *           'partners',             => 0,
- *           'partner_chains',       => 0,
- *           'siblings',             => 0.5,  // fullsiblings
- *           'siblings_in_law',      => 0,
- *           'co_siblings_in_law',   => 0,
- *           'cousins',              => 0.125,
- *           'nephews_and_nieces',   => 0.25,
- *           'children',             => 0.5,
- *           'children_in_law',      => 0,
- *           'grandchildren',        => 0.25,
- *       ]
+ * Anzeige der genetischen Nähe der jeweiligen Personengruppe als Verwandtschaftskoeffizient (Coefficient of relationship) und des Generationenunterschieds als Mouse-over?
+ *
+ * generelle Familienkennzeichen: statt "Eltern" immer "Ehe/Partnerschaft" verwenden
  *
  * Familiengruppe Neffen und Nichten: 2-stufig: erst Geschwister als P bzw. Partner als P, dann Eltern wie gehabt;
- * Familiengruppe Cousins: wenn sie zur Vater und Mutter-Familie gehören, werden sie falsch zugeordnet (bei P Seudo: C2)
+ * Familiengruppe Cousins: wenn sie zur Vater- und Mutter-Familie gehören, werden sie falsch zugeordnet (bei P Seudo: C2)
  * Familiengruppe Schwäger und Schwägerinnen: Ergänzen der vollbürtigen Geschwister um halbbürtige und Stiefgeschwister
  * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt sein sollte
  * Familiengruppe Partnerketten: grafische Anzeige statt Textketten
  * Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette von Di. zu Ga., d.h. dies als zweite Info ergänzen
  * Familiengruppe Geschwister: eventuell statt Label eigene Kategorie für Adoptiv- und Pflegekinder bzw. Stillmutter
  *
+ * Label für biologische Vorfahren und Nachkommen mit SOSA-Nummer bzw. d'Aboville
  * Label für diverse Personen unter Nutzung der Funktion getRelationshipName(), basierend auf den Vesta-Modulen oder eigenen Funktionen:
  *          Schwäger: Partner der Geschwister
  *          Schwippschwäger: Rechts = Partner der Schwäger (Ehemann, Ex-, Partner)
  *          Schwiegerkinder: Partnerin/Ehefrau
- *          Biologische Eltern falls selbst adoptiert
+ *          Biologische Eltern, falls selbst adoptiert
  *          Partner: (Ehefrau, Ehemann, Partner)
  *          Angeheiratete Onkel und Tanten: generell (Ehefrau/Ehemann, Partner/Partnerin)
  * Label für Stiefkinder: etwa bei meinen Neffen Fabian, Felix, Jason und Sam
  * Label für Partner: neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
  * Label für Eltern: biologische Eltern, Stiefeltern, Adoptiveltern, Pflegeeltern
- * Label oder Gruppe bei Onkel/Tante: Halbonkel/-tante = Halbbruder/-schwester eines biologichen Elternteils
+ * Label oder Gruppe bei Onkel/Tante: Halbonkel/-tante = Halbbruder/-schwester eines biologischen Elternteils
  *
  * Code: eventuell Verwendung der bestehenden Funktionen "_individuals" zum Aufbau von Familienteilen verwenden statt es jedes Mal vom Probanden aus komplett neu zu gestalten
  * Code: Ablaufreihenfolge in function addIndividualToFamily() umbauen wie function addIndividualToFamilyAsPartner()
@@ -78,7 +65,7 @@
  *
  * andere Verwandtschaftssysteme: eventuell auch andere als nur das Eskimo-System implementieren
  * andere Verwandtschaftssysteme: Onkel als Vater- oder Mutterbruder ausweisen für Übersetzung (Label?); Tante als Vater- oder Mutterschwester ausweisen für Übersetzung (Label?);
- * andere Verwandtschaftssysteme: Brüder und Schwestern als jüngere oder ältere Geschwister ausweisen für Übersetzung (in Bezugg auf Proband) (Label?)
+ * andere Verwandtschaftssysteme: Brüder und Schwestern als jüngere oder ältere Geschwister ausweisen für Übersetzung (in Bezug auf Proband) (Label?)
  */
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
@@ -87,6 +74,14 @@ use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandparents;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Uncles_and_aunts;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Parents;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Siblings;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Cousins;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Children;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandchildren;
 
 // string functions
 use function str_replace;
@@ -98,9 +93,7 @@ use function preg_match;
 // use function unset;      // cannot be declared as used function
 use function explode;
 use function count;
-use function array_key_exists;
 use function in_array;
-use function array_merge;
 use function array_filter;
 
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
@@ -152,8 +145,9 @@ class ExtendedFamily
      *        ->shownFamilyParts[]                  array of object
      *                            ->name            string
      *                            ->enabled         bool
-     *        ->SizeThumbnailW                      int (in pixel)
-     *        ->SizeThumbnailH                      int (in pixel)
+     *        ->familyPartParameters                array of array
+     *        ->sizeThumbnailW                      int (in pixel)
+     *        ->sizeThumbnailH                      int (in pixel)
      */
     public $config;
     
@@ -169,7 +163,7 @@ class ExtendedFamily
      * @var $filters                                                        array of object (index is string filterOption)
      *         ->efp                                                        object
      *              ->allCount                                              int
-     *              ->summaryMessageEmptyBlocks                             string
+     *              ->summaryMessageEmptyBlocks                             array of string
      *              ... specific data structures for each extended family part
      */
     public $filters;
@@ -282,28 +276,54 @@ class ExtendedFamily
         return [
             'grandparents',                             // generation +2
             'uncles_and_aunts',                         // generation +1
-            'uncles_and_aunts_bm',                      // generation +1     // uncles and aunts by marriage
-            'parents',                                  // generation +1
-            'parents_in_law',                           // generation +1
-            'co_parents_in_law',                        // generation  0           
-            'partners',                                 // generation  0
-            'partner_chains',                           // generation  0
-            'siblings',                                 // generation  0
-            'siblings_in_law',                          // generation  0
-            'co_siblings_in_law',                       // generation  0
-            'cousins',                                  // generation  0
+            'uncles_and_aunts_bm',                                          // uncles and aunts by marriage
+            'parents',
+            'parents_in_law',
+            'co_parents_in_law',                        // generation  0
+            'partners',
+            'partner_chains',
+            'siblings',
+            'siblings_in_law',
+            'co_siblings_in_law',
+            'cousins',
             'nephews_and_nieces',                       // generation -1
-            'children',                                 // generation -1
-            'children_in_law',                          // generation -1
+            'children',
+            'children_in_law',
             'grandchildren',                            // generation -2
         ];
+    }
+
+    /**
+     * get parameters for the used extended family parts like relationship coefficients and generation shift
+     *
+     * @return array of array
+     */
+    public static function getFamilyPartParameters(): array
+    {
+        return [
+            'grandparents'           => ['generation' => +2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandparents::GROUP_GRANDPARENTS_BIO],
+            'uncles_and_aunts'       => ['generation' => +1, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Uncles_and_aunts::GROUP_UNCLEAUNT_FULL_BIO],
+            'uncles_and_aunts_bm'    => ['generation' => +1, 'relationshipCoefficient' => 0],
+            'parents'                => ['generation' => +1, 'relationshipCoefficient' => 0.5,   'relationshipCoefficientComment' => Parents::GROUP_PARENTS_BIO],
+            'parents_in_law'         => ['generation' => +1, 'relationshipCoefficient' => 0],
+            'co_parents_in_law'      => ['generation' =>  0, 'relationshipCoefficient' => 0],
+            'partners'               => ['generation' =>  0, 'relationshipCoefficient' => 0],
+            'partner_chains'         => ['generation' =>  0, 'relationshipCoefficient' => 0],
+            'siblings'               => ['generation' =>  0, 'relationshipCoefficient' => 0.5,   'relationshipCoefficientComment' => Siblings::GROUP_SIBLINGS_FULL],
+            'siblings_in_law'        => ['generation' =>  0, 'relationshipCoefficient' => 0],
+            'co_siblings_in_law'     => ['generation' =>  0, 'relationshipCoefficient' => 0],
+            'cousins'                => ['generation' =>  0, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Cousins::GROUP_COUSINS_FULL_BIO],
+            'nephews_and_nieces'     => ['generation' => -1, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING],
+            'children'               => ['generation' => -1, 'relationshipCoefficient' => 0.5,   'relationshipCoefficientComment' => Children::GROUP_CHILDREN_BIO],
+            'children_in_law'        => ['generation' => -1, 'relationshipCoefficient' => 0],
+            'grandchildren'          => ['generation' => -2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandchildren::GROUP_GRANDCHILDREN_BIO],
+       ];
     }
 
    /**
     * get a name for the relationship between an individual and the proband
     *
     * @param Individual $individual
-    * 
     * @return string
     
     private function getRelationshipName(Individual $individual): string
@@ -421,77 +441,59 @@ class ExtendedFamily
     }
 
     /**
-     * generate summary message for all empty blocks (needed for showEmptyBlock == 1)
+     * generate list of empty family parts (blocks) (needed for showEmptyBlock == 1)
      *
      * @param object $extendedFamily
-     * @return string
+     * @return array of string
      */
-    private function summaryMessageEmptyBlocks(object $extendedFamily): string
+    private function summaryMessageEmptyBlocks(object $extendedFamily): array
     {
-        $summaryMessage = '';
-        $empty = [];
-        
+        $emptyBlocks = [];
         foreach ($extendedFamily->efp as $propName => $propValue) {
             if ($propName !== 'allCount' && $propName !== 'summaryMessageEmptyBlocks' && $extendedFamily->efp->$propName->allCount == 0) {
-                $empty[] = $propName;
+                $emptyBlocks[] = $propName;
             }
         }
-        if (count($empty) > 0) {
-            if (count($empty) == 1) {
-                $summaryList = $this->translateFamilyPart($empty[0]);
-                $summaryMessage = I18N::translate('%s has no %s recorded.', $this->proband->niceName, $summaryList);
-            }
-            else {
-                $summaryListA = $this->translateFamilyPart($empty[0]);
-                for ( $i = 1; $i <= count($empty)-2; $i++ ) {
-                    $summaryListA .= ', ' . $this->translateFamilyPart($empty[$i]);
-                }
-                $summaryListB = $this->translateFamilyPart($empty[count($empty)-1]);
-                $summaryMessage = I18N::translate('%s has no %s, and no %s recorded.', $this->proband->niceName, $summaryListA, $summaryListB);
-            }
-        }
-        return $summaryMessage;      
+        return $emptyBlocks;
     }
     
     /**
      * find rufname of an individual (tag _RUFNAME or marked with '*'
      *
      * @param Individual $individual
-     *
      * @return string (is empty if there is no Rufname)
      */
     private function findRufname(Individual $individual): string
     {
-        $rn = $individual->facts(['NAME'])[0]->attribute('_RUFNAME');
-        if ($rn == '') {
+        $rufname = $individual->facts(['NAME'])[0]->attribute('_RUFNAME');
+        if ($rufname == '') {
             $rufnameParts = explode('*', $individual->facts(['NAME'])[0]->value());
             if ($rufnameParts[0] !== $individual->facts(['NAME'])[0]->value()) {
                 // there is a Rufname marked with *, but no tag _RUFNAME
                 $rufnameParts = explode(' ', $rufnameParts[0]);   
-                $rn = $rufnameParts[count($rufnameParts)-1];                        // it has to be the last given name (before *)
+                $rufname = $rufnameParts[count($rufnameParts)-1];                        // it has to be the last given name (before *)
             }
         }
-        return $rn;
+        return $rufname;
     }
-     
+
     /**
      * set name depending on sex of individual
      *
      * @param Individual $individual
-     * @param string $n_male
-     * @param string $n_female
-     * @param string $n_unknown
-     *
+     * @param string $nMale
+     * @param string $nFemale
+     * @param string $nUnknown
      * @return string
      */
-    private function selectNameSex(Individual $individual, string $n_male, string $n_female, string $n_unknown): string
+    private function selectNameSex(Individual $individual, string $nMale, string $nFemale, string $nUnknown): string
     {
         if ($individual->sex() == 'M') {
-            return $n_male;
+            return $nMale;
         } elseif ($individual->sex() == 'F') {
-            return $n_female;
+            return $nFemale;
         } else {
-            return $n_unknown;
+            return $nUnknown;
         }
     }
     
@@ -502,15 +504,19 @@ class ExtendedFamily
      *       => otherwise use "He" or "She" (or "He/she" if sex is not F and not M)
      *
      * @param Individual $individual
-     *
      * @return string
      */
     private function findNiceName(Individual $individual): string
     {
         if ($this->config->showShortName) {
             // an individual can have no name or many names (then we use only the first one)
-            if (count($individual->facts(['NAME'])) > 0) {                                           // check if there is at least one name            
-                $niceName = $this->findNiceNameFromNameParts($individual);
+            if (count($individual->facts(['NAME'])) > 0) {                                          // check if there is at least one name
+                $rufname = $this->findRufname($individual);
+                if ($rufname !== '') {
+                    $niceName = $rufname;
+                } else {
+                    $niceName = $this->findNiceNameFromNameParts($individual);
+                }
             } else {
                 $niceName = $this->selectNameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
             }
@@ -526,37 +532,31 @@ class ExtendedFamily
      *    => otherwise use surname if available
      *
      * @param Individual $individual
-     *
      * @return string
      */
     private function findNiceNameFromNameParts(Individual $individual): string
     {
         $niceName = '';
-        $rn = $this->findRufname($individual);
-        if ($rn !== '') {
-            $niceName = $rn;
+        $name_facts = $individual->facts(['NAME']);
+        $nickname = $name_facts[0]->attribute('NICK');
+        if ($nickname !== '') {
+            $niceName = $nickname;
         } else {
-            $name_facts = $individual->facts(['NAME']);
-            $nickname = $name_facts[0]->attribute('NICK');
-            if ($nickname !== '') {
-                $niceName = $nickname;
+            $npfx = $name_facts[0]->attribute('NPFX');
+            $givenAndSurnames = explode('/', $name_facts[0]->value());
+            if ($givenAndSurnames[0] !== '') {                                          // are there given names (or prefix nameparts)?
+                $givennameparts = explode( ' ', $givenAndSurnames[0]);
+                if ($npfx == '') {                                                      // find the first given name
+                    $niceName = $givennameparts[0];                                     // the first given name
+                } elseif (count(explode(' ',$npfx)) !== count($givennameparts)) {
+                    $niceName = $givennameparts[count(explode(' ',$npfx))];     // the first given name after the prefix nameparts
+                }
             } else {
-                $npfx = $name_facts[0]->attribute('NPFX');
-                $givenAndSurnames = explode('/', $name_facts[0]->value());
-                if ($givenAndSurnames[0] !== '') {                                  // are there given names (or prefix nameparts)?
-                    $givennameparts = explode( ' ', $givenAndSurnames[0]);
-                    if ($npfx == '') {                                              // find the first given name
-                        $niceName = $givennameparts[0];                             // the first given name
-                    } elseif (count(explode(' ',$npfx)) !== count($givennameparts)) {
-                        $niceName = $givennameparts[count(explode(' ',$npfx))];     // the first given name after the prefix nameparts
-                    }
+                $surname = $givenAndSurnames[1];
+                if ($surname !== '') {
+                    $niceName = $this->selectNameSex($individual, I18N::translate('Mr.') . ' ' . $surname, I18N::translate('Mrs.') . ' ' . $surname, $surname);
                 } else {
-                    $surname = $givenAndSurnames[1];
-                    if ($surname !== '') {
-                        $niceName = $this->selectNameSex($individual, I18N::translate('Mr.') . ' ' . $surname, I18N::translate('Mrs.') . ' ' . $surname, $surname);
-                    } else {
-                        $niceName = $this->selectNameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
-                    }
+                    $niceName = $this->selectNameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
                 }
             }
         }
@@ -572,10 +572,10 @@ class ExtendedFamily
     public static function generateChildLabels(Individual $child): array
     {
         return array_filter([
-            ExtendedFamily::_generatePedigreeLabel($child),
-            ExtendedFamily::_generateChildLinkageStatusLabel($child),
-            ExtendedFamily::_generateMultipleBirthLabel($child),
-            ExtendedFamily::_generateAgeLabel($child),
+            ExtendedFamily::generatePedigreeLabel($child),
+            ExtendedFamily::generateChildLinkageStatusLabel($child),
+            ExtendedFamily::generateMultipleBirthLabel($child),
+            ExtendedFamily::generateAgeLabel($child),
         ]);
     }
 
@@ -586,7 +586,7 @@ class ExtendedFamily
      * @param Individual $child
      * @return string
      */
-    static function _generatePedigreeLabel(Individual $child): string
+    static function generatePedigreeLabel(Individual $child): string
     {
         $label = GedcomCodePedi::getValue('',$child->getInstance($child->xref(),$child->tree()));
         if ( $child->childFamilies()->first() ) {
@@ -606,7 +606,7 @@ class ExtendedFamily
      * @param Individual $child
      * @return string
      */
-    static function _generateChildLinkageStatusLabel(Individual $child): string
+    static function generateChildLinkageStatusLabel(Individual $child): string
     {
         if ( $child->childFamilies()->first() ) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 STAT (.+)/', $child->gedcom(), $match)) {
@@ -622,7 +622,7 @@ class ExtendedFamily
      * @param Individual $child
      * @return string
      */
-    static function _generateMultipleBirthLabel(Individual $child): string
+    static function generateMultipleBirthLabel(Individual $child): string
     {
         $multiple_birth = [
             2 => 'twin',
@@ -635,15 +635,13 @@ class ExtendedFamily
             9 => 'nonuplet',
             10 => 'decuplet',
         ];
-        
         $childGedcom = $child->gedcom();
         if ( preg_match('/\n1 ASSO @(?:.+)@\n2 RELA (.+)/', $childGedcom, $match) ||
              preg_match('/\n2 _ASSO @(?:.+)@\n3 RELA (.+)/', $childGedcom, $match) ) {
             if (in_array(strtolower($match[1]), $multiple_birth)) {
                 return I18N::translate(strtolower($match[1]));
             }
-        }        
-
+        }
         return '';
     }
 
@@ -656,7 +654,7 @@ class ExtendedFamily
      * @param Individual $child
      * @return string
      */
-    static function _generateAgeLabel(Individual $child): string
+    static function generateAgeLabel(Individual $child): string
     {     
         $childGedcom = $child->gedcom();
         if ( preg_match('/\n2 AGE STILLBORN/i', $childGedcom, $match) ) {
@@ -675,22 +673,20 @@ class ExtendedFamily
     * @return string
     */
     public static function findFamilyStatus(object $family): string
-    { 
-        //echo "<br>Prüfe Familienstatus der Familie " . $family->fullName() . ": ";
+    {
         $event = $family->facts(['ANUL', 'DIV', 'ENGA', 'MARR'], true)->last();
         if ($event instanceof Fact) {
-            //echo "family tag=".$event->tag().". ";
             switch ($event->tag()) {
                 case 'FAM:ANUL':
                 case 'FAM:DIV':
-                    return I18N::translate(self::FAM_STATUS_EX);
+                    return self::FAM_STATUS_EX;
                 case 'FAM:MARR':
-                    return I18N::translate(self::FAM_STATUS_MARRIAGE);
+                    return self::FAM_STATUS_MARRIAGE;
                 case 'FAM:ENGA':
-                    return I18N::translate(self::FAM_STATUS_FIANCEE);
+                    return self::FAM_STATUS_FIANCEE;
             }
         }
-        return I18N::translate(self::FAM_STATUS_PARTNERSHIP);                       // default if there is no family status tag
+        return self::FAM_STATUS_PARTNERSHIP;                       // default if there is no family status tag
     }
 
    /**

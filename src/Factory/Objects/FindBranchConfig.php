@@ -39,15 +39,15 @@ class FindBranchConfig
 {
     // ------------ definition of data structures
 
-    /** @var object $_config
+    /** @var object $config
      *  ->callFamilyPart                string (e.g. 'parents')
      *  ->const                         array of array of string
      */
-    private $_config;
+    private $config;
 
-    /** @var array $_branches           array of string e.g. ['bio','step'] or ['full', 'half']
+    /** @var array $branches            array of string e.g. ['bio','step'] or ['full', 'half']
      */
-    private $_branches;
+    private $branches;
 
     // ------------ definition of methods
 
@@ -60,11 +60,11 @@ class FindBranchConfig
      */
     public function __construct(string $callFamilyPart, array $const)
     {
-        $this->_config = (object)[];
-        $this->_config->callFamilyPart = $callFamilyPart;
-        $this->_config->const = $const;
+        $this->config = (object)[];
+        $this->config->callFamilyPart = $callFamilyPart;
+        $this->config->const = $const;
 
-        $this->_branches = $this->_findBranches($const);
+        $this->branches = $this->findBranches($const);
     }
 
     /**
@@ -74,7 +74,7 @@ class FindBranchConfig
      */
     public function getConfig(): object
     {
-        return $this->_config;
+        return $this->config;
     }
 
     /**
@@ -84,7 +84,7 @@ class FindBranchConfig
      */
     public function getCallFamilyPart(): string
     {
-        return $this->_config->callFamilyPart;
+        return $this->config->callFamilyPart;
     }
 
     /**
@@ -94,7 +94,7 @@ class FindBranchConfig
      */
     public function getBranches(): array
     {
-        return $this->_branches;
+        return $this->branches;
     }
 
     /**
@@ -104,7 +104,7 @@ class FindBranchConfig
      */
     public function getConst(): array
     {
-        return $this->_config->const;
+        return $this->config->const;
     }
 
     /**
@@ -113,7 +113,7 @@ class FindBranchConfig
      * @param array $const
      * @return array of string
      */
-    private function _findBranches(array $const): array
+    private function findBranches(array $const): array
     {
         return array_keys($const);
     }

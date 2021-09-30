@@ -63,34 +63,34 @@ class Siblings extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
-        foreach ($this->_proband->childFamilies() as $family) {                                 // Gen  1 F
+        foreach ($this->getProband()->childFamilies() as $family) {                                 // Gen  1 F
             foreach ($family->children() as $sibling_full) {                                    // Gen  0 P
-                if ($sibling_full->xref() !== $this->_proband->xref()) {
-                    $this->_addIndividualToFamily(new IndividualFamily($sibling_full, $family), self::GROUP_SIBLINGS_FULL);
+                if ($sibling_full->xref() !== $this->getProband()->xref()) {
+                    $this->addIndividualToFamily(new IndividualFamily($sibling_full, $family), self::GROUP_SIBLINGS_FULL);
                 }
             }
         }
-        foreach ($this->_proband->childFamilies() as $family1) {                                // Gen  1 F
+        foreach ($this->getProband()->childFamilies() as $family1) {                                // Gen  1 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
                     foreach ($family2->children() as $sibling_half) {                           // Gen  0 P
-                        if ($sibling_half->xref() !== $this->_proband->xref()) {
-                            $this->_addIndividualToFamily(new IndividualFamily($sibling_half, $family1), self::GROUP_SIBLINGS_HALF);
+                        if ($sibling_half->xref() !== $this->getProband()->xref()) {
+                            $this->addIndividualToFamily(new IndividualFamily($sibling_half, $family1), self::GROUP_SIBLINGS_HALF);
                         }
                     }
                 }
             }
         }
-        foreach ($this->_proband->childFamilies() as $family1) {                                // Gen  1 F
+        foreach ($this->getProband()->childFamilies() as $family1) {                                // Gen  1 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
                     foreach ($family2->spouses() as $spouse2) {                                 // Gen  1 P
                         foreach ($spouse2->spouseFamilies() as $family3) {                      // Gen  1 F
                             foreach ($family3->children() as $sibling_step) {                   // Gen  0 P
-                                if ($sibling_step->xref() !== $this->_proband->xref()) {
-                                    $this->_addIndividualToFamily(new IndividualFamily($sibling_step, $family1), self::GROUP_SIBLINGS_STEP);
+                                if ($sibling_step->xref() !== $this->getProband()->xref()) {
+                                    $this->addIndividualToFamily(new IndividualFamily($sibling_step, $family1), self::GROUP_SIBLINGS_STEP);
                                 }
                             }
                         }

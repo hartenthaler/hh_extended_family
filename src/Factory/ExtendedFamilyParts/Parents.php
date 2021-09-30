@@ -58,13 +58,13 @@ class Parents extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
-        foreach ($this->_findBioparentsIndividuals($this->_proband) as $parent) {
-            $this->_addIndividualToFamily( $parent, self::GROUP_PARENTS_BIO );
+        foreach ($this->findBioparentsIndividuals($this->getProband()) as $parent) {
+            $this->addIndividualToFamily($parent, self::GROUP_PARENTS_BIO);
         }
-        foreach ($this->_findStepparentsIndividuals($this->_proband) as $stepparent) {
-            $this->_addIndividualToFamily( $stepparent, self::GROUP_PARENTS_STEP );
+        foreach ($this->findStepparentsIndividuals($this->getProband()) as $stepparent) {
+            $this->addIndividualToFamily($stepparent, self::GROUP_PARENTS_STEP);
         }
     }
 }

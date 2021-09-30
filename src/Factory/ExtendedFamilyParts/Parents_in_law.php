@@ -62,16 +62,16 @@ class Parents_in_law extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
-        foreach ($this->_proband->spouseFamilies() as $family) {                                // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family) {                            // Gen  0 F
             foreach ($family->spouses() as $spouse) {                                           // Gen  0 P
-                if ($spouse->xref() !== $this->_proband->xref()) {
+                if ($spouse->xref() !== $this->getProband()->xref()) {
                     if (($spouse->childFamilies()->first()) && ($spouse->childFamilies()->first()->husband() instanceof Individual)) {
-                        $this->_addIndividualToFamily(new IndividualFamily($spouse->childFamilies()->first()->husband(), $spouse->childFamilies()->first()), '', $spouse);
+                        $this->addIndividualToFamily(new IndividualFamily($spouse->childFamilies()->first()->husband(), $spouse->childFamilies()->first()), '', $spouse);
                     }
                     if (($spouse->childFamilies()->first()) && ($spouse->childFamilies()->first()->wife() instanceof Individual)) {
-                        $this->_addIndividualToFamily(new IndividualFamily($spouse->childFamilies()->first()->wife(), $spouse->childFamilies()->first()), '', $spouse);
+                        $this->addIndividualToFamily(new IndividualFamily($spouse->childFamilies()->first()->wife(), $spouse->childFamilies()->first()), '', $spouse);
                     }
                 }
             }
@@ -86,9 +86,9 @@ class Parents_in_law extends ExtendedFamilyPart
      * @param Individual|null $referencePerson
      * @param Individual|null $referencePerson2
      */
-    protected function _addIndividualToFamily(IndividualFamily $indifam, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null)
+    protected function addIndividualToFamily(IndividualFamily $indifam, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null)
     {
-        $this->_addIndividualToFamilyAsParentInLaw($indifam, $referencePerson);
+        $this->addIndividualToFamilyAsParentInLaw($indifam, $referencePerson);
     }
 
     /**
@@ -98,7 +98,7 @@ class Parents_in_law extends ExtendedFamilyPart
      * @param Individual $spouse
      * @param Individual $proband
      */
-    private function _addIndividualToFamilyAsParentInLaw(IndividualFamily $indifam, Individual $spouse)
+    private function addIndividualToFamilyAsParentInLaw(IndividualFamily $indifam, Individual $spouse)
     {
         $found = false;
         foreach ($this->_efpObject->groups as $groupObj) {                                      // check if individual is already a member of this part of the extended family
@@ -125,9 +125,9 @@ class Parents_in_law extends ExtendedFamilyPart
                 $newObj->familyStatus = ExtendedFamily::findFamilyStatus($indifam->getFamily());
                 if ($spouse) {
                     $newObj->partner = $spouse;
-                    foreach ($this->_proband->spouseFamilies() as $fam) {
+                    foreach ($this->getProband()->spouseFamilies() as $fam) {
                         foreach ($fam->spouses() as $partner) {
-                            if ( $partner->xref() == $spouse->xref() ) {
+                            if ($partner->xref() == $spouse->xref()) {
                                 $newObj->partnerFamilyStatus = ExtendedFamily::findFamilyStatus($fam);
                             }
                         }

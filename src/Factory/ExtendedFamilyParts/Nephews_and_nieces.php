@@ -37,6 +37,8 @@ class Nephews_and_nieces extends ExtendedFamilyPart
     public const GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING = 'Siblings\' stepchildren';
     public const GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER = 'Children of siblings of partners';
 
+    public const GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING     = 'Children of full siblings';
+
     /**
      * @var object $_efpObject data structure for this extended family part
      *
@@ -61,16 +63,16 @@ class Nephews_and_nieces extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
-        foreach ($this->_proband->childFamilies() as $family1) {                                // Gen  1 F
+        foreach ($this->getProband()->childFamilies() as $family1) {                                // Gen  1 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
                     foreach ($family2->children() as $sibling) {                                // Gen  0 P
-                        if ( $sibling->xref() !== $this->_proband->xref()) {
+                        if ($sibling->xref() !== $this->getProband()->xref()) {
                             foreach ($sibling->spouseFamilies() as $family3) {                  // Gen  0 F
                                 foreach ($family3->children() as $nephewniece) {                // Gen -1 P
-                                    $this->_addIndividualToFamily( new IndividualFamily($nephewniece, $family1), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING, $sibling );
+                                    $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family1), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING, $sibling);
                                 }
                             }
                         }
@@ -78,16 +80,16 @@ class Nephews_and_nieces extends ExtendedFamilyPart
                 }
             }
         }
-        foreach ($this->_proband->childFamilies() as $family1) {                                // Gen  1 F
+        foreach ($this->getProband()->childFamilies() as $family1) {                                // Gen  1 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
                     foreach ($family2->children() as $sibling) {                                // Gen  0 P
-                        if ( $sibling->xref() !== $this->_proband->xref() ) {
+                        if ($sibling->xref() !== $this->getProband()->xref()) {
                             foreach ($sibling->spouseFamilies() as $family3) {                  // Gen  0 F
                                 foreach ($family3->spouses() as $parent) {                      // Gen  0 P
                                     foreach ($parent->spouseFamilies() as $family4) {           // Gen  0 F
                                         foreach ($family4->children() as $nephewniece) {        // Gen -1 P
-                                            $this->_addIndividualToFamily( new IndividualFamily($nephewniece, $family1), self::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING, $sibling );
+                                            $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family1), self::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING, $sibling);
                                         }
                                     }
                                 }
@@ -97,9 +99,9 @@ class Nephews_and_nieces extends ExtendedFamilyPart
                 }
             }
         }
-        foreach ($this->_proband->spouseFamilies() as $family0) {                                           // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family0) {                                           // Gen  0 F
             foreach ($family0->spouses() as $spouse0) {                                                     // Gen  0 P
-                if ($spouse0->xref() !== $this->_proband->xref()) {
+                if ($spouse0->xref() !== $this->getProband()->xref()) {
                     foreach ($spouse0->childFamilies() as $family1) {                                       // Gen  1 F
                         foreach ($family1->spouses() as $parent_in_law) {                                   // Gen  1 P
                             foreach ($parent_in_law->spouseFamilies() as $family2) {                        // Gen  1 F
@@ -107,7 +109,7 @@ class Nephews_and_nieces extends ExtendedFamilyPart
                                     if ($sibling_in_law->xref() !== $spouse0->xref()) {
                                         foreach ($sibling_in_law->spouseFamilies() as $family3) {           // Gen  0 F
                                             foreach ($family3->children() as $nephewniece) {                // Gen -1 P
-                                                $this->_addIndividualToFamily(new IndividualFamily($nephewniece, $family0), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER, $spouse0, $sibling_in_law);
+                                                $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family0), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER, $spouse0, $sibling_in_law);
                                             }
                                         }
                                     }

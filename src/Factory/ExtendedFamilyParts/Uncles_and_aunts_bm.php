@@ -62,14 +62,14 @@ class Uncles_and_aunts_bm extends ExtendedFamilyPart
     /**
      * Find members for this specific extended family part and modify $this->>efpObject
      */
-    protected function _addEfpMembers()
+    protected function addEfpMembers()
     {
-        if ($this->_proband->childFamilies()->first()) {
-            if ($this->_proband->childFamilies()->first()->husband() instanceof Individual) {
-                $this->_addUnclesAndAuntsBmOneSide( $this->_proband->childFamilies()->first()->husband(), self::GROUP_UNCLEAUNTBM_FATHER);
+        if ($this->getProband()->childFamilies()->first()) {
+            if ($this->getProband()->childFamilies()->first()->husband() instanceof Individual) {
+                $this->addUnclesAndAuntsBmOneSide($this->getProband()->childFamilies()->first()->husband(), self::GROUP_UNCLEAUNTBM_FATHER);
             }
-            if ($this->_proband->childFamilies()->first()->wife() instanceof Individual) {
-                $this->_addUnclesAndAuntsBmOneSide( $this->_proband->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNTBM_MOTHER);
+            if ($this->getProband()->childFamilies()->first()->wife() instanceof Individual) {
+                $this->addUnclesAndAuntsBmOneSide($this->getProband()->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNTBM_MOTHER);
             }
         }
     }
@@ -80,7 +80,7 @@ class Uncles_and_aunts_bm extends ExtendedFamilyPart
      * @param Individual $parent
      * @param string $side family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father side is default
      */
-    private function _addUnclesAndAuntsBmOneSide(Individual $parent, string $side)
+    private function addUnclesAndAuntsBmOneSide(Individual $parent, string $side)
     {
         foreach ($parent->childFamilies() as $family1) {                                // Gen 2 F
             foreach ($family1->spouses() as $grandparent) {                             // Gen 2 P
@@ -90,7 +90,7 @@ class Uncles_and_aunts_bm extends ExtendedFamilyPart
                             foreach ($uncleaunt->spouseFamilies() as $family3) {        // Gen 1 F
                                 foreach ($family3->spouses() as $uncleaunt2) {          // Gen 1 P
                                     if($uncleaunt2->xref() !== $uncleaunt->xref()) {
-                                        $this->_addIndividualToFamily(new IndividualFamily($uncleaunt2, $family3), $side, $uncleaunt );
+                                        $this->addIndividualToFamily(new IndividualFamily($uncleaunt2, $family3), $side, $uncleaunt);
                                     }
                                 }
                             }
