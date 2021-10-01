@@ -101,7 +101,7 @@ class Parents_in_law extends ExtendedFamilyPart
     private function addIndividualToFamilyAsParentInLaw(IndividualFamily $indifam, Individual $spouse)
     {
         $found = false;
-        foreach ($this->_efpObject->groups as $groupObj) {                                      // check if individual is already a member of this part of the extended family
+        foreach ($this->efpObject->groups as $groupObj) {                                      // check if individual is already a member of this part of the extended family
             foreach ($groupObj->members as $member) {
                 if ($member->xref() == $indifam->getIndividual()->xref()) {
                     $found = true;
@@ -110,15 +110,14 @@ class Parents_in_law extends ExtendedFamilyPart
             }
         }
         if (!$found) {                                                                          // individual has to be added
-            foreach ($this->_efpObject->groups as $famkey => $groupObj) {                       // check if this family is already stored in this part of the extended family
+            foreach ($this->efpObject->groups as $famkey => $groupObj) {                       // check if this family is already stored in this part of the extended family
                 if ($groupObj->family->xref() == $indifam->getFamily()->xref()) {               // family exists already
-                    $this->_efpObject->groups[$famkey]->members[] = $indifam->getIndividual();
+                    $this->efpObject->groups[$famkey]->members[] = $indifam->getIndividual();
                     $found = true;
                     break;
                 }
             }
             if (!$found) {                                                                      // individual not found and family not found
-                $labels = [];
                 $newObj = (object)[];
                 $newObj->members[] = $indifam->getIndividual();
                 $newObj->family = $indifam->getFamily();
@@ -133,7 +132,7 @@ class Parents_in_law extends ExtendedFamilyPart
                         }
                     }
                 }
-                $this->_efpObject->groups[] = $newObj;
+                $this->efpObject->groups[] = $newObj;
             }
         }
     }

@@ -39,7 +39,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function czechTranslations(): array
+    public static function czechTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -383,7 +383,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function danishTranslations(): array
+    public static function danishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -393,7 +393,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function germanTranslations(): array
+    public static function germanTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -794,7 +794,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function spanishTranslations(): array
+    public static function spanishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1149,7 +1149,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function finnishTranslations(): array
+    public static function finnishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1161,7 +1161,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function frenchTranslations(): array
+    public static function frenchTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1173,7 +1173,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function hebrewTranslations(): array
+    public static function hebrewTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1183,19 +1183,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function italianTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-        ];
-    }
-
-    /**
-     * tbd
-     *
-     * @return array
-     */
-    static function lithuanianTranslations(): array
+    public static function italianTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1207,7 +1195,19 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function norwegianBokmålTranslations(): array
+    public static function lithuanianTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+        ];
+    }
+
+    /**
+     * tbd
+     *
+     * @return array
+     */
+    public static function norwegianBokmålTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1217,7 +1217,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function dutchTranslations(): array
+    public static function dutchTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1608,7 +1608,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function norwegianNynorskTranslations(): array
+    public static function norwegianNynorskTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1618,7 +1618,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function slovakTranslations(): array
+    public static function slovakTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1774,7 +1774,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function swedishTranslations(): array
+    public static function swedishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1784,7 +1784,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function ukrainianTranslations(): array
+    public static function ukrainianTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -2096,7 +2096,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function vietnameseTranslations(): array
+    public static function vietnameseTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -2426,7 +2426,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function chineseSimplifiedTranslations(): array
+    public static function chineseSimplifiedTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -2440,7 +2440,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function chineseTraditionalTranslations(): array
+    public static function chineseTraditionalTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [

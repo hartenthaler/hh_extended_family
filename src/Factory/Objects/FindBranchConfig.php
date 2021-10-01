@@ -21,14 +21,14 @@
  */
 
 /* tbd
- *
- * plausibility check: indices in $const: only M, F, U
- * plausibility check: callFamilyPart has to be one of the extended family parts
+ * how should an exception be thrown?
+ * plausibility check: check if indices in $const are M, F, or U
  */
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use function array_keys;
+use function in_array;
 
 /**
  * class FindBranchConfig
@@ -61,7 +61,11 @@ class FindBranchConfig
     public function __construct(string $callFamilyPart, array $const)
     {
         $this->config = (object)[];
-        $this->config->callFamilyPart = $callFamilyPart;
+        if (in_array($callFamilyPart, ExtendedFamily::listOfFamilyParts())) {
+            $this->config->callFamilyPart = $callFamilyPart;
+        } else {
+            throw new Exception('extended family part ' . $callFamilyPart . ' does not exist');   // tbd class "Exception" does not exist
+        }
         $this->config->const = $const;
 
         $this->branches = $this->findBranches($const);

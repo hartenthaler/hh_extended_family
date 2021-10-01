@@ -117,7 +117,7 @@
 }
 
 .hh_extended_family_parameter {
-    clear: left;
+    clear: right;
     float: right;
     border: 1px solid grey;
     border-radius: 5px;

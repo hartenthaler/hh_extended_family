@@ -69,8 +69,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleTabTrait;
-use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
+use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
@@ -99,13 +99,13 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     /**
      * list of const for module administration
      */ 
-    public const CUSTOM_TITLE = 'Extended family';
-    public const CUSTOM_MODULE = 'hh_extended_family';
+    public const CUSTOM_TITLE       = 'Extended family';
+    public const CUSTOM_MODULE      = 'hh_extended_family';
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
-    public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
-    public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION = '2.0.16.54';
-    public const CUSTOM_LAST = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
+    public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
+    public const CUSTOM_WEBSITE     = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
+    public const CUSTOM_VERSION     = '2.0.16.56';
+    public const CUSTOM_LAST        = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
     /**
      * find members of extended family parts

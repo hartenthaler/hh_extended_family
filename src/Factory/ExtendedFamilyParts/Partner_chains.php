@@ -84,7 +84,7 @@ class Partner_chains extends ExtendedFamilyPart
         $stop->indiList[] = $this->getProband()->xref();
         $stop->familyList = [];
 
-        $this->_efpObject->chains = $this->addPartnerChainsRecursive($chainRootNode, $stop);
+        $this->efpObject->chains = $this->addPartnerChainsRecursive($chainRootNode, $stop);
     }
 
     /**
@@ -130,7 +130,7 @@ class Partner_chains extends ExtendedFamilyPart
         if ($filterOption !== 'all') {
             $this->filterPartnerChains(ExtendedFamily::convertfilterOptions($filterOption));
         }
-        $this->_efpObject->displayChains = $this->buildDisplayObjectPartnerChains();
+        $this->efpObject->displayChains = $this->buildDisplayObjectPartnerChains();
         $this->addCountersPartnerChains();
     }
 
@@ -142,7 +142,7 @@ class Partner_chains extends ExtendedFamilyPart
     private function filterPartnerChains(array $filterOptions)
     {
         if (($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all')) {
-            foreach ($this->_efpObject->chains as $chain) {
+            foreach ($this->efpObject->chains as $chain) {
                 $this->filterPartnerChainsRecursive($chain, $filterOptions);
             }
         }
@@ -185,10 +185,10 @@ class Partner_chains extends ExtendedFamilyPart
     private function addCountersPartnerChains()
     {
         list ($countMale, $countFemale, $countOthers) = [0, 0, 0];
-        $counter = $this->countMaleFemalePartnerChain($this->_efpObject->chains);
+        $counter = $this->countMaleFemalePartnerChain($this->efpObject->chains);
         list ($countMale, $countFemale, $countOthers) = [$counter->male, $counter->female, $counter->unknown_others];
-        list ($this->_efpObject->maleCount, $this->_efpObject->femaleCount, $this->_efpObject->otherSexCount, $this->_efpObject->allCount) = [$countMale, $countFemale, $countOthers, $countMale + $countFemale + $countOthers];
-        if ($this->_efpObject->allCount > 0) {
+        list ($this->efpObject->maleCount, $this->efpObject->femaleCount, $this->efpObject->otherSexCount, $this->efpObject->allCount) = [$countMale, $countFemale, $countOthers, $countMale + $countFemale + $countOthers];
+        if ($this->efpObject->allCount > 0) {
             $this->addCountersToFamilyPartObject_forPartnerChains();
         }
     }
@@ -219,23 +219,23 @@ class Partner_chains extends ExtendedFamilyPart
      */
     private function addCountersToFamilyPartObject_forPartnerChains()
     {
-        $this->_efpObject->chainsCount = count($this->_efpObject->displayChains);
+        $this->efpObject->chainsCount = count($this->efpObject->displayChains);
         $lc = 0;
         $i = 1;
         $lc_node = (object)[];
         $max = 0;
         $max_node = (object)[];
-        foreach ($this->_efpObject->chains as $chain) {
+        foreach ($this->efpObject->chains as $chain) {
             $this->countLongestChainRecursive($chain, $i, $lc, $lc_node);
             if ($lc > $max) {
                 $max = $lc;
                 $max_node = $lc_node;
             }
         }
-        $this->_efpObject->longestChainCount = $max + 1;
-        $this->_efpObject->mostDistantPartner = $max_node->indi;
-        if ($this->_efpObject->longestChainCount <= 2) {                                             // normal marriage is no marriage chain
-            $this->_efpObject->allCount = 0;
+        $this->efpObject->longestChainCount = $max + 1;
+        $this->efpObject->mostDistantPartner = $max_node->indi;
+        if ($this->efpObject->longestChainCount <= 2) {                                             // normal marriage is no marriage chain
+            $this->efpObject->allCount = 0;
         }
     }
 
@@ -294,7 +294,7 @@ class Partner_chains extends ExtendedFamilyPart
         $chains = [];                                                           // array of chain (chain is an array of chainPerson)
 
         $chainString = '0§1§' . $this->getProband()->fullName() . '§' . $this->getProband()->url() . '∞';
-        foreach ($this->_efpObject->chains as $chain) {
+        foreach ($this->efpObject->chains as $chain) {
             $i = 1;
             $this->buildStringPartnerChainsRecursive($chain, $chainString, $i);
         }

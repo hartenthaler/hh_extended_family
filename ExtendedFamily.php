@@ -25,13 +25,11 @@
  * tbd: offene Punkte
  * ------------------
  *
+ * Performance: testen von Variante A und B
  * Code: neue Subklasse für die Funktion personExistsInExtendedFamily(), damit die Funktion des ausgegrauten Tabs wieder funktioniert
  *
  * issues/enhancements: see GitHub
- * #57 alle Fälle mit gemischtem Sex für Übersetzung vorbereiten, insbesondere bei den Partnern
- * #108 Familienlabel kryptisch bei Visitor und nicht canShow()
- *
- * Anzeige der genetischen Nähe der jeweiligen Personengruppe als Verwandtschaftskoeffizient (Coefficient of relationship) und des Generationenunterschieds als Mouse-over?
+ * #57 alle Fälle mit gemischtem Geschlecht für Übersetzung vorbereiten, insbesondere bei den Partnern
  *
  * generelle Familienkennzeichen: statt "Eltern" immer "Ehe/Partnerschaft" verwenden
  *
@@ -221,20 +219,42 @@ class ExtendedFamily
      */
     private function constructFiltersExtendedFamilyParts()
     {
+        $variante ='A';   // tbd test and compare performance of Varianate A and B
         $this->filters = [];
         foreach ($this->config->filterOptions as $filterOption) {
-            $extfamObj = (object)[];
-            $extfamObj->efp = (object)[];
-            $extfamObj->efp->allCount = 0;
-            foreach ($this->config->shownFamilyParts as $efp => $element) {
-                if ( $element->enabled ) {
-                    $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption);
-                    $extfamObj->efp->$efp = $efpO->getEfpObject();
-                    $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
+            if ($variante == 'A') {
+                $extfamObj = (object)[];
+                $extfamObj->efp = (object)[];
+                $extfamObj->efp->allCount = 0;
+                foreach ($this->config->shownFamilyParts as $efp => $element) {
+                    if ($element->enabled) {
+                        $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption);
+                        $extfamObj->efp->$efp = $efpO->getEfpObject();
+                        $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
+                    }
+                }
+                $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
+                $this->filters[$filterOption] = $extfamObj;
+            } else {
+                if ($filterOption == 'all') {
+                    $extfamObj = (object)[];
+                    $extfamObj->efp = (object)[];
+                    $extfamObj->efp->allCount = 0;
+                    foreach ($this->config->shownFamilyParts as $efp => $element) {
+                        if ($element->enabled) {
+                            $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption);
+                            $extfamObj->efp->$efp = $efpO->getEfpObject();
+                            $extfamObj->efp->allCount += $extfamObj->efp->$efp->allCount;
+                        }
+                    }
+                    $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
+                    $this->filters[$filterOption] = $extfamObj;
+                } else {
+                    $this->filters[$filterOption] = clone $this->filters['all'];        // using __clone to filter and add counters
+                    // sum up ->efp->allCount
+                    // replace ->summaryMessageEmptyBlocks
                 }
             }
-            $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
-            $this->filters[$filterOption] = $extfamObj;
         }
     }
 
@@ -250,7 +270,7 @@ class ExtendedFamily
         $extfamObj->efp = (object)[];
         $found = false;
         foreach ($this->config->shownFamilyParts as $efp => $element) {
-            if ( $element->enabled ) {
+            if ($element->enabled) {
                 $extfamObj->efp->$efp = $this->initializeFamilyPartObject($efp);
                 $this->callFunction( 'find_' . $efp, $extfamObj->efp->$efp );
                 $this->filterAndAddCountersToFamilyPartObject( $extfamObj->efp->$efp, 'all' );
@@ -398,7 +418,7 @@ class ExtendedFamily
     static function filterOptionSex($filterOption): string
     {
         foreach (ExtendedFamily::getFilterOptionsSex() as  $option) {
-            if ( str_contains($filterOption, $option) ) {
+            if (str_contains($filterOption, $option)) {
                 return 'only_' . $option;
             }
         }
@@ -415,7 +435,7 @@ class ExtendedFamily
     static function filterOptionAlive($filterOption): string
     {
         foreach (ExtendedFamily::getFilterOptionsAlive() as  $option) {
-            if ( str_contains($filterOption,$option) ) {
+            if (str_contains($filterOption,$option)) {
                 if ($option == 'Y') {
                     return 'only_alive';
                 } else {
@@ -589,7 +609,7 @@ class ExtendedFamily
     static function generatePedigreeLabel(Individual $child): string
     {
         $label = GedcomCodePedi::getValue('',$child->getInstance($child->xref(),$child->tree()));
-        if ( $child->childFamilies()->first() ) {
+        if ($child->childFamilies()->first()) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $child->gedcom(), $match)) {
                 if ($match[1] !== 'birth') {
                     $label = GedcomCodePedi::getValue($match[1],$child->getInstance($child->xref(),$child->tree()));
@@ -608,7 +628,7 @@ class ExtendedFamily
      */
     static function generateChildLinkageStatusLabel(Individual $child): string
     {
-        if ( $child->childFamilies()->first() ) {
+        if ($child->childFamilies()->first()) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 STAT (.+)/', $child->gedcom(), $match)) {
                 return I18N::translate('linkage ' . strtolower($match[1]));
             }
@@ -636,8 +656,8 @@ class ExtendedFamily
             10 => 'decuplet',
         ];
         $childGedcom = $child->gedcom();
-        if ( preg_match('/\n1 ASSO @(?:.+)@\n2 RELA (.+)/', $childGedcom, $match) ||
-             preg_match('/\n2 _ASSO @(?:.+)@\n3 RELA (.+)/', $childGedcom, $match) ) {
+        if (preg_match('/\n1 ASSO @(?:.+)@\n2 RELA (.+)/', $childGedcom, $match) ||
+             preg_match('/\n2 _ASSO @(?:.+)@\n3 RELA (.+)/', $childGedcom, $match)) {
             if (in_array(strtolower($match[1]), $multiple_birth)) {
                 return I18N::translate(strtolower($match[1]));
             }
@@ -657,10 +677,10 @@ class ExtendedFamily
     static function generateAgeLabel(Individual $child): string
     {     
         $childGedcom = $child->gedcom();
-        if ( preg_match('/\n2 AGE STILLBORN/i', $childGedcom, $match) ) {
+        if (preg_match('/\n2 AGE STILLBORN/i', $childGedcom, $match)) {
             return I18N::translate('stillborn');
         }        
-        if ( preg_match('/\n2 AGE INFANT/i', $childGedcom, $match) ) {
+        if (preg_match('/\n2 AGE INFANT/i', $childGedcom, $match)) {
             return I18N::translate('died as infant');
         }
         return '';

@@ -34,11 +34,11 @@ class IndividualFamily
     // ------------ definition of data structures
 
     /**
-     * @var object $objectIndividualFamily
+     * @var object $objectIndiFamily
      *  ->individual                    Individual
      *  ->family                        object (?)
      */
-    private $objectIndividualFamily;
+    private $objectIndiFamily;
 
     // ------------ definition of methods
 
@@ -50,23 +50,23 @@ class IndividualFamily
      */
     public function __construct(Individual $individual, object $family = null)
     {
-        $this->objectIndividualFamily = (object)[];
+        $this->objectIndiFamily = (object)[];
         if (isset($individual) && ($individual instanceof Individual)) {
-            $this->objectIndividualFamily->individual = $individual;
+            $this->objectIndiFamily->individual = $individual;
         }
         if (isset($family)) {
-            $this->objectIndividualFamily->family = $family;
+            $this->objectIndiFamily->family = $family;
         }
     }
 
     /**
-     * get objectIndividualFamily
+     * get objectIndiFamily
      *
      * @return object
      */
-    public function getObjectIndividualFamily(): object
+    public function getobjectIndiFamily(): object
     {
-        return $this->objectIndividualFamily;
+        return $this->objectIndiFamily;
     }
 
     /**
@@ -76,7 +76,7 @@ class IndividualFamily
      */
     public function getIndividual(): Individual
     {
-        return $this->objectIndividualFamily->individual;
+        return $this->objectIndiFamily->individual;
     }
 
     /**
@@ -86,8 +86,8 @@ class IndividualFamily
      */
     public function getFamily()
     {
-       if (isset($this->objectIndividualFamily->family)) {
-           return $this->objectIndividualFamily->family;
+       if (isset($this->objectIndiFamily->family)) {
+           return $this->objectIndiFamily->family;
        }
        return null;
     }
@@ -97,8 +97,8 @@ class IndividualFamily
      *
      * @param object $object
      */
-    public function setObjectIndividualFamily(object $object): void
+    public function setobjectIndiFamily(object $object): void
     {
-        $this->objectIndividualFamily = $object;
+        $this->objectIndiFamily = $object;
     }
 }

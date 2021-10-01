@@ -75,10 +75,10 @@ class Grandparents extends ExtendedFamilyPart
         // add biological parents and stepparents of stepparents
         foreach ($this->findStepparentsIndividuals($this->getProband()) as $stepparent) {
             foreach ($this->findBioparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-                $this->addIndividualToFamily( $grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparent->getIndividual() );
+                $this->addIndividualToFamily($grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparent->getIndividual());
             }
             foreach ($this->findStepparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-                $this->addIndividualToFamily( $grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparent->getIndividual() );
+                $this->addIndividualToFamily($grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS, $stepparent->getIndividual());
             }
         }
     }

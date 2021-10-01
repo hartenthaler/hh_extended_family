@@ -114,9 +114,9 @@ class Partners extends ExtendedFamilyPart
     {
         $found = false;
         //error_log('Soll ' . $individual->xref() . ' als Partner von ' . $spouse->xref() . ' hinzugefuegt werden? ');
-        if ( array_key_exists ( $spouse->xref(), $this->_efpObject->groups) ) {               // check if this spouse is already stored as group in this part of the extended family
+        if ( array_key_exists ( $spouse->xref(), $this->efpObject->groups) ) {               // check if this spouse is already stored as group in this part of the extended family
             //error_log($spouse->xref() . ' definiert bereits eine Gruppe. ');
-            $efp = $this->_efpObject->groups[$spouse->xref()];
+            $efp = $this->efpObject->groups[$spouse->xref()];
             foreach ($efp->members as $member) {                                                // check if individual is already a partner of this partner
                 //error_log('Teste Ehepartner ' . $member->xref() . ' in Gruppe fuer ' . $spouse->xref() . ': ');
                 if ($individual->xref() == $member->xref()) {
@@ -127,14 +127,14 @@ class Partners extends ExtendedFamilyPart
             }
             if ( !$found ) {                                                                    // add individual to existing partner group
                 //error_log('Person ' . $individual->xref() . ' wird als Partner von ' . $spouse->xref() . ' hinzugefuegt. ');
-                $this->_efpObject->groups[$spouse->xref()]->members[] = $individual;
+                $this->efpObject->groups[$spouse->xref()]->members[] = $individual;
             }
         } else {                                                                                // generate new group of partners
             $newObj = (object)[];
             $newObj->members[] = $individual;
             $newObj->partner = $spouse;
             //error_log(print_r($newObj, true));
-            $this->_efpObject->groups[$spouse->xref()] = $newObj;
+            $this->efpObject->groups[$spouse->xref()] = $newObj;
             //error_log('Neu hinzugefuegte Gruppe fuer: ' . $spouse->xref() . ' (Person ' . $individual->xref() . ' als Partner hier hinzugefuegt). ');
         }
     }
@@ -144,21 +144,21 @@ class Partners extends ExtendedFamilyPart
      */
     private function addAdditionalCountersPartners()
     {
-        if (array_key_first($this->_efpObject->groups)) {
-            $count = $this->countMaleFemale($this->_efpObject->groups[array_key_first($this->_efpObject->groups)]->members);
+        if (array_key_first($this->efpObject->groups)) {
+            $count = $this->countMaleFemale($this->efpObject->groups[array_key_first($this->efpObject->groups)]->members);
         } else {                            // error: this should not happen
             $count=(object)[];
             list ($count->male, $count->female, $count->unknown_others) = [0, 0, 0];
         }
 
-        $this->_efpObject->pmaleCount = $count->male;
-        $this->_efpObject->pfemaleCount = $count->female;
-        $this->_efpObject->potherSexCount = $count->unknown_others;
-        $this->_efpObject->pCount = $count->male + $count->female + $count->unknown_others;
+        $this->efpObject->pmaleCount = $count->male;
+        $this->efpObject->pfemaleCount = $count->female;
+        $this->efpObject->potherSexCount = $count->unknown_others;
+        $this->efpObject->pCount = $count->male + $count->female + $count->unknown_others;
 
-        $this->_efpObject->popmaleCount = $this->_efpObject->maleCount - $count->male;
-        $this->_efpObject->popfemaleCount = $this->_efpObject->femaleCount - $count->female;
-        $this->_efpObject->popotherSexCount = $this->_efpObject->otherSexCount - $count->unknown_others;
-        $this->_efpObject->popCount = $this->_efpObject->allCount - $this->_efpObject->pCount;
+        $this->efpObject->popmaleCount = $this->efpObject->maleCount - $count->male;
+        $this->efpObject->popfemaleCount = $this->efpObject->femaleCount - $count->female;
+        $this->efpObject->popotherSexCount = $this->efpObject->otherSexCount - $count->unknown_others;
+        $this->efpObject->popCount = $this->efpObject->allCount - $this->efpObject->pCount;
     }
 }

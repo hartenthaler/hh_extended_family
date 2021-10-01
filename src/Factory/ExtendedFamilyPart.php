@@ -38,7 +38,7 @@ abstract class ExtendedFamilyPart
     // ------------ definition of data structures
         
     /**
-     * @var object $_efpObject common data structure for all extended family parts; there are additional specific data structures for each extended family part
+     * @var object $efpObject common data structure for all extended family parts; there are additional specific data structures for each extended family part
      *
      *  ->groups[]                      array           // not used in extended family part "partner_chains"
      *  ->maleCount                     int    
@@ -47,7 +47,7 @@ abstract class ExtendedFamilyPart
      *  ->allCount                      int
      *  ->partName                      string
      */
-    protected $_efpObject;
+    protected $efpObject;
 
     /**
      * @var Individual $proband
@@ -77,13 +77,13 @@ abstract class ExtendedFamilyPart
     {
         $this->proband = $proband;
 
-        $this->_efpObject = (object)[];
-        $this->_efpObject->groups                = [];
-        $this->_efpObject->maleCount             = 0;
-        $this->_efpObject->femaleCount           = 0;
-        $this->_efpObject->unkonownCount         = 0;
-        $this->_efpObject->allCount              = 0;
-        $this->_efpObject->partName              = $this->getClassName();
+        $this->efpObject = (object)[];
+        $this->efpObject->groups                = [];
+        $this->efpObject->maleCount             = 0;
+        $this->efpObject->femaleCount           = 0;
+        $this->efpObject->unkonownCount         = 0;
+        $this->efpObject->allCount              = 0;
+        $this->efpObject->partName              = $this->getClassName();
     }
 
     /**
@@ -93,7 +93,7 @@ abstract class ExtendedFamilyPart
      */
     public function getEfpObject(): object
     {
-        return $this->_efpObject;
+        return $this->efpObject;
     }
 
     /**
@@ -318,7 +318,7 @@ abstract class ExtendedFamilyPart
             error_log('Soll ' . $indifam->getIndividual()->fullName() . ' (' . $indifam->getIndividual()->xref() . ') der Gruppe "' . $groupName . '" hinzugefuegt werden? ');
         }
         */
-        foreach ($this->_efpObject->groups as $i => $groupObj) {                      // check if individual is already a member of this part of the extended family
+        foreach ($this->efpObject->groups as $i => $groupObj) {                      // check if individual is already a member of this part of the extended family
             //echo 'Teste groups Nr. ' . $i . ': ';
             foreach ($groupObj->members as $member) {
                 //echo 'Teste member = ' . $member->xref() . ': ';
@@ -332,7 +332,7 @@ abstract class ExtendedFamilyPart
         if (!$found) {                                                                              // individual has to be added
             //echo "add person: ".$indifam->getIndividual()->fullName().". <br>";
             if ( $groupName == '' ) {
-                foreach ($this->_efpObject->groups as $famkey => $groupObj) {                       // check if this family is already stored in this part of the extended family
+                foreach ($this->efpObject->groups as $famkey => $groupObj) {                       // check if this family is already stored in this part of the extended family
                     if ($groupObj->family->xref() == $indifam->getFamily()->xref()) {               // family exists already
                         //echo 'famkey in bereits vorhandener Familie: ' . $famkey . ' (Person ' . $individual->fullName() . ' in Objekt für Familie ' . $extendedFamilyPart->groups[$famkey]->family->fullName() . '); ';
                         $this->addIndividualToGroup($indifam, $groupName, $referencePerson, $referencePerson2);
@@ -340,7 +340,7 @@ abstract class ExtendedFamilyPart
                         break;
                     }
                 }
-            } elseif ( array_key_exists($groupName, $this->_efpObject->groups) ) {
+            } elseif ( array_key_exists($groupName, $this->efpObject->groups) ) {
                 //echo 'In bereits vorhandener Gruppe "' . $groupName . '" Person ' . $individual->xref() . ' hinzugefügt. ';
                 $this->addIndividualToGroup($indifam, $groupName, $referencePerson, $referencePerson2);
                 $found = true;
@@ -361,7 +361,7 @@ abstract class ExtendedFamilyPart
                 $newObj->familiesStatus[] = ExtendedFamily::findFamilyStatus($indifam->getFamily());
                 $newObj->referencePersons[] = $referencePerson;
                 $newObj->referencePersons2[] = $referencePerson2;
-                if ($this->_efpObject->partName == 'grandparents' || $this->_efpObject->partName == 'parents') {
+                if ($this->efpObject->partName == 'grandparents' || $this->efpObject->partName == 'parents') {
                     $newObj->familyStatus = ExtendedFamily::findFamilyStatus($indifam->getFamily());
                     if ($referencePerson) {
                         $newObj->partner = $referencePerson;
@@ -381,11 +381,11 @@ abstract class ExtendedFamilyPart
                     }
                 }
                 if ($groupName == '') {
-                    $this->_efpObject->groups[] = $newObj;
-                    //echo "<br>Neu hinzugefügte Familie Nr. " . (count($this->_efpObject->groups) - 1) . ' (Person ' . $indifam->getIndividual()->fullName() . ' in Objekt für Familie ' . $this->_efpObject->groups[count($this->_efpObject->groups) - 1]->family->xref() . '); ';
+                    $this->efpObject->groups[] = $newObj;
+                    //echo "<br>Neu hinzugefügte Familie Nr. " . (count($this->efpObject->groups) - 1) . ' (Person ' . $indifam->getIndividual()->fullName() . ' in Objekt für Familie ' . $this->efpObject->groups[count($this->efpObject->groups) - 1]->family->xref() . '); ';
                 } else {
                     $newObj->groupName = $groupName;
-                    $this->_efpObject->groups[$groupName] = $newObj;
+                    $this->efpObject->groups[$groupName] = $newObj;
                     //echo 'Neu hinzugefügte Gruppe "' . $groupName . '" (Person ' . $individual->xref() . '). ';
                 }
             }
@@ -402,12 +402,12 @@ abstract class ExtendedFamilyPart
      */
     private function addIndividualToGroup(IndividualFamily $indifam, string $groupName, Individual $referencePerson = null, Individual $referencePerson2 = null )
     {
-        $this->_efpObject->groups[$groupName]->members[] = $indifam->getIndividual();                                                                         // array of strings
-        $this->_efpObject->groups[$groupName]->labels[] = ExtendedFamily::generateChildLabels($indifam->getIndividual());
-        $this->_efpObject->groups[$groupName]->families[] = $indifam->getFamily();
-        $this->_efpObject->groups[$groupName]->familiesStatus[] = ExtendedFamily::findFamilyStatus($indifam->getFamily());
-        $this->_efpObject->groups[$groupName]->referencePersons[] = $referencePerson;
-        $this->_efpObject->groups[$groupName]->referencePersons2[] = $referencePerson2;
+        $this->efpObject->groups[$groupName]->members[] = $indifam->getIndividual();                                                                         // array of strings
+        $this->efpObject->groups[$groupName]->labels[] = ExtendedFamily::generateChildLabels($indifam->getIndividual());
+        $this->efpObject->groups[$groupName]->families[] = $indifam->getFamily();
+        $this->efpObject->groups[$groupName]->familiesStatus[] = ExtendedFamily::findFamilyStatus($indifam->getFamily());
+        $this->efpObject->groups[$groupName]->referencePersons[] = $referencePerson;
+        $this->efpObject->groups[$groupName]->referencePersons2[] = $referencePerson2;
     }
 
     /**
@@ -431,7 +431,7 @@ abstract class ExtendedFamilyPart
     protected function filter(array $filterOptions)
     {
         if ( ($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all') ) {
-            foreach ($this->_efpObject->groups as $group) {
+            foreach ($this->efpObject->groups as $group) {
                 foreach ($group->members as $key => $member) {
                     if ( ($filterOptions['alive'] == 'only_alive' && $member->isDead()) || ($filterOptions['alive'] == 'only_dead' && !$member->isDead()) ||
                         ($filterOptions['sex'] == 'only_M' && $member->sex() !== 'M') || ($filterOptions['sex'] == 'only_F' && $member->sex() !== 'F') || ($filterOptions['sex'] == 'only_U' && $member->sex() !== 'U') ) {
@@ -440,9 +440,9 @@ abstract class ExtendedFamilyPart
                 }
             }
         }
-        foreach ($this->_efpObject->groups as $key => $group) {
+        foreach ($this->efpObject->groups as $key => $group) {
             if (count($group->members) == 0) {
-                unset($this->_efpObject->groups[$key]);
+                unset($this->efpObject->groups[$key]);
             }
         }
 
@@ -455,13 +455,13 @@ abstract class ExtendedFamilyPart
     protected function addCountersToFamilyPartObject()
     {
         list ($countMale, $countFemale, $countOthers) = [0, 0 , 0];
-        foreach ($this->_efpObject->groups as $group) {
+        foreach ($this->efpObject->groups as $group) {
             $counter = $this->countMaleFemale($group->members);
             $countMale += $counter->male;
             $countFemale += $counter->female;
             $countOthers += $counter->unknown_others;
         }
-        list ($this->_efpObject->maleCount, $this->_efpObject->femaleCount, $this->_efpObject->otherSexCount, $this->_efpObject->allCount) = [$countMale, $countFemale, $countOthers, $countMale + $countFemale + $countOthers];
+        list ($this->efpObject->maleCount, $this->efpObject->femaleCount, $this->efpObject->otherSexCount, $this->efpObject->allCount) = [$countMale, $countFemale, $countOthers, $countMale + $countFemale + $countOthers];
     }
 
     /**
