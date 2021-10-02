@@ -27,18 +27,13 @@
 
 /*
  * tbd
- *
- * Performance: Test auf Test-Server mit und ohne dieses Modul
- *
  * Code: macht folgendes Probleme? require_once(__DIR__ . '/src/lang/ExtendedFamilyTranslations.php');
  * Code: autoloader wieder aktivieren und alle require_once eliminieren?
  * Code: Funktion personExistsInExtendedFamily neu implementieren, damit das Ausgrauen des Tabs wieder funktioniert
  * Code: Anpassungen an Bootstrap 5 (filter-Buttons) und webtrees 2.1 (neue Testumgebung aufsetzen)
  * Code: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern (siehe issue #46 von Sir Peter)
- *      Gibt es einen Zusammenhang oder sind sie unabhängig?
- *      Wie genau wirken sie sich aus? Testen, wenn im CSS-Modul nichts eingetragen ist.
- *      Option für thumbnail size?
- *      css für shilouette anpassen?
+ *      Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus? Testen, wenn im CSS-Modul nichts eingetragen ist.
+ *      Option für thumbnail size? css für silhouette anpassen?
  * Code: prüfen welche "use"-Deklarationen hier wirklich verwendet werden
  * Code: neues Management für Updates und Information der Anwender über Neuigkeiten zu diesem Modul
  * Code: Datenbank-Schema mit Updates einführen, damit man Familienteile auch ändern und löschen kann
@@ -59,12 +54,8 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Tree;
 use Fisharebest\Webtrees\View;
-use Fisharebest\Webtrees\Fact;
-use Fisharebest\Webtrees\Registry;
 use Fisharebest\Webtrees\Individual;
-use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\FlashMessages;
-use Fisharebest\Localization\Translation;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Fisharebest\Webtrees\Module\AbstractModule;
@@ -74,12 +65,9 @@ use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
-use Cissee\Webtrees\Module\ExtendedRelationships;
+//use Cissee\Webtrees\Module\ExtendedRelationships;
 
-// string functions
 use function str_starts_with;   // will be added in PHP 8.0
-
-// array functions
 use function explode;
 use function implode;
 use function count;
@@ -98,7 +86,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
 
     /**
      * list of const for module administration
-     */ 
+     */
     public const CUSTOM_TITLE       = 'Extended family';
     public const CUSTOM_MODULE      = 'hh_extended_family';
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
@@ -111,11 +99,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * find members of extended family parts
      *
      * @param Individual $proband
-     * @return object 
+     * @return object
      */
     private function getExtendedFamily(Individual $proband): object
     {       
-        return new ExtendedFamily( $proband, $this->buildConfig($proband) );
+        return new ExtendedFamily($proband, $this->buildConfig($proband));
     }
 
     /**
@@ -123,7 +111,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @param Individual $proband
      * @return bool
-     */ 
+     */
     private function personExistsInExtendedFamily(Individual $proband): bool
     {
         return true;            // tbd
@@ -142,7 +130,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $configObj->showShortName           = $this->showShortName();
         $configObj->showLabels              = $this->showLabels();
         $configObj->useCompactDesign        = $this->useCompactDesign();
-        $configObj->showThumbnail           = $this->showThumbnail( $proband->tree() );
+        $configObj->showThumbnail           = $this->showThumbnail($proband->tree());
         $configObj->showFilterOptions       = $this->showFilterOptions();
         $configObj->showParameters          = $this->showParameters();
         $configObj->filterOptions           = ($this->showFilterOptions()) ? ExtendedFamily::getFilterOptions(): ['all'];
@@ -150,7 +138,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $configObj->familyPartParameters    = ExtendedFamily::getFamilyPartParameters();
         $configObj->sizeThumbnailW          = $this->getSizeThumbnailW();
         $configObj->sizeThumbnailH          = $this->getSizeThumbnailH();
-        $configObj->name   = $this->name();                 // tbd entfernen, falls Vesta-Module doch nicht genutzt werden sollten
+        //$configObj->name = $this->name();      // nötig falls Vesta-Module doch genutzt werden sollten
         return $configObj;
     }
 
@@ -179,19 +167,20 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @param bool $showErrorMessage
      * @return bool
-     
+
     static function VestaModulesAvailable(bool $showErrorMessage): bool
     {
-        $ok = class_exists("Cissee\WebtreesExt\AbstractModule", true);
-        if (!$ok && $showErrorMessage) {
+        $vesta = class_exists("Cissee\WebtreesExt\AbstractModule", true);
+        if (!$vesta && $showErrorMessage) {
             FlashMessages::addMessage("Missing dependency - Make sure to install all Vesta modules!");
         }
-        return $ok;
+        return $vesta;
     }
     */
 
     /**
-     * generate list of other preferences (control panel options beside the options related to the extended family parts itself)
+     * generate list of other preferences
+     * (control panel options beside the options related to the extended family parts itself)
      *
      * @return array of string
      */
@@ -218,11 +207,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         
         $preferences = $this->listOfOtherPreferences();
         foreach ($preferences as $preference) {
-           $response[$preference] = $this->getPreference($preference);
+            $response[$preference] = $this->getPreference($preference);
         }
 
         $response['efps'] = $this->getShownFamilyParts();
-        
         $response['title'] = $this->title();
         $response['description'] = $this->description();
         $response['uses_sorting'] = true;
@@ -243,18 +231,17 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $preferences = $this->listOfOtherPreferences();
             foreach ($preferences as $preference) {
                 $this->setPreference($preference, $params[$preference]);
-			}
-            $order = implode(",",$params['order']);
+            }
+            $order = implode(",", $params['order']);
             $this->setPreference('order', $order);
-            $efps = ExtendedFamily::listOfFamilyParts();
-            foreach ($efps as $efp) {
+            foreach (ExtendedFamily::listOfFamilyParts() as $efp) {
                 $this->setPreference('status-' . $efp, '0');
-			}
+            }
             foreach ($params as $key => $value) {
                 if (str_starts_with($key, 'status-')) {
                     $this->setPreference($key, $value);
                 }
-			}
+            }
             FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
         }
         return redirect($this->getConfigLink());
@@ -267,12 +254,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * @return array of ordered objects with name and status (enabled/disabled)
      */
     private function getShownFamilyParts(): array
-    {    
+    {
         $lofp = ExtendedFamily::listOfFamilyParts();
         $order_default = implode(",", $lofp);
         $order = explode(',', $this->getPreference('order', $order_default));
         
-        if (count($lofp) > count($order)) {                                 // there are new parts of extended family defined
+        if (count($lofp) > count($order)) {                     // there are new parts of extended family defined
             foreach ($lofp as $familyPart) {
                 if (!in_array($familyPart, $order)) {
                     $order[] = $familyPart;
@@ -282,10 +269,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         
         $shownParts = [];
         foreach ($order as $efp) {
-           $efpObj = (object)[];
-           $efpObj->name    = ExtendedFamily::translateFamilyPart($efp);
-           $efpObj->enabled = $this->getPreference('status-' . $efp, 'on');
-           $shownParts[$efp] = $efpObj;
+            $efpObj = (object)[];
+            $efpObj->name    = ExtendedFamily::translateFamilyPart($efp);
+            $efpObj->enabled = $this->getPreference('status-' . $efp, 'on');
+            $shownParts[$efp] = $efpObj;
         }
         return $shownParts;
     }
@@ -294,18 +281,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * should filter options be shown (user can filter by gender or alive/dead)
      * set default values in case the settings are not stored in the database yet
      *
-     * @return bool 
+     * @return bool
      */
     private function showFilterOptions(): bool
     {
-        return ($this->getPreference('show_filter_options', '0') == '0') ? true : false;
+        return ($this->getPreference('show_filter_options', '0') == '0');
     }
 
     /**
      * how should empty parts of the extended family be presented
      * set default values in case the settings are not stored in the database yet
      *
-     * @return string 
+     * @return string
      */
     private function showEmptyBlock(): string
     {
@@ -331,11 +318,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * set default values in case the settings are not stored in the database yet
      *
-     * @return bool 
+     * @return bool
      */
     private function showLabels(): bool
     {
-        return ($this->getPreference('show_labels', '0') == '0') ? true : false;
+        return ($this->getPreference('show_labels', '0') == '0');
     }
 
     /**
@@ -346,18 +333,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function showParameters(): bool
     {
-        return ($this->getPreference('show_parameters', '0') == '0') ? true : false;
+        return ($this->getPreference('show_parameters', '0') == '0');
     }
 
     /**
      * use compact design for individual blocks or show additional information (photo, birth and death information)
      * set default values in case the settings are not stored in the database yet
      *
-     * @return bool 
+     * @return bool
      */
     private function useCompactDesign(): bool
     {
-        return ($this->getPreference('use_compact_design', '0') == '0') ? true : false;
+        return ($this->getPreference('use_compact_design', '0') == '0');
     }
 
     /**
@@ -366,9 +353,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      *
      * @return bool
      */
-    private function get_tree_preference_show_thumbnails(object $tree): bool
+    private function isTreePreferenceShowingThumbnails(object $tree): bool
     {
-        return ($tree->getPreference('SHOW_HIGHLIGHT_IMAGES') == '1') ? true : false;
+        return ($tree->getPreference('SHOW_HIGHLIGHT_IMAGES') == '1');
     }
 
     /**
@@ -379,7 +366,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function showThumbnail(object $tree): bool
     {
-        return (!$this->useCompactDesign() && $this->get_tree_preference_show_thumbnails($tree));
+        return (!$this->useCompactDesign() && $this->isTreePreferenceShowingThumbnails($tree));
     }
  
     /**
@@ -474,7 +461,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * A greyed out tab has no actual content, but may perhaps have options to create content.
+     * A greyed out tab has no actual content, but perhaps have options to create content.
      *
      * @param Individual $individual
      * @return bool
@@ -492,7 +479,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     function getCssAction() : ResponseInterface
     {
         return response(
-            file_get_contents($this->resourcesFolder() . 'css/' . self::CUSTOM_MODULE . '.css'), 
+            file_get_contents($this->resourcesFolder() . 'css/' . self::CUSTOM_MODULE . '.css'),
             200,
             ['Content-type' => 'text/css']
         );
@@ -505,7 +492,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'extfam_obj'            => $this->getExtendedFamily($individual),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
             'module_obj'            => $this,
-        ]); 
+        ]);
     }
 
     /** {@inheritdoc} */
@@ -534,7 +521,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         // Here is also a good place to register any views (templates) used by the module.
         // This command allows the module to use: view($this->name() . '::', 'fish')
         // to access the file ./resources/views/fish.phtml
-        View::registerNamespace($this->name(),$this->resourcesFolder() . 'views/');
+        View::registerNamespace($this->name(), $this->resourcesFolder() . 'views/');
     }
     
     /**
