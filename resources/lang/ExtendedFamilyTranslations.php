@@ -22,8 +22,7 @@
 /*
  * tbd: Offene Punkte
  * ------------------
- *
- * für italian und chinese einbauen sobald sie zugeliefert wurden
+ * Übersetzungen für italian und chinese einbauen, sobald sie zugeliefert wurden
  * fehlende Übersetzungen für french, norwegian (2x), finish und andere organisieren
  */
     
@@ -39,7 +38,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function czechTranslations(): array
+    public static function czechTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -383,7 +382,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function danishTranslations(): array
+    public static function danishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -393,7 +392,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function germanTranslations(): array
+    public static function germanTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -541,6 +540,14 @@ class ExtendedFamilyTranslations
                 => 'Für %2$s sind %1$d Großvater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Großväter und ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d Großmutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Großmütter verzeichnet (insgesamt %d).',
+            '%2$s has %1$d grandmother and ' . I18N::PLURAL . '%2$s has %1$d grandmothers and '
+                => 'Für %2$s sind %1$d Großmutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Großmütter und ',
+            '%d grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandparents of unknown sex recorded (%d in total).'
+                => '%d Großelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Großelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d grandfather, ' . I18N::PLURAL . '%2$s has %1$d grandfathers, '
+                => 'Für %2$s sind %1$d Großvater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Großväter, ',
+            '%d grandmother, and ' . I18N::PLURAL . '%d grandmothers, and '
+                => '%d Großmutter und ' . I18N::PLURAL . '%d Großmütter und ',
 
             'Uncles and Aunts' => 'Onkel und Tanten',
             '%s has no uncles or aunts recorded.' => 'Für %s sind keine Onkel oder Tanten verzeichnet.',
@@ -557,6 +564,14 @@ class ExtendedFamilyTranslations
                 => 'Für %2$s sind %1$d Onkel und ' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel und ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
                 => '%d Tante verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Tanten verzeichnet (insgesamt %d).',
+            '%2$s has %1$d aunt and ' . I18N::PLURAL . '%2$s has %1$d aunts and '
+                => 'Für %2$s sind %1$d Tante und ' . I18N::PLURAL . 'Für %2$s sind %1$d Tanten und ',
+            '%d uncle or aunt of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts of unknown sex recorded (%d in total).'
+                => '%d Onkel oder eine Tante mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Onkel oder Tanten mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d uncle, ' . I18N::PLURAL . '%2$s has %1$d uncles, '
+                => 'Für %2$s sind %1$d Onkel, ' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel, ',
+            '%d aunt, and ' . I18N::PLURAL . '%d aunts, and '
+                => '%d Tante und ' . I18N::PLURAL . '%d Tanten und ',
 
             'Uncles and Aunts by marriage' => 'Angeheiratete Onkel und Tanten',
             '%s has no uncles or aunts by marriage recorded.' => 'Für %s sind keine angeheirateten Onkel oder Tanten verzeichnet.',
@@ -858,7 +873,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function spanishTranslations(): array
+    public static function spanishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1213,7 +1228,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function finnishTranslations(): array
+    public static function finnishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1225,7 +1240,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function frenchTranslations(): array
+    public  function frenchTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1237,7 +1252,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function hebrewTranslations(): array
+    public static function hebrewTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1247,19 +1262,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function italianTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-        ];
-    }
-
-    /**
-     * tbd
-     *
-     * @return array
-     */
-    static function lithuanianTranslations(): array
+    public static function italianTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1271,7 +1274,19 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function norwegianBokmålTranslations(): array
+    public static function lithuanianTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+        ];
+    }
+
+    /**
+     * tbd
+     *
+     * @return array
+     */
+    public static function norwegianBokmålTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1281,7 +1296,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function dutchTranslations(): array
+    public static function dutchTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1378,7 +1393,7 @@ class ExtendedFamilyTranslations
             'Partners of siblings' => 'Partners van broers/zussen',
             'Siblings of siblings-in-law' => 'Broers/zussen van zwagers/schoonzussen',
             'Partners of siblings-in-law' => 'Partners van zwagers/schoonzussen',
-            'Children of full siblings of biological parents' => 'Kinderen van volle broers/zussen van biologische ouders'
+            'Children of full siblings of biological parents' => 'Kinderen van volle broers/zussen van biologische ouders',
             'Children of siblings' => 'Kinderen van broers/zussen',
             'Children of full siblings' => 'Kinderen van volle broers/zussen',
             'Siblings\' stepchildren' => 'Stiefkinderen van broers/zussen',
@@ -1684,7 +1699,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function norwegianNynorskTranslations(): array
+    public static function norwegianNynorskTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1694,7 +1709,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function slovakTranslations(): array
+    public static function slovakTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1850,7 +1865,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function swedishTranslations(): array
+    public static function swedishTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -1860,7 +1875,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function ukrainianTranslations(): array
+    public static function ukrainianTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -2172,7 +2187,7 @@ class ExtendedFamilyTranslations
     /**
      * @return array
      */
-    static function vietnameseTranslations(): array
+    public static function vietnameseTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -2252,7 +2267,7 @@ class ExtendedFamilyTranslations
             'Children of full siblings of parent' => 'Anh chị em cùng cha mẹ',
             'Children of half siblings of father' => 'Anh chị em cùng cha khác mẹ',
             'Children of half siblings of mother' => 'Anh chị em cùng mẹ khác cha',
-            'Children of full siblings of parent' => 'Anh chị em cùng cha mẹ',
+            'Children of half siblings of parent' => 'Anh chị em cùng cha mẹ',
             'Siblings of partners' => 'Anh, chị, em ruột của chồng (vợ)',
             'Partners of siblings' => 'Vợ/chồng của anh chị em',
             'Children of siblings' => 'Con của anh chị em ruột',
@@ -2329,7 +2344,7 @@ class ExtendedFamilyTranslations
             '%s has no parents recorded.' => '%s không có thông tin về bố mẹ.',
             '%s has one mother recorded.' => '%s có một người mẹ.',
             '%s has one father recorded.' => '%s có một người bố.',
-            '%s has one grandparent recorded.' => '%s có một ông bà.',
+            '%s has one parent recorded.' => '%s có một ông bà.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' 
                 => '%2$s có %1$d người mẹ.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.' 
@@ -2502,7 +2517,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function chineseSimplifiedTranslations(): array
+    public static function chineseSimplifiedTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -2516,7 +2531,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    static function chineseTraditionalTranslations(): array
+    public static function chineseTraditionalTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
