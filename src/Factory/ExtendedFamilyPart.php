@@ -355,12 +355,12 @@ abstract class ExtendedFamilyPart
                 $newObj = (object)[];
                 $newObj->members[] = $indifam->getIndividual();
                 $newObj->family = $indifam->getFamily();
-                /*
-                if ($referencePerson) {                            // tbd: Logik ist verkehrt! Richtige Personen auswählen (siehe Kommentar ganz oben)!
-                    $this->getRelationshipName($referencePerson);
-                }
-                */
                 $labels = [];
+/*
+                if ($referencePerson) {               // tbd: Logik ist verkehrt! Richtige Personen auswählen (siehe Kommentar ganz oben)!
+                    $labels[] = ExtendedFamily::getRelationshipName($referencePerson, $this->getProband(), '');
+                }
+*/
                 $labels = array_merge($labels, ExtendedFamily::generateChildLabels($indifam->getIndividual()));
                 $newObj->labels[] = $labels;
                 $newObj->families[] = $indifam->getFamily();

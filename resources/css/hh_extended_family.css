@@ -119,22 +119,32 @@
 .hh_extended_family_parameter {
     clear: right;
     float: right;
-    border: 1px solid grey;
-    border-radius: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
     padding: 2px 10px 2px 10px;
-    margin: 0px 2%;
+    margin: 4px 2% 0px;
     font-size: 12px;
     font-weight: bold;
     background-color: lightgrey;
     color: royalblue;
 }
 
-.hh_extended_family_pedi {
+.hh_extended_family_label {
     border: 1px solid black;
     border-radius: 4px;
     padding: 2px 10px 2px 10px;
-    margin: 0px 20px;
-    font-size: 14px;
+    margin: 8px 20px 0px 20px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: lightgrey;
+    color: green;
+}
+.hh_extended_family_label_box {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px 10px 2px 10px;
+    margin: 4px 20px 0px 2px;
+    font-size: 12px;
     font-weight: bold;
     background-color: lightgrey;
     color: green;

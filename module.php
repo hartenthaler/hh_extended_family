@@ -27,11 +27,11 @@ use function app;
 
 //webtrees major version switch
 if (defined("WT_MODULES_DIR")) {
-  // this is a webtrees 2.x module; it cannot be used with webtrees 1.x. See README.md.
-  return;
+    // this is a webtrees 2.x module; it cannot be used with webtrees 1.x. See README.md.
+    return;
 }
 
-// add our own dependencies if necesary
+// add our own dependencies if necessary
 
 // note: in the current module system, this would happen anyway because all module.php's are executed
 // whenever a single module is loaded (assuming these autoload.php's are called by the respective module.php's)

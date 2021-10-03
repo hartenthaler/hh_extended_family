@@ -25,11 +25,9 @@
  * tbd: offene Punkte
  * ------------------
  *
- * Performance: testen von Variante A und B
- * Code: neue Subklasse für die Funktion personExistsInExtendedFamily(), damit die Funktion des ausgegrauten Tabs wieder funktioniert
+ * Performance: testen von Variante A und B (letztere muss erst noch fertig implementiert werden)
  *
  * issues/enhancements: see GitHub
- * #57 alle Fälle mit gemischtem Geschlecht für Übersetzung vorbereiten, insbesondere bei den Partnern
  *
  * generelle Familienkennzeichen: statt "Eltern" immer "Ehe/Partnerschaft" verwenden
  *
@@ -57,6 +55,7 @@
  * Code: eventuell Verwendung der bestehenden Funktionen "_individuals" zum Aufbau von Familienteilen verwenden statt es jedes Mal vom Probanden aus komplett neu zu gestalten
  * Code: Ablaufreihenfolge in function addIndividualToFamily() umbauen wie function addIndividualToFamilyAsPartner()
  *
+ * Test: Übersetzung bei den Partnern testen bei diversen Fällen mit gemischtem Geschlecht
  * Test: wie verhält es sich, wenn eine Person als Kind zu zwei Familien gehört (bei P Seudo: C2)
  * Test: Stiefcousins (siehe Onkel Walter)
  * Test: Schwagerehe (etwa Levirat oder Sororat)
@@ -146,6 +145,7 @@ class ExtendedFamily
      *        ->familyPartParameters                array of array
      *        ->sizeThumbnailW                      int (in pixel)
      *        ->sizeThumbnailH                      int (in pixel)
+     *        ->name                                string              // tbd used for Vesta modules
      */
     public $config;
     
@@ -179,16 +179,6 @@ class ExtendedFamily
         $this->constructConfig($config);
         $this->constructProband($proband); 
         $this->constructFiltersExtendedFamilyParts();
-    }
-    
-    /**
-     * get object containing configuration parameters
-     *
-     * @return object
-     */
-    public function getConfig(): object
-    {
-        return $this->config;
     }
 
     /**
@@ -259,30 +249,24 @@ class ExtendedFamily
     }
 
     /**
-     * check if there is at least one person in one of the selected extended family parts (used to decide if tab is grayed out)
+     * get a name for the relationship between an individual and the proband
      *
-     * @return bool
-      
-    public function personExistsInExtendedFamily(): bool
+     * @param Individual $individual
+     * @param Individual $proband
+     * @param string $name this should be the name of the ExtendedFamilyTabModule Class
+     * @return string containing translated relationship name
+     */
+    public static function getRelationshipName(Individual $individual, Individual $proband, string $name): string
     {
-        $obj = (object)[];                                                      // tbd replace $obj by $ef 
-        $extfamObj = (object)[];
-        $extfamObj->efp = (object)[];
-        $found = false;
-        foreach ($this->config->shownFamilyParts as $efp => $element) {
-            if ($element->enabled) {
-                $extfamObj->efp->$efp = $this->initializeFamilyPartObject($efp);
-                $this->callFunction( 'find_' . $efp, $extfamObj->efp->$efp );
-                $this->filterAndAddCountersToFamilyPartObject( $extfamObj->efp->$efp, 'all' );
-                if ($extfamObj->efp->$efp->allCount > 0) {
-                    $found = true;
-                    break;
-                }
-            }
+        if (ExtendedFamilyTabModule::VestaModulesAvailable(false)) {
+            //error_log("Vesta Modules available");
+            return \Cissee\Webtrees\Module\ExtendedRelationships\ExtendedRelationshipModule::getRelationshipLink(
+                $name, $individual->tree(), null, $individual->xref(), $proband->xref(), 4);
+        } else {
+            //error_log("Vesta Modules not available");
         }
-        // tbd release/unset all objects
-        return $found;
-    } */
+        return '';
+    }
 
     /**
      * list of parts of extended family
@@ -339,24 +323,6 @@ class ExtendedFamily
             'grandchildren'          => ['generation' => -2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandchildren::GROUP_GRANDCHILDREN_BIO],
        ];
     }
-
-   /**
-    * get a name for the relationship between an individual and the proband
-    *
-    * @param Individual $individual
-    * @return string
-    
-    private function getRelationshipName(Individual $individual): string
-    {
-        if (ExtendedFamilyTabModule::VestaModulesAvailable(false)) {
-            error_log("Vesta Modules available");
-            // return \Cissee\Webtrees\Module\ExtendedRelationships\ExtendedRelationshipModule::getRelationshipLink($this->config->name, $individual->tree(), null, $individual->xref(), $this->proband->indi->xref(), 4);
-        } else {
-            error_log("Vesta Modules not available");
-        }
-        return '';
-    }
-    */
 
     /**
      * get list of options to filter by gender
