@@ -1433,45 +1433,61 @@ class ExtendedFamilyTranslations
             '%s has no grandparents recorded.' => 'Voor %s zijn geen grootouders geregistreerd.', 
             '%s has one grandmother recorded.' => 'Voor %s is een grootmoeder geregistreerd.',
             '%s has one grandfather recorded.' => 'Voor %s is een grootvader geregistreerd.',
-            '%s has one grandparent of unknown sex recorded.' => 'Voor %s is een grootouder met onbekend geslacht geregistreerd.',
+            '%s has one grandparent of unknown sex recorded.' => 'Voor %s is een grootouder van onbekend geslacht geregistreerd.',
             '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.'
                 => 'Voor %2$s is %1$d grootmoeder geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootmoeders geregistreerd.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
                 => 'Voor %2$s is %1$d grootvader geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootvaders geregistreerd.',
             '%2$s has %1$d grandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandparents of unknown sex recorded.'
-                => 'Voor %2$s is %1$d grootouder met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootouders met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d grootouder van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootouders van onbekend geslacht geregistreerd.',
             '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
                 => 'Voor %2$s zijn %1$d grootvader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootvaders en ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
                 => '%d grootmoeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d grootmoeders geregistreerd (%d in totaal).',
+            '%2$s has %1$d grandmother and ' . I18N::PLURAL . '%2$s has %1$d grandmothers and '
+                => 'Voor %2$s zijn %1$d grootmoeder en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootmoeders en ',
+            '%d grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandparents of unknown sex recorded (%d in total).'
+                => '%d grootouder van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d grootouders van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d grandfather, ' . I18N::PLURAL . '%2$s has %1$d grandfathers, '
+                => 'Voor %2$s zijn %1$d grootvader, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d grootvaders, ',
+            '%d grandmother, and ' . I18N::PLURAL . '%d grandmothers, and '
+                => '%d grootmoeder en ' . I18N::PLURAL . '%d grootmoeders en ',
 
             'Uncles and Aunts' => 'Ooms en tantes',
             '%s has no uncles or aunts recorded.' => 'Voor %s zijn geen ooms/tantes geregistreerd.',
             '%s has one aunt recorded.' => 'Voor %s is een tante geregistreerd.',
             '%s has one uncle recorded.' => 'Voor %s is een oom geregistreerd.',
-            '%s has one uncle or aunt of unknown sex recorded.' => 'Voor %s is een oom/tante met onbekend geslacht geregistreerd.',
+            '%s has one uncle or aunt of unknown sex recorded.' => 'Voor %s is een oom/tante van onbekend geslacht geregistreerd.',
             '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.'
                 => 'Voor %2$s is %1$d tante geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d tantes geregistreerd.',
             '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
                 => 'Voor %2$s is %1$d oom geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms geregistreerd.',
             '%2$s has %1$d uncle or aunt of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d uncles or aunts of unknown sex recorded.'
-                => 'Voor %2$s is %1$d oom/tante met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms/tantes met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d oom/tante van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms/tantes van onbekend geslacht geregistreerd.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
                 => 'Voor %2$s zijn %1$d oom en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms en ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
                 => '%d tante geregistreerd (%d in totaal).' . I18N::PLURAL . '%d tantes geregistreerd (%d in totaal).',
+            '%2$s has %1$d aunt and ' . I18N::PLURAL . '%2$s has %1$d aunts and '
+                => 'Voor %2$s zijn %1$d tante en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d tantes en ',
+            '%d uncle or aunt of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts of unknown sex recorded (%d in total).'
+                => '%d oom/tante van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d ooms/tantes van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d uncle, ' . I18N::PLURAL . '%2$s has %1$d uncles, '
+                => 'Voor %2$s zijn %1$d oom, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d ooms, ',
+            '%d aunt, and ' . I18N::PLURAL . '%d aunts, and '
+                => '%d tante en ' . I18N::PLURAL . '%d tantes en ',
 
             'Uncles and Aunts by marriage' => 'Aangetrouwde ooms en tantes',
             '%s has no uncles or aunts by marriage recorded.' => 'Voor %s zijn geen aangetrouwde ooms/tantes geregistreerd.',
             '%s has one aunt by marriage recorded.' => 'Voor %s is een aangetrouwde tante geregistreerd.',
             '%s has one uncle by marriage recorded.' => 'Voor %s is een aangetrouwde oom geregistreerd.',
-            '%s has one uncle or aunt by marriage of unknown sex recorded.' => 'Voor %s is een aangetrouwde oom/tante met onbekend geslacht geregistreerd.',
+            '%s has one uncle or aunt by marriage of unknown sex recorded.' => 'Voor %s is een aangetrouwde oom/tante van onbekend geslacht geregistreerd.',
             '%2$s has %1$d aunt by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d aunts by marriage recorded.'
                 => 'Voor %2$s is %1$d aangetrouwde tante geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d aangetrouwde tantes geregistreerd.',
             '%2$s has %1$d uncle by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d uncles by marriage recorded.'
                 => 'Voor %2$s is %1$d aangetrouwde oom geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d aangetrouwde ooms geregistreerd.',
             '%2$s has %1$d uncle or aunt by marriage of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d uncles or aunts by marriage of unknown sex recorded.'
-                => 'Voor %2$s is %1$d aangetrouwde oom/tante met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d aangetrouwde ooms/tantes met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d aangetrouwde oom/tante van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d aangetrouwde ooms/tantes van onbekend geslacht geregistreerd.',
             '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and ' 
                 => 'Voor %2$s zijn %1$d aangetrouwde oom en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d aangetrouwde ooms en ',
             '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).' 
@@ -1481,13 +1497,13 @@ class ExtendedFamilyTranslations
             '%s has no parents recorded.' => 'Voor %s zijn geen ouders geregistreerd.',
             '%s has one mother recorded.' => 'Voor %s is een moeder geregistreerd.',
             '%s has one father recorded.' => 'Voor %s is een vader geregistreerd.',
-            '%s has one parent of unknown sex recorded.' => 'Voor %s is een ouder met onbekend geslacht geregistreerd.',
+            '%s has one parent of unknown sex recorded.' => 'Voor %s is een ouder van onbekend geslacht geregistreerd.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.'
                 => 'Voor %2$s is %1$d moeder geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d moeders geregistreerd.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
                 => 'Voor %2$s is %1$d vader geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders geregistreerd.',
             '%2$s has %1$d parent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d parents of unknown sex recorded.'
-                => 'Voor %2$s is %1$d ouder met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d ouders met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d ouder van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d ouders van onbekend geslacht geregistreerd.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
                 => 'Voor %2$s zijn %1$d vader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders en ',
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
@@ -1497,13 +1513,13 @@ class ExtendedFamilyTranslations
             '%s has no parents-in-law recorded.' => 'Voor %s zijn geen schoonouders geregistreerd.',
             '%s has one mother-in-law recorded.' => 'Voor %s is een schoonmoeder geregistreerd.',
             '%s has one father-in-law recorded.' => 'Voor %s is een schoonvader geregistreerd.',
-            '%s has one parent-in-law of unknown sex recorded.' => 'Voor %s is een schoonouder met onbekend geslacht geregistreerd.',
+            '%s has one parent-in-law of unknown sex recorded.' => 'Voor %s is een schoonouder van onbekend geslacht geregistreerd.',
             '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.'
                 => 'Voor %2$s is %1$d schoonmoeder geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonmoeders geregistreerd.',
             '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.'
                 => 'Voor %2$s is %1$d schoonvader geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonvaders geregistreerd.',
             '%2$s has %1$d parent-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d parents-in-law of unknown sex recorded.'
-                => 'Voor %2$s is %1$d schoonouder met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonouders met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d schoonouder van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonouders van onbekend geslacht geregistreerd.',
             '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and '
                 => 'Voor %2$s zijn %1$d schoonvader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonvaders en ',
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).'
@@ -1513,13 +1529,13 @@ class ExtendedFamilyTranslations
             '%s has no co-parents-in-law recorded.' => 'Voor %s zijn geen ouders van schoonkinderen geregistreerd.',
             '%s has one co-mother-in-law recorded.' => 'Voor %s is een moeder van een schoonkind geregistreerd.',
             '%s has one co-father-in-law recorded.' => 'Voor %s is een vader van een schoonkind geregistreerd.',
-            '%s has one co-parent-in-law of unknown sex recorded.' => 'Voor %s is een ouder (met onbekend geslacht) van een schoonkind geregistreerd.',
+            '%s has one co-parent-in-law of unknown sex recorded.' => 'Voor %s is een ouder (van onbekend geslacht) van een schoonkind geregistreerd.',
             '%2$s has %1$d co-mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law recorded.'
                 => 'Voor %2$s is %1$d moeder van een schoonkind geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d moeders van schoonkinderen geregistreerd.',
             '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.'
                 => 'Voor %2$s is %1$d vader van een schoonkind geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders van schoonkinderen geregistreerd.',
             '%2$s has %1$d co-parent-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d co-parents-in-law of unknown sex recorded.'
-                => 'Voor %2$s is %1$d ouder (met onbekend geslacht) van een schoonkind geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d ouders (met onbekend geslacht) van een schoonkind geregistreerd.',
+                => 'Voor %2$s is %1$d ouder (van onbekend geslacht) van een schoonkind geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d ouders (van onbekend geslacht) van een schoonkind geregistreerd.',
             '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
                 => 'Voor %2$s zijn %1$d vader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vaders en ',
             '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
@@ -1530,13 +1546,13 @@ class ExtendedFamilyTranslations
             '%s has no partners recorded.' => 'Voor %s zijn geen partners geregistreerd.',
             '%s has one female partner recorded.' => 'Voor %s is een vrouwelijke partner geregistreerd.',
             '%s has one male partner recorded.' => 'Voor %s is een mannelijke partner geregistreerd.',
-            '%s has one partner of unknown sex recorded.' => 'Voor %s is een partner met onbekend geslacht geregistreerd.',
+            '%s has one partner of unknown sex recorded.' => 'Voor %s is een partner van onbekend geslacht geregistreerd.',
             '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.'
                 => 'Voor %2$s is %1$d vrouwelijke partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d vrouwelijke partners geregistreerd.',
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
                 => 'Voor %2$s is %1$d mannelijke partner geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners geregistreerd.',
             '%2$s has %1$d partner of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d partners of unknown sex recorded.'
-                => 'Voor %2$s is %1$d partner met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d partner van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d partners van onbekend geslacht geregistreerd.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' 
                 => 'Voor %2$s zijn %1$d mannelijke en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke en ',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
@@ -1559,7 +1575,7 @@ class ExtendedFamilyTranslations
             '%d female partner and ' . I18N::PLURAL . '%d female partners and '
                 => '%d vrouwelijke partner en ' . I18N::PLURAL . '%d vrouwelijke partners en ',
             '%d partner of unknown sex in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d partners of unknown sex in this partner chain recorded (%d in total).'
-                => '%d partner met onbekend geslacht in deze partnerketen geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners met onbekend geslacht in deze partnerketen geregistreerd (%d in totaal).',
+                => '%d partner van onbekend geslacht in deze partnerketen geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners van onbekend geslacht in deze partnerketen geregistreerd (%d in totaal).',
             'There are %d branches in the partner chain. ' => 'Er zijn %d takken in de partnerketen.',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s).',
             'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s).',
@@ -1568,129 +1584,193 @@ class ExtendedFamilyTranslations
             '%s has no siblings recorded.' => 'Voor %s zijn geen broers/zussen geregistreerd.',
             '%s has one sister recorded.' => 'Voor %s is een zus geregistreerd.',
             '%s has one brother recorded.' => 'Voor %s is een broer geregistreerd.',
-            '%s has one sibling of unknown sex recorded.' => 'Voor %s is een broer/zus met onbekend geslacht geregistreerd.',
+            '%s has one sibling of unknown sex recorded.' => 'Voor %s is een broer/zus van onbekend geslacht geregistreerd.',
             '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.'
                 => 'Voor %2$s is %1$d zus geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d zussen geregistreerd.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
                 => 'Voor %2$s is %1$d broer geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers geregistreerd.',
             '%2$s has %1$d sibling of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d siblings of unknown sex recorded.'
-                => 'Voor %2$s is %1$d een broer/zus met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d een broers/zussen met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d een broer/zus van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d een broers/zussen van onbekend geslacht geregistreerd.',
             '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
                 => 'Voor %2$s zijn %1$d broer en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers en ',
             '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
                 => '%d zus geregistreerd (%d in totaal).' . I18N::PLURAL . '%d zussen geregistreerd (%d in totaal).',
+            '%2$s has %1$d sister and ' . I18N::PLURAL . '%2$s has %1$d sisters and '
+                => 'Voor %2$s zijn %1$d zus en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d zussen en ',
+            '%d sibling of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d siblings of unknown sex recorded (%d in total).'
+                => '%d broer/zus van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d broers/zussen van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d brother, ' . I18N::PLURAL . '%2$s has %1$d brothers, '
+                => 'Voor %2$s zijn %1$d broer, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers, ',
+            '%d sister, and ' . I18N::PLURAL . '%d sisters, and '
+                => '%d zus en ' . I18N::PLURAL . '%d zussen en ',
 
             'Siblings-in-law' => 'Zwagers en schoonzussen',
-            '%s has no siblings-in-law recorded.' => 'Voor %s zijn geen zwagers of schoonzussen geregistreerd.',
+            '%s has no siblings-in-law recorded.' => 'Voor %s zijn geen zwagers/schoonzussen geregistreerd.',
             '%s has one sister-in-law recorded.' => 'Voor %s is een schoonzus geregistreerd.',
             '%s has one brother-in-law recorded.' => 'Voor %s is een zwager geregistreerd.',
-            '%s has one sibling-in-law of unknown sex recorded.' => 'Voor %s is een zwager of schoonzus met onbekend geslacht geregistreerd.',
+            '%s has one sibling-in-law of unknown sex recorded.' => 'Voor %s is een zwager/schoonzus van onbekend geslacht geregistreerd.',
             '%2$s has %1$d sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sisters-in-law recorded.'
                 => 'Voor %2$s is %1$d schoonzus geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonzussen geregistreerd.',
             '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.'
                 => 'Voor %2$s is %1$d zwager geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d zwagers geregistreerd.',
             '%2$s has %1$d sibling-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d siblings-in-law of unknown sex recorded.'
-                => 'Voor %2$s is %1$d Szwager of schoonzus met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d zwagers of schoonzussen met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d zwager/schoonzus van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d zwagers/schoonzussen van onbekend geslacht geregistreerd.',
             '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and ' 
                 => 'Voor %2$s zijn %1$d zwager en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d zwagers en ',
             '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).' 
                 => '%d schoonzus geregistreerd (%d in totaal).' . I18N::PLURAL . '%d schoonzussen geregistreerd (%d in totaal).',
+            '%2$s has %1$d sister-in-law and ' . I18N::PLURAL . '%2$s has %1$d sisters-in-law and '
+                => 'Voor %2$s zijn %1$d schoonzus en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonzussen en ',
+            '%d sibling-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d siblings-in-law of unknown sex recorded (%d in total).'
+                => '%d zwager/schoonzus van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d zwagers/schoonzuszen van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d brother-in-law, ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law, '
+                => 'Voor %2$s zijn %1$d zwager, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d zwagers, ',
+            '%d sister-in-law, and ' . I18N::PLURAL . '%d sisters-in-law, and '
+                => '%d schoonzus en ' . I18N::PLURAL . '%d schoonzussen en ',
 
             'Co-siblings-in-law' => 'Broers/zussen/partners van zwagers of schoonzussen',
             '%s has no co-siblings-in-law recorded.' => 'Voor %s zijn geen broers/zussen/partners van zwagers/schoonzussen geregistreerd.',
             '%s has one co-sister-in-law recorded.' => 'Voor %s is een zus/vrouwelijke partner van een zwager/schoonzus geregistreerd.',
             '%s has one co-brother-in-law recorded.' => 'Voor %s is een broer/mannelijke partner van een zwager/schoonzus geregistreerd.',
-            '%s has one co-sibling-in-law of unknown sex recorded.' => 'Voor %s is een broer/zus/partner (met onbekend geslacht) van een zwager/schoonzus geregistreerd.',
+            '%s has one co-sibling-in-law of unknown sex recorded.' => 'Voor %s is een broer/zus/partner (van onbekend geslacht) van een zwager/schoonzus geregistreerd.',
             '%2$s has %1$d co-sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law recorded.'
                 => 'Voor %2$s is %1$d zus/vrouwelijke partner van een zwager/schoonzus geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d zussen/vrouwelijke partners van zwagers/schoonzussen geregistreerd.',
             '%2$s has %1$d co-brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law recorded.'
                 => 'Voor %2$s is %1$d broer/mannelijke partner van een zwager/schoonzus geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers/mannelijke partners van zwagers/schoonzussen geregistreerd.',
             '%2$s has %1$d co-sibling-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d co-siblings-in-law of unknown sex recorded.'
-                => 'Voor %2$s is %1$d broer/zus/partner (met onbekend geslacht) van een zwager/schoonzus geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers/zussen/partners (met onbekend geslacht) van een zwager/schoonzus geregistreerd.',
+                => 'Voor %2$s is %1$d broer/zus/partner (van onbekend geslacht) van een zwager/schoonzus geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers/zussen/partners (van onbekend geslacht) van een zwager/schoonzus geregistreerd.',
             '%2$s has %1$d co-brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law and ' 
                 => 'Voor %2$s zijn %1$d broer/mannelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers/mannelijke partners en ',
             '%d co-sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-sisters-in-law recorded (%d in total).' 
                 => '%d zus/vrouwelijke partner van een zwager/schoonzus geregistreerd (%d in totaal).' . I18N::PLURAL . '%d zussen/vrouwelijke partners van zwagers/schoonzussen geregistreerd (%d in totaal).',
+            '%2$s has %1$d co-sister-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law and '
+                => 'Voor %2$s zijn %1$d zus/vrouwelijke partner van een zwager/schoonzus en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d zussen/vrouwelijke partners van een zwager/schoonzus en ',
+            '%d co-sibling-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d co-siblings-in-law of unknown sex recorded (%d in total).'
+                => '%d broer/zus/partner (van onbekend geslacht) van een zwager/schoonzus geregistreerd (%d in totaal).' . I18N::PLURAL . '%d broers/zussen/partners (van onbekend geslacht) van een zwager/schoonzus geregistreerd (%d in totaal).',
+            '%2$s has %1$d co-brother-in-law, ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law, '
+                => 'Voor %2$s zijn %1$d broer/mannelijke partner van een zwager/schoonzus, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d broers/mannelijke partners van een zwager/schoonzus, ',
+            '%d co-sister-in-law, and ' . I18N::PLURAL . '%d co-sisters-in-law, and '
+                => '%d zus/vrouwelijke partner van een zwager/schoonzus en ' . I18N::PLURAL . '%d zussen/vrouwelijke partners van een zwager/schoonzus en ',
 
             'Cousins' => 'Volle neven en nichten (kinderen van oom of tante)',
             '%s has no first cousins recorded.' => 'Voor %s zijn geen volle neven/nichten geregistreerd.',
             '%s has one female first cousin recorded.' => 'Voor %s is een volle nicht geregistreerd.',
             '%s has one male first cousin recorded.' => 'Voor %s is een volle neef geregistreerd.',
-            '%s has one first cousin of unknown sex recorded.' => 'Voor %s is een volle neef/nicht met onbekend geslacht geregistreerd.',
+            '%s has one first cousin of unknown sex recorded.' => 'Voor %s is een volle neef/nicht van onbekend geslacht geregistreerd.',
             '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.'
                 => 'Voor %2$s is %1$d volle nicht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle nichten geregistreerd.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
                 => 'Voor %2$s is %1$d volle neef geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle neven geregistreerd.',
             '%2$s has %1$d first cousin of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d first cousins of unknown sex recorded.'
-                => 'Voor %2$s is %1$d volle neef/nicht met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle neven/nichten met onbekend geslacht geregistreerd.',
+                => 'Voor %2$s is %1$d volle neef/nicht van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle neven/nichten van onbekend geslacht geregistreerd.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
                 => 'Voor %2$s zijn %1$d volle neef en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle neven en ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
                 => '%d volle nicht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d volle nichten geregistreerd (%d in totaal).',
+            '%2$s has %1$d female first cousin and ' . I18N::PLURAL . '%2$s has %1$d female first cousins and '
+                => 'Voor %2$s zijn %1$d volle nicht en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle nichten en ',
+            '%d first cousin of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d first cousins of unknown sex recorded (%d in total).'
+                => '%d volle neef/nicht van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d volle neven/nichten van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d male first cousin, ' . I18N::PLURAL . '%2$s has %1$d male first cousins, '
+                => 'Voor %2$s zijn %1$d volle neef, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d volle neven, ',
+            '%d female first cousin, and ' . I18N::PLURAL . '%d female first cousins, and '
+                => '%d volle nicht en ' . I18N::PLURAL . '%d volle nichten en ',
 
             'Nephews and Nieces' => 'Neefjes en nichtjes (kinderen van broer of zus)',
             '%s has no nephews or nieces recorded.' => 'Voor %s zijn geen neefjes/nichtjes (kinderen van broer/zus) geregistreerd.',
             '%s has one niece recorded.' => 'Voor %s is een nichtje geregistreerd.',
             '%s has one nephew recorded.' => 'Voor %s is een neefje geregistreerd.',
-            '%s has one nephew or niece of unknown sex recorded.' => 'Voor %s is een neefje/nichtje met onbekend geslacht geregistreerd.',
+            '%s has one nephew or niece of unknown sex recorded.' => 'Voor %s is een neefje/nichtje van onbekend geslacht geregistreerd.',
             '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.'
                 => 'Voor %2$s is %1$d nichtje geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d nichtjes geregistreerd.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
                 => 'Voor %2$s is %1$d neefje geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d neefjes geregistreerd.',
             '%2$s has %1$d nephew or niece of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d nephews or nieces of unknown sex recorded.'
-            => 'Voor %2$s is %1$d neefje/nichtje met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d neefjes/nichtje met onbekend geslacht geregistreerd.',
+            => 'Voor %2$s is %1$d neefje/nichtje van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d neefjes/nichtje van onbekend geslacht geregistreerd.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
                 => 'Voor %2$s zijn %1$d neefje en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d neefjes en ',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
                 => '%d nichtje geregistreerd (%d in totaal).' . I18N::PLURAL . '%d nichtjes geregistreerd (%d in totaal).', 
+            '%2$s has %1$d niece and ' . I18N::PLURAL . '%2$s has %1$d nieces and '
+                => 'Voor %2$s zijn %1$d nichtje en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d nichtjes en ',
+            '%d nephew or niece of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d nephews or nieces of unknown sex recorded (%d in total).'
+                => '%d neefje/nichtje van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d neefjes/nichtjes van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d nephew, ' . I18N::PLURAL . '%2$s has %1$d nephews, '
+                => 'Voor %2$s zijn %1$d neefje, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d neefjes, ',
+            '%d niece, and ' . I18N::PLURAL . '%d nieces, and '
+                => '%d nichtje en ' . I18N::PLURAL . '%d nichtjes en ',
 
             'Children' => 'Kinderen',
             '%s has no children recorded.' => 'Voor %s zijn geen kinderen geregistreerd.',
             '%s has one daughter recorded.' => 'Voor %s is een dochter geregistreerd.',
             '%s has one son recorded.' => 'Voor %s is een zoon geregistreerd.',
-            '%s has one child of unknown sex recorded.' => 'Voor %s is een kind met onbekend geslacht geregistreerd.',
+            '%s has one child of unknown sex recorded.' => 'Voor %s is een kind van onbekend geslacht geregistreerd.',
             '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.'
                 => 'Voor %2$s is %1$d dochter geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d dochters geregistreerd.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
                 => 'Voor %2$s is %1$d zoon geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d zonen geregistreerd.',
             '%2$s has %1$d child of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d children of unknown sex recorded.'
-            => 'Voor %2$s is %1$d kind met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d kinderen met onbekend geslacht geregistreerd.',
+            => 'Voor %2$s is %1$d kind van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d kinderen van onbekend geslacht geregistreerd.',
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
                 => 'Voor %2$s zijn %1$d zoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d zonen en ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
                 => '%d dochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d dochters geregistreerd (%d in totaal).', 
+            '%2$s has %1$d daughter and ' . I18N::PLURAL . '%2$s has %1$d daughters and '
+                => 'Voor %2$s zijn %1$d dochter en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d dochters en ',
+            '%d child of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d children of unknown sex recorded (%d in total).'
+                => '%d kind van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d kinderen van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d son, ' . I18N::PLURAL . '%2$s has %1$d sons, '
+                => 'Voor %2$s zijn %1$d zoon, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d zonen, ',
+            '%d daughter, and ' . I18N::PLURAL . '%d daughters, and '
+                => '%d dochter en ' . I18N::PLURAL . '%d dochters en ',
 
             'Children-in-law' => 'Schoonkinderen',
             '%s has no children-in-law recorded.' => 'Voor %s zijn geen schoonkinderen geregistreerd.',
             '%s has one daughter-in-law recorded.' => 'Voor %s is een schoondochter geregistreerd.',
             '%s has one son-in-law recorded.' => 'Voor %s is een schoonzoon geregistreerd.',
-            '%s has one child-in-law of unknown sex recorded.' => 'Voor %s is een schoonkind met onbekend geslacht geregistreerd.',
+            '%s has one child-in-law of unknown sex recorded.' => 'Voor %s is een schoonkind van onbekend geslacht geregistreerd.',
             '%2$s has %1$d daughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d daughters-in-law recorded.'
                 => 'Voor %2$s is %1$d schoondochter geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoondochters geregistreerd.',
             '%2$s has %1$d son-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sons-in-law recorded.'
                 => 'Voor %2$s is %1$d schoonzoon geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonzonen geregistreerd.',
             '%2$s has %1$d child-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d children-in-law recorded.'
-            => 'Voor %2$s is %1$d schoonkind met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s is %1$d schoonkinderen met onbekend geslacht geregistreerd.',
+            => 'Voor %2$s is %1$d schoonkind van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s is %1$d schoonkinderen van onbekend geslacht geregistreerd.',
             '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and ' 
                 => 'Voor %2$s zijn %1$d schoonzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonzonen en ',
             '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).' 
                 => '%d schoondochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d schoondochters geregistreerd (%d in totaal).', 
+            '%2$s has %1$d daughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d daughters-in-law and '
+                => 'Voor %2$s zijn %1$d schoondochter en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoondochters en ',
+            '%d child-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d children-in-law of unknown sex recorded (%d in total).'
+                => '%d schoonkind van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d schoonkinderen van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d son-in-law, ' . I18N::PLURAL . '%2$s has %1$d sons-in-law, '
+                => 'Voor %2$s zijn %1$d schoonzoon, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonzonen, ',
+            '%d daughter-in-law, and ' . I18N::PLURAL . '%d daughters-in-law, and '
+                => '%d schoondochter en ' . I18N::PLURAL . '%d schoondochters en ',
 
             'Grandchildren' => 'Kleinkinderen',
             '%s has no grandchildren recorded.' => 'Voor %s zijn geen kleinkinderen geregistreerd.',
             '%s has one granddaughter recorded.' => 'Voor %s is een kleindochter geregistreerd.',
             '%s has one grandson recorded.' => 'Voor %s is een kleinzoon geregistreerd.',
-            '%s has one grandchild of unknown sex recorded.' => 'Voor %s is een kleinkind met onbekend geslacht geregistreerd.',
+            '%s has one grandchild of unknown sex recorded.' => 'Voor %s is een kleinkind van onbekend geslacht geregistreerd.',
             '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.'
                 => 'Voor %2$s is %1$d kleindochter geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleindochters geregistreerd.',
             '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
-                => 'Voor %2$s is %1$d kleinzoon geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzoons geregistreerd.',
+                => 'Voor %2$s is %1$d kleinzoon geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzonen geregistreerd.',
             '%2$s has %1$d grandchild of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren of unknown sex recorded.'
-            => 'Voor %2$s is %1$d kleinkind met onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinkinderen met onbekend geslacht geregistreerd.',
+            => 'Voor %2$s is %1$d kleinkind van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinkinderen van onbekend geslacht geregistreerd.',
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
-                => 'Voor %2$s zijn %1$d kleinzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzoons en ',
+                => 'Voor %2$s zijn %1$d kleinzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzonen en ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
                 => '%d kleindochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d kleindochters geregistreerd (%d in totaal).',
+            '%2$s has %1$d granddaughter and ' . I18N::PLURAL . '%2$s has %1$d granddaughters and '
+                => 'Voor %2$s zijn %1$d kleindochter en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleindochters en ',
+            '%d grandchild of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren of unknown sex recorded (%d in total).'
+                => '%d kleinkind van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d kleinkinderen van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d grandson, ' . I18N::PLURAL . '%2$s has %1$d grandsons, '
+                => 'Voor %2$s zijn %1$d kleinzoon, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzonen, ',
+            '%d granddaughter, and ' . I18N::PLURAL . '%d granddaughters, and '
+                => '%d kleindochter en ' . I18N::PLURAL . '%d kleindochters en ',
         ];
     }
 
