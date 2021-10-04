@@ -562,7 +562,7 @@ class ExtendedFamilyTranslations
                 => 'Für %2$s ist %1$d Onkel oder Tante mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel oder Tanten mit unbekanntem Geschlecht verzeichnet.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
                 => 'Für %2$s sind %1$d Onkel und ' . I18N::PLURAL . 'Für %2$s sind %1$d Onkel und ',
-            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).'
                 => '%d Tante verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Tanten verzeichnet (insgesamt %d).',
             '%2$s has %1$d aunt and ' . I18N::PLURAL . '%2$s has %1$d aunts and '
                 => 'Für %2$s sind %1$d Tante und ' . I18N::PLURAL . 'Für %2$s sind %1$d Tanten und ',
@@ -584,10 +584,18 @@ class ExtendedFamilyTranslations
                 => 'Für %2$s ist %1$d angeheirateter Onkel verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d angeheiratete Onkel verzeichnet.',
             '%2$s has %1$d uncle or aunt by marriage of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d uncles or aunts by marriage of unknown sex recorded.'
                 => 'Für %2$s ist %1$d angeheirateter Onkel oder Tante mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d angeheiratete Onkel oder Tanten mit unbekanntem Geschlecht verzeichnet.',
-            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and ' 
+            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and '
                 => 'Für %2$s sind %1$d angeheiratete Onkel und ' . I18N::PLURAL . 'Für %2$s sind %1$d angeheiratete Onkel und ',
-            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).' 
+            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).'
                 => '%d Tante verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Tanten verzeichnet (insgesamt %d).',
+            '%2$s has %1$d aunt by marriage and ' . I18N::PLURAL . '%2$s has %1$d aunts by marriage and '
+                => 'Für %2$s sind %1$d angeheiratete Tante und ' . I18N::PLURAL . 'Für %2$s sind %1$d angeheiratete Tanten und ',
+            '%d uncle or aunt by marriage of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts by marriage of unknown sex recorded (%d in total).'
+                => '%d angeheirateter Onkel oder eine angeheiratete Tante mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d angeheiratete Onkel oder Tanten mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d uncle by marriage, ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage, '
+                => 'Für %2$s sind %1$d angeheirateter Onkel, ' . I18N::PLURAL . 'Für %2$s sind %1$d angeheiratete Onkel, ',
+            '%d aunt by marriage, and ' . I18N::PLURAL . '%d aunts by marriage, and '
+                => '%d angeheiratete Tante und ' . I18N::PLURAL . '%d angeheiratete Tanten und ',
 
             'Parents' => 'Eltern',
             '%s has no parents recorded.' => 'Für %s sind keine Eltern verzeichnet.',
@@ -600,10 +608,18 @@ class ExtendedFamilyTranslations
                 => 'Für %2$s ist %1$d Vater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Väter verzeichnet.',
             '%2$s has %1$d parent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d parents of unknown sex recorded.'
                 => 'Für %2$s ist %1$d Elternteil mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Elternteile mit unbekanntem Geschlecht verzeichnet.',
-            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
+            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and '
                 => 'Für %2$s sind %1$d Vater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Väter und ',
-            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).'
                 => '%d Mutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Mütter verzeichnet (insgesamt %d).',
+            '%2$s has %1$d mother and ' . I18N::PLURAL . '%2$s has %1$d mothers and '
+                => 'Für %2$s sind %1$d Mutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Mütter und ',
+            '%d parent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents of unknown sex recorded (%d in total).'
+                => '%d Elternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Elternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d father, ' . I18N::PLURAL . '%2$s has %1$d fathers, '
+                => 'Für %2$s sind %1$d Vater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Väter, ',
+            '%d mother, and ' . I18N::PLURAL . '%d mothers, and '
+                => '%d Mutter und ' . I18N::PLURAL . '%d Mütter und ',
             
             'Parents-in-law' => 'Schwiegereltern',
             '%s has no parents-in-law recorded.' => 'Für %s sind keine Schwiegereltern verzeichnet.',
@@ -616,10 +632,18 @@ class ExtendedFamilyTranslations
                 => 'Für %2$s ist %1$d Schwiegervater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerväter verzeichnet.',
             '%2$s has %1$d parent-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d parents-in-law of unknown sex recorded.'
                 => 'Für %2$s ist %1$d Schwiegerelternteil mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerelternteile mit unbekanntem Geschlecht verzeichnet.',
-            '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' 
+            '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and '
                 => 'Für %2$s sind %1$d Schwiegervater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerväter und ',
-            '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' 
+            '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).'
                 => '%d Schwiegermutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegermütter verzeichnet (insgesamt %d).',
+            '%2$s has %1$d mother-in-law and ' . I18N::PLURAL . '%2$s has %1$d mothers-in-law and '
+            => 'Für %2$s sind %1$d Schwiegermutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegermütter und ',
+            '%d parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents-in-law of unknown sex recorded (%d in total).'
+            => '%d Schwiegerelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d father-in-law, ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law, '
+            => 'Für %2$s sind %1$d Schwiegervater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerväter, ',
+            '%d mother-in-law, and ' . I18N::PLURAL . '%d mothers-in-law, and '
+            => '%d Schwiegermutter und ' . I18N::PLURAL . '%d Schwiegermütter und ',
  
             'Co-parents-in-law' => 'Gegenschwiegereltern',
             '%s has no co-parents-in-law recorded.' => 'Für %s sind keine Gegenschwiegereltern verzeichnet.',
@@ -632,10 +656,18 @@ class ExtendedFamilyTranslations
                 => 'Für %2$s ist %1$d Gegenschwiegervater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Gegenschwiegerväter verzeichnet.',
             '%2$s has %1$d co-parent-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d co-parents-in-law of unknown sex recorded.'
                 => 'Für %2$s ist %1$d Gegenschwiegerelternteil mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Gegenschwiegerelternteile mit unbekanntem Geschlecht verzeichnet.',
-            '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
+            '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and '
                 => 'Für %2$s sind %1$d Gegenschwiegervater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Gegenschwiegerväter und ',
-            '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
+            '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).'
                 => '%d Gegenschwiegermutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Gegenschwiegermütter verzeichnet (insgesamt %d).',
+            '%2$s has %1$d co-mother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law and '
+                => 'Für %2$s sind %1$d Gegenschwiegermutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Gegenschwiegermütter und ',
+            '%d co-parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d co-parents-in-law of unknown sex recorded (%d in total).'
+                => '%d Gegenschwiegerelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Gegenschwiegerelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d co-father-in-law, ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law, '
+                => 'Für %2$s sind %1$d Gegenschwiegervater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Gegenschwiegerväter, ',
+            '%d co-mother-in-law, and ' . I18N::PLURAL . '%d co-mothers-in-law, and '
+                => '%d Gegenschwiegermutter und ' . I18N::PLURAL . '%d Gegenschwiegermütter und ',
 
             'Partners' => 'Partner',
             'Partner of ' => 'Partner von ',
@@ -672,6 +704,14 @@ class ExtendedFamilyTranslations
                 => '%d Partnerin und ' . I18N::PLURAL . '%d Partnerinnen und ',
             '%d partner of unknown sex in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d partners of unknown sex in this partner chain recorded (%d in total).'
                 => '%d Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet (insgesamt %d).',
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
+                => 'Für %2$s sind %1$d Partnerin und ' . I18N::PLURAL . 'Für %2$s sind %1$d Partnerinnen und ',
+            '%d partner of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d partners of unknown sex recorded (%d in total).'
+                => '%d Partner mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Partner mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d male partner, ' . I18N::PLURAL . '%2$s has %1$d male partners, '
+                => 'Für %2$s sind %1$d männlicher Partner, ' . I18N::PLURAL . 'Für %2$s sind %1$d männliche Partner, ',
+            '%d female partner, and ' . I18N::PLURAL . '%d female partners, and '
+                => '%d Partnerin und ' . I18N::PLURAL . '%d Partnerinnen und ',
             'There are %d branches in the partner chain. ' => 'Es gibt %d Zweige in der Partnerkette.',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Der längste Zweig in der Partnerkette zu %2$s besteht aus %1$d Partnern (einschließlich %3$s).',
             'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'Der längste Zweig in der Partnerkette besteht aus %1$d Partnern (einschließlich %2$s).',
@@ -1003,9 +1043,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Abuela registrada.' . I18N::PLURAL . '%2$s tiene %1$d Abuelas registradas.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
                 => '%2$s tiene %1$d Abuelo registrado.' . I18N::PLURAL . '%2$s tiene %1$d Abuelos registrados.',
-            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and ' 
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and '
                 => '%2$s tiene %1$d Abuelo y ' . I18N::PLURAL . '%2$s tiene %1$d Abuelos y ',
-            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).' 
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).'
                 => '%d Abuela registrada (%d en total).' . I18N::PLURAL . '%d Abuelas registrados (%d en total).',
             
             'Uncles and Aunts' => 'Tíos y Tías',
@@ -1019,7 +1059,7 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Tío registrado.' . I18N::PLURAL . '%2$s tiene %1$d Tíos registrados.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and '
                 => '%2$s tiene %1$d Tío y ' . I18N::PLURAL . '%2$s tiene %1$d Tíos y ',
-            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).'
                 => '%d Tía registrados (%d en total).' . I18N::PLURAL . '%d Tías registrados (%d en total).',
 
             'Uncles and Aunts by marriage' => 'Tíos y tías políticos',
@@ -1031,9 +1071,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Tía política registrada.' . I18N::PLURAL . '%2$s tiene %1$d Tías políticas registradas.',
             '%2$s has %1$d uncle by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d uncles by marriage recorded.'
                 => '%2$s tiene %1$d Tío político registrado.' . I18N::PLURAL . '%2$s tiene %1$d Tíos políticos registrados.',
-            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and ' 
+            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and '
                 => '%2$s tiene %1$d Tío político y ' . I18N::PLURAL . '%2$s tiene %1$d Tíos políticos y ',
-            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).' 
+            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).'
                 => '%d Tía política registrados (%d en total).' . I18N::PLURAL . '%d Tías políticas registrados (%d en total).',
 
             'Parents' => 'Padres',
@@ -1045,9 +1085,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Madre registrada.' . I18N::PLURAL . '%2$s tiene %1$d Madres registradas.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
                 => '%2$s tiene %1$d Padre registrado.' . I18N::PLURAL . '%2$s tiene %1$d Padres registrados.',
-            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' 
+            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and '
                 => '%2$s tiene %1$d Padre y ' . I18N::PLURAL . '%2$s tiene %1$d Padres y ',
-            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' 
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).'
                 => '%d Madre registrados (%d en total).' . I18N::PLURAL . '%d Madres registrados (%d en total).',
             
             'Parents-in-law' => 'Suegros',
@@ -1073,9 +1113,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Consuegra registrada.' . I18N::PLURAL . '%2$s tiene %1$d Consuegras registradas.',
             '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.'
                 => '%2$s tiene %1$d Consuegro registrado.' . I18N::PLURAL . '%2$s tiene %1$d Consuegros registrados.',
-            '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' 
+            '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and '
                 => '%2$s tiene %1$d Consuegro y ' . I18N::PLURAL . '%2$s tiene %1$d Consuegros y ',
-            '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' 
+            '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).'
                 => '%d Consuegra registrada (%d en total).' . I18N::PLURAL . '%d Consuegras registrados (%d en total).',
 
             'Siblings' => 'Hermanos y Hermanas',
@@ -1087,9 +1127,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Hermana registrada.' . I18N::PLURAL . '%2$s tiene %1$d Hermanas registradas.',
             '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
                 => '%2$s tiene %1$d Hermano registrado.' . I18N::PLURAL . '%2$s tiene %1$d Hermanos registrados.',
-            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and ' 
+            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and '
                 => '%2$s tiene %1$d Hermano y ' . I18N::PLURAL . '%2$s tiene %1$d Hermanos y ',
-            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).' 
+            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).'
                 => '%d Hermana registrados (%d en total).' . I18N::PLURAL . '%d Hermanas registrados (%d en total).',
             
             'Siblings-in-law' => 'Cuñados y Cuñadas',
@@ -1101,9 +1141,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Cuñada registrada.' . I18N::PLURAL . '%2$s tiene %1$d Cuñadas registradas.',
             '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.'
                 => '%2$s tiene %1$d Cuñado registrado.' . I18N::PLURAL . '%2$s tiene %1$d Cuñados registrados.',
-            '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and ' 
+            '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and '
                 => '%2$s tiene %1$d Cuñado y ' . I18N::PLURAL . '%2$s tiene %1$d Cuñados y ',
-            '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).' 
+            '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).'
                 => '%d Cuñada (%d en total).' . I18N::PLURAL . '%d Cuñadas registrados (%d en total).',
 
             'Co-siblings-in-law' => 'Concuñados y Concuñadas',
@@ -1115,9 +1155,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Concuñada registrada.' . I18N::PLURAL . '%2$s tiene %1$d Concuñadas registradas.',
             '%2$s has %1$d co-brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law recorded.'
                 => '%2$s tiene %1$d Concuñado registrado.' . I18N::PLURAL . '%2$s tiene %1$d Concuñados registrados.',
-            '%2$s has %1$d co-brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law and ' 
+            '%2$s has %1$d co-brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law and '
                 => '%2$s tiene %1$d Concuñado y ' . I18N::PLURAL . '%2$s tiene %1$d Concuñados y ',
-            '%d co-sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-sisters-in-law recorded (%d in total).' 
+            '%d co-sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-sisters-in-law recorded (%d in total).'
                 => '%d Concuñada (%d en total).' . I18N::PLURAL . '%d Concuñadas registrados (%d en total).',
                                 
             'Partners' => 'Cónyuge',
@@ -1134,9 +1174,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Cónyuge y ' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges y ',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' 
                 => '%2$s tiene %1$d Cónyuge y ' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges y ',
-            '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' 
+            '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).'
                 => '%d Cónyuge registrado (%d en total).' . I18N::PLURAL . '%d Cónyuges registrados (%d en total).',
-            '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' 
+            '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and '
                 => '%2$s tiene %1$d Cónyuge y ' . I18N::PLURAL . '%2$s tiene %1$d Cónyuges y ',
             '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'
                 => '%d Cónyuge registrado (%d en total).' . I18N::PLURAL . '%d Cónyuges registrados (%d en total).',
@@ -1174,9 +1214,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Sobrina registrada.' . I18N::PLURAL . '%2$s tiene %1$d Sobrinas registradas.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
                 => '%2$s tiene %1$d Sobrino registrado.' . I18N::PLURAL . '%2$s tiene %1$d Sobrinos registrados.',
-            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
+            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and '
                 => '%2$s tiene %1$d Sobrino y ' . I18N::PLURAL . '%2$s tiene %1$d Sobrinos y ',
-            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
+            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).'
                 => '%d Sobrina registrados (%d en total).' . I18N::PLURAL . '%d Sobrinas registrados (%d en total).',
 
             'Children' => 'Hijos e Hijas',   
@@ -1188,9 +1228,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Hija registrada.' . I18N::PLURAL . '%2$s tiene %1$d Hijas registradas.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
                 => '%2$s tiene %1$d Hijo registrado.' . I18N::PLURAL . '%2$s tiene %1$d Hijos registrados.',
-            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
+            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and '
                 => '%2$s tiene %1$d Hijo y ' . I18N::PLURAL . '%2$s tiene %1$d Hijos y ',
-            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
+            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).'
                 => '%d Hija registrados (%d en total).' . I18N::PLURAL . '%d Hijas registrados (%d en total).',
             
             'Children-in-law' => 'Hijos políticos',
@@ -1202,9 +1242,9 @@ class ExtendedFamilyTranslations
                 => '%2$s tiene %1$d Hija política registrada.' . I18N::PLURAL . '%2$s tiene %1$d Hijas políticas registradas.',
             '%2$s has %1$d son-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sons-in-law recorded.'
                 => '%2$s tine %1$d Hijo político registrado.' . I18N::PLURAL . '%2$s tine %1$d Hijos politicos registrados.',
-            '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and ' 
+            '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and '
                 => '%2$s tiene %1$d Hijo político y ' . I18N::PLURAL . '%2$s tiene %1$d Hijos políticos y ',
-            '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).' 
+            '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).'
                 => '%d Hijas políticas registradas (%d en total).' . I18N::PLURAL . '%d Hijas políticas registrados (%d en total).',
 
             'Grandchildren' => 'Nietos y Nietas', 
@@ -1216,9 +1256,9 @@ class ExtendedFamilyTranslations
                 => '%2$s ist %1$d Nieta registrada.' . I18N::PLURAL . '%2$s tiene %1$d Nietas registradas.',
             '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
                 => '%2$s ist %1$d Nieto registrado.' . I18N::PLURAL . '%2$s tiene %1$d Nietos registrados.',
-            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
+            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and '
                 => '%2$s tiene %1$d Nieto y ' . I18N::PLURAL . '%2$s tiene %1$d Nietos y ',
-            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).'
                 => '%d Nieta registrados (%d en total).' . I18N::PLURAL . '%d Nietas registrados (%d en total).',
         ];
     }
@@ -1240,7 +1280,7 @@ class ExtendedFamilyTranslations
      *
      * @return array
      */
-    public  function frenchTranslations(): array
+    public static function frenchTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -2263,7 +2303,7 @@ class ExtendedFamilyTranslations
                 => '%d онуку (загалом %d).' . I18N::PLURAL . '%d онучок (загалом %d).' . I18N::PLURAL . '%d онучок (загалом %d).',
         ];
     }
-	
+
     /**
      * @return array
      */
@@ -2529,9 +2569,9 @@ class ExtendedFamilyTranslations
                 => '%2$s có %1$d chị họ/em gái họ.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
                 => '%2$s có %1$d anh/em trai họ.',
-            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and ' 
+            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and '
                 => '%2$s có %1$d anh/em trai họ và ',
-            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).' 
+            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).'
                 => '%d chị/em gái họ (có tất cả là %d người).',
 
             'Nephews and Nieces' => 'Cháu (Là con của anh em trai ruột)',
@@ -2543,9 +2583,9 @@ class ExtendedFamilyTranslations
                 => '%2$s có %1$d một cháu gái.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
                 => '%2$s có %1$d một cháu trai.',
-            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' 
+            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and '
                 => '%2$s có %1$d cháu trai và',
-            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).' 
+            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).'
                 => '%d cháu gái có tất cả là (có có tất cả là %d người).',
 
             'Children' => 'Con',
@@ -2557,9 +2597,9 @@ class ExtendedFamilyTranslations
                 => '%2$s có %1$d con gái.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
                 => '%2$s có %1$d con trai.',
-            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' 
+            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and '
                 => '%2$s có %1$d con trai và ',
-            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).' 
+            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).'
                 => '%d con gái (có tất cả là %d người con).',
 
             'Children-in-law' => 'Con dâu và con rể',
@@ -2571,9 +2611,9 @@ class ExtendedFamilyTranslations
                 => '%2$s có %1$d con dâu.',
             '%2$s has %1$d son-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sons-in-law recorded.'
                 => '%2$s có %1$d con rể.',
-            '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and ' 
+            '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and '
                 => '%2$s có %1$d con rể và ',
-            '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).' 
+            '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).'
                 => '%d con dâu (có tất cả là %d người).',
 
             'Grandchildren' => 'Cháu nội',
@@ -2585,9 +2625,9 @@ class ExtendedFamilyTranslations
                 => '%2$s có %1$d cháu gái.',
             '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
                 => '%2$s có %1$d cháu trai.',
-            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' 
+            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and '
                 => '%2$s có %1$d cháu trai và ',
-            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).' 
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).'
                 => '%d cháu gái (có tất cả là %d người).',
         ];
     }
