@@ -23,20 +23,7 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
-//use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
-/*
-use Fisharebest\Webtrees\Fact;
-use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandparents;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Uncles_and_aunts;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Parents;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Siblings;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Cousins;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Children;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandchildren;
-*/
 
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
@@ -60,12 +47,16 @@ require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren.php');
 
 /**
  * class ExtendedFamilyPersonExists
- * to check in efficient way if there exists at least one person in one of the selected extended family parts of the proband
- * used in the function to decide if the tab has to be grayed out
+ * to check in an efficient way if there exists at least one person in one of
+ * the selected extended family parts of the proband
+ * (used in the function to decide if the tab has to be grayed out)
  */
 class ExtendedFamilyPersonExists extends ExtendedFamily
 {
-    public bool $found;
+    /**
+     * @var bool $found
+     */
+    public $found;
 
     /**
      * constructor for this class
@@ -76,52 +67,36 @@ class ExtendedFamilyPersonExists extends ExtendedFamily
     public function __construct(Individual $proband, object $config)
     {
         $this->constructConfig($config);
-        $this->constructProband($proband); 
+        $this->constructProband($proband);
         $this->found = $this->constructCheck();
     }
 
     /**
-     * construct object containing configuration information based on module parameters
-     *
-     * @param object $config configuration parameters
-     */
-    private function constructConfig(object $config)
-    {
-        $this->config = $config;
-    }
-    
-    /**
-     * construct object containing information related to the proband
-     *
-     * @param Individual $proband
-     */
-    private function constructProband(Individual $proband)
-    {
-        $this->proband = (object)[];
-        $this->proband->indi = $proband;
-    }
-
-    /**
-     * build extended family parts, but stop as soon a person is found in one of the extended family parts
+     * build extended family parts, but stop as soon as a person is found in one of the extended family parts
      * tbd: start with parents, children, siblings, ... this is maybe a bit more efficient
      *
      * @return bool
      */
     private function constructCheck(): bool
     {
-        $found = false;
         foreach ($this->config->shownFamilyParts as $efp => $element) {
             if ($element->enabled) {
-                //$efpObj = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, 'all');
-                if (ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, 'all')->getEfpObject()->allCount > 0) {
-                    $found = true;
-                    break;
+                if (ExtendedFamilyPartFactory::create(ucfirst($efp),
+                                                      $this->proband->indi,
+                                                      'all')
+                        ->getEfpObject()->allCount > 0) {
+                    return true;
                 }
             }
         }
-        return $found;      // tbd release/unset all objects
+        return false;
     }
 
+    /**
+     * provide value of $found
+     *
+     * @return bool
+     */
     public function found(): bool
     {
         return $this->found;

@@ -71,14 +71,6 @@ use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandparents;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Uncles_and_aunts;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Parents;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Siblings;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Cousins;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Children;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandchildren;
 
 // string functions
 use function str_replace;
@@ -87,7 +79,6 @@ use function str_contains;  // will be added in PHP 8.0
 use function preg_match;
 
 // array functions
-// use function unset;      // cannot be declared as used function
 use function explode;
 use function count;
 use function in_array;
@@ -133,7 +124,7 @@ class ExtendedFamily
     /**
      * @var $config                                 object
      *        ->showEmptyBlock                      int [0,1,2]
-     *        ->showShortName                       bool    
+     *        ->showShortName                       bool
      *        ->showLabels                          bool
      *        ->useCompactDesign                    bool
      *        ->showThumbnail                       bool
@@ -145,7 +136,6 @@ class ExtendedFamily
      *        ->familyPartParameters                array of array
      *        ->sizeThumbnailW                      int (in pixel)
      *        ->sizeThumbnailH                      int (in pixel)
-     *        ->name                                string              // tbd used for Vesta modules
      */
     public $config;
     
@@ -186,7 +176,7 @@ class ExtendedFamily
      *
      * @param object $config configuration parameters
      */
-    private function constructConfig(object $config)
+    protected function constructConfig(object $config)
     {
         $this->config = $config;
     }
@@ -196,12 +186,12 @@ class ExtendedFamily
      *
      * @param Individual $proband
      */
-    private function constructProband(Individual $proband)
+    protected function constructProband(Individual $proband)
     {
         $this->proband = (object)[];
         $this->proband->indi     = $proband;
-        $this->proband->niceName = $this->findNiceName( $proband );
-        $this->proband->labels   = $this->generateChildLabels( $proband );
+        $this->proband->niceName = $this->findNiceName($proband);
+        $this->proband->labels   = $this->generateChildLabels($proband);
     }
 
     /**
@@ -246,26 +236,6 @@ class ExtendedFamily
                 }
             }
         }
-    }
-
-    /**
-     * get a name for the relationship between an individual and the proband
-     *
-     * @param Individual $individual
-     * @param Individual $proband
-     * @param string $name this should be the name of the ExtendedFamilyTabModule Class
-     * @return string containing translated relationship name
-     */
-    public static function getRelationshipName(Individual $individual, Individual $proband, string $name): string
-    {
-        if (ExtendedFamilyTabModule::VestaModulesAvailable(false)) {
-            //error_log("Vesta Modules available");
-            return \Cissee\Webtrees\Module\ExtendedRelationships\ExtendedRelationshipModule::getRelationshipLink(
-                $name, $individual->tree(), null, $individual->xref(), $proband->xref(), 4);
-        } else {
-            //error_log("Vesta Modules not available");
-        }
-        return '';
     }
 
     /**
@@ -329,7 +299,7 @@ class ExtendedFamily
      *
      * @return array of string
      */
-    static function getFilterOptionsSex(): array
+    private static function getFilterOptionsSex(): array
     {
         return [
             'M',
@@ -343,7 +313,7 @@ class ExtendedFamily
      *
      * @return array of string
      */
-    static function getFilterOptionsAlive(): array
+    private static function getFilterOptionsAlive(): array
     {
         return [
             'Y',
@@ -356,18 +326,18 @@ class ExtendedFamily
      *
      * @return array of string
      */
-    static function getFilterOptions(): array
+    public static function getFilterOptions(): array
     {
         $options = [];
         $options[] = 'all';
-        foreach(ExtendedFamily::getFilterOptionsSex() as $option) {
+        foreach (ExtendedFamily::getFilterOptionsSex() as $option) {
             $options[] = $option;
         }
-        foreach(ExtendedFamily::getFilterOptionsAlive() as $option) {
+        foreach (ExtendedFamily::getFilterOptionsAlive() as $option) {
             $options[] = $option;
         }
-        foreach(ExtendedFamily::getFilterOptionsSex() as $optionSex) {
-            foreach(ExtendedFamily::getFilterOptionsAlive() as $optionAlive) {
+        foreach (ExtendedFamily::getFilterOptionsSex() as $optionSex) {
+            foreach (ExtendedFamily::getFilterOptionsAlive() as $optionAlive) {
                 $options[] = $optionSex . $optionAlive;
             }
         }
@@ -377,11 +347,10 @@ class ExtendedFamily
     /**
      * convert combined filterOption to filter option for gender of a person [all, only_M, only_F, only_U]
      *
-     * @param string [all, M, F, U, Y, N, MY, FN, ...]
-     *
+     * @param string $filterOption [all, M, F, U, Y, N, MY, FN, ...]
      * @return string
      */
-    static function filterOptionSex($filterOption): string
+    public static function filterOptionSex(string $filterOption): string
     {
         foreach (ExtendedFamily::getFilterOptionsSex() as  $option) {
             if (str_contains($filterOption, $option)) {
@@ -395,13 +364,12 @@ class ExtendedFamily
      * convert combined filteroption to filter option for alive/dead status of a person [all, only_dead, only_alive]
      *
      * @param string [M, F, U, Y, N, MY, FN, ...]
-     *
      * @return string
      */
-    static function filterOptionAlive($filterOption): string
+    public static function filterOptionAlive($filterOption): string
     {
         foreach (ExtendedFamily::getFilterOptionsAlive() as  $option) {
-            if (str_contains($filterOption,$option)) {
+            if (str_contains($filterOption, $option)) {
                 if ($option == 'Y') {
                     return 'only_alive';
                 } else {
@@ -418,7 +386,7 @@ class ExtendedFamily
      * @param string $filterOption  [M, F, U, Y, N, MY, ...]
      * @return array of string [sex, alive]
      */
-    static function convertFilterOptions(string $filterOption): array
+    public static function convertFilterOptions(string $filterOption): array
     {
         return [
             'sex'   => ExtendedFamily::filterOptionSex($filterOption),
@@ -523,19 +491,19 @@ class ExtendedFamily
     private function findNiceNameFromNameParts(Individual $individual): string
     {
         $niceName = '';
-        $name_facts = $individual->facts(['NAME']);
-        $nickname = $name_facts[0]->attribute('NICK');
+        $nameFacts = $individual->facts(['NAME']);
+        $nickname = $nameFacts[0]->attribute('NICK');
         if ($nickname !== '') {
             $niceName = $nickname;
         } else {
-            $npfx = $name_facts[0]->attribute('NPFX');
-            $givenAndSurnames = explode('/', $name_facts[0]->value());
+            $npfx = $nameFacts[0]->attribute('NPFX');
+            $givenAndSurnames = explode('/', $nameFacts[0]->value());
             if ($givenAndSurnames[0] !== '') {                                          // are there given names (or prefix nameparts)?
                 $givennameparts = explode( ' ', $givenAndSurnames[0]);
                 if ($npfx == '') {                                                      // find the first given name
                     $niceName = $givennameparts[0];                                     // the first given name
-                } elseif (count(explode(' ',$npfx)) !== count($givennameparts)) {
-                    $niceName = $givennameparts[count(explode(' ',$npfx))];     // the first given name after the prefix nameparts
+                } elseif (count(explode(' ', $npfx)) !== count($givennameparts)) {
+                    $niceName = $givennameparts[count(explode(' ', $npfx))];     // the first given name after the prefix nameparts
                 }
             } else {
                 $surname = $givenAndSurnames[1];
@@ -572,13 +540,13 @@ class ExtendedFamily
      * @param Individual $child
      * @return string
      */
-    static function generatePedigreeLabel(Individual $child): string
+    private static function generatePedigreeLabel(Individual $child): string
     {
-        $label = GedcomCodePedi::getValue('',$child->getInstance($child->xref(),$child->tree()));
+        $label = GedcomCodePedi::getValue('', $child->getInstance($child->xref(), $child->tree()));
         if ($child->childFamilies()->first()) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $child->gedcom(), $match)) {
                 if ($match[1] !== 'birth') {
-                    $label = GedcomCodePedi::getValue($match[1],$child->getInstance($child->xref(),$child->tree()));
+                    $label = GedcomCodePedi::getValue($match[1], $child->getInstance($child->xref(), $child->tree()));
                 }
             }
         }
@@ -592,7 +560,7 @@ class ExtendedFamily
      * @param Individual $child
      * @return string
      */
-    static function generateChildLinkageStatusLabel(Individual $child): string
+    private static function generateChildLinkageStatusLabel(Individual $child): string
     {
         if ($child->childFamilies()->first()) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 STAT (.+)/', $child->gedcom(), $match)) {
@@ -608,9 +576,9 @@ class ExtendedFamily
      * @param Individual $child
      * @return string
      */
-    static function generateMultipleBirthLabel(Individual $child): string
+    private static function generateMultipleBirthLabel(Individual $child): string
     {
-        $multiple_birth = [
+        $multipleBirth = [
             2 => 'twin',
             3 => 'triplet',
             4 => 'quadruplet',
@@ -624,7 +592,7 @@ class ExtendedFamily
         $childGedcom = $child->gedcom();
         if (preg_match('/\n1 ASSO @(?:.+)@\n2 RELA (.+)/', $childGedcom, $match) ||
              preg_match('/\n2 _ASSO @(?:.+)@\n3 RELA (.+)/', $childGedcom, $match)) {
-            if (in_array(strtolower($match[1]), $multiple_birth)) {
+            if (in_array(strtolower($match[1]), $multipleBirth)) {
                 return I18N::translate(strtolower($match[1]));
             }
         }
@@ -640,7 +608,7 @@ class ExtendedFamily
      * @param Individual $child
      * @return string
      */
-    static function generateAgeLabel(Individual $child): string
+    private static function generateAgeLabel(Individual $child): string
     {     
         $childGedcom = $child->gedcom();
         if (preg_match('/\n2 AGE STILLBORN/i', $childGedcom, $match)) {
@@ -683,7 +651,7 @@ class ExtendedFamily
     */
     public static function translateFamilyPart(string $type): string
     {
-        switch ($type) {            
+        switch ($type) {
             case 'uncles_and_aunts':
                 return I18N::translate('Uncles and Aunts');
             case 'uncles_and_aunts_bm':
