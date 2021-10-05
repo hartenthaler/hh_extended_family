@@ -31,7 +31,6 @@ use Fisharebest\Webtrees\Individual;
 
 // string functions
 use function str_replace;
-use function str_contains;  // will be added in PHP 8.0
 use function strval;
 use function rtrim;
 
@@ -128,7 +127,7 @@ class Partner_chains extends ExtendedFamilyPart
     protected function filterAndAddCounters($filterOption)
     {
         if ($filterOption !== 'all') {
-            $this->filterPartnerChains(ExtendedFamily::convertfilterOptions($filterOption));
+            $this->filterPartnerChains(ExtendedFamilySupport::convertfilterOptions($filterOption));
         }
         $this->efpObject->displayChains = $this->buildDisplayObjectPartnerChains();
         $this->addCountersPartnerChains();
@@ -152,7 +151,7 @@ class Partner_chains extends ExtendedFamilyPart
      * filter individuals in partner chains
      *
      * @param object $node in chain
-     * @param array of string filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
+     * @param array of string filterOptions [all|only_M|only_F|only_U, all|only_alive|only_dead]
      */
     private function filterPartnerChainsRecursive(object $node, array $filterOptions)
     {
@@ -184,7 +183,6 @@ class Partner_chains extends ExtendedFamilyPart
      */
     private function addCountersPartnerChains()
     {
-        list ($countMale, $countFemale, $countOthers) = [0, 0, 0];
         $counter = $this->countMaleFemalePartnerChain($this->efpObject->chains);
         list ($countMale, $countFemale, $countOthers) = [$counter->male, $counter->female, $counter->unknown_others];
         list ($this->efpObject->maleCount, $this->efpObject->femaleCount, $this->efpObject->otherSexCount, $this->efpObject->allCount) = [$countMale, $countFemale, $countOthers, $countMale + $countFemale + $countOthers];
@@ -242,8 +240,8 @@ class Partner_chains extends ExtendedFamilyPart
     /**
      * count male and female individuals in marriage chains
      *
-     * @param array of marriage chain nodes
-     * @param object counter for sex of individuals (modified by function)
+     * @param object $mfu of marriage chain nodes
+     * @param object $node counter for sex of individuals (modified by function)
      */
     private function countMaleFemalePartnerChainRecursive(object $node, object &$mfu)
     {
@@ -262,7 +260,7 @@ class Partner_chains extends ExtendedFamilyPart
     }
 
     /**
-     * count longest chain in marriage chains
+     * count the longest chain in marriage chains
      *
      * @param object of marriage chain nodes
      * @param int recursion counter (modified by function)
@@ -327,9 +325,9 @@ class Partner_chains extends ExtendedFamilyPart
     /**
      * build string of all partners in partner chains
      * names and urls should not contain
-     * '|' used to seperate chains
-     * '∞' used to seperate individuals
-     * '§' used to seperate information fields for one individual: step, canShow, fullName, url
+     * '|' used to separate chains
+     * '∞' used to separate individuals
+     * '§' used to separate information fields for one individual: step, canShow, fullName, url
      *
      * @param object $node
      * @param string $chainString (modified in this function)

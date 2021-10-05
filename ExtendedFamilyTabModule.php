@@ -32,7 +32,8 @@
  * Code: Anpassungen an Bootstrap 5 (filter-Buttons) und webtrees 2.1 (neue Testumgebung aufsetzen)
  * Code: Beziehungsbezeichnungen als Label aus Vesta-Relationship oder durch eigene Funktion ergänzen?
  * Code: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern (siehe issue #46 von Sir Peter)
- *      Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus? Testen, wenn im CSS-Modul nichts eingetragen ist.
+ *      Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus?
+ *      Testen, wenn im CSS-Modul nichts eingetragen ist.
  *      Option für thumbnail size? css für silhouette anpassen?
  * Code: neues Management für Updates und Information der Anwender über Neuigkeiten zu diesem Modul
  * Code: Datenbank-Schema mit Updates einführen, damit man Familienteile auch ändern und löschen kann
@@ -40,7 +41,7 @@
  * Code: Iterate-Pattern für Umgang mit groups implementieren?
  * Code: alle noch verwendeten object als Klassen definieren?
  *
- * neue Idee: Statistikfunktion für webtrees zur Ermittlung der längsten und der umfangreichsten Heiratsketten in einem Tree
+ * neue Idee: Statistikfunktion zur Ermittlung der längsten und der umfangreichsten Heiratsketten in einem Tree
  * neue Idee: Liste der Spitzenahnen
  * neue Idee: Kette zum entferntesten Vorfahren
  * neue Idee: Kette zum entferntesten Nachkommen
@@ -73,12 +74,14 @@ use function count;
 use function in_array;
 
 require_once(__DIR__ . '/ExtendedFamily.php');
+require_once(__DIR__ . '/src/Factory/Objects/ExtendedFamilySupport.php');
 require_once(__DIR__ . '/ExtendedFamilyPersonExists.php');
 
 /**
  * Class ExtendedFamilyTabModule
  */
-class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterface, ModuleCustomInterface, ModuleConfigInterface
+class ExtendedFamilyTabModule extends AbstractModule
+                              implements ModuleTabInterface, ModuleCustomInterface, ModuleConfigInterface
 {
     use ModuleTabTrait;
     use ModuleCustomTrait;
@@ -135,9 +138,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $configObj->showThumbnail           = $this->showThumbnail($proband->tree());
         $configObj->showFilterOptions       = $this->showFilterOptions();
         $configObj->showParameters          = $this->showParameters();
-        $configObj->filterOptions           = $this->showFilterOptions() ? ExtendedFamily::getFilterOptions(): ['all'];
+        $configObj->filterOptions           = $this->showFilterOptions() ? ExtendedFamilySupport::getFilterOptions(): ['all'];
         $configObj->shownFamilyParts        = $this->getShownFamilyParts();
-        $configObj->familyPartParameters    = ExtendedFamily::getFamilyPartParameters();
+        $configObj->familyPartParameters    = ExtendedFamilySupport::getFamilyPartParameters();
         $configObj->sizeThumbnailW          = $this->getSizeThumbnailW();
         $configObj->sizeThumbnailH          = $this->getSizeThumbnailH();
         //$configObj->name = $this->name();     // nötig, falls Vesta-Module doch genutzt werden sollten
@@ -239,7 +242,8 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * save the user preferences for all parameters that are not explicitly related to the extended family parts in the database
+     * save the user preferences for all parameters
+     * that are not explicitly related to the extended family parts in the database
      *
      * @param array $params configuration parameters
      */
@@ -260,7 +264,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         $order = implode(",", $params['order']);
         $this->setPreference('order', $order);
-        foreach (ExtendedFamily::listOfFamilyParts() as $efp) {
+        foreach (ExtendedFamilySupport::listFamilyParts() as $efp) {
             $this->setPreference('status-' . $efp, '0');
         }
         foreach ($params as $key => $value) {
@@ -278,16 +282,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     private function getShownFamilyParts(): array
     {
-        $listOfFamilyParts = ExtendedFamily::listOfFamilyParts();
-        $orderDefault = implode(',', $listOfFamilyParts);
+        $listFamilyParts = ExtendedFamilySupport::listFamilyParts();
+        $orderDefault = implode(',', $listFamilyParts);
         $order = explode(',', $this->getPreference('order', $orderDefault));
-        
-        $this->checkAndAddFamilyParts($listOfFamilyParts, $order);
+
+        if (count($listFamilyParts) > count($order)) {
+            $this->addFamilyParts($listFamilyParts, $order);
+        }
         
         $shownParts = [];
         foreach ($order as $efp) {
             $efpObj = (object)[];
-            $efpObj->name     = ExtendedFamily::translateFamilyPart($efp);
+            $efpObj->name     = ExtendedFamilySupport::translateFamilyPart($efp);
             $efpObj->enabled  = $this->getPreference('status-' . $efp, 'on');
             $shownParts[$efp] = $efpObj;
         }
@@ -295,19 +301,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * check if there are new parts of extended family defined
+     * add parts of extended family, which are newly defined
      * tbd: it is not possible to delete family parts, only add new ones
      *
-     * @param array $lofp list of extended family parts defined by this module
+     * @param array $listFamilyParts list of extended family parts defined by this module
      * @param array $order list of ordered family parts out of parameters
      */
-    private function checkAndAddFamilyParts(array $lofp, array &$order)
+    private function addFamilyParts(array $listFamilyParts, array &$order)
     {
-        if (count($lofp) > count($order)) {
-            foreach ($lofp as $familyPart) {
-                if (!in_array($familyPart, $order)) {
-                    $order[] = $familyPart;                 // add new parts at the end of the list
-                }
+
+        foreach ($listFamilyParts as $familyPart) {
+            if (!in_array($familyPart, $order)) {
+                $order[] = $familyPart;                 // add new parts at the end of the list
             }
         }
     }

@@ -85,7 +85,7 @@ class Partners extends ExtendedFamilyPart
      */
     protected function filterAndAddCounters($filterOption) {
         if ( $filterOption !== 'all' ) {
-            $this->filter( ExtendedFamily::convertfilterOptions($filterOption) );
+            $this->filter( ExtendedFamilySupport::convertfilterOptions($filterOption) );
         }
         $this->addCountersToFamilyPartObject();
         $this->addAdditionalCountersPartners();

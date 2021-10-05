@@ -361,14 +361,14 @@ abstract class ExtendedFamilyPart
                     $labels[] = ExtendedFamily::getRelationshipName($referencePerson, $this->getProband(), '');
                 }
 */
-                $labels = array_merge($labels, ExtendedFamily::generateChildLabels($indifam->getIndividual()));
+                $labels = array_merge($labels, ExtendedFamilySupport::generateChildLabels($indifam->getIndividual()));
                 $newObj->labels[] = $labels;
                 $newObj->families[] = $indifam->getFamily();
-                $newObj->familiesStatus[] = ExtendedFamily::findFamilyStatus($indifam->getFamily());
+                $newObj->familiesStatus[] = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
                 $newObj->referencePersons[] = $referencePerson;
                 $newObj->referencePersons2[] = $referencePerson2;
                 if ($this->efpObject->partName == 'grandparents' || $this->efpObject->partName == 'parents') {
-                    $newObj->familyStatus = ExtendedFamily::findFamilyStatus($indifam->getFamily());
+                    $newObj->familyStatus = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
                     if ($referencePerson) {
                         $newObj->partner = $referencePerson;
                         if ($referencePerson2) {
@@ -377,7 +377,7 @@ abstract class ExtendedFamilyPart
                                 foreach ($fam->spouses() as $partner) {
                                     if ($partner->xref() == $referencePerson->xref()) {
                                         //echo $referencePerson->fullName();
-                                        $newObj->partnerFamilyStatus = ExtendedFamily::findFamilyStatus($fam);
+                                        $newObj->partnerFamilyStatus = ExtendedFamilySupport::findFamilyStatus($fam);
                                     }
                                 }
                             }
@@ -409,9 +409,9 @@ abstract class ExtendedFamilyPart
     private function addIndividualToGroup(IndividualFamily $indifam, string $groupName, Individual $referencePerson = null, Individual $referencePerson2 = null)
     {
         $this->efpObject->groups[$groupName]->members[] = $indifam->getIndividual();
-        $this->efpObject->groups[$groupName]->labels[] = ExtendedFamily::generateChildLabels($indifam->getIndividual());
+        $this->efpObject->groups[$groupName]->labels[] = ExtendedFamilySupport::generateChildLabels($indifam->getIndividual());
         $this->efpObject->groups[$groupName]->families[] = $indifam->getFamily();
-        $this->efpObject->groups[$groupName]->familiesStatus[] = ExtendedFamily::findFamilyStatus($indifam->getFamily());
+        $this->efpObject->groups[$groupName]->familiesStatus[] = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
         $this->efpObject->groups[$groupName]->referencePersons[] = $referencePerson;
         $this->efpObject->groups[$groupName]->referencePersons2[] = $referencePerson2;
     }
@@ -424,7 +424,7 @@ abstract class ExtendedFamilyPart
     protected function filterAndAddCountersToFamilyPartObject(string $filterOption)
     {
         if ($filterOption !== 'all') {
-            $this->filter(ExtendedFamily::convertfilterOptions($filterOption));
+            $this->filter(ExtendedFamilySupport::convertfilterOptions($filterOption));
         }
         $this->addCountersToFamilyPartObject();
     }

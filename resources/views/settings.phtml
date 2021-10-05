@@ -3,7 +3,7 @@
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
-use Fisharebest\Webtrees\Module\ModuleConfigInterface;
+//use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 
 ?>
 
@@ -34,15 +34,15 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
                 <?php foreach ($efps as $efp => $value) : ?>
                     <tr>
                         <th scope="col">
-                            <input type="hidden" name="order[]" value="<?= $efp ?>"?>
-                            <span title="<?= $efps[$efp]->name ?>">
-                                <?= $efps[$efp]->name ?>
+                            <input type="hidden" name="order[]" value="<?= $efp ?>">
+                            <span title="<?= $value->name ?>">
+                                <?= $value->name ?>
                             </span>                          
                         </th>
 
                         <td class="text-center">
                             <label class="d-block">
-                                <input type="checkbox" name="status-<?= $efp ?>" id="status-<?= $efp ?>" <?= ($efps[$efp]->enabled == 'on') ? 'checked' : '' ?>>
+                                <input type="checkbox" name="status-<?= $efp ?>" id="status-<?= $efp ?>" <?= ($value->enabled == 'on') ? 'checked' : '' ?>>
                                 <span class="sr-only">
                                     <?= I18N::translate('Enabled') ?>
                                 </span>
