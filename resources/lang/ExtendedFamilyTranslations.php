@@ -1611,14 +1611,26 @@ class ExtendedFamilyTranslations
             'Partnership' => 'Relatie',
             'Fiancée' => 'Verloving',
             ' with ' => ' met ',
+
+            'Biological grandparents of father' => 'Biologische grootouders van de vader',
+            'Biological grandparents of mother' => 'Biologische grootouders van de moeder',
+            'Biological grandparents of parent' => 'Biologische grootouders van een ouder',
+            'Stepparents of biological parent of father' => 'Stiefouders van een biologische ouder van de vader',
+            'Stepparents of biological parent of mother' => 'Stiefouders van een biologische ouder van de moeder',
+            'Stepparents of biological grandparent' => 'Stiefouders van een biologische grootouder',
+            'Parents of stepparent of father' => 'Ouders van een stiefouder van de vader',
+            'Parents of stepparent of mother' => 'Ouders van een stiefouder van de moeder',
+            'Parents of stepparent of parent' => 'Ouders van een stiefouder van een ouder',
+            'Grandparents of stepparent' => 'Grootouders van een stiefouder',
+            'Biological greatgrandparents' => 'Biologische overgrootouders',
             'Biological parents of father' => 'Biologische ouders van de vader',
             'Biological parents of mother' => 'Biologische ouders van de moeder',
             'Biological parents of parent' => 'Biologische ouders van een ouder',
-            'Biological grandparents' => 'Biologische grootouders',
             'Stepparents of father' => 'Stiefouders van de vader',
             'Stepparents of mother' => 'Stiefouders van de moeder',
             'Stepparents of parent' => 'Stiefouders van een ouder',
-            'Parents of stepparent' => 'Ouders van stiefouders',
+            'Parents of stepparent' => 'Ouders van een stiefouder',
+            'Biological grandparents' => 'Biologische grootouders',
             'Siblings of father' => 'Broers/zussen van de vader',
             'Siblings of mother' => 'Broers/zussen van de moeder',
             'Full siblings of biological parents' => 'Volle broers/zussen van biologische ouders',
@@ -1676,6 +1688,30 @@ class ExtendedFamilyTranslations
             'Brother %1$s of partner %2$s' => 'Broer %1$s van partner %2$s',
             'Sister %1$s of partner %2$s' => 'Zus %1$s van partner %2$s',
             'Sibling %1$s of partner %2$s' => 'Broer/zus %1$s van partner %2$s',
+
+            'Greatgrandparents' => 'Overgrootouders',
+            '%s has no greatgrandparents recorded.' => 'Voor %s zijn geen overgrootouders geregistreerd.',
+            '%s has one greatgrandmother recorded.' => 'Voor %s is een overgrootmoeder geregistreerd.',
+            '%s has one greatgrandfather recorded.' => 'Voor %s is een overgrootvader geregistreerd.',
+            '%s has one greatgrandparent of unknown sex recorded.' => 'Voor %s is een overgrootouder van onbekend geslacht geregistreerd.',
+            '%2$s has %1$d greatgrandmother recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandmothers recorded.'
+            => 'Voor %2$s is %1$d overgrootmoeder geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootmoeders geregistreerd',
+            '%2$s has %1$d greatgrandfather recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers recorded.'
+            => 'Voor %2$s is %1$d overgrootvader geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootvaders geregistreerd.',
+            '%2$s has %1$d greatgrandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandparents of unknown sex recorded.'
+            => 'Voor %2$s is %1$d overgrootouder van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootouders van onbekend geslacht geregistreerd.',
+            '%2$s has %1$d greatgrandfather and ' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers and '
+            => 'Voor %2$s zijn %1$d overgrootvader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootvaders en ',
+            '%d greatgrandmother recorded (%d in total).' . I18N::PLURAL . '%d greatgrandmothers recorded (%d in total).'
+            => '%d overgrootmoeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d overgrootmoeders geregistreerd (%d in totaal).',
+            '%2$s has %1$d greatgrandmother and ' . I18N::PLURAL . '%2$s has %1$d greatgrandmothers and '
+            => 'Voor %2$s zijn %1$d overgrootmoeder en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootmoeders en ',
+            '%d greatgrandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d greatgrandparents of unknown sex recorded (%d in total).'
+            => '%d overgrootouder van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d overgrootouders van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d greatgrandfather, ' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers, '
+            => 'Voor %2$s zijn %1$d overgrootvader, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootvaders, ',
+            '%d greatgrandmother, and ' . I18N::PLURAL . '%d greatgrandmothers, and '
+            => '%d overgrootmoeder en ' . I18N::PLURAL . '%d overgrootmoeder en ',
 
             'Grandparents' => 'Grootouders',
             '%s has no grandparents recorded.' => 'Voor %s zijn geen grootouders geregistreerd.',
