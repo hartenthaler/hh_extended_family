@@ -55,13 +55,12 @@ class FindBranchConfig
      * construct object
      *
      * @param string $callFamilyPart
-     * @param array $branches
      * @param array $const
      */
     public function __construct(string $callFamilyPart, array $const)
     {
         $this->config = (object)[];
-        if (in_array($callFamilyPart, ExtendedFamily::listOfFamilyParts())) {
+        if (in_array($callFamilyPart, ExtendedFamilySupport::listFamilyParts())) {
             $this->config->callFamilyPart = $callFamilyPart;
         } else {
             throw new Exception('extended family part ' . $callFamilyPart . ' does not exist');   // tbd class "Exception" does not exist

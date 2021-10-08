@@ -62,6 +62,15 @@ class ExtendedFamilyTranslations
             'Use the compact design?' => 'Má se použít kompaktní vzhled?',
             'Use the compact design' => 'Použít kompaktní vzhled',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'V kompaktním vzhledu se u osob zobrazuje jen jméno a životní letopočty. V obohaceném vzhledu se zobrazí také foto (pokud je pro daný strom aktivováno) a údaje o narození a úmrtí.',
+            'Show parameters of extended family part?' => 'Mají se zobrazit parametry části širší rodiny?',
+            'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Zobrazovat doplňující informace ke každé části širší rodiny, jako jsou posun generací a koeficient příbuznosti, který je mírou pokrevního příbuzenství.',
+            'Show parameters' => 'Zobrazovat parametry',
+            'generation +%s' => 'generace +%s',
+            'same generation' => 'stejná generace',
+            'generation %s' => 'generace %s',
+            'relationship coefficient: %.1f' => 'Koeficient příbuznosti: %.1f',
+            'no blood relationship' => 'nepokrevní příbuzenství',
+
             'don\'t use this filter' => 'tento filtr nepoužívat',
             'show only male persons' => 'zobrazit pouze osoby mužského pohlaví',
             'show only female persons' => 'zobrazit pouze osoby ženského pohlaví',
@@ -99,12 +108,14 @@ class ExtendedFamilyTranslations
             'Biological parents of father' => 'Vlastní rodiče otce',
             'Biological parents of mother' => 'Vlastní rodiče matky',
             'Biological parents of parent' => 'Vlastní rodiče jednoho z rodičů',
+            'Biological grandparents' => 'Vlastní prarodiče',
             'Stepparents of father' => 'Nevlastní rodiče otce',
             'Stepparents of mother' => 'Nevlastní rodiče matky',
             'Stepparents of parent' => 'Nevlastní rodiče rodiče',
-            'Parents of stepparents' => 'Rodiče nevlastních rodičů',
+            'Parents of stepparent' => 'Rodiče nevlastních rodičů',
             'Siblings of father' => 'Sourozenci otce',
             'Siblings of mother' => 'Sourozenci matky',
+            'Full siblings of biological parents' => 'Vlastní sourozenci vlastních rodičů',
             'Siblings-in-law of father' => 'Švagři a švagrové otce',
             'Siblings-in-law of mother' => 'Švagři a švagrové matky',
             'Biological parents' => 'Vlastní rodiče',
@@ -124,7 +135,9 @@ class ExtendedFamilyTranslations
             'Partners of siblings' => 'Partneři sourozenců',
             'Siblings of siblings-in-law' => 'Sourozenci švagrů a švagrových',
             'Partners of siblings-in-law' => 'Partneři švagrů a švagrových',
+            'Children of full siblings of biological parents' => 'Děti vlastních sourozenců vlastních rodičů',
             'Children of siblings' => 'Děti sourozenců',
+            'Children of full siblings' => 'Děti vlastních sourozenců',
             'Siblings\' stepchildren' => 'Sourozenci nevlastních dětí',
             'Children of siblings of partners' => 'Děti sourozenců partnerů',
             'Biological children' => 'Vlastní děti',
@@ -162,132 +175,153 @@ class ExtendedFamilyTranslations
             '%s has no grandparents recorded.' => '%s zde nemá zaznamenané žádné prarodiče.',
             '%s has one grandmother recorded.' => '%s má zaznamenanou jednu bábu.',
             '%s has one grandfather recorded.' => '%s má zaznamenaného jednoho děda.',
-            '%s has one grandparent recorded.' => '%s má zaznamenaného jednoho prarodiče.',
+            '%s has one grandparent of unknown sex recorded.' => '%s má zaznamenaného jednoho prarodiče neznámého pohlaví.',
             '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.' => '%2$s má zaznamenanou %1$d bábu.' . I18N::PLURAL . '%2$s má zaznamenané %1$d báby.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bab.',
             '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.'
             => '%2$s má zaznamenaného %1$d děda.' . I18N::PLURAL . '%2$s má zaznamenané %1$d dědy.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d dědů.',
+            '%2$s has %1$d grandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandparents of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d prarodiče neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d prarodiče neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d prarodičú neznámého pohlaví.',
             '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and '
             => '%2$s má zaznamenaného %1$d děda a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d dědy a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d dědů a ',
             '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).'
             => '%d bábu (celkem %d).' . I18N::PLURAL . '%d báby (celkem %d).' . I18N::PLURAL . '%d bab (celkem %d).',
+            '%2$s has %1$d grandmother and ' . I18N::PLURAL . '%2$s has %1$d grandmothers and '
+            => '%2$s má zaznamenanou %1$d bábu a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d báby a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bab a ',
+            '%d grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandparents of unknown sex recorded (%d in total).'
+            => '%d prarodiče neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d prarodiče neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d prarodičů neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d grandfather, ' . I18N::PLURAL . '%2$s has %1$d grandfathers, '
+            => '%2$s má %1$d děda, ' . I18N::PLURAL . '%2$s má %1$d dědy, ' . I18N::PLURAL . '%2$s má %1$d dědů, ',
+            '%d grandmother, and ' . I18N::PLURAL . '%d grandmothers, and '
+            => '%d bábu, a ' . I18N::PLURAL . '%d báby, a ' . I18N::PLURAL . '%d bab, a ',
 
             'Uncles and Aunts' => 'Strýcové a tety',
             '%s has no uncles or aunts recorded.' => '%s zde nemá zaznamenané žádné strýce ani tety.',
             '%s has one aunt recorded.' => '%s má zaznamenanou jednu tetu.',
             '%s has one uncle recorded.' => '%s má zaznamenaného jednoho strýce.',
-            '%s has one uncle or aunt recorded.' => '%s má zaznamenaného jednoho strýce nebo jednu tetu.',
+            '%s has one uncle or aunt of unknown sex recorded.' => '%s má zaznamenaného jednoho strýce nebo jednu tetu neznámého pohlaví.',
             '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.' => '%2$s má zaznamenanou %1$d tetu.' . I18N::PLURAL . '%2$s má zaznamenané %1$d tety.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d tet.',
             '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.'
             => '%2$s má zaznamenaného %1$d strýce.' . I18N::PLURAL . '%2$s má zaznamenané %1$d strýce.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d strýců.',
+            '%2$s has %1$d uncle or aunt of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d uncles or aunts of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d strýce nebo tetu neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d strýce nebo tety neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d strýců nebo tet neznámého pohlaví.',
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and '
             => '%2$s má zaznamenaného %1$d strýce a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d strýce a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d strýců a ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).'
             => '%d tetu (celkem %d).' . I18N::PLURAL . '%d tety (celkem %d).' . I18N::PLURAL . '%d tet (celkem %d).',
+            '%2$s has %1$d aunt and ' . I18N::PLURAL . '%2$s has %1$d aunts and '
+            => '%2$s má zaznamenanou %1$d tetu a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d tety a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d tet a ',
+            '%d uncle or aunt of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts of unknown sex recorded (%d in total).'
+            => '%d strýce nebo tetu neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d strýce nebo tety neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d strýců nebo tet neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d uncle, ' . I18N::PLURAL . '%2$s has %1$d uncles, '
+            => '%2$s má %1$d strýce, ' . I18N::PLURAL . '%2$s má %1$d strýce, ' . I18N::PLURAL . '%2$s má %1$d strýců, ',
+            '%d aunt, and ' . I18N::PLURAL . '%d aunts, and '
+            => '%d tetu, a ' . I18N::PLURAL . '%d tety, a ' . I18N::PLURAL . '%d tet, a ',
 
             'Uncles and Aunts by marriage' => 'Vyženění/vyvdaní strýcové a tety',
             '%s has no uncles or aunts by marriage recorded.' => '%s nemá zaznamenané žádné vyženěné/vyvdané strýce ani tety.',
             '%s has one aunt by marriage recorded.' => '%s má zaznamenanou jednu vyženěnou/vyvdanou tetu.',
             '%s has one uncle by marriage recorded.' => '%s má zaznamenaného jednoho vyženěného/vyvdaného strýce.',
-            '%s has one uncle or aunt by marriage recorded.' => '%s má zaznamenaného jednoho vyženěného/vyvdaného strýce nebo jednu vyženěnou/vyvdanou tetu.',
+            '%s has one uncle or aunt by marriage of unknown sex recorded.' => '%s má zaznamenaného jednoho vyženěného/vyvdaného strýce nebo jednu vyženěnou/vyvdanou tetu naznámého pohlaví.',
             '%2$s has %1$d aunt by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d aunts by marriage recorded.'
             => '%2$s má zaznamenanou %1$d vyženěnou/vyvdanou tetu.' . I18N::PLURAL . '%2$s má zaznamenané %1$d vyženěné/vyvdané tety.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vyženěných/vyvdaných tet.',
             '%2$s has %1$d uncle by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d uncles by marriage recorded.'
             => '%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce.' . I18N::PLURAL . '%2$s má zaznamenané %1$d vyženěné/vyvdané strýce.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců.',
+            '%2$s has %1$d uncle or aunt by marriage of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d uncles or aunts by marriage of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce nebo vyženěnou/vyvdanou tetu neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d vyženěné/vyvdané strýce nebo vyženěné/vyvdané tety neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců nebo vyženěných/vyvdaných tet neznámého pohlaví.',
             '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and '
             => '%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d vyženěné/vyvdané strýce a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců a ',
             '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).'
             => '%d vyženěnou/vyvdanou tetu (celkem %d).' . I18N::PLURAL . '%d vyženěné/vyvdané tety (celkem %d).' . I18N::PLURAL . '%d vyženěných/vyvdaných tet (celkem %d).',
+            '%2$s has %1$d aunt by marriage and ' . I18N::PLURAL . '%2$s has %1$d aunts by marriage and '
+            => '%2$s má zaznamenanou %1$d vyženěnou/vyvdanou tetu a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d vyženěné/vyvdané tety a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vyženěných/vyvdaných tet a ',
+            '%d uncle or aunt by marriage of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts by marriage of unknown sex recorded (%d in total).'
+            => '%d vyženěného/vyvdaného strýce nebo tetu neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d vyženěné/vyvdané strýce nebo tety neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d vyženěných/vyvdaných strýců nebo tet neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d uncle by marriage, ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage, '
+            => '%2$s má %1$d vyženěného/vyvdaného strýce, ' . I18N::PLURAL . '%2$s má %1$d vyženěné/vyvdané strýce, ' . I18N::PLURAL . '%2$s má %1$d vyženěných/vyvdaných strýců, ',
+            '%d aunt by marriage, and ' . I18N::PLURAL . '%d aunts by marriage, and '
+            => '%d vyženěnou/vyvdanou tetu, a ' . I18N::PLURAL . '%d vyženěné/vyvdané tety, a ' . I18N::PLURAL . '%d vyženěných/vyvdaných tet, a ',
 
             'Parents' => 'Rodiče',
             '%s has no parents recorded.' => '%s nemá zaznamenané žádné rodiče.',
             '%s has one mother recorded.' => '%s má zaznamenanou jednu matku.',
             '%s has one father recorded.' => '%s má zaznamenaného jednoho otce.',
-            '%s has one parent recorded.' => '%s má zaznamenaného jednoho rodiče.',
+            '%s has one parent of unknown sex recorded.' => '%s má zaznamenaného jednoho rodiče neznámého pohlaví.',
             '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' => '%2$s má zaznamenanou %1$d matku.' . I18N::PLURAL . '%2$s má zaznamenané %1$d matky.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d matek.',
             '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.'
             => '%2$s má zaznamenaného %1$d otce.' . I18N::PLURAL . '%2$s má zaznamenané %1$d otce.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d otců.',
             '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and '
             => '%2$s má zaznamenaného %1$d otce a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d otce a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d otců a ',
+            '%2$s has %1$d parent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d parents of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d rodiče neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d rodiče neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d rodičú neznámého pohlaví.',
             '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).'
             => '%d matku (celkem %d).' . I18N::PLURAL . '%d matky (celkem %d).' . I18N::PLURAL . '%d matek (celkem %d).',
+            '%2$s has %1$d mother and ' . I18N::PLURAL . '%2$s has %1$d mothers and '
+            => '%2$s má zaznamenanou %1$d matku a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d matky a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d matek a ',
+            '%d parent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents of unknown sex recorded (%d in total).'
+            => '%d rodiče neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d rodiče neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d rodičů neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d father, ' . I18N::PLURAL . '%2$s has %1$d fathers, '
+            => '%2$s má %1$d otce, ' . I18N::PLURAL . '%2$s má %1$d otce, ' . I18N::PLURAL . '%2$s má %1$d otců, ',
+            '%d mother, and ' . I18N::PLURAL . '%d mothers, and '
+            => '%d matku, a ' . I18N::PLURAL . '%d matky, a ' . I18N::PLURAL . '%d matek, a ',
 
             'Parents-in-law' => 'Tcháni a tchyně',
             '%s has no parents-in-law recorded.' => '%s zde nemá zaznamenaného žádného tchána ani tchyni.',
             '%s has one mother-in-law recorded.' => '%s má zaznamenanou jednu tchyni.',
             '%s has one father-in-law recorded.' => '%s má zaznamenaného jednoho tchána.',
-            '%s has one parent-in-law recorded.' => '%s má zaznamenaného jednoho tchána či tchyni.',
+            '%s has one parent-in-law of unknown sex recorded.' => '%s má zaznamenaného jednoho tchána či tchyni neznámého pohlaví.',
             '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.' => '%2$s má zaznamenanou %1$d tchyni.' . I18N::PLURAL . '%2$s má zaznamenané %1$d tchyně.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d tchyní.',
             '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.'
             => '%2$s má zaznamenaného %1$d tchána.' . I18N::PLURAL . '%2$s má zaznamenané %1$d tchány.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d tchánů.',
+            '%2$s has %1$d parent-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d parents-in-law of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d tchána či tchyni neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d tchány či tchyně neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d tchánů či tchyní neznámého pohlaví.',
             '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and '
             => '%2$s má zaznamenaného %1$d tchána a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d tchány a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d tchánů a ',
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).'
             => '%d tchyni (celkem %d).' . I18N::PLURAL . '%d tchyně (celkem %d).' . I18N::PLURAL . '%d tchyní (celkem %d).',
+            '%2$s has %1$d mother-in-law and ' . I18N::PLURAL . '%2$s has %1$d mothers-in-law and '
+            => '%2$s má zaznamenanou %1$d tchyni a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d tchyně a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d tchyní a ',
+            '%d parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents-in-law of unknown sex recorded (%d in total).'
+            => '%d tchána či tchyni neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d tchány či tchyně neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d tchánů či tchyní neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d father-in-law, ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law, '
+            => '%2$s má %1$d tchána, ' . I18N::PLURAL . '%2$s má %1$d tchány, ' . I18N::PLURAL . '%2$s má %1$d tchánů, ',
+            '%d mother-in-law, and ' . I18N::PLURAL . '%d mothers-in-law, and '
+            => '%d tchyni, a ' . I18N::PLURAL . '%d tchyně, a ' . I18N::PLURAL . '%d tchyní, a ',
 
             'Co-parents-in-law' => 'Tcháni a tchyně dětí (spolutcháni a spolutchyně)',
             '%s has no co-parents-in-law recorded.' => '%s nemá zaznamenané žádné spolutchány ani spolutchyně.',
             '%s has one co-mother-in-law recorded.' => '%s má zaznamenanou jednu spolutchyni.',
             '%s has one co-father-in-law recorded.' => '%s má zaznamenaného jednoho spolutchána.',
-            '%s has one co-parent-in-law recorded.' => '%s má zaznamenaného jednoho spolutchána či spolutchyni.',
+            '%s has one co-parent-in-law of unknown sex recorded.' => '%s má zaznamenaného jednoho spolutchána či spolutchyni neznámého pohlaví.',
             '%2$s has %1$d co-mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law recorded.'
             => '%2$s má zaznamenanou %1$d spolutchyni.' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolutchyně.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolutchyní.',
+            '%2$s has %1$d co-parent-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d co-parents-in-law of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d spolutchána či spolutchyni neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolutchány či spolutchyně neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolutchánů či spolutchyní neznámého pohlaví.',
             '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.'
             => '%2$s má zaznamenaného %1$d spolutchána.' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolutchány.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolutchánů.',
             '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and '
             => '%2$s má zaznamenaného %1$d spolutchána a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolutchány a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolutchánů a ',
             '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).'
             => '%d spolutchyni (celkem %d).' . I18N::PLURAL . '%d spolutchyně (celkem %d).' . I18N::PLURAL . '%d spolutchyní (celkem %d).',
-
-            'Siblings' => 'Sourozenci',
-            '%s has no siblings recorded.' => '%s zde nemá zaznamenané žádné sourozence.',
-            '%s has one sister recorded.' => '%s má zaznamenanou jednu sestru.',
-            '%s has one brother recorded.' => '%s má zaznamenaného jednoho bratra.',
-            '%s has one brother or sister recorded.' => '%s má zaznamenaného jednoho sourozence.',
-            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.' => '%2$s má zaznamenanou %1$d sestru.' . I18N::PLURAL . '%2$s má zaznamenané %1$d sestry.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d sester.',
-            '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
-            => '%2$s má zaznamenaného %1$d bratra.' . I18N::PLURAL . '%2$s má zaznamenané %1$d bratry.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bratrů.',
-            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and '
-            => '%2$s má zaznamenaného %1$d bratra a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d bratry a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bratrů a ',
-            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).'
-            => '%d sestru (celkem %d).' . I18N::PLURAL . '%d sestry (celkem %d).' . I18N::PLURAL . '%d sester (celkem %d).',
-
-            'Siblings-in-law' => 'Švagři a švagrové',
-            '%s has no siblings-in-law recorded.' => '%s nemá zaznamenané žádné švagry ani švagrové.',
-            '%s has one sister-in-law recorded.' => '%s má zaznamenanou jednu švagrovou.',
-            '%s has one brother-in-law recorded.' => '%s má zaznamenaného jednoho švagra.',
-            '%s has one sibling-in-law recorded.' => '%s má zaznamenaného jednoho švagra nebo jednu švagrovou.',
-            '%2$s has %1$d sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sisters-in-law recorded.'
-            => '%2$s má zaznamenanou %1$d švagrovou.' . I18N::PLURAL . '%2$s má zaznamenané %1$d švagrové.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d švagrových.',
-            '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.'
-            => '%2$s má zaznamenaného %1$d švagra.' . I18N::PLURAL . '%2$s má zaznamenané %1$d švagry.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d švagrů.',
-            '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and '
-            => '%2$s má zaznamenaného %1$d švagra a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d švagry a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d švagrů a ',
-            '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).'
-            => '%d švagrovou (celkem %d).' . I18N::PLURAL . '%d švagrové (celkem %d).' . I18N::PLURAL . '%d švagrových (celkem %d).',
-
-            'Co-siblings-in-law' => 'Partneři a sourozenci švagrů a švagrových<br>(spolušvagři a spolušvagrové)',
-            '%s has no co-siblings-in-law recorded.' => '%s nemá zaznamenané žádné spolušvagry ani spolušvagrové.',
-            '%s has one co-sister-in-law recorded.' => '%s má zaznamenanou jednu spolušvagrovou.',
-            '%s has one co-brother-in-law recorded.' => '%s má zaznamenaného jednoho spolušvagra.',
-            '%s has one co-sibling-in-law recorded.' => '%s má zaznamenaného jednoho spolušvagra nebo jednu spolušvagrovou.',
-            '%2$s has %1$d co-sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law recorded.'
-            => '%2$s má zaznamenanou %1$d spolušvagrovou.' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolušvagrové.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolušvagrových.',
-            '%2$s has %1$d co-brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law recorded.'
-            => '%2$s má zaznamenaného %1$d spolušvagra.' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolušvagry.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolušvagrů.',
-            '%2$s has %1$d co-brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law and '
-            => '%2$s má zaznamenaného %1$d spolušvagra a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolušvagry a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolušvagrů a ',
-            '%d co-sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-sisters-in-law recorded (%d in total).'
-            => '%d spolušvagrovou (celkem %d).' . I18N::PLURAL . '%d spolušvagrové (celkem %d).' . I18N::PLURAL . '%d spolušvagrových (celkem %d).',
+            '%2$s has %1$d co-mother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law and '
+            => '%2$s má zaznamenanou %1$d spolutchyni a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolutchyně a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolutchyní a ',
+            '%d co-parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d co-parents-in-law of unknown sex recorded (%d in total).'
+            => '%d spolutchána či spolutchyni neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d spolutchány či spolutchyně neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d spolutchánů či spolutchyní neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d co-father-in-law, ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law, '
+            => '%2$s má %1$d spolutchána, ' . I18N::PLURAL . '%2$s má %1$d spolutchány, ' . I18N::PLURAL . '%2$s má %1$d spolutchánů, ',
+            '%d co-mother-in-law, and ' . I18N::PLURAL . '%d co-mothers-in-law, and '
+            => '%d spolutchyni, a ' . I18N::PLURAL . '%d spolutchyně, a ' . I18N::PLURAL . '%d spolutchyní, a ',
 
             'Partners' => 'Partneři',
             'Partner of ' => 'Partner osoby ',
             '%s has no partners recorded.' => '%s zde nemá zaznamenaného žádného partnera.',
             '%s has one female partner recorded.' => '%s má zaznamenanou jednu partnerku.',
             '%s has one male partner recorded.' => '%s má zaznamenaného jednoho partnera.',
-            '%s has one partner recorded.' => '%s má zaznamenaného jednoho partnera.',
+            '%s has one partner of unknown sex recorded.' => '%s má zaznamenaného jednoho partnera neznámého pohlaví.',
             '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.' => '%2$s má zaznamenanou %1$d partnerku.' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnerky.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerek.',
             '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.'
             => '%2$s má zaznamenaného %1$d partnera.' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnery.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerů.',
+            '%2$s has %1$d partner of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d partners of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d partnera neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnery neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerů neznámého pohlaví.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '
             => '%2$s má zaznamenaného %1$d partnera a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnery a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerů a ',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
@@ -303,77 +337,215 @@ class ExtendedFamilyTranslations
 
             'Partner chains' => 'Řetězce partnerů',
             '%s has no members of a partner chain recorded.' => 'U osoby \'%s\' nejsou zaznamenané žádné řetězce partnerů.',
+            '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '
+            => '%2$s má zaznamenaného %1$d partnera a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnery a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerů a ',
+            '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
+            => '%d partnerku v tomto řetězci (celkem %d).' . I18N::PLURAL . '%d partnerky v tomto řetězci (celkem %d).' . I18N::PLURAL . '%d partnerek v tomto řetězci (celkem %d).',
+            '%d female partner and ' . I18N::PLURAL . '%d female partners and '
+            => '%d partnerku, a ' . I18N::PLURAL . '%d partnerky, a ' . I18N::PLURAL . '%d partnerek, a ',
+            '%d partner of unknown sex in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d partners of unknown sex in this partner chain recorded (%d in total).'
+            => '%d partnera neznámého pohlaví v tomto řetězci (celkem %d).' . I18N::PLURAL . '%d partnery neznámého pohlaví v tomto řetězci (celkem %d).' . I18N::PLURAL . '%d partnerů neznámého pohlaví v tomto řetězci (celkem %d).',
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
+            => '%2$s má zaznamenanou %1$d partnerku a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnerky a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerek a ',
+            '%d partner of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d partners of unknown sex recorded (%d in total).'
+            => '%d partnera neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d partnery neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d partnerů neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d male partner, ' . I18N::PLURAL . '%2$s has %1$d male partners, '
+            => '%2$s má %1$d partnera, ' . I18N::PLURAL . '%2$s má %1$d partnery, ' . I18N::PLURAL . '%2$s má %1$d partnerů, ',
+            '%d female partner, and ' . I18N::PLURAL . '%d female partners, and '
+            => '%d partnerku, a ' . I18N::PLURAL . '%d partnerky, a ' . I18N::PLURAL . '%d partnerek, a ',
             'There are %d branches in the partner chain. ' => 'V řetězci partnerů jsou %d linie.',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Nejdelší linie v řetězci k osobě \'%2$s\' sestává z %1$d partnerů (včetně osoby \'%3$s\').',
             'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'Nejdelší linie v řetězci partnerů sestává z %1$d partnerů (včetně osoby \'%2$s\').',
             '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
             =>'v tomto řetězci je zaznamenaná %d partnerka (celkem %d).' . I18N::PLURAL . 'v tomto řetězci jsou zaznamenané %d partnerky (celkem %d).' . I18N::PLURAL . 'v tomto řetězci je zaznamenaných %d partnerek (celkem %d).',
 
+            'Siblings' => 'Sourozenci',
+            '%s has no siblings recorded.' => '%s zde nemá zaznamenané žádné sourozence.',
+            '%s has one sister recorded.' => '%s má zaznamenanou jednu sestru.',
+            '%s has one brother recorded.' => '%s má zaznamenaného jednoho bratra.',
+            '%s has one sibling of unknown sex recorded.' => '%s má zaznamenaného jednoho sourozence neznámého pohlaví.',
+            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.' => '%2$s má zaznamenanou %1$d sestru.' . I18N::PLURAL . '%2$s má zaznamenané %1$d sestry.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d sester.',
+            '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.'
+            => '%2$s má zaznamenaného %1$d bratra.' . I18N::PLURAL . '%2$s má zaznamenané %1$d bratry.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bratrů.',
+            '%2$s has %1$d sibling of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d siblings of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d sourozence neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d sourozence neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d sourozenců neznámého pohlaví.',
+            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and '
+            => '%2$s má zaznamenaného %1$d bratra a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d bratry a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bratrů a ',
+            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).'
+            => '%d sestru (celkem %d).' . I18N::PLURAL . '%d sestry (celkem %d).' . I18N::PLURAL . '%d sester (celkem %d).',
+
+            '%2$s has %1$d sister and ' . I18N::PLURAL . '%2$s has %1$d sisters and '
+            => '%2$s má zaznamenanou %1$d sestru a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d sestry a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d sester a ',
+            '%d sibling of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d siblings of unknown sex recorded (%d in total).'
+            => '%d sourozence neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d sourozence neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d sourozenců neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d brother, ' . I18N::PLURAL . '%2$s has %1$d brothers, '
+            => '%2$s má %1$d bratra, ' . I18N::PLURAL . '%2$s má %1$d bratry, ' . I18N::PLURAL . '%2$s má %1$d bratrů, ',
+            '%d sister, and ' . I18N::PLURAL . '%d sisters, and '
+            => '%d sestru, a ' . I18N::PLURAL . '%d sestry, a ' . I18N::PLURAL . '%d sester, a ',
+
+            'Siblings-in-law' => 'Švagři a švagrové',
+            '%s has no siblings-in-law recorded.' => '%s nemá zaznamenané žádné švagry ani švagrové.',
+            '%s has one sister-in-law recorded.' => '%s má zaznamenanou jednu švagrovou.',
+            '%s has one brother-in-law recorded.' => '%s má zaznamenaného jednoho švagra.',
+            '%s has one sibling-in-law of unknown sex recorded.' => '%s má zaznamenaného jednoho švagra či švagrovou neznámého pohlaví.',
+            '%2$s has %1$d sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sisters-in-law recorded.'
+            => '%2$s má zaznamenanou %1$d švagrovou.' . I18N::PLURAL . '%2$s má zaznamenané %1$d švagrové.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d švagrových.',
+            '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.'
+            => '%2$s má zaznamenaného %1$d švagra.' . I18N::PLURAL . '%2$s má zaznamenané %1$d švagry.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d švagrů.',
+            '%2$s has %1$d sibling-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d siblings-in-law of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d švagra či švagrovou neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d švagry či švagrové neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d švagrů či švagrových neznámého pohlaví.',
+            '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and '
+            => '%2$s má zaznamenaného %1$d švagra a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d švagry a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d švagrů a ',
+            '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).'
+            => '%d švagrovou (celkem %d).' . I18N::PLURAL . '%d švagrové (celkem %d).' . I18N::PLURAL . '%d švagrových (celkem %d).',
+            '%2$s has %1$d sister-in-law and ' . I18N::PLURAL . '%2$s has %1$d sisters-in-law and '
+            => '%2$s má zaznamenanou %1$d švagrovou a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d švagrové a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d švagrových a ',
+            '%d sibling-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d siblings-in-law of unknown sex recorded (%d in total).'
+            => '%d švagra či švagrovou neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d švagry či švagrové neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d švagrů či švagrových neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d brother-in-law, ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law, '
+            => '%2$s má %1$d švagra, ' . I18N::PLURAL . '%2$s má %1$d švagry, ' . I18N::PLURAL . '%2$s má %1$d švagrů, ',
+            '%d sister-in-law, and ' . I18N::PLURAL . '%d sisters-in-law, and '
+            => '%d švagrovou, a ' . I18N::PLURAL . '%d švagrové, a ' . I18N::PLURAL . '%d švagrových, a ',
+
+            'Co-siblings-in-law' => 'Partneři a sourozenci švagrů a švagrových<br>(spolušvagři a spolušvagrové)',
+            '%s has no co-siblings-in-law recorded.' => '%s nemá zaznamenané žádné spolušvagry ani spolušvagrové.',
+            '%s has one co-sister-in-law recorded.' => '%s má zaznamenanou jednu spolušvagrovou.',
+            '%s has one co-brother-in-law recorded.' => '%s má zaznamenaného jednoho spolušvagra.',
+            '%s has one co-sibling-in-law of unknown sex recorded.' => '%s má zaznamenaného jednoho spolušvagra či spolušvagrovou neznámého pohlaví.',
+            '%2$s has %1$d co-sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law recorded.'
+            => '%2$s má zaznamenanou %1$d spolušvagrovou.' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolušvagrové.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolušvagrových.',
+            '%2$s has %1$d co-brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law recorded.'
+            => '%2$s má zaznamenaného %1$d spolušvagra.' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolušvagry.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolušvagrů.',
+            '%2$s has %1$d co-sibling-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d co-siblings-in-law of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d spolušvagra či spolušvagrovou neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolušvagry či spolušvagrové neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolušvagrů či spolušvagrových neznámého pohlaví.',
+            '%2$s has %1$d co-brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law and '
+            => '%2$s má zaznamenaného %1$d spolušvagra a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolušvagry a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolušvagrů a ',
+            '%d co-sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-sisters-in-law recorded (%d in total).'
+            => '%d spolušvagrovou (celkem %d).' . I18N::PLURAL . '%d spolušvagrové (celkem %d).' . I18N::PLURAL . '%d spolušvagrových (celkem %d).',
+            '%2$s has %1$d co-sister-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law and '
+            => '%2$s má zaznamenanou %1$d spolušvagrovou a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d spolušvagrové a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d spolušvagrových a ',
+            '%d co-sibling-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d co-siblings-in-law of unknown sex recorded (%d in total).'
+            => '%d spolušvagra či spolušvagrovou neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d spolušvagry či spolušvagrové neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d spolušvagrů či spolušvagrových neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d co-brother-in-law, ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law, '
+            => '%2$s má %1$d spolušvagra, ' . I18N::PLURAL . '%2$s má %1$d spolušvagry, ' . I18N::PLURAL . '%2$s má %1$d spolušvagrů, ',
+            '%d co-sister-in-law, and ' . I18N::PLURAL . '%d co-sisters-in-law, and '
+            => '%d spolušvagrovou, a ' . I18N::PLURAL . '%d spolušvagrové, a ' . I18N::PLURAL . '%d spolušvagrových, a ',
+
             'Cousins' => 'Bratranci a sestřenice',
             '%s has no first cousins recorded.' => '%s nemá zaznamenané žádné bratrance ani sestřenice.',
             '%s has one female first cousin recorded.' => '%s má zaznamenanou jednu sestřenici.',
             '%s has one male first cousin recorded.' => '%s má zaznamenaného jednoho bratrance.',
-            '%s has one first cousin recorded.' => '%s má zaznamenaného jednoho bratrance příp. jednu sestřenici.',
+            '%s has one first cousin of unknown sex recorded.' => '%s má zaznamenaného jednoho bratrance či sestřenici neznámého pohlaví.',
             '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.' => '%2$s má zaznamenanou %1$d sestřenici.' . I18N::PLURAL . '%2$s má zaznamenané %1$d sestřenice.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d sestřenic.',
             '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.'
             => '%2$s má zaznamenaného %1$d bratrance.' . I18N::PLURAL . '%2$s má zaznamenané %1$d bratrance.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bratranců.',
+            '%2$s has %1$d first cousin of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d first cousins of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d bratrance či sestřenici neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d bratrance či sestřenice neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bratranců či sestřenic neznámého pohlaví.',
             '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and '
             => '%2$s má zaznamenaného %1$d bratrance a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d bratrance a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d bratranců a ',
             '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).'
             => '%d sestřenici (celkem %d).' . I18N::PLURAL . '%d sestřenice (celkem %d).' . I18N::PLURAL . '%d sestřenic (celkem %d).',
+            '%2$s has %1$d female first cousin and ' . I18N::PLURAL . '%2$s has %1$d female first cousins and '
+            => '%2$s má zaznamenanou %1$d sestřenici a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d sestřenice a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d sestřenic a ',
+            '%d first cousin of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d first cousins of unknown sex recorded (%d in total).'
+            => '%d bratrance či sestřenici neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d bratrance či sestřenice neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d bratranců či sestřenic neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d male first cousin, ' . I18N::PLURAL . '%2$s has %1$d male first cousins, '
+            => '%2$s má %1$d bratrance, ' . I18N::PLURAL . '%2$s má %1$d bratrance, ' . I18N::PLURAL . '%2$s má %1$d bratranců, ',
+            '%d female first cousin, and ' . I18N::PLURAL . '%d female first cousins, and '
+            => '%d sestřenici, a ' . I18N::PLURAL . '%d sestřenice, a ' . I18N::PLURAL . '%d sestřenic, a ',
 
             'Nephews and Nieces' => 'Synovci a neteře',
             '%s has no nephews or nieces recorded.' => '%s nemá zaznamenané žádné synovce ani neteře.',
             '%s has one niece recorded.' => '%s má zaznamenanou jednu neteř.',
             '%s has one nephew recorded.' => '%s má zaznamenaného jednoho synovce.',
-            '%s has one nephew or niece recorded.' => '%s má zaznamenaného jednoho synovce nebo jednu neteř.',
+            '%s has one nephew or niece of unknown sex recorded.' => '%s má zaznamenaného jednoho synovce či neteř neznámého pohlaví.',
             '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.' => '%2$s má zaznamenanou %1$d sestřenici.' . I18N::PLURAL . '%2$s má zaznamenané %1$d sestřenice.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d sestřenic.',
             '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.'
             => '%2$s má zaznamenaného %1$d synovce.' . I18N::PLURAL . '%2$s má zaznamenané %1$d synovce.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d synovců.',
+            '%2$s has %1$d nephew or niece of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d nephews or nieces of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d synovce či neteř neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d synovce či neteře neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d synovců či neteří neznámého pohlaví.',
             '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and '
             => '%2$s má zaznamenaného %1$d synovce a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d synovce a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d synovců a ',
             '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).'
             => '%d neteř (celkem %d).' . I18N::PLURAL . '%d neteře (celkem %d).' . I18N::PLURAL . '%d neteří (celkem %d).',
+            '%2$s has %1$d niece and ' . I18N::PLURAL . '%2$s has %1$d nieces and '
+            => '%2$s má zaznamenanou %1$d neteř a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d neteře a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d neteří a ',
+            '%d nephew or niece of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d nephews or nieces of unknown sex recorded (%d in total).'
+            => '%d synovce či neteř neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d synovce či neteře neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d synovců či neteří neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d nephew, ' . I18N::PLURAL . '%2$s has %1$d nephews, '
+            => '%2$s má %1$d synovce, ' . I18N::PLURAL . '%2$s má %1$d synovce, ' . I18N::PLURAL . '%2$s má %1$d synovců, ',
+            '%d niece, and ' . I18N::PLURAL . '%d nieces, and '
+            => '%d neteř, a ' . I18N::PLURAL . '%d neteře, a ' . I18N::PLURAL . '%d neteří, a ',
 
             'Children' => 'Děti',
             '%s has no children recorded.' => '%s nemá zaznamenané žádné děti.',
             '%s has one daughter recorded.' => '%s má zaznamenanou jednu dceru.',
             '%s has one son recorded.' => '%s má zaznamenaného jednoho syna.',
-            '%s has one child recorded.' => '%s má zaznamenané jedno dítě.',
+            '%s has one child of unknown sex recorded.' => '%s má zaznamenané jedno dítě neznámého pohlaví.',
             '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.' => '%2$s má zaznamenanou %1$d dceru.' . I18N::PLURAL . '%2$s má zaznamenané %1$d dcery.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d dcer.',
             '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.'
             => '%2$s má zaznamenaného %1$d syna.' . I18N::PLURAL . '%2$s má zaznamenané %1$d syny.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d synů.',
+            '%2$s has %1$d child of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d children of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d dítě neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d děti neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d dětí neznámého pohlaví.',
             '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and '
             => '%2$s má zaznamenaného %1$d syna a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d syny a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d synů a ',
             '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).'
             => '%d dceru (celkem %d).' . I18N::PLURAL . '%d dcery (celkem %d).' . I18N::PLURAL . '%d dcer (celkem %d).',
+            '%2$s has %1$d daughter and ' . I18N::PLURAL . '%2$s has %1$d daughters and '
+            => '%2$s má zaznamenanou %1$d dceru a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d dcery a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d dcer a ',
+            '%d child of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d children of unknown sex recorded (%d in total).'
+            => '%d dítě neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d děti neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d dětí neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d son, ' . I18N::PLURAL . '%2$s has %1$d sons, '
+            => '%2$s má %1$d syna, ' . I18N::PLURAL . '%2$s má %1$d syny, ' . I18N::PLURAL . '%2$s má %1$d synů, ',
+            '%d daughter, and ' . I18N::PLURAL . '%d daughters, and '
+            => '%d dceru, a ' . I18N::PLURAL . '%d dcery, a ' . I18N::PLURAL . '%d dcer, a ',
 
             'Children-in-law' => 'Zeťové a snachy',
             '%s has no children-in-law recorded.' => '%s nemá zaznamenané žádné zetě ani snachy.',
             '%s has one daughter-in-law recorded.' => '%s má zaznamenanou jednu snachu.',
             '%s has one son-in-law recorded.' => '%s má zaznamenaného jednoho zetě.',
-            '%s has one child-in-law recorded.' => '%s má zaznamenaného jednoho zetě nebo snachu.',
+            '%s has one child-in-law of unknown sex recorded.' => '%s má zaznamenaného jednoho zetě či snachu neznámého pohlaví.',
             '%2$s has %1$d daughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d daughters-in-law recorded.'
             => '%2$s má zaznamenanou %1$d snachu.' . I18N::PLURAL . '%2$s má zaznamenané %1$d snachy.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d snach.',
             '%2$s has %1$d son-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sons-in-law recorded.'
             => '%2$s má zaznamenaného %1$d zetě.' . I18N::PLURAL . '%2$s má zaznamenané %1$d zetě.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d zeťů.',
+            '%2$s has %1$d child-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d children-in-law of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d zetě či snachu neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d zetě či snachy neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d zetů či snach neznámého pohlaví.',
             '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and '
             => '%2$s má zaznamenaného %1$d zetě a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d zetě a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d zeťů a ',
             '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).'
             => '%d snachu (celkem %d).' . I18N::PLURAL . '%d snachy (celkem %d).' . I18N::PLURAL . '%d snach (celkem %d).',
+            '%2$s has %1$d daughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d daughters-in-law and '
+            => '%2$s má zaznamenanou %1$d snachu a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d snachy a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d snach a ',
+            '%d child-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d children-in-law of unknown sex recorded (%d in total).'
+            => '%d zetě či snachu neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d zetě či snachy neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d zeťů či snach neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d son-in-law, ' . I18N::PLURAL . '%2$s has %1$d sons-in-law, '
+            => '%2$s má %1$d zetě, ' . I18N::PLURAL . '%2$s má %1$d zetě, ' . I18N::PLURAL . '%2$s má %1$d zeťů, ',
+            '%d daughter-in-law, and ' . I18N::PLURAL . '%d daughters-in-law, and '
+            => '%d snachu, a ' . I18N::PLURAL . '%d snachy, a ' . I18N::PLURAL . '%d snach, a ',
 
             'Grandchildren' => 'Vnoučata',
             '%s has no grandchildren recorded.' => '%s nemá zaznamenaná žádná vnoučata.',
             '%s has one granddaughter recorded.' => '%s má zaznamenanou jednu vnučku.',
             '%s has one grandson recorded.' => '%s má zaznamenaného jednoho vnuka.',
-            '%s has one grandchild recorded.' => '%s má zaznamenané jedno vnouče.',
+            '%s has one grandchild of unknown sex recorded.' => '%s má zaznamenané jedno vnouče neznámého pohlaví.',
             '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.' => '%2$s má zaznamenanou %1$d vnučku.' . I18N::PLURAL . '%2$s má zaznamenané %1$d vnučky.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vnuček.',
             '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.'
             => '%2$s má zaznamenaného %1$d vnuka.' . I18N::PLURAL . '%2$s má zaznamenané %1$d vnuky.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vnuků.',
+            '%2$s has %1$d grandchild of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren of unknown sex recorded.'
+            => '%2$s má zaznamenaného %1$d vnouče neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d vnoučata neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vnoučat neznámého pohlaví.',
             '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and '
             => '%2$s má zaznamenaného %1$d vnuka a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d vnuky a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vnuků a ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).'
             => '%d vnučku (celkem %d).' . I18N::PLURAL . '%d vnučky (celkem %d).' . I18N::PLURAL . '%d vnuček (celkem %d).',
+            '%2$s has %1$d granddaughter and ' . I18N::PLURAL . '%2$s has %1$d granddaughters and '
+            => '%2$s má zaznamenanou %1$d vnučku a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d vnučky a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vnuček a ',
+            '%d grandchild of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren of unknown sex recorded (%d in total).'
+            => '%d vnouče neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d vnoučata neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d vnoučat neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d grandson, ' . I18N::PLURAL . '%2$s has %1$d grandsons, '
+            => '%2$s má %1$d vnuka, ' . I18N::PLURAL . '%2$s má %1$d vnuky, ' . I18N::PLURAL . '%2$s má %1$d vnuků, ',
+            '%d granddaughter, and ' . I18N::PLURAL . '%d granddaughters, and '
+            => '%d vnučku, a ' . I18N::PLURAL . '%d vnučky, a ' . I18N::PLURAL . '%d vnuček, a ',
         ];
     }
 
@@ -459,14 +631,26 @@ class ExtendedFamilyTranslations
             'Partnership' => 'Partnerschaft',
             'Fiancée' => 'Verlobung',
             ' with ' => ' mit ',
+
+            'Biological grandparents of father' => 'Biologische Großeltern des Vaters',
+            'Biological grandparents of mother' => 'Biologische Großeltern der Mutter',
+            'Biological grandparents of parent' => 'Biologische Großeltern eines Elternteils',
+            'Stepparents of biological parent of father' => 'Stiefeltern eines biologischen Elternteils des Vaters',
+            'Stepparents of biological parent of mother' => 'Stiefeltern eines biologischen Elternteils der Mutter',
+            'Stepparents of biological grandparent' => 'Stiefeltern eines biologischen Großelternteils',
+            'Parents of stepparent of father' => 'Eltern eines Stiefelternteils des Vaters',
+            'Parents of stepparent of mother' => 'Eltern eines Stiefelternteils der Mutter',
+            'Parents of stepparent of parent' => 'Eltern eines Stiefelternteils eines Elternteils',
+            'Grandparents of stepparent' => 'Großeltern eines Stiefelternteils',
+            'Biological greatgrandparents' => 'Biologische Urgroßeltern',
             'Biological parents of father' => 'Biologische Eltern des Vaters',
             'Biological parents of mother' => 'Biologische Eltern der Mutter',
             'Biological parents of parent' => 'Biologische Eltern eines Elternteils',
-            'Biological grandparents' => 'Biologische Großeltern',
             'Stepparents of father' => 'Stiefeltern des Vaters',
             'Stepparents of mother' => 'Stiefeltern der Mutter',
             'Stepparents of parent' => 'Stiefeltern eines Elternteils',
-            'Parents of stepparents' => 'Eltern eines Stiefelternteils',
+            'Parents of stepparent' => 'Eltern eines Stiefelternteils',
+            'Biological grandparents' => 'Biologische Großeltern',
             'Siblings of father' => 'Geschwister des Vaters',
             'Siblings of mother' => 'Geschwister der Mutter',
             'Full siblings of biological parents' => 'Vollbürtige Geschwister der biologischen Eltern',
@@ -524,6 +708,30 @@ class ExtendedFamilyTranslations
             'Brother %1$s of partner %2$s' => 'Bruder %1$s von Partner %2$s',
             'Sister %1$s of partner %2$s' => 'Schwester %1$s von Partner %2$s',
             'Sibling %1$s of partner %2$s' => 'Geschwister %1$s von Partner %2$s',
+
+            'Greatgrandparents' => 'Urgroßeltern',
+            '%s has no greatgrandparents recorded.' => 'Für %s sind keine Urgroßeltern verzeichnet.',
+            '%s has one greatgrandmother recorded.' => 'Für %s ist eine Urgroßmutter verzeichnet.',
+            '%s has one greatgrandfather recorded.' => 'Für %s ist ein Urgroßvater verzeichnet.',
+            '%s has one greatgrandparent of unknown sex recorded.' => 'Für %s ist ein Urgroßelternteil mit unbekanntem Geschlecht verzeichnet.',
+            '%2$s has %1$d greatgrandmother recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandmothers recorded.'
+            => 'Für %2$s ist %1$d Urgroßmutter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßmütter verzeichnet.',
+            '%2$s has %1$d greatgrandfather recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers recorded.'
+            => 'Für %2$s ist %1$d Urgroßvater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter verzeichnet.',
+            '%2$s has %1$d greatgrandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandparents of unknown sex recorded.'
+            => 'Für %2$s ist %1$d Urgroßelternteil mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßelternteile mit unbekanntem Geschlecht verzeichnet.',
+            '%2$s has %1$d greatgrandfather and ' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers and '
+            => 'Für %2$s sind %1$d Urgroßvater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter und ',
+            '%d greatgrandmother recorded (%d in total).' . I18N::PLURAL . '%d greatgrandmothers recorded (%d in total).'
+            => '%d Urgroßmutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Urgroßmütter verzeichnet (insgesamt %d).',
+            '%2$s has %1$d greatgrandmother and ' . I18N::PLURAL . '%2$s has %1$d greatgrandmothers and '
+            => 'Für %2$s sind %1$d Urgroßmutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßmütter und ',
+            '%d greatgrandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d greatgrandparents of unknown sex recorded (%d in total).'
+            => '%d Urgroßelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Urgroßelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d greatgrandfather, ' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers, '
+            => 'Für %2$s sind %1$d Urgroßvater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter, ',
+            '%d greatgrandmother, and ' . I18N::PLURAL . '%d greatgrandmothers, and '
+            => '%d Urgroßmutter und ' . I18N::PLURAL . '%d Urgroßmütter und ',
 
             'Grandparents' => 'Großeltern',
             '%s has no grandparents recorded.' => 'Für %s sind keine Großeltern verzeichnet.',
@@ -978,7 +1186,7 @@ class ExtendedFamilyTranslations
             'Stepparents of father' => 'Padrastros del padre',
             'Stepparents of mother' => 'Padrastros de la madre',
             'Stepparents of parent' => 'Padrastros de los padres',
-            'Parents of stepparents' => 'Padres de padrastros',
+            'Parents of stepparent' => 'Padres de padrastros',
             'Siblings of father' => 'Hermanos del padre',
             'Siblings of mother' => 'Hermanos de la madre',
             'Siblings-in-law of father' => 'Hermanos políticos del padre',
@@ -1410,7 +1618,7 @@ class ExtendedFamilyTranslations
             'Stepparents of father' => 'Stiefouders van de vader',
             'Stepparents of mother' => 'Stiefouders van de moeder',
             'Stepparents of parent' => 'Stiefouders van een ouder',
-            'Parents of stepparents' => 'Ouders van stiefouders',
+            'Parents of stepparent' => 'Ouders van stiefouders',
             'Siblings of father' => 'Broers/zussen van de vader',
             'Siblings of mother' => 'Broers/zussen van de moeder',
             'Full siblings of biological parents' => 'Volle broers/zussen van biologische ouders',
@@ -2410,7 +2618,7 @@ class ExtendedFamilyTranslations
             'Stepparents of father' => 'Bố mẹ kế của bố',
             'Stepparents of mother' => 'Bố mẹ kế của mẹ',
             'Stepparents of parent' => 'Bố mẹ kế của bố mẹ',
-            'Parents of stepparents' => 'Bố mẹ của bố mẹ kế',
+            'Parents of stepparent' => 'Bố mẹ của bố mẹ kế',
             'Siblings of father' => 'Anh chị em của bố',
             'Siblings of mother' => 'Anh chị em của mẹ',
             'Siblings-in-law of father' => 'Anh chị em dâu rể của bố',

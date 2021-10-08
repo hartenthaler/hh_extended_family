@@ -161,32 +161,22 @@ abstract class ExtendedFamilyPart
     protected function findStepparentsIndividuals(Individual $individual): array
     {
         $stepparents = [];
-        foreach ($this->findBioparentsIndividuals($individual) as $parent) {
+        $bioParents = $this->findBioparentsIndividuals($individual);
+        foreach ($bioParents as $parent) {
             foreach ($this->findPartnersIndividuals($parent->getIndividual()) as $stepparent) {
-                if ($stepparent->getIndividual()->xref() !== $parent->getIndividual()->xref()) {
+                $found = false;
+                foreach ($bioParents as $bioParent)  {      // check if this stepparent is one of the biological parents
+                    if ($stepparent->getIndividual()->xref() == $bioParent->getIndividual()->xref()) {
+                        $found = true;
+                        break;
+                    }
+                }
+                if (!$found) {
                     $stepparents[] = $stepparent;
                 }
             }
         }
         return $stepparents;
-    }
-
-    /**
-     * find individuals: parents for one branch
-     * this function is called via "callFunction"
-     *
-     * @param Individual $individual
-     * @param string $branch ['bio', 'step']
-     * @return array of IndividualFamily
-     */
-    private function findParentsBranchIndividuals(Individual $individual, string $branch): array
-    {
-        if ($branch == 'bio') {
-            return $this->findBioparentsIndividuals($individual);
-        } elseif ($branch == 'step') {
-            return $this->findStepparentsIndividuals($individual);
-        }
-        return [];
     }
 
     /**
@@ -253,6 +243,58 @@ abstract class ExtendedFamilyPart
     }
 
     /**
+     * find individuals: greatgrandparents for one branch
+     * this function is called via "callFunction"
+     *
+     * @param Individual $parent
+     * @param string $branch ['bio', 'stepbio', 'step']
+     * @return array of IndividualFamily
+     */
+    private function findGreatgrandparentsBranchIndividuals(Individual $parent, string $branch): array
+    {
+        $greatgrandparents = [];
+        if ($branch == 'bio') {
+            foreach ($this->findBioparentsIndividuals($parent) as $grandparent) {
+                foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
+                    $greatgrandparent->setReferencePerson($grandparent->getIndividual());
+                    $greatgrandparents[] = $greatgrandparent;
+                }
+            }
+        } elseif ($branch == 'stepbio') {
+            foreach ($this->findBioparentsIndividuals($parent) as $grandparent) {
+                $greatgrandparents = array_merge($greatgrandparents,
+                                                 $this->findStepparentsIndividuals($grandparent->getIndividual()));
+            }
+        } elseif ($branch == 'step') {
+            foreach ($this->findStepparentsIndividuals($parent) as $grandparent) {
+                $greatgrandparents = array_merge($greatgrandparents,
+                                                 $this->findBioparentsIndividuals($grandparent->getIndividual()));
+                $greatgrandparents = array_merge($greatgrandparents,
+                                                 $this->findStepparentsIndividuals($grandparent->getIndividual()));
+            }
+        }
+        return $greatgrandparents;
+    }
+
+    /**
+     * find individuals: grandparents for one branch
+     * this function is called via "callFunction"
+     *
+     * @param Individual $parent
+     * @param string $branch ['bio', 'step']
+     * @return array of IndividualFamily
+     */
+    private function findGrandparentsBranchIndividuals(Individual $parent, string $branch): array
+    {
+        if ($branch == 'bio') {
+            return $this->findBioparentsIndividuals($parent);
+        } elseif ($branch == 'step') {
+            return $this->findStepparentsIndividuals($parent);
+        }
+        return [];
+    }
+
+    /**
      * find individuals: full or half cousins based on father or mother (in first family)
      * this function is called via "callFunction"
      *
@@ -274,7 +316,9 @@ abstract class ExtendedFamilyPart
     }
 
     /**
-     * add cousins in both branches ['full','half'] or add grandparents in both branches ['bio','step']
+     * add cousins in both branches ['full','half'] or
+     * add grandparents in both branches ['bio','step'] or
+     * add greatgrandparents in three branches ['bio', 'stepbio', 'step']
      *
      * @param FindBranchConfig $config configuration parameters
      */
@@ -282,8 +326,8 @@ abstract class ExtendedFamilyPart
     {
         foreach ($config->getBranches() as $branch) {
             foreach ($this->findBioparentsIndividuals($this->getProband()) as $parent) {
-                foreach ($this->callFunction('find'.ucfirst($config->getCallFamilyPart()).'BranchIndividuals', $parent->getIndividual(), $branch) as $Obj) {
-                    $this->addIndividualToFamily($Obj, $config->getConst()[$branch][$parent->getIndividual()->sex()]);
+                foreach ($this->callFunction('find'.ucfirst($config->getCallFamilyPart()).'BranchIndividuals', $parent->getIndividual(), $branch) as $obj) {
+                    $this->addIndividualToFamily($obj, $config->getConst()[$branch][$parent->getIndividual()->sex()], $obj->getReferencePerson());
                 }
             }
         }
@@ -367,7 +411,7 @@ abstract class ExtendedFamilyPart
                 $newObj->familiesStatus[] = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
                 $newObj->referencePersons[] = $referencePerson;
                 $newObj->referencePersons2[] = $referencePerson2;
-                if ($this->efpObject->partName == 'grandparents' || $this->efpObject->partName == 'parents') {
+                if ($this->efpObject->partName == 'greatgrandparents' || $this->efpObject->partName == 'grandparents' || $this->efpObject->partName == 'parents') {
                     $newObj->familyStatus = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
                     if ($referencePerson) {
                         $newObj->partner = $referencePerson;

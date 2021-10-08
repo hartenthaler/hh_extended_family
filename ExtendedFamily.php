@@ -26,21 +26,23 @@
  * ------------------
  *
  * Performance: testen von Variante A und B (letztere muss erst noch fertig implementiert werden)
+ * generelle Familienkennzeichen: statt "Eltern" immer "Ehe/Partnerschaft" verwenden
  *
  * issues/enhancements: see GitHub
  *
- * generelle Familienkennzeichen: statt "Eltern" immer "Ehe/Partnerschaft" verwenden
- *
  * Familiengruppe Neffen und Nichten: 2-stufig: erst Geschwister als P bzw. Partner als P, dann Eltern wie gehabt;
- * Familiengruppe Cousins: wenn sie zur Vater- und Mutter-Familie gehören, werden sie falsch zugeordnet (bei P Seudo: C2)
+ * Familiengruppe Cousins: wenn sie zur Vater- und Mutterfamilie gehören, werden sie falsch zugeordnet (bei P Seudo: C2)
  * Familiengruppe Schwäger und Schwägerinnen: Ergänzen der vollbürtigen Geschwister um halbbürtige und Stiefgeschwister
- * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von Partner gemischt sein sollte
+ * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von
+ *                Partner gemischt sein sollte
  * Familiengruppe Partnerketten: grafische Anzeige statt Textketten
- * Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette von Di. zu Ga., d.h. dies als zweite Information ergänzen
+ * Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette
+ *                von Di. zu Ga., d.h. dies als zweite Information ergänzen
  * Familiengruppe Geschwister: eventuell statt Label eigene Kategorie für Adoptiv- und Pflegekinder bzw. Stillmutter
  *
  * Label für biologische Vorfahren und Nachkommen mit SOSA-Nummer bzw. d'Aboville
- * Label für diverse Personen unter Nutzung der Funktion getRelationshipName(), basierend auf den Vesta-Modulen oder eigenen Funktionen:
+ * Label für diverse Personen unter Nutzung der Funktion getRelationshipName(),
+ *      basierend auf den Vesta-Modulen oder eigenen Funktionen:
  *          Schwäger: Partner der Geschwister
  *          Schwippschwäger: Rechts = Partner der Schwäger (Ehemann, Ex-, Partner)
  *          Schwiegerkinder: Partnerin/Ehefrau
@@ -52,7 +54,8 @@
  * Label für Eltern: biologische Eltern, Stiefeltern, Adoptiveltern, Pflegeeltern
  * Label oder Gruppe bei Onkel/Tante: Halbonkel/-tante = Halbbruder/-schwester eines biologischen Elternteils
  *
- * Code: eventuell Verwendung der bestehenden Funktionen "_individuals" zum Aufbau von Familienteilen verwenden, statt es jedes Mal vom Probanden aus komplett neu zu gestalten
+ * Code: eventuell Verwendung der bestehenden Funktionen "_individuals" zum Aufbau von Familienteilen verwenden,
+ *       statt es jedes Mal vom Probanden aus komplett neu zu gestalten
  * Code: Ablaufreihenfolge in function addIndividualToFamily() umbauen wie function addIndividualToFamilyAsPartner()
  *
  * Test: Übersetzung bei den Partnern testen bei diversen Fällen mit gemischtem Geschlecht
@@ -61,8 +64,10 @@
  * Test: Schwagerehe (etwa Levirat oder Sororat)
  *
  * andere Verwandtschaftssysteme: eventuell auch andere Verwandtschaftssysteme als nur das Eskimo-System implementieren
- * andere Verwandtschaftssysteme: Onkel als Vater- oder Mutterbruder ausweisen für Übersetzung (Label?); Tante als Vater- oder Mutterschwester ausweisen für Übersetzung (Label?);
- * andere Verwandtschaftssysteme: Brüder und Schwestern als jüngere oder ältere Geschwister ausweisen für Übersetzung (in Bezug auf Proband) (Label?)
+ * andere Verwandtschaftssysteme: Onkel als Vater- oder Mutterbruder ausweisen für Übersetzung (Label?);
+ *                                Tante als Vater- oder Mutterschwester ausweisen für Übersetzung (Label?);
+ * andere Verwandtschaftssysteme: Brüder und Schwestern als jüngere oder ältere Geschwister ausweisen für Übersetzung
+ *                                (in Bezug auf Proband) (Label?)
  */
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
@@ -70,12 +75,15 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 
+
 use function explode;
 use function count;
 
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
+require_once(__DIR__ . '/src/Factory/Objects/ExtendedFamilySupport.php');
 
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Greatgrandparents.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandparents.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts_bm.php');
@@ -129,10 +137,10 @@ class ExtendedFamily
     public $proband;
         
     /**
-     * @var $filters                                                        array of object (index is string filterOption)
-     *         ->efp                                                        object
-     *              ->allCount                                              int
-     *              ->summaryMessageEmptyBlocks                             array of string
+     * @var $filters                                 array of object (index is string filterOption)
+     *         ->efp                                 object
+     *              ->allCount                       int
+     *              ->summaryMessageEmptyBlocks      array of string
      *              ... specific data structures for each extended family part
      */
     public $filters;
@@ -211,7 +219,7 @@ class ExtendedFamily
                     $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
                     $this->filters[$filterOption] = $extfamObj;
                 } else {
-                    $this->filters[$filterOption] = clone $this->filters['all'];        // using __clone to filter and add counters
+                    $this->filters[$filterOption] = clone $this->filters['all'];  // using __clone to filter and add counters
                     // sum up ->efp->allCount
                     // replace ->summaryMessageEmptyBlocks
                 }
@@ -229,7 +237,9 @@ class ExtendedFamily
     {
         $emptyBlocks = [];
         foreach ($extendedFamily->efp as $propName => $propValue) {
-            if ($propName !== 'allCount' && $propName !== 'summaryMessageEmptyBlocks' && $extendedFamily->efp->$propName->allCount == 0) {
+            if ($propName !== 'allCount' &&
+                $propName !== 'summaryMessageEmptyBlocks' &&
+                $extendedFamily->efp->$propName->allCount == 0) {
                 $emptyBlocks[] = $propName;
             }
         }
@@ -250,7 +260,7 @@ class ExtendedFamily
             if ($rufnameParts[0] !== $individual->facts(['NAME'])[0]->value()) {
                 // there is a Rufname marked with *, but no tag _RUFNAME
                 $rufnameParts = explode(' ', $rufnameParts[0]);   
-                $rufname = $rufnameParts[count($rufnameParts)-1];                        // it has to be the last given name (before *)
+                $rufname = $rufnameParts[count($rufnameParts)-1];         // it has to be the last given name (before *)
             }
         }
         return $rufname;
@@ -289,7 +299,7 @@ class ExtendedFamily
     {
         if ($this->config->showShortName) {
             // an individual can have no name or many names (then we use only the first one)
-            if (count($individual->facts(['NAME'])) > 0) {                                          // check if there is at least one name
+            if (count($individual->facts(['NAME'])) > 0) {                      // check if there is at least one name
                 $rufname = $this->findRufname($individual);
                 if ($rufname !== '') {
                     $niceName = $rufname;

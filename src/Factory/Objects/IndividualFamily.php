@@ -37,6 +37,7 @@ class IndividualFamily
      * @var object $objectIndiFamily
      *  ->individual                    Individual
      *  ->family                        object (?)
+     *  ->referencePerson               Individual
      */
     private $objectIndiFamily;
 
@@ -47,8 +48,9 @@ class IndividualFamily
      *
      * @param Individual $individual
      * @param object|null $family
+     * @param Individual|null $referencePerson
      */
-    public function __construct(Individual $individual, object $family = null)
+    public function __construct(Individual $individual, object $family = null, Individual $referencePerson = null)
     {
         $this->objectIndiFamily = (object)[];
         if (isset($individual) && ($individual instanceof Individual)) {
@@ -56,6 +58,9 @@ class IndividualFamily
         }
         if (isset($family)) {
             $this->objectIndiFamily->family = $family;
+        }
+        if (isset($referencePerson) && ($referencePerson instanceof Individual)) {
+            $this->objectIndiFamily->referencePerson = $referencePerson;
         }
     }
 
@@ -90,6 +95,29 @@ class IndividualFamily
            return $this->objectIndiFamily->family;
        }
        return null;
+    }
+
+    /**
+     * get reference person of this object
+     *
+     * @return void
+     */
+    public function getReferencePerson()
+    {
+        if (isset($this->objectIndiFamily->referencePerson)) {
+            return $this->objectIndiFamily->referencePerson;
+        }
+        return null;
+    }
+
+    /**
+     * set reference person of this object
+     *
+     * @param Individual $referencePerson
+     */
+    public function setReferencePerson(Individual $referencePerson)
+    {
+        $this->objectIndiFamily->referencePerson = $referencePerson;
     }
 
     /**

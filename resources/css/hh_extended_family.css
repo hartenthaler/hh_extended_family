@@ -49,6 +49,7 @@
     align-items: baseline;
     clear: left;
     float: left;
+    border: 1px solid grey;
     border-radius: 5px;
     margin: 2px 0;
     width: 99%;
@@ -69,6 +70,7 @@
     align-items: baseline;
     clear: left;
     float: left;
+    border: 1px solid grey;
     border-radius: 5px;
     margin: 2px 0;
     width: 99%;
@@ -150,12 +152,12 @@
     color: green;
 }
 
-#hh_extended_family_content .wt-chart-box-m .hh_extended_family_pedi,
-#hh_extended_family_content .wt-chart-box-f .hh_extended_family_pedi,
-#hh_extended_family_content .wt-chart-box-u .hh_extended_family_pedi,
-#hh_extended_family_content_compact .wt-chart-box-m .hh_extended_family_pedi,
-#hh_extended_family_content_compact .wt-chart-box-f .hh_extended_family_pedi,
-#hh_extended_family_content_compact .wt-chart-box-u .hh_extended_family_pedi {
+#hh_extended_family_content .wt-chart-box-m .hh_extended_family_label,
+#hh_extended_family_content .wt-chart-box-f .hh_extended_family_label,
+#hh_extended_family_content .wt-chart-box-u .hh_extended_family_label,
+#hh_extended_family_content_compact .wt-chart-box-m .hh_extended_family_label,
+#hh_extended_family_content_compact .wt-chart-box-f .hh_extended_family_label,
+#hh_extended_family_content_compact .wt-chart-box-u .hh_extended_family_label {
     font-size: 10px;
     padding: 1px 5px 1px 5px;
     margin: 0px 0px 0px 0px;

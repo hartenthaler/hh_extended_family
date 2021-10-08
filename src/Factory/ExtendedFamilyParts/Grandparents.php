@@ -35,15 +35,16 @@ class Grandparents extends ExtendedFamilyPart
     public const GROUP_GRANDPARENTS_FATHER_STEP  = 'Stepparents of father';
     public const GROUP_GRANDPARENTS_MOTHER_STEP  = 'Stepparents of mother';
     public const GROUP_GRANDPARENTS_U_STEP       = 'Stepparents of parent';
-    public const GROUP_GRANDPARENTS_STEP_PARENTS = 'Parents of stepparents';
+    public const GROUP_GRANDPARENTS_STEP_PARENTS = 'Parents of stepparent';
 
+    // used for relationshipCoefficientComment
     public const GROUP_GRANDPARENTS_BIO          = 'Biological grandparents';
 
     /**
-     * @var object $_efpObject data structure for this extended family part
+     * @var object $efpObject data structure for this extended family part
      *
      * common:
-     *  ->groups[]                      array
+     *  ->groups[]                      array there are 7 groups defined (1a, 1b, 1c, 2a, 2b, 2c, 3)
      *  ->maleCount                     int
      *  ->femaleCount                   int
      *  ->otherSexCount                 int
@@ -64,7 +65,7 @@ class Grandparents extends ExtendedFamilyPart
     protected function addEfpMembers()
     {
         $config = new FindBranchConfig(
-            'parents',
+            'grandparents',
             [
             'bio'  => ['M' => self::GROUP_GRANDPARENTS_FATHER_BIO, 'F' => self::GROUP_GRANDPARENTS_MOTHER_BIO, 'U' => self::GROUP_GRANDPARENTS_U_BIO],
             'step' => ['M' => self::GROUP_GRANDPARENTS_FATHER_STEP, 'F' => self::GROUP_GRANDPARENTS_MOTHER_STEP, 'U' => self::GROUP_GRANDPARENTS_U_STEP]

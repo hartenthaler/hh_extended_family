@@ -121,13 +121,13 @@ class Parents_in_law extends ExtendedFamilyPart
                 $newObj = (object)[];
                 $newObj->members[] = $indifam->getIndividual();
                 $newObj->family = $indifam->getFamily();
-                $newObj->familyStatus = ExtendedFamily::findFamilyStatus($indifam->getFamily());
+                $newObj->familyStatus = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
                 if ($spouse) {
                     $newObj->partner = $spouse;
                     foreach ($this->getProband()->spouseFamilies() as $fam) {
                         foreach ($fam->spouses() as $partner) {
                             if ($partner->xref() == $spouse->xref()) {
-                                $newObj->partnerFamilyStatus = ExtendedFamily::findFamilyStatus($fam);
+                                $newObj->partnerFamilyStatus = ExtendedFamilySupport::findFamilyStatus($fam);
                             }
                         }
                     }
