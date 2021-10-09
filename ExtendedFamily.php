@@ -83,7 +83,7 @@ require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
 require_once(__DIR__ . '/src/Factory/Objects/ExtendedFamilySupport.php');
 
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Greatgrandparents.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandparents.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandparents.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts_bm.php');
@@ -156,7 +156,7 @@ class ExtendedFamily
     public function __construct(Individual $proband, object $config)
     {
         $this->constructConfig($config);
-        $this->constructProband($proband); 
+        $this->constructProband($proband);
         $this->constructFiltersExtendedFamilyParts();
     }
 
@@ -259,7 +259,7 @@ class ExtendedFamily
             $rufnameParts = explode('*', $individual->facts(['NAME'])[0]->value());
             if ($rufnameParts[0] !== $individual->facts(['NAME'])[0]->value()) {
                 // there is a Rufname marked with *, but no tag _RUFNAME
-                $rufnameParts = explode(' ', $rufnameParts[0]);   
+                $rufnameParts = explode(' ', $rufnameParts[0]);
                 $rufname = $rufnameParts[count($rufnameParts)-1];         // it has to be the last given name (before *)
             }
         }
@@ -291,6 +291,7 @@ class ExtendedFamily
      * => use Rufname or nickname ("Sepp") or first of first names if one of these is available
      *    => otherwise use surname if available ("Mr. xxx", "Mrs. xxx", or "xxx" if sex is not F or M
      *       => otherwise use "He" or "She" (or "He/she" if sex is not F and not M)
+     * an individual can have no name or many names (then we use only the first one)
      *
      * @param Individual $individual
      * @return string
@@ -298,21 +299,33 @@ class ExtendedFamily
     private function findNiceName(Individual $individual): string
     {
         if ($this->config->showShortName) {
-            // an individual can have no name or many names (then we use only the first one)
             if (count($individual->facts(['NAME'])) > 0) {                      // check if there is at least one name
-                $rufname = $this->findRufname($individual);
-                if ($rufname !== '') {
-                    $niceName = $rufname;
-                } else {
-                    $niceName = $this->findNiceNameFromNameParts($individual);
-                }
-            } else {
-                $niceName = $this->selectNameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
+                $niceName = $this->findNiceNameFromRufnameOrNameParts($individual);
+            } else {                                          // tbd move following translations to tab.pthml
+                $niceName = $this->selectNameSex($individual, I18N::translate('He'),
+                                                              I18N::translate('She'),
+                                                              I18N::translate('He/she'));
             }
         } else {
             $niceName = $individual->fullname();
         }
         return $niceName;
+    }
+
+    /**
+     * Find a short, nice name for a person based on Rufname or name facts
+     *
+     * @param Individual $individual
+     * @return string
+     */
+    private function findNiceNameFromRufnameOrNameParts(Individual $individual): string
+    {
+        $rufname = $this->findRufname($individual);
+        if ($rufname !== '') {
+            return $rufname;
+        } else {
+            return $this->findNiceNameFromNameParts($individual);
+        }
     }
 
     /**

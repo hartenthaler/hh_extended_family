@@ -50,7 +50,7 @@ class Partner_chains extends ExtendedFamilyPart
      * @var object $_efpObject data structure for this extended family part
      *
      * common:
-     *  ->groups[]                      array       // not used for this extended family part
+     *  ->groups                        array       // not used for this extended family part
      *  ->maleCount                     int
      *  ->femaleCount                   int
      *  ->otherSexCount                 int
@@ -61,7 +61,7 @@ class Partner_chains extends ExtendedFamilyPart
      *  ->chains                        object
      *          ->chains[]              array of object (tree of partner chain nodes)
      *          ->indi                  Individual
-     *              ->filterComment         string
+     *              ->filterComment     string
      *          ->displayChains[]       array of chain (array of chainPerson objects)
      *          ->chainsCount           int (number of chains)
      *          ->longestChainCount     int
@@ -69,7 +69,7 @@ class Partner_chains extends ExtendedFamilyPart
      */
 
     /**
-     * add members for this specific extended family part and modify $this->>efpObject
+     * add members for this specific extended family part and modify $this->efpObject
      */
     protected function addEfpMembers()
     {

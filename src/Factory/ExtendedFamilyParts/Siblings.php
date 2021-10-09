@@ -55,8 +55,7 @@ class Siblings extends ExtendedFamilyPart
      *            ->labels[]            array of array of string
      *            ->families[]          array of object
      *            ->familiesStatus[]    string
-     *            ->referencePersons[]  Individual
-     *            ->referencePersons2[] Individual
+     *            ->referencePersons[]  array of array of Individual
      *            ->groupName           string
      */
 

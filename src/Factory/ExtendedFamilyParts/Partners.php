@@ -20,13 +20,12 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;
+
+use function array_key_exists;
+use function array_key_first;
 
 /**
  * class Partners
@@ -39,7 +38,7 @@ class Partners extends ExtendedFamilyPart
      * @var object $_efpObject data structure for this extended family part
      *
      * common:
-     *  ->groups[]                      array
+     *  ->groups                        array
      *  ->maleCount                     int
      *  ->femaleCount                   int
      *  ->otherSexCount                 int
@@ -47,8 +46,8 @@ class Partners extends ExtendedFamilyPart
      *  ->partName                      string
      *
      * special for this extended family part:
-     *   ->groups[]->members[]          array of object individual   (index of groups is "spouse->xref()")
-     *             ->partner            object individual
+     *   ->groups[]->members[]          array of object Individual   (index of groups is "spouse->xref()")
+     *             ->partner            object Individual
      *   ->pCount                       int
      *   ->pmaleCount                   int
      *   ->pfemaleCount                 int
@@ -64,15 +63,15 @@ class Partners extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                                               // Gen  0 F
-            foreach ($family1->spouses() as $spouse1) {                                                         // Gen  0 P
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->spouses() as $spouse1) {                                                 // Gen  0 P
                 if ($spouse1->xref() !== $this->getProband()->xref()) {
-                    $this->addIndividualToFamily(new IndividualFamily($spouse1, null), '', $this->getProband());
+                    $this->addIndividualToFamily(new IndividualFamily($spouse1, null, $this->getProband()));
                 }
-                foreach ($spouse1->spouseFamilies() as $family2) {                                              // Gen  0 F
-                    foreach ($family2->spouses() as $spouse2) {                                                 // Gen  0 P
+                foreach ($spouse1->spouseFamilies() as $family2) {                                      // Gen  0 F
+                    foreach ($family2->spouses() as $spouse2) {                                         // Gen  0 P
                         if ($spouse2->xref() !== $spouse1->xref() && $spouse2->xref() !== $this->getProband()->xref()) {
-                            $this->addIndividualToFamily(new IndividualFamily($spouse2, null), '', $spouse1);
+                            $this->addIndividualToFamily(new IndividualFamily($spouse2, null, $spouse1));
                         }
                     }
                 }
@@ -96,12 +95,10 @@ class Partners extends ExtendedFamilyPart
      *
      * @param IndividualFamily $indifam
      * @param string $groupName
-     * @param Individual|null $referencePerson
-     * @param Individual|null $referencePerson2
      */
-    protected function addIndividualToFamily(IndividualFamily $indifam, string $groupName = '', Individual $referencePerson = null, Individual $referencePerson2 = null )
+    protected function addIndividualToFamily(IndividualFamily $indifam, string $groupName = '')
     {
-         $this->addIndividualToFamilyAsPartner($indifam->getIndividual(), $referencePerson);
+         $this->addIndividualToFamilyAsPartner($indifam->getIndividual(), $indifam->getReferencePersons()[1]);
     }
 
     /**
@@ -112,30 +109,18 @@ class Partners extends ExtendedFamilyPart
      */
     private function addIndividualToFamilyAsPartner(Individual $individual, Individual $spouse)
     {
-        $found = false;
-        //error_log('Soll ' . $individual->xref() . ' als Partner von ' . $spouse->xref() . ' hinzugefuegt werden? ');
-        if ( array_key_exists ( $spouse->xref(), $this->efpObject->groups) ) {               // check if this spouse is already stored as group in this part of the extended family
-            //error_log($spouse->xref() . ' definiert bereits eine Gruppe. ');
-            $efp = $this->efpObject->groups[$spouse->xref()];
-            foreach ($efp->members as $member) {                                                // check if individual is already a partner of this partner
-                //error_log('Teste Ehepartner ' . $member->xref() . ' in Gruppe fuer ' . $spouse->xref() . ': ');
+        if ( array_key_exists($spouse->xref(), $this->efpObject->groups)) {    // check if this spouse is already stored as group in this part of the extended family
+            foreach ($this->efpObject->groups[$spouse->xref()]->members as $member) {                                // check if individual is already a partner of this partner
                 if ($individual->xref() == $member->xref()) {
-                    $found = true;
-                    //error_log('Person ' . $individual->xref() . ' ist bereits als Partner von ' . $spouse->xref() . ' vorhanden. ');
-                    break;
+                    return;
                 }
             }
-            if ( !$found ) {                                                                    // add individual to existing partner group
-                //error_log('Person ' . $individual->xref() . ' wird als Partner von ' . $spouse->xref() . ' hinzugefuegt. ');
-                $this->efpObject->groups[$spouse->xref()]->members[] = $individual;
-            }
-        } else {                                                                                // generate new group of partners
+            $this->efpObject->groups[$spouse->xref()]->members[] = $individual;
+        } else {                                                                // generate new group of partners
             $newObj = (object)[];
             $newObj->members[] = $individual;
             $newObj->partner = $spouse;
-            //error_log(print_r($newObj, true));
             $this->efpObject->groups[$spouse->xref()] = $newObj;
-            //error_log('Neu hinzugefuegte Gruppe fuer: ' . $spouse->xref() . ' (Person ' . $individual->xref() . ' als Partner hier hinzugefuegt). ');
         }
     }
 

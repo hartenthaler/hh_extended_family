@@ -54,8 +54,7 @@ class Uncles_and_aunts_bm extends ExtendedFamilyPart
      *            ->labels[]            array of array of string
      *            ->families[]          array of object
      *            ->familiesStatus[]    string
-     *            ->referencePersons[]  Individual
-     *            ->referencePersons2[] Individual
+     *            ->referencePersons[]  array of array of Individual
      *            ->groupName           string
      */
 
@@ -90,7 +89,7 @@ class Uncles_and_aunts_bm extends ExtendedFamilyPart
                             foreach ($uncleaunt->spouseFamilies() as $family3) {        // Gen 1 F
                                 foreach ($family3->spouses() as $uncleaunt2) {          // Gen 1 P
                                     if($uncleaunt2->xref() !== $uncleaunt->xref()) {
-                                        $this->addIndividualToFamily(new IndividualFamily($uncleaunt2, $family3), $side, $uncleaunt);
+                                        $this->addIndividualToFamily(new IndividualFamily($uncleaunt2, $family3, $uncleaunt), $side);
                                     }
                                 }
                             }

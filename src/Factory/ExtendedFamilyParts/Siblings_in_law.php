@@ -39,7 +39,7 @@ class Siblings_in_law extends ExtendedFamilyPart
     public const GROUP_SIBLINGSINLAW_POFSIB = 'Partners of siblings';
 
     /**
-     * @var object $_efpObject data structure for this extended family part
+     * @var object $efpObject data structure for this extended family part
      *
      * common:
      *  ->groups[]                      array
@@ -54,8 +54,7 @@ class Siblings_in_law extends ExtendedFamilyPart
      *            ->labels[]            array of array of string
      *            ->families[]          array of object
      *            ->familiesStatus[]    string
-     *            ->referencePersons[]  Individual
-     *            ->referencePersons2[] Individual
+     *            ->referencePersons[]  array of array of Individual
      *            ->groupName           string
      */
 
@@ -70,7 +69,7 @@ class Siblings_in_law extends ExtendedFamilyPart
                     foreach ($sibling_full->spouseFamilies() as $family2) {                     // Gen  0 F
                         foreach ($family2->spouses() as $spouse) {                              // Gen  0 P
                             if ($spouse->xref() !== $sibling_full->xref()) {
-                                $this->addIndividualToFamily(new IndividualFamily($spouse, $family2), self::GROUP_SIBLINGSINLAW_POFSIB, $sibling_full);
+                                $this->addIndividualToFamily(new IndividualFamily($spouse, $family2, $sibling_full), self::GROUP_SIBLINGSINLAW_POFSIB);
                             }
                         }
                     }
@@ -83,7 +82,7 @@ class Siblings_in_law extends ExtendedFamilyPart
                     foreach ($spouse1->childFamilies() as $family2) {                           // Gen  1 F
                         foreach ($family2->children() as $sibling) {                            // Gen  0 P
                             if ($sibling->xref() !== $spouse1->xref()) {
-                                $this->addIndividualToFamily(new IndividualFamily($sibling, $family1), self::GROUP_SIBLINGSINLAW_SIBOFP, $spouse1);
+                                $this->addIndividualToFamily(new IndividualFamily($sibling, $family1, $spouse1), self::GROUP_SIBLINGSINLAW_SIBOFP);
                             }
                         }
                     }

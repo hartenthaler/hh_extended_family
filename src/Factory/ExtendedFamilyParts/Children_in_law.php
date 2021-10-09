@@ -54,8 +54,7 @@ class Children_in_law extends ExtendedFamilyPart
      *            ->labels[]            array of array of string
      *            ->families[]          array of object
      *            ->familiesStatus[]    string
-     *            ->referencePersons[]  Individual
-     *            ->referencePersons2[] Individual
+     *            ->referencePersons[]  array of array of Individual
      *            ->groupName           string
      */
 
@@ -64,25 +63,25 @@ class Children_in_law extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->children() as $child) {                                          // Gen -1 P
                 foreach ($child->spouseFamilies() as $family2) {                                // Gen -1 F
                     foreach ($family2->spouses() as $child_in_law) {                            // Gen -1 P
                         if ($child_in_law->xref() !== $child->xref()) {
-                            $this->addIndividualToFamily(new IndividualFamily($child_in_law, $family1), self::GROUP_CHILDRENINLAW_BIO, $child);
+                            $this->addIndividualToFamily(new IndividualFamily($child_in_law, $family1, $child), self::GROUP_CHILDRENINLAW_BIO);
                         }
                     }
                 }
             }
         }
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
                     foreach ($family2->children() as $stepchild) {                              // Gen -1 P
                         foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
                             foreach ($family3->spouses() as $stepchild_in_law) {                // Gen -1 P
                                 if ($stepchild_in_law->xref() !== $stepchild->xref()) {
-                                    $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law, $family1), self::GROUP_CHILDRENINLAW_STEP, $stepchild);
+                                    $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law, $family1, $stepchild), self::GROUP_CHILDRENINLAW_STEP);
                                 }
                             }
                         }

@@ -23,11 +23,11 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 /**
- * class Greatgrandparents
+ * class Great_grandparents
  *
- * data and methods for extended family part "greatgrandparents"
+ * data and methods for extended family part "great_grandparents"
  */
-class Greatgrandparents extends ExtendedFamilyPart
+class Great_grandparents extends ExtendedFamilyPart
 {
     // 1 (1a, 1b, 1c): biological grandparents of biological parents (up to 4 in each group)
     // refPerson = biological grandparent
@@ -82,7 +82,7 @@ class Greatgrandparents extends ExtendedFamilyPart
     {
         // 1, 2 and 3: add grandparents of biological parent (father, mother, unknown sex)
         $config = new FindBranchConfig(
-            'greatgrandparents',
+            'great_grandparents',
             [
                 'bio' => ['M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIO, 'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIO, 'U' => self::GROUP_GREATGRANDPARENTS_USIDE_BIO],
                 'stepbio' => ['M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEPBIO, 'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEPBIO, 'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO],

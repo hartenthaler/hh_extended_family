@@ -642,7 +642,7 @@ class ExtendedFamilyTranslations
             'Parents of stepparent of mother' => 'Eltern eines Stiefelternteils der Mutter',
             'Parents of stepparent of parent' => 'Eltern eines Stiefelternteils eines Elternteils',
             'Grandparents of stepparent' => 'Großeltern eines Stiefelternteils',
-            'Biological greatgrandparents' => 'Biologische Urgroßeltern',
+            'Biological great-grandparents' => 'Biologische Urgroßeltern',
             'Biological parents of father' => 'Biologische Eltern des Vaters',
             'Biological parents of mother' => 'Biologische Eltern der Mutter',
             'Biological parents of parent' => 'Biologische Eltern eines Elternteils',
@@ -709,28 +709,28 @@ class ExtendedFamilyTranslations
             'Sister %1$s of partner %2$s' => 'Schwester %1$s von Partner %2$s',
             'Sibling %1$s of partner %2$s' => 'Geschwister %1$s von Partner %2$s',
 
-            'Greatgrandparents' => 'Urgroßeltern',
-            '%s has no greatgrandparents recorded.' => 'Für %s sind keine Urgroßeltern verzeichnet.',
-            '%s has one greatgrandmother recorded.' => 'Für %s ist eine Urgroßmutter verzeichnet.',
-            '%s has one greatgrandfather recorded.' => 'Für %s ist ein Urgroßvater verzeichnet.',
-            '%s has one greatgrandparent of unknown sex recorded.' => 'Für %s ist ein Urgroßelternteil mit unbekanntem Geschlecht verzeichnet.',
-            '%2$s has %1$d greatgrandmother recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandmothers recorded.'
+            'Great-grandparents' => 'Urgroßeltern',
+            '%s has no great-grandparents recorded.' => 'Für %s sind keine Urgroßeltern verzeichnet.',
+            '%s has one great-grandmother recorded.' => 'Für %s ist eine Urgroßmutter verzeichnet.',
+            '%s has one great-grandfather recorded.' => 'Für %s ist ein Urgroßvater verzeichnet.',
+            '%s has one great-grandparent of unknown sex recorded.' => 'Für %s ist ein Urgroßelternteil mit unbekanntem Geschlecht verzeichnet.',
+            '%2$s has %1$d great-grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandmothers recorded.'
             => 'Für %2$s ist %1$d Urgroßmutter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßmütter verzeichnet.',
-            '%2$s has %1$d greatgrandfather recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers recorded.'
+            '%2$s has %1$d great-grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandfathers recorded.'
             => 'Für %2$s ist %1$d Urgroßvater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter verzeichnet.',
-            '%2$s has %1$d greatgrandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandparents of unknown sex recorded.'
+            '%2$s has %1$d great-grandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandparents of unknown sex recorded.'
             => 'Für %2$s ist %1$d Urgroßelternteil mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßelternteile mit unbekanntem Geschlecht verzeichnet.',
-            '%2$s has %1$d greatgrandfather and ' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers and '
+            '%2$s has %1$d great-grandfather and ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers and '
             => 'Für %2$s sind %1$d Urgroßvater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter und ',
-            '%d greatgrandmother recorded (%d in total).' . I18N::PLURAL . '%d greatgrandmothers recorded (%d in total).'
+            '%d great-grandmother recorded (%d in total).' . I18N::PLURAL . '%d great-grandmothers recorded (%d in total).'
             => '%d Urgroßmutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Urgroßmütter verzeichnet (insgesamt %d).',
-            '%2$s has %1$d greatgrandmother and ' . I18N::PLURAL . '%2$s has %1$d greatgrandmothers and '
+            '%2$s has %1$d great-grandmother and ' . I18N::PLURAL . '%2$s has %1$d great-grandmothers and '
             => 'Für %2$s sind %1$d Urgroßmutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßmütter und ',
-            '%d greatgrandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d greatgrandparents of unknown sex recorded (%d in total).'
+            '%d great-grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d great-grandparents of unknown sex recorded (%d in total).'
             => '%d Urgroßelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Urgroßelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
-            '%2$s has %1$d greatgrandfather, ' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers, '
+            '%2$s has %1$d great-grandfather, ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers, '
             => 'Für %2$s sind %1$d Urgroßvater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter, ',
-            '%d greatgrandmother, and ' . I18N::PLURAL . '%d greatgrandmothers, and '
+            '%d great-grandmother, and ' . I18N::PLURAL . '%d great-grandmothers, and '
             => '%d Urgroßmutter und ' . I18N::PLURAL . '%d Urgroßmütter und ',
 
             'Grandparents' => 'Großeltern',
@@ -1622,7 +1622,7 @@ class ExtendedFamilyTranslations
             'Parents of stepparent of mother' => 'Ouders van een stiefouder van de moeder',
             'Parents of stepparent of parent' => 'Ouders van een stiefouder van een ouder',
             'Grandparents of stepparent' => 'Grootouders van een stiefouder',
-            'Biological greatgrandparents' => 'Biologische overgrootouders',
+            'Biological great-grandparents' => 'Biologische overgrootouders',
             'Biological parents of father' => 'Biologische ouders van de vader',
             'Biological parents of mother' => 'Biologische ouders van de moeder',
             'Biological parents of parent' => 'Biologische ouders van een ouder',
@@ -1689,28 +1689,28 @@ class ExtendedFamilyTranslations
             'Sister %1$s of partner %2$s' => 'Zus %1$s van partner %2$s',
             'Sibling %1$s of partner %2$s' => 'Broer/zus %1$s van partner %2$s',
 
-            'Greatgrandparents' => 'Overgrootouders',
-            '%s has no greatgrandparents recorded.' => 'Voor %s zijn geen overgrootouders geregistreerd.',
-            '%s has one greatgrandmother recorded.' => 'Voor %s is een overgrootmoeder geregistreerd.',
-            '%s has one greatgrandfather recorded.' => 'Voor %s is een overgrootvader geregistreerd.',
-            '%s has one greatgrandparent of unknown sex recorded.' => 'Voor %s is een overgrootouder van onbekend geslacht geregistreerd.',
-            '%2$s has %1$d greatgrandmother recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandmothers recorded.'
+            'Great-grandparents' => 'Overgrootouders',
+            '%s has no great-grandparents recorded.' => 'Voor %s zijn geen overgrootouders geregistreerd.',
+            '%s has one great-grandmother recorded.' => 'Voor %s is een overgrootmoeder geregistreerd.',
+            '%s has one great-grandfather recorded.' => 'Voor %s is een overgrootvader geregistreerd.',
+            '%s has one great-grandparent of unknown sex recorded.' => 'Voor %s is een overgrootouder van onbekend geslacht geregistreerd.',
+            '%2$s has %1$d great-grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandmothers recorded.'
             => 'Voor %2$s is %1$d overgrootmoeder geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootmoeders geregistreerd',
-            '%2$s has %1$d greatgrandfather recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers recorded.'
+            '%2$s has %1$d great-grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandfathers recorded.'
             => 'Voor %2$s is %1$d overgrootvader geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootvaders geregistreerd.',
-            '%2$s has %1$d greatgrandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d greatgrandparents of unknown sex recorded.'
+            '%2$s has %1$d great-grandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandparents of unknown sex recorded.'
             => 'Voor %2$s is %1$d overgrootouder van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootouders van onbekend geslacht geregistreerd.',
-            '%2$s has %1$d greatgrandfather and ' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers and '
+            '%2$s has %1$d great-grandfather and ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers and '
             => 'Voor %2$s zijn %1$d overgrootvader en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootvaders en ',
-            '%d greatgrandmother recorded (%d in total).' . I18N::PLURAL . '%d greatgrandmothers recorded (%d in total).'
+            '%d great-grandmother recorded (%d in total).' . I18N::PLURAL . '%d great-grandmothers recorded (%d in total).'
             => '%d overgrootmoeder geregistreerd (%d in totaal).' . I18N::PLURAL . '%d overgrootmoeders geregistreerd (%d in totaal).',
-            '%2$s has %1$d greatgrandmother and ' . I18N::PLURAL . '%2$s has %1$d greatgrandmothers and '
+            '%2$s has %1$d great-grandmother and ' . I18N::PLURAL . '%2$s has %1$d great-grandmothers and '
             => 'Voor %2$s zijn %1$d overgrootmoeder en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootmoeders en ',
-            '%d greatgrandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d greatgrandparents of unknown sex recorded (%d in total).'
+            '%d great-grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d great-grandparents of unknown sex recorded (%d in total).'
             => '%d overgrootouder van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d overgrootouders van onbekend geslacht geregistreerd (%d in totaal).',
-            '%2$s has %1$d greatgrandfather, ' . I18N::PLURAL . '%2$s has %1$d greatgrandfathers, '
+            '%2$s has %1$d great-grandfather, ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers, '
             => 'Voor %2$s zijn %1$d overgrootvader, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d overgrootvaders, ',
-            '%d greatgrandmother, and ' . I18N::PLURAL . '%d greatgrandmothers, and '
+            '%d great-grandmother, and ' . I18N::PLURAL . '%d great-grandmothers, and '
             => '%d overgrootmoeder en ' . I18N::PLURAL . '%d overgrootmoeder en ',
 
             'Grandparents' => 'Grootouders',

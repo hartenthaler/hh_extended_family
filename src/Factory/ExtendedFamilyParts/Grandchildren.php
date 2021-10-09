@@ -56,8 +56,7 @@ class Grandchildren extends ExtendedFamilyPart
      *            ->labels[]            array of array of string
      *            ->families[]          array of object
      *            ->familiesStatus[]    string
-     *            ->referencePersons[]  Individual
-     *            ->referencePersons2[] Individual
+     *            ->referencePersons[]  array of array of Individual
      *            ->groupName           string
      */
 
@@ -66,7 +65,7 @@ class Grandchildren extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->children() as $biochild) {                                       // Gen -1 P
                 foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
                     foreach ($family2->children() as $biograndchild) {                          // Gen -2 P
@@ -82,7 +81,7 @@ class Grandchildren extends ExtendedFamilyPart
                 }
             }
         }
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
                     foreach ($family2->children() as $stepchild) {                              // Gen -1 P

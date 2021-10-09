@@ -63,7 +63,7 @@ class ExtendedFamilySupport
                                                         // this sequence is the default order of family parts
     {    
         return [
-            'greatgrandparents',                        // generation +3
+            'great_grandparents',                       // generation +3
             'grandparents',                             // generation +2
             'uncles_and_aunts',                         // generation +1
             'uncles_and_aunts_bm',                                          // uncles and aunts by marriage
@@ -91,7 +91,7 @@ class ExtendedFamilySupport
     public static function getFamilyPartParameters(): array
     {
         return [
-            'greatgrandparents'      => ['generation' => +3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Greatgrandparents::GROUP_GREATGRANDPARENTS_BIO],
+            'great_grandparents'     => ['generation' => +3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Great_grandparents::GROUP_GREATGRANDPARENTS_BIO],
             'grandparents'           => ['generation' => +2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandparents::GROUP_GRANDPARENTS_BIO],
             'uncles_and_aunts'       => ['generation' => +1, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Uncles_and_aunts::GROUP_UNCLEAUNT_FULL_BIO],
             'uncles_and_aunts_bm'    => ['generation' => +1, 'relationshipCoefficient' => 0],

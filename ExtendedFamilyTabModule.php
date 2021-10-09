@@ -95,7 +95,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE     = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION     = '2.0.16.57';
+    public const CUSTOM_VERSION     = '2.0.16.58';
     public const CUSTOM_LAST        = 'https://github.com/hartenthaler/' .
                                       self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    

@@ -28,6 +28,7 @@ use Fisharebest\Webtrees\Individual;
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
 
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandparents.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandparents.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts_bm.php');

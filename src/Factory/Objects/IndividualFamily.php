@@ -37,7 +37,7 @@ class IndividualFamily
      * @var object $objectIndiFamily
      *  ->individual                    Individual
      *  ->family                        object (?)
-     *  ->referencePerson               Individual
+     *  ->referencePersons[]            array of Individual
      */
     private $objectIndiFamily;
 
@@ -49,8 +49,12 @@ class IndividualFamily
      * @param Individual $individual
      * @param object|null $family
      * @param Individual|null $referencePerson
+     * @param Individual|null $referencePerson2
      */
-    public function __construct(Individual $individual, object $family = null, Individual $referencePerson = null)
+    public function __construct(Individual $individual,
+                                object $family = null,
+                                Individual $referencePerson = null,
+                                Individual $referencePerson2 = null)
     {
         $this->objectIndiFamily = (object)[];
         if (isset($individual) && ($individual instanceof Individual)) {
@@ -59,9 +63,17 @@ class IndividualFamily
         if (isset($family)) {
             $this->objectIndiFamily->family = $family;
         }
-        if (isset($referencePerson) && ($referencePerson instanceof Individual)) {
-            $this->objectIndiFamily->referencePerson = $referencePerson;
+        $this->objectIndiFamily->referencePersons = [];
+        foreach ([1 => $referencePerson, 2 => $referencePerson2] as $refIndex => $refPerson) {
+            if (isset($refPerson) && ($refPerson instanceof Individual)) {
+                $this->objectIndiFamily->referencePersons[$refIndex] = $refPerson;
+            }
         }
+        /*
+        echo "<br>IndividualFamily: " . $individual->fullName() . " - ";
+        foreach ($this->objectIndiFamily->referencePersons as $key => $value) {
+            echo " $key => " . $value->fullName() . "; ";
+        } */
     }
 
     /**
@@ -69,7 +81,7 @@ class IndividualFamily
      *
      * @return object
      */
-    public function getobjectIndiFamily(): object
+    public function getObjectIndiFamily(): object
     {
         return $this->objectIndiFamily;
     }
@@ -98,26 +110,24 @@ class IndividualFamily
     }
 
     /**
-     * get reference person of this object
+     * get reference persons in this object
      *
-     * @return void
+     * @return array
      */
-    public function getReferencePerson()
+    public function getReferencePersons(): array
     {
-        if (isset($this->objectIndiFamily->referencePerson)) {
-            return $this->objectIndiFamily->referencePerson;
-        }
-        return null;
+        return $this->objectIndiFamily->referencePersons;
     }
 
     /**
      * set reference person of this object
      *
+     * @param int $index
      * @param Individual $referencePerson
      */
-    public function setReferencePerson(Individual $referencePerson)
+    public function setReferencePerson(int $index, Individual $referencePerson)
     {
-        $this->objectIndiFamily->referencePerson = $referencePerson;
+        $this->objectIndiFamily->referencePersons[$index] = $referencePerson;
     }
 
     /**
@@ -125,7 +135,7 @@ class IndividualFamily
      *
      * @param object $object
      */
-    public function setobjectIndiFamily(object $object): void
+    public function setObjectIndiFamily(object $object): void
     {
         $this->objectIndiFamily = $object;
     }

@@ -7,7 +7,7 @@
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 
 This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person:
-grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts, partners, siblings, siblings-in-law, co-siblings-in-law, cousins, nephews, nieces, children, children-in-law, and grandchildren.
+great-grandparents, grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts, partners, siblings, siblings-in-law, co-siblings-in-law, cousins, nephews, nieces, children, children-in-law, and grandchildren.
 
 <a name="Contents"></a>
 
@@ -15,16 +15,15 @@ grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts, partner
 
 This Readme contains the following main sections
 
-*   [Contents](#Contents)
-*   [Description](#Description)
-*   [Screenshots](#Screenshots)
-*   [Requirements](#Requirements)
-*   [Installation](#Installation)
-*   [Upgrade](#upgrade)
-*   [Translation](#translation)
-*   [Contact Support](#Support)
-<a name="Description"></a>
+* [Description](#description)
+* [Screenshots](#screenshots)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Upgrade](#upgrade)
+* [Translation](#translation)
+* [Contact Support](#support)
 
+* <a name="description"></a>
 ## Description
 
 This module presents the core and the extended family of a proband. It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
@@ -45,6 +44,7 @@ The admin can decide in the control panel
     * has a special linkage status to the parent family (challenged, disproven, proven), should look like "1 FAMC @F123@\n2 STAT challenged"
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
+* great-grandparents                       // generation +3
 * grandparents                             // generation +2
 * uncles and aunts                         // generation +1
 * uncles and aunts by marriage             // generation +1
@@ -61,8 +61,7 @@ The default presentation sequence of the extended family parts is oriented at th
 * children-in-law                          // generation -1
 * grandchildren                            // generation -2
 
-<a name="Screenshots"></a>
-
+<a name="screenshots"></a>
 ## Screenshots
 
 Screenshot of tab using the compact design
@@ -75,10 +74,9 @@ Screenshot showing chain of partners (partner of partner of partner of ...)
 <p align="center"><img src="screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
 
 Screenshot of control panel menu
-<p align="center"><img src="screenshot_control_panel.png" alt="Screenshot of control panel menue" align="center" width="85%"></p>
+<p align="center"><img src="screenshot_control_panel.png" alt="Screenshot of control panel menu" align="center" width="85%"></p>
 
-<a name="Requirements"></a>
-
+<a name="requirements"></a>
 ## Requirements
 
 This module requires **webtrees** version 2.0 or later.
@@ -86,8 +84,7 @@ This module has the same requirements as [webtrees#system-requirements](https://
 
 This module was tested with **webtrees** 2.0.16 version and all available themes.
 
-<a name="Installation"></a>
-
+<a name="installation"></a>
 ## Installation
 
 This section documents installation instructions for hh_cousins.
@@ -98,16 +95,14 @@ This section documents installation instructions for hh_cousins.
 1. Rename the folder to `hh_extended_family`
 1. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Individual page/Tabs</span>, and find the module. It will be called "Extended family". Check if it has a tick for "Enabled".
 1. Edit this entry to set the access level for each tree and to position the menu item to suit your preferences.
-1. Finally click SAVE, to complete the installation.
+1. Finally, click SAVE, to complete the installation.
 
 <a name="upgrade"></a>
-
 ## Upgrade
 
 To update simply replace the hh_extended_family files with the new ones from the latest download.
 
 <a name="translation"></a>
-
 ## Translation
 
 You can help to translate this module. The language information is at the end of the file module.php.
@@ -125,11 +120,10 @@ There are now, beside English and German, translations to
 * Ukrainian by @z-yurets
 * Vietnamese by @ngohuuthuan
 
-<a name="Support"></a>
-
+<a name="support"></a>
 ## Contact Support
 
-You can report errors raising an issue in this github repository.
+You can report errors raising an issue in this GitHub repository.
 
 <span style="font-weight: bold;">Forum: </span>general webtrees support can be found at the [webtrees forum](http://www.webtrees.net/)
 

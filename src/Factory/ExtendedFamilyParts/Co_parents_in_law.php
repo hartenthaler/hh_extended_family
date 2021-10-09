@@ -54,8 +54,7 @@ class Co_parents_in_law extends ExtendedFamilyPart
      *            ->labels[]            array of array of string
      *            ->families[]          array of object
      *            ->familiesStatus[]    string
-     *            ->referencePersons[]  Individual
-     *            ->referencePersons2[] Individual
+     *            ->referencePersons[]  array of array of Individual
      *            ->groupName           string
      */
 
@@ -88,10 +87,10 @@ class Co_parents_in_law extends ExtendedFamilyPart
                             foreach ($family3->spouses() as $stepchild_in_law) {                // Gen -1 P
                                 if ($stepchild_in_law->xref() !== $stepchild->xref()) {
                                     if (($stepchild_in_law->childFamilies()->first()) && ($stepchild_in_law->childFamilies()->first()->husband() instanceof Individual)) {        // husband() or wife() may not exist
-                                        $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law->childFamilies()->first()->husband(), $family3), self::GROUP_COPARENTSINLAW_STEP, $stepchild);
+                                        $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law->childFamilies()->first()->husband(), $family3, $stepchild), self::GROUP_COPARENTSINLAW_STEP);
                                     }
                                     if (($stepchild_in_law->childFamilies()->first()) && ($stepchild_in_law->childFamilies()->first()->wife() instanceof Individual)) {
-                                        $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law->childFamilies()->first()->wife(), $family3), self::GROUP_COPARENTSINLAW_STEP, $stepchild);
+                                        $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law->childFamilies()->first()->wife(), $family3, $stepchild), self::GROUP_COPARENTSINLAW_STEP);
                                     }
                                 }
                             }

@@ -48,8 +48,7 @@ class Children extends ExtendedFamilyPart
      *            ->labels[]            array of array of string
      *            ->families[]          array of object
      *            ->familiesStatus[]    string
-     *            ->referencePersons[]  Individual
-     *            ->referencePersons2[] Individual
+     *            ->referencePersons[]  array of array of Individual
      *            ->groupName           string
      */
 
@@ -58,7 +57,7 @@ class Children extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->children() as $child) {                                          // Gen -1 P
                 $this->addIndividualToFamily(new IndividualFamily($child, $family1), self::GROUP_CHILDREN_BIO);
             }

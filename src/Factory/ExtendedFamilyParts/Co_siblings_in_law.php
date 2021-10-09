@@ -20,10 +20,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;
@@ -54,8 +50,7 @@ class Co_siblings_in_law extends ExtendedFamilyPart
      *            ->labels[]            array of array of string
      *            ->families[]          array of object
      *            ->familiesStatus[]    string
-     *            ->referencePersons[]  Individual
-     *            ->referencePersons2[] Individual
+     *            ->referencePersons[]  array of array of Individual
      *            ->groupName           string
      */
 
@@ -64,7 +59,7 @@ class Co_siblings_in_law extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->childFamilies() as $family1) {                                // Gen  1 F
+        foreach ($this->getProband()->childFamilies() as $family1) {                            // Gen  1 F
             foreach ($family1->children() as $sibling_full) {                                   // Gen  0 P
                 if ($sibling_full->xref() !== $this->getProband()->xref()) {
                     foreach ($sibling_full->spouseFamilies() as $family2) {                     // Gen  0 F
@@ -73,7 +68,7 @@ class Co_siblings_in_law extends ExtendedFamilyPart
                                 foreach ($spouse->childFamilies() as $family3) {                // Gen  1 F
                                     foreach ($family3->children() as $co_sibling_full) {        // Gen  0 P
                                         if ($co_sibling_full->xref() !== $spouse->xref()) {
-                                            $this->addIndividualToFamily(new IndividualFamily($co_sibling_full, $family3), self::GROUP_COSIBLINGSINLAW_SIBPARSIB, $spouse);
+                                            $this->addIndividualToFamily(new IndividualFamily($co_sibling_full, $family3, $spouse), self::GROUP_COSIBLINGSINLAW_SIBPARSIB);
                                         }
                                     }
                                 }
@@ -83,7 +78,7 @@ class Co_siblings_in_law extends ExtendedFamilyPart
                 }
             }
         }
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 if ( $spouse1->xref() !== $this->getProband()->xref() ) {
                     foreach ($spouse1->childFamilies() as $family2) {                           // Gen  1 F
@@ -92,7 +87,7 @@ class Co_siblings_in_law extends ExtendedFamilyPart
                                 foreach ($sibling->spouseFamilies() as $family3) {
                                     foreach ($family3->spouses() as $cosiblinginlaw) {
                                         if ($cosiblinginlaw->xref() !== $sibling->xref()) {
-                                            $this->addIndividualToFamily(new IndividualFamily($cosiblinginlaw, $family3), self::GROUP_COSIBLINGSINLAW_PARSIBPAR, $sibling);
+                                            $this->addIndividualToFamily(new IndividualFamily($cosiblinginlaw, $family3, $sibling), self::GROUP_COSIBLINGSINLAW_PARSIBPAR);
                                         }
                                     }
                                 }

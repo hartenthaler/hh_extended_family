@@ -20,7 +20,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
  * (4) children_in_law (grouped by reference person)
  * (4a)                                                                                                 son/daughter/child
  * (4b)                                                                                                 stepson/stepdaughter/stepchild
- * (5) greatgrandparents, grandparents, parents, co-parents-in-law, uncles_and_aunts (grouped by families)
+ * (5) great-grandparents, grandparents, parents, co-parents-in-law, uncles_and_aunts (grouped by families)
  * (5a)                                                                                                 parents F of P
  * (5b)                                                                                                 marriage/partnership P
  * (6) co-siblings-in-law (grouped by reference person)
@@ -100,35 +100,35 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                         <?php endif ?>
                         <?php if ($filterObj->efp->$propName->allCount): ?>
                             <div class="hh-extended-family-summary">
-                                <?php if ($propName == 'greatgrandparents'): ?>
+                                <?php if ($propName == 'great_grandparents'): ?>
                                     <?php if ($filterObj->efp->$propName->allCount == 1): ?>
                                         <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
-                                            <h3><?= I18N::translate('%s has one greatgrandmother recorded.', $extfam_obj->proband->niceName) ?></h3>
+                                            <h3><?= I18N::translate('%s has one great-grandmother recorded.', $extfam_obj->proband->niceName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 1): ?>
-                                            <h3><?= I18N::translate('%s has one greatgrandfather recorded.', $extfam_obj->proband->niceName) ?></h3>
+                                            <h3><?= I18N::translate('%s has one great-grandfather recorded.', $extfam_obj->proband->niceName) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::translate('%s has one greatgrandparent of unknown sex recorded.', $extfam_obj->proband->niceName) ?></h3>
+                                            <h3><?= I18N::translate('%s has one great-grandparent of unknown sex recorded.', $extfam_obj->proband->niceName) ?></h3>
                                         <?php endif ?>
                                     <?php else: ?>
                                         <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d greatgrandmother recorded.',  '%2$s has %1$d greatgrandmothers recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->proband->niceName) ?></h3>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandmother recorded.',  '%2$s has %1$d great-grandmothers recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->proband->niceName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d greatgrandfather recorded.', '%2$s has %1$d greatgrandfathers recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?></h3>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather recorded.', '%2$s has %1$d great-grandfathers recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d greatgrandparent of unknown sex recorded.', '%2$s has %1$d greatgrandparents of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $extfam_obj->proband->niceName) ?></h3>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandparent of unknown sex recorded.', '%2$s has %1$d great-grandparents of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $extfam_obj->proband->niceName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d greatgrandfather and ', '%2$s has %1$d greatgrandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
-                                                <?= I18N::plural('%d greatgrandmother recorded (%d in total).', '%d greatgrandmothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather and ', '%2$s has %1$d great-grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
+                                                <?= I18N::plural('%d great-grandmother recorded (%d in total).', '%d great-grandmothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d greatgrandfather and ', '%2$s has %1$d greatgrandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
-                                                <?= I18N::plural('%d greatgrandparent of unknown sex recorded (%d in total).', '%d greatgrandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather and ', '%2$s has %1$d great-grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
+                                                <?= I18N::plural('%d great-grandparent of unknown sex recorded (%d in total).', '%d great-grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d greatgrandmother and ', '%2$s has %1$d greatgrandmothers and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->proband->niceName) ?>
-                                                <?= I18N::plural('%d greatgrandparent of unknown sex recorded (%d in total).', '%d greatgrandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandmother and ', '%2$s has %1$d great-grandmothers and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->proband->niceName) ?>
+                                                <?= I18N::plural('%d great-grandparent of unknown sex recorded (%d in total).', '%d great-grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d greatgrandfather, ', '%2$s has %1$d greatgrandfathers, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
-                                                <?= I18N::plural('%d greatgrandmother, and ', '%d greatgrandmothers, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
-                                                <?= I18N::plural('%d greatgrandparent of unknown sex recorded (%d in total).', '%d greatgrandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather, ', '%2$s has %1$d great-grandfathers, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
+                                                <?= I18N::plural('%d great-grandmother, and ', '%d great-grandmothers, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                                <?= I18N::plural('%d great-grandparent of unknown sex recorded (%d in total).', '%d great-grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
                                 <?php elseif ($propName == 'grandparents'): ?>
@@ -778,119 +778,119 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                             <?php $prev_id = -1; $prev_id1 = -1; $prev_id2 = -1; ?>
                                             <?php  foreach ($group->members as $key => $indi) : ?>
                                                 <?php if ($propName == 'siblings_in_law' || $propName == 'uncles_and_aunts_bm') : ?>
-                                                    <?php if ($group->referencePersons[$key]->xref() != $prev_id): ?>
-                                                        <?php $prev_id = $group->referencePersons[$key]->xref(); $i = 1; ?>
-                                                        <?php if ($group->referencePersons[$key]->canShow()): ?>
+                                                    <?php if ($group->referencePersons[$key][1]->xref() != $prev_id): ?>
+                                                        <?php $prev_id = $group->referencePersons[$key][1]->xref(); $i = 1; ?>
+                                                        <?php if ($group->referencePersons[$key][1]->canShow()): ?>
                                                             <?php if ($group->groupName == 'Partners of siblings' || $group->groupName == 'Siblings of siblings-in-law' || $group->groupName == 'Siblings-in-law of father' || $group->groupName == 'Siblings-in-law of mother' || $group->groupName == 'Children of siblings' || $group->groupName == 'Siblings\' stepchildren'): ?>
-                                                                <?php if ($group->referencePersons[$key]->sex() == 'M'): ?>
-                                                                    <h5><?= I18N::translate('Brother') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                <?php elseif ($group->referencePersons[$key]->sex() == 'F'): ?>
-                                                                    <h5><?= I18N::translate('Sister') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
+                                                                    <h5><?= I18N::translate('Brother') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
+                                                                    <h5><?= I18N::translate('Sister') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php else: ?>
-                                                                    <h5><?= I18N::translate('Sibling') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                    <h5><?= I18N::translate('Sibling') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php endif ?>
                                                             <?php elseif ($group->groupName == 'Children of siblings of partners'): ?>
-                                                                <?php $link_referencePerson = ('<a href="'.e($group->referencePersons[$key]->url()).'">'.$group->referencePersons[$key]->fullName().'</a>') ?>
-                                                                <?php if ($group->referencePersons2[$key]->canShow()): ?>
-                                                                    <?php $link_referencePerson2 = ('<a href="'.e($group->referencePersons2[$key]->url()).'">'.$group->referencePersons2[$key]->fullName().'</a>') ?>
+                                                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                                                                <?php if ($group->referencePersons[$key][2]->canShow()): ?>
+                                                                    <?php $linkReferencePerson2 = ('<a href="'.e($group->referencePersons[$key][2]->url()).'">'.$group->referencePersons[$key][2]->fullName().'</a>') ?>
                                                                 <?php else: ?>
-                                                                    <?php $link_referencePerson2 = $group->referencePersons2[$key]->fullName() ?>
+                                                                    <?php $linkReferencePerson2 = $group->referencePersons[$key][2]->fullName() ?>
                                                                 <?php endif ?>
-                                                                <?php if ($group->referencePersons2[$key]->sex() == 'M'): ?>
-                                                                    <h5><?= I18N::translate('Brother %1$s of partner %2$s', $link_referencePerson2, $link_referencePerson) ?></h5>
-                                                                <?php elseif ($group->referencePersons2[$key]->sex() == 'F'): ?>
-                                                                    <h5><?= I18N::translate('Sister %1$s of partner %2$s', $link_referencePerson2, $link_referencePerson) ?></h5>
+                                                                <?php if ($group->referencePersons[$key][2]->sex() == 'M'): ?>
+                                                                    <h5><?= I18N::translate('Brother %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
+                                                                <?php elseif ($group->referencePersons[$key][2]->sex() == 'F'): ?>
+                                                                    <h5><?= I18N::translate('Sister %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
                                                                 <?php else: ?>
-                                                                    <h5><?= I18N::translate('Sibling %1$s of partner %2$s', $link_referencePerson2, $link_referencePerson) ?></h5>
+                                                                    <h5><?= I18N::translate('Sibling %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
                                                                 <?php endif ?>
                                                             <?php elseif ($group->groupName == 'Siblings of partners' || $group->groupName == 'Partners of siblings-in-law'): ?>
-                                                                <h5><?= I18N::translate($group->familiesStatus[$key]) ?><?= I18N::translate(' with ') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <h5><?= I18N::translate($group->familiesStatus[$key]) ?><?= I18N::translate(' with ') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                             <?php endif ?>
                                                         <?php else: ?>
                                                             <?php if ($group->groupName == 'Partners of siblings'  || $group->groupName == 'Siblings of siblings-in-law' || $group->groupName == 'Siblings-in-law of father' || $group->groupName == 'Siblings-in-law of mother') : ?>
-                                                                <h5><?= I18N::translate('Sibling')?>&nbsp;<?= $group->referencePersons[$key]->fullName() ?></h5>
+                                                                <h5><?= I18N::translate('Sibling')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php elseif ($group->groupName == 'Siblings of partners' || $group->groupName == 'Partners of siblings-in-law'): ?>
-                                                                <h5><?= I18N::translate('Partner')?>&nbsp;<?= $group->referencePersons[$key]->fullName() ?></h5>
+                                                                <h5><?= I18N::translate('Partner')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php endif ?>
                                                         <?php endif ?>
                                                     <?php endif ?>
                                                 <?php elseif ($propName == 'nephews_and_nieces') : ?>
-                                                    <?php if ($group->referencePersons[$key]->xref() != $prev_id1 || ($group->referencePersons2[$key] && ($group->referencePersons2[$key]->xref() != $prev_id2))): ?>
-                                                        <?php $prev_id1 = $group->referencePersons[$key]->xref(); $i = 1; ?>
-                                                        <?php if ($group->referencePersons[$key]->canShow()): ?>
+                                                    <?php if ($group->referencePersons[$key][1]->xref() != $prev_id1 || (isset($group->referencePersons[$key][2]) && ($group->referencePersons[$key][2]->xref() != $prev_id2))): ?>
+                                                        <?php $prev_id1 = $group->referencePersons[$key][1]->xref(); $i = 1; ?>
+                                                        <?php if ($group->referencePersons[$key][1]->canShow()): ?>
                                                             <?php if ($group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING || $group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING): ?>
-                                                                <?php if ($group->referencePersons[$key]->sex() == 'M'): ?>
-                                                                    <h5><?= I18N::translate('Brother') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                <?php elseif ($group->referencePersons[$key]->sex() == 'F'): ?>
-                                                                    <h5><?= I18N::translate('Sister') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
+                                                                    <h5><?= I18N::translate('Brother') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
+                                                                    <h5><?= I18N::translate('Sister') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php else: ?>
-                                                                    <h5><?= I18N::translate('Sibling') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                    <h5><?= I18N::translate('Sibling') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php endif ?>
                                                             <?php elseif ($group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER): ?>
-                                                                <?php $prev_id2 = $group->referencePersons2[$key]->xref(); ?>
-                                                                <?php $link_referencePerson = ('<a href="'.e($group->referencePersons[$key]->url()).'">'.$group->referencePersons[$key]->fullName().'</a>') ?>
-                                                                <?php if ($group->referencePersons2[$key]->canShow()): ?>
-                                                                    <?php $link_referencePerson2 = ('<a href="'.e($group->referencePersons2[$key]->url()).'">'.$group->referencePersons2[$key]->fullName().'</a>') ?>
+                                                                <?php $prev_id2 = $group->referencePersons[$key][2]->xref(); ?>
+                                                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                                                                <?php if ($group->referencePersons[$key][2]->canShow()): ?>
+                                                                    <?php $linkReferencePerson2 = ('<a href="'.e($group->referencePersons[$key][2]->url()).'">'.$group->referencePersons[$key][2]->fullName().'</a>') ?>
                                                                 <?php else: ?>
-                                                                    <?php $link_referencePerson2 = $group->referencePersons2[$key]->fullName() ?>
+                                                                    <?php $linkReferencePerson2 = $group->referencePersons[$key][2]->fullName() ?>
                                                                 <?php endif ?>
-                                                                <?php if ($group->referencePersons2[$key]->sex() == 'M'): ?>
-                                                                    <h5><?= I18N::translate('Brother %1$s of partner %2$s', $link_referencePerson2, $link_referencePerson) ?></h5>
-                                                                <?php elseif ($group->referencePersons2[$key]->sex() == 'F'): ?>
-                                                                    <h5><?= I18N::translate('Sister %1$s of partner %2$s', $link_referencePerson2, $link_referencePerson) ?></h5>
+                                                                <?php if ($group->referencePersons[$key][2]->sex() == 'M'): ?>
+                                                                    <h5><?= I18N::translate('Brother %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
+                                                                <?php elseif ($group->referencePersons[$key][2]->sex() == 'F'): ?>
+                                                                    <h5><?= I18N::translate('Sister %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
                                                                 <?php else: ?>
-                                                                    <h5><?= I18N::translate('Sibling %1$s of partner %2$s', $link_referencePerson2, $link_referencePerson) ?></h5>
+                                                                    <h5><?= I18N::translate('Sibling %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
                                                                 <?php endif ?>
                                                             <?php endif ?>
                                                         <?php else: ?>
                                                             <?php if ($group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING || $group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING): ?>
-                                                                <h5><?= I18N::translate('Sibling')?>&nbsp;<?= $group->referencePersons[$key]->fullName() ?></h5>
+                                                                <h5><?= I18N::translate('Sibling')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php elseif ($group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER): ?>
-                                                                <?php if ($group->referencePersons2[$key]->canShow()): ?>
-                                                                    <?php $link_referencePerson2 = ('<a href="'.e($group->referencePersons2[$key]->url()).'">'.$group->referencePersons2[$key]->fullName().'</a>') ?>
+                                                                <?php if ($group->referencePersons[$key][2]->canShow()): ?>
+                                                                    <?php $linkReferencePerson2 = ('<a href="'.e($group->referencePersons[$key][2]->url()).'">'.$group->referencePersons[$key][2]->fullName().'</a>') ?>
                                                                 <?php else: ?>
-                                                                    <?php $link_referencePerson2 = $group->referencePersons2[$key]->fullName() ?>
+                                                                    <?php $linkReferencePerson2 = $group->referencePersons[$key][2]->fullName() ?>
                                                                 <?php endif ?>
-                                                                <h5><?= I18N::translate('Sibling %1$s of partner %2$s', $link_referencePerson2, $group->referencePersons[$key]->fullName()) ?></h5>
+                                                                <h5><?= I18N::translate('Sibling %1$s of partner %2$s', $linkReferencePerson2, $group->referencePersons[$key][1]->fullName()) ?></h5>
                                                             <?php endif ?>
                                                         <?php endif ?>
                                                     <?php endif ?>
                                                 <?php elseif ($propName == 'children_in_law'): ?>
-                                                    <?php if ($group->referencePersons[$key]->xref() != $prev_id): ?>
-                                                        <?php $prev_id = $group->referencePersons[$key]->xref(); $i = 1; ?>
-                                                        <?php if ($group->referencePersons[$key]->canShow()): ?>
+                                                    <?php if ($group->referencePersons[$key][1]->xref() != $prev_id): ?>
+                                                        <?php $prev_id = $group->referencePersons[$key][1]->xref(); $i = 1; ?>
+                                                        <?php if ($group->referencePersons[$key][1]->canShow()): ?>
                                                             <?php if ($group->groupName == 'Partners of biological children'): ?>
-                                                                <?php if ($group->referencePersons[$key]->sex() == 'M'): ?>
-                                                                    <h5><?= I18N::translate('Son') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                <?php elseif ($group->referencePersons[$key]->sex() == 'F'): ?>
-                                                                    <h5><?= I18N::translate('Daughter') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
+                                                                    <h5><?= I18N::translate('Son') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
+                                                                    <h5><?= I18N::translate('Daughter') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php else: ?>
-                                                                    <h5><?= I18N::translate('Child') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                    <h5><?= I18N::translate('Child') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php endif ?>
                                                             <?php elseif ($group->groupName == 'Partners of stepchildren'): ?>
-                                                                <?php if ($group->referencePersons[$key]->sex() == 'M'): ?>
-                                                                    <h5><?= I18N::translate('Stepson') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
-                                                                <?php elseif ($group->referencePersons[$key]->sex() == 'F'): ?>
-                                                                    <h5><?= I18N::translate('Stepdaughter') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
+                                                                    <h5><?= I18N::translate('Stepson') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
+                                                                    <h5><?= I18N::translate('Stepdaughter') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php else: ?>
-                                                                    <h5><?= I18N::translate('Stepchild') ?><a href="<?= e($group->referencePersons[$key]->url()); ?>">&nbsp;<?= $group->referencePersons[$key]->fullName(); ?></a></h5>
+                                                                    <h5><?= I18N::translate('Stepchild') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php endif ?>
                                                             <?php endif ?>
                                                         <?php else: ?>
                                                             <?php if ($group->groupName == 'Partners of biological children'): ?>
-                                                                <h5><?= I18N::translate('Child')?>&nbsp;<?= $group->referencePersons[$key]->fullName() ?></h5>
+                                                                <h5><?= I18N::translate('Child')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php elseif ($group->groupName == 'Partners of stepchildren'): ?>
-                                                                <h5><?= I18N::translate('Stepchild')?>&nbsp;<?= $group->referencePersons[$key]->fullName() ?></h5>
+                                                                <h5><?= I18N::translate('Stepchild')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php endif ?>
                                                         <?php endif ?>
                                                     <?php endif ?>
-                                                <?php elseif ($propName == 'greatgrandparents' || $propName == 'grandparents' || $propName == 'uncles_and_aunts' || $propName == 'parents' || $propName == 'co_parents_in_law'): ?>
+                                                <?php elseif ($propName == 'great_grandparents' || $propName == 'grandparents' || $propName == 'uncles_and_aunts' || $propName == 'parents' || $propName == 'co_parents_in_law'): ?>
                                                     <?php if ($group->families[$key]->xref() != $prev_id): ?>
                                                         <?php $prev_id = $group->families[$key]->xref(); $i = 1; ?>
                                                         <?php if ($group->families[$key]->canShow()): ?>
                                                             <?php if (str_starts_with($group->groupName, 'Biological grandparents of ') || $group->groupName == 'Parents of stepparents' || $group->groupName == 'Partners of siblings'): ?>
                                                                 <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
-                                                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key]->url()).'">'.$group->referencePersons[$key]->fullName().'</a>') ?>
+                                                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
                                                                 <h5><?= I18N::translate('Parents %1$s (%2$s) of %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
                                                             <?php elseif ($group->groupName == 'Siblings of father' || $group->groupName == 'Siblings of mother'): ?>
                                                                 <h5><?= I18N::translate('Parents')?>&nbsp;<a href="<?= e($group->families[$key]->url()); ?>">&nbsp;<?= $group->families[$key]->fullName() ?></a></h5>
@@ -899,17 +899,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                             <?php endif ?>
                                                         <?php else: ?>
                                                             <?php if ($group->groupName == 'Parents of stepparents' || $group->groupName == 'Partners of siblings'): ?>
-                                                                <h5><?= I18N::translate('Parents %1$s of %2$s', $group->families[$key]->fullName(), $group->referencePersons[$key]->fullName()) ?></h5>
+                                                                <h5><?= I18N::translate('Parents %1$s of %2$s', $group->families[$key]->fullName(), $group->referencePersons[$key][1]->fullName()) ?></h5>
                                                             <?php else: ?>
                                                                 <h5><?= I18N::translate('Partnership') ?>&nbsp;<?= $group->families[$key]->fullName() ?></h5>
                                                             <?php endif ?>
                                                         <?php endif ?>
                                                     <?php endif ?>
                                                 <?php elseif ($propName == 'co_siblings_in_law'): ?>
-                                                    <?php if ($group->referencePersons[$key]->xref() != $prev_id): ?>
-                                                        <?php $prev_id = $group->referencePersons[$key]->xref(); $i = 1; ?>
-                                                        <?php if ($group->referencePersons[$key]->canShow()): ?>
-                                                            <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key]->url()).'">'.$group->referencePersons[$key]->fullName().'</a>') ?>
+                                                    <?php if ($group->referencePersons[$key][1]->xref() != $prev_id): ?>
+                                                        <?php $prev_id = $group->referencePersons[$key][1]->xref(); $i = 1; ?>
+                                                        <?php if ($group->referencePersons[$key][1]->canShow()): ?>
+                                                            <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
                                                             <?php if ($group->groupName == 'Siblings of siblings-in-law'): ?>
                                                                 <?php $linkParents = '<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>' ?>
                                                                 <?php $familyStatus = I18N::translate($group->familiesStatus[$key]) ?>
@@ -919,9 +919,9 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                             <?php endif ?>
                                                         <?php else: ?>
                                                             <?php if ($group->groupName == 'Siblings of siblings-in-law'): ?>
-                                                                <h5><?= I18N::translate('Parents %1$s of %2$s', $group->families[$key]->fullName(), $group->referencePersons[$key]->fullName()) ?></h5>
+                                                                <h5><?= I18N::translate('Parents %1$s of %2$s', $group->families[$key]->fullName(), $group->referencePersons[$key][1]->fullName()) ?></h5>
                                                             <?php else: ?>
-                                                                <h5><?= I18N::translate('Partners of %s', $group->referencePersons[$key]->fullName()) ?></h5>
+                                                                <h5><?= I18N::translate('Partners of %s', $group->referencePersons[$key][1]->fullName()) ?></h5>
                                                             <?php endif ?>
                                                         <?php endif ?>
                                                     <?php endif ?>
