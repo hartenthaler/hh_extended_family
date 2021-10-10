@@ -26,7 +26,6 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 use Fisharebest\Webtrees\Individual;
 
 use function array_key_exists;
-use function array_merge;
 
 require_once('Objects/IndividualFamily.php');
 require_once('Objects/FindBranchConfig.php');
@@ -45,7 +44,7 @@ abstract class ExtendedFamilyPart
      * @var object $efpObject common data structure for all extended family parts
      *                        there are additional specific data structures for each extended family part
      *
-     *  ->groups[]                      array           // not used in extended family part "partner_chains"
+     *  ->groups                        array           // not used in extended family part "partner_chains"
      *  ->maleCount                     int
      *  ->femaleCount                   int
      *  ->otherSexCount                 int
@@ -256,34 +255,34 @@ abstract class ExtendedFamilyPart
      */
     private function findGreat_grandparentsBranchIndividuals(Individual $parent, string $branch): array
     {
-        $great_grandparents = [];
+        $greatGrandparents = [];
         if ($branch == 'bio') {
             foreach ($this->findBioparentsIndividuals($parent) as $grandparent) {
-                foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $great_grandparent) {
-                    $great_grandparent->setReferencePerson(1, $grandparent->getIndividual());
-                    $great_grandparents[] = $great_grandparent;
+                foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $greatGrandparent) {
+                    $greatGrandparent->setReferencePerson(1, $grandparent->getIndividual());
+                    $greatGrandparents[] = $greatGrandparent;
                 }
             }
         } elseif ($branch == 'stepbio') {
             foreach ($this->findBioparentsIndividuals($parent) as $grandparent) {
-                foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $great_grandparent) {
-                    $great_grandparent->setReferencePerson(1, $grandparent->getIndividual());
-                    $great_grandparents[] = $great_grandparent;
+                foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $greatGrandparent) {
+                    $greatGrandparent->setReferencePerson(1, $grandparent->getIndividual());
+                    $greatGrandparents[] = $greatGrandparent;
                 }
             }
         } elseif ($branch == 'step') {
             foreach ($this->findStepparentsIndividuals($parent) as $stepgrandparent) {
-                foreach ($this->findBioparentsIndividuals($stepgrandparent->getIndividual()) as $great_grandparent) {
-                    $great_grandparent->setReferencePerson(1, $stepgrandparent->getIndividual());
-                    $great_grandparents[] = $great_grandparent;
+                foreach ($this->findBioparentsIndividuals($stepgrandparent->getIndividual()) as $greatGrandparent) {
+                    $greatGrandparent->setReferencePerson(1, $stepgrandparent->getIndividual());
+                    $greatGrandparents[] = $greatGrandparent;
                 }
-                foreach ($this->findStepparentsIndividuals($stepgrandparent->getIndividual()) as $great_grandparent) {
-                    $great_grandparent->setReferencePerson(1, $stepgrandparent->getIndividual());
-                    $great_grandparents[] = $great_grandparent;
+                foreach ($this->findStepparentsIndividuals($stepgrandparent->getIndividual()) as $greatGrandparent) {
+                    $greatGrandparent->setReferencePerson(1, $stepgrandparent->getIndividual());
+                    $greatGrandparents[] = $greatGrandparent;
                 }
             }
         }
-        return $great_grandparents;
+        return $greatGrandparents;
     }
 
     /**

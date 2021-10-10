@@ -84,9 +84,18 @@ class Great_grandparents extends ExtendedFamilyPart
         $config = new FindBranchConfig(
             'great_grandparents',
             [
-                'bio' => ['M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIO, 'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIO, 'U' => self::GROUP_GREATGRANDPARENTS_USIDE_BIO],
-                'stepbio' => ['M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEPBIO, 'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEPBIO, 'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO],
-                'step' => ['M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP, 'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP, 'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP]
+                'bio' => [
+                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIO,
+                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIO,
+                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_BIO],
+                'stepbio' => [
+                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEPBIO,
+                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEPBIO,
+                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO],
+                'step' => [
+                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP,
+                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP,
+                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP]
             ]
         );
         $this->addFamilyBranches($config);
@@ -101,25 +110,41 @@ class Great_grandparents extends ExtendedFamilyPart
     private function addGrandparentsOfStepparent()
     {
         foreach ($this->findStepparentsIndividuals($this->getProband()) as $stepparent) {
-            foreach ($this->findBioparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-                foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                    $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
-                    $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
-                }
-                foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                    $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
-                    $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
-                }
+            $this->addBioGrandparentsOfStepparent($stepparent);
+            $this->addStepGrandparentsOfStepparent($stepparent);
+        }
+    }
+
+    /**
+     * find and add biological grandparents of stepparent (modify $this->efpObject)
+     */
+    private function addBioGrandparentsOfStepparent(IndividualFamily $stepparent)
+    {
+        foreach ($this->findBioparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
+            foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
+                $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
+                $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
             }
-            foreach ($this->findStepparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-                foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                    $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
-                    $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
-                }
-                foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                    $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
-                    $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
-                }
+            foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
+                $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
+                $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
+            }
+        }
+    }
+
+    /**
+     * find and add stepgrandparents of stepparent (modify $this->efpObject)
+     */
+    private function addStepGrandparentsOfStepparent(IndividualFamily $stepparent)
+    {
+        foreach ($this->findStepparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
+            foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
+                $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
+                $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
+            }
+            foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
+                $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
+                $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
             }
         }
     }

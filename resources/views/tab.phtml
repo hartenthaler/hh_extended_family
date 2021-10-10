@@ -7,26 +7,26 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // using const of this module
 
 /*
- * (1) Special (not using groups)
+ * (1) Special (not using named groups)
  * (1a) partners (grouped by partners/partners of partners)
  * (1b) partner chains (grouped by chains)
  * (1c) parents_in_law (grouped by partnerships)
  * (2) siblings_in_law, uncles_and_aunts_bm (grouped by reference person)
- * (2a)                                                                                                 sister/brother of P
- * (2b)                                                                                                 marriage/partnership with P
+ * (2a)                                                                                 sister/brother of P
+ * (2b)                                                                                 marriage/partnership with P
  * (3) nephews_and_nieces (grouped by reference person and reference person 2)
- * (3a)                                                                                                 sister/brother of P
- * (3b)                                                                                                 marriage/partnership with P
+ * (3a)                                                                                 sister/brother of P
+ * (3b)                                                                                 marriage/partnership with P
  * (4) children_in_law (grouped by reference person)
- * (4a)                                                                                                 son/daughter/child
- * (4b)                                                                                                 stepson/stepdaughter/stepchild
+ * (4a)                                                                                 son/daughter/child
+ * (4b)                                                                                 stepson/stepdaughter/stepchild
  * (5) great-grandparents, grandparents, parents, co-parents-in-law, uncles_and_aunts (grouped by families)
- * (5a)                                                                                                 parents F of P
- * (5b)                                                                                                 marriage/partnership P
+ * (5a)                                                                                 parents F of P
+ * (5b)                                                                                 marriage/partnership P
  * (6) co-siblings-in-law (grouped by reference person)
- * (6a)                                                                                                 parents F of P
- * (6b)                                                                                                 partners of P
- * (7) siblings, cousins, children, grandchildren (grouped by childfamilies())                          parents F
+ * (6a)                                                                                 parents F of P
+ * (6b)                                                                                 partners of P
+ * (7) siblings, cousins, children, grandchildren (grouped by childfamilies())          parents F
  */
  ?>
  
@@ -892,6 +892,30 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                                 <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
                                                                 <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
                                                                 <h5><?= I18N::translate('Parents %1$s (%2$s) of %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
+                                                            <?php elseif (str_starts_with($group->groupName, 'Stepparents of biological')): ?>
+                                                                <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
+                                                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                                                                <h5><?= I18N::translate('Stepparents %1$s (%2$s) of %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
+                                                            <?php elseif (str_starts_with($group->groupName, 'Parents of stepparent of')): ?>
+                                                                <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
+                                                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                                                                <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
+                                                                    <h5><?= I18N::translate('Parents %1$s (%2$s) of stepfather %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
+                                                                <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
+                                                                    <h5><?= I18N::translate('Parents %1$s (%2$s) of stepmother %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
+                                                                <?php else: ?>
+                                                                    <h5><?= I18N::translate('Parents %1$s (%2$s) of stepparent %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
+                                                                <?php endif ?>
+                                                            <?php elseif ($group->groupName == 'Grandparents of stepparent'): ?>
+                                                                <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
+                                                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                                                                <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
+                                                                    <h5><?= I18N::translate('Grandparents %1$s (%2$s) of stepfather %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
+                                                                <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
+                                                                    <h5><?= I18N::translate('Grandparents %1$s (%2$s) of stepmother %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
+                                                                <?php else: ?>
+                                                                    <h5><?= I18N::translate('Grandparents %1$s (%2$s) of stepparent %3$s', $linkParents, I18N::translate($group->familiesStatus[$key]), $linkReferencePerson) ?></h5>
+                                                                <?php endif ?>
                                                             <?php elseif ($group->groupName == 'Siblings of father' || $group->groupName == 'Siblings of mother'): ?>
                                                                 <h5><?= I18N::translate('Parents')?>&nbsp;<a href="<?= e($group->families[$key]->url()); ?>">&nbsp;<?= $group->families[$key]->fullName() ?></a></h5>
                                                             <?php else: ?>

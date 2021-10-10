@@ -20,8 +20,9 @@
  */
 
 /*
- * tbd: Offene Punkte
- * ------------------
+ * tbd
+ * ---
+ * Übersetzungen per Weblate oder po/mo prüfen (siehe issue #117)
  * Übersetzungen für italian und chinese einbauen, sobald sie zugeliefert wurden
  * fehlende Übersetzungen für french, norwegian (2x), finish und andere organisieren
  */
@@ -702,6 +703,13 @@ class ExtendedFamilyTranslations
             'Father\'s family (%d)' => 'Familie des Vaters (%d)',
             'Mother\'s family (%d)' => 'Familie der Mutter (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Familie des Vaters und der Mutter (%d)',
+            'Grandparents %1$s (%2$s) of stepfather %3$s' => 'Großeltern %1$s (%2$s) des Stiefvaters %3$s',
+            'Grandparents %1$s (%2$s) of stepmother %3$s' => 'Großeltern %1$s (%2$s) der Stiefmutter %3$s',
+            'Grandparents %1$s (%2$s) of stepparent %3$s' => 'Großeltern %1$s (%2$s) des Stiefelternteils %3$s',
+            'Stepparents %1$s (%2$s) of %3$s' => 'Stiefeltern %1$s (%2$s) von %3$s',
+            'Parents %1$s (%2$s) of stepfather %3$s' => 'Eltern %1$s (%2$s) des Stiefvaters %3$s',
+            'Parents %1$s (%2$s) of stepmother %3$s' => 'Eltern %1$s (%2$s) der Stiefmutter %3$s',
+            'Parents %1$s (%2$s) of stepparent %3$s' => 'Eltern %1$s (%2$s) des Stiefelternteils %3$s',
             'Parents %1$s of %2$s' => 'Eltern %1$s von %2$s',
             'Parents %1$s (%2$s) of %3$s' => 'Eltern %1$s (%2$s) von %3$s',
             'Partners of %s' => 'Partner von %s',
