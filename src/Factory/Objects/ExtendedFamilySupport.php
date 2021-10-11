@@ -80,6 +80,7 @@ class ExtendedFamilySupport
             'children',
             'children_in_law',
             'grandchildren',                            // generation -2
+            'grandchildren_in_law',
         ];
     }
 
@@ -108,6 +109,7 @@ class ExtendedFamilySupport
             'children'               => ['generation' => -1, 'relationshipCoefficient' => 0.5,   'relationshipCoefficientComment' => Children::GROUP_CHILDREN_BIO],
             'children_in_law'        => ['generation' => -1, 'relationshipCoefficient' => 0],
             'grandchildren'          => ['generation' => -2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandchildren::GROUP_GRANDCHILDREN_BIO],
+            'grandchildren_in_law'   => ['generation' => -2, 'relationshipCoefficient' => 0],
        ];
     }
 

@@ -24,13 +24,12 @@
 /*
  * tbd: offene Punkte
  * ------------------
- *
  * Performance: testen von Variante A und B (letztere muss erst noch fertig implementiert werden)
  * generelle Familienkennzeichen: statt "Eltern" immer "Ehe/Partnerschaft" verwenden
- *
  * issues/enhancements: see GitHub
  *
- * Familiengruppe Neffen und Nichten: 2-stufig: erst Geschwister als P bzw. Partner als P, dann Eltern wie gehabt;
+ * Familiengruppe Urgroßeltern: Unterscheidung bei den Eltern eines Stiefelternteils nach Eltern und Stiefeltern
+ * Familiengruppe Neffen und Nichten: 2-stufig: erst Geschwister als P bzw. Partner als P, dann Eltern wie gehabt
  * Familiengruppe Cousins: wenn sie zur Vater- und Mutterfamilie gehören, werden sie falsch zugeordnet (bei P Seudo: C2)
  * Familiengruppe Schwäger und Schwägerinnen: Ergänzen der vollbürtigen Geschwister um halbbürtige und Stiefgeschwister
  * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von
@@ -56,7 +55,6 @@
  *
  * Code: eventuell Verwendung der bestehenden Funktionen "_individuals" zum Aufbau von Familienteilen verwenden,
  *       statt es jedes Mal vom Probanden aus komplett neu zu gestalten
- * Code: Ablaufreihenfolge in function addIndividualToFamily() umbauen wie function addIndividualToFamilyAsPartner()
  *
  * Test: Übersetzung bei den Partnern testen bei diversen Fällen mit gemischtem Geschlecht
  * Test: wie verhält es sich, wenn eine Person als Kind zu zwei Familien gehört (bei P Seudo: C2)
@@ -100,6 +98,7 @@ require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Nephews_and_nieces.php'
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren_in_law.php');
 
 /**
  * class ExtendedFamily

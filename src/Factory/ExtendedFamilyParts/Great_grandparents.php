@@ -53,7 +53,7 @@ class Great_grandparents extends ExtendedFamilyPart
     public const GROUP_GREATGRANDPARENTS_STEP_PARENTS = 'Grandparents of stepparent';
 
     // used for relationshipCoefficientComment
-    public const GROUP_GREATGRANDPARENTS_BIO = 'Biological greatgrandparents';
+    public const GROUP_GREATGRANDPARENTS_BIO = 'Biological great-grandparents';
 
     /**
      * @var object $efpObject data structure for this extended family part

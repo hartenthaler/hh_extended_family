@@ -23,16 +23,17 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 /**
- * class Grandchildren
+ * class Grandchildren_in_law
  *
- * data and methods for extended family part "grandchildren" including step- and step-step-grandchildren
+ * data and methods for extended family part "grandchildren_in_law" with
+ * partners of biological, step- and step-step-grandchildren
  */
-class Grandchildren extends ExtendedFamilyPart
+class Grandchildren_in_law extends ExtendedFamilyPart
 {
-    public const GROUP_GRANDCHILDREN_BIO = 'Biological grandchildren';
-    public const GROUP_GRANDCHILDREN_STEP_CHILD = 'Stepchildren of children';
-    public const GROUP_GRANDCHILDREN_CHILD_STEP = 'Children of stepchildren';
-    public const GROUP_GRANDCHILDREN_STEP_STEP = 'Stepchildren of stepchildren';
+    public const GROUP_GRANDCHILDRENINLAW_BIO = 'Partners of biological grandchild';
+    public const GROUP_GRANDCHILDRENINLAW_STEP_CHILD = 'Partners of stepchild of child';
+    public const GROUP_GRANDCHILDRENINLAW_CHILD_STEP = 'Partners of child of stepchild';
+    public const GROUP_GRANDCHILDRENINLAW_STEP_STEP = 'Partners of stepchild of stepchild';
 
     /**
      * @var object $efpObject data structure for this extended family part
@@ -62,12 +63,12 @@ class Grandchildren extends ExtendedFamilyPart
         foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->children() as $biochild) {                                       // Gen -1 P
                 foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
-                    $this->addGrandchildrenBio($family1, $family2, self::GROUP_GRANDCHILDREN_BIO);
-                    $this->addStepchildrenOfChildren($family1, $family2, self::GROUP_GRANDCHILDREN_STEP_CHILD);
+                    $this->addPartnerBio($family1, $family2, self::GROUP_GRANDCHILDRENINLAW_BIO);
+                    $this->addPartnerStep($family1, $family2, self::GROUP_GRANDCHILDRENINLAW_STEP_CHILD);
                 }
             }
         }
-        $this->addChildrenStepchildrenOfStepchildren();
+        $this->addPartnerStepStep();
     }
 
     /**
@@ -77,10 +78,16 @@ class Grandchildren extends ExtendedFamilyPart
      * @param object $family2
      * @param string $groupName
      */
-    private function addGrandchildrenBio(object $family1, object $family2, string $groupName)
+    private function addPartnerBio(object $family1, object $family2, string $groupName)
     {
         foreach ($family2->children() as $biograndchild) {                          // Gen -2 P
-            $this->addIndividualToFamily(new IndividualFamily($biograndchild, $family1), $groupName);
+            foreach ($biograndchild->spouseFamilies() as $family3) {                // Gen -2 F
+                foreach ($family3->spouses() as $spouse) {                          // Gen -2 P
+                    if ($spouse->xref() !== $biograndchild->xref()) {
+                        $this->addIndividualToFamily(new IndividualFamily($spouse, $family1), $groupName);
+                    }
+                }
+            }
         }
     }
 
@@ -91,12 +98,18 @@ class Grandchildren extends ExtendedFamilyPart
      * @param object $family2
      * @param string $groupName
      */
-    private function addStepchildrenOfChildren(object $family1, object $family2, string $groupName)
+    private function addPartnerStep(object $family1, object $family2, string $groupName)
     {
         foreach ($family2->spouses() as $spouse) {                                  // Gen -1 P
             foreach ($spouse->spouseFamilies() as $family3) {                       // Gen -1 F
-                foreach ($family3->children() as $step_child) {                     // Gen -2 P
-                    $this->addIndividualToFamily(new IndividualFamily($step_child, $family1), $groupName);
+                foreach ($family3->children() as $stepchild) {                      // Gen -2 P
+                    foreach ($stepchild->spouseFamilies() as $family4) {            // Gen -2 F
+                        foreach ($family4->spouses() as $spouse) {                  // Gen -2 P
+                            if ($spouse->xref() !== $stepchild->xref()) {
+                                $this->addIndividualToFamily(new IndividualFamily($spouse, $family1), $groupName);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -105,15 +118,15 @@ class Grandchildren extends ExtendedFamilyPart
     /**
      * add children and stepchildren of stepchildren
      */
-    private function addChildrenStepchildrenOfStepchildren()
+    private function addPartnerStepStep()
     {
         foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
                     foreach ($family2->children() as $stepchild) {                              // Gen -1 P
                         foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
-                            $this->addGrandchildrenBio($family1, $family3, self::GROUP_GRANDCHILDREN_CHILD_STEP);
-                            $this->addStepchildrenOfChildren($family1, $family3, self::GROUP_GRANDCHILDREN_STEP_STEP);
+                            $this->addPartnerBio($family1, $family3, self::GROUP_GRANDCHILDRENINLAW_CHILD_STEP);
+                            $this->addPartnerStep($family1, $family3, self::GROUP_GRANDCHILDRENINLAW_STEP_STEP);
                         }
                     }
                 }

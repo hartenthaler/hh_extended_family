@@ -690,6 +690,10 @@ class ExtendedFamilyTranslations
             'Stepchildren of children' => 'Stiefkinder der Kinder',
             'Children of stepchildren' => 'Kinder der Stiefkinder',
             'Stepchildren of stepchildren' => 'Stiefkinder der Stiefkinder',
+            'Partners of biological grandchildren' => 'Partner der biologischen Enkelkinder',
+            'Partners of stepchildren of children' => 'Partner der Stiefkinder der Kinder',
+            'Partners of children of stepchildren' => 'Partner der Kinder der Stiefkinder',
+            'Partners of stepchildren of stepchildren' => 'Partner der Stiefkinder der Stiefkinder',
 
             'He' => 'ihn', // Kontext "Für ihn"
             'She' => 'sie', // Kontext "Für sie"
@@ -1123,6 +1127,30 @@ class ExtendedFamilyTranslations
                 => 'Für %2$s sind %1$d Enkelsohn, ' . I18N::PLURAL . 'Für %2$s sind %1$d Enkelsöhne, ',
             '%d granddaughter, and ' . I18N::PLURAL . '%d granddaughters, and '
                 => '%d Enkeltochter und ' . I18N::PLURAL . '%d Enkeltöchter und ',
+
+            'Grandchildren-in-law' => 'Schwiegerenkelkinder',
+            '%s has no grandchildren-in-law recorded.' => 'Für %s sind keine Schwiegerenkelkinder verzeichnet.',
+            '%s has one granddaughter-in-law recorded.' => 'Für %s ist eine Schwiegerenkeltochter verzeichnet.',
+            '%s has one grandson-in-law recorded.' => 'Für %s ist ein Schwiegerenkelsohn verzeichnet.',
+            '%s has one grandchild-in-law of unknown sex recorded.' => 'Für %s ist ein Schwiegerenkelkind mit unbekanntem Geschlecht verzeichnet.',
+            '%2$s has %1$d granddaughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law recorded.'
+            => 'Für %2$s ist %1$d Schwiegerenkeltochter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkeltöchter verzeichnet.',
+            '%2$s has %1$d grandson-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law recorded.'
+            => 'Für %2$s ist %1$d Schwiegerenkelsohn verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne verzeichnet.',
+            '%2$s has %1$d grandchild-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren-in-law of unknown sex recorded.'
+            => 'Für %2$s ist %1$d Schwiegerenkelkind mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelkinder mit unbekanntem Geschlecht verzeichnet.',
+            '%2$s has %1$d grandson-in-law and ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law and '
+            => 'Für %2$s sind %1$d Schwiegerenkelsohn und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne und ',
+            '%d granddaughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d granddaughters-in-law recorded (%d in total).'
+            => '%d Schwiegerenkeltochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerenkeltöchter verzeichnet (insgesamt %d).',
+            '%2$s has %1$d granddaughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law and '
+            => 'Für %2$s sind %1$d Schwiegerenkeltochter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkeltöchter und ',
+            '%d grandchild-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren-in-law of unknown sex recorded (%d in total).'
+            => '%d Schwiegerenkelkind mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerenkelkinder mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+            '%2$s has %1$d grandson-in-law, ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law, '
+            => 'Für %2$s sind %1$d Schwiegerenkelsohn, ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne, ',
+            '%d granddaughter-in-law, and ' . I18N::PLURAL . '%d granddaughters-in-law, and '
+            => '%d Schwiegerenkeltochter und ' . I18N::PLURAL . '%d Schwiegerenkeltöchter und ',
         ];
     }
     
