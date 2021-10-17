@@ -1637,7 +1637,7 @@ class ExtendedFamilyTranslations
             'nonuplet' => 'negenling',
             'decuplet' => 'tienling',
             'stillborn' => 'levenloos geboren',
-            'died as infant' => 'als baby overleden',
+            'died as infant' => 'minder dan 1 jaar oud',
             'linkage challenged' => 'koppeling betwist',
             'linkage disproven' => 'koppeling weerlegd',
             'linkage proven' => 'koppeling bewezen',
