@@ -2,12 +2,16 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-![webtrees Major Version](https://img.shields.io/badge/webtrees-v2.x-green)
+![webtrees major version](https://img.shields.io/badge/webtrees-v2.0.x-green)
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/0f3951ce4532e3837215/maintainability)](https://codeclimate.com/github/hartenthaler/hh_extended_family/maintainability)
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 
-This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view which lists the members of the core and the extended family of that person:
-great-grandparents, grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts, partners, siblings, siblings-in-law, co-siblings-in-law, cousins, nephews, nieces, children, children-in-law, and grandchildren.
+This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view
+which lists the members of the core and the extended family of that person:
+great-grandparents, grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts,
+partners, siblings, siblings-in-law, co-siblings-in-law, cousins, nephews, nieces,
+children, children-in-law, grandchildren, and grandchildren-in-law.
 
 <a name="Contents"></a>
 
@@ -26,7 +30,8 @@ This Readme contains the following main sections
 * <a name="description"></a>
 ## Description
 
-This module presents the core and the extended family of a proband. It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
+This module presents the core and the extended family of a proband.
+It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
 
 The user can filter the shown results by gender and dead/alive persons.
 
@@ -54,12 +59,13 @@ The default presentation sequence of the extended family parts is oriented at th
 * partners and partner chains              // generation  0
 * siblings                                 // generation  0
 * siblings-in-law                          // generation  0
-* co-siblings-in-law			   // Generation  0
+* co-siblings-in-law			           // Generation  0
 * cousins                                  // generation  0
 * nephews and nieces                       // generation -1
 * children                                 // generation -1
 * children-in-law                          // generation -1
 * grandchildren                            // generation -2
+* grandchildren-in-law                     // generation -2
 
 <a name="screenshots"></a>
 ## Screenshots
@@ -82,7 +88,7 @@ Screenshot of control panel menu
 This module requires **webtrees** version 2.0 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** 2.0.16 version and all available themes.
+This module was tested with **webtrees** 2.0.17 version and all available themes and all other custom modules.
 
 <a name="installation"></a>
 ## Installation
@@ -114,6 +120,7 @@ There are now, beside English and German, translations to
 * Chinese by @dust2k (under preparation)
 * Czech by @jpretired
 * Dutch by @TheDutchJewel
+* French by @PalmyreSG1 and @fa10175
 * Italian by @tonio (under preparation)
 * Slovak by @ro-la
 * Spanish by @yako1984
@@ -121,7 +128,7 @@ There are now, beside English and German, translations to
 * Vietnamese by @ngohuuthuan
 
 <a name="support"></a>
-## Contact Support
+## Support
 
 You can report errors raising an issue in this GitHub repository.
 
