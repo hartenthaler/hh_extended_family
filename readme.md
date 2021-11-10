@@ -122,6 +122,7 @@ There are now, beside English and German, translations to
 * Dutch by @TheDutchJewel
 * French by @PalmyreSG1 and @fa10175
 * Italian by @tonio (under preparation)
+* Norwegian Bokmål by Eyolf
 * Slovak by @ro-la
 * Spanish by @yako1984
 * Ukrainian by @z-yurets
