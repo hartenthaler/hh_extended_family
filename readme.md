@@ -14,7 +14,6 @@ partners, siblings, siblings-in-law, co-siblings-in-law, cousins, nephews, niece
 children, children-in-law, grandchildren, and grandchildren-in-law.
 
 <a name="Contents"></a>
-
 ## Contents
 
 This Readme contains the following main sections
@@ -27,13 +26,15 @@ This Readme contains the following main sections
 * [Translation](#translation)
 * [Contact Support](#support)
 
-* <a name="description"></a>
+<a name="description"></a>
 ## Description
 
 This module presents the core and the extended family of a proband.
 It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
 
-The user can filter the shown results by gender and dead/alive persons.
+The user can filter the shown results by
+* gender and
+* dead/alive persons.
 
 The admin can decide in the control panel 
 * which extended family parts should be shown and in which sequence they should be presented
@@ -59,7 +60,7 @@ The default presentation sequence of the extended family parts is oriented at th
 * partners and partner chains              // generation  0
 * siblings                                 // generation  0
 * siblings-in-law                          // generation  0
-* co-siblings-in-law			           // Generation  0
+* co-siblings-in-law			           // generation  0
 * cousins                                  // generation  0
 * nephews and nieces                       // generation -1
 * children                                 // generation -1
