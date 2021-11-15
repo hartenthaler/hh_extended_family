@@ -4016,4 +4016,16 @@ class ExtendedFamilyTranslations
             'Grandparents' => '祖父母',
         ];
     }
+    /**
+     * tbd
+     *
+     * @return array
+     */
+    public static function hindiTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Extended family' => 'विस्तृत परिवार',
+        ];
+    }
 }
