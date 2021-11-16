@@ -4046,6 +4046,8 @@ class ExtendedFamilyTranslations
             'Use the compact design' => 'कॉम्पैक्ट डिज़ाइन का उपयोग करें',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'कॉम्पैक्ट डिज़ाइन प्रत्येक व्यक्ति के लिए केवल नाम और जीवन काल दिखाता है।  समृद्ध डिज़ाइन एक तस्वीर (यदि यह इस वंशवृक्ष के लिए सक्रिय है) के साथ-साथ जन्म और मृत्यु की जानकारी भी दिखाता है।',
             'Show parameters of extended family part?' => 'विस्तारित पारिवारिक भाग के पैरामीटर दिखाएँ?',
+            'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'विस्तारित परिवार के प्रत्येक भाग के लिए अतिरिक्त जानकारी का प्रदर्शन, जैसे कि पीढ़ी का बदलाव और रिश्ते का गुणांक, जो कि समानता की डिग्री का एक उपाय है।',
+            'Show parameters' => 'पैरामीटर दिखाएं',
         ];
     }
 }
