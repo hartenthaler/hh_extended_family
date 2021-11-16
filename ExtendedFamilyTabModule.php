@@ -528,6 +528,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     /** {@inheritdoc} */
     public function getTabContent(Individual $individual): string
     {
+        /*return view($this->name() . '::test.blade', ['title'=>'Laravel Blade Example']);*/
         return view($this->name() . '::tab', [
             'extfam_obj'            => $this->getExtendedFamily($individual),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
@@ -593,6 +594,8 @@ class ExtendedFamilyTabModule extends AbstractModule
                 return ExtendedFamilyTranslations::frenchTranslations();            // tbd
             case 'he':
                 return ExtendedFamilyTranslations::hebrewTranslations();            // tbd
+            case 'hi':
+                return ExtendedFamilyTranslations::hindiTranslations();
             case 'it':
                 return ExtendedFamilyTranslations::italianTranslations();           // tbd    
             case 'lt':
@@ -615,8 +618,6 @@ class ExtendedFamilyTabModule extends AbstractModule
                 return ExtendedFamilyTranslations::chineseSimplifiedTranslations();   // tbd
             case 'zh-Hant':
                 return ExtendedFamilyTranslations::chineseTraditionalTranslations();  // tbd
-            case 'hi':
-                return ExtendedFamilyTranslations::hindiTranslations();
             default:
                 return [];
         }
