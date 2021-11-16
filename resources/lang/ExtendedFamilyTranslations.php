@@ -4048,6 +4048,11 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'विस्तारित पारिवारिक भाग के पैरामीटर दिखाएँ?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'विस्तारित परिवार के प्रत्येक भाग के लिए अतिरिक्त जानकारी का प्रदर्शन, जैसे कि पीढ़ी का बदलाव और रिश्ते का गुणांक, जो कि समानता की डिग्री का एक उपाय है।',
             'Show parameters' => 'पैरामीटर दिखाएं',
+            'generation +%s' => 'पीढ़ी +%s',
+            'same generation' => 'एक ही पीढ़ी',
+            'generation %s' => 'पीढ़ी %s',
+            'relationship coefficient: %.1f' => 'संबंध गुणांक: %.1f',
+            'no blood relationship' => 'खून का रिश्ता नहीं',
         ];
     }
 }
