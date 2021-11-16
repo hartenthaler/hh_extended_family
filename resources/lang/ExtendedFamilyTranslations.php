@@ -4037,6 +4037,15 @@ class ExtendedFamilyTranslations
 		        'yes, always at standard location' => 'हाँ, हमेशा मानक स्थान पर',
 		        'no, but collect messages about empty blocks at the end' => 'नहीं, लेकिन अंत में खाली ब्लॉकों के बारे में संदेश एकत्र करें',
 		      	'never' => 'कभी नहीं',
+		        'The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'संक्षिप्त नाम रूफनाम या उपनाम की जांच पर आधारित है।  यदि ये उपलब्ध नहीं हैं, तो दिए गए नामों में से पहले का प्रयोग किया जाता है, यदि कोई दिया गया हो।  अन्यथा अंतिम नाम का उपयोग किया जाता है।',
+            'Show short name' => 'संक्षिप्त नाम दिखाएं',
+            'Show labels in special situations?' => 'विशेष परिस्थितियों में लेबल दिखाएं?',
+            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'उदाहरण के लिए गोद लिए गए व्यक्तियों या पालक बच्चों के लिए लेबल (या स्टिकर) का उपयोग किया जाता है।',
+            'Show labels' => 'लेबल दिखाएं',
+            'Use the compact design?' => 'कॉम्पैक्ट डिज़ाइन का उपयोग करें?',
+            'Use the compact design' => 'कॉम्पैक्ट डिज़ाइन का उपयोग करें',
+            'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'कॉम्पैक्ट डिज़ाइन प्रत्येक व्यक्ति के लिए केवल नाम और जीवन काल दिखाता है।  समृद्ध डिज़ाइन एक तस्वीर (यदि यह इस वंशवृक्ष के लिए सक्रिय है) के साथ-साथ जन्म और मृत्यु की जानकारी भी दिखाता है।',
+            'Show parameters of extended family part?' => 'विस्तारित पारिवारिक भाग के पैरामीटर दिखाएँ?',
         ];
     }
 }
