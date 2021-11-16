@@ -4032,6 +4032,11 @@ class ExtendedFamilyTranslations
             'Show name of proband as short name or as full name?' => 'विषय का नाम संक्षिप्त नाम के रूप में या पूरे नाम के रूप में दिखाएं?',
 		      	'Show options to filter the result99s9 (gender and alive/dead)?' => 'परिणामों को फ़िल्टर करने के लिए विकल्प दिखाएं (लिंग और जीवित/मृत)?',
             'Show filter options' => 'iफ़िल्टर विकल्प दिखाएं',
+            'How should empty parts of extended family be presented?' => 'विस्तारित परिवार के खाली हिस्सों को कैसे प्रस्तुत किया जाना चाहिए?',
+		        'Show empty block' => 'खाली ब्लॉक दिखाएं',
+		        'yes, always at standard location' => 'हाँ, हमेशा मानक स्थान पर',
+		       'no, but collect messages about empty blocks at the end' => 'नहीं, लेकिन अंत में खाली ब्लॉकों के बारे में संदेश एकत्र करें',
+		      	'never' => 'कभी नहीं',
         ];
     }
 }
