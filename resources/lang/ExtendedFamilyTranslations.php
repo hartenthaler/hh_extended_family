@@ -4026,6 +4026,8 @@ class ExtendedFamilyTranslations
         // Note the special characters used in plural and context-sensitive translations.
         return [
             'Extended family' => 'विस्तृत परिवार',
+            'A tab showing the extended family of an individual.' => 'किसी व्यक्ति के विस्तृत परिवार को दर्शाने वाला टैब।',
+            'In which sequence should the parts of the extended family be shown?' => 'विस्तारित परिवार के भागों को किस क्रम में दिखाया जाना चाहिए?',
         ];
     }
 }
