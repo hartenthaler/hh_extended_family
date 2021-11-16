@@ -4035,7 +4035,7 @@ class ExtendedFamilyTranslations
             'How should empty parts of extended family be presented?' => 'विस्तारित परिवार के खाली हिस्सों को कैसे प्रस्तुत किया जाना चाहिए?',
 		        'Show empty block' => 'खाली ब्लॉक दिखाएं',
 		        'yes, always at standard location' => 'हाँ, हमेशा मानक स्थान पर',
-		       'no, but collect messages about empty blocks at the end' => 'नहीं, लेकिन अंत में खाली ब्लॉकों के बारे में संदेश एकत्र करें',
+		        'no, but collect messages about empty blocks at the end' => 'नहीं, लेकिन अंत में खाली ब्लॉकों के बारे में संदेश एकत्र करें',
 		      	'never' => 'कभी नहीं',
         ];
     }
