@@ -615,6 +615,8 @@ class ExtendedFamilyTabModule extends AbstractModule
                 return ExtendedFamilyTranslations::chineseSimplifiedTranslations();   // tbd
             case 'zh-Hant':
                 return ExtendedFamilyTranslations::chineseTraditionalTranslations();  // tbd
+            case 'hi':
+                return ExtendedFamilyTranslations::hindiTranslations();
             default:
                 return [];
         }

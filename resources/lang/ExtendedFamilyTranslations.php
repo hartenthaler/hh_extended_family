@@ -4016,4 +4016,43 @@ class ExtendedFamilyTranslations
             'Grandparents' => '祖父母',
         ];
     }
+    /**
+     * tbd
+     *
+     * @return array
+     */
+    public static function hindiTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Extended family' => 'विस्तृत परिवार',
+            'A tab showing the extended family of an individual.' => 'किसी व्यक्ति के विस्तृत परिवार को दर्शाने वाला टैब।',
+            'In which sequence should the parts of the extended family be shown?' => 'विस्तारित परिवार के भागों को किस क्रम में दिखाया जाना ट्री ہوں? yes.? Php exit dژشززफबशचाहिए?',
+            'Family part' => 'परिवार का हिस्सा',
+            'Show name of proband as short name or as full name?' => 'विषय का नाम संक्षिप्त नाम के रूप में या पूरे नाम के रूप में दिखाएं?',
+		      	'Show options to filter the result99s9 (gender and alive/dead)?' => 'परिणामों को फ़िल्टर करने के लिए विकल्प दिखाएं (लिंग और जीवित/मृत)?',
+            'Show filter options' => 'iफ़िल्टर विकल्प दिखाएं',
+            'How should empty parts of extended family be presented?' => 'विस्तारित परिवार के खाली हिस्सों को कैसे प्रस्तुत किया जाना चाहिए?',
+		        'Show empty block' => 'खाली ब्लॉक दिखाएं',
+		        'yes, always at standard location' => 'हाँ, हमेशा मानक स्थान पर',
+		        'no, but collect messages about empty blocks at the end' => 'नहीं, लेकिन अंत में खाली ब्लॉकों के बारे में संदेश एकत्र करें',
+		      	'never' => 'कभी नहीं',
+		        'The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'संक्षिप्त नाम रूफनाम या उपनाम की जांच पर आधारित है।  यदि ये उपलब्ध नहीं हैं, तो दिए गए नामों में से पहले का प्रयोग किया जाता है, यदि कोई दिया गया हो।  अन्यथा अंतिम नाम का उपयोग किया जाता है।',
+            'Show short name' => 'संक्षिप्त नाम दिखाएं',
+            'Show labels in special situations?' => 'विशेष परिस्थितियों में लेबल दिखाएं?',
+            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'उदाहरण के लिए गोद लिए गए व्यक्तियों या पालक बच्चों के लिए लेबल (या स्टिकर) का उपयोग किया जाता है।',
+            'Show labels' => 'लेबल दिखाएं',
+            'Use the compact design?' => 'कॉम्पैक्ट डिज़ाइन का उपयोग करें?',
+            'Use the compact design' => 'कॉम्पैक्ट डिज़ाइन का उपयोग करें',
+            'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'कॉम्पैक्ट डिज़ाइन प्रत्येक व्यक्ति के लिए केवल नाम और जीवन काल दिखाता है।  समृद्ध डिज़ाइन एक तस्वीर (यदि यह इस वंशवृक्ष के लिए सक्रिय है) के साथ-साथ जन्म और मृत्यु की जानकारी भी दिखाता है।',
+            'Show parameters of extended family part?' => 'विस्तारित पारिवारिक भाग के पैरामीटर दिखाएँ?',
+            'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'विस्तारित परिवार के प्रत्येक भाग के लिए अतिरिक्त जानकारी का प्रदर्शन, जैसे कि पीढ़ी का बदलाव और रिश्ते का गुणांक, जो कि समानता की डिग्री का एक उपाय है।',
+            'Show parameters' => 'पैरामीटर दिखाएं',
+            'generation +%s' => 'पीढ़ी +%s',
+            'same generation' => 'एक ही पीढ़ी',
+            'generation %s' => 'पीढ़ी %s',
+            'relationship coefficient: %.1f' => 'संबंध गुणांक: %.1f',
+            'no blood relationship' => 'खून का रिश्ता नहीं',
+        ];
+    }
 }
