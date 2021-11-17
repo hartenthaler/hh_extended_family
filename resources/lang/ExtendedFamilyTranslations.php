@@ -2184,11 +2184,11 @@ class ExtendedFamilyTranslations
         return [
             'Extended family' => 'विस्तृत परिवार',
             'A tab showing the extended family of an individual.' => 'किसी व्यक्ति के विस्तृत परिवार को दर्शाने वाला टैब।',
-            'In which sequence should the parts of the extended family be shown?' => 'वविस्तारित परिवार के भागों को किस क्रम में दिखाया जाना चाहिए?',
+            'In which sequence should the parts of the extended family be shown?' => 'विस्तारित परिवार के भागों को किस क्रम में दिखाया जाना चाहिए?',
             'Family part' => 'परिवार का हिस्सा',
             'Show name of proband as short name or as full name?' => 'विषय का नाम संक्षिप्त नाम के रूप में या पूरे नाम के रूप में दिखाएं?',
             'Show options to filter the results (gender and alive/dead)?' => 'परिणामों को फ़िल्टर करने के लिए विकल्प दिखाएं (लिंग और जीवित/मृत)?',
-            'Show filter options' => 'iफ़िल्टर विकल्प दिखाएं',
+            'Show filter options' => 'फ़िल्टर विकल्प दिखाएं',
             'How should empty parts of extended family be presented?' => 'विस्तारित परिवार के खाली हिस्सों को कैसे प्रस्तुत किया जाना चाहिए?',
             'Show empty block' => 'खाली ब्लॉक दिखाएं',
             'yes, always at standard location' => 'हाँ, हमेशा मानक स्थान पर',
@@ -2210,6 +2210,28 @@ class ExtendedFamilyTranslations
             'generation %s' => 'पीढ़ी %s',
             'relationship coefficient: %.1f' => 'संबंध गुणांक: %.1f',
             'no blood relationship' => 'खून का रिश्ता नहीं',
+
+            'don\'t use this filter' => 'इस फ़िल्टर का उपयोग न करें',
+            'show only male persons' => 'केवल पुरुष व्यक्तियों को दिखाएं',
+            'show only female persons' => 'केवल महिला व्यक्तियों को दिखाएं',
+            'show only persons of unknown gender' => 'केवल अज्ञात लिंग के व्यक्तियों को दिखाएं',
+            'show only alive persons' => 'केवल जिवित व्यक्तियों को दिखाएं',
+            'show only dead persons' => 'केवल मृतक व्यक्तियों को दिखाएं',
+            'alive' => 'जिवित',
+            'dead' => 'मृत',
+            'a dead person' => 'एक मृत व्यक्ति',
+            'a living person' => 'एक जीवित व्यक्ति',
+            'not a male person' => 'पुरुष व्यक्ति नहीं',
+            'not a female person' => महिला व्यक्ति नहीं',
+            'not a person of unknown gender' => 'अज्ञात लिंग का व्यक्ति नहीं',
+
+            'twin' => 'जुड़वां',
+            'triplet' => 'त्रिक',
+            'quadruplet' => 'चतुष्क',
+            'quintuplet' => 'पंचक',
+            'sextuplet' => 'षटक',
+            'septuplet' => 'सप्तक',
+            'octuplet' => 'अष्टक',
         ];
     }
 
