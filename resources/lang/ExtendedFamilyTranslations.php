@@ -2222,7 +2222,7 @@ class ExtendedFamilyTranslations
             'a dead person' => 'एक मृत व्यक्ति',
             'a living person' => 'एक जीवित व्यक्ति',
             'not a male person' => 'पुरुष व्यक्ति नहीं',
-            'not a female person' => महिला व्यक्ति नहीं',
+            'not a female person' => 'महिला व्यक्ति नहीं',
             'not a person of unknown gender' => 'अज्ञात लिंग का व्यक्ति नहीं',
 
             'twin' => 'जुड़वां',
@@ -2232,6 +2232,13 @@ class ExtendedFamilyTranslations
             'sextuplet' => 'षटक',
             'septuplet' => 'सप्तक',
             'octuplet' => 'अष्टक',
+            'nonuplet' => 'नवक',
+            'decuplet' => 'दशक',
+            'stillborn' => 'मृत जन्म',
+            'died as infant' => 'बचपन में मृत',
+            'linkage challenged' => 'संबंध संदिग्ध',
+            'linkage disproven' => 'संबंध अस्वीकृत',
+            'linkage proven' => 'संबंध स्वीकृत',
         ];
     }
 
