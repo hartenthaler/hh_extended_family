@@ -25,6 +25,7 @@ This Readme contains the following main sections
 * [Upgrade](#upgrade)
 * [Translation](#translation)
 * [Contact Support](#support)
+* [License](#license)
 
 <a name="description"></a>
 ## Description
@@ -94,7 +95,7 @@ This module was tested with **webtrees** 2.0.17 version and all available themes
 <a name="installation"></a>
 ## Installation
 
-This section documents installation instructions for hh_cousins.
+This section documents installation instructions for this module.
 
 1. Make database backup
 1. Download the [latest release](https://github.com/hartenthaler/hh_extended_family/releases/latest)
@@ -107,7 +108,8 @@ This section documents installation instructions for hh_cousins.
 <a name="upgrade"></a>
 ## Upgrade
 
-To update simply replace the hh_extended_family files with the new ones from the latest download.
+To update simply replace the hh_extended_family files
+with the new ones from the latest release.
 
 <a name="translation"></a>
 ## Translation
@@ -133,8 +135,27 @@ There are now, beside English and German, translations to
 <a name="support"></a>
 ## Support
 
-You can report errors raising an issue in this GitHub repository.
+<span style="font-weight: bold;">Issues: </span>you can report errors raising an issue in this GitHub repository.
 
 <span style="font-weight: bold;">Forum: </span>general webtrees support can be found at the [webtrees forum](http://www.webtrees.net/)
+
+<a name="license"></a>
+## License
+
+* Copyright (C) 2021 Hermann Hartenthaler
+* Derived from **webtrees** - Copyright 2021 webtrees development team.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 * * *
