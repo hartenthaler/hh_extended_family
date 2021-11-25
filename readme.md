@@ -73,16 +73,16 @@ The default presentation sequence of the extended family parts is oriented at th
 ## Screenshots
 
 Screenshot of tab using the compact design
-<p align="center"><img src="screenshot.png" alt="Screenshot of tab" align="center" width="80%"></p>
+<p align="center"><img src="resources/docu/screenshot.png" alt="Screenshot of tab" align="center" width="80%"></p>
 
 Screenshot showing photo as well as birth and death information
-<p align="center"><img src="screenshot_full.png" alt="Screenshot showing photo as well as birth and death information" align="center" width="85%"></p>
+<p align="center"><img src="resources/docu/screenshot_full.png" alt="Screenshot showing photo as well as birth and death information" align="center" width="85%"></p>
 
 Screenshot showing chain of partners (partner of partner of partner of ...)
-<p align="center"><img src="screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
+<p align="center"><img src="resources/docu/screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
 
 Screenshot of control panel menu
-<p align="center"><img src="screenshot_control_panel.png" alt="Screenshot of control panel menu" align="center" width="85%"></p>
+<p align="center"><img src="resources/docu/screenshot_control_panel.png" alt="Screenshot of control panel menu" align="center" width="85%"></p>
 
 <a name="requirements"></a>
 ## Requirements
