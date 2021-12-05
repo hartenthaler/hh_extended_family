@@ -171,9 +171,9 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Pan',
             'Mrs.' => 'Paní',
             'No family available' => 'Rodina chybí',
-            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'Summary for the shown extended family' => 'Samenvatting voor de getoonde uitgebreide familie',
             'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
-                => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
+                => 'De uitgebreide familie van %1$s heeft één lid.' . I18N::PLURAL . 'De uitgebreide familie van %1$s heeft %2$d leden.',
             '%s has no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s.',
             '%s has no %s, and no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s a %s.',
 
@@ -593,18 +593,6 @@ class ExtendedFamilyTranslations
                 => '%2$s má %1$d vnuka, ' . I18N::PLURAL . '%2$s má %1$d vnuky, ' . I18N::PLURAL . '%2$s má %1$d vnuků, ',
             '%d granddaughter, and ' . I18N::PLURAL . '%d granddaughters, and '
                 => '%d vnučku, a ' . I18N::PLURAL . '%d vnučky, a ' . I18N::PLURAL . '%d vnuček, a ',
-        ];
-    }
-
-    /**
-     * tbd
-     *
-     * @return array
-     */
-    public static function danishTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
         ];
     }
 
@@ -1561,18 +1549,6 @@ class ExtendedFamilyTranslations
     }
 
     /**
-     * tbd
-     *
-     * @return array
-     */
-    public static function finnishTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-        ];
-    }
-
-    /**
      * @return array
      */
     public static function frenchTranslations(): array
@@ -2179,18 +2155,6 @@ class ExtendedFamilyTranslations
     }
 
     /**
-     * tbd
-     *
-     * @return array
-     */
-    public static function hebrewTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-        ];
-    }
-
-    /**
      * @return array
      */
     public static function hindiTranslations(): array
@@ -2262,18 +2226,6 @@ class ExtendedFamilyTranslations
      * @return array
      */
     public static function italianTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-        ];
-    }
-
-    /**
-     * tbd
-     *
-     * @return array
-     */
-    public static function lithuanianTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [
@@ -3283,18 +3235,6 @@ class ExtendedFamilyTranslations
     }
 
     /**
-     * tbd
-     *
-     * @return array
-     */
-    public static function norwegianNynorskTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
-        ];
-    }
-
-    /**
      * @return array
      */
     public static function slovakTranslations(): array
@@ -3447,18 +3387,6 @@ class ExtendedFamilyTranslations
                 => '%2$s má zaznamenaného %1$d vnuka a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vnukov a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d vnukov a ',
             '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).'
                 => '%d vnučku (spolu %d).' . I18N::PLURAL . '%d vnučky (spolu %d).' . I18N::PLURAL . '%d vnučiek (spolu %d).',
-        ];
-    }
-  
-    /**
-     * tbd
-     *
-     * @return array
-     */
-    public static function swedishTranslations(): array
-    {
-        // Note the special characters used in plural and context-sensitive translations.
-        return [
         ];
     }
   

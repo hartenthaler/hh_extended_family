@@ -27,12 +27,6 @@ use Fisharebest\Webtrees\Individual;
 
 use function array_key_exists;
 
-/*
-require_once('Objects/IndividualFamily.php');
-require_once('Objects/FindBranchConfig.php');
-require_once('Objects/FamilyPart.php');
-*/
-
 /**
  * abstract class ExtendedFamilyPart
  *

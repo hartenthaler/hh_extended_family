@@ -77,31 +77,6 @@ use Fisharebest\Webtrees\Individual;
 use function explode;
 use function count;
 
-/*
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
-require_once(__DIR__ . '/src/Factory/Objects/ExtendedFamilySupport.php');
-
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandparents.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandparents.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts_bm.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Parents.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Parents_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Co_parents_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Siblings.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Siblings_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Co_siblings_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partners.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partner_chains.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Cousins.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Nephews_and_nieces.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren_in_law.php');
-*/
-
 /**
  * class ExtendedFamily
  *
@@ -127,7 +102,7 @@ class ExtendedFamily
      *        ->sizeThumbnailW                      int (in pixel)
      *        ->sizeThumbnailH                      int (in pixel)
      */
-    public $config;
+    public object $config;
     
     /**
      * @var $proband                                object
@@ -135,16 +110,16 @@ class ExtendedFamily
      *         ->niceName                           string
      *         ->labels                             array of string
      */
-    public $proband;
+    public object $proband;
         
     /**
-     * @var $filters                                 array of object (index is string filterOption)
+     * @var $filters                                 array<string, object> (index is filterOption)
      *         ->efp                                 object
      *              ->allCount                       int
      *              ->summaryMessageEmptyBlocks      array of string
      *              ... specific data structures for each extended family part
      */
-    public $filters;
+    public array $filters;
     
     // ------------ definition of methods
 
@@ -189,7 +164,7 @@ class ExtendedFamily
      */
     private function constructFiltersExtendedFamilyParts()
     {
-        $variante ='A';   // tbd test and compare performance of Varianate A and B
+        $variante ='A';   // tbd test and compare performance of A and B
         $this->filters = [];
         foreach ($this->config->filterOptions as $filterOption) {
             if ($variante == 'A') {
@@ -205,7 +180,7 @@ class ExtendedFamily
                 }
                 $extfamObj->efp->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
                 $this->filters[$filterOption] = $extfamObj;
-            } else {
+            } /* else {
                 if ($filterOption == 'all') {
                     $extfamObj = (object)[];
                     $extfamObj->efp = (object)[];
@@ -224,7 +199,7 @@ class ExtendedFamily
                     // sum up ->efp->allCount
                     // replace ->summaryMessageEmptyBlocks
                 }
-            }
+            } */
         }
     }
 
@@ -232,7 +207,8 @@ class ExtendedFamily
      * generate list of empty family parts (blocks) (needed for showEmptyBlock == 1)
      *
      * @param object $extendedFamily
-     * @return array of string
+     *
+     * @return array<int, string>
      */
     private function summaryMessageEmptyBlocks(object $extendedFamily): array
     {
@@ -339,21 +315,14 @@ class ExtendedFamily
      */
     private function findNiceNameFromNameParts(Individual $individual): string
     {
-        $niceName = '';
         $nameFacts = $individual->facts(['NAME']);
         $nickname = $nameFacts[0]->attribute('NICK');
         if ($nickname !== '') {
             $niceName = $nickname;
         } else {
-            $npfx = $nameFacts[0]->attribute('NPFX');
             $givenAndSurnames = explode('/', $nameFacts[0]->value());
-            if ($givenAndSurnames[0] !== '') {                                          // are there given names (or prefix nameparts)?
-                $givennameparts = explode( ' ', $givenAndSurnames[0]);
-                if ($npfx == '') {                                                      // find the first given name
-                    $niceName = $givennameparts[0];                                     // the first given name
-                } elseif (count(explode(' ', $npfx)) !== count($givennameparts)) {
-                    $niceName = $givennameparts[count(explode(' ', $npfx))];     // the first given name after the prefix nameparts
-                }
+            if ($givenAndSurnames[0] !== '') {                          // are there given names (or prefix nameparts)?
+                $niceName = $this->selectFirstGivenName($givenAndSurnames, $nameFacts[0]->attribute('NPFX'));
             } else {
                 $surname = $givenAndSurnames[1];
                 if ($surname !== '') {
@@ -362,6 +331,25 @@ class ExtendedFamily
                     $niceName = $this->selectNameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
                 }
             }
+        }
+        return $niceName;
+    }
+
+    /**
+     * select first given name
+     *
+     * @param array<int, string> $givenAndSurnames
+     * @param string $npfx
+     * @return string
+     */
+    private function selectFirstGivenName(array $givenAndSurnames, string $npfx): string
+    {
+        $niceName = '';
+        $givennameparts = explode( ' ', $givenAndSurnames[0]);
+        if ($npfx == '') {
+            $niceName = $givennameparts[0];                                     // the first given name
+        } elseif (count(explode(' ', $npfx)) !== count($givennameparts)) {
+            $niceName = $givennameparts[count(explode(' ', $npfx))];   // the first name after the prefix nameparts
         }
         return $niceName;
     }

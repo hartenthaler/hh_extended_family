@@ -49,7 +49,6 @@ declare(strict_types=1);
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\I18N;
-use Fisharebest\Webtrees\Tree;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\FlashMessages;
@@ -73,8 +72,7 @@ use function in_array;
 /**
  * Class ExtendedFamilyTabModule
  */
-class ExtendedFamilyTabModule extends AbstractModule
-                              implements ModuleTabInterface, ModuleCustomInterface, ModuleConfigInterface
+class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterface, ModuleCustomInterface, ModuleConfigInterface
 {
     use ModuleTabTrait;
     use ModuleCustomTrait;
@@ -88,7 +86,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE     = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION     = '2.1.0.1';
+    public const CUSTOM_VERSION     = '2.1.0.2';
     public const CUSTOM_LAST        = 'https://github.com/hartenthaler/' .
                                       self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -137,7 +135,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         $configObj->sizeThumbnailW          = $this->getSizeThumbnailW();
         $configObj->sizeThumbnailH          = $this->getSizeThumbnailH();
         //$configObj->name = $this->name();     // nötig, falls Vesta-Module doch genutzt werden sollten
-                                                //(unklar wie diese Information ins Modul ExtendedFamilyPart.php transferiert werden soll)
+        //(unklar wie diese Information ins Modul ExtendedFamilyPart.php transferiert werden soll)
         return $configObj;
     }
 
@@ -228,8 +226,8 @@ class ExtendedFamilyTabModule extends AbstractModule
         if ($params['save'] === '1') {
             $this->postAdminActionOther($params);
             $this->postAdminActionEfp($params);
-            FlashMessages::addMessage(
-                I18N::translate('The preferences for the module “%s” have been updated.', $this->title()), 'success');
+            FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.',
+                $this->title()), 'success');
         }
         return redirect($this->getConfigLink());
     }
@@ -381,7 +379,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     }
 
     /**
-     * get preference in tis tree to show thumbnails
+     * get preference in this tree to show thumbnails
      * @param object $tree
      *
      * @return bool
@@ -511,7 +509,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      *
      * @throws \JsonException
      */
-    function getCssAction() : ResponseInterface
+    public function getCssAction() : ResponseInterface
     {
         return response(
             file_get_contents($this->resourcesFolder() . 'css/' . self::CUSTOM_MODULE . '.css'),
@@ -547,9 +545,6 @@ class ExtendedFamilyTabModule extends AbstractModule
 
     /**
      *  bootstrap
-     *
-     * @param UserInterface $user A user (or visitor) object.
-     * @param Tree|null     $tree Note that $tree can be null (if all trees are private).
      */
     public function boot(): void
     {
@@ -563,56 +558,62 @@ class ExtendedFamilyTabModule extends AbstractModule
      * additional translations
      *
      * @param string $language
+     *
      * @return array<string, string>
      */
     public function customTranslations(string $language): array
     {
         // Here we are using an array for translations.
         // If you had .MO files, you could use them with: return (new Translation('path/to/file.mo'))->asArray();
-        
+
+        require_once(__DIR__ . '/resources/lang/ExtendedFamilyTranslations.php');
+
         switch ($language) {
             case 'cs':
-                return ExtendedFamilyTranslations::czechTranslations();
-            case 'da':
-                return ExtendedFamilyTranslations::danishTranslations();            // tbd
+                $customTranslation =  ExtendedFamilyTranslations::czechTranslations();
+                break;
             case 'de':
-                return ExtendedFamilyTranslations::germanTranslations();
+                $customTranslation = ExtendedFamilyTranslations::germanTranslations();
+                break;
             case 'es':
-                return ExtendedFamilyTranslations::spanishTranslations();
-            case 'fi':
-                return ExtendedFamilyTranslations::finnishTranslations();           // tbd
+                $customTranslation = ExtendedFamilyTranslations::spanishTranslations();
+                break;
             case 'fr':
             case 'fr-CA':
-                return ExtendedFamilyTranslations::frenchTranslations();
-            case 'he':
-                return ExtendedFamilyTranslations::hebrewTranslations();            // tbd
+                $customTranslation = ExtendedFamilyTranslations::frenchTranslations();
+                break;
             case 'hi':
-                return ExtendedFamilyTranslations::hindiTranslations();
+                $customTranslation = ExtendedFamilyTranslations::hindiTranslations();
+                break;
             case 'it':
-                return ExtendedFamilyTranslations::italianTranslations();           // tbd    
-            case 'lt':
-                return ExtendedFamilyTranslations::lithuanianTranslations();        // tbd
+                $customTranslation = ExtendedFamilyTranslations::italianTranslations();           // tbd
+                break;
             case 'nb':
-                return ExtendedFamilyTranslations::norwegianBokmålTranslations();
+                $customTranslation = ExtendedFamilyTranslations::norwegianBokmålTranslations();
+                break;
             case 'nl':
-                return ExtendedFamilyTranslations::dutchTranslations();
-            case 'nn':
-                return ExtendedFamilyTranslations::norwegianNynorskTranslations();   // tbd
+                $customTranslation = ExtendedFamilyTranslations::dutchTranslations();
+                break;
             case 'sk':
-                return ExtendedFamilyTranslations::slovakTranslations();     
-            case 'sv':
-                return ExtendedFamilyTranslations::swedishTranslations();            // tbd
+                $customTranslation = ExtendedFamilyTranslations::slovakTranslations();
+                break;
             case 'uk':
-                return ExtendedFamilyTranslations::ukrainianTranslations();
+                $customTranslation = ExtendedFamilyTranslations::ukrainianTranslations();
+                break;
             case 'vi':
-                return ExtendedFamilyTranslations::vietnameseTranslations();
+                $customTranslation = ExtendedFamilyTranslations::vietnameseTranslations();
+                break;
             case 'zh-Hans':
-                return ExtendedFamilyTranslations::chineseSimplifiedTranslations();   // tbd
+                $customTranslation = ExtendedFamilyTranslations::chineseSimplifiedTranslations();   // tbd
+                break;
             case 'zh-Hant':
-                return ExtendedFamilyTranslations::chineseTraditionalTranslations();  // tbd
+                $customTranslation = ExtendedFamilyTranslations::chineseTraditionalTranslations();  // tbd
+                break;
             default:
-                return [];
+                $customTranslation = [];
+                break;
         }
+        return $customTranslation;
     }
 }
 return new ExtendedFamilyTabModule;

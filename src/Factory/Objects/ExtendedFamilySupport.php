@@ -26,7 +26,6 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Fact;
-use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
 use Fisharebest\Webtrees\Registry;
 
 // string functions
@@ -231,23 +230,89 @@ class ExtendedFamilySupport
     }
 
     /**
-     * generate a pedigree label
-     * GEDCOM record is for example ""
+     * generate a translated pedigree label
+     * GEDCOM record could be for example "1 FAMC @xref@\n ...\n2 PEDI adopted"
      *
      * @param Individual $child
      * @return string
      */
     private static function generatePedigreeLabel(Individual $child): string
     {
-        $label = GedcomCodePedi::getValue('', Registry::gedcomRecordFactory()->make($child->xref(), $child->tree()));
+        $label = '';
         if ($child->childFamilies()->first()) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $child->gedcom(), $match)) {
                 if ($match[1] !== 'birth') {
-                    $label = GedcomCodePedi::getValue($match[1], Registry::gedcomRecordFactory()->make($child->xref(), $child->tree()));
+                    $individual = Registry::gedcomRecordFactory()->make($child->xref(), $child->tree());
+                    if ($individual instanceof Individual) {
+                        $label = ExtendedFamilySupport::getPedigreeValue($match[1], $individual);
+                    }
                 }
             }
         }
         return $label;
+    }
+
+    /**
+     * Translate a pedigree code, for a record
+     * This is a copy of a webtrees 1 function
+     *
+     * @param string $type
+     * @param Individual $individual
+     * @return string
+     */
+    private static function getPedigreeValue(string $type, Individual $individual): string
+    {
+        $sex = $individual->sex();
+
+        switch ($type) {
+            case 'birth':
+                if ($sex === 'M') {
+                    return I18N::translateContext('Male pedigree', 'Birth');
+                } elseif ($sex === 'F') {
+                    return I18N::translateContext('Female pedigree', 'Birth');
+                } else {
+                    return I18N::translateContext('Pedigree', 'Birth');
+                }
+
+            case 'adopted':
+                if ($sex === 'M') {
+                    return I18N::translateContext('Male pedigree', 'Adopted');
+                } elseif ($sex === 'F') {
+                    return I18N::translateContext('Female pedigree', 'Adopted');
+                } else {
+                    return I18N::translateContext('Pedigree', 'Adopted');
+                }
+
+            case 'foster':
+                if ($sex === 'M') {
+                    return I18N::translateContext('Male pedigree', 'Foster');
+                } elseif ($sex === 'F') {
+                    return I18N::translateContext('Female pedigree', 'Foster');
+                } else {
+                    return I18N::translateContext('Pedigree', 'Foster');
+                }
+
+            case 'sealing':
+                if ($sex === 'M') {
+                    /* I18N: “sealing” is a ceremony in the Mormon church. */
+                    return I18N::translateContext('Male pedigree', 'Sealing');
+                } elseif ($sex === 'F') {
+                    /* I18N: “sealing” is a ceremony in the Mormon church. */
+                    return I18N::translateContext('Female pedigree', 'Sealing');
+                } else {
+                    /* I18N: “sealing” is a ceremony in the Mormon church. */
+                    return I18N::translateContext('Pedigree', 'Sealing');
+                }
+
+            case 'rada':
+                // Not standard GEDCOM - a webtrees extension
+                // This is an arabic word which does not exist in other languages.
+                // So, it will not have any inflected forms.
+                /* I18N: This is an Arabic word, pronounced “ra DAH”. It is child-to-parent pedigree, established by wet-nursing. */
+                return I18N::translate('Rada');
+            default:
+                return $type;
+        }
     }
 
     /**
