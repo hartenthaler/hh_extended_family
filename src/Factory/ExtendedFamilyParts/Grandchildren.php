@@ -59,16 +59,56 @@ class Grandchildren extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
+        /*
         foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->children() as $biochild) {                                       // Gen -1 P
                 foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
+                    //echo "<br>=== 1 biochild : ".$biochild->fullName()." with family ".$family2->fullName().". ";
                     $this->addGrandchildrenBio($family1, $family2, self::GROUP_GRANDCHILDREN_BIO);
+                }
+                foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
+                    //echo "<br>=== 2 biochild : ".$biochild->fullName()." with family ".$family2->fullName().". ";
                     $this->addStepchildrenOfChildren($family1, $family2, self::GROUP_GRANDCHILDREN_STEP_CHILD);
                 }
             }
         }
+        */
+
+        foreach ($this->getProband()->spouseFamilies() as $family1) {
+            foreach ($family1->children() as $biochild) {
+                foreach ($biochild->spouseFamilies() as $family2) {
+                    //echo "<br>=== 1 biochild : " . $biochild->fullName() . " with family " . $family2->fullName() . ". ";
+                    foreach ($family2->children() as $grandchild) {
+                        //echo "<br>bio " . self::GROUP_GRANDCHILDREN_BIO . ": " . $grandchild->fullName() . " with family " . $family2->fullName() . ". ";
+                        $this->addIndividualToFamily(new IndividualFamily($grandchild, $family1), self::GROUP_GRANDCHILDREN_BIO);
+                    }
+                    foreach ($family2->spouses() as $spouse1) {                                         // Gen  0 P
+                        foreach ($spouse1->spouseFamilies() as $family3) {                              // Gen  0 F
+                            foreach ($family3->children() as $grandchild) {
+                                //echo "<br>bio " . self::GROUP_GRANDCHILDREN_STEP_CHILD . ": " . $grandchild->fullName() . " with family " . $family3->fullName() . ". ";
+                                $this->addIndividualToFamily(new IndividualFamily($grandchild, $family1), self::GROUP_GRANDCHILDREN_STEP_CHILD);
+                            }
+                        }
+                    }
+                }
+            }
+            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
+                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
+                    foreach ($family2->children() as $child) {                                  // Gen -1 P
+                        foreach ($child->spouseFamilies() as $family3) {
+                            foreach ($family3->children() as $grandchild) {
+                                //echo "<br>bio " . self::GROUP_GRANDCHILDREN_CHILD_STEP . ": " . $grandchild->fullName() . " with family " . $family3->fullName() . ". ";
+                                $this->addIndividualToFamily(new IndividualFamily($child, $family2), self::GROUP_GRANDCHILDREN_CHILD_STEP);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         $this->addChildrenStepchildrenOfStepchildren();
     }
+
 
     /**
      * add biological grandchildren
@@ -80,6 +120,7 @@ class Grandchildren extends ExtendedFamilyPart
     private function addGrandchildrenBio(object $family1, object $family2, string $groupName)
     {
         foreach ($family2->children() as $biograndchild) {                          // Gen -2 P
+            //echo "<br>bio ".$groupName.": ".$biograndchild->fullName()." with family ".$family2->fullName().". ";
             $this->addIndividualToFamily(new IndividualFamily($biograndchild, $family1), $groupName);
         }
     }
@@ -95,8 +136,11 @@ class Grandchildren extends ExtendedFamilyPart
     {
         foreach ($family2->spouses() as $spouse) {                                  // Gen -1 P
             foreach ($spouse->spouseFamilies() as $family3) {                       // Gen -1 F
-                foreach ($family3->children() as $step_child) {                     // Gen -2 P
-                    $this->addIndividualToFamily(new IndividualFamily($step_child, $family1), $groupName);
+                if ($family3->xref() !== $family2->xref()) {
+                    foreach ($family3->children() as $stepchild) {                  // Gen -2 P
+                        //echo "<br>step ".$groupName.": ".$stepchild->fullName()." with family ".$family3->fullName().". ";
+                        $this->addIndividualToFamily(new IndividualFamily($stepchild, $family1), $groupName);
+                    }
                 }
             }
         }
@@ -110,10 +154,13 @@ class Grandchildren extends ExtendedFamilyPart
         foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
-                    foreach ($family2->children() as $stepchild) {                              // Gen -1 P
-                        foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
-                            $this->addGrandchildrenBio($family1, $family3, self::GROUP_GRANDCHILDREN_CHILD_STEP);
-                            $this->addStepchildrenOfChildren($family1, $family3, self::GROUP_GRANDCHILDREN_STEP_STEP);
+                    if ($family2->xref() !== $family1->xref()) {
+                        foreach ($family2->children() as $stepchild) {                          // Gen -1 P
+                            foreach ($stepchild->spouseFamilies() as $family3) {                // Gen -1 F
+                                //echo "<br>=== 3 stepstep : ".$stepchild->fullName()." with family ".$family3->fullName().". ";
+                                $this->addGrandchildrenBio($family1, $family3, self::GROUP_GRANDCHILDREN_CHILD_STEP);
+                                $this->addStepchildrenOfChildren($family1, $family3, self::GROUP_GRANDCHILDREN_STEP_STEP);
+                            }
                         }
                     }
                 }

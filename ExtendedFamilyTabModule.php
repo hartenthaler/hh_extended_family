@@ -2,8 +2,6 @@
 /*
  * webtrees - extended family tab
  *
- * based on vytux_cousins and simpl_cousins
- *
  * Copyright (C) 2021 Hermann Hartenthaler. All rights reserved.
  * Copyright (C) 2013 Vytautas Krivickas and vytux.com. All rights reserved. 
  * Copyright (C) 2013 Nigel Osborne and kiwtrees.net. All rights reserved.
@@ -28,8 +26,12 @@
 /*
  * tbd
  * ---
- * Code: autoloader wieder aktivieren und alle require_once eliminieren?
- * Code: Anpassungen an Bootstrap 5 (filter-Buttons) und webtrees 2.1 (neue Testumgebung aufsetzen)
+ * Code: Anpassungen an Bootstrap 5 (filter-Buttons)
+ * Code: alle Family Objekte explizit als Family deklarieren
+ * Code: alle array-Deklarationen mit <index, value> deklarieren
+ * Code: alle überflüssigen require_once Kommentare entfernen
+ * Code: In der Zusammenfassung weitere Informationen anzeigen
+ *       (Generationen von/bis, früheste/späteste Geburt, Anzahl m/w/u, Anzahl lebend/tod, ...)
  * Code: Beziehungsbezeichnungen als Label aus Vesta-Relationship oder durch eigene Funktion ergänzen?
  * Code: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern (siehe issue #46 von Sir Peter)
  *      Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus?
@@ -40,11 +42,6 @@
  * Code: restliche, verstreut vorkommenden Übersetzungen mit I18N alle nach tab.html verschieben
  * Code: Iterate-Pattern für Umgang mit groups implementieren?
  * Code: alle noch verwendeten object als Klassen definieren?
- *
- * neue Idee: Statistikfunktion zur Ermittlung der längsten und der umfangreichsten Heiratsketten in einem Tree
- * neue Idee: Liste der Spitzenahnen
- * neue Idee: Kette zum entferntesten Vorfahren
- * neue Idee: Kette zum entferntesten Nachkommen
  */
 
 declare(strict_types=1);
@@ -73,10 +70,6 @@ use function implode;
 use function count;
 use function in_array;
 
-require_once(__DIR__ . '/ExtendedFamily.php');
-require_once(__DIR__ . '/src/Factory/Objects/ExtendedFamilySupport.php');
-require_once(__DIR__ . '/ExtendedFamilyPersonExists.php');
-
 /**
  * Class ExtendedFamilyTabModule
  */
@@ -95,7 +88,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE     = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION     = '2.0.16.58';
+    public const CUSTOM_VERSION     = '2.1.0.1';
     public const CUSTOM_LAST        = 'https://github.com/hartenthaler/' .
                                       self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -187,7 +180,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      * generate list of other preferences
      * (control panel options beside the options related to the extended family parts itself)
      *
-     * @return array of string
+     * @return array<int, string>
      */
     private function listOfOtherPreferences(): array
     {
@@ -220,7 +213,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         $response['description'] = $this->description();
         $response['uses_sorting'] = true;
 
-        return $this->viewResponse($this->name() . '::settings', $response);
+        return $this->viewResponse($this->name() . '::' . 'settings', $response);
     }
 
     /**
@@ -510,11 +503,13 @@ class ExtendedFamilyTabModule extends AbstractModule
     {
         return !$this->personExistsInExtendedFamily($individual);
     }
-    
+
     /**
      * Where are the CCS specifications for this module stored?
      *
      * @return ResponseInterface
+     *
+     * @throws \JsonException
      */
     function getCssAction() : ResponseInterface
     {
@@ -529,10 +524,9 @@ class ExtendedFamilyTabModule extends AbstractModule
     public function getTabContent(Individual $individual): string
     {
         /*return view($this->name() . '::test.blade', ['title'=>'Laravel Blade Example']);*/
-        return view($this->name() . '::tab', [
+        return view($this->name() . '::' . 'tab', [
             'extfam_obj'            => $this->getExtendedFamily($individual),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
-            'module_obj'            => $this,
         ]);
     }
 
@@ -569,14 +563,12 @@ class ExtendedFamilyTabModule extends AbstractModule
      * additional translations
      *
      * @param string $language
-     * @return array of string
+     * @return array<string, string>
      */
     public function customTranslations(string $language): array
     {
         // Here we are using an array for translations.
         // If you had .MO files, you could use them with: return (new Translation('path/to/file.mo'))->asArray();
-        
-        require_once($this->resourcesFolder() . 'lang/ExtendedFamilyTranslations.php');
         
         switch ($language) {
             case 'cs':
@@ -591,7 +583,7 @@ class ExtendedFamilyTabModule extends AbstractModule
                 return ExtendedFamilyTranslations::finnishTranslations();           // tbd
             case 'fr':
             case 'fr-CA':
-                return ExtendedFamilyTranslations::frenchTranslations();            // tbd
+                return ExtendedFamilyTranslations::frenchTranslations();
             case 'he':
                 return ExtendedFamilyTranslations::hebrewTranslations();            // tbd
             case 'hi':
@@ -601,7 +593,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             case 'lt':
                 return ExtendedFamilyTranslations::lithuanianTranslations();        // tbd
             case 'nb':
-                return ExtendedFamilyTranslations::norwegianBokmålTranslations();   // tbd
+                return ExtendedFamilyTranslations::norwegianBokmålTranslations();
             case 'nl':
                 return ExtendedFamilyTranslations::dutchTranslations();
             case 'nn':

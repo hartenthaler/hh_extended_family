@@ -28,6 +28,12 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
  * (6b)                                                                                 partners of P
  * (7) siblings, cousins, children, grandchildren (grouped by childfamilies())          parents F
  */
+
+/**
+ * @var object  $extfam_obj             contains all the information which has to be shown
+ * @var string  $extended_family_css    used in javascript code as a link to the css file
+ */
+
  ?>
  
 <div class="wt-tab-hh-extended-family py-4">
@@ -1051,10 +1057,11 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                         <?php endif ?>
                     <?php endif ?>
                 <?php endforeach ?>
-                <?php if ($extfam_obj->config->showEmptyBlock == 1) : ?>
-                    <?php if (count($filterObj->efp->summaryMessageEmptyBlocks) > 0) : ?>
-                        <div class="hh-extended-family-summary">
-                            <h2><?= I18N::translate('Parts of extended family without recorded information') ?></h2>
+                <div class="hh-extended-family-summary">
+                    <h2><?= I18N::translate('Summary for the shown extended family') ?></h2>
+                    <h3><?= I18N::plural('The extended family of %1$s has one member.', 'The extended family of %1$s has %2$d members.', $filterObj->efp->allCount, $extfam_obj->proband->niceName, $filterObj->efp->allCount) ?></h3>
+                    <?php if ($extfam_obj->config->showEmptyBlock == 1) : ?>
+                        <?php if (count($filterObj->efp->summaryMessageEmptyBlocks) > 0) : ?>
                             <?php $summaryListA = ExtendedFamilySupport::translateFamilyPart($filterObj->efp->summaryMessageEmptyBlocks[0]) ?>
                             <?php if (count($filterObj->efp->summaryMessageEmptyBlocks) == 1) : ?>
                                 <h3><?= I18N::translate('%s has no %s recorded.', $extfam_obj->proband->niceName, $summaryListA) ?></h3>
@@ -1065,9 +1072,9 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                 <?php $summaryListB = ExtendedFamilySupport::translateFamilyPart($filterObj->efp->summaryMessageEmptyBlocks[count($filterObj->efp->summaryMessageEmptyBlocks)-1]) ?>
                                 <h3><?= I18N::translate('%s has no %s, and no %s recorded.', $extfam_obj->proband->niceName, $summaryListA, $summaryListB) ?></h3>
                             <?php endif ?>
-                        </div>
+                        <?php endif ?>
                     <?php endif ?>
-                <?php endif ?>
+                </div>
             <?php else: ?>
                 <h3><?= I18N::translate('No family available') ?></h3>
             <?php endif ?>

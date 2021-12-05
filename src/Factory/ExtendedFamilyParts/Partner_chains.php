@@ -238,10 +238,10 @@ class Partner_chains extends ExtendedFamilyPart
     }
 
     /**
-     * count male and female individuals in marriage chains
+     * count male and female individuals in partner chains
      *
-     * @param object $mfu of marriage chain nodes
-     * @param object $node counter for sex of individuals (modified by function)
+     * @param object $node partner chain node
+     * @param object $mfu counter for sex of individuals (modified by function)
      */
     private function countMaleFemalePartnerChainRecursive(object $node, object &$mfu)
     {
@@ -260,12 +260,12 @@ class Partner_chains extends ExtendedFamilyPart
     }
 
     /**
-     * count the longest chain in marriage chains
+     * count the longest chain in parner chains
      *
-     * @param object of marriage chain nodes
-     * @param int recursion counter (modified by function)
-     * @param int counter for longest chain (modified by function)
-     * @param object most distant partner (modified by function)
+     * @param object $node marriage chain node
+     * @param int $i recursion counter (modified by function)
+     * @param int $lengthChain counter for longest chain (modified by function)
+     * @param object $lcNode most distant partner (modified by function)
      */
     private function countLongestChainRecursive(object $node, int &$i, int &$lengthChain, object &$lcNode)
     {

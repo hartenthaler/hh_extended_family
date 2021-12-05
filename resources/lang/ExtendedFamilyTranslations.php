@@ -24,7 +24,7 @@
  * ---
  * Übersetzungen per Weblate oder po/mo prüfen (siehe issue #117)
  * Übersetzungen für italian und chinese einbauen, sobald sie zugeliefert wurden
- * fehlende Übersetzungen für norwegian (2x), finish und andere organisieren
+ * weitere fehlende Übersetzungen organisieren
  */
     
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
@@ -66,6 +66,7 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'Mají se zobrazit parametry části širší rodiny?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Zobrazovat doplňující informace ke každé části širší rodiny, jako jsou posun generací a koeficient příbuznosti, který je mírou pokrevního příbuzenství.',
             'Show parameters' => 'Zobrazovat parametry',
+
             'generation +%s' => 'generace +%s',
             'same generation' => 'stejná generace',
             'generation %s' => 'generace %s',
@@ -170,9 +171,12 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Pan',
             'Mrs.' => 'Paní',
             'No family available' => 'Rodina chybí',
-            'Parts of extended family without recorded information' => 'Chybějící části širší rodiny',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+            => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
             '%s has no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s.',
             '%s has no %s, and no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s a %s.',
+
             'Father\'s family (%d)' => 'Otcova rodina (%d)',
             'Mother\'s family (%d)' => 'Matčina rodina (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Otcova a matčina rodina (%d)',
@@ -634,6 +638,7 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'Sollen Parameter für die erweiterten Familienteile angezeigt werden?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Anzeige von zusätzlichen Informationen für jeden Teil der Großfamilie wie etwa die Generationenverschiebung und den Verwandtschaftskoeffizienten, der ein Maß für den Grad der Blutsverwandtschaft ist.',
             'Show parameters' => 'Zeige Parameter',
+            
             'generation +%s' => 'Generation +%s',
             'same generation' => 'gleiche Generation',
             'generation %s' => 'Generation %s',
@@ -743,9 +748,12 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Herrn', // Kontext "Für Herrn xxx"
             'Mrs.' => 'Frau', // Kontext "Für Frau xxx"
             'No family available' => 'Es wurde keine Familie gefunden.',
-            'Parts of extended family without recorded information' => 'Teile der erweiterten Familie ohne Angaben',
+            'Summary for the shown extended family' => 'Zusammenfassung für die gezeigte erweiterte Familie',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+                => 'Die erweiterte Familie von %1$s hat ein Mitglied.' . I18N::PLURAL . 'Die erweiterte Familie von %1$s hat %2$d Mitglieder.',
             '%s has no %s recorded.' => 'Für %s sind keine %s verzeichnet.',
             '%s has no %s, and no %s recorded.' => 'Für %s sind keine %s und keine %s verzeichnet.',
+
             'Father\'s family (%d)' => 'Familie des Vaters (%d)',
             'Mother\'s family (%d)' => 'Familie der Mutter (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Familie des Vaters und der Mutter (%d)',
@@ -769,23 +777,23 @@ class ExtendedFamilyTranslations
             '%s has one great-grandfather recorded.' => 'Für %s ist ein Urgroßvater verzeichnet.',
             '%s has one great-grandparent of unknown sex recorded.' => 'Für %s ist ein Urgroßelternteil mit unbekanntem Geschlecht verzeichnet.',
             '%2$s has %1$d great-grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandmothers recorded.'
-            => 'Für %2$s ist %1$d Urgroßmutter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßmütter verzeichnet.',
+                => 'Für %2$s ist %1$d Urgroßmutter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßmütter verzeichnet.',
             '%2$s has %1$d great-grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandfathers recorded.'
-            => 'Für %2$s ist %1$d Urgroßvater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter verzeichnet.',
+                => 'Für %2$s ist %1$d Urgroßvater verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter verzeichnet.',
             '%2$s has %1$d great-grandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandparents of unknown sex recorded.'
-            => 'Für %2$s ist %1$d Urgroßelternteil mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßelternteile mit unbekanntem Geschlecht verzeichnet.',
+                => 'Für %2$s ist %1$d Urgroßelternteil mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßelternteile mit unbekanntem Geschlecht verzeichnet.',
             '%2$s has %1$d great-grandfather and ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers and '
-            => 'Für %2$s sind %1$d Urgroßvater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter und ',
+                => 'Für %2$s sind %1$d Urgroßvater und ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter und ',
             '%d great-grandmother recorded (%d in total).' . I18N::PLURAL . '%d great-grandmothers recorded (%d in total).'
-            => '%d Urgroßmutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Urgroßmütter verzeichnet (insgesamt %d).',
+                => '%d Urgroßmutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Urgroßmütter verzeichnet (insgesamt %d).',
             '%2$s has %1$d great-grandmother and ' . I18N::PLURAL . '%2$s has %1$d great-grandmothers and '
-            => 'Für %2$s sind %1$d Urgroßmutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßmütter und ',
+                => 'Für %2$s sind %1$d Urgroßmutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßmütter und ',
             '%d great-grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d great-grandparents of unknown sex recorded (%d in total).'
-            => '%d Urgroßelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Urgroßelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+                => '%d Urgroßelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Urgroßelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
             '%2$s has %1$d great-grandfather, ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers, '
-            => 'Für %2$s sind %1$d Urgroßvater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter, ',
+                => 'Für %2$s sind %1$d Urgroßvater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Urgroßväter, ',
             '%d great-grandmother, and ' . I18N::PLURAL . '%d great-grandmothers, and '
-            => '%d Urgroßmutter und ' . I18N::PLURAL . '%d Urgroßmütter und ',
+                => '%d Urgroßmutter und ' . I18N::PLURAL . '%d Urgroßmütter und ',
 
             'Grandparents' => 'Großeltern',
             '%s has no grandparents recorded.' => 'Für %s sind keine Großeltern verzeichnet.',
@@ -899,13 +907,13 @@ class ExtendedFamilyTranslations
             '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).'
                 => '%d Schwiegermutter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegermütter verzeichnet (insgesamt %d).',
             '%2$s has %1$d mother-in-law and ' . I18N::PLURAL . '%2$s has %1$d mothers-in-law and '
-            => 'Für %2$s sind %1$d Schwiegermutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegermütter und ',
+                => 'Für %2$s sind %1$d Schwiegermutter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegermütter und ',
             '%d parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents-in-law of unknown sex recorded (%d in total).'
-            => '%d Schwiegerelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+                => '%d Schwiegerelternteil mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerelternteile mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
             '%2$s has %1$d father-in-law, ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law, '
-            => 'Für %2$s sind %1$d Schwiegervater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerväter, ',
+                => 'Für %2$s sind %1$d Schwiegervater, ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerväter, ',
             '%d mother-in-law, and ' . I18N::PLURAL . '%d mothers-in-law, and '
-            => '%d Schwiegermutter und ' . I18N::PLURAL . '%d Schwiegermütter und ',
+                => '%d Schwiegermutter und ' . I18N::PLURAL . '%d Schwiegermütter und ',
  
             'Co-parents-in-law' => 'Gegenschwiegereltern',
             '%s has no co-parents-in-law recorded.' => 'Für %s sind keine Gegenschwiegereltern verzeichnet.',
@@ -1176,23 +1184,23 @@ class ExtendedFamilyTranslations
             '%s has one grandson-in-law recorded.' => 'Für %s ist ein Schwiegerenkelsohn verzeichnet.',
             '%s has one grandchild-in-law of unknown sex recorded.' => 'Für %s ist ein Schwiegerenkelkind mit unbekanntem Geschlecht verzeichnet.',
             '%2$s has %1$d granddaughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law recorded.'
-            => 'Für %2$s ist %1$d Schwiegerenkeltochter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkeltöchter verzeichnet.',
+                => 'Für %2$s ist %1$d Schwiegerenkeltochter verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkeltöchter verzeichnet.',
             '%2$s has %1$d grandson-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law recorded.'
-            => 'Für %2$s ist %1$d Schwiegerenkelsohn verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne verzeichnet.',
+                => 'Für %2$s ist %1$d Schwiegerenkelsohn verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne verzeichnet.',
             '%2$s has %1$d grandchild-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren-in-law of unknown sex recorded.'
-            => 'Für %2$s ist %1$d Schwiegerenkelkind mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelkinder mit unbekanntem Geschlecht verzeichnet.',
+                => 'Für %2$s ist %1$d Schwiegerenkelkind mit unbekanntem Geschlecht verzeichnet.' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelkinder mit unbekanntem Geschlecht verzeichnet.',
             '%2$s has %1$d grandson-in-law and ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law and '
-            => 'Für %2$s sind %1$d Schwiegerenkelsohn und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne und ',
+                => 'Für %2$s sind %1$d Schwiegerenkelsohn und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne und ',
             '%d granddaughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d granddaughters-in-law recorded (%d in total).'
-            => '%d Schwiegerenkeltochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerenkeltöchter verzeichnet (insgesamt %d).',
+                => '%d Schwiegerenkeltochter verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerenkeltöchter verzeichnet (insgesamt %d).',
             '%2$s has %1$d granddaughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law and '
-            => 'Für %2$s sind %1$d Schwiegerenkeltochter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkeltöchter und ',
+                => 'Für %2$s sind %1$d Schwiegerenkeltochter und ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkeltöchter und ',
             '%d grandchild-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren-in-law of unknown sex recorded (%d in total).'
-            => '%d Schwiegerenkelkind mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerenkelkinder mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
+                => '%d Schwiegerenkelkind mit unbekanntem Geschlecht verzeichnet (insgesamt %d).' . I18N::PLURAL . '%d Schwiegerenkelkinder mit unbekanntem Geschlecht verzeichnet (insgesamt %d).',
             '%2$s has %1$d grandson-in-law, ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law, '
-            => 'Für %2$s sind %1$d Schwiegerenkelsohn, ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne, ',
+                => 'Für %2$s sind %1$d Schwiegerenkelsohn, ' . I18N::PLURAL . 'Für %2$s sind %1$d Schwiegerenkelsöhne, ',
             '%d granddaughter-in-law, and ' . I18N::PLURAL . '%d granddaughters-in-law, and '
-            => '%d Schwiegerenkeltochter und ' . I18N::PLURAL . '%d Schwiegerenkeltöchter und ',
+                => '%d Schwiegerenkeltochter und ' . I18N::PLURAL . '%d Schwiegerenkeltöchter und ',
         ];
     }
     
@@ -1307,9 +1315,12 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Sr.',
             'Mrs.' => 'Sra.',
             'No family available' => 'No hay familia disponible',
-            'Parts of extended family without recorded information' => 'Familiares de los que no hay información',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+            => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
             '%s has no %s recorded.' => '%s no tiene %s registrados.',
             '%s has no %s, and no %s recorded.' => '%s no tiene %s ni %s registrados.',
+
             'Father\'s family (%d)' => 'Familia del padre (%d)',
             'Mother\'s family (%d)' => 'Familia de la madre (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Familia del padre y de la Madre (%d)',
@@ -1591,6 +1602,7 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'Montrer les paramètres de la partie de la famille élargie?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Affichage d\'informations supplémentaires pour chaque partie de la famille élargie, telles que le décalage des générations et le coefficient de parenté, qui est une mesure du degré de consanguinité.',
             'Show parameters' => 'Afficher les paramètres',
+
             'generation +%s' => 'génération +%s',
             'same generation' => 'même génération',
             'generation %s' => 'génération %s',
@@ -1700,9 +1712,12 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Mr.',
             'Mrs.' => 'Mme.',
             'No family available' => 'Aucune famille disponible',
-            'Parts of extended family without recorded information' => 'Parties de la famille élargie sans informations enregistrées',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+            => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
             '%s has no %s recorded.' => '%s no tiene %s registrados.',
             '%s has no %s, and no %s recorded.' => '%s n\'a pas %s ni %s enregistré.',
+
             'Father\'s family (%d)' => 'Famille du père (%d)',
             'Mother\'s family (%d)' => 'Famille de la mère (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Famille du père et de la mère (%d)',
@@ -2205,6 +2220,7 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'विस्तारित पारिवारिक भाग के पैरामीटर दिखाएँ?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'विस्तारित परिवार के प्रत्येक भाग के लिए अतिरिक्त जानकारी का प्रदर्शन, जैसे कि पीढ़ी का बदलाव और रिश्ते का गुणांक, जो कि समानता की डिग्री का एक उपाय है।',
             'Show parameters' => 'पैरामीटर दिखाएं',
+
             'generation +%s' => 'पीढ़ी +%s',
             'same generation' => 'एक ही पीढ़ी',
             'generation %s' => 'पीढ़ी %s',
@@ -2296,11 +2312,13 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?'  => 'Vis parametre for de utvidede familiedelene?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.'  => 'Visning av tilleggsinformasjon for hver enkelt del av storfamilien, som f.eks. generasjonsorskyvning og slektskapskoeffisient, som er et mål for graden av blodsslektskap.',
             'Show parameters'  => 'Vis parametre',
+
             'generation +%s'  => 'generasjon +%s',
             'same generation'  => 'samme generasjon',
             'generation %s'  => 'generasjon %s',
             'relationship coefficient: %.1f'  => 'slektskapskoeffisient: %.1f',
             'no blood relationship'  => 'intet blodsbånd',
+
             'don\'t use this filter'  => 'bruk ikke dette filteret',
             'show only male persons'  => 'vis bare personer av hankjønn',
             'show only female persons'  => 'vis bare personer av hunkjønn',
@@ -2394,15 +2412,19 @@ class ExtendedFamilyTranslations
             'Partners of stepchildren of children'  => 'Barns stebarns partner',
             'Partners of children of stepchildren'  => 'Stebarns barns partner',
             'Partners of stepchildren of stepchildren'  => 'Stebarns stebarns partner',
+
             'He'  => 'Han',
             'She'  => 'Hun',
             'He/she'  => 'Han/hun',
             'Mr.'  => 'Herr',
             'Mrs.'  => 'Fru',
             'No family available'  => 'Ingen familie funnet',
-            'Parts of extended family without recorded information'  => 'Deler av storfamilie uten innførte opplysninger',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+            => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
             '%s has no %s recorded.'  => '%s har ingen registrerte %s.',
             '%s has no %s, and no %s recorded.'  => '%s har ingen registrerte %s og ingen %s.',
+
             'Father\'s family (%d)'  => 'Fars familie (%d)',
             'Mother\'s family (%d)'  => 'Mors familie (%d)',
             'Father\'s and Mother\'s family (%d)'  => 'Fars og mors familie (%d)',
@@ -2419,6 +2441,7 @@ class ExtendedFamilyTranslations
             'Brother %1$s of partner %2$s'  => 'Bror %1$s til partner %2$s',
             'Sister %1$s of partner %2$s'  => 'Søster %1$s til partner %2$s',
             'Sibling %1$s of partner %2$s'  => 'Søsken %1$s til partner %2$s',
+
             'Great-grandparents'  => 'Oldeforeldre',
             '%s has no great-grandparents recorded.'  => '%s har ingen registrerte oldeforeldre.',
             '%s has one great-grandmother recorded.'  => '%s har én registrert oldemor.',
@@ -2433,6 +2456,7 @@ class ExtendedFamilyTranslations
             '%d great-grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d great-grandparents of unknown sex recorded (%d in total).'  => '%d oldeforelder av ukjent kjønn registrert (til sammen %d).' . I18N::PLURAL . '%d oldeforeldre av ukjent kjønn registrert (til sammen %d).',
             '%2$s has %1$d great-grandfather, ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers, '  => '%2$s har %1$d registrert oldefar, ' . I18N::PLURAL . '%2$s har %1$d oldefedre, ',
             '%d great-grandmother, and ' . I18N::PLURAL . '%d great-grandmothers, and '  => '%d oldemor, og ' . I18N::PLURAL . '%d oldemødre, og ',
+
             'Grandparents'  => 'Besteforeldre',
             '%s has no grandparents recorded.'  => '%s har ingen registrerte besteforeldre.',
             '%s has one grandmother recorded.'  => '%s har én registrert bestemor.',
@@ -2447,6 +2471,7 @@ class ExtendedFamilyTranslations
             '%d grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandparents of unknown sex recorded (%d in total).'  => '%d besteforelder av ukjent kjønn registrert (til sammen %d).' . I18N::PLURAL . '%d besteforeldre av ukjent kjønn registrert (til sammen %d).',
             '%2$s has %1$d grandfather, ' . I18N::PLURAL . '%2$s has %1$d grandfathers, '  => '%2$s har %1$d registrert bestefar, ' . I18N::PLURAL . '%2$s har %1$d bestefedre, ',
             '%d grandmother, and ' . I18N::PLURAL . '%d grandmothers, and '  => '%d bestemor og ' . I18N::PLURAL . '%d bestemødre og ',
+
             'Uncles and Aunts'  => 'Onkler og tanter',
             '%s has no uncles or aunts recorded.'  => '%s har ingen registrerte onkler eller tanter.',
             '%s has one aunt recorded.'  => '%s har én registrert tante.',
@@ -2461,6 +2486,7 @@ class ExtendedFamilyTranslations
             '%d uncle or aunt of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts of unknown sex recorded (%d in total).'  => '%d onkel eller tante av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d onkler eller tanter av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d uncle, ' . I18N::PLURAL . '%2$s has %1$d uncles, '  => '%2$s har %1$d registrert onkel, ' . I18N::PLURAL . '%2$s har %1$d onkler, ',
             '%d aunt, and ' . I18N::PLURAL . '%d aunts, and '  => '%d tante, og ' . I18N::PLURAL . '%d tanter, og ',
+
             'Uncles and Aunts by marriage'  => 'Inngifte onkler og tanter',
             '%s has no uncles or aunts by marriage recorded.'  => '%s har ingen registrerte inngifte onkler eller tanter.',
             '%s has one aunt by marriage recorded.'  => '%s har én registrert inngift tante.',
@@ -2475,6 +2501,7 @@ class ExtendedFamilyTranslations
             '%d uncle or aunt by marriage of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts by marriage of unknown sex recorded (%d in total).'  => '%d inngift onkel eller tante av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d inngifte onkler eller tanter av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d uncle by marriage, ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage, '  => '%2$s har %1$d registrert inngift onkel, ' . I18N::PLURAL . '%2$s har %1$d registrerte inngifte onkler, ',
             '%d aunt by marriage, and ' . I18N::PLURAL . '%d aunts by marriage, and '  => '%d inngift tante og ' . I18N::PLURAL . '%d inngifte tanter og ',
+
             'Parents'  => 'Foreldre',
             '%s has no parents recorded.'  => '%s har ingen registrerte foreldre.',
             '%s has one mother recorded.'  => '%s har én registrert mor.',
@@ -2489,6 +2516,7 @@ class ExtendedFamilyTranslations
             '%d parent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents of unknown sex recorded (%d in total).'  => '%d forelder av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d foreldre av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d father, ' . I18N::PLURAL . '%2$s has %1$d fathers, '  => '%2$s har %1$d registrert far, ' . I18N::PLURAL . '%2$s har %1$d registrerte fedre, ',
             '%d mother, and ' . I18N::PLURAL . '%d mothers, and '  => '%d mor og ' . I18N::PLURAL . '%d mødre og ',
+
             'Parents-in-law'  => 'Svigerforeldre',
             '%s has no parents-in-law recorded.'  => '%s har ingen registrerte svigerforeldre.',
             '%s has one mother-in-law recorded.'  => '%s har én registrert svigermor.',
@@ -2503,6 +2531,7 @@ class ExtendedFamilyTranslations
             '%d parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents-in-law of unknown sex recorded (%d in total).'  => '%d svigerforelder av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d svigerforeldre av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d father-in-law, ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law, '  => '%2$s har %1$d registrert svigerfar, ' . I18N::PLURAL . '%2$s har %1$d svigerfedre, ',
             '%d mother-in-law, and ' . I18N::PLURAL . '%d mothers-in-law, and '  => '%d svigermor og ' . I18N::PLURAL . '%d svigermødre og ',
+
             'Co-parents-in-law'  => 'Barns svigerforeldre',
             '%s has no co-parents-in-law recorded.'  => '%s har ingen registrerte barns svigerforeldre.',
             '%s has one co-mother-in-law recorded.'  => '%s har én registrert barns svigermor.',
@@ -2517,6 +2546,7 @@ class ExtendedFamilyTranslations
             '%d co-parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d co-parents-in-law of unknown sex recorded (%d in total).'  => '%d barns svigerforelder av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d barns svigerforeldre av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d co-father-in-law, ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law, '  => '%2$s har %1$d registrert barns svigerfar, ' . I18N::PLURAL . '%2$s har %1$d registrerte barns svigerfedre, ',
             '%d co-mother-in-law, and ' . I18N::PLURAL . '%d co-mothers-in-law, and '  => '%d barns svigermor, og ' . I18N::PLURAL . '%d barns svigermødre, og ',
+
             'Partners'  => 'Partnere',
             'Partner of '  => 'Partner av ',
             '%s has no partners recorded.'  => '%s har ingen registrerte partnere.',
@@ -2532,6 +2562,7 @@ class ExtendedFamilyTranslations
             '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and '  => '%2$s har %1$d registrert partner og ' . I18N::PLURAL . '%2$s har %1$d registrerte partnere og ' ,
             '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).'  => '%d mannlig partner av kvinnelige partnere (til sammen %d).' . I18N::PLURAL . '%d mannlige partnere av kvinnelige partnere (til sammen %d).',
             '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).'  => '%d kvinnelig partner av mannlige partnere (til sammen %d).' . I18N::PLURAL . '%d kvinnelige partnere av mannlige partnere (til sammen %d).',
+
             'Partner chains'  => 'Partnerkjeder',
             '%s has no members of a partner chain recorded.'  => '%s inngår ikke i noen partnerkjede.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '  => '%2$s har %1$d mannlig partner og ' . I18N::PLURAL . '%2$s har %1$d mannlige partnere og ',
@@ -2545,6 +2576,7 @@ class ExtendedFamilyTranslations
             'There are %d branches in the partner chain. '  => 'Det er %d grener i partnerkjeden. ',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).'  => 'Den lengste grenen i partnerkjeden med %2$s består av %1$d partnere (%3$s medregnet).',
             'The longest branch in the partner chain consists of %1$d partners (including %2$s).'  => 'Den lengste grenen i partnerkjeden består av %1$d partnere (%2$s medregnet).',
+
             'Siblings'  => 'Søsken',
             '%s has no siblings recorded.'  => '%s har ingen registrerte søsken.',
             '%s has one sister recorded.'  => '%s har én registrert søster.',
@@ -2559,6 +2591,7 @@ class ExtendedFamilyTranslations
             '%d sibling of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d siblings of unknown sex recorded (%d in total).'  => '%d søsken av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d søsken av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d brother, ' . I18N::PLURAL . '%2$s has %1$d brothers, '  => '%2$s har %1$d registrert bror, ' . I18N::PLURAL . '%2$s har %1$d brødre, ',
             '%d sister, and ' . I18N::PLURAL . '%d sisters, and '  => '%d søster og ' . I18N::PLURAL . '%d søstre og ',
+
             'Siblings-in-law'  => 'Svigersøsken',
             '%s has no siblings-in-law recorded.'  => '%s har ingen registrerte svigersøsken.',
             '%s has one sister-in-law recorded.'  => '%s har én registrert svigerinne.',
@@ -2573,6 +2606,7 @@ class ExtendedFamilyTranslations
             '%d sibling-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d siblings-in-law of unknown sex recorded (%d in total).'  => '%d svigersøsken av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d svigersøsken av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d brother-in-law, ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law, '  => '%2$s har %1$d registrert svoger, ' . I18N::PLURAL . '%2$s har %1$d svogre, ',
             '%d sister-in-law, and ' . I18N::PLURAL . '%d sisters-in-law, and '  => '%d svigerinne, og ' . I18N::PLURAL . '%d svigerinner, og ',
+
             'Co-siblings-in-law'  => 'Ektefelles svigersøsken',
             '%s has no co-siblings-in-law recorded.'  => '%s har ingen registrerte ektefelles svigersøsken.',
             '%s has one co-sister-in-law recorded.'  => '%s har én registrert ektefelles svigerinne.',
@@ -2587,6 +2621,7 @@ class ExtendedFamilyTranslations
             '%d co-sibling-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d co-siblings-in-law of unknown sex recorded (%d in total).'  => '%d ektefelles svigersøsken av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d ektefelles svigersøsken av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d co-brother-in-law, ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law, '  => '%2$s har %1$d registrert ektefelles svoger, ' . I18N::PLURAL . '%2$s har %1$d registrerte ektefelles svogre, ',
             '%d co-sister-in-law, and ' . I18N::PLURAL . '%d co-sisters-in-law, and '  => '%d ektefelles svigerinne, og ' . I18N::PLURAL . '%d ektefelles svigerinner, og ',
+
             'Cousins'  => 'Søskenbarn',
             '%s has no first cousins recorded.'  => '%s har ingen registrerte søskenbarn.',
             '%s has one female first cousin recorded.'  => '%s har én registrert kusine.',
@@ -2601,6 +2636,7 @@ class ExtendedFamilyTranslations
             '%d first cousin of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d first cousins of unknown sex recorded (%d in total).'  => '%d søskenbarn av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d søskenbarn av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d male first cousin, ' . I18N::PLURAL . '%2$s has %1$d male first cousins, '  => '%2$s har %1$d registrert fetter, ' . I18N::PLURAL . '%2$s har %1$d fetre, ',
             '%d female first cousin, and ' . I18N::PLURAL . '%d female first cousins, and '  => '%d kusine og ' . I18N::PLURAL . '%d kusiner og ',
+
             'Nephews and Nieces'  => 'Nevøer og nieser',
             '%s has no nephews or nieces recorded.'  => '%s har ingen registrerte nevøer eller nieser.',
             '%s has one niece recorded.'  => '%s har én registrert niese.',
@@ -2615,6 +2651,7 @@ class ExtendedFamilyTranslations
             '%d nephew or niece of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d nephews or nieces of unknown sex recorded (%d in total).'  => '%d nevø eller niese av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d nevøer eller nieser av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d nephew, ' . I18N::PLURAL . '%2$s has %1$d nephews, '  => '%2$s har %1$d registrert nevø, ' . I18N::PLURAL . '%2$s har %1$d nevøer, ',
             '%d niece, and ' . I18N::PLURAL . '%d nieces, and '  => '%d niese, og ' . I18N::PLURAL . '%d nieser, og ',
+
             'Children'  => 'Barn',
             '%s has no children recorded.'  => '%s har ingen registrerte barn.',
             '%s has one daughter recorded.'  => '%s har én registrert datter.',
@@ -2629,6 +2666,7 @@ class ExtendedFamilyTranslations
             '%d child of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d children of unknown sex recorded (%d in total).'  => '%d barn av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d barn av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d son, ' . I18N::PLURAL . '%2$s has %1$d sons, '  => '%2$s har %1$d registrert sønn, ' . I18N::PLURAL . '%2$s har %1$d registrerte sønner, ',
             '%d daughter, and ' . I18N::PLURAL . '%d daughters, and '  => '%d datter, og ' . I18N::PLURAL . '%d døtre, og ',
+
             'Children-in-law'  => 'Svigerbarn',
             '%s has no children-in-law recorded.'  => '%s har ingen registrerte svigerbarn.',
             '%s has one daughter-in-law recorded.'  => '%s har én registrert svigerdatter.',
@@ -2643,6 +2681,7 @@ class ExtendedFamilyTranslations
             '%d child-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d children-in-law of unknown sex recorded (%d in total).'  => '%d svigerbarn av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d svigerbarn av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d son-in-law, ' . I18N::PLURAL . '%2$s has %1$d sons-in-law, '  => '%2$s har %1$d registrert svigersønn, ' . I18N::PLURAL . '%2$s har %1$d registrerte svigersønner, ',
             '%d daughter-in-law, and ' . I18N::PLURAL . '%d daughters-in-law, and '  => '%d svigerdatter, og ' . I18N::PLURAL . '%d svigerdøtre, og ',
+
             'Grandchildren'  => 'Barnebarn',
             '%s has no grandchildren recorded.'  => '%s har ingen registrerte barnebarn.',
             '%s has one granddaughter recorded.'  => '%s har én registrert sønne-/datterdatter.',
@@ -2657,6 +2696,7 @@ class ExtendedFamilyTranslations
             '%d grandchild of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren of unknown sex recorded (%d in total).'  => '%d barnebarn av ukjent kjønn (til sammen %d).' . I18N::PLURAL . '%d barnebarn av ukjent kjønn (til sammen %d).',
             '%2$s has %1$d grandson, ' . I18N::PLURAL . '%2$s has %1$d grandsons, '  => '%2$s har %1$d registrert sønne-/dattersønn, ' . I18N::PLURAL . '%2$s har %1$d registrerte sønne-/dattersønner, ',
             '%d granddaughter, and ' . I18N::PLURAL . '%d granddaughters, and '  => '%d sønne-/datterdatter, og ' . I18N::PLURAL . '%d sønne-/datterdøtre, og ',
+
             'Grandchildren-in-law'  => 'Svigerbarnebarn',
             '%s has no grandchildren-in-law recorded.'  => '%s har ingen registrerte svigerbarnebarn.',
             '%s has one granddaughter-in-law recorded.'  => '%s har ett registrert svigerbarnebarn.',
@@ -2704,6 +2744,7 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'Parameters van uitgebreidefamiliedeel weergeven?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Weergave van aanvullende informatie voor elk deel van de uitgebreide familie, zoals de generatieverschuiving en de verwantschapscoëfficiënt, die een vermenigvuldigingsfactor is voor de graad van bloedverwantschap.',
             'Show parameters' => 'Parameters weergeven',
+
             'generation +%s' => 'generatie +%s',
             'same generation' => 'dezelfde generatie',
             'generation %s' => 'generatie %s',
@@ -2809,9 +2850,12 @@ class ExtendedFamilyTranslations
             'Mr.' => 'de heer',
             'Mrs.' => 'mevrouw',
             'No family available' => 'Geen familie gevonden',
-            'Parts of extended family without recorded information' => 'Onderdelen van uitgebreide familie zonder geregistreerde informatie',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+            => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
             '%s has no %s recorded.' => 'Voor %s zijn geen %s geregistreerd.',
             '%s has no %s, and no %s recorded.' => 'Voor %s zijn geen %s en geen %s geregistreerd.',
+
             'Father\'s family (%d)' => 'Familie van de vader (%d)',
             'Mother\'s family (%d)' => 'Familie van de moeder (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Familie van de vader en de moeder (%d)',
@@ -3275,7 +3319,9 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Pán',
             'Mrs.' => 'Pani',
             'No family available' => 'Nenašla sa žiadna rodina',
-            'Parts of extended family without recorded information' => 'Časti širšej rodiny bez zaznamenaných informácií',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+            => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
             '%s has no %s recorded.' => '%s nemá zaznamenané %s.',
             '%s has no %s, and no %s recorded.' => '%s nemá zaznamenané %s ani %s.',
             'Father\'s family (%d)' => 'Otcova rodina (%d)',
@@ -3318,7 +3364,7 @@ class ExtendedFamilyTranslations
             '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and ' 
                 => '%2$s má zaznamenaného %1$d strýka a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d strýkov a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d strýkov a ',
             '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' 
-                => '%d tetu (spolu %d).' . I18N::PLURAL . '%d tety (spolu %d).' . I18N::PLURAL . '%d tiet (spolu %d).', 
+                => '%d tetu (spolu %d).' . I18N::PLURAL . '%d tety (spolu %d).' . I18N::PLURAL . '%d tiet (spolu %d).',
 
             '%s has no siblings recorded.' => '%s nemá zaznamenaných žiadnych súrodencov.',
             '%s has one sister recorded.' => '%s má zaznamenanú jednu sestru.',
@@ -3507,7 +3553,9 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Пан',
             'Mrs.' => 'Пані',
             'No family available' => 'Не знайдено жодної сім\'ї.',
-            'Parts of extended family without recorded information' => 'Частини розширеної сім\'ї, що не містять записаної інформації',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+                => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
             '%s has no %s recorded.' => 'Для %s не записано %s.',
             '%s has no %s, and no %s recorded.' => 'Для %s не записано %s і %s.',
             'Father\'s family (%d)' => 'Сім\'я батька (%d)',
@@ -3835,7 +3883,9 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Ông',
             'Mrs.' => 'Bà',
             'No family available' => 'Không có thông tin về gia đình',
-            'Parts of extended family without recorded information' => 'Các mối quan hệ khác trong gia đình không có thông tin được ghi lại',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+                => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
             '%s has no %s recorded.' => '%s không có %s thông tin được ghi lại.',
             '%s has no %s, and no %s recorded.' => '%s không có %s và không có %s thông tin được ghi lại.',
             'Father\'s family (%d)' => 'Gia đình bên Bố (%d)',

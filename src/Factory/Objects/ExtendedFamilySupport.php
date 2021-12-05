@@ -27,6 +27,7 @@ use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\GedcomCode\GedcomCodePedi;
+use Fisharebest\Webtrees\Registry;
 
 // string functions
 use function str_replace;
@@ -238,11 +239,11 @@ class ExtendedFamilySupport
      */
     private static function generatePedigreeLabel(Individual $child): string
     {
-        $label = GedcomCodePedi::getValue('', $child->getInstance($child->xref(), $child->tree()));
+        $label = GedcomCodePedi::getValue('', Registry::gedcomRecordFactory()->make($child->xref(), $child->tree()));
         if ($child->childFamilies()->first()) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $child->gedcom(), $match)) {
                 if ($match[1] !== 'birth') {
-                    $label = GedcomCodePedi::getValue($match[1], $child->getInstance($child->xref(), $child->tree()));
+                    $label = GedcomCodePedi::getValue($match[1], Registry::gedcomRecordFactory()->make($child->xref(), $child->tree()));
                 }
             }
         }

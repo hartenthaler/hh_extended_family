@@ -77,6 +77,7 @@ use Fisharebest\Webtrees\Individual;
 use function explode;
 use function count;
 
+/*
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
 require_once(__DIR__ . '/src/Factory/Objects/ExtendedFamilySupport.php');
@@ -99,6 +100,7 @@ require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren_in_law.php');
+*/
 
 /**
  * class ExtendedFamily

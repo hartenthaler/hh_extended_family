@@ -30,10 +30,10 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
  */
 class Grandchildren_in_law extends ExtendedFamilyPart
 {
-    public const GROUP_GRANDCHILDRENINLAW_BIO = 'Partners of biological grandchild';
-    public const GROUP_GRANDCHILDRENINLAW_STEP_CHILD = 'Partners of stepchild of child';
-    public const GROUP_GRANDCHILDRENINLAW_CHILD_STEP = 'Partners of child of stepchild';
-    public const GROUP_GRANDCHILDRENINLAW_STEP_STEP = 'Partners of stepchild of stepchild';
+    public const GROUP_GRANDCHILDRENINLAW_BIO = 'Partners of biological grandchildren';
+    public const GROUP_GRANDCHILDRENINLAW_STEP_CHILD = 'Partners of stepchildren of children';
+    public const GROUP_GRANDCHILDRENINLAW_CHILD_STEP = 'Partners of children of stepchildren';
+    public const GROUP_GRANDCHILDRENINLAW_STEP_STEP = 'Partners of stepchildren of stepchildren';
 
     /**
      * @var object $efpObject data structure for this extended family part

@@ -3,6 +3,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 ![webtrees major version](https://img.shields.io/badge/webtrees-v2.0.x-green)
+![webtrees major version](https://img.shields.io/badge/webtrees-v2.1.x-green)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0f3951ce4532e3837215/maintainability)](https://codeclimate.com/github/hartenthaler/hh_extended_family/maintainability)
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
@@ -73,16 +74,16 @@ The default presentation sequence of the extended family parts is oriented at th
 ## Screenshots
 
 Screenshot of tab using the compact design
-<p align="center"><img src="resources/docu/screenshot.png" alt="Screenshot of tab" align="center" width="80%"></p>
+<p align="center"><img src="docs/screenshot.png" alt="Screenshot of tab" align="center" width="80%"></p>
 
 Screenshot showing photo as well as birth and death information
-<p align="center"><img src="resources/docu/screenshot_full.png" alt="Screenshot showing photo as well as birth and death information" align="center" width="85%"></p>
+<p align="center"><img src="docs/screenshot_full.png" alt="Screenshot showing photo as well as birth and death information" align="center" width="85%"></p>
 
 Screenshot showing chain of partners (partner of partner of partner of ...)
-<p align="center"><img src="resources/docu/screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
+<p align="center"><img src="docs/screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
 
 Screenshot of control panel menu
-<p align="center"><img src="resources/docu/screenshot_control_panel.png" alt="Screenshot of control panel menu" align="center" width="85%"></p>
+<p align="center"><img src="docs/screenshot_control_panel.png" alt="Screenshot of control panel menu" align="center" width="85%"></p>
 
 <a name="requirements"></a>
 ## Requirements
@@ -90,7 +91,9 @@ Screenshot of control panel menu
 This module requires **webtrees** version 2.0 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** 2.0.17 version and all available themes and all other custom modules.
+This module was tested with **webtrees** 2.0.19 version
+and all available themes and all other custom modules.
+It can be used with the 2.1.0-alpha.1 version, too.
 
 <a name="installation"></a>
 ## Installation
