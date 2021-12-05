@@ -171,11 +171,11 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Pan',
             'Mrs.' => 'Paní',
             'No family available' => 'Rodina chybí',
-            'Summary for the shown extended family' => 'Samenvatting voor de getoonde uitgebreide familie',
-            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
-                => 'De uitgebreide familie van %1$s heeft één lid.' . I18N::PLURAL . 'De uitgebreide familie van %1$s heeft %2$d leden.',
             '%s has no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s.',
             '%s has no %s, and no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s a %s.',
+            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
+            => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
 
             'Father\'s family (%d)' => 'Otcova rodina (%d)',
             'Mother\'s family (%d)' => 'Matčina rodina (%d)',
@@ -2802,9 +2802,9 @@ class ExtendedFamilyTranslations
             'Mr.' => 'de heer',
             'Mrs.' => 'mevrouw',
             'No family available' => 'Geen familie gevonden',
-            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'Summary for the shown extended family' => 'Samenvatting voor de getoonde uitgebreide familie',
             'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
-                => 'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.',
+                => 'De uitgebreide familie van %1$s heeft één lid.' . I18N::PLURAL . 'De uitgebreide familie van %1$s heeft %2$d leden.',
             '%s has no %s recorded.' => 'Voor %s zijn geen %s geregistreerd.',
             '%s has no %s, and no %s recorded.' => 'Voor %s zijn geen %s en geen %s geregistreerd.',
 
