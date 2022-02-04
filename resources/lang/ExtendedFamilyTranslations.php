@@ -626,7 +626,7 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'Sollen Parameter für die erweiterten Familienteile angezeigt werden?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Anzeige von zusätzlichen Informationen für jeden Teil der Großfamilie wie etwa die Generationenverschiebung und den Verwandtschaftskoeffizienten, der ein Maß für den Grad der Blutsverwandtschaft ist.',
             'Show parameters' => 'Zeige Parameter',
-            'This allows an user to filter the members of the extended family by gender and if they are alive or dead.'
+            'This allows a user to filter the members of the extended family by gender and if they are alive or dead.'
                 => 'Dies erlaubt es einem Nutzer die Mitglieder der erweiterten Familie nach Geschlecht sowie nach lebend/tot zu filtern.',
             'Should a summary block be shown?' => 'Soll ein zusammenfassender Abschnitt angezeigt werden?',
             'The summary contains information about the extended family in total.' => 'Die Zusammenfassung enthält Informationen über die erweiterte Familie als Ganzes.',
@@ -643,7 +643,7 @@ class ExtendedFamilyTranslations
                 => 'Dies ist nur dann relevant, wenn Sie ausgewählt haben, dass die Partnerketten ein Teil der erweiterten Familie sind.',
             'Include them' => 'Einbeziehen',
             'Show a button "copy to clippings cart"?' => 'Soll ein Knopf "kopieren in den Auswahlkorb" gezeigt werden',
-            'This allows an user to copy all members of the extended family to the clippings cart.'
+            'This allows a user to copy all members of the extended family to the clippings cart.'
                 => 'Das erlaubt einem Anwender alle Mitglieder der erweiterten Familie in den Auswahlkorb zu kopieren.',
             'Show button' => 'Zeige den Knopf',
             
@@ -2718,6 +2718,26 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'Parameters van uitgebreidefamiliedeel weergeven?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Weergave van aanvullende informatie voor elk deel van de uitgebreide familie, zoals de generatieverschuiving en de verwantschapscoëfficiënt, die een vermenigvuldigingsfactor is voor de graad van bloedverwantschap.',
             'Show parameters' => 'Parameters weergeven',
+            'This allows a user to filter the members of the extended family by gender and if they are alive or dead.'
+                => 'Hiermee kan een gebruiker de leden van de uitgebreide familie filteren op geslacht en of ze levend of dood zijn.',
+            'Should a summary block be shown?' => 'Moet een samenvattingsblok worden weergeven?',
+            'The summary contains information about the extended family in total.' => 'De samenvatting bevat informatie over de totalen van de uitgebreide familie.',
+            'Show summary' => 'Samenvatting weergeven',
+            'Count the members of the partner chains as members of the extended family?'
+                => 'Tellen de leden van de partnerketens mee als leden van de uitgebreide familie?',
+            'If you select "no", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family.'
+                => 'Als u "nee" kiest, worden de extra leden in de partnerketens niet meegeteld bij het totaalaantal personen in de uitgebreide familie.',
+            'And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.'
+                => 'En deze personen en gezinnen zullen niet geselecteerd worden wanneer een gebruiker besluit om de uitgebreide familie naar de stamboomknipsels te kopiëren.',
+            'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of my enhanced clippings cart module: "add partner chains for an individual".'
+                => 'Maar ook in dat geval kunnen deze personen en gezinnen naar de stamboomknipsels worden gekopieerd worden door gebruik te maken van de optie "partnerketens toevoegen voor een persoon" in mijn aangepaste stamboomknipselsmodule.',
+            'This is only relevant if you have chosen, that the partner chains should be shown as a part of the extended family.'
+                => 'Dit is alleen relevant als u ervoor gekozen heeft om de partnerketens weer te geven als deel van de uitgebreide familie.',
+            'Include them' => 'Opnemen',
+            'Show a button "copy to clippings cart"?' => 'Een knop "kopiëren naar stamboomknipsels" weergeven?',
+            'This allows a user to copy all members of the extended family to the clippings cart.'
+                => 'Hiermee kan een gebruiker alle leden van de uitgebreide familie naar de stamboomknipsels kopiëren.',
+            'Show button' => 'Knop weergeven',
 
             'generation +%s' => 'generatie +%s',
             'same generation' => 'dezelfde generatie',
@@ -2817,6 +2837,10 @@ class ExtendedFamilyTranslations
             'Stepchildren of children' => 'Stiefkinderen van kinderen',
             'Children of stepchildren' => 'Kinderen van stiefkinderen',
             'Stepchildren of stepchildren' => 'Stiefkinderen van stiefkinderen',
+            'Partners of biological grandchildren' => 'Partners van biologische kleinkinderen',
+            'Partners of stepchildren of children' => 'Partners van stiefkinderen van kinderen',
+            'Partners of children of stepchildren' => 'Partners van kinderen van stiefkinderen',
+            'Partners of stepchildren of stepchildren' => 'Partners van stiefkinderen van stiefkinderen',
 
             'He' => 'hem',
             'She' => 'haar',
@@ -2827,6 +2851,8 @@ class ExtendedFamilyTranslations
             'Summary for the shown extended family' => 'Samenvatting voor de getoonde uitgebreide familie',
             'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
                 => 'De uitgebreide familie van %1$s heeft één lid.' . I18N::PLURAL . 'De uitgebreide familie van %1$s heeft %2$d leden.',
+            '(additional members of the partner chains are not counted)' => '(extra leden van de partnerketens worden niet meegeteld)',
+            'Some of them are member in more than one part of the extended family.' => 'Sommigen van hen zijn lid van meer dan één deel van de uitgebreide familie.',
             '%s has no %s recorded.' => 'Voor %s zijn geen %s geregistreerd.',
             '%s has no %s, and no %s recorded.' => 'Voor %s zijn geen %s en geen %s geregistreerd.',
 
@@ -3253,6 +3279,30 @@ class ExtendedFamilyTranslations
                 => 'Voor %2$s zijn %1$d kleinzoon, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d kleinzonen, ',
             '%d granddaughter, and ' . I18N::PLURAL . '%d granddaughters, and '
                 => '%d kleindochter en ' . I18N::PLURAL . '%d kleindochters en ',
+
+            'Grandchildren-in-law' => 'Schoonkleinkinderen',
+            '%s has no grandchildren-in-law recorded.' => 'Voor %s zijn geen schoonkleinkinderen geregistreerd.',
+            '%s has one granddaughter-in-law recorded.' => 'Voor %s is een schoonkleindochter geregistreerd.',
+            '%s has one grandson-in-law recorded.' => 'Voor %s is een schoonkleinzoon geregistreerd.',
+            '%s has one grandchild-in-law of unknown sex recorded.' => 'Voor %s is een schoonkleinkind van onbekend geslacht geregistreerd.',
+            '%2$s has %1$d granddaughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law recorded.'
+                => 'Voor %2$s is %1$d schoonkleindochter geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleindochters geregistreerd.',
+            '%2$s has %1$d grandson-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law recorded.'
+                => 'Voor %2$s is %1$d schoonkleinzoon geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinzonen geregistreerd.',
+            '%2$s has %1$d grandchild-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren-in-law of unknown sex recorded.'
+                => 'Voor %2$s is %1$d schoonkleinkind van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinkinderen van onbekend geslacht geregistreerd.',
+            '%2$s has %1$d grandson-in-law and ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law and '
+                => 'Voor %2$s zijn %1$d schoonkleinzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinzonen en ',
+            '%d granddaughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d granddaughters-in-law recorded (%d in total).'
+                => '%d schoonkleindochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d schoonkleindochters geregistreerd (%d in totaal).',
+            '%2$s has %1$d granddaughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law and '
+                => 'Voor %2$s zijn %1$d schoonkleindochter en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleindochters en ',
+            '%d grandchild-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren-in-law of unknown sex recorded (%d in total).'
+                => '%d schoonkleinkind van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d schoonkleinkinderen van onbekend geslacht geregistreerd (%d in totaal).',
+            '%2$s has %1$d grandson-in-law, ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law, '
+                => 'Voor %2$s zijn %1$d schoonkleinzoon, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinzonen, ',
+            '%d granddaughter-in-law, and ' . I18N::PLURAL . '%d granddaughters-in-law, and '
+                => '%d schoonkleindochter en ' . I18N::PLURAL . '%d schoonkleindochters en ',
         ];
     }
 
