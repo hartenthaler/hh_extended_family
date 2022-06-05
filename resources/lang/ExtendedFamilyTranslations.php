@@ -3561,7 +3561,7 @@ class ExtendedFamilyTranslations
                 => 'Als u "nee" kiest, worden de extra leden in de partnerketens niet meegeteld bij het totaalaantal personen in de uitgebreide familie.',
             'And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.'
                 => 'En deze personen en gezinnen zullen niet geselecteerd worden wanneer een gebruiker besluit om de uitgebreide familie naar de stamboomknipsels te kopiëren.',
-            'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of my enhanced clippings cart module: "add partner chains for an individual".'
+            'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".'
                 => 'Maar ook in dat geval kunnen deze personen en gezinnen naar de stamboomknipsels worden gekopieerd worden door gebruik te maken van de optie "partnerketens toevoegen voor een persoon" in mijn aangepaste stamboomknipselsmodule.',
             'This is only relevant if you have chosen, that the partner chains should be shown as a part of the extended family.'
                 => 'Dit is alleen relevant als u ervoor gekozen heeft om de partnerketens weer te geven als deel van de uitgebreide familie.',
@@ -4181,7 +4181,7 @@ class ExtendedFamilyTranslations
                 => 'Если вы выберете "нет", то партнеры не будут засчитываться в общее число родственников.',
             'And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.'
                 => 'И эти люди и семьи не будут выбраны, когда пользователь решит скопировать расширенное семейство в корзину вырезок.',
-            'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of my enhanced clippings cart module: "add partner chains for an individual".'
+            'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".'
                 => 'Но даже в этом случае вы можете скопировать этих людей и семьи в корзину вырезок, используя специальный раздел меню расширенного модуля корзин вырезок: "добавить цепочки партнеров для отдельного человека".',
             'This is only relevant if you have chosen, that the partner chains should be shown as a part of the extended family.'
                 => 'Это важно только в том случае, если выбрано, что партнеры должны отображаться как родственники.',
