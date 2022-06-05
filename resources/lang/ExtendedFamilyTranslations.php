@@ -3530,9 +3530,9 @@ class ExtendedFamilyTranslations
             'Extended family' => 'Uitgebreide familie',
             'A tab showing the extended family of an individual.' => 'Tab laat de uitgebreide familie van deze persoon zien.',
             'In which sequence should the parts of the extended family be shown?' => 'In welke volgorde moeten de delen van de uitgebreide familie worden weergegeven?',
-            'Family part' => 'Familiedeel',
+            'Family part (generation relative to proband)' => 'Familiedeel (generatie ten opzichte van proband)',
             'Show name of proband as short name or as full name?' => 'Naam van proband weergeven als korte naam of als volledige naam?',
-            'Show options to filter the results (gender and alive/dead)?' => 'Filteropties (geslacht en levend/overleden) weergeven?',
+            'Show options to filter the results?' => 'Filteropties weergeven?',
             'Show filter options' => 'Filteropties weergeven',
             'How should empty parts of extended family be presented?' => 'Hoe moeten lege delen van de uitgebreide familie worden weergegeven?',
             'Show empty block' => 'Lege familiedelen weergeven',
@@ -3563,8 +3563,8 @@ class ExtendedFamilyTranslations
                 => 'En deze personen en gezinnen zullen niet geselecteerd worden wanneer een gebruiker besluit om de uitgebreide familie naar de stamboomknipsels te kopiëren.',
             'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".'
                 => 'Maar ook in dat geval kunnen deze personen en gezinnen naar de stamboomknipsels worden gekopieerd worden door gebruik te maken van de optie "partnerketens toevoegen voor een persoon" in mijn aangepaste stamboomknipselsmodule.',
-            'This is only relevant if you have chosen, that the partner chains should be shown as a part of the extended family.'
-                => 'Dit is alleen relevant als u ervoor gekozen heeft om de partnerketens weer te geven als deel van de uitgebreide familie.',
+            'This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.'
+                => 'Dit is alleen relevant als u er in bovenstaande tabel voor heeft gekozen om de partnerketens weer te geven als deel van de uitgebreide familie.',
             'Include them' => 'Opnemen',
             'Show a button "copy to clippings cart"?' => 'Een knop "kopiëren naar stamboomknipsels" weergeven?',
             'This allows a user to copy all members of the extended family to the clippings cart.'
@@ -3590,6 +3590,8 @@ class ExtendedFamilyTranslations
             'not a male person' => 'geen mannelijk persoon',
             'not a female person' => 'geen vrouwelijk persoon',
             'not a person of unknown gender' => 'geen persoon van onbekend geslacht',
+            'copy all members of the extended family to the clippings cart' => 'kopieer alle leden van de uitgebreide familie naar de stamboomknipsels',
+            'copy to clippings cart' => 'kopiëren naar stamboomknipsels',
 
             'twin' => 'tweeling',
             'triplet' => 'drieling',
@@ -3681,10 +3683,10 @@ class ExtendedFamilyTranslations
             'Mrs.' => 'mevrouw',
             'No family available' => 'Geen familie gevonden',
             'Summary for the shown extended family' => 'Samenvatting voor de getoonde uitgebreide familie',
-            'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
-                => 'De uitgebreide familie van %1$s heeft één lid.' . I18N::PLURAL . 'De uitgebreide familie van %1$s heeft %2$d leden.',
+            'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).'
+                => 'De uitgebreide familie heeft alleen %1$s als lid.' . I18N::PLURAL . 'De uitgebreide familie van %1$s heeft %2$d leden',
             '(additional members of the partner chains are not counted)'
-                => '(extra leden van de partnerketens worden niet meegeteld)',
+                => '(extra leden van de partnerketens worden niet meegeteld).',
             'Some of them are member in more than one part of the extended family.'
                 => 'Sommigen van hen zijn lid van meer dan één deel van de uitgebreide familie.',
             '%s has no %s recorded.' => 'Voor %s zijn geen %s geregistreerd.',
@@ -3904,16 +3906,14 @@ class ExtendedFamilyTranslations
             '%s has no members of a partner chain recorded.' => 'Voor %s zijn geen leden van een partnerketen geregistreerd.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '
                 => 'Voor %2$s zijn %1$d mannelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners en ',
-            '%d female partner in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%d in total).'
-                =>'%d vrouwelijke partner in deze partnerketen geregistreerd (%d in totaal).' . I18N::PLURAL . '%d vrouwelijke partners in deze partnerketen geregistreerd (%d in totaal).',
+            '%1$d female partner in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total, including %3$s).'
+                => '%1$d vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).' . I18N::PLURAL . '%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).',
             '%d female partner and ' . I18N::PLURAL . '%d female partners and '
                 => '%d vrouwelijke partner en ' . I18N::PLURAL . '%d vrouwelijke partners en ',
-            '%d partner of unknown sex in this partner chain recorded (%d in total).' . I18N::PLURAL . '%d partners of unknown sex in this partner chain recorded (%d in total).'
-                => '%d partner van onbekend geslacht in deze partnerketen geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners van onbekend geslacht in deze partnerketen geregistreerd (%d in totaal).',
+            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).'
+                => '%1$d partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).' . I18N::PLURAL . '%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
                 => 'Voor %2$s zijn %1$d vrouwelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vrouwelijke partners en ',
-            '%d partner of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d partners of unknown sex recorded (%d in total).'
-                => '%d partner van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d partners van onbekend geslacht geregistreerd (%d in totaal).',
             '%2$s has %1$d male partner, ' . I18N::PLURAL . '%2$s has %1$d male partners, '
                 => 'Voor %2$s zijn %1$d mannelijke partner, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners, ',
             '%d female partner, and ' . I18N::PLURAL . '%d female partners, and '
