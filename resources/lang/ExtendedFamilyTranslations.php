@@ -3683,15 +3683,10 @@ class ExtendedFamilyTranslations
             'Summary for the shown extended family' => 'Samenvatting voor de getoonde uitgebreide familie',
             'The extended family of %1$s has one member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members.'
                 => 'De uitgebreide familie van %1$s heeft één lid.' . I18N::PLURAL . 'De uitgebreide familie van %1$s heeft %2$d leden.',
-<<<<<<< HEAD
             '(additional members of the partner chains are not counted)'
                 => '(extra leden van de partnerketens worden niet meegeteld)',
             'Some of them are member in more than one part of the extended family.'
                 => 'Sommigen van hen zijn lid van meer dan één deel van de uitgebreide familie.',
-=======
-            '(additional members of the partner chains are not counted)' => '(extra leden van de partnerketens worden niet meegeteld)',
-            'Some of them are member in more than one part of the extended family.' => 'Sommigen van hen zijn lid van meer dan één deel van de uitgebreide familie.',
->>>>>>> d0acf4cdcb26cae33a254bb7846b8982d4cca9e5
             '%s has no %s recorded.' => 'Voor %s zijn geen %s geregistreerd.',
             '%s has no %s, and no %s recorded.' => 'Voor %s zijn geen %s en geen %s geregistreerd.',
 
@@ -4125,7 +4120,6 @@ class ExtendedFamilyTranslations
             '%s has one grandson-in-law recorded.' => 'Voor %s is een schoonkleinzoon geregistreerd.',
             '%s has one grandchild-in-law of unknown sex recorded.' => 'Voor %s is een schoonkleinkind van onbekend geslacht geregistreerd.',
             '%2$s has %1$d granddaughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law recorded.'
-<<<<<<< HEAD
             => 'Voor %2$s is %1$d schoonkleindochter geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleindochters geregistreerd.',
             '%2$s has %1$d grandson-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law recorded.'
             => 'Voor %2$s is %1$d schoonkleinzoon geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinzonen geregistreerd.',
@@ -4761,25 +4755,6 @@ class ExtendedFamilyTranslations
                 => '%2$s имеет %1$d внука, ' . I18N::PLURAL . '%2$s имеет %1$d внуков, ' . I18N::PLURAL . '%2$s имеет %1$d внуков, ',
             '%d granddaughter-in-law, and ' . I18N::PLURAL . '%d granddaughters-in-law, and '
                 => '%d внучку, и ' . I18N::PLURAL . '%d внучек, и ' . I18N::PLURAL . '%d внучек, и ',
-=======
-                => 'Voor %2$s is %1$d schoonkleindochter geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleindochters geregistreerd.',
-            '%2$s has %1$d grandson-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law recorded.'
-                => 'Voor %2$s is %1$d schoonkleinzoon geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinzonen geregistreerd.',
-            '%2$s has %1$d grandchild-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren-in-law of unknown sex recorded.'
-                => 'Voor %2$s is %1$d schoonkleinkind van onbekend geslacht geregistreerd.' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinkinderen van onbekend geslacht geregistreerd.',
-            '%2$s has %1$d grandson-in-law and ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law and '
-                => 'Voor %2$s zijn %1$d schoonkleinzoon en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinzonen en ',
-            '%d granddaughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d granddaughters-in-law recorded (%d in total).'
-                => '%d schoonkleindochter geregistreerd (%d in totaal).' . I18N::PLURAL . '%d schoonkleindochters geregistreerd (%d in totaal).',
-            '%2$s has %1$d granddaughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law and '
-                => 'Voor %2$s zijn %1$d schoonkleindochter en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleindochters en ',
-            '%d grandchild-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren-in-law of unknown sex recorded (%d in total).'
-                => '%d schoonkleinkind van onbekend geslacht geregistreerd (%d in totaal).' . I18N::PLURAL . '%d schoonkleinkinderen van onbekend geslacht geregistreerd (%d in totaal).',
-            '%2$s has %1$d grandson-in-law, ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law, '
-                => 'Voor %2$s zijn %1$d schoonkleinzoon, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d schoonkleinzonen, ',
-            '%d granddaughter-in-law, and ' . I18N::PLURAL . '%d granddaughters-in-law, and '
-                => '%d schoonkleindochter en ' . I18N::PLURAL . '%d schoonkleindochters en ',
->>>>>>> d0acf4cdcb26cae33a254bb7846b8982d4cca9e5
         ];
     }
 
