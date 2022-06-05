@@ -23,6 +23,8 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\Family;
+
 
 /**
  * class IndividualFamily
@@ -36,10 +38,10 @@ class IndividualFamily
     /**
      * @var object $objectIndiFamily
      *  ->individual                    Individual
-     *  ->family                        object (?)
+     *  ->family                        Family
      *  ->referencePersons[]            array of Individual
      */
-    private $objectIndiFamily;
+    private object $objectIndiFamily;
 
     // ------------ definition of methods
 
@@ -47,19 +49,17 @@ class IndividualFamily
      * construct object
      *
      * @param Individual $individual
-     * @param object|null $family
+     * @param Family|null $family
      * @param Individual|null $referencePerson
      * @param Individual|null $referencePerson2
      */
     public function __construct(Individual $individual,
-                                object $family = null,
+                                Family $family = null,
                                 Individual $referencePerson = null,
                                 Individual $referencePerson2 = null)
     {
         $this->objectIndiFamily = (object)[];
-        if (isset($individual) && ($individual instanceof Individual)) {
-            $this->objectIndiFamily->individual = $individual;
-        }
+        $this->objectIndiFamily->individual = $individual;
         if (isset($family)) {
             $this->objectIndiFamily->family = $family;
         }
@@ -69,11 +69,6 @@ class IndividualFamily
                 $this->objectIndiFamily->referencePersons[$refIndex] = $refPerson;
             }
         }
-        /*
-        echo "<br>IndividualFamily: " . $individual->fullName() . " - ";
-        foreach ($this->objectIndiFamily->referencePersons as $key => $value) {
-            echo " $key => " . $value->fullName() . "; ";
-        } */
     }
 
     /**
@@ -99,20 +94,19 @@ class IndividualFamily
     /**
      * get family of this object
      *
-     * @return object|void
+     * @return Family|void
      */
-    public function getFamily()
+    public function getFamily(): Family
     {
        if (isset($this->objectIndiFamily->family)) {
            return $this->objectIndiFamily->family;
        }
-       return null;
     }
 
     /**
      * get reference persons in this object
      *
-     * @return array
+     * @return array<int,Individual>
      */
     public function getReferencePersons(): array
     {

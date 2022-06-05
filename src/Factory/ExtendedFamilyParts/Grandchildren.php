@@ -63,11 +63,11 @@ class Grandchildren extends ExtendedFamilyPart
         foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->children() as $biochild) {                                       // Gen -1 P
                 foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
-                    //echo "<br>=== 1 biochild : ".$biochild->fullName()." with family ".$family2->fullName().". ";
+                    echo "<br>=== 1 biochild : ".$biochild->fullName()." with family ".$family2->fullName().". ";
                     $this->addGrandchildrenBio($family1, $family2, self::GROUP_GRANDCHILDREN_BIO);
                 }
                 foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
-                    //echo "<br>=== 2 biochild : ".$biochild->fullName()." with family ".$family2->fullName().". ";
+                    echo "<br>=== 2 biochild : ".$biochild->fullName()." with family ".$family2->fullName().". ";
                     $this->addStepchildrenOfChildren($family1, $family2, self::GROUP_GRANDCHILDREN_STEP_CHILD);
                 }
             }

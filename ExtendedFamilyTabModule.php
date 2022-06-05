@@ -26,22 +26,35 @@
 /*
  * tbd
  * ---
+ *
+ * issues/enhancements: see GitHub
+ *
+ * Code: collection für Familien ausprogrammieren in ExtendedFamily.php
+ * Code: automatisches Kopieren in den Sammelbehälter verwerfen und stattdessen Button in Betrieb nehmen * Code: Fehler in Grandchildren suchen
+ * Code: Cousins werden nicht erkannt, wenn die Tante/Onkel diese in einer Familie mit nur einem Elternteil als Kind haben
+ * Code: bei gesetztem Filter "F" verschwindet Dieter G. am Ende der Kette (s .debug in tab.phtml #752 und #758)
  * Code: Anpassungen an Bootstrap 5 (filter-Buttons)
- * Code: alle Family Objekte explizit als Family deklarieren
- * Code: alle array-Deklarationen mit <index, value> deklarieren
- * Code: alle überflüssigen require_once Kommentare entfernen
- * Code: In der Zusammenfassung weitere Informationen anzeigen
- *       (Generationen von/bis, früheste/späteste Geburt, Anzahl m/w/u, Anzahl lebend/tod, ...)
+ * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
+ * Code: prüfen ob allCountUnique immer richtig berechnet wird
+ * Code: Formulierung der Zusammenfassung konsistent machen
+ * Übersetzung: The extended family of ....
+ * Übersetzung: Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
+ * Translation: ch - ein String wirft Fehler aus
+ * ------------------------------  bis hierher Release 2.1.5.1    ----------------------------------------------------
+ * Code: In der Zusammenfassung per countBy weitere Informationen anzeigen
+ *         (Anzahl der Familien, Generationen von/bis, früheste/späteste Geburt, Anzahl m/w/u, Anzahl lebend/tod, ...) * Code: alle Family Objekte explizit als Family deklarieren
+ * Code: alle array-Deklarationen mit <index,value> deklarieren
+ * Code: statt array besser Collection verwenden!
+ * Code: alle noch verwendeten object als Klassen definieren
  * Code: Beziehungsbezeichnungen als Label aus Vesta-Relationship oder durch eigene Funktion ergänzen?
  * Code: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern (siehe issue #46 von Sir Peter)
- *      Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus?
- *      Testen, wenn im CSS-Modul nichts eingetragen ist.
- *      Option für thumbnail size? css für silhouette anpassen?
+ *         Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus?
+ *         Testen, wenn im CSS-Modul nichts eingetragen ist.
+ *         Option für thumbnail size? css für silhouette anpassen?
  * Code: neues Management für Updates und Information der Anwender über Neuigkeiten zu diesem Modul
  * Code: Datenbank-Schema mit Updates einführen, damit man Familienteile auch ändern und löschen kann
  * Code: restliche, verstreut vorkommenden Übersetzungen mit I18N alle nach tab.html verschieben
  * Code: Iterate-Pattern für Umgang mit groups implementieren?
- * Code: alle noch verwendeten object als Klassen definieren?
  */
 
 declare(strict_types=1);
@@ -86,7 +99,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE     = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION     = '2.1.0.2';
+    public const CUSTOM_VERSION     = '2.1.5.0';
     public const CUSTOM_LAST        = 'https://github.com/hartenthaler/' .
                                       self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    
@@ -122,18 +135,21 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     private function buildConfig(Individual $proband): object
     {
         $configObj = (object)[];
-        $configObj->showEmptyBlock          = $this->showEmptyBlock();
-        $configObj->showShortName           = $this->showShortName();
-        $configObj->showLabels              = $this->showLabels();
-        $configObj->useCompactDesign        = $this->useCompactDesign();
-        $configObj->showThumbnail           = $this->showThumbnail($proband->tree());
-        $configObj->showFilterOptions       = $this->showFilterOptions();
-        $configObj->showParameters          = $this->showParameters();
-        $configObj->filterOptions           = $this->showFilterOptions() ? ExtendedFamilySupport::getFilterOptions(): ['all'];
-        $configObj->shownFamilyParts        = $this->getShownFamilyParts();
-        $configObj->familyPartParameters    = ExtendedFamilySupport::getFamilyPartParameters();
-        $configObj->sizeThumbnailW          = $this->getSizeThumbnailW();
-        $configObj->sizeThumbnailH          = $this->getSizeThumbnailH();
+        $configObj->showFilterOptions           = $this->showFilterOptions();
+        $configObj->filterOptions               = $this->showFilterOptions() ? ExtendedFamilySupport::getFilterOptions(): ['all'];
+        $configObj->showSummary                 = $this->showSummary();
+        $configObj->showEmptyBlock              = $this->showEmptyBlock();
+        $configObj->countPartnerChainsToTotal   = $this->countPartnerChainsToTotal();
+        $configObj->showShortName               = $this->showShortName();
+        $configObj->showLabels                  = $this->showLabels();
+        $configObj->useCompactDesign            = $this->useCompactDesign();
+        $configObj->useClippingsCart            = $this->useClippingsCart();
+        $configObj->shownFamilyParts            = $this->getShownFamilyParts();
+        $configObj->showParameters              = $this->showParameters();
+        $configObj->familyPartParameters        = ExtendedFamilySupport::getFamilyPartParameters();
+        $configObj->showThumbnail               = $this->showThumbnail($proband->tree());
+        $configObj->sizeThumbnailW              = $this->getSizeThumbnailW();
+        $configObj->sizeThumbnailH              = $this->getSizeThumbnailH();
         //$configObj->name = $this->name();     // nötig, falls Vesta-Module doch genutzt werden sollten
         //(unklar wie diese Information ins Modul ExtendedFamilyPart.php transferiert werden soll)
         return $configObj;
@@ -178,7 +194,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * generate list of other preferences
      * (control panel options beside the options related to the extended family parts itself)
      *
-     * @return array<int, string>
+     * @return array<int,string>
      */
     private function listOfOtherPreferences(): array
     {
@@ -189,6 +205,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             'show_labels',
             'show_parameters',
             'use_compact_design',
+            'show_summary',
+            'count_partner_chains',
+            'use_clippings_cart',
         ];
     }
 
@@ -269,7 +288,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * parts of extended family which should be shown (order and enabled/disabled)
      * set default values in case the settings are not stored in the database yet
      *
-     * @return array of ordered objects with name and status (enabled/disabled)
+     * @return array<string,object> of ordered objects with translated name and status (enabled/disabled)
      */
     private function getShownFamilyParts(): array
     {
@@ -284,9 +303,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         $shownParts = [];
         foreach ($order as $efp) {
             $efpObj = (object)[];
-            $efpObj->name     = ExtendedFamilySupport::translateFamilyPart($efp);
-            $efpObj->enabled  = $this->getPreference('status-' . $efp, 'on');
-            $shownParts[$efp] = $efpObj;
+            $efpObj->name       = ExtendedFamilySupport::translateFamilyPart($efp);
+            $efpObj->generation = ExtendedFamilySupport::formatGeneration($efp);
+            $efpObj->enabled    = $this->getPreference('status-' . $efp, 'on');
+            $shownParts[$efp]   = $efpObj;
         }
         return $shownParts;
     }
@@ -323,11 +343,33 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      * how should empty parts of the extended family be presented
      * set default values in case the settings are not stored in the database yet
      *
+     * @return bool
+     */
+    private function showSummary(): bool
+    {
+        return ($this->getPreference('show_summary', '0') == '0');
+    }
+
+    /**
+     * how should empty parts of the extended family be presented
+     * set default values in case the settings are not stored in the database yet
+     *
      * @return string
      */
     private function showEmptyBlock(): string
     {
         return $this->getPreference('show_empty_block', '0');
+    }
+
+    /**
+     * how should empty parts of the extended family be presented
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool
+     */
+    private function countPartnerChainsToTotal(): bool
+    {
+        return ($this->getPreference('count_partner_chains', '0') == '0');
     }
 
     /**
@@ -399,7 +441,18 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     {
         return (!$this->useCompactDesign() && $this->isTreePreferenceShowingThumbnails($tree));
     }
- 
+
+    /**
+     * use the function to add individuals and families to the clippings cart
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool
+     */
+    private function useClippingsCart(): bool
+    {
+        return ($this->getPreference('use_clippings_cart', '0') == '0');
+    }
+
     /**
      * How should this module be identified in the control panel, etc.?
      *
@@ -467,7 +520,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
      */
     public function resourcesFolder(): string
     {
-        return __DIR__ . '/resources/';
+        return __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR;
     }
 
     /**
@@ -512,9 +565,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function getCssAction() : ResponseInterface
     {
         return response(
-            file_get_contents($this->resourcesFolder() . 'css/' . self::CUSTOM_MODULE . '.css'),
+            file_get_contents($this->resourcesFolder() . 'css' . DIRECTORY_SEPARATOR . self::CUSTOM_MODULE . '.css'),
             200,
-            ['Content-type' => 'text/css']
+            ['content-type' => 'text/css']
         );
     }
 
@@ -522,10 +575,11 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public function getTabContent(Individual $individual): string
     {
         /*return view($this->name() . '::test.blade', ['title'=>'Laravel Blade Example']);*/
-        return view($this->name() . '::' . 'tab', [
+        return view($this->name() . '::' . 'tab',
+            [
             'extfam_obj'            => $this->getExtendedFamily($individual),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
-        ]);
+            ]);
     }
 
     /** {@inheritdoc} */
@@ -569,8 +623,12 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
         require_once(__DIR__ . '/resources/lang/ExtendedFamilyTranslations.php');
 
         switch ($language) {
+            case 'ca':
+            case 'ca-ES':
+                $customTranslation = ExtendedFamilyTranslations::catalanTranslations();
+                break;
             case 'cs':
-                $customTranslation =  ExtendedFamilyTranslations::czechTranslations();
+                $customTranslation = ExtendedFamilyTranslations::czechTranslations();
                 break;
             case 'de':
                 $customTranslation = ExtendedFamilyTranslations::germanTranslations();
@@ -594,6 +652,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             case 'nl':
                 $customTranslation = ExtendedFamilyTranslations::dutchTranslations();
                 break;
+            case 'ru':
+                $customTranslation = ExtendedFamilyTranslations::russianTranslations();
+                break;
             case 'sk':
                 $customTranslation = ExtendedFamilyTranslations::slovakTranslations();
                 break;
@@ -604,10 +665,10 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
                 $customTranslation = ExtendedFamilyTranslations::vietnameseTranslations();
                 break;
             case 'zh-Hans':
-                $customTranslation = ExtendedFamilyTranslations::chineseSimplifiedTranslations();   // tbd
+                $customTranslation = ExtendedFamilyTranslations::chineseSimplifiedTranslations();
                 break;
             case 'zh-Hant':
-                $customTranslation = ExtendedFamilyTranslations::chineseTraditionalTranslations();  // tbd
+                $customTranslation = ExtendedFamilyTranslations::chineseTraditionalTranslations();
                 break;
             default:
                 $customTranslation = [];

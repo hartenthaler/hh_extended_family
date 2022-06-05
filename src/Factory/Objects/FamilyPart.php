@@ -20,14 +20,23 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
+/*
+ * tbd
+ * ===
+ * neues Objekt: member->Individual und member->labels und member->family und member->familyStatus und member->referencePersons
+ * neu: member als Collection of member statt array
+ */
+
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\Family;
 
 /**
  * class FamilyPart
  *
- * object to store a family part used by some of the extended family parts
+ * object to store a family part
+ * this is used by some extended family parts
  */
 class FamilyPart
 {
@@ -35,14 +44,14 @@ class FamilyPart
 
     /**
      * @var object $familyPart
-     *  -> groupName        string
-     *  -> members          array of Individual
-     *  -> labels           array of array of string
-     *  -> families         array of object
-     *  -> familiesStatus   array of string
-     *  -> referencePersons array of array of Individual
+     *  ->groupName                 string
+     *  ->members                   array of Individual
+     *  ->labels                    array of array of string
+     *  ->families                  array of object
+     *  ->familiesStatus            array of string
+     *  ->referencePersons          array of array of Individual
      */
-    private $familyPart;
+    private object $familyPart;
 
     // ------------ definition of methods
 
@@ -52,7 +61,7 @@ class FamilyPart
      * @param string $groupName
      * @param Individual $member
      * @param array $labels
-     * @param object $family
+     * @param Family $family
      * @param string $familyStatus
      * @param array $referencePersons
      */
@@ -61,7 +70,7 @@ class FamilyPart
             string $groupName,
             Individual $member,
             array $labels,
-            object $family,
+            Family $family,
             string $familyStatus,
             array $referencePersons
         )

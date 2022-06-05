@@ -53,7 +53,7 @@ class Children extends ExtendedFamilyPart
      */
 
     /**
-     * Find members for this specific extended family part and modify $this->>efpObject
+     * Find members for this specific extended family part and modify $this->efpObject
      */
     protected function addEfpMembers()
     {

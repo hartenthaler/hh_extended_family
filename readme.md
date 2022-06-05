@@ -41,6 +41,7 @@ The user can filter the shown results by
 The admin can decide in the control panel 
 * which extended family parts should be shown and in which sequence they should be presented
 * if filter options should be presented for users
+* if a button "copy to clippings cart" should be shown
 * how empty parts of extended family should be presented
 * whether the name of proband is a full name or a short version
 * whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
@@ -88,12 +89,11 @@ Screenshot of control panel menu
 <a name="requirements"></a>
 ## Requirements
 
-This module requires **webtrees** version 2.0 or later.
+This module requires **webtrees** version 2.1 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** 2.0.19 version
+This module was tested with **webtrees** 2.1.5 version
 and all available themes and all other custom modules.
-It can be used with the 2.1.0-alpha.1 version, too.
 
 <a name="installation"></a>
 ## Installation
@@ -105,7 +105,6 @@ This section documents installation instructions for this module.
 1. Unzip the package into your `webtrees/modules_v4` directory of your web server
 1. Rename the folder to `hh_extended_family`
 1. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Individual page/Tabs</span>, and find the module. It will be called "Extended family". Check if it has a tick for "Enabled".
-1. Edit this entry to set the access level for each tree and to position the menu item to suit your preferences.
 1. Finally, click SAVE, to complete the installation.
 
 <a name="upgrade"></a>
@@ -123,15 +122,17 @@ Use a local editor, like notepad++ to make the translations and send it back to 
 Updated translations will be included in the next release of this module.
 
 There are now, beside English and German, translations to
-* Chinese by @dust2k (under preparation)
+* Catalan by @bernatbanyuls
+* Chinese by @olor (=iyoua)
 * Czech by @jpretired
 * Dutch by @TheDutchJewel
 * French by @PalmyreSG1 and @fa10175
 * Hindi by @mrqd9
 * Italian by @tonio (under preparation)
 * Norwegian Bokmål by @eyolf
+* Russian by @aurbo
 * Slovak by @ro-la
-* Spanish by @yako1984
+* Spanish by @yako1984 and @bernatbanyuls
 * Ukrainian by @z-yurets
 * Vietnamese by @ngohuuthuan
 
@@ -145,8 +146,8 @@ There are now, beside English and German, translations to
 <a name="license"></a>
 ## License
 
-* Copyright (C) 2021 Hermann Hartenthaler
-* Derived from **webtrees** - Copyright 2021 webtrees development team.
+* Copyright (C) 2022 Hermann Hartenthaler
+* Derived from **webtrees** - Copyright 2022 webtrees development team.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

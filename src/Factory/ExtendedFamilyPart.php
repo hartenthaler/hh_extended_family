@@ -41,18 +41,19 @@ abstract class ExtendedFamilyPart
      *                        there are additional specific data structures for each extended family part
      *
      *  ->groups                        array           // not used in extended family part "partner_chains"
+     *  ->chains                        object          // only used for extended family part "partner_chains"
      *  ->maleCount                     int
      *  ->femaleCount                   int
      *  ->otherSexCount                 int
      *  ->allCount                      int
      *  ->partName                      string
      */
-    protected $efpObject;
+    protected object $efpObject;
 
     /**
      * @var Individual $proband
      */
-    protected $proband;
+    protected Individual $proband;
     
     // ------------ definition of methods
 
@@ -80,12 +81,13 @@ abstract class ExtendedFamilyPart
         $this->proband = $proband;
 
         $this->efpObject = (object)[];
-        $this->efpObject->groups                = [];
+        $this->efpObject->groups                = [];             // not used for extended family part "partner_chains"
         $this->efpObject->maleCount             = 0;
         $this->efpObject->femaleCount           = 0;
         $this->efpObject->unkonownCount         = 0;
         $this->efpObject->allCount              = 0;
         $this->efpObject->partName              = $this->getClassName();
+        $this->efpObject->chains                = (object)[];     // only used for extended family part "partner_chains"
     }
 
     /**

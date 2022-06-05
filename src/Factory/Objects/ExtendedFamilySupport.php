@@ -23,8 +23,10 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Elements\PedigreeLinkageType;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Registry;
 
@@ -54,42 +56,13 @@ class ExtendedFamilySupport
     public const FAM_STATUS_PARTNERSHIP = 'Partnership';
 
     /**
-     * list of parts of extended family
-     *
-     * @return array of string
-     */
-    public static function listFamilyParts(): array     // new elements can be added, but not changed or deleted
-                                                        // names of elements have to be shorter than 25 characters
-                                                        // this sequence is the default order of family parts
-    {    
-        return [
-            'great_grandparents',                       // generation +3
-            'grandparents',                             // generation +2
-            'uncles_and_aunts',                         // generation +1
-            'uncles_and_aunts_bm',                                          // uncles and aunts by marriage
-            'parents',
-            'parents_in_law',
-            'co_parents_in_law',                        // generation  0
-            'partners',
-            'partner_chains',
-            'siblings',
-            'siblings_in_law',
-            'co_siblings_in_law',
-            'cousins',
-            'nephews_and_nieces',                       // generation -1
-            'children',
-            'children_in_law',
-            'grandchildren',                            // generation -2
-            'grandchildren_in_law',
-        ];
-    }
-
-    /**
      * get parameters for the used extended family parts like relationship coefficients and generation shift
      *
-     * @return array of array
+     * @return array<string,array<string,int|string>>
      */
-    public static function getFamilyPartParameters(): array
+    public static function getFamilyPartParameters(): array // new elements can be added, but not changed or deleted
+                                                            // names of elements have to be shorter than 25 characters
+                                                            // this sequence is the default order of family parts
     {
         return [
             'great_grandparents'     => ['generation' => +3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Great_grandparents::GROUP_GREATGRANDPARENTS_BIO],
@@ -111,6 +84,32 @@ class ExtendedFamilySupport
             'grandchildren'          => ['generation' => -2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandchildren::GROUP_GRANDCHILDREN_BIO],
             'grandchildren_in_law'   => ['generation' => -2, 'relationshipCoefficient' => 0],
        ];
+    }
+
+    /**
+     * list of parts of extended family
+     *
+     * @return array<int,string>
+     */
+    public static function listFamilyParts(): array
+    {
+        return array_keys(self::getFamilyPartParameters());
+    }
+
+    /**
+     * format generation in relation to the proband for an extended family part (e.g. '+3' or '0' or '-2'
+     *
+     * @param string $efp
+     * @return string
+     */
+    public static function formatGeneration(string $efp): string
+    {
+        $generation = ExtendedFamilySupport::getFamilyPartParameters()[$efp]['generation'];
+        if ($generation > 0) {
+            return '+' . strval($generation);
+        } else {
+            return strval($generation);
+        }
     }
 
     /**
@@ -230,7 +229,7 @@ class ExtendedFamilySupport
     }
 
     /**
-     * generate a translated pedigree label
+     * generate a translated pedigree label for a child
      * GEDCOM record could be for example "1 FAMC @xref@\n ...\n2 PEDI adopted"
      *
      * @param Individual $child
@@ -240,14 +239,18 @@ class ExtendedFamilySupport
     {
         $label = '';
         if ($child->childFamilies()->first()) {
-            if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 PEDI (.+)/', $child->gedcom(), $match)) {
-                if ($match[1] !== 'birth') {
-                    $individual = Registry::gedcomRecordFactory()->make($child->xref(), $child->tree());
-                    if ($individual instanceof Individual) {
-                        $label = ExtendedFamilySupport::getPedigreeValue($match[1], $individual);
-                    }
-                }
+            $fact = $child->facts(['FAMC'])->first();
+            if ($fact instanceof Fact) {
+                $pedi = $fact->attribute('PEDI');
+            } else {
+                $pedi = '';
             }
+            if ($pedi !== '' && $pedi !== PedigreeLinkageType::VALUE_BIRTH) {
+                $label  = Registry::elementFactory()->make('INDI:FAMC:PEDI')->value($pedi, $child->tree());
+            } else {
+                $label  = Registry::elementFactory()->make('INDI:FAMC:PEDI')->value('', $child->tree());
+            }
+            // $label = ExtendedFamilySupport::getPedigreeValue($match[1], $individual); // aus dem alten Code - Funktion getPedigreeValue kann wohl weg
         }
         return $label;
     }
@@ -264,8 +267,8 @@ class ExtendedFamilySupport
     {
         $sex = $individual->sex();
 
-        switch ($type) {
-            case 'birth':
+        switch (strtoupper($type)) {
+            case 'BIRTH':
                 if ($sex === 'M') {
                     return I18N::translateContext('Male pedigree', 'Birth');
                 } elseif ($sex === 'F') {
@@ -274,7 +277,7 @@ class ExtendedFamilySupport
                     return I18N::translateContext('Pedigree', 'Birth');
                 }
 
-            case 'adopted':
+            case 'ADOPTED':
                 if ($sex === 'M') {
                     return I18N::translateContext('Male pedigree', 'Adopted');
                 } elseif ($sex === 'F') {
@@ -283,7 +286,7 @@ class ExtendedFamilySupport
                     return I18N::translateContext('Pedigree', 'Adopted');
                 }
 
-            case 'foster':
+            case 'FOSTER':
                 if ($sex === 'M') {
                     return I18N::translateContext('Male pedigree', 'Foster');
                 } elseif ($sex === 'F') {
@@ -292,7 +295,7 @@ class ExtendedFamilySupport
                     return I18N::translateContext('Pedigree', 'Foster');
                 }
 
-            case 'sealing':
+            case 'SEALING':
                 if ($sex === 'M') {
                     /* I18N: “sealing” is a ceremony in the Mormon church. */
                     return I18N::translateContext('Male pedigree', 'Sealing');
@@ -304,7 +307,7 @@ class ExtendedFamilySupport
                     return I18N::translateContext('Pedigree', 'Sealing');
                 }
 
-            case 'rada':
+            case 'RADA':
                 // Not standard GEDCOM - a webtrees extension
                 // This is an arabic word which does not exist in other languages.
                 // So, it will not have any inflected forms.
@@ -316,6 +319,7 @@ class ExtendedFamilySupport
     }
 
     /**
+     * tbd: switch to uppercase labels
      * generate a child linkage status label [challenged | disproven | proven]
      * GEDCOM record is for example ""
      *
@@ -332,6 +336,7 @@ class ExtendedFamilySupport
         return '';
     }
     /**
+     * tbd: switch to uppercase labels
      * generate a label for twins and triplets etc.
      * GEDCOM record is for example "1 ASSO @I123@\n2 RELA triplet" or "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet"
      *
@@ -362,6 +367,7 @@ class ExtendedFamilySupport
     }
 
     /**
+     * tbd: switch to uppercase labels
      * generate a label for children that are stillborn or died as an infant
      * GEDCOM record is for example "1 DEAT\n2 AGE INFANT" or "1 BIRT\n2 AGE STILLBORN"
      *
@@ -385,10 +391,10 @@ class ExtendedFamilySupport
    /**
     * find status of a family
     *
-    * @param object $family
+    * @param Family $family
     * @return string
     */
-    public static function findFamilyStatus(object $family): string
+    public static function findFamilyStatus(Family $family): string
     {
         $event = $family->facts(['ANUL', 'DIV', 'ENGA', 'MARR'], true)->last();
         if ($event instanceof Fact) {

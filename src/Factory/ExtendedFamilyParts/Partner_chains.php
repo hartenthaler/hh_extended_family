@@ -21,13 +21,15 @@
  */
 
 /* tbd
- * move I18N translations in filterPartnerChainsRecursive() to tab.html
+ * replace text representation of partner chains by a graphical representation (png/svg)
+ * move I18N::translate to tab.phtml
  */
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
+use Illuminate\Support\Collection;
 
 // string functions
 use function str_replace;
@@ -37,7 +39,6 @@ use function rtrim;
 // array functions
 use function explode;
 use function count;
-use function in_array;
 
 /**
  * class Partner_chains
@@ -47,7 +48,7 @@ use function in_array;
 class Partner_chains extends ExtendedFamilyPart
 {
     /**
-     * @var object $_efpObject data structure for this extended family part
+     * @var object $efpObject data structure for this extended family part
      *
      * common:
      *  ->groups                        array       // not used for this extended family part
@@ -58,67 +59,76 @@ class Partner_chains extends ExtendedFamilyPart
      *  ->partName                      string
      *
      * special for this extended family part:
+     *  ->collectionIndividuals         collection
+     *  ->collectionFamilies            collection
      *  ->chains                        object
-     *          ->chains[]              array of object (tree of partner chain nodes)
-     *          ->indi                  Individual
-     *              ->filterComment     string
-     *          ->displayChains[]       array of chain (array of chainPerson objects)
-     *          ->chainsCount           int (number of chains)
-     *          ->longestChainCount     int
-     *          ->mostDistantPartner    Individual (first one of them if there are more than one)
+     *          ->node                  object (tree of partner chain nodes ->indi, ->chains, ->filterComment)
+     *          ->displayChains[]       array (of chains for proband)
+     *          ->chainsCount           int (number of chains for proband)
+     *          ->longestChainCount     int (length of the longest chain for proband)
+     *          ->mostDistantPartner    Individual (individual at the end or the longest chain for proband)
+     *                                             (first one of them if there are more than one longest chains)
      */
 
     /**
+     * list of const for this module
+     */
+    public const FILTER_DEAD    = 'a dead person';
+    public const FILTER_LIVING  = 'a living person';
+    public const FILTER_MALE    = 'not a male person';
+    public const FILTER_FEMALE  = 'not a female person';
+    public const FILTER_UNKNOWN = 'not a person of unknown gender';
+
+    /**
      * add members for this specific extended family part and modify $this->efpObject
+     * this is the only family part for that the proband is counted as a member
      */
     protected function addEfpMembers()
     {
-        $chainRootNode = (object)[];
-        $chainRootNode->chains = [];
-        $chainRootNode->indi = $this->getProband();
-        $chainRootNode->filterComment = '';
+        $this->efpObject->chains->node = new PartnerChainNode($this->getProband());
+        $this->efpObject->collectionIndividuals = collect([$this->getProband()]);
+        $this->efpObject->collectionFamilies = new Collection();
 
-        $stop = (object)[];                                 // avoid endless loops
-        $stop->indiList = [];
-        $stop->indiList[] = $this->getProband()->xref();
-        $stop->familyList = [];
-
-        $this->efpObject->chains = $this->addPartnerChainsRecursive($chainRootNode, $stop);
+        $this->addPartnerChainsRecursive($this->efpObject->chains->node);
+        $this->efpObject->collectionIndividuals = $this->efpObject->collectionIndividuals->unique(function ($item) {
+            return $item->xref();
+        });
+        $this->efpObject->collectionFamilies = $this->efpObject->collectionFamilies->unique(function ($item) {
+            return $item->xref();
+        });
     }
 
     /**
      * add chains of partners recursive
      *
-     * @param object $node
-     * @param object $stop stoplist with arrays of indi-xref and fam-xref
-     * @return array
+     * @param PartnerChainNode $node with $node->individual is set to an Individual
+     //* @param object $stop list of arrays of indi-xref and fam-xref as a list to stop recursion
      */
-    private function addPartnerChainsRecursive(object $node, object &$stop): array
+    private function addPartnerChainsRecursive(PartnerChainNode $node): void
     {
-        $new_nodes = [];            // array of object ($node->indi; $node->chains)
-        $i = 0;
-        foreach ($node->indi->spouseFamilies() as $family) {
-            if (!in_array($family->xref(), $stop->familyList)) {
-                foreach ($family->spouses() as $spouse) {
-                    if ($spouse->xref() !== $node->indi->xref()) {
-                        if (!in_array($spouse->xref(), $stop->indiList)) {
-                            $new_node = (object)[];
-                            $new_node->chains = [];
-                            $new_node->indi = $spouse;
-                            $new_node->filterComment = '';
-                            $stop->indiList[] = $spouse->xref();
-                            $stop->familyList[] = $family->xref();
-                            $new_node->chains = $this->addPartnerChainsRecursive($new_node, $stop);
-                            $new_nodes[$i] = $new_node;
-                            $i++;
-                        } else {
-                            break;
+        $newNodes = [];
+        $i = 1;
+        if($node->getIndividual() instanceof Individual) {
+            foreach ($node->getIndividual()->spouseFamilies() as $family) {
+                if ($this->efpObject->collectionFamilies->search($family) === false) {
+                    foreach ($family->spouses() as $spouse) {
+                        if ($spouse->xref() !== $node->getIndividualXref()) {
+                            if ($this->efpObject->collectionIndividuals->search($spouse) === false) {
+                                $this->efpObject->collectionIndividuals->add($spouse);
+                                $this->efpObject->collectionFamilies->add($family);
+                                $newNode = new PartnerChainNode($spouse);
+                                $this->addPartnerChainsRecursive($newNode);
+                                $newNodes[$i] = $newNode;
+                                $i++;
+                            } else {
+                                break;
+                            }
                         }
                     }
                 }
             }
         }
-        return $new_nodes;
+        $node->setChains($newNodes);
     }
 
     /**
@@ -127,54 +137,71 @@ class Partner_chains extends ExtendedFamilyPart
     protected function filterAndAddCounters($filterOption)
     {
         if ($filterOption !== 'all') {
-            $this->filterPartnerChains(ExtendedFamilySupport::convertfilterOptions($filterOption));
+            $filterOptions = ExtendedFamilySupport::convertfilterOptions($filterOption);
+            $this->filterPartnerChainsRecursive($this->efpObject->chains->node, $filterOptions);
+            $this->filterCollectionIndividuals($filterOptions);
         }
-        $this->efpObject->displayChains = $this->buildDisplayObjectPartnerChains();
+        $this->efpObject->chains->displayChains = $this->buildDisplayObjectPartnerChains();
         $this->addCountersPartnerChains();
     }
 
     /**
      * filter individuals in partner chains
      *
-     * @param array of string $filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
+     * @param PartnerChainNode $node node in a partner chain array
+     * @param array<string,string> $filterOptions [all|only_M|only_F|only_U, all|only_alive|only_dead]
      */
-    private function filterPartnerChains(array $filterOptions)
+    private function filterPartnerChainsRecursive(PartnerChainNode $node, array $filterOptions)
     {
         if (($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all')) {
-            foreach ($this->efpObject->chains as $chain) {
-                $this->filterPartnerChainsRecursive($chain, $filterOptions);
+            if ($node->getIndividual() instanceof Individual) {
+                $node->setFilterComment($this->filterPartnerChainsIndividual($node->getIndividual(), $filterOptions));
+                foreach ($node->getChains() as $nextNode) {
+                    $this->filterPartnerChainsRecursive($nextNode, $filterOptions);
+                }
             }
         }
     }
 
     /**
-     * filter individuals in partner chains
+     * check individual to be filtered
      *
-     * @param object $node in chain
-     * @param array of string filterOptions [all|only_M|only_F|only_U, all|only_alive|only_dead]
+     * @param Individual $individual
+     * @param array $filterOptions
+     * @return string
      */
-    private function filterPartnerChainsRecursive(object $node, array $filterOptions)
+    private function filterPartnerChainsIndividual(Individual $individual, array $filterOptions): string
+    {
+        $comment = '';
+        if ($filterOptions['alive'] == 'only_alive' && $individual->isDead()) {
+            $comment = self::FILTER_DEAD;
+        } elseif ($filterOptions['alive'] == 'only_dead' && !$individual->isDead()) {
+            $comment = self::FILTER_LIVING;
+        } else {                                    // comment for dead/alive is more important than for sex
+            if ($filterOptions['sex'] == 'only_M' && $individual->sex() !== 'M') {
+                $comment = self::FILTER_MALE;
+            } elseif ($filterOptions['sex'] == 'only_F' && $individual->sex() !== 'F') {
+                $comment = self::FILTER_FEMALE;
+            } elseif ($filterOptions['sex'] == 'only_U' && $individual->sex() !== 'U') {
+                $comment = self::FILTER_UNKNOWN;
+            }
+        }
+        return $comment;
+    }
+
+    /**
+     * filter individuals in collection
+     *
+     * @param array $filterOptions
+     */
+    protected function filterCollectionIndividuals(array $filterOptions)
     {
         if (($filterOptions['alive'] !== 'all') || ($filterOptions['sex'] !== 'all')) {
-            if ($node && $node->indi instanceof Individual) {
-                if ($filterOptions['alive'] == 'only_alive' && $node->indi->isDead()) {
-                    $node->filterComment = I18N::translate('a dead person');
-                } elseif ($filterOptions['alive'] == 'only_dead' && !$node->indi->isDead()) {
-                    $node->filterComment = I18N::translate('a living person');
-                }
-                if ($node->filterComment == '') {
-                    if ($filterOptions['sex'] == 'only_M' && $node->indi->sex() !== 'M') {
-                        $node->filterComment = I18N::translate('not a male person');
-                    } elseif ($filterOptions['sex'] == 'only_F' && $node->indi->sex() !== 'F') {
-                        $node->filterComment = I18N::translate('not a female person');
-                    } elseif ($filterOptions['sex'] == 'only_U' && $node->indi->sex() !== 'U') {
-                        $node->filterComment = I18N::translate('not a person of unknown gender');
-                    }
-                }
-                foreach ($node->chains as $chain) {
-                    $this->filterPartnerChainsRecursive($chain, $filterOptions);
-                }
-            }
+            // delete all individuals in collection that fit to a filter option
+            $this->efpObject->collectionIndividuals = $this->efpObject->collectionIndividuals->
+                filter(function ($individual, $key) use ($filterOptions) {
+                    return ($this->filterPartnerChainsIndividual($individual, $filterOptions) == '');
+            });
         }
     }
 
@@ -183,100 +210,59 @@ class Partner_chains extends ExtendedFamilyPart
      */
     private function addCountersPartnerChains()
     {
-        $counter = $this->countMaleFemalePartnerChain($this->efpObject->chains);
-        list ($countMale, $countFemale, $countOthers) = [$counter->male, $counter->female, $counter->unknown_others];
-        list ($this->efpObject->maleCount, $this->efpObject->femaleCount, $this->efpObject->otherSexCount, $this->efpObject->allCount) = [$countMale, $countFemale, $countOthers, $countMale + $countFemale + $countOthers];
+        $counter = $this->efpObject->collectionIndividuals->countBy(function ($individual) {
+            return $individual->sex();
+        });
+        list ($this->efpObject->maleCount, $this->efpObject->femaleCount, $this->efpObject->otherSexCount, $this->efpObject->allCount) =
+            [$counter['M']??0, $counter['F']??0, $counter['U']??0, ($counter['M']??0) + ($counter['F']??0) + ($counter['U']??0)];
         if ($this->efpObject->allCount > 0) {
-            $this->addCountersToFamilyPartObject_forPartnerChains();
+            $this->addCountersToFamilyPartObjectPartnerChains();
         }
-    }
-
-    /**
-     * count male and female individuals in partner chains
-     *
-     * @param array of partner chain nodes
-     *
-     * @return object
-     */
-    private function countMaleFemalePartnerChain(array $chains): object
-    {
-        $mfu = (object)[];
-        list ($mfu->male, $mfu->female, $mfu->unknown_others) = [0, 0, 0];
-        list ($countMale, $countFemale, $countOthers) = [0, 0, 0];
-        foreach ($chains as $chain) {
-            $this->countMaleFemalePartnerChainRecursive($chain, $mfu);
-            $countMale += $mfu->male;
-            $countFemale += $mfu->female;
-            $countOthers += $mfu->unknown_others;
-        }
-        return $mfu;
     }
 
     /**
      * count individuals for partner chains
      */
-    private function addCountersToFamilyPartObject_forPartnerChains()
+    private function addCountersToFamilyPartObjectPartnerChains()
     {
-        $this->efpObject->chainsCount = count($this->efpObject->displayChains);
-        $lc = 0;
+        $this->efpObject->chains->chainsCount = count($this->efpObject->chains->displayChains);
         $i = 1;
-        $lc_node = (object)[];
+        $longestChainCount = 0;
+        $longestChainNode = new PartnerChainNode($this->getProband());
         $max = 0;
-        $max_node = (object)[];
-        foreach ($this->efpObject->chains as $chain) {
-            $this->countLongestChainRecursive($chain, $i, $lc, $lc_node);
-            if ($lc > $max) {
-                $max = $lc;
-                $max_node = $lc_node;
+        $mostDistantNode = new PartnerChainNode($this->getProband());
+        foreach ($this->efpObject->chains->node->getChains() as $node) {
+            $this->countLongestChainRecursive($node, $i, $longestChainCount, $longestChainNode);
+            if ($longestChainCount > $max) {
+                $max = $longestChainCount;
+                $mostDistantNode = $longestChainNode;
             }
         }
-        $this->efpObject->longestChainCount = $max + 1;
-        $this->efpObject->mostDistantPartner = $max_node->indi;
-        if ($this->efpObject->longestChainCount <= 2) {                                             // normal marriage is no marriage chain
+        $this->efpObject->chains->longestChainCount = $max + 1;
+        $this->efpObject->chains->mostDistantPartner = $mostDistantNode->getIndividual();
+        if ($this->efpObject->chains->longestChainCount <= 2) {                // normal marriage is no partner chain
             $this->efpObject->allCount = 0;
         }
     }
 
     /**
-     * count male and female individuals in partner chains
+     * count the longest chain in partner chains
      *
-     * @param object $node partner chain node
-     * @param object $mfu counter for sex of individuals (modified by function)
-     */
-    private function countMaleFemalePartnerChainRecursive(object $node, object &$mfu)
-    {
-        if ($node && $node->indi instanceof Individual) {
-            if ($node->indi->sex() == 'M') {
-                $mfu->male++;
-            } elseif ($node->indi->sex() == 'F') {
-                $mfu->female++;
-            } else {
-                $mfu->unknown_others++;
-            }
-            foreach ($node->chains as $chain) {
-                $this->countMaleFemalePartnerChainRecursive($chain, $mfu);
-            }
-        }
-    }
-
-    /**
-     * count the longest chain in parner chains
-     *
-     * @param object $node marriage chain node
+     * @param PartnerChainNode $node partner chain node
      * @param int $i recursion counter (modified by function)
      * @param int $lengthChain counter for longest chain (modified by function)
-     * @param object $lcNode most distant partner (modified by function)
+     * @param PartnerChainNode $longestChainNode node with most distant partner (modified by function)
      */
-    private function countLongestChainRecursive(object $node, int &$i, int &$lengthChain, object &$lcNode)
+    private function countLongestChainRecursive(PartnerChainNode $node, int &$i, int &$lengthChain, PartnerChainNode &$longestChainNode)
     {
-        if ($node && $node->indi instanceof Individual) {
+        if ($node->getIndividual() instanceof Individual) {
             if ($i > $lengthChain) {
                 $lengthChain = $i;
-                $lcNode = $node;
+                $longestChainNode = $node;
             }
             $i++;
-            foreach ($node->chains as $chain) {
-                $this->countLongestChainRecursive($chain, $i, $lengthChain, $lcNode);
+            foreach ($node->getChains() as $nextNode) {
+                $this->countLongestChainRecursive($nextNode, $i, $lengthChain, $longestChainNode);
             }
         }
         $i--;
@@ -289,30 +275,23 @@ class Partner_chains extends ExtendedFamilyPart
      */
     private function buildDisplayObjectPartnerChains(): array
     {
-        $chains = [];                                                           // array of chain (chain is an array of chainPerson)
-
-        $chainString = '0§1§' . $this->getProband()->fullName() . '§' . $this->getProband()->url() . '∞';
-        foreach ($this->efpObject->chains as $chain) {
-            $i = 1;
-            $this->buildStringPartnerChainsRecursive($chain, $chainString, $i);
-        }
-        do {                                                                    // remove redundant recursion back step indicators
+        $chains = [];                                           // array of PartnerChainPerson
+        $node = $this->efpObject->chains->node;
+        $chainString = '';
+        $i = 1;
+        $this->buildStringPartnerChainsRecursive($node, $chainString, $i);
+        do {                                                    // remove redundant recursion back step indicators
             $chainString = str_replace("||", "|", $chainString, $count);
         } while ($count > 0);
         $chainString = rtrim($chainString, '|§∞ ');
         $chainStrings = explode('|', $chainString);
         foreach ($chainStrings as $chainString) {
             $personStrings = explode('∞', $chainString);
-            $chain = [];                                                        // array of chainPerson
+            $chain = [];                                        // array of chainPerson
             foreach ($personStrings as $personString) {
                 $attributes = explode('§', $personString);
                 if (count($attributes) == 4) {
-                    $chainPerson = (object)[];                                  // object (attributes: step, canShow, fullName, url)
-                    $chainPerson->step = $attributes[0];
-                    $chainPerson->canShow = ($attributes[1] == '1') ? true : false;
-                    $chainPerson->fullName = $attributes[2];
-                    $chainPerson->url = $attributes[3];
-                    $chain[] = $chainPerson;
+                    $chain[] = new PartnerChainPerson($attributes[0], ($attributes[1] == '1'), $attributes[2], $attributes[3]);
                 }
             }
             if (count($chain) > 0) {
@@ -324,31 +303,30 @@ class Partner_chains extends ExtendedFamilyPart
 
     /**
      * build string of all partners in partner chains
-     * names and urls should not contain
+     * names and urls should not contain:
      * '|' used to separate chains
      * '∞' used to separate individuals
      * '§' used to separate information fields for one individual: step, canShow, fullName, url
      *
-     * @param object $node
+     * @param PartnerChainNode $node
      * @param string $chainString (modified in this function)
      * @param int $i recursion step (modified in this function)
      */
-    private function buildStringPartnerChainsRecursive(object $node, string &$chainString, int &$i)
+    private function buildStringPartnerChainsRecursive(PartnerChainNode $node, string &$chainString, int &$i)
     {
-        if ($node && $node->indi instanceof Individual) {
+        if ($node->getIndividual() instanceof Individual) {
+            //echo "<br>".$i.": ".$node->getIndividual()->fullName()." /".$node->getFilterComment()."/ ";
             $chainString .= strval($i) . '§';
-            if ($node->filterComment == '') {
-                $chainString .= (($node->indi->canShow()) ? '1' : '0') . '§' . $node->indi->fullname() . '§' . $node->indi->url() . '∞';
+            if ($node->getFilterComment() == '') {
+                $chainString .= (($node->getIndividual()->canShow()) ? '1' : '0') . '§' . $node->getIndividual()->fullName() . '§' . $node->getIndividual()->url() . '∞';
             } else {
-                $chainString .= '0§' . $node->filterComment . '§∞';
+                $chainString .= '0§' . I18N::translate($node->getFilterComment()) . '§∞';
             }
-            foreach ($node->chains as $chain) {
+            foreach ($node->getChains() as $nextNode) {
                 $i++;
-                $this->buildStringPartnerChainsRecursive($chain, $chainString, $i);
+                $this->buildStringPartnerChainsRecursive($nextNode, $chainString, $i);
             }
         }
-        $i--;
         $chainString = rtrim($chainString, '∞') . '|';
     }
 }
-

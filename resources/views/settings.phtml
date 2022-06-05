@@ -5,10 +5,19 @@ use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
 
 /**
- * @var array   $efps           family parts which can be selected and eventually be sorted
- * @var string  $title          title
- * @var string  $description    description
- * @var boolean $uses_sorting   can the family parts be sorted?
+ * @var array<string,object>    $efps           family parts which can be selected and eventually be sorted
+ * @var string                  $title
+ * @var string                  $description
+ * @var boolean                 $uses_sorting   can the family parts be sorted?
+ * @var boolean                 $show_filter_options
+ * @var int                     $show_empty_block
+ * @var boolean                 $show_short_name
+ * @var boolean                 $show_labels
+ * @var boolean                 $show_parameters
+ * @var boolean                 $use_compact_design
+ * @var boolean                 $show_summary
+ * @var boolean                 $count_partner_chains
+ * @var boolean                 $use_clippings_cart
  */
 
 ?>
@@ -27,7 +36,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         <table class="table table-bordered wt-table-menu">
             <thead>
                 <tr>
-                    <th><?= I18N::translate('Family part') ?></th>
+                    <th><?= I18N::translate('Family part (generation relative to proband)') ?></th>
                     <th class="text-center"><?= I18N::translate('Enabled') ?></th>
                     <?php if ($uses_sorting) : ?>
                       <th class="text-center"><?= I18N::translateContext('as in "Move up"', 'Move') ?></th>
@@ -42,7 +51,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                         <th scope="col">
                             <input type="hidden" name="order[]" value="<?= $efp ?>">
                             <span title="<?= $value->name ?>">
-                                <?= $value->name ?>
+                                <?= $value->name . ' (' . $value->generation . ')' ?>
                             </span>                          
                         </th>
 
@@ -61,7 +70,6 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                                     <?= view('icons/arrow-up') ?>
                                 </a>
                             </td>
-
                             <td class="move down text-center">
                                 <a href="#" title="<?= I18N::translate('Move down') ?>">
                                     <?= view('icons/arrow-down') ?>
@@ -73,7 +81,8 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
             </tbody>
         </table>
         
-        <h3><?= I18N::translate('Show options to filter the results (gender and alive/dead)?') ?></h3>
+        <h3><?= I18N::translate('Show options to filter the results?') ?></h3>
+        <p><?= I18N::translate('This allows a user to filter the members of the extended family by gender and if they are alive or dead.') ?></p>
         <!-- show filter options -->
         <fieldset class="form-group">
             <div class="row">
@@ -85,7 +94,21 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                 </div>
             </div>
         </fieldset>
-        
+
+        <h3><?= I18N::translate('Should a summary block be shown?') ?></h3>
+        <p><?= I18N::translate('The summary contains information about the extended family in total.') ?></p>
+        <!-- show summary block -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show summary') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_summary', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_summary]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('How should empty parts of extended family be presented?') ?></h3>
         <!-- show empty block -->
         <fieldset class="form-group">
@@ -94,11 +117,30 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                     <?= I18N::translate('Show empty block') ?>
                 </legend>
                 <div class="col-sm-9">
-                    <?= view('components/select', ['name' => 'show_empty_block', 'options' => [I18N::translate('yes, always at standard location'), I18N::translate('no, but collect messages about empty blocks at the end'), I18N::translate('never')], 'selected' => (int)$show_empty_block]) ?>
+                    <?= view('components/select', ['name' => 'show_empty_block', 'options' => [I18N::translate('yes, always at standard location'), I18N::translate('no, but collect messages about empty blocks at the summary block'), I18N::translate('never')], 'selected' => (int)$show_empty_block]) ?>
                 </div>
             </div>
         </fieldset>
-        
+
+        <h3><?= I18N::translate('Count the members of the partner chains as members of the extended family?') ?></h3>
+        <p>
+            <?= I18N::translate('If you select "no", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family.') ?>
+            <?= I18N::translate('And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.') ?>
+            <?= I18N::translate('But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".') ?>
+            <?= I18N::translate('This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.') ?>
+        </p>
+        <!-- count partner chain members as members of extended family -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Include them') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'count_partner_chains', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$count_partner_chains]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Show name of proband as short name or as full name?') ?></h3>
         <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
         <!-- nice_name -->
@@ -129,7 +171,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
 
         <h3><?= I18N::translate('Show parameters of extended family part?') ?></h3>
         <p><?= I18N::translate('Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.') ?></p>
-        <!-- show labels -->
+        <!-- show parameters of family parts -->
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3">
@@ -154,7 +196,21 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                 </div>
             </div>
         </fieldset>
-                
+
+        <h3><?= I18N::translate('Show a button "copy to clippings cart"?') ?></h3>
+        <p><?= I18N::translate('This allows a user to copy all members of the extended family to the clippings cart.') ?></p>
+        <!-- use button clippings cart -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show button') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'use_clippings_cart', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$use_clippings_cart]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <button type="submit" class="btn btn-primary">
             <?= view('icons/save') ?>
             <?= I18N::translate('save') ?>

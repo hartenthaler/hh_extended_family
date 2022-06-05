@@ -44,7 +44,7 @@ class Parents_in_law extends ExtendedFamilyPart
      * @var object $efpObject data structure for this extended family part
      *
      * common:
-     *  ->groups[]                      array f object
+     *  ->groups[]                      array of object
      *  ->maleCount                     int
      *  ->femaleCount                   int
      *  ->otherSexCount                 int
@@ -53,8 +53,8 @@ class Parents_in_law extends ExtendedFamilyPart
      *
      * special for this extended family part:
      *  ->groups[]->groupName           string
-     *            ->members             array of Individual (index of groups is int)
-     *            ->family              object family
+     *            ->members             array<int, Individual>
+     *            ->family              Family
      *            ->familyStatus        string
      *            ->partner             Individual
      *            ->partnerFamilyStatus string

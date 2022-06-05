@@ -53,7 +53,7 @@ class Grandparents extends ExtendedFamilyPart
      *
      * special for this extended family part:
      *  ->groups[]->members[]           array of Individual (index of groups is int)
-     *            ->family              object family
+     *            ->family              Family
      *            ->familyStatus        string
      *            ->partner             Individual
      *            ->partnerFamilyStatus string

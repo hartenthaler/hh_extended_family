@@ -3,6 +3,12 @@
     padding: 10px 10px;
 }
 
+#_hh_extended_family_ p {
+    font-size: 16px;
+    margin: 10px 20px;
+    padding: 15px 0 0;
+}
+
 #_hh_extended_family_ h2 {
     font-size: 30px;
     margin: 10px 20px;
@@ -27,9 +33,6 @@
     margin: 0;
     clear: both;
     padding: 10px 0 2px 0;
-}
-
-#hh_extended_family_summary {
 }
 
 #hh_extended_family_content_compact {
