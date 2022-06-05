@@ -3532,7 +3532,7 @@ class ExtendedFamilyTranslations
             'In which sequence should the parts of the extended family be shown?' => 'In welke volgorde moeten de delen van de uitgebreide familie worden weergegeven?',
             'Family part (generation relative to proband)' => 'Familiedeel (generatie ten opzichte van proband)',
             'Show name of proband as short name or as full name?' => 'Naam van proband weergeven als korte naam of als volledige naam?',
-            'Show options to filter the results (gender and alive/dead)?' => 'Filteropties (geslacht en levend/overleden) weergeven?',
+            'Show options to filter the results?' => 'Filteropties weergeven?',
             'Show filter options' => 'Filteropties weergeven',
             'How should empty parts of extended family be presented?' => 'Hoe moeten lege delen van de uitgebreide familie worden weergegeven?',
             'Show empty block' => 'Lege familiedelen weergeven',
