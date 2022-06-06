@@ -31,6 +31,8 @@ This Readme contains the following main sections
 <a name="description"></a>
 ## Description
 
+There is a module description in [German language](https://wiki.genealogy.net/Webtrees_Handbuch/Anleitung_f%C3%BCr_Webmaster/Erweiterungsmodule/Gro%C3%9Ffamilie) available.
+
 This module presents the core and the extended family of a proband.
 It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
 
@@ -50,7 +52,7 @@ The admin can decide in the control panel
   * GEDCOM records to indicate that a person
     * is e.g. a triplet, should look like "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet" or "1 ASSO @I123@\n2 RELA triplet")
     * is stillborn or died as an infant, should look like "1 BIRT\n2 AGE STILLBORN" or "1 DEAT\n2 AGE INFANT"
-    * has a special linkage status to the parent family (challenged, disproven, proven), should look like "1 FAMC @F123@\n2 STAT challenged"
+    * has a special linkage status to the parent family (challenged, disproven, proven), should look like "1 FAMC @F123@\n2 STAT CHALLENGED"
 
 The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
 * great-grandparents                       // generation +3
@@ -91,6 +93,7 @@ Screenshot of control panel menu
 
 This module requires **webtrees** version 2.1 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
+The last version for webtrees 2.0 is 2.0.16.58.
 
 This module was tested with **webtrees** 2.1.5 version
 and all available themes and all other custom modules.
@@ -116,7 +119,8 @@ with the new ones from the latest release.
 <a name="translation"></a>
 ## Translation
 
-You can help to translate this module. The language information is at the end of the file module.php.
+You can help to translate this module.
+The language information is stored in the file "resources/lang/ExtendedFamilyTranslation.php".
 The German part is the most actual and can be used as a base for your translation.
 Use a local editor, like notepad++ to make the translations and send it back to me. You can do this via a pull request (if you know how) or by e-mail.
 Updated translations will be included in the next release of this module.
