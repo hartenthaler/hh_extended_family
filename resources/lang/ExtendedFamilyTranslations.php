@@ -3562,7 +3562,7 @@ class ExtendedFamilyTranslations
             'And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.'
                 => 'En deze personen en gezinnen zullen niet geselecteerd worden wanneer een gebruiker besluit om de uitgebreide familie naar de stamboomknipsels te kopiëren.',
             'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".'
-                => 'Maar ook in dat geval kunnen deze personen en gezinnen naar de stamboomknipsels worden gekopieerd worden door gebruik te maken van de optie "partnerketens toevoegen voor een persoon" in mijn aangepaste stamboomknipselsmodule.',
+                => 'Maar ook in dat geval kunnen deze personen en gezinnen naar de stamboomknipsels worden gekopieerd worden door de volgende optie in het menu van de aangepaste module "uitgebreide stamboomknipsels" te gebruiken: "voeg partnerketens toe voor één persoon".',
             'This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.'
                 => 'Dit is alleen relevant als u er in bovenstaande tabel voor heeft gekozen om de partnerketens weer te geven als deel van de uitgebreide familie.',
             'Include them' => 'Opnemen',
