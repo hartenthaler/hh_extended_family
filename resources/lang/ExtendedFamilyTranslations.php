@@ -3545,7 +3545,7 @@ class ExtendedFamilyTranslations
         // Note the special characters used in plural and context-sensitive translations.
         return [
             'Extended family' => 'Uitgebreide familie',
-            'A tab showing the extended family of an individual.' => 'Tab laat de uitgebreide familie van deze persoon zien.',
+            'A tab showing the extended family of an individual.' => 'Een tabblad met de uitgebreide familie van een persoon.',
             'In which sequence should the parts of the extended family be shown?' => 'In welke volgorde moeten de delen van de uitgebreide familie worden weergegeven?',
             'Family part (generation relative to proband)' => 'Familiedeel (generatie ten opzichte van proband)',
             'Show name of proband as short name or as full name?' => 'Naam van proband weergeven als korte naam of als volledige naam?',
