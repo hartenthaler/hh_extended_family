@@ -312,9 +312,18 @@ abstract class ExtendedFamilyPart
     private function findCousinsBranchIndividuals(Individual $parent, string $branch): array
     {
         $cousins = [];
-        foreach ((($branch == 'full')? $this->findFullsiblingsIndividuals($parent): $this->findHalfsiblingsIndividuals($parent)) as $Sibling) {
-            foreach ($this->findPartnersIndividuals($Sibling->getIndividual()) as $uncleAunt) {
+        foreach ((($branch == 'full')? $this->findFullsiblingsIndividuals($parent): $this->findHalfsiblingsIndividuals($parent)) as $sibling) {
+            //echo "<br>Onkel oder Tante: ".$sibling->getIndividual()->fullName()." / ".$sibling->getFamily()->fullName();
+            foreach ($sibling->getIndividual()->spouseFamilies() as $family) {
+                foreach ($family->children() as $cousin) {
+                    //echo "<br>  Cousin: " . $cousin->fullName() . " / " . $family->fullName();
+                    $cousins[] = new IndividualFamily($cousin, $sibling->getFamily());
+                }
+            }
+            foreach ($this->findPartnersIndividuals($sibling->getIndividual()) as $uncleAunt) {
+                //echo "<br>angeheirateter Onkel oder Tante: ".$uncleAunt->getIndividual()->fullName()." / ".$uncleAunt->getFamily()->fullName();
                 foreach ($uncleAunt->getFamily()->children() as $cousin) {
+                    //echo "<br>  Cousin: ".$cousin->fullName()." / ".$uncleAunt->getFamily()->fullName();
                     $cousins[] = new IndividualFamily($cousin, $uncleAunt->getFamily());
                 }
             }
