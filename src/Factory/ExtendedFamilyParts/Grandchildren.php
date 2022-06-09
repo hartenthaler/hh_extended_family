@@ -29,10 +29,10 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
  */
 class Grandchildren extends ExtendedFamilyPart
 {
-    public const GROUP_GRANDCHILDREN_BIO = 'Biological grandchildren';
+    public const GROUP_GRANDCHILDREN_BIO        = 'Biological grandchildren';
     public const GROUP_GRANDCHILDREN_STEP_CHILD = 'Stepchildren of children';
     public const GROUP_GRANDCHILDREN_CHILD_STEP = 'Children of stepchildren';
-    public const GROUP_GRANDCHILDREN_STEP_STEP = 'Stepchildren of stepchildren';
+    public const GROUP_GRANDCHILDREN_STEP_STEP  = 'Stepchildren of stepchildren';
 
     /**
      * @var object $efpObject data structure for this extended family part
@@ -74,31 +74,30 @@ class Grandchildren extends ExtendedFamilyPart
         }
         */
 
-        foreach ($this->getProband()->spouseFamilies() as $family1) {
-            foreach ($family1->children() as $biochild) {
-                foreach ($biochild->spouseFamilies() as $family2) {
+        // get 'Biological grandchildren'
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->children() as $biochild) {                                               // Gen -1 P
+                foreach ($biochild->spouseFamilies() as $family2) {                                     // Gen -1 F
                     //echo "<br>=== 1 biochild : " . $biochild->fullName() . " with family " . $family2->fullName() . ". ";
-                    foreach ($family2->children() as $grandchild) {
-                        //echo "<br>bio " . self::GROUP_GRANDCHILDREN_BIO . ": " . $grandchild->fullName() . " with family " . $family2->fullName() . ". ";
-                        $this->addIndividualToFamily(new IndividualFamily($grandchild, $family1), self::GROUP_GRANDCHILDREN_BIO);
-                    }
-                    foreach ($family2->spouses() as $spouse1) {                                         // Gen  0 P
-                        foreach ($spouse1->spouseFamilies() as $family3) {                              // Gen  0 F
-                            foreach ($family3->children() as $grandchild) {
-                                //echo "<br>bio " . self::GROUP_GRANDCHILDREN_STEP_CHILD . ": " . $grandchild->fullName() . " with family " . $family3->fullName() . ". ";
-                                $this->addIndividualToFamily(new IndividualFamily($grandchild, $family1), self::GROUP_GRANDCHILDREN_STEP_CHILD);
-                            }
-                        }
+                    foreach ($family2->children() as $grandchild) {                                     // Gen -2 P
+                        //echo "<br>biograndchild : " . self::GROUP_GRANDCHILDREN_BIO . ": " . $grandchild->fullName() . " with family " . $family2->fullName() . ". ";
+                        $this->addIndividualToFamily(new IndividualFamily($grandchild, $family2), self::GROUP_GRANDCHILDREN_BIO);
                     }
                 }
             }
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
-                    foreach ($family2->children() as $child) {                                  // Gen -1 P
-                        foreach ($child->spouseFamilies() as $family3) {
-                            foreach ($family3->children() as $grandchild) {
-                                //echo "<br>bio " . self::GROUP_GRANDCHILDREN_CHILD_STEP . ": " . $grandchild->fullName() . " with family " . $family3->fullName() . ". ";
-                                $this->addIndividualToFamily(new IndividualFamily($child, $family2), self::GROUP_GRANDCHILDREN_CHILD_STEP);
+        }
+
+        // get 'Stepchildren of children'
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->children() as $biochild) {                                               // Gen -1 P
+                foreach ($biochild->spouseFamilies() as $family2) {                                     // Gen -1 F
+                    foreach ($family2->spouses() as $spouse1) {                                         // Gen -1 P
+                        foreach ($spouse1->spouseFamilies() as $family3) {                              // Gen -1 F
+                            if ($family3->xref() !== $family2->xref()) {
+                                foreach ($family3->children() as $grandchild) {                         // Gen -2 P
+                                    //echo "<br>bio " . self::GROUP_GRANDCHILDREN_STEP_CHILD . ": " . $grandchild->fullName() . " with family " . $family3->fullName() . ". ";
+                                    $this->addIndividualToFamily(new IndividualFamily($grandchild, $family3), self::GROUP_GRANDCHILDREN_STEP_CHILD);
+                                }
                             }
                         }
                     }
@@ -106,6 +105,25 @@ class Grandchildren extends ExtendedFamilyPart
             }
         }
 
+        // get 'Children of stepchildren'
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                                   // Gen  0 F
+            foreach ($family1->spouses() as $spouse1) {                                                 // Gen  0 P
+                foreach ($spouse1->spouseFamilies() as $family4) {                                      // Gen  0 F
+                    if ($family4->xref() !== $family1->xref()) {
+                        foreach ($family4->children() as $stepchild) {                                  // Gen -1 P
+                            foreach ($stepchild->spouseFamilies() as $family5) {                        // Gen -1 F
+                                foreach ($family5->children() as $grandchild) {                         // Gen -2 P
+                                    //echo "<br> " . self::GROUP_GRANDCHILDREN_CHILD_STEP . ": " . $grandchild->fullName() . " with family " . $family5->fullName() . ". ";
+                                    $this->addIndividualToFamily(new IndividualFamily($grandchild, $family5), self::GROUP_GRANDCHILDREN_CHILD_STEP);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // get 'Stepchildren of stepchildren'
         $this->addChildrenStepchildrenOfStepchildren();
     }
 

@@ -31,16 +31,15 @@
  *
  * Code: collection für Familien ausprogrammieren in ExtendedFamily.php
  * Code: automatisches Kopieren in den Sammelbehälter verwerfen und stattdessen Button in Betrieb nehmen * Code: Fehler in Grandchildren suchen
- * Code: Cousins werden nicht erkannt, wenn die Tante/Onkel diese in einer Familie mit nur einem Elternteil als Kind haben
  * Code: bei gesetztem Filter "F" verschwindet Dieter G. am Ende der Kette (s .debug in tab.phtml #752 und #758)
- * Code: Anpassungen an Bootstrap 5 (filter-Buttons)
+ * Code: Anpassungen an Bootstrap 5 (Filter-Buttons)
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Code: prüfen ob allCountUnique immer richtig berechnet wird
+ * Code: siehe 2x tbd in tab.phtml #1077
  * Code: Formulierung der Zusammenfassung konsistent machen
- * Übersetzung: The extended family of ....
  * Übersetzung: Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
- * Translation: ch - ein String wirft Fehler aus
- * ------------------------------  bis hierher Release 2.1.5.1    ----------------------------------------------------
+ * READme: alle Screenshots aktualisieren
+ * ------------------------------  bis hierher Release 2.1.5.3    ----------------------------------------------------
  * Code: In der Zusammenfassung per countBy weitere Informationen anzeigen
  *         (Anzahl der Familien, Generationen von/bis, früheste/späteste Geburt, Anzahl m/w/u, Anzahl lebend/tod, ...) * Code: alle Family Objekte explizit als Family deklarieren
  * Code: alle array-Deklarationen mit <index,value> deklarieren
@@ -99,7 +98,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE     = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION     = '2.1.5.0';
+    public const CUSTOM_VERSION     = '2.1.5.2';
     public const CUSTOM_LAST        = 'https://github.com/hartenthaler/' .
                                       self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    

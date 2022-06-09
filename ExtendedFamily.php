@@ -247,7 +247,7 @@ class ExtendedFamily
 
     /**
      * collect all members of the extended family (individuals)
-     * including the proband, excluding the additional members of the partner chains
+     * including the proband, maybe excluding the additional members of the partner chains
      *
      * @param object $extendedFamily
      * @return Collection
@@ -274,7 +274,7 @@ class ExtendedFamily
 
     /**
      * collect all families of the extended family
-     * excluding the additional families of the partner chains
+     * maybe excluding the additional families of the partner chains
      *
      * @param object $extendedFamily
      * @return Collection

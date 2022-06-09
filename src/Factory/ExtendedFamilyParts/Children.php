@@ -61,6 +61,8 @@ class Children extends ExtendedFamilyPart
             foreach ($family1->children() as $child) {                                          // Gen -1 P
                 $this->addIndividualToFamily(new IndividualFamily($child, $family1), self::GROUP_CHILDREN_BIO);
             }
+        }
+        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
                     foreach ($family2->children() as $child) {                                  // Gen -1 P

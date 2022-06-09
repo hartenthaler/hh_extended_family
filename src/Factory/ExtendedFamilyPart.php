@@ -320,6 +320,7 @@ abstract class ExtendedFamilyPart
                     $cousins[] = new IndividualFamily($cousin, $sibling->getFamily());
                 }
             }
+            /*
             foreach ($this->findPartnersIndividuals($sibling->getIndividual()) as $uncleAunt) {
                 //echo "<br>angeheirateter Onkel oder Tante: ".$uncleAunt->getIndividual()->fullName()." / ".$uncleAunt->getFamily()->fullName();
                 foreach ($uncleAunt->getFamily()->children() as $cousin) {
@@ -327,6 +328,7 @@ abstract class ExtendedFamilyPart
                     $cousins[] = new IndividualFamily($cousin, $uncleAunt->getFamily());
                 }
             }
+            */
         }
         return $cousins;
     }

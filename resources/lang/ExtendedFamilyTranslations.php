@@ -641,16 +641,16 @@ class ExtendedFamilyTranslations
         // Note the special characters used in plural and context-sensitive translations.
         return [
             'Extended family' => 'Širší rodina',
-            'A tab showing the extended family of an individual.' => 'Panel širší rodiny dané osoby.',
-            'In which sequence should the parts of the extended family be shown?' => 'V jakém pořadí se části širší rodiny zobrazí?',
-            'Family part (generation relative to proband)' => 'Část rodiny (generation relative to proband)',
+            'A tab showing the extended family of an individual.' => 'Panel širší rodiny dané osoby (probanda).',
+            'In which sequence should the parts of the extended family be shown?' => 'V jakém pořadí se skupiny širší rodiny zobrazí?',
+            'Family part (generation relative to proband)' => 'Skupina širší rodiny (generace vzhledem k probandovi)',
             'Show name of proband as short name or as full name?' => 'Má se jméno probanta zobrazit jako zkrácené jméno, nebo jako úplné jméno?',
             'Show options to filter the results?' => 'Mají se zobrazit filtry výsledků?',
             'Show filter options' => 'Zobrazit filtry',
-            'How should empty parts of extended family be presented?' => 'Jak se mají zobrazit prázdné části (bloky) širší rodiny?',
+            'How should empty parts of extended family be presented?' => 'Jak se mají zobrazit prázdné skupiny (bloky) širší rodiny?',
             'Show empty block' => 'Zobrazit prázdné bloky',
             'yes, always at standard location' => 'ano, vždy na obvyklém místě',
-            'no, but collect messages about empty blocks at the end' => 'ne, ale uvést prázdné bloky na konci výpisu',
+            'no, but collect messages about empty blocks at the summary block' => 'ne, ale uvést prázdné bloky v bloku souhrnu',
             'never' => 'nikdy',
             'The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Za zkrácené probantovo jméno se vezme domácké jméno nebo přezdívka. Pokud neexistuje, vezme se první křestní jméno, je-li k dispozici. Pokud ani to ne, vezme se příjmení.',
             'Show short name' => 'Zobrazovat zkrácené jméno',
@@ -660,9 +660,29 @@ class ExtendedFamilyTranslations
             'Use the compact design?' => 'Má se použít kompaktní vzhled?',
             'Use the compact design' => 'Použít kompaktní vzhled',
             'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' => 'V kompaktním vzhledu se u osob zobrazuje jen jméno a životní letopočty. V obohaceném vzhledu se zobrazí také foto (pokud je pro daný strom aktivováno) a údaje o narození a úmrtí.',
-            'Show parameters of extended family part?' => 'Mají se zobrazit parametry části širší rodiny?',
-            'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Zobrazovat doplňující informace ke každé části širší rodiny, jako jsou posun generací a koeficient příbuznosti, který je mírou pokrevního příbuzenství.',
+            'Show parameters of extended family part?' => 'Mají se zobrazit parametry skupin širší rodiny?',
+            'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Zobrazovat doplňující informace ke každé skupině širší rodiny, jako jsou posun generací a koeficient příbuznosti, který je mírou pokrevního příbuzenství.',
             'Show parameters' => 'Zobrazovat parametry',
+            'This allows a user to filter the members of the extended family by gender and if they are alive or dead.'
+                => 'Toto umožňuje filtrovat členy širší rodiny podle pohlaví a jsou-li živí či po smrti.',
+            'Should a summary block be shown?' => 'Má se zobrazovat blok souhrnu?',
+            'The summary contains information about the extended family in total.' => 'Souhrn obsahuje celkové informace o širší rodině.',
+            'Show summary' => 'Zobrazovat souhrn',
+            'Count the members of the partner chains as members of the extended family?'
+                => 'Počítat členy partnerských řetězců za členy širší rodiny?',
+            'If you select "no", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family.'
+                => 'Volba "ne" způsobí, že členové partnerských řetězců se nezapočítají do celkového počtu osob v širší rodině.',
+            'And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.'
+                => 'A tyto osoby a rodiny se nezahrnou do kopie širší rodiny do schránky výstřižků.',
+            'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".'
+                => 'Přesto však je možno zkopírovat tyto osoby a rodiny do schránky výstřižků pomocí dodatkového modulu "vylepšené výstřižky" zvolením "přidat partnerské řetězce osoby".',
+            'This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.'
+                => 'Toto se ale vztahuje jen na případ, kdy je zobrazování partnerských řetězců jako skupiny širší rodiny povoleno (v tabulce výše).',
+            'Include them' => 'Počítat je',
+            'Show a button "copy to clippings cart"?' => 'Zobrazovat tlačítko "kopírovat do schránky výstřižků"?',
+            'This allows a user to copy all members of the extended family to the clippings cart.'
+                => 'To umožní zkopírovat všechny členy širší rodiny do schránky výstřižků.',
+            'Show button' => 'Zobrazovat tlačítko',
 
             'generation +%s' => 'generace +%s',
             'same generation' => 'stejná generace',
@@ -683,8 +703,8 @@ class ExtendedFamilyTranslations
             'not a male person' => 'osoba nikoliv mužského pohlaví',
             'not a female person' => 'osoba nikoliv ženského pohlaví',
             'not a person of unknown gender' => 'osoba nikoliv neznámého pohlaví',
-            'copy all members of the extended family to the clippings cart' => 'copy all members of the extended family to the clippings cart',
-            'copy to clippings cart' => 'copy to clippings cart',
+            'copy all members of the extended family to the clippings cart' => 'kopírovat všechny členy širší rodiny do schránky výstřižků',
+            'copy to clippings cart' => 'kopírovat do schránky výstřižků',
 
             'twin' => 'dvojče',
             'triplet' => 'trojče',
@@ -747,10 +767,10 @@ class ExtendedFamilyTranslations
             'Partners of siblings' => 'Partneři sourozenců',
             'Siblings of siblings-in-law' => 'Sourozenci švagrů a švagrových',
             'Partners of siblings-in-law' => 'Partneři švagrů a švagrových',
-            'Children of full siblings of biological parents' => 'Děti vlastních sourozenců vlastních rodičů',
+            'Children of full siblings of biological parents' => 'Děti plnorodých sourozenců vlastních rodičů',
             'Children of siblings' => 'Děti sourozenců',
-            'Children of full siblings' => 'Děti vlastních sourozenců',
-            'Siblings\' stepchildren' => 'Sourozenci nevlastních dětí',
+            'Children of full siblings' => 'Děti plnorodých sourozenců',
+            'Siblings\' stepchildren' => 'Nevlastní děti sourozenců',
             'Children of siblings of partners' => 'Děti sourozenců partnerů',
             'Biological children' => 'Vlastní děti',
             'Stepchildren' => 'Nevlastní děti',
@@ -763,6 +783,10 @@ class ExtendedFamilyTranslations
             'Stepchildren of children' => 'Nevlastní děti dětí',
             'Children of stepchildren' => 'Děti nevlastních dětí',
             'Stepchildren of stepchildren' => 'Nevlastní děti nevlastních dětí',
+            'Partners of biological grandchildren' => 'Partneři vlastních vnoučat',
+            'Partners of stepchildren of children' => 'Partneři nevlastních dětí vlastních dětí',
+            'Partners of children of stepchildren' => 'Partneři dětí nevlastních dětí',
+            'Partners of stepchildren of stepchildren' => 'Partneři nevlastních dětí nevlastních dětí',
 
             'He' => 'On',
             'She' => 'Ona',
@@ -770,16 +794,21 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Pan',
             'Mrs.' => 'Paní',
             'No family available' => 'Rodina chybí',
-            '%s has no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s.',
-            '%s has no %s, and no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s a %s.',
-            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            //'%s has no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s.',
+            //'%s has no %s, and no %s recorded.' => 'Pro osobu \'%s\' chybí záznamy %s a %s.',
+            'Summary for the shown extended family' => 'Souhrn zobrazené širší rodiny',
             'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).'
-                => 'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).',
+                => 'Širší rodina osoby \'%1$s\' má jednoho člena.' . I18N::PLURAL . 'Širší rodina osoby \'%1$s\' má %2$d členy (včetně osoby \'%1$s\').' . I18N::PLURAL . 'Širší rodina osoby \'%1$s\' má %2$d členů (včetně osoby \'%1$s\').',
+            '(additional members of the partner chains are not counted)'
+                => '(Členové partnerských řetězců nejsou započteni.)',
+            'Some of them are member in more than one part of the extended family.'
+                => 'Někteří jsou členy více než jedné skupiny širší rodiny.',
+            '%s has no %s recorded.' => '%s nemá zaznamenanou skupinu %s.',
+            '%s has no %s, and no %s recorded.' => 'Osoba \'%s\' nemá zaznamenané skupiny %s ani skupinu %s.',
 
             'Father\'s family (%d)' => 'Otcova rodina (%d)',
             'Mother\'s family (%d)' => 'Matčina rodina (%d)',
             'Father\'s and Mother\'s family (%d)' => 'Otcova a matčina rodina (%d)',
-
             'Grandparents %1$s (%2$s) of stepfather %3$s' => 'Prarodiče %1$s (%2$s) nevlastního otce %3$s',
             'Grandparents %1$s (%2$s) of stepmother %3$s' => 'Prarodiče %1$s (%2$s) nevlastní matky %3$s',
             'Grandparents %1$s (%2$s) of stepparent %3$s' => 'Prarodiče %1$s (%2$s) nevlastního rodiče %3$s',
@@ -986,12 +1015,12 @@ class ExtendedFamilyTranslations
             '%s has no members of a partner chain recorded.' => 'U osoby \'%s\' nejsou zaznamenané žádné řetězce partnerů.',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '
                 => '%2$s má zaznamenaného %1$d partnera a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnery a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerů a ',
-            '%1$d female partner in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%d female partners in this partner chain recorded (%2$d in total, including %3$s).'
-                => '%1$d partnerku v tomto řetězci (celkem %2$d, incl. %3$s).' . I18N::PLURAL . '%d partnerky v tomto řetězci (celkem %2$d, incl. %3$s).' . I18N::PLURAL . '%d partnerek v tomto řetězci (celkem %2$d, incl. %3$s).',
+            '%1$d female partner in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total, including %3$s).'
+                => '%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby \' %3$s\').' . I18N::PLURAL . '%d partnerky v tomto řetězci (celkem %2$d, vč. osoby \' %3$s\').' . I18N::PLURAL . '%d partnerek v tomto řetězci (celkem %2$d, vč. osoby \' %3$s\').',
             '%d female partner and ' . I18N::PLURAL . '%d female partners and '
                 => '%d partnerku, a ' . I18N::PLURAL . '%d partnerky, a ' . I18N::PLURAL . '%d partnerek, a ',
             '%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).'
-                => '%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, incl. %3$s).' . I18N::PLURAL . '%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, incl. %3$s).' . I18N::PLURAL . '%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, incl. %3$s).',
+                => '%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby \' %3$s\').' . I18N::PLURAL . '%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby \' %3$s\').' . I18N::PLURAL . '%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby \' %3$s\').',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
                 => '%2$s má zaznamenanou %1$d partnerku a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnerky a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerek a ',
             '%2$s has %1$d male partner, ' . I18N::PLURAL . '%2$s has %1$d male partners, '
@@ -999,8 +1028,8 @@ class ExtendedFamilyTranslations
             '%d female partner, and ' . I18N::PLURAL . '%d female partners, and '
                 => '%d partnerku, a ' . I18N::PLURAL . '%d partnerky, a ' . I18N::PLURAL . '%d partnerek, a ',
             'There are %d branches in the partner chain. ' => 'V řetězci partnerů jsou %d linie.',
-            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Nejdelší linie v řetězci k osobě \'%2$s\' sestává z %1$d partnerů (včetně osoby \'%3$s\').',
-            'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'Nejdelší linie v řetězci partnerů sestává z %1$d partnerů (včetně osoby \'%2$s\').',
+            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Nejdelší linie v řetězci k osobě \'%2$s\' sestává z %1$d partnerů (vč. osoby \'%3$s\').',
+            'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'Nejdelší linie v řetězci partnerů sestává z %1$d partnerů (vč. osoby \'%2$s\').',
 
             'Siblings' => 'Sourozenci',
             '%s has no siblings recorded.' => '%s zde nemá zaznamenané žádné sourozence.',
@@ -1050,7 +1079,7 @@ class ExtendedFamilyTranslations
             '%d sister-in-law, and ' . I18N::PLURAL . '%d sisters-in-law, and '
                 => '%d švagrovou, a ' . I18N::PLURAL . '%d švagrové, a ' . I18N::PLURAL . '%d švagrových, a ',
 
-            'Co-siblings-in-law' => 'Partneři a sourozenci švagrů a švagrových<br>(spolušvagři a spolušvagrové)',
+            'Co-siblings-in-law' => 'Partneři a sourozenci švagrů a švagrových (spolušvagři a spolušvagrové)',
             '%s has no co-siblings-in-law recorded.' => '%s nemá zaznamenané žádné spolušvagry ani spolušvagrové.',
             '%s has one co-sister-in-law recorded.' => '%s má zaznamenanou jednu spolušvagrovou.',
             '%s has one co-brother-in-law recorded.' => '%s má zaznamenaného jednoho spolušvagra.',
@@ -1189,6 +1218,30 @@ class ExtendedFamilyTranslations
                 => '%2$s má %1$d vnuka, ' . I18N::PLURAL . '%2$s má %1$d vnuky, ' . I18N::PLURAL . '%2$s má %1$d vnuků, ',
             '%d granddaughter, and ' . I18N::PLURAL . '%d granddaughters, and '
                 => '%d vnučku, a ' . I18N::PLURAL . '%d vnučky, a ' . I18N::PLURAL . '%d vnuček, a ',
+
+            'Grandchildren-in-law' => 'Partneři vnoučat',
+            '%s has no grandchildren-in-law recorded.' => '%s nemá zaznamenané žádné partnery vnoučat.',
+            '%s has one granddaughter-in-law recorded.' => '%s má zaznamenanou jednu partnerku vnuka.',
+            '%s has one grandson-in-law recorded.' => '%s má zaznamenaného jednoho partnera vnučky.',
+            '%s has one grandchild-in-law of unknown sex recorded.' => '%s má zaznamenané jednoho partnera vnoučete neznámého pohlaví.',
+            '%2$s has %1$d granddaughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law recorded.'
+                => '%2$s má zaznamenanou %1$d partnerku vnuka.' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnerky vnuků.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerek vnuků.',
+            '%2$s has %1$d grandson-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law recorded.'
+                => '%2$s má zaznamenaného %1$d partnera vnučky.' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnery vnuček.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerů vnuček.',
+            '%2$s has %1$d grandchild-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren-in-law of unknown sex recorded.'
+                => '%2$s má zaznamenaného %1$d partnera vnoučete neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnery vnoučat neznámého pohlaví.' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerů vnoučat neznámého pohlaví.',
+            '%2$s has %1$d grandson-in-law and ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law and '
+                => '%2$s má zaznamenaného %1$d partnera vnučka a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnery vnuček a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerů vnuček a ',
+            '%d granddaughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d granddaughters-in-law recorded (%d in total).'
+                => '%d partnerku vnuka (celkem %d).' . I18N::PLURAL . '%d partnerky vnuků (celkem %d).' . I18N::PLURAL . '%d partnerek vnuků (celkem %d).',
+            '%2$s has %1$d granddaughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law and '
+                => '%2$s má zaznamenanou %1$d partnerku vnuka a ' . I18N::PLURAL . '%2$s má zaznamenané %1$d partnerky vnuků a ' . I18N::PLURAL . '%2$s má zaznamenaných %1$d partnerek vnuků a ',
+            '%d grandchild-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren-in-law of unknown sex recorded (%d in total).'
+                => '%d partnera vnoučete neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d partnery vnoučat neznámého pohlaví (celkem %d).' . I18N::PLURAL . '%d partnerů vnoučat neznámého pohlaví (celkem %d).',
+            '%2$s has %1$d grandson-in-law, ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law, '
+                => '%2$s má %1$d partnera vnučky, ' . I18N::PLURAL . '%2$s má %1$d partnery vnuček, ' . I18N::PLURAL . '%2$s má %1$d partnerů vnuček, ',
+            '%d granddaughter-in-law, and ' . I18N::PLURAL . '%d granddaughters-in-law, and '
+                => '%d partnerku vnuka, a ' . I18N::PLURAL . '%d partnerky vnuků, a ' . I18N::PLURAL . '%d partnerek vnuků, a ',
         ];
     }
 
@@ -5820,7 +5873,6 @@ class ExtendedFamilyTranslations
             'This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.'=>'只有在上表中选择配偶系列应显示为扩展族的一部分时，这才相关。',
             'Show options to filter the results?'=>'是否显示筛选结果的选项？',
             'This allows a user to filter the members of the extended family by gender and if they are alive or dead.'=>'这允许用户按性别以及是否活着或去世筛选大家庭成员。',
-            '是否应显示摘要块？'=>'是否应显示摘要块？',
             'Show parameters of extended family part?'=>'是否显示大族庭的关系参数？',
             'Include them'=>'包含他们',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.'=>'显示大家庭每个部分的其他信息，例如世代更替和关系系数，这是血亲程度的衡量标准。',
@@ -5947,8 +5999,8 @@ class ExtendedFamilyTranslations
             '%s has no %s, and no %s recorded.'=>'%s没有%s，也没有%s记录。',
             '(additional members of the partner chains are not counted)'=>'（不包括配偶系列的其他成员）',
             'Some of them are member in more than one part of the extended family.'=>'他们中的一些人是大家庭中不止一个部分的成员。',
-            
-            
+
+
             'Father\s family (%d)'=>'父亲的家庭（%d）',
             'Mother\s family (%d)'=>'母亲的家庭（%d）',
             'Father\s and Mother\'s family (%d)'=>'父亲和母亲的家庭（%d）',
@@ -6144,19 +6196,19 @@ class ExtendedFamilyTranslations
             '%s has one grandson-in-law recorded.' => '%s有一位孙女婿',
             '%s has one grandchild-in-law of unknown sex recorded.' => '%s有一位孙辈的配偶',
             '%2$s has %1$d granddaughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law recorded.'
-            => '%2$s有%1$d位孙媳妇',
+                => '%2$s有%1$d位孙媳妇',
             '%2$s has %1$d grandson-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law recorded.'
-            => '%2$s有%1$d位孙女婿',
+                => '%2$s有%1$d位孙女婿',
             '%2$s has %1$d grandchild-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren-in-law of unknown sex recorded.'
-            => '%s有%1$d位孙辈的配偶',
+                => '%s有%1$d位孙辈的配偶',
             '%2$s has %1$d grandson-in-law and ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law and '
-            => '%2$s有%1$d位孙女婿和',
+                => '%2$s有%1$d位孙女婿和',
             '%d granddaughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d granddaughters-in-law recorded (%d in total).'
-            => '%d位孙媳妇（共%d位）',
+                => '%d位孙媳妇（共%d位）',
             '%2$s has %1$d granddaughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law and '
-            => '%2$s有%1$d位孙媳妇和',
+                => '%2$s有%1$d位孙媳妇和',
             '%d grandchild-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren-in-law of unknown sex recorded (%d in total).'
-            => '%d位孙辈的配偶（共%d位）。',
+                => '%d位孙辈的配偶（共%d位）。',
         ];
     }
 
@@ -6181,7 +6233,6 @@ class ExtendedFamilyTranslations
             'This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.'=>'只有在上表中選擇配偶系列應顯示為擴展族的一部分時，這才相關。',
             'Show options to filter the results?'=>'是否顯示篩選結果的選項？',
             'This allows a user to filter the members of the extended family by gender and if they are alive or dead.'=>'這允許用戶按性別以及是否活著或去世篩選大家庭成員。',
-            '是否應顯示摘要塊？'=>'是否應顯示摘要塊？',
             'Show parameters of extended family part?'=>'是否顯示大族庭的關系參數？',
             'Include them'=>'包含他們',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.'=>'顯示大家庭每個部分的其他信息，例如世代更替和關系系數，這是血親程度的衡量標準。',
@@ -6308,8 +6359,8 @@ class ExtendedFamilyTranslations
             '%s has no %s, and no %s recorded.'=>'%s沒有%s，也沒有%s記錄。',
             '(additional members of the partner chains are not counted)'=>'（不包括配偶系列的其他成員）',
             'Some of them are member in more than one part of the extended family.'=>'他們中的一些人是大家庭中不止一個部分的成員。',
-            
-            
+
+
             'Father\s family (%d)'=>'父親的家庭（%d）',
             'Mother\s family (%d)'=>'母親的家庭（%d）',
             'Father\s and Mother\'s family (%d)'=>'父親和母親的家庭（%d）',
