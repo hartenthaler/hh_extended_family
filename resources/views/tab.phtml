@@ -1074,9 +1074,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                     <div id="hh-extended-family-summary-block">
                         <h2><?= I18N::translate('Summary for the shown extended family') ?></h2>
                         <p><?= I18N::plural('The extended family has only %1$s as a member.', 'The extended family of %1$s has %2$d members (including %1$s).', $filterObj->efp->summary->allCountUnique, $extfam_obj->proband->niceName, $filterObj->efp->summary->allCountUnique) ?>
-                            // tbd the next line should be only presented if efp partner_chains exists
                             <?= I18N::translate('(additional members of the partner chains are not counted)') ?>
-                            // tbd if efp partner_chains does not exist, then $filterObj->efp->partner_chains is not defined
                             <?php if ($filterObj->efp->summary->allCountUnique - 1 < $filterObj->efp->summary->allCount - ($extfam_obj->config->countPartnerChainsToTotal?0:(false?$filterObj->efp->partner_chains->allCount:0))) : ?>
                                 <?= I18N::translate('Some of them are member in more than one part of the extended family.') ?>
                             <?php endif ?>
