@@ -381,13 +381,36 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php endif ?>
                                     <?php endif ?>
                                 <?php elseif ($propName == 'partner_chains'): ?>
-                                    <?php if ($filterObj->efp->$propName->otherSexCount == 0): ?>
+                                    <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                        <h3><?php echo(I18N::plural('%d female partner in this partner chain recorded', '%d female partners in this partner chain recorded', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) .
+                                                (($extfam_obj->proband->indi->sex() == 'F')? ' ('.I18N::translate('including %s', $extfam_obj->proband->niceName).')':'') . '.');
+                                        ?></h3>
+                                    <?php elseif ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                        <h3><?php echo(I18N::plural('%d male partner in this partner chain recorded', '%d male partners in this partner chain recorded', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount) .
+                                                (($extfam_obj->proband->indi->sex() == 'M')? ' ('.I18N::translate('including %s', $extfam_obj->proband->niceName).')':'') . '.');
+                                        ?></h3>
+                                    <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
+                                        <h3><?php echo(I18N::plural('%d partner of unknown sex in this partner chain recorded', '%d partners of unknown sex in this partner chain recorded', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount) .
+                                                (($extfam_obj->proband->indi->sex() == 'U')? ' ('.I18N::translate('including %s', $extfam_obj->proband->niceName).')':'') . '.');
+                                        ?></h3>
+                                    <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
                                         <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
-                                            <?= I18N::plural('%1$d female partner in this partner chain recorded (%2$d in total, including %3$s).', '%1$d female partners in this partner chain recorded (%2$d in total, including %3$s).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount, $extfam_obj->proband->niceName) ?>
-                                        </h3>
+                                            <?php echo(I18N::plural('%1$d female partner in this partner chain recorded (%2$d in total', '%1$d female partners in this partner chain recorded (%2$d in total', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) .
+                                                (($extfam_obj->proband->indi->sex() !== 'U')? ', '.I18N::translate('including %s', $extfam_obj->proband->niceName).')':')') . '.');
+                                        ?></h3>
+                                    <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
+                                        <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
+                                            <?php echo(I18N::plural('%1$d partner of unknown sex in this partner chain recorded (%2$d in total', '%1$d partners of unknown sex in this partner chain recorded (%2$d in total', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) .
+                                                (($extfam_obj->proband->indi->sex() !== 'F')? ', '.I18N::translate('including %s', $extfam_obj->proband->niceName).')':')') . '.');
+                                        ?></h3>
+                                    <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
+                                        <h3><?= I18N::plural('%2$s has %1$d female partner and ', '%2$s has %1$d female partners and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $extfam_obj->proband->niceName) ?>
+                                            <?php echo(I18N::plural('%1$d partner of unknown sex in this partner chain recorded (%2$d in total', '%1$d partners of unknown sex in this partner chain recorded (%2$d in total', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) .
+                                                (($extfam_obj->proband->indi->sex() !== 'M')? ', '.I18N::translate('including %s', $extfam_obj->proband->niceName).')':')') . '.');
+                                        ?></h3>
                                     <?php else: ?>
                                         <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $extfam_obj->proband->niceName) ?>
-                                            <?= I18N::plural('%d female partner and ', '%d female partners and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <?= I18N::plural('%d female partner, and ', '%d female partners, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
                                             <?= I18N::plural('%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).', '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount, $extfam_obj->proband->niceName) ?>
                                         </h3>
                                     <?php endif ?>
@@ -749,13 +772,11 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                 <?php elseif ($propName == 'partner_chains'): ?>
                                     <div id="hh_extended_family_box">
                                         <?php $chainNumber = 1; ?>
-                                        <?php //echo "chain#=".count($filterObj->efp->$propName->chains->displayChains); ?>
                                         <?php foreach ($filterObj->efp->$propName->chains->displayChains as $chain) : ?>
                                             <?php if ($chainNumber > 1): ?>
                                                 <hr>
                                             <?php endif ?>
                                             <?php $individualNumber = 1; ?>
-                                            <?php //print_r($chain); ?>
                                             <?php foreach ($chain as $indi) : ?>
                                                 <?php if ($individualNumber > 1): ?>
                                                     <?php echo ' ∞ ' ?>

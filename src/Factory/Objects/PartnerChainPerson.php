@@ -44,7 +44,6 @@ class PartnerChainPerson
 
     // ------------ definition of methods
 
-
     /**
      * construct partner chain person object
      *

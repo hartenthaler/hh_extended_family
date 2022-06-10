@@ -102,13 +102,12 @@ class Partner_chains extends ExtendedFamilyPart
      * add chains of partners recursive
      *
      * @param PartnerChainNode $node with $node->individual is set to an Individual
-     //* @param object $stop list of arrays of indi-xref and fam-xref as a list to stop recursion
      */
     private function addPartnerChainsRecursive(PartnerChainNode $node): void
     {
         $newNodes = [];
         $i = 1;
-        if($node->getIndividual() instanceof Individual) {
+        if ($node->getIndividual() instanceof Individual) {
             foreach ($node->getIndividual()->spouseFamilies() as $family) {
                 if ($this->efpObject->collectionFamilies->search($family) === false) {
                     foreach ($family->spouses() as $spouse) {
@@ -269,36 +268,74 @@ class Partner_chains extends ExtendedFamilyPart
     }
 
     /**
-     * build object to display all partner chains
+     * build array to display all partner chains
      *
-     * @return array
+     * @return array of array of PartnerChainPerson
      */
     private function buildDisplayObjectPartnerChains(): array
     {
-        $chains = [];                                           // array of PartnerChainPerson
         $node = $this->efpObject->chains->node;
-        $chainString = '';
+        $chainAllString = '';
         $i = 1;
-        $this->buildStringPartnerChainsRecursive($node, $chainString, $i);
-        do {                                                    // remove redundant recursion back step indicators
-            $chainString = str_replace("||", "|", $chainString, $count);
-        } while ($count > 0);
-        $chainString = rtrim($chainString, '|§∞ ');
-        $chainStrings = explode('|', $chainString);
+        $this->buildStringPartnerChainsRecursive($node, $chainAllString, $i);
+        return $this->prepareChains($chainAllString);
+    }
+
+    /**
+     * prepare chains of chains of partners
+     *
+     * @param string $chainAllString string containing '|' to separate chains; '∞' and '§' are used to separate individuals and their parameters
+     * @return array of array of PartnerChainPerson
+     */
+    private function prepareChains(string $chainAllString): array
+    {
+        $chains = [];
+        $chainStrings = explode('|', $this->cleanChainString($chainAllString));
         foreach ($chainStrings as $chainString) {
-            $personStrings = explode('∞', $chainString);
-            $chain = [];                                        // array of chainPerson
-            foreach ($personStrings as $personString) {
-                $attributes = explode('§', $personString);
-                if (count($attributes) == 4) {
-                    $chain[] = new PartnerChainPerson($attributes[0], ($attributes[1] == '1'), $attributes[2], $attributes[3]);
-                }
-            }
+            $chain = $this->prepareOneChain($chainString);
             if (count($chain) > 0) {
                 $chains[] = $chain;
             }
         }
         return $chains;
+    }
+
+    /**
+     * prepare one chain of PartnerChainPerson
+     *
+     * example: 1§1§Max Mustermann§<URL>∞2§not a male person∞...
+     *
+     * @param string $chainString string containing '∞' and '§' to separate individuals and their parameters in one chain
+     * @return array of PartnerChainPerson
+     */
+    private function prepareOneChain(string $chainString): array
+    {
+        $chain = [];
+        $personStrings = explode('∞', $chainString);
+        foreach ($personStrings as $personString) {
+            $attributes = explode('§', $personString);
+            if (count($attributes) == 4) {
+                $chain[] = new PartnerChainPerson($attributes[0], ($attributes[1] == '1'), $attributes[2], $attributes[3]);
+            } elseif (count($attributes) == 2) {
+                $chain[] = new PartnerChainPerson($attributes[0], false, $attributes[1], '');
+            }
+        }
+        return $chain;
+    }
+
+    /**
+     * clean chain string by removing redundant recursion back step indicators
+     *
+     * @param string $chainString string containing '|' to separate chains; '∞' and '§' are used to separate individuals and their parameters
+     * @return string
+     */
+    private function cleanChainString(string $chainString): string
+    {
+        $cleanString = $chainString;
+        do {
+            $cleanString = str_replace("||", "|", $cleanString, $count);
+        } while ($count > 0);
+        return rtrim($cleanString, '|§∞ ');
     }
 
     /**
@@ -308,6 +345,8 @@ class Partner_chains extends ExtendedFamilyPart
      * '∞' used to separate individuals
      * '§' used to separate information fields for one individual: step, canShow, fullName, url
      *
+     * example: 1§1§Max Mustermann§<URL>∞2§not a male person|...
+     *
      * @param PartnerChainNode $node
      * @param string $chainString (modified in this function)
      * @param int $i recursion step (modified in this function)
@@ -315,13 +354,15 @@ class Partner_chains extends ExtendedFamilyPart
     private function buildStringPartnerChainsRecursive(PartnerChainNode $node, string &$chainString, int &$i)
     {
         if ($node->getIndividual() instanceof Individual) {
-            //echo "<br>".$i.": ".$node->getIndividual()->fullName()." /".$node->getFilterComment()."/ ";
             $chainString .= strval($i) . '§';
             if ($node->getFilterComment() == '') {
-                $chainString .= (($node->getIndividual()->canShow()) ? '1' : '0') . '§' . $node->getIndividual()->fullName() . '§' . $node->getIndividual()->url() . '∞';
+                $chainString .= (($node->getIndividual()->canShow()) ? '1' : '0') .
+                                '§' . $node->getIndividual()->fullName() .
+                                '§' . $node->getIndividual()->url();
             } else {
-                $chainString .= '0§' . I18N::translate($node->getFilterComment()) . '§∞';
+                $chainString .= I18N::translate($node->getFilterComment());
             }
+            $chainString .= '∞';
             foreach ($node->getChains() as $nextNode) {
                 $i++;
                 $this->buildStringPartnerChainsRecursive($nextNode, $chainString, $i);

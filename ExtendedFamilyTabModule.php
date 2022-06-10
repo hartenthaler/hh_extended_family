@@ -25,21 +25,19 @@
 
 /*
  * tbd
- * ---
+ * --------------------------  ab hier für das Release 2.1.5.5    ------------------------------------------------*
+ * issues: see GitHub
  *
- * issues/enhancements: see GitHub
- *
+ * Code: Anpassungen an Bootstrap 5 (Filter-Buttons)
  * Code: collection für Familien ausprogrammieren in ExtendedFamily.php
  * Code: automatisches Kopieren in den Sammelbehälter verwerfen und stattdessen Button in Betrieb nehmen * Code: Fehler in Grandchildren suchen
- * Code: bei gesetztem Filter "F" verschwindet Dieter G. am Ende der Kette (s .debug in tab.phtml #752 und #758)
- * Code: Anpassungen an Bootstrap 5 (Filter-Buttons)
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Code: prüfen ob allCountUnique immer richtig berechnet wird
  * Code: siehe 2x tbd in tab.phtml #1077
  * Code: Formulierung der Zusammenfassung konsistent machen
- * Übersetzung: Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
+ * Übersetzung: Satz umformulieren, da Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
  * READme: alle Screenshots aktualisieren
- * ------------------------------  bis hierher Release 2.1.5.4    ----------------------------------------------------
+ * --------------------------  ab hier für ein Release nach 2.1.5.5    ------------------------------------------------
  * Code: Grandchildren.php: statt großem Block wieder Unterfunktionen nutzen
  * Code: Ist die Funktion "getPedigreeValue" in ExtendedFamilySupport.php wirklich überflüssig? Dann löschen.
  * Code: weitere find... Funktionen programmieren und damit den alten Code ersetzen (in ExtendedFamilyPart.php)
@@ -101,7 +99,7 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
     public const CUSTOM_WEBSITE     = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION     = '2.1.5.3';
+    public const CUSTOM_VERSION     = '2.1.5.4';
     public const CUSTOM_LAST        = 'https://github.com/hartenthaler/' .
                                       self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
    

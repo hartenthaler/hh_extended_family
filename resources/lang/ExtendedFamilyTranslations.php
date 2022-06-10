@@ -1293,7 +1293,7 @@ class ExtendedFamilyTranslations
             'Include them' => 'Einbeziehen',
             'Show a button "copy to clippings cart"?' => 'Soll ein Knopf "kopieren in den Auswahlkorb" gezeigt werden',
             'This allows a user to copy all members of the extended family to the clippings cart.'
-                => 'Das erlaubt einem Anwender alle Mitglieder der erweiterten Familie in den Auswahlkorb zu kopieren.',
+                => 'Das erlaubt einem Anwender alle Mitglieder der erweiterten Familie in den Sammelbehälter zu kopieren.',
             'Show button' => 'Zeige den Knopf',
             
             'generation +%s' => 'Generation +%s',
@@ -1630,20 +1630,27 @@ class ExtendedFamilyTranslations
 
             'Partner chains' => 'Partnerketten',
             '%s has no members of a partner chain recorded.' => 'Für %s sind keine Mitglieder einer Partnerkette verzeichnet.',
+            'including %s' => 'einschließlich %s',
+            '%d female partner in this partner chain recorded' . I18N::PLURAL . '%d female partners in this partner chain recorded'
+                => 'Es ist eine Partnerin in dieser Partnerkette verzeichnet' . I18N::PLURAL . 'Es sind %d Partnerinnen in dieser Partnerkette verzeichnet',
+            '%d male partner in this partner chain recorded' . I18N::PLURAL . '%d male partners in this partner chain recorded'
+                => 'Es ist ein männlicher Partner in dieser Partnerkette verzeichnet' . I18N::PLURAL . 'Es sind %d männliche Partner in dieser Partnerkette verzeichnet',
+            '%d partner of unknown sex in this partner chain recorded' . I18N::PLURAL . '%d partners of unknown sex in this partner chain recorded'
+                => 'Es ist ein Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet' . I18N::PLURAL . 'Es sind %d Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet',
+            '%1$d female partner in this partner chain recorded (%2$d in total' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total'
+                => 'eine Partnerin in dieser Partnerkette verzeichnet (insgesamt %2$d' . I18N::PLURAL . '%1$d Partnerinnen in dieser Partnerkette verzeichnet (insgesamt %2$d',
+            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total'
+                => 'ein Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet (insgesamt %2$d' . I18N::PLURAL . '%1$d Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet (insgesamt %2$d',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '
-                => 'Für %2$s sind %1$d männlicher Partner und ' . I18N::PLURAL . 'Für %2$s sind %1$d männliche Partner und ',
-            '%1$d female partner in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total, including %3$s).'
-                => '%1$d Partnerin in dieser Partnerkette verzeichnet (insgesamt %2$d, inklusive %3$s).' . I18N::PLURAL . '%1$d Partnerinnen in dieser Partnerkette verzeichnet (insgesamt %2$d, inklusive %3$s).',
-            '%d female partner and ' . I18N::PLURAL . '%d female partners and '
-                => '%d Partnerin und ' . I18N::PLURAL . '%d Partnerinnen und ',
-            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).'
-                => '%1$d Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet (insgesamt %2$d, inklusive %3$s).' . I18N::PLURAL . '%d Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet (insgesamt %d, inklusive %3$s).',
+                => 'Für %2$s sind ein männlicher Partner und ' . I18N::PLURAL . 'Für %2$s sind %1$d männliche Partner und ',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
-                => 'Für %2$s sind %1$d Partnerin und ' . I18N::PLURAL . 'Für %2$s sind %1$d Partnerinnen und ',
+                => 'Für %2$s sind eine Partnerin und ' . I18N::PLURAL . 'Für %2$s sind %1$d Partnerinnen und ',
             '%2$s has %1$d male partner, ' . I18N::PLURAL . '%2$s has %1$d male partners, '
-                => 'Für %2$s sind %1$d männlicher Partner, ' . I18N::PLURAL . 'Für %2$s sind %1$d männliche Partner, ',
+                => 'Für %2$s sind ein männlicher Partner, ' . I18N::PLURAL . 'Für %2$s sind %1$d männliche Partner, ',
             '%d female partner, and ' . I18N::PLURAL . '%d female partners, and '
-                => '%d Partnerin und ' . I18N::PLURAL . '%d Partnerinnen und ',
+                => 'eine Partnerin und ' . I18N::PLURAL . '%d Partnerinnen und ',
+            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).'
+                => 'ein Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet (insgesamt %2$d, einschließlich %3$s).' . I18N::PLURAL . '%1$d Partner mit unbekanntem Geschlecht in dieser Partnerkette verzeichnet (insgesamt %2$d, einschließlich %3$s).',
             'There are %d branches in the partner chain. ' => 'Es gibt %d Zweige in der Partnerkette.',
             'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'Der längste Zweig in der Partnerkette zu %2$s besteht aus %1$d Partnern (einschließlich %3$s).',
             'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'Der längste Zweig in der Partnerkette besteht aus %1$d Partnern (einschließlich %2$s).',
