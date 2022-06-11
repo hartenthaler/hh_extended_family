@@ -3982,25 +3982,30 @@ class ExtendedFamilyTranslations
 
             'Partner chains' => 'Partnerketens',
             '%s has no members of a partner chain recorded.' => 'Voor %s zijn geen leden van een partnerketen geregistreerd.',
+            'including %s' => 'inclusief %s',
+            '%d female partner in this partner chain recorded' . I18N::PLURAL . '%d female partners in this partner chain recorded'
+                => 'Er is één vrouwelijke partner in deze partnerketen geregistreerd' . I18N::PLURAL . 'Er zijn %d vrouwelijke partners in deze partnerketen geregistreerd',
+            '%d male partner in this partner chain recorded' . I18N::PLURAL . '%d male partners in this partner chain recorded'
+                => 'Er is één mannelijke partner in deze partnerketen geregistreerd' . I18N::PLURAL . 'Er zijn %d mannelijke partners in deze partnerketen geregistreerd',
+            '%d partner of unknown sex in this partner chain recorded' . I18N::PLURAL . '%d partners of unknown sex in this partner chain recorded'
+                => 'Er is één partner van onbekend geslacht in deze partnerketen geregistreerd' . I18N::PLURAL . 'Er zijn %d partners van onbekend geslacht in deze partnerketen geregistreerd',
+            '%1$d female partner in this partner chain recorded (%2$d in total' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total'
+                => 'één vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal' . I18N::PLURAL . '%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal',
+            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total'
+                => 'één partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal' . I18N::PLURAL . '%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '
-                => 'Voor %2$s zijn %1$d mannelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners en ',
-            '%1$d female partner in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total, including %3$s).'
-                => '%1$d vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).' . I18N::PLURAL . '%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).',
-            '%d female partner and ' . I18N::PLURAL . '%d female partners and '
-                => '%d vrouwelijke partner en ' . I18N::PLURAL . '%d vrouwelijke partners en ',
-            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).'
-                => '%1$d partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).' . I18N::PLURAL . '%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).',
+                => 'Voor %2$s zijn één mannelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners en ',
             '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
-                => 'Voor %2$s zijn %1$d vrouwelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vrouwelijke partners en ',
+                => 'Voor %2$s zijn één vrouwelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vrouwelijke partners en ',
             '%2$s has %1$d male partner, ' . I18N::PLURAL . '%2$s has %1$d male partners, '
-                => 'Voor %2$s zijn %1$d mannelijke partner, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners, ',
+                => 'Voor %2$s zijn één mannelijke partner, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners, ',
             '%d female partner, and ' . I18N::PLURAL . '%d female partners, and '
-                => '%d vrouwelijke partner en ' . I18N::PLURAL . '%d vrouwelijke partners en ',
+                => 'één vrouwelijke partner en ' . I18N::PLURAL . '%d vrouwelijke partners en ',
+            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).'
+                => 'één partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).' . I18N::PLURAL . '%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).',
             'There are %d branches in the partner chain. ' => 'Er zijn %d takken in de partnerketen.',
-            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).'
-                => 'De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s).',
-            'The longest branch in the partner chain consists of %1$d partners (including %2$s).'
-                => 'De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s).',
+            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s).',
+            'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s).',
 
             'Siblings' => 'Broers en zussen',
             '%s has no siblings recorded.' => 'Voor %s zijn geen broers/zussen geregistreerd.',
