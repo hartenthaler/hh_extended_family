@@ -54,7 +54,8 @@ class ProbandName
             if (count($individual->facts(['NAME'])) > 0) {                      // check if there is at least one name
                 $niceName = ProbandName::findNiceNameFromRufnameOrNameParts($individual);
             } else {                                          // tbd move following translations to tab.pthml
-                $niceName = ProbandName::selectNameSex($individual, I18N::translate('He'),
+                $niceName = ProbandName::selectNameSex($individual,
+                    I18N::translate('He'),
                     I18N::translate('She'),
                     I18N::translate('He/she'));
             }
@@ -73,7 +74,7 @@ class ProbandName
     private static function findRufname(Individual $individual): string
     {
         $rufname = $individual->facts(['NAME'])[0]->attribute('_RUFNAME');
-        if ($rufname == '') {
+        if ($rufname == '') {                                               // there is no tag _RUFNAME
             $rufnameParts = explode('*', $individual->facts(['NAME'])[0]->value());
             if ($rufnameParts[0] !== $individual->facts(['NAME'])[0]->value()) {
                 // there is a Rufname marked with *, but no tag _RUFNAME
@@ -111,23 +112,28 @@ class ProbandName
     private static function findNiceNameFromNameParts(Individual $individual): string
     {
         $nameFacts = $individual->facts(['NAME']);
-        $nickname = $nameFacts[0]->attribute('NICK');
-        if ($nickname !== '') {
-            $niceName = $nickname;
-        } else {
+        if (count($nameFacts) > 0) {
+            $nickname = $nameFacts[0]->attribute('NICK');
+            if ($nickname !== '') {
+                return $nickname;
+            }
             $givenAndSurnames = explode('/', $nameFacts[0]->value());
-            if ($givenAndSurnames[0] !== '') {                         // are there given names (or prefix name parts)?
-                $niceName = ProbandName::selectFirstGivenName($givenAndSurnames, $nameFacts[0]->attribute('NPFX'));
-            } else {
+            if ($givenAndSurnames[0] !== '') {   // are there given names (or prefix name parts)?
+                $npfx = $nameFacts[0]->attribute('NPFX') ?? null;
+                return ProbandName::selectFirstGivenName($givenAndSurnames, $npfx);
+            } elseif (count($givenAndSurnames) > 1) {
                 $surname = $givenAndSurnames[1];
                 if ($surname !== '') {
-                    $niceName = ProbandName::selectNameSex($individual, I18N::translate('Mr.') . ' ' . $surname, I18N::translate('Mrs.') . ' ' . $surname, $surname);
-                } else {
-                    $niceName = ProbandName::selectNameSex($individual, I18N::translate('He'), I18N::translate('She'), I18N::translate('He/she'));
+                    return ProbandName::selectNameSex($individual,
+                        I18N::translate('Mr.') . ' ' . $surname,
+                        I18N::translate('Mrs.') . ' ' . $surname, $surname);
                 }
             }
         }
-        return $niceName;
+        return ProbandName::selectNameSex($individual,
+            I18N::translate('He'),
+            I18N::translate('She'),
+            I18N::translate('He/she'));;
     }
 
     /**
@@ -137,11 +143,11 @@ class ProbandName
      * @param string $npfx
      * @return string
      */
-    private static function selectFirstGivenName(array $givenAndSurnames, string $npfx): string
+    private static function selectFirstGivenName(array $givenAndSurnames, ?string $npfx): string
     {
         $niceName = '';
         $givenNameParts = explode( ' ', $givenAndSurnames[0]);
-        if ($npfx == '') {
+        if (!isset($npfx) && count($givenNameParts) > 0) {
             $niceName = $givenNameParts[0];                                     // the first given name
         } elseif (count(explode(' ', $npfx)) !== count($givenNameParts)) {
             $niceName = $givenNameParts[count(explode(' ', $npfx))];   // the first name after the prefix name parts

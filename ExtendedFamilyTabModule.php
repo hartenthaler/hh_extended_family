@@ -1,13 +1,13 @@
 <?php
 /*
- * webtrees - extended family tab
+ * webtrees - extended family tab (custom module)
  *
- * Copyright (C) 2021 Hermann Hartenthaler. All rights reserved.
- * Copyright (C) 2013 Vytautas Krivickas and vytux.com. All rights reserved. 
- * Copyright (C) 2013 Nigel Osborne and kiwtrees.net. All rights reserved.
+ * Copyright (C) 2025 Hermann Hartenthaler.
+ * Copyright (C) 2013 Vytautas Krivickas and vytux.com.
+ * Copyright (C) 2013 Nigel Osborne and kiwtrees.net.
  *
- * webtrees: online genealogy / web based family history software
- * Copyright (C) 2021 webtrees development team.
+ * webtrees: online genealogy application
+ * Copyright (C) 2025 webtrees development team.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,19 +25,21 @@
 
 /*
  * tbd
- * --------------------------  ab hier für das Release 2.1.5.5    ------------------------------------------------*
+ * --------------------------  ab hier für das Release 2.2.1.1    ------------------------------------------------*
  * issues: see GitHub
  *
  * Code: Anpassungen an Bootstrap 5 (Filter-Buttons)
  * Code: collection für Familien ausprogrammieren in ExtendedFamily.php
- * Code: automatisches Kopieren in den Sammelbehälter verwerfen und stattdessen Button in Betrieb nehmen * Code: Fehler in Grandchildren suchen
+ * Code: automatisches Kopieren in den Sammelbehälter verwerfen und stattdessen Button in Betrieb nehmen
+ * Code: Fehler in Grandchildren suchen
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Code: prüfen ob allCountUnique immer richtig berechnet wird
  * Code: siehe 2x tbd in tab.phtml #1077
  * Code: Formulierung der Zusammenfassung konsistent machen
  * Übersetzung: Satz umformulieren, da Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
  * READme: alle Screenshots aktualisieren
- * --------------------------  ab hier für ein Release nach 2.1.5.5    ------------------------------------------------
+ * --------------------------  ab hier für ein Release nach 2.2.1.1    ------------------------------------------------
+ * Code: neuen webtrees Validator zur Prüfung reinkommender Parameter verwenden (siehe Beispiele Magicsunday Fanchart)
  * Code: Grandchildren.php: statt großem Block wieder Unterfunktionen nutzen
  * Code: Ist die Funktion "getPedigreeValue" in ExtendedFamilySupport.php wirklich überflüssig? Dann löschen.
  * Code: weitere find... Funktionen programmieren und damit den alten Code ersetzen (in ExtendedFamilyPart.php)
@@ -61,12 +63,11 @@ declare(strict_types=1);
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Hartenthaler\Webtrees\Helpers\Functions;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\FlashMessages;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleTabTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
@@ -74,6 +75,9 @@ use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 //use Cissee\Webtrees\Module\ExtendedRelationships;
 
 use function str_starts_with;   // will be added in PHP 8.0
@@ -85,7 +89,8 @@ use function in_array;
 /**
  * Class ExtendedFamilyTabModule
  */
-class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterface, ModuleCustomInterface, ModuleConfigInterface
+class ExtendedFamilyTabModule extends AbstractModule
+                              implements ModuleTabInterface, ModuleCustomInterface, ModuleConfigInterface
 {
     use ModuleTabTrait;
     use ModuleCustomTrait;
@@ -94,15 +99,50 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     /**
      * list of const for module administration
      */
+
+    // Module title
     public const CUSTOM_TITLE       = 'Extended family';
+
+    // Module file name
     public const CUSTOM_MODULE      = 'hh_extended_family';
+
+    // Module description
     public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
+
+    // Author of custom module
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
-    public const CUSTOM_WEBSITE     = 'https://github.com/hartenthaler/' . self::CUSTOM_MODULE . '/';
+
+    // User in GitHub
+    public const CUSTOM_GITHUB_USER = 'hartenthaler';
+
+    // GitHub repository
+    public const GITHUB_REPO        = self::CUSTOM_GITHUB_USER . '/' . self::CUSTOM_MODULE;
+
+    // Custom module website
+    public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
+
+    // Custom module version
     public const CUSTOM_VERSION     = '2.1.5.4';
-    public const CUSTOM_LAST        = 'https://github.com/hartenthaler/' .
-                                      self::CUSTOM_MODULE. '/raw/main/latest-version.txt';
-   
+    public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
+                                                            self::CUSTOM_MODULE . '/raw/main/latest-version.txt';
+    // Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
+
+    /**
+     * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
+     * This is a good place to load business logic ("services").  Type-hint the parameters and
+     * they will be injected automatically.
+     */
+    public function __construct()
+    {
+        // NOTE:  If your module is dependent on any of the business logic ("services"),
+        // then you would type-hint them in the constructor and let webtrees inject them
+        // for you.  However, we can't use dependency injection on anonymous classes like
+        // this one. For an example of this, see the example-server-configuration module.
+
+        // use helper function in order to work with webtrees versions 2.1 and 2.2
+        $response_factory = Functions::getFromContainer(ResponseFactoryInterface::class);
+    }
+
     /**
      * find members of extended family parts
      *
@@ -212,12 +252,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
+     * view module settings in control panel
+     *
      * @param ServerRequestInterface $request
      * @return ResponseInterface
      */
     public function getAdminAction(ServerRequestInterface $request): ResponseInterface
     {
-        $this->layout = 'layouts/administration';
+        $this->layout = 'layouts' . DIRECTORY_SEPARATOR . 'administration';
         $response = [];
         
         $preferences = $this->listOfOtherPreferences();
@@ -225,23 +267,26 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
             $response[$preference] = $this->getPreference($preference);
         }
 
-        $response['efps'] = $this->getShownFamilyParts();
-        $response['title'] = $this->title();
-        $response['description'] = $this->description();
-        $response['uses_sorting'] = true;
+        $response['efps']           = $this->getShownFamilyParts();
+        $response['title']          = $this->title();
+        $response['description']    = $this->description();
+        $response['uses_sorting']   = true;
 
         return $this->viewResponse($this->name() . '::' . 'settings', $response);
     }
 
     /**
-     * save the user preferences in the database
+     * save module settings after returning from control panel
      *
      * @param ServerRequestInterface $request
      * @return ResponseInterface
      */
     public function postAdminAction(ServerRequestInterface $request): ResponseInterface
     {
+        // tbd: use Validator::parsedBody($request)->string|boolean|...('xxx', ''|true|...);
         $params = (array) $request->getParsedBody();
+
+        // save the received settings to the user preferences
         if ($params['save'] === '1') {
             $this->postAdminActionOther($params);
             $this->postAdminActionEfp($params);
@@ -464,9 +509,9 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     * A sentence describing what this module does. Used in the list of all installed modules.
+     * {@inheritDoc}
      *
-     * @return string
+     * @see AbstractModule::description
      */
     public function description(): string
     {
@@ -589,22 +634,14 @@ class ExtendedFamilyTabModule extends AbstractModule implements ModuleTabInterfa
     }
 
     /**
-     *  constructor
-     */
-    public function __construct()
-    {
-        // IMPORTANT - the constructor is called on *all* modules, even ones that are disabled.
-        // It is also called before the webtrees framework is initialised, and so other components will not yet exist.
-    }
-
-    /**
-     *  bootstrap
+     * bootstrap
+     *
+     * Here is also a good place to register any views (templates) used by the module.
+     * This command allows the module to use: view($this->name() . '::', 'fish')
+     * to access the file ./resources/views/fish.phtml
      */
     public function boot(): void
     {
-        // Here is also a good place to register any views (templates) used by the module.
-        // This command allows the module to use: view($this->name() . '::', 'fish')
-        // to access the file ./resources/views/fish.phtml
         View::registerNamespace($this->name(), $this->resourcesFolder() . 'views/');
     }
     

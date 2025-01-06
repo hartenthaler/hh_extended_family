@@ -93,7 +93,7 @@ Screenshot of control panel menu
 
 This module requires **webtrees** version 2.1 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
-The last version for webtrees 2.0 is 2.0.16.58.
+The last version of this module for webtrees 2.0 is 2.0.16.58.
 
 This module was tested with **webtrees** 2.1.5 version
 and all available themes and all other custom modules.
@@ -122,7 +122,9 @@ with the new ones from the latest release.
 You can help to translate this module.
 The language information is stored in the file "resources/lang/ExtendedFamilyTranslation.php".
 The German part is the most actual and can be used as a base for your translation.
-Use a local editor, like notepad++ to make the translations and send it back to me. You can do this via a pull request (if you know how) or by e-mail.
+Use a local editor, like notepad++ to make the translations and send it back to me.
+The strings are delimited by an apostroph "'", so if you need an apostroph in your string you have to use "\'" instead.
+You can do this via a pull request (if you know how) or by e-mail.
 Updated translations will be included in the next release of this module.
 
 There are now, beside English and German, translations to
@@ -130,7 +132,7 @@ There are now, beside English and German, translations to
 * Chinese by @olor (=iyoua)
 * Czech by @jpretired
 * Dutch by @TheDutchJewel
-* French by @PalmyreSG1 and @fa10175
+* French by @PalmyreSG1, @fa10175, and @geugeu1
 * Hindi by @mrqd9
 * Italian by @tonio (under preparation)
 * Norwegian Bokmål by @eyolf
@@ -145,7 +147,7 @@ There are now, beside English and German, translations to
 
 <span style="font-weight: bold;">Issues: </span>you can report errors raising an issue in this GitHub repository.
 
-<span style="font-weight: bold;">Forum: </span>general webtrees support can be found at the [webtrees forum](http://www.webtrees.net/)
+<span style="font-weight: bold;">Forum: </span>general webtrees support can be found at the [webtrees forum](http://www.webtrees.net/).
 
 <a name="license"></a>
 ## License

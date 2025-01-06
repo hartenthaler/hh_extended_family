@@ -2480,15 +2480,15 @@ class ExtendedFamilyTranslations
             'A tab showing the extended family of an individual.' => 'Un onglet montrant la famille élargie d\'un individu.',
             'In which sequence should the parts of the extended family be shown?' => 'Dans quel ordre les parties de la famille élargie doivent-elles être montrées?',
             'Family part (generation relative to proband)' => 'Blocs familiaux (generation relative to proband)',
-            'Show name of proband as short name or as full name?' => 'Afficher le nom du proband comme nom court ou comme nom complet?',
+            'Show name of proband as short name or as full name?' => 'Afficher le nom du racine comme nom court ou comme nom complet?',
             'Show options to filter the results?' => 'Afficher des options pour filtrer les résultats?',
             'Show filter options' => 'Afficher les options de filtrage',
             'How should empty parts of extended family be presented?' => 'Comment présenter les parties vides de la famille élargie?',
             'Show empty block' => 'Afficher le bloc vide',
             'yes, always at standard location' => 'oui, toujours à l\'emplacement standard',
-            'no, but collect messages about empty blocks at the end' => 'non, mais collecte des messages sur les blocs vides à la fin',
+            'no, but collect messages about empty blocks at the summary block' => 'non, mais collecte des messages sur les blocs vides à la fin',
             'never' => 'jamais',
-            'The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Le nom court est basé sur le nom de famille ou le surnom du proband. Si ceux-ci ne sont pas disponibles, le premier des prénoms est utilisé, s\'il y en a un. Sinon, c\'est le nom de famille qui est utilisé.',
+            'The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Le nom court est basé sur le nom de famille ou le surnom du racine. Si ceux-ci ne sont pas disponibles, le premier des prénoms est utilisé, s\'il y en a un. Sinon, c\'est le nom de famille qui est utilisé.',
             'Show short name' => 'Afficher le nom court',
             'Show labels in special situations?' => 'Afficher les étiquettes dans des situations particulières?',
             'Labels (or stickers) are used for example for adopted persons or foster children.' => 'Les étiquettes sont utilisées par exemple pour les personnes adoptées ou les enfants placés en famille d\'accueil.',
@@ -2499,6 +2499,26 @@ class ExtendedFamilyTranslations
             'Show parameters of extended family part?' => 'Montrer les paramètres de la partie de la famille élargie?',
             'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' => 'Affichage d\'informations supplémentaires pour chaque partie de la famille élargie, telles que le décalage des générations et le coefficient de parenté, qui est une mesure du degré de consanguinité.',
             'Show parameters' => 'Afficher les paramètres',
+            'This allows a user to filter the members of the extended family by gender and if they are alive or dead.'
+                => 'Permet de classer les membres de la famille étendue par gendre et par vivant ou décédé.',
+            'Should a summary block be shown?' => 'La syntèse doit-elle être visible?',
+            'The summary contains information about the extended family in total.' => 'La synthèse indique le nombre de membres formant la famille étendue.',
+            'Show summary' => 'Afficher la synthèse',
+            'Count the members of the partner chains as members of the extended family?'
+                => 'Doit-on comptabiliser les membres de la famille étendue du conjoint?',
+            'If you select "no", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family.'
+                => 'Si vous cochez "non", alors les membres de la famille étendue du conjoint ne seront pas comptabilisés dans le total de la famille étendue.',
+            'And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.'
+                => 'Ces personnes et leurs familles ne seront pas selectionnées lorque l\'utilisateur fera une copie de la famille étendue dans le panier.',
+            'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".'
+                => 'Mais, même dans ce cas, l\'utilisateur peut inclure ces personnes et leurs familles dans l\'exrtrait de gedcom en utilisant le menu spécial "le panier étendu": "inclure les chaînes de partenaires de l\'individu".',
+            'This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.'
+                => 'Ce n\'est pertinent que vous avez choisi dans la table précédente que les branches du conjoint doivent faire partie de la famille étendu de l\'individu.',
+            'Include them' => 'Include them',
+            'Show a button "copy to clippings cart"?' => 'Afficher le bouton "Copie dans le panier"?',
+            'This allows a user to copy all members of the extended family to the clippings cart.'
+                => 'Ce bouton permet de copier les membres de la famille étendue dans le panier.',
+            'Show button' => 'Afficher le bouton',
 
             'generation +%s' => 'génération +%s',
             'same generation' => 'même génération',
@@ -2520,7 +2540,7 @@ class ExtendedFamilyTranslations
             'not a female person' => 'pas une personne de sexe féminin',
             'not a person of unknown gender' => 'pas une personne de sexe inconnu',
             'copy all members of the extended family to the clippings cart' => 'copy all members of the extended family to the clippings cart',
-            'copy to clippings cart' => 'copy to clippings cart',
+            'copy to clippings cart' => 'Copie dans le panier',
 
             'twin' => 'jumeau',
             'triplet' => 'triplés',
@@ -2611,9 +2631,13 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Mr.',
             'Mrs.' => 'Mme.',
             'No family available' => 'Aucune famille disponible',
-            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'Summary for the shown extended family' => 'Synthèse de la famille élargie',
             'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).'
-                => 'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).',
+                => 'The extended family has only %1$s as a member.' . I18N::PLURAL . 'La famille étendue de %1$s comprend %2$d personnes (inclus %1$s).',
+            '(additional members of the partner chains are not counted)'
+                => '(les membres de la famille élargie du conjoint de l\'individu ne sont pas comptabilisés)',
+            'Some of them are member in more than one part of the extended family.'
+                => 'Some of them are member in more than one part of the extended family.',
             '%s has no %s recorded.' => '%s no tiene %s registrados.',
             '%s has no %s, and no %s recorded.' => '%s n\'a pas %s ni %s enregistré.',
 
@@ -3982,30 +4006,25 @@ class ExtendedFamilyTranslations
 
             'Partner chains' => 'Partnerketens',
             '%s has no members of a partner chain recorded.' => 'Voor %s zijn geen leden van een partnerketen geregistreerd.',
-            'including %s' => 'inclusief %s',
-            '%d female partner in this partner chain recorded' . I18N::PLURAL . '%d female partners in this partner chain recorded'
-                => 'Er is één vrouwelijke partner in deze partnerketen geregistreerd' . I18N::PLURAL . 'Er zijn %d vrouwelijke partners in deze partnerketen geregistreerd',
-            '%d male partner in this partner chain recorded' . I18N::PLURAL . '%d male partners in this partner chain recorded'
-                => 'Er is één mannelijke partner in deze partnerketen geregistreerd' . I18N::PLURAL . 'Er zijn %d mannelijke partners in deze partnerketen geregistreerd',
-            '%d partner of unknown sex in this partner chain recorded' . I18N::PLURAL . '%d partners of unknown sex in this partner chain recorded'
-                => 'Er is één partner van onbekend geslacht in deze partnerketen geregistreerd' . I18N::PLURAL . 'Er zijn %d partners van onbekend geslacht in deze partnerketen geregistreerd',
-            '%1$d female partner in this partner chain recorded (%2$d in total' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total'
-                => 'één vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal' . I18N::PLURAL . '%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal',
-            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total'
-                => 'één partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal' . I18N::PLURAL . '%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal',
             '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '
-                => 'Voor %2$s zijn één mannelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners en ',
-            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
-                => 'Voor %2$s zijn één vrouwelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vrouwelijke partners en ',
-            '%2$s has %1$d male partner, ' . I18N::PLURAL . '%2$s has %1$d male partners, '
-                => 'Voor %2$s zijn één mannelijke partner, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners, ',
-            '%d female partner, and ' . I18N::PLURAL . '%d female partners, and '
-                => 'één vrouwelijke partner en ' . I18N::PLURAL . '%d vrouwelijke partners en ',
+                => 'Voor %2$s zijn %1$d mannelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners en ',
+            '%1$d female partner in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total, including %3$s).'
+                => '%1$d vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).' . I18N::PLURAL . '%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).',
+            '%d female partner and ' . I18N::PLURAL . '%d female partners and '
+                => '%d vrouwelijke partner en ' . I18N::PLURAL . '%d vrouwelijke partners en ',
             '%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).'
-                => 'één partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).' . I18N::PLURAL . '%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).',
+                => '%1$d partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).' . I18N::PLURAL . '%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s).',
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and '
+                => 'Voor %2$s zijn %1$d vrouwelijke partner en ' . I18N::PLURAL . 'Voor %2$s zijn %1$d vrouwelijke partners en ',
+            '%2$s has %1$d male partner, ' . I18N::PLURAL . '%2$s has %1$d male partners, '
+                => 'Voor %2$s zijn %1$d mannelijke partner, ' . I18N::PLURAL . 'Voor %2$s zijn %1$d mannelijke partners, ',
+            '%d female partner, and ' . I18N::PLURAL . '%d female partners, and '
+                => '%d vrouwelijke partner en ' . I18N::PLURAL . '%d vrouwelijke partners en ',
             'There are %d branches in the partner chain. ' => 'Er zijn %d takken in de partnerketen.',
-            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' => 'De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s).',
-            'The longest branch in the partner chain consists of %1$d partners (including %2$s).' => 'De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s).',
+            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).'
+                => 'De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s).',
+            'The longest branch in the partner chain consists of %1$d partners (including %2$s).'
+                => 'De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s).',
 
             'Siblings' => 'Broers en zussen',
             '%s has no siblings recorded.' => 'Voor %s zijn geen broers/zussen geregistreerd.',
