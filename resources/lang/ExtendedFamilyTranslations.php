@@ -3233,8 +3233,8 @@ class ExtendedFamilyTranslations
             'not a male person' => 'ingen person av hankjønn',
             'not a female person' => 'ingen person av hunkjønn',
             'not a person of unknown gender' => 'ingen person av ukjent kjønn',
-            'copy all members of the extended family to the clippings cart' => 'copy all members of the extended family to the clippings cart',
-            'copy to clippings cart' => 'copy to clippings cart',
+            'copy all members of the extended family to the clippings cart' => 'kopiér alle medlemmer av storfamilien til utklippsmappen',
+            'copy to clippings cart' => 'kopiér til utklippsmappen',
 
             'twin' => 'tvilling',
             'triplet' => 'trilling',
@@ -3323,9 +3323,9 @@ class ExtendedFamilyTranslations
             'Mr.' => 'Herr',
             'Mrs.' => 'Fru',
             'No family available' => 'Ingen familie funnet',
-            'Summary for the shown extended family' => 'Summary for the shown extended family',
+            'Summary for the shown extended family' => 'Sammendrag for den viste storfamilien',
             'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).'
-                => 'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).',
+                => '%1$s er det eneste medlemmet av storfamilien.' . I18N::PLURAL . 'Storfamilien til %1$s har %2$d medlemmer (medregnet %1$s).',
             '%s has no %s recorded.' => '%s har ingen registrerte %s.',
             '%s has no %s, and no %s recorded.' => '%s har ingen registrerte %s og ingen %s.',
 
