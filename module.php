@@ -6,7 +6,7 @@
  *                    <https://webtrees.net>
  *
  * webtrees - extended family tab (webtrees custom module):
- * Copyright (C) 2025 Hermann Hartenthaler 
+ * Copyright (C) 2025 Hermann Hartenthaler
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,16 +26,6 @@ declare(strict_types=1);
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
-use Composer\Autoload\ClassLoader;
-
-$loader = new ClassLoader();
-
-// this webtrees custom module
-$loader->addPsr4('Hartenthaler\\Webtrees\\Module\\ExtendedFamily\\', __DIR__);
-
-// my helper functions for webtrees custom modules
-$loader->addPsr4('Hartenthaler\\Webtrees\\Helpers\\', __DIR__ . "/vendor/hartenthaler/Webtrees/Helpers");
-
-$loader->register();
+if (!require_once __DIR__ . '/autoload.php') return null;
 
 return new ExtendedFamilyTabModule;
