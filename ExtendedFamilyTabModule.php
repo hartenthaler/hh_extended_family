@@ -25,7 +25,7 @@
 
 /*
  * tbd
- * --------------------------  ab hier für das Release 2.2.1.1    ------------------------------------------------*
+ * --------------------------  ab hier für das Release 2.2.1.2    ------------------------------------------------*
  * issues: see GitHub
  *
  * Code: Anpassungen an Bootstrap 5 (Filter-Buttons)
@@ -38,7 +38,8 @@
  * Code: Formulierung der Zusammenfassung konsistent machen
  * Übersetzung: Satz umformulieren, da Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
  * READme: alle Screenshots aktualisieren
- * --------------------------  ab hier für ein Release nach 2.2.1.1    ------------------------------------------------
+ *
+ * --------------------------  ab hier für ein Release nach 2.2.1.2    ------------------------------------------------
  * Code: neuen webtrees Validator zur Prüfung reinkommender Parameter verwenden (siehe Beispiele Magicsunday Fanchart)
  * Code: Grandchildren.php: statt großem Block wieder Unterfunktionen nutzen
  * Code: Ist die Funktion "getPedigreeValue" in ExtendedFamilySupport.php wirklich überflüssig? Dann löschen.
@@ -122,7 +123,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.1.5.4';
+    public const CUSTOM_VERSION     = '2.2.1.1';
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
                                                             self::CUSTOM_MODULE . '/raw/main/latest-version.txt';
     // Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?

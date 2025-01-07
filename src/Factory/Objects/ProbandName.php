@@ -1,11 +1,11 @@
 <?php
 /*
- * webtrees - extended family part
+ * webtrees - extended family part (custom module)
  *
- * Copyright (C) 2021 Hermann Hartenthaler. All rights reserved.
+ * Copyright (C) 2025 Hermann Hartenthaler. All rights reserved.
  *
  * webtrees: online genealogy / web based family history software
- * Copyright (C) 2021 webtrees development team.
+ * Copyright (C) 2025 webtrees development team.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@ use Fisharebest\Webtrees\Individual;
 
 use function count;
 use function explode;
+use function array_diff;
 
 /**
  * class ProbandName
@@ -51,42 +52,22 @@ class ProbandName
     public static function findNiceName(Individual $individual, bool $showShortName): string
     {
         if ($showShortName) {
-            if (count($individual->facts(['NAME'])) > 0) {                      // check if there is at least one name
-                $niceName = ProbandName::findNiceNameFromRufnameOrNameParts($individual);
-            } else {                                          // tbd move following translations to tab.pthml
-                $niceName = ProbandName::selectNameSex($individual,
-                    I18N::translate('He'),
-                    I18N::translate('She'),
-                    I18N::translate('He/she'));
-            }
+            //if (count($individual->facts(['NAME'])) > 0) {                      // check if there is at least one name
+                return ProbandName::findNiceNameFromRufnameOrNameParts($individual);
+            //} else {
+            //    $niceName = ProbandName::selectNameSex($individual,
+             //       I18N::translate('He'),
+            //        I18N::translate('She'),
+             //       I18N::translate('He/she'));
+            //}
         } else {
-            $niceName = $individual->fullname();
+            return $individual->fullname();
         }
-        return $niceName;
+        //return $niceName;
     }
 
     /**
-     * find rufname of an individual (tag _RUFNAME or marked with '*'
-     *
-     * @param Individual $individual
-     * @return string (is empty if there is no Rufname)
-     */
-    private static function findRufname(Individual $individual): string
-    {
-        $rufname = $individual->facts(['NAME'])[0]->attribute('_RUFNAME');
-        if ($rufname == '') {                                               // there is no tag _RUFNAME
-            $rufnameParts = explode('*', $individual->facts(['NAME'])[0]->value());
-            if ($rufnameParts[0] !== $individual->facts(['NAME'])[0]->value()) {
-                // there is a Rufname marked with *, but no tag _RUFNAME
-                $rufnameParts = explode(' ', $rufnameParts[0]);
-                $rufname = $rufnameParts[count($rufnameParts)-1];         // it has to be the last given name (before *)
-            }
-        }
-        return $rufname;
-    }
-
-    /**
-     * Find a short, nice name for a person based on Rufname or name facts
+     * Find a short, nice name for a person based on Rufname or name facts in the first NAME record
      *
      * @param Individual $individual
      * @return string
@@ -102,8 +83,33 @@ class ProbandName
     }
 
     /**
-     * Find a short, nice name for a person based on name facts
-     * => use Rufname or nickname ("Sepp") or first of first names if one of these is available
+     * find rufname of an individual (tag _RUFNAME or marked with '*' or both)
+     * prefer _RUFNAME more than '*'
+     *
+     * @param Individual $individual
+     * @return string (is empty if there is no Rufname)
+     */
+    private static function findRufname(Individual $individual): string
+    {
+        $rufname = '';
+        $nameFacts = $individual->facts(['NAME']);
+        if (count($nameFacts) > 0) {
+            $rufname = $nameFacts[0]->attribute('_RUFNAME');            // check tag _RUFNAME in first NAME record
+            if ($rufname == '') {                                       // there is no tag _RUFNAME, so search for '*'
+                $rufnameParts = explode('*', $nameFacts[0]->value());
+                if ($rufnameParts[0] !== $nameFacts[0]->value()) {
+                    // there is a Rufname marked with '*', but no tag _RUFNAME
+                    $rufnameParts = explode(' ', $rufnameParts[0]);  // this expands the name pieces before the '*'
+                    $rufname = $rufnameParts[count($rufnameParts) - 1];         // it has to be the last given name (before *)
+                }
+            }
+        }
+        return $rufname;
+    }
+
+    /**
+     * Find a short, nice name for a person based on name facts in the first NAME record
+     * => use nickname ("Sepp") or first of first names if one of those is available
      *    => otherwise use surname if available
      *
      * @param Individual $individual
@@ -112,45 +118,75 @@ class ProbandName
     private static function findNiceNameFromNameParts(Individual $individual): string
     {
         $nameFacts = $individual->facts(['NAME']);
-        if (count($nameFacts) > 0) {
+        if (count($nameFacts) > 0) {                // is there any NAME record?
+            // search for nickname based on GEDCOM tag (sometimes a nickname is defined by a name enclosed in "")
             $nickname = $nameFacts[0]->attribute('NICK');
             if ($nickname !== '') {
                 return $nickname;
             }
+            // search in NAME tag (like "NAME Dr. Rainer Maria /Hartenthaler/")
             $givenAndSurnames = explode('/', $nameFacts[0]->value());
-            if ($givenAndSurnames[0] !== '') {   // are there given names (or prefix name parts)?
-                $npfx = $nameFacts[0]->attribute('NPFX') ?? null;
-                return ProbandName::selectFirstGivenName($givenAndSurnames, $npfx);
-            } elseif (count($givenAndSurnames) > 1) {
-                $surname = $givenAndSurnames[1];
-                if ($surname !== '') {
-                    return ProbandName::selectNameSex($individual,
-                        I18N::translate('Mr.') . ' ' . $surname,
-                        I18N::translate('Mrs.') . ' ' . $surname, $surname);
-                }
+            if ($givenAndSurnames[0] !== '') {                      // are there given names (or prefix name parts) before the first '/'??
+                $npfx = $nameFacts[0]->attribute('NPFX') ?? null;   // name prefix based on NPFX name piece
+                $niceName = ProbandName::selectFirstGivenName($givenAndSurnames[0], $npfx);
+                if ($niceName !== '') return $niceName;             // only if there are given names and not only name prefixes
+            }
+            if (count($givenAndSurnames) > 1) {                     // are there name pieces after the first slash?
+                return ProbandName::selectSurname($individual, $givenAndSurnames[1]);
             }
         }
         return ProbandName::selectNameSex($individual,
             I18N::translate('He'),
             I18N::translate('She'),
-            I18N::translate('He/she'));;
+            I18N::translate('He/she'));
     }
 
     /**
-     * select first given name
+     * select nice name based on surname (there were no given names found)
      *
-     * @param array<int, string> $givenAndSurnames
-     * @param string $npfx
+     * @param Individual $individual
+     * @param string $surname
      * @return string
      */
-    private static function selectFirstGivenName(array $givenAndSurnames, ?string $npfx): string
+    private static function selectSurname(Individual $individual, string $surname): string
+    {
+        // Check if a surname exists
+        if ($surname !== '') {
+            // Return the selected surname with the appropriate title
+            return ProbandName::selectNameSex(
+                $individual,
+                I18N::translate('Mr.') . ' ' . $surname,
+                I18N::translate('Mrs.') . ' ' . $surname,
+                $surname
+            );
+        }
+
+        return '';                      // return an empty string if no surname is provided
+    }
+
+    /**
+     * select first given name (there are maybe prefix name parts still included, like 'Dr.' 'h.c.'; skip them)
+     *
+     * @param string $givenNames string with given names (everything before the '/' in the NAME record)
+     * @param string|null $npfx name prefix based on GEDCOM tag NPFX
+     * @return string
+     */
+    private static function selectFirstGivenName(string $givenNames, ?string $npfx): string
     {
         $niceName = '';
-        $givenNameParts = explode( ' ', $givenAndSurnames[0]);
-        if (!isset($npfx) && count($givenNameParts) > 0) {
-            $niceName = $givenNameParts[0];                                     // the first given name
-        } elseif (count(explode(' ', $npfx)) !== count($givenNameParts)) {
-            $niceName = $givenNameParts[count(explode(' ', $npfx))];   // the first name after the prefix name parts
+        $givenNameParts = explode( ' ', $givenNames);     // list of all the name parts
+        if (end($givenNameParts) === '') {
+            array_pop($givenNameParts);                     // delete last array element if it is empty
+        }
+
+        if (isset($npfx)) {
+            $npfxParts = explode(' ', $npfx);             // list of name prefix parts based on NPFX name piece
+            // remove all elements from `$givenNameParts` that are present in `$npfxParts`
+            $givenNameParts = array_values(array_diff($givenNameParts, $npfxParts));
+        }
+
+        if (count($givenNameParts) > 0) {                           // are there still given names?
+            $niceName = $givenNameParts[0];                         // select the first given name
         }
         return $niceName;
     }
