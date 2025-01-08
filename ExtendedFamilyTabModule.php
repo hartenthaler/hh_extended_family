@@ -28,6 +28,7 @@
  * --------------------------  ab hier für das Release 2.2.1.2    ------------------------------------------------*
  * issues: see GitHub
  *
+ * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
  * Code: Anpassungen an Bootstrap 5 (Filter-Buttons)
  * Code: collection für Familien ausprogrammieren in ExtendedFamily.php
  * Code: automatisches Kopieren in den Sammelbehälter verwerfen und stattdessen Button in Betrieb nehmen
@@ -86,6 +87,7 @@ use function explode;
 use function implode;
 use function count;
 use function in_array;
+use function redirect;
 
 /**
  * Class ExtendedFamilyTabModule
@@ -123,10 +125,9 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.1.1';
+    public const CUSTOM_VERSION     = '2.2.1.2';
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
                                                             self::CUSTOM_MODULE . '/raw/main/latest-version.txt';
-    // Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
 
     /**
      * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
