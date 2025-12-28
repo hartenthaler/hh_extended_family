@@ -3681,7 +3681,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'gebruik dit filter niet',
             'show only male persons' => 'toon alleen mannen',
             'show only female persons' => 'toon alleen vrouwen',
-            'show only persons of other or unknown gender' => 'toon alleen personen van onbekend geslacht',
+            'show only persons of other or unknown gender' => 'toon alleen personen van een ander of onbekend geslacht',
             'show only alive persons' => 'toon alleen levende personen',
             'show only dead persons' => 'toon alleen overleden personen',
             'alive' => 'levend',
