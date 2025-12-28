@@ -87,15 +87,21 @@ class Great_grandparents extends ExtendedFamilyPart
                 'bio' => [
                     'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIO,
                     'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIO,
-                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_BIO],
+                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_BIO,
+                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_BIO
+                ],
                 'stepbio' => [
                     'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEPBIO,
                     'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEPBIO,
-                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO],
+                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO,
+                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO
+                ],
                 'step' => [
                     'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP,
                     'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP,
-                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP]
+                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP,
+                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP
+                ]
             ]
         );
         $this->addFamilyBranches($config);

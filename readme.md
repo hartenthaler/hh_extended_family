@@ -2,8 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-![webtrees major version](https://img.shields.io/badge/webtrees-v2.0.x-green)
-![webtrees major version](https://img.shields.io/badge/webtrees-v2.1.x-green)
+![webtrees major version](https://img.shields.io/badge/webtrees-v2.2.x-green)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0f3951ce4532e3837215/maintainability)](https://codeclimate.com/github/hartenthaler/hh_extended_family/maintainability)
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
@@ -72,6 +71,7 @@ The default presentation sequence of the extended family parts is oriented at th
 * children-in-law                          // generation -1
 * grandchildren                            // generation -2
 * grandchildren-in-law                     // generation -2
+* great-grandchildren                      // generation -3 (tbd)
 
 <a name="screenshots"></a>
 ## Screenshots
@@ -91,11 +91,10 @@ Screenshot of control panel menu
 <a name="requirements"></a>
 ## Requirements
 
-This module requires **webtrees** version 2.1 or later.
+This module requires **webtrees** version 2.2 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
-The last version of this module for webtrees 2.0 is 2.0.16.58.
 
-This module was tested with **webtrees** 2.1.5 version
+This module was tested with **webtrees** 2.2.4 version
 and all available themes and all other custom modules.
 
 <a name="installation"></a>
@@ -139,6 +138,7 @@ There are now, beside English and German, translations to
 * Russian by @aurbo
 * Slovak by @ro-la
 * Spanish by @yako1984 and @bernatbanyuls
+* Swedish by Simon W.
 * Ukrainian by @z-yurets
 * Vietnamese by @ngohuuthuan
 
@@ -152,8 +152,8 @@ There are now, beside English and German, translations to
 <a name="license"></a>
 ## License
 
-* Copyright (C) 2022 Hermann Hartenthaler
-* Derived from **webtrees** - Copyright 2022 webtrees development team.
+* Copyright (C) 2025 Hermann Hartenthaler
+* Derived from **webtrees** - Copyright 2025 webtrees development team.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

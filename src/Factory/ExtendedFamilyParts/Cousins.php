@@ -72,8 +72,18 @@ class Cousins extends ExtendedFamilyPart
         $config = new FindBranchConfig(
             'cousins',
         [
-            'full' => ['M' => self::GROUP_COUSINS_FULL_FATHER, 'F' => self::GROUP_COUSINS_FULL_MOTHER, 'U' => self::GROUP_COUSINS_FULL_U],
-            'half' => ['M' => self::GROUP_COUSINS_HALF_FATHER, 'F' => self::GROUP_COUSINS_HALF_MOTHER, 'U' => self::GROUP_COUSINS_HALF_U],
+            'full' => [
+                        'M' => self::GROUP_COUSINS_FULL_FATHER,
+                        'F' => self::GROUP_COUSINS_FULL_MOTHER,
+                        'U' => self::GROUP_COUSINS_FULL_U,
+                        'X' => self::GROUP_COUSINS_FULL_U
+            ],
+            'half' => [
+                        'M' => self::GROUP_COUSINS_HALF_FATHER,
+                        'F' => self::GROUP_COUSINS_HALF_MOTHER,
+                        'U' => self::GROUP_COUSINS_HALF_U,
+                        'X' => self::GROUP_COUSINS_HALF_U
+            ],
         ]);
         $this->addFamilyBranches($config);
     }

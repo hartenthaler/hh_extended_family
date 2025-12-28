@@ -52,18 +52,10 @@ class ProbandName
     public static function findNiceName(Individual $individual, bool $showShortName): string
     {
         if ($showShortName) {
-            //if (count($individual->facts(['NAME'])) > 0) {                      // check if there is at least one name
-                return ProbandName::findNiceNameFromRufnameOrNameParts($individual);
-            //} else {
-            //    $niceName = ProbandName::selectNameSex($individual,
-             //       I18N::translate('He'),
-            //        I18N::translate('She'),
-             //       I18N::translate('He/she'));
-            //}
+            return ProbandName::findNiceNameFromRufnameOrNameParts($individual);
         } else {
             return $individual->fullname();
         }
-        //return $niceName;
     }
 
     /**

@@ -76,7 +76,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'No utilitzar aquest filtre',
             'show only male persons' => 'Mostrar nom&eacute;s homes',
             'show only female persons' => 'Mostrar nom&eacute;s dones',
-            'show only persons of unknown gender' => 'Mostrar nom&eacute;s persones de g&egrave;nere desconegut',
+            'show only persons of other or unknown gender' => 'Mostrar nom&eacute;s persones de g&egrave;nere desconegut',
             'show only alive persons' => 'Mostrar nom&eacute;s persones vives',
             'show only dead persons' => 'Mostrar nom&eacute;s persones difuntes',
             'alive' => 'Viu',
@@ -693,7 +693,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'tento filtr nepoužívat',
             'show only male persons' => 'zobrazit pouze osoby mužského pohlaví',
             'show only female persons' => 'zobrazit pouze osoby ženského pohlaví',
-            'show only persons of unknown gender' => 'zobrazit pouze osoby neznámého pohlaví',
+            'show only persons of other or unknown gender' => 'zobrazit pouze osoby neznámého pohlaví',
             'show only alive persons' => 'zobrazit pouze žijící osoby',
             'show only dead persons' => 'zobrazit pouze zemřelé osoby',
             'alive' => 'žijící',
@@ -1305,7 +1305,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'verwende diesen Filter nicht',
             'show only male persons' => 'zeige nur männliche Personen',
             'show only female persons' => 'zeige nur weibliche Personen',
-            'show only persons of unknown gender' => 'zeige nur Personen unbekannten Geschlechts',
+            'show only persons of other or unknown gender' => 'zeige nur Personen mit anderem oder unbekanntem Geschlecht',
             'show only alive persons' => 'zeige nur Personen, die noch leben',
             'show only dead persons' => 'zeige nur Personen, die bereits verstorben sind',
             'alive' => 'lebend',
@@ -1913,7 +1913,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'No usar este filtro',
             'show only male persons' => 'Mostrar sólo hombres',
             'show only female persons' => 'Mostrar solo mujeres',
-            'show only persons of unknown gender' => 'Mostrar solo personas de género desconocido',
+            'show only persons of other or unknown gender' => 'Mostrar solo personas de género desconocido',
             'show only alive persons' => 'Mostrar solo personas vivas',
             'show only dead persons' => 'Mostrar solo personas fallecidas',
             'alive' => 'Vivo',
@@ -2529,7 +2529,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'n\'utilisez pas ce filtre',
             'show only male persons' => 'afficher uniquement les personnes de sexe masculin',
             'show only female persons' => 'afficher uniquement les personnes de sexe féminin',
-            'show only persons of unknown gender' => 'afficher uniquement les personnes de sexe inconnu',
+            'show only persons of other or unknown gender' => 'afficher uniquement les personnes de sexe inconnu',
             'show only alive persons' => 'afficher uniquement les personnes vivantes',
             'show only dead persons' => 'ne montrer que les personnes décédées',
             'alive' => 'vivant',
@@ -3141,7 +3141,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'इस फ़िल्टर का उपयोग न करें',
             'show only male persons' => 'केवल पुरुष व्यक्तियों को दिखाएं',
             'show only female persons' => 'केवल महिला व्यक्तियों को दिखाएं',
-            'show only persons of unknown gender' => 'केवल अज्ञात लिंग के व्यक्तियों को दिखाएं',
+            'show only persons of other or unknown gender' => 'केवल अज्ञात लिंग के व्यक्तियों को दिखाएं',
             'show only alive persons' => 'केवल जिवित व्यक्तियों को दिखाएं',
             'show only dead persons' => 'केवल मृतक व्यक्तियों को दिखाएं',
             'alive' => 'जिवित',
@@ -3223,7 +3223,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'bruk ikke dette filteret',
             'show only male persons' => 'vis bare personer av hankjønn',
             'show only female persons' => 'vis bare personer av hunkjønn',
-            'show only persons of unknown gender' => 'vis bare personer av ukjent kjønn',
+            'show only persons of other or unknown gender' => 'vis bare personer av ukjent kjønn',
             'show only alive persons' => 'vis bare nålevende personer',
             'show only dead persons' => 'vis bare avdøde personer',
             'alive' => 'nålevende',
@@ -3325,7 +3325,7 @@ class ExtendedFamilyTranslations
             'No family available' => 'Ingen familie funnet',
             'Summary for the shown extended family' => 'Sammendrag for den viste storfamilien',
             'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).'
-                => '%1$s er det eneste medlemmet av storfamilien.' . I18N::PLURAL . 'Storfamilien til %1$s har %2$d medlemmer (medregnet %1$s).',
+              => '%1$s er det eneste medlemmet av storfamilien.' . I18N::PLURAL . 'Storfamilien til %1$s har %2$d medlemmer (medregnet %1$s).',
             '%s has no %s recorded.' => '%s har ingen registrerte %s.',
             '%s has no %s, and no %s recorded.' => '%s har ingen registrerte %s og ingen %s.',
 
@@ -3681,7 +3681,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'gebruik dit filter niet',
             'show only male persons' => 'toon alleen mannen',
             'show only female persons' => 'toon alleen vrouwen',
-            'show only persons of unknown gender' => 'toon alleen personen van onbekend geslacht',
+            'show only persons of other or unknown gender' => 'toon alleen personen van onbekend geslacht',
             'show only alive persons' => 'toon alleen levende personen',
             'show only dead persons' => 'toon alleen overleden personen',
             'alive' => 'levend',
@@ -4304,7 +4304,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'не использовать этот фильтр',
             'show only male persons' => 'показать только мужчин',
             'show only female persons' => 'показать только женщин',
-            'show only persons of unknown gender' => 'показать только с неизвестным полом',
+            'show only persons of other or unknown gender' => 'показать только с неизвестным полом',
             'show only alive persons' => 'показать только живых',
             'show only dead persons' => 'показать только умерших',
             'alive' => 'живые',
@@ -4904,7 +4904,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'nepoužiť tento filter',
             'show only male persons' => 'zobraziť len mužské osoby',
             'show only female persons' => 'zobraziť len ženské osoby',
-            'show only persons of unknown gender' => 'zobraziť len osoby s neznámym pohlavím',
+            'show only persons of other or unknown gender' => 'zobraziť len osoby s neznámym pohlavím',
             'show only alive persons' => 'zobraziť len žijúce osoby',
             'show only dead persons' => 'zobraziť len zosnulé osoby',
             'alive' => 'živí',
@@ -5231,7 +5231,786 @@ class ExtendedFamilyTranslations
                 => '%d vnučku (spolu %d).' . I18N::PLURAL . '%d vnučky (spolu %d).' . I18N::PLURAL . '%d vnučiek (spolu %d).',
         ];
     }
-  
+
+    /**
+     * @return array
+     */
+    public static function swedishTranslations(): array
+    {
+        // Note the special characters used in plural and context-sensitive translations.
+        return [
+            'Extended family' => 'Släktband',
+            'A tab showing the extended family of an individual.' => 'En flik som visar en persons släktband.',
+            'In which sequence should the parts of the extended family be shown?' => 'I vilken ordning ska släktbanden visas?',
+            'Family part (generation relative to proband)' => 'Familjedel (generation i förhållande till proband)',
+            'Show name of proband as short name or as full name?' => 'Visa kort eller fullständigt namn på proband?',
+            'Show options to filter the results?' => 'Visa alternativet filtrera resultat?',
+            'Show filter options' => 'Visa filteralternativ',
+            'How should empty parts of extended family be presented?' => 'Hur ska rutor som saknar innehåll visas?',
+            'Show empty block' => 'Visa tomma rutor',
+            'yes, always at standard location' => 'ja, alltid på standardplats',
+            'no, but collect messages about empty blocks at the summary block' => 'nej, men summera information om tomma rutor i slutet',
+            'never' => 'aldrig',
+            'The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.' => 'Kort namn baseras på probandets tilltalsnamn eller smeknamn. Om dessa saknas, används första förnamnet om det finns. Annars används efternamnet.',
+            'Show short name' => 'Vis kort namn',
+            'Show labels in special situations?' => 'Visa etiketter i speciella situationer?',
+            'Labels (or stickers) are used for example for adopted persons or foster children.' => 'Etiketter används t.ex. för adoptiv- eller fosterbarn.',
+            'Show labels' => 'Visa etiketter',
+            'Use the compact design?' => 'Använd kompakt design?',
+            'Use the compact design' => 'Använd kompakt design',
+            'The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.' =>
+                'Kompakt design visar bara namn och livslängd för varje person. Utökad design visar också ett foto tillsammans med födelse och död.',
+            'Show parameters of extended family part?' => 'Visa parametrar för släktband?',
+            'Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.' =>
+                'Visning av ytterligare information för varje släktband, t.ex. generationsavstånd och släktskapskoefficient i procent.',
+            'Show parameters' => 'Vis parametrar',
+
+
+            'This allows a user to filter the members of the extended family by gender and if they are alive or dead.'
+            => 'Möjliggör filtrering utifrån kön och om levande eller död.',
+            'Should a summary block be shown?' => 'Ska sammanfattning visas?',
+            'The summary contains information about the extended family in total.' => 'Sammanfattningen visar en sumering av alla släktband.',
+            'Show summary' => 'Visa sammanfattning',
+            'Count the members of the partner chains as members of the extended family?'
+            => 'Inkludera personer i partnerföljd i släktband ?',
+            'If you select "no", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family.'
+            => 'Om du väljer "Nej", så inkluderas inte personer i partnerföljd i släktbandet.',
+            'And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.'
+            => 'Dessa personer och familjer kommer inte heller inkluderas när en användare kopierar släktbandet till urklippskorgen.',
+            'But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".'
+            => 'Men det finns ett tillägg, "Enhanced Clippings cart", som möjliggör att ta med även dessa personer och familjer till urklippskorgen.',
+            'This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.'
+            => 'Det här blir bara relevant om man valt att inkludera partnerföljder i släktbanden, i inställningen här nedan.',
+            'Include them' => 'Inkludera dem',
+            'Show a button "copy to clippings cart"?' => 'Visa knappen "Kopiera till urklippskorgen"?',
+            'This allows a user to copy all members of the extended family to the clippings cart.'
+            => 'Den tillåter användaren att kopiera släktbanden till urklippskorgen.',
+            'Show button' => 'Visa knapp',
+
+
+            'generation +%s' => 'generation +%s',
+            'same generation' => 'samma generation',
+            'generation %s' => 'generation %s',
+            'relationship coefficient: %.1f' => 'släktskapskoefficient: %.1f',
+            'no blood relationship' => 'saknar blodsband',
+
+            'don\'t use this filter' => 'använd inte detta filter',
+            'show only male persons' => 'visa endast män',
+            'show only female persons' => 'visa endast kvinnor',
+            'show only persons of other or unknown gender' => 'visa endast okänt kön',
+            'show only alive persons' => 'visa endast levande personer',
+            'show only dead persons' => 'visa endast döda personer',
+            'alive' => 'levande',
+            'dead' => 'döda',
+            'a dead person' => 'en död person',
+            'a living person' => 'en levande person',
+            'not a male person' => 'ej man',
+            'not a female person' => 'ej kvinna',
+            'not a person of unknown gender' => 'ej okänt kön',
+            'copy all members of the extended family to the clippings cart' => 'Kopiera alla personer i släktband till urklippskorgen',
+            'copy to clippings cart' => 'kopiera till urklippskorgen',
+
+            'twin' => 'tvilling',
+            'triplet' => 'trilling',
+            'quadruplet' => 'fyrling',
+            'quintuplet' => 'femling',
+            'sextuplet' => 'sexling',
+            'septuplet' => 'sjuling',
+            'octuplet' => 'åttling',
+            'nonuplet' => 'niling',
+            'decuplet' => 'tiling',
+            'stillborn' => 'dödfödd',
+            'died as infant' => 'dog som spädbarn',
+            'linkage challenged' => 'osäkert släktskap',
+            'linkage disproven' => 'släktskap ej påvisat',
+            'linkage proven' => 'påvisat släktskap',
+            'Marriage' => 'Äktenskap',
+            'Ex-marriage' => 'Tidigare äktenskap',
+            'Partnership' => 'Partnerskap',
+            'Fiancée' => 'Trolovad',
+            ' with ' => ' med ',
+            'Biological grandparents of father' => 'Faderns biologiska far- och morföräldrar',
+            'Biological grandparents of mother' => 'Moderns biologiska far- och morföräldrar',
+            'Biological grandparents of parent' => 'Förälders biologiska far- och morföräldrar',
+            'Stepparents of biological parent of father' => 'Styvföräldrar till faderns biologiska föräldrar',
+            'Stepparents of biological parent of mother' => 'Styvföräldrar till moderns biologiska föräldrar',
+            'Stepparents of biological grandparent' => 'Styvföräldrar till biologiska far- och morföräldrar',
+            'Parents of stepparent of father' => 'Föräldrar till faders styvförälder',
+            'Parents of stepparent of mother' => 'Föräldrar till moders styvförälder',
+            'Parents of stepparent of parent' => 'Föräldrar till förälders styvförälder',
+            'Grandparents of stepparent' => 'Styvförälders far- och morföräldrar',
+            'Biological great-grandparents' => 'Biologiska gammelfar- och gammelmorföräldrar',
+            'Biological parents of father' => 'Faders biologiska föräldrar',
+            'Biological parents of mother' => 'Moders biologiska föräldrar',
+            'Biological parents of parent' => 'Förälders biologiska föräldrar',
+            'Stepparents of father' => 'Faders styvföräldrar',
+            'Stepparents of mother' => 'Moders styvföräldrar',
+            'Stepparents of parent' => 'Förälders styvföräldrar',
+            'Parents of stepparent' => 'Styvförälders föräldrar',
+            'Biological grandparents' => 'Biologiska far- och morföräldrar',
+            'Siblings of father' => 'Faders syskon',
+            'Siblings of mother' => 'Moders syskon',
+            'Full siblings of biological parents' => 'Biologisk förälders helsyskon',
+            'Siblings-in-law of father' => 'Faders svärsyskon',
+            'Siblings-in-law of mother' => 'Moders svärsyskon',
+            'Biological parents' => 'Biologiska föräldrar',
+            'Stepparents' => 'Styvföräldrar',
+            'Parents-in-law of biological children' => 'Svärföräldrar till biologiska barn',
+            'Parents-in-law of stepchildren' => 'Svärföräldrar till styvbarn',
+            'Full siblings' => 'Helsyskon',
+            'Half siblings' => 'Halvsyskon',
+            'Stepsiblings' => 'Styvsyskon',
+            'Children of full siblings of father' => 'Faders helsyskons barn',
+            'Children of full siblings of mother' => 'Moders helsyskons barn',
+            'Children of full siblings of parent' => 'Förälders helsyskons barn',
+            'Children of half siblings of father' => 'Faders halvsyskons barn',
+            'Children of half siblings of mother' => 'Moders halvsyskons barn',
+            'Children of half siblings of parent' => 'Förälders halvsyskons barn',
+            'Siblings of partners' => 'Partners syskon',
+            'Partners of siblings' => 'Syskons partners',
+            'Siblings of siblings-in-law' => 'Syskon till svärsyskon',
+            'Partners of siblings-in-law' => 'Partners till svärsyskon',
+            'Children of full siblings of biological parents' => 'Biologiska föräldrars helsyskons barn',
+            'Children of siblings' => 'Syskonbarn',
+            'Children of full siblings' => 'Barn av helsyskon',
+            'Siblings\' stepchildren' => 'Syskons styvbarn',
+            'Children of siblings of partners' => 'Partners syskons barn',
+            'Biological children' => 'Biologiska barn',
+            'Stepchildren' => 'Styvbarn',
+            'Stepchild' => 'Styvbarn',
+            'Stepson' => 'Styvson',
+            'Stepdaughter' => 'Styvdotter',
+            'Partners of biological children' => 'Biologiska barns partners',
+            'Partners of stepchildren' => 'Styvbarns partner',
+            'Biological grandchildren' => 'Biologiska barnbarn',
+            'Stepchildren of children' => 'Barns styvbarn',
+            'Children of stepchildren' => 'Styvbarns barn',
+            'Stepchildren of stepchildren' => 'styvbarns styvbarn',
+            'Partners of biological grandchildren' => 'Biologiska barnbarns partners',
+            'Partners of stepchildren of children' => 'Barns styvbarns partners',
+            'Partners of children of stepchildren' => 'Styvbarns barns partners',
+            'Partners of stepchildren of stepchildren' => 'Styvbarns styvbarns partners',
+
+            'He' => 'Han',
+            'She' => 'Hon',
+            'He/she' => 'Han/hon',
+            'Mr.' => 'Herr',
+            'Mrs.' => 'Fru',
+            'No family available' => 'Familj saknas',
+            'Summary for the shown extended family' => 'Summering av visade släktband',
+            'The extended family has only %1$s as a member.' . I18N::PLURAL . 'The extended family of %1$s has %2$d members (including %1$s).'
+            => 'Släktband har bara %1$s.' . I18N::PLURAL . 'Släktbanden för %1$s har %2$d personer (inkl. %1$s).',
+            '%s has no %s recorded.' => '%s har ingen registrerad %s.',
+            '%s has no %s, and no %s recorded.' => '%s har ingen %s, och ingen %s registrerad.',
+
+            '(additional members of the partner chains are not counted)' =>
+                '(övriga i partnerföljden ej inräknade)',
+
+            'Father\'s family (%d)' => 'Fars familj (%d)',
+            'Mother\'s family (%d)' => 'Mors familj (%d)',
+            'Father\'s and Mother\'s family (%d)' => 'Fars och mors familj (%d)',
+
+            'Grandparents %1$s (%2$s) of stepfather %3$s' => 'far-och morföräldrar %1$s (%2$s) till styvfar %3$s',
+            'Grandparents %1$s (%2$s) of stepmother %3$s' => 'far-och morföräldrar %1$s (%2$s) till styvmor %3$s',
+            'Grandparents %1$s (%2$s) of stepparent %3$s' => 'far-och morföräldrar %1$s (%2$s) till styvförälder %3$s',
+            'Stepparents %1$s (%2$s) of %3$s' => 'Styvförälder %1$s (%2$s) till %3$s',
+            'Parents %1$s (%2$s) of stepfather %3$s' => 'Föräldrar %1$s (%2$s) till styvfar %3$s',
+            'Parents %1$s (%2$s) of stepmother %3$s' => 'Föräldrar %1$s (%2$s) till styvmor %3$s',
+            'Parents %1$s (%2$s) of stepparent %3$s' => 'Föräldrar %1$s (%2$s) till styvförälder %3$s',
+            'Parents %1$s of %2$s' => 'Föräldrar %1$s till %2$s',
+            'Parents %1$s (%2$s) of %3$s' => 'Föräldrar %1$s (%2$s) till %3$s',
+            'Partners of %s' => 'Partner till %s',
+            'Brother %1$s of partner %2$s' => 'Bror %1$s till partner %2$s',
+            'Sister %1$s of partner %2$s' => 'Syster %1$s till partner %2$s',
+            'Sibling %1$s of partner %2$s' => 'Syskon %1$s till partner %2$s',
+
+            'Great-grandparents' => 'Gammelfar- och gammelmorföräldrar',
+            '%s has no great-grandparents recorded.' => '%s har inga gammelfar- eller gammelmorföräldrar inlagda.',
+            '%s has one great-grandmother recorded.' => '%s har en gammelfar- eller gammelmorförälder inlagd.',
+            '%s has one great-grandfather recorded.' => '%s har en gammelfar- eller gammelmorförälder inlagd.',
+            '%s has one great-grandparent of unknown sex recorded.' => '%s har en gammelfar- eller gammelmorförälder. Kön okänt.',
+            '%2$s has %1$d great-grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandmothers recorded.' => '%2$s har %1$d gammelfar- eller gammelmorförälder inlagd.' . I18N::PLURAL . '%2$s har %1$d gammelfar- eller gammelmorföräldrar inlagda.',
+            '%2$s has %1$d great-grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d gammelfar- eller gammelmorförälder inlagd.' => '%2$s har %1$d gammelfar- eller gammelmorförälder inlagd.' . I18N::PLURAL . '%2$s har %1$d gammelfar- eller gammelmorföräldrar inlagda.',
+            '%2$s has %1$d great-grandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d great-grandparents of unknown sex recorded.' => '%2$s har %1$d gammelfar- eller gammelmorförälder inlagd. Kön okänt.' . I18N::PLURAL . '%2$s har %1$d gammelfar- eller gammelmorföräldrar inlagda. Kön okänt.',
+            '%2$s has %1$d great-grandfather and ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers and ' => '%2$s har %1$d gammelfar- eller gammelmorförälder inlagd och ' . I18N::PLURAL . '%2$s har %1$d gammelfar- eller gammelmorföräldrar inlagda och ',
+            '%d great-grandmother recorded (%d in total).' . I18N::PLURAL . '%d great-grandmothers recorded (%d in total).' =>
+                '%d gammelfar- eller gammelmorförälder inlagd (totalt %d).' . I18N::PLURAL . '%d gammelfar- eller gammelmorföräldrar inlagda (totalt %d).',
+            '%2$s has %1$d great-grandmother and ' . I18N::PLURAL . '%2$s has %1$d great-grandmothers and ' =>
+                '%2$s har %1$d gammelfar- eller gammelmorförälder inlagd och ' . I18N::PLURAL . '%2$s har %1$d gammelfar- eller gammelmorföräldrar inlagda och ',
+            '%d great-grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d great-grandparents of unknown sex recorded (%d in total).' =>
+                '%d gammelfar- eller gammelmorförälder inlagd. Kön okänt. (totalt %d).' . I18N::PLURAL . '%d gammelfar- eller gammelmorföräldrar inlagda. Kön okänt. (totalt %d).',
+            '%2$s has %1$d great-grandfather, ' . I18N::PLURAL . '%2$s has %1$d great-grandfathers, ' =>
+                '%2$s har %1$d gammelfar- eller gammelmorförälder, ' . I18N::PLURAL . '%2$s har %1$d gammelfar- eller gammelmorföräldrar, ',
+            '%d great-grandmother, and ' . I18N::PLURAL . '%d great-grandmothers, and ' =>
+                '%d gammelfar- eller gammelmorförälder, och ' . I18N::PLURAL . '%d gammelfar- eller gammelmorföräldrar, och ',
+
+            'Grandparents' => 'Far- och morföräldrar',
+            '%s has no grandparents recorded.' => '%s har inga far- eller morföräldrar inlagda.',
+            '%s has one grandmother recorded.' => '%s har en farmor eller mormor inlagd.',
+            '%s has one grandfather recorded.' => '%s har en farfar eller morfar inlagd.',
+            '%s has one grandparent of unknown sex recorded.' =>
+                '%s har en far- eller morföräldrer av okänt kön inlagd.',
+            '%2$s has %1$d grandmother recorded.' . I18N::PLURAL . '%2$s has %1$d grandmothers recorded.' =>
+                '%2$s har %1$d farmor eller mormor inlagd.' . I18N::PLURAL . '%2$s har %1$d farmor eller mormor inlagd.',
+            '%2$s has %1$d grandfather recorded.' . I18N::PLURAL . '%2$s has %1$d grandfathers recorded.' =>
+                '%2$s har %1$d farfar eller morfar inlagd.' . I18N::PLURAL . '%2$s har %1$d farfar eller morfar inlagd.',
+            '%2$s has %1$d grandparent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandparents of unknown sex recorded.' =>
+                '%2$s har %1$d far- eller morförälder inlagd. Kön okänt.' . I18N::PLURAL . '%2$s har %1$d far- eller morföräldrar inlagda. Kön okänt.',
+            '%2$s has %1$d grandfather and ' . I18N::PLURAL . '%2$s has %1$d grandfathers and '   =>
+                '%2$s har %1$d farfar eller morfar och ' . I18N::PLURAL . '%2$s har %1$d farfädrar eller morfädrar och ',
+            '%d grandmother recorded (%d in total).' . I18N::PLURAL . '%d grandmothers recorded (%d in total).'   =>
+                '%d farmor eller mormor inlagd (totalt %d).' . I18N::PLURAL . '%d farmödrar eller mormödrar inlagda (totalt %d).',
+            '%2$s has %1$d grandmother and ' . I18N::PLURAL . '%2$s has %1$d grandmothers and ' =>
+                '%2$s har %1$d farmor eller mormor och ' . I18N::PLURAL . '%2$s har %1$d farmödrar eller mormödrar och ',
+            '%d grandparent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandparents of unknown sex recorded (%d in total).' =>
+                '%d far- eller morförälder. Kön okänt. (totalt %d).' . I18N::PLURAL . '%d far- eller morföräldrar. Kön okänt. (totalt %d).',
+            '%2$s has %1$d grandfather, ' . I18N::PLURAL . '%2$s has %1$d grandfathers, ' =>
+                '%2$s har %1$d farfar eller morfar, ' . I18N::PLURAL . '%2$s har %1$d farfädrar eller morfädrar, ',
+            '%d grandmother, and ' . I18N::PLURAL . '%d grandmothers, and ' => '%d farmor eller mormor och ' . I18N::PLURAL . '%d farmödrar eller mormödrar och ',
+
+            'Uncles and Aunts' => 'Farbröder/fastrar och morbröder/mostrar',
+            '%s has no uncles or aunts recorded.' => '%s inget syskon till förälder har lagts in.',
+            '%s has one aunt recorded.' => '%s har en faster/moster inlagd.',
+            '%s has one uncle recorded.' => '%s har en farbror/morbror inlagd.',
+            '%s has one uncle or aunt of unknown sex recorded.' =>
+                '%s har ett syskon till förälder inlagd. Kön okänt.',
+            '%2$s has %1$d aunt recorded.' . I18N::PLURAL . '%2$s has %1$d aunts recorded.' =>
+                '%2$s har %1$d inlagd faster/moster.' . I18N::PLURAL . '%2$s har %1$d inlagda fastrar/mostrar.',
+
+            '%2$s has %1$d uncle recorded.' . I18N::PLURAL . '%2$s has %1$d uncles recorded.' =>
+                '%2$s har %1$d inlagd farbror/morbror.' . I18N::PLURAL . '%2$s har %1$d inlagda farbröder/morbröder.',
+
+            '%2$s has %1$d uncle or aunt of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d uncles or aunts of unknown sex recorded.' =>
+                '%2$s har %1$d inlagt syskon till förälder. Kön okänt.' . I18N::PLURAL . '%2$s har %1$d inlagda syskon till förälder. Kön okänt.',
+
+            '%2$s has %1$d uncle and ' . I18N::PLURAL . '%2$s has %1$d uncles and '   =>
+                '%2$s har %1$d farbror/morbror och ' . I18N::PLURAL . '%2$s har %1$d farbröder/morbröder och ',
+
+            '%d aunt recorded (%d in total).' . I18N::PLURAL . '%d aunts recorded (%d in total).' =>
+                '%d faster/moster inlagd (totalt %d).' . I18N::PLURAL . '%d fastrar/mostrar inlagda (totalt %d).',
+
+            '%2$s has %1$d aunt and ' . I18N::PLURAL . '%2$s has %1$d aunts and ' =>
+                '%2$s har %1$d faster/moster och ' . I18N::PLURAL . '%2$s har %1$d fastrar/mostrar och ',
+
+            '%d uncle or aunt of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts of unknown sex recorded (%d in total).' =>
+                '%d syskon till förälder. Kön okänt. (totalt %d).' . I18N::PLURAL . '%d syskon till förälder (totalt %d).',
+
+            '%2$s has %1$d uncle, ' . I18N::PLURAL . '%2$s has %1$d uncles, ' =>
+                '%2$s har %1$d farbror/morbror, ' . I18N::PLURAL . '%2$s har %1$d farbrödrar/morbrödrar, ',
+
+            '%d aunt, and ' . I18N::PLURAL . '%d aunts, and ' =>
+                '%d faster/moster, och ' . I18N::PLURAL . '%d fastrar/mostrar, och ',
+
+            'Uncles and Aunts by marriage' => 'Ingifta syskon till föräldrar',
+            '%s has no uncles or aunts by marriage recorded.' => '%s har inga ingifta syskon till föräldrar.',
+            '%s has one aunt by marriage recorded.' => '%s har en ingift faster/moster inlagd.',
+            '%s has one uncle by marriage recorded.' => '%s har en ingift farbror/morbror inlagd.',
+            '%s has one uncle or aunt by marriage of unknown sex recorded.' => '%s har ett ingift syskon till förälder inlagt. Kön okänt.',
+            '%2$s has %1$d aunt by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d aunts by marriage recorded.' => '%2$s har %1$d ingift faster/moster inlagd.' . I18N::PLURAL . '%2$s har %1$d ingifta fastrar/mostrar inlagda.',
+            '%2$s has %1$d uncle by marriage recorded.' . I18N::PLURAL . '%2$s has %1$d uncles by marriage recorded.' => '%2$s har %1$d ingift farbror/morbror inlagd.' . I18N::PLURAL . '%2$s har %1$d ingifta farbrödrar/morbrödrar inlagda.',
+            '%2$s has %1$d uncle or aunt by marriage of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d uncles or aunts by marriage of unknown sex recorded.' =>
+                '%2$s har %1$d ingift syskon till förälder inlagt. Kön okänt.' . I18N::PLURAL . '%2$s har %1$d ingifta syskon till föräldrar inlagda. Kön okänt.',
+
+            '%2$s has %1$d uncle by marriage and ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage and ' =>
+                '%2$s har %1$d ingift farbror/morbror och ' . I18N::PLURAL . '%2$s har %1$d ingifta farbrödrar/morbrödrar och ',
+
+            '%d aunt by marriage recorded (%d in total).' . I18N::PLURAL . '%d aunts by marriage recorded (%d in total).' =>
+                '%d ingift faster/moster inlagd (totalt %d).' . I18N::PLURAL . '%d ingifta fastrar/mostrar inlagda (totalt %d).' ,
+
+            '%2$s has %1$d aunt by marriage and ' . I18N::PLURAL . '%2$s has %1$d aunts by marriage and ' =>
+                '%2$s har %1$d ingift faster/moster och ' . I18N::PLURAL . '%2$s har %1$d ingifta fastrar/mostrar och ',
+
+            '%d uncle or aunt by marriage of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d uncles or aunts by marriage of unknown sex recorded (%d in total).' =>
+                '%d ingift syskon till förälder inlagd. Kön okänt. (totalt %d).' . I18N::PLURAL . '%d ingifta syskon till föräldrar inlagda. Kön okänt. (totalt %d).',
+
+            '%2$s has %1$d uncle by marriage, ' . I18N::PLURAL . '%2$s has %1$d uncles by marriage, ' =>
+                '%2$s har %1$d ingift farbror/morbror, ' . I18N::PLURAL . '%2$s har %1$d ingifta farbröder/morbröder, ',
+
+            '%d aunt by marriage, and ' . I18N::PLURAL . '%d aunts by marriage, and ' =>
+                '%d ingift faster/moster och ' . I18N::PLURAL . '%d ingifta fastrar/mostrar och ',
+
+            'Parents' => 'Föräldrar',
+            '%s has no parents recorded.' => '%s har inga föräldrar inlagda.',
+            '%s has one mother recorded.' => '%s har en mamma inlagd.',
+            '%s has one father recorded.' => '%s har en pappa inlagd.',
+            '%s has one parent of unknown sex recorded.' =>
+                '%s har en förälder med okänt kön inlagd.',
+
+            '%2$s has %1$d mother recorded.' . I18N::PLURAL . '%2$s has %1$d mothers recorded.' =>
+                '%2$s har %1$d mamma inlagd.' . I18N::PLURAL . '%2$s har %1$d mammor inlagda.',
+
+            '%2$s has %1$d father recorded.' . I18N::PLURAL . '%2$s has %1$d fathers recorded.' =>
+                '%2$s har %1$d pappa inlagd.' . I18N::PLURAL . '%2$s har %1$d pappor inlagda.',
+
+            '%2$s has %1$d parent of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d parents of unknown sex recorded.' =>
+                '%2$s har %1$d förälder av okänt kön inlagd.' . I18N::PLURAL . '%2$s har %1$d föräldrar av okänt kön inlagda.',
+
+            '%2$s has %1$d father and ' . I18N::PLURAL . '%2$s has %1$d fathers and ' =>
+                '%2$s har %1$d pappa och ' . I18N::PLURAL . '%2$s har %1$d pappor och ',
+
+            '%d mother recorded (%d in total).' . I18N::PLURAL . '%d mothers recorded (%d in total).' =>
+                '%d mamma inlagd (totalt %d).' . I18N::PLURAL . '%d mammor inlagda (totalt %d).',
+
+            '%2$s has %1$d mother and ' . I18N::PLURAL . '%2$s has %1$d mothers and ' =>
+                '%2$s har %1$d mamma och ' . I18N::PLURAL . '%2$s har %1$d mammor och ',
+
+            '%d parent of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents of unknown sex recorded (%d in total).' =>
+                '%d förälder av okänt kön inlagd (totalt %d).' . I18N::PLURAL . '%d föräldrar av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d father, ' . I18N::PLURAL . '%2$s has %1$d fathers, ' =>
+                '%2$s har %1$d pappa, ' . I18N::PLURAL . '%2$s har %1$d pappor, ',
+
+            '%d mother, and ' . I18N::PLURAL . '%d mothers, and ' =>
+                '%d mamma och ' . I18N::PLURAL . '%d mammor och ',
+
+            'Parents-in-law' => 'Svärföräldrar',
+            '%s has no parents-in-law recorded.' => '%s har inga svärföräldrar inlagda.',
+            '%s has one mother-in-law recorded.' => '%s har en svärmor inlagd.',
+            '%s has one father-in-law recorded.' => '%s har en svärfar inlagd.',
+            '%s has one parent-in-law of unknown sex recorded.' => '%s har en svärförälder av okänt kön inlagd.',
+
+            '%2$s has %1$d mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d mothers-in-law recorded.' =>
+                '%2$s har %1$d svärmor inlagd.' . I18N::PLURAL . '%2$s har %1$d svärmödrar inlagda.',
+
+            '%2$s has %1$d father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d fathers-in-law recorded.' =>
+                '%2$s har %1$d svärfar inlagd.' . I18N::PLURAL . '%2$s har %1$d svärfäder inlagda.',
+
+            '%2$s has %1$d parent-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d parents-in-law of unknown sex recorded.' =>
+                '%2$s har %1$d svärförälder av okänt kön inlagd.' . I18N::PLURAL . '%2$s har %1$d svärföräldrar av okänt kön inlagda.',
+
+            '%2$s has %1$d father-in-law and ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law and ' =>
+                '%2$s har %1$d svärfar och ' . I18N::PLURAL . '%2$s har %1$d svärfäder och ',
+
+            '%d mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d mothers-in-law recorded (%d in total).' =>
+                '%d svärmor inlagd (totalt %d).' . I18N::PLURAL . '%d svärmödrar inlagda (totalt %d).',
+
+            '%2$s has %1$d mother-in-law and ' . I18N::PLURAL . '%2$s has %1$d mothers-in-law and ' =>
+                '%2$s har %1$d svärmor och ' . I18N::PLURAL . '%2$s har %1$d svärmödrar och ',
+
+            '%d parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d parents-in-law of unknown sex recorded (%d in total).' =>
+                '%d svärförälder av okänt kön inlagd (totalt %d).' . I18N::PLURAL . '%d svärföräldrar av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d father-in-law, ' . I18N::PLURAL . '%2$s has %1$d fathers-in-law, ' =>
+                '%2$s har %1$d svärfar, ' . I18N::PLURAL . '%2$s har %1$d svärfäder, ',
+
+            '%d mother-in-law, and ' . I18N::PLURAL . '%d mothers-in-law, and ' =>
+                '%d svärmor och ' . I18N::PLURAL . '%d svärmödrar och ',
+
+            'Co-parents-in-law' => 'Barns svärföräldrar',
+            '%s has no co-parents-in-law recorded.' => '%s har inga svärföräldrar till barn inlagda.',
+            '%s has one co-mother-in-law recorded.' => '%s har en svärmor till barn inlagd.',
+            '%s has one co-father-in-law recorded.' => '%s har en svärfar till barn inlagd.',
+            '%s has one co-parent-in-law of unknown sex recorded.' => '%s har en svärförälder till barn inlagd. Kön okänt.',
+
+            '%2$s has %1$d co-mother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law recorded.' =>
+                '%2$s har %1$d svärmor till barn inlagd.' . I18N::PLURAL . '%2$s har %1$d svärmödrar till barn inlagda.',
+
+            '%2$s has %1$d co-father-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law recorded.' =>
+                '%2$s har %1$d svärfar till barn inlagd.' . I18N::PLURAL . '%2$s har %1$d svärfäder till barn inlagda.',
+
+            '%2$s has %1$d co-parent-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d co-parents-in-law of unknown sex recorded.' =>
+                '%2$s har %1$d svärförälder till barn inlagd. Kön okänt.' . I18N::PLURAL . '%2$s har %1$d svärföräldrar till barn inlagda. Kön okänt.',
+
+            '%2$s has %1$d co-father-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law and ' =>
+                '%2$s har %1$d svärfar till barn och ' . I18N::PLURAL . '%2$s har  %1$d svärfäder till barn och ',
+
+            '%d co-mother-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-mothers-in-law recorded (%d in total).' =>
+                '%d svärmor till barn (totalt %d).' . I18N::PLURAL . '%d svärmödrar till barn (totalt %d).',
+
+            '%2$s has %1$d co-mother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-mothers-in-law and ' =>
+                '%2$s har %1$d svärmor till barn och ' . I18N::PLURAL . '%2$s har %1$d svärmödrar till barn och ',
+
+            '%d co-parent-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d co-parents-in-law of unknown sex recorded (%d in total).' =>
+                '%d svärförälder till barn. Kön okänt. (totalt %d).' . I18N::PLURAL . '%d svärföräldrar till barn. Kön okänt. (totalt %d).',
+
+            '%2$s has %1$d co-father-in-law, ' . I18N::PLURAL . '%2$s has %1$d co-fathers-in-law, ' =>
+                '%2$s har %1$d svärfar till barn, ' . I18N::PLURAL . '%2$s har %1$d svärfäder till barn, ',
+
+            '%d co-mother-in-law, and ' . I18N::PLURAL . '%d co-mothers-in-law, and ' =>
+                '%d svärmor till barn, och ' . I18N::PLURAL . '%d svärmödrar till barn och ',
+
+            'Partners' => 'Partners',
+            'Partner of ' => 'Partner till ',
+            '%s has no partners recorded.' => '%s har inga partners inlagda.',
+            '%s has one female partner recorded.' => '%s har en kvinnlig partner inlagd.',
+            '%s has one male partner recorded.' => '%s har en manlig partner inlagd.',
+            '%s has one partner of unknown sex recorded.' => '%s har en partner av okänt kön inlagd.',
+            '%2$s has %1$d female partner recorded.' . I18N::PLURAL . '%2$s has %1$d female partners recorded.' =>
+                '%2$s har %1$d kvinnlig partner inlagd.' . I18N::PLURAL . '%2$s har %1$d kvinnliga partners inlagda.',
+
+            '%2$s has %1$d male partner recorded.' . I18N::PLURAL . '%2$s has %1$d male partners recorded.' =>
+                '%2$s har %1$d manlig partner inlagd.' . I18N::PLURAL . '%2$s har %1$d manliga partners inlagda.',
+
+            '%2$s has %1$d partner of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d partners of unknown sex recorded.' =>
+                '%2$s har %1$d partner av okänt kön inlagd.' . I18N::PLURAL . '%2$s har %1$d partners av okänt kön inlagda.',
+
+            '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and ' =>
+                '%2$s har %1$d manlig partner och ' . I18N::PLURAL . '%2$s har %1$d registrerte manliga partners och ',
+
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' =>
+                '%2$s har %1$d kvinnlig partner och ' . I18N::PLURAL . '%2$s har %1$d kvinnliga partners och ',
+
+            '%d female partner recorded (%d in total).' . I18N::PLURAL . '%d female partners recorded (%d in total).' =>
+                '%d kvinnlig partner inlagd (totalt %d).' . I18N::PLURAL . '%d kvinnliga partners inlagda (totalt %d).',
+
+            '%2$s has %1$d partner and ' . I18N::PLURAL . '%2$s has %1$d partners and ' =>
+                '%2$s har %1$d partner och ' . I18N::PLURAL . '%2$s har %1$d partners och ' ,
+
+            '%d male partner of female partners recorded (%d in total).' . I18N::PLURAL . '%d male partners of female partners recorded (%d in total).' =>
+                '%d manlig partner till kvinnliga partners inlagd (totalt %d).' . I18N::PLURAL . '%d manliga partners till kvinnliga partners inlagda (totalt %d).',
+
+            '%d female partner of male partners recorded (%d in total).' . I18N::PLURAL . '%d female partners of male partners recorded (%d in total).' =>
+                '%d kvinnlig partner till manliga partners inlagd (totalt %d).' . I18N::PLURAL . '%d kvinnliga partners till manliga partners inlagda (totalt %d).',
+
+            'Partner chains' => 'Partnerföljd',
+            '%s has no members of a partner chain recorded.' => '%s är ej inlagd i någon partnerföljd.',
+
+            '%2$s has %1$d male partner and ' . I18N::PLURAL . '%2$s has %1$d male partners and '
+            =>
+                '%2$s har %1$d manlig partner och ' . I18N::PLURAL . '%2$s har %1$d manliga partners och ',
+
+            '%1$d female partner in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d female partners in this partner chain recorded (%2$d in total, including %3$s).'
+            =>
+                '%1$d kvinnlig partner finns inlagd i denna partnerföljd (totalt %2$d, inkl. %3$s).' . I18N::PLURAL . '%1$d kvinnliga partners finns inlagda i denna partnerföljd (totalt %2$d, inkl. %3$s).',
+
+            '%1$d female partner and ' . I18N::PLURAL . '%d female partners and '
+            =>
+                '%1$d kvinnlig partner och ' . I18N::PLURAL . '%1$d kvinnliga partners och ',
+
+            '%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).' . I18N::PLURAL . '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).'
+            =>
+                '%1$d partner av okänt kön finns inlagd i denna partnerföljd (totalt %2$d, inkl. %3$s).' . I18N::PLURAL . '%1$d partners av okänt kön finns inlagda i denna partnerföljd (totalt %2$d, inkl. %3$s).',
+
+            '%2$s has %1$d female partner and ' . I18N::PLURAL . '%2$s has %1$d female partners and ' =>
+                '%2$s har %1$d kvinnlig partner och ' . I18N::PLURAL . '%2$s har %1$d kvinnliga partners och ' ,
+
+            '%d female partner, and ' . I18N::PLURAL . '%d female partners, and ' =>
+                '%d kvinnlig partner och ' . I18N::PLURAL . '%d kvinnliga partners och ' ,
+
+            'There are %d branches in the partner chain. ' =>
+                'Det finns %d grenar i partnerföljden. ',
+
+            'The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).' =>
+                'Den längsta grenen i partnerföljden med %2$s består av %1$d partners (inkl. %3$s).',
+
+            'The longest branch in the partner chain consists of %1$d partners (including %2$s).' =>
+                'Den längsta grenen i partnerföljden består av %1$d partners (inkl. %2$s).',
+
+            'Siblings' => 'Syskon',
+            '%s has no siblings recorded.' => '%s har inga syskon inlagda.',
+            '%s has one sister recorded.' => '%s har en syster inlagd.',
+            '%s has one brother recorded.' => '%s har en bror inlagd.',
+            '%s has one sibling of unknown sex recorded.' => '%s har ett syskon av okänt kön inlagt.',
+
+            '%2$s has %1$d sister recorded.' . I18N::PLURAL . '%2$s has %1$d sisters recorded.' =>
+                '%2$s har %1$d syster inlagd.' . I18N::PLURAL . '%2$s har %1$d systrar inlagda.',
+
+            '%2$s has %1$d brother recorded.' . I18N::PLURAL . '%2$s has %1$d brothers recorded.' =>
+                '%2$s har %1$d bror inlagd.' . I18N::PLURAL . '%2$s har %1$d bröder inlagda.',
+
+            '%2$s has %1$d sibling of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d siblings of unknown sex recorded.' =>
+                '%2$s har %1$d syskon av okänt kön inlagd.' . I18N::PLURAL . '%2$s har %1$d syskon av okänt kön inlagda.',
+
+            '%2$s has %1$d brother and ' . I18N::PLURAL . '%2$s has %1$d brothers and '   =>
+                '%2$s har %1$d bror och ' . I18N::PLURAL . '%2$s har %1$d bröder och ',
+
+            '%d sister recorded (%d in total).' . I18N::PLURAL . '%d sisters recorded (%d in total).'   =>
+                '%d syster inlagd (totalt %d).' . I18N::PLURAL . '%d systrar inlagda (totalt %d).',
+
+            '%2$s has %1$d sister and ' . I18N::PLURAL . '%2$s has %1$d sisters and ' =>
+                '%2$s har %1$d syster och ' . I18N::PLURAL . '%2$s har %1$d systrar och ',
+
+            '%d sibling of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d siblings of unknown sex recorded (%d in total).' =>
+                '%d syskon av okänt kön inlagd (totalt %d).' . I18N::PLURAL . '%d syskon av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d brother, ' . I18N::PLURAL . '%2$s has %1$d brothers, ' =>
+                '%2$s har %1$d bror, ' . I18N::PLURAL . '%2$s har %1$d bröder, ',
+
+            '%d sister, and ' . I18N::PLURAL . '%d sisters, and ' =>
+                '%d syster, och ' . I18N::PLURAL . '%d systrar, och ',
+
+            'Siblings-in-law' => 'Svärsyskon',
+            '%s has no siblings-in-law recorded.' => '%s har inga svärsyskon inlagda.',
+            '%s has one sister-in-law recorded.' => '%s har en svägerska inlagd.',
+            '%s has one brother-in-law recorded.' =>
+                '%s har en svåger inlagd.',
+
+            '%s has one sibling-in-law of unknown sex recorded.' =>
+                '%s har ett svärsyskon av okänt kön inlagt.',
+
+            '%2$s has %1$d sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sisters-in-law recorded.' =>
+                '%2$s har %1$d svägerska inlagd.' . I18N::PLURAL . '%2$s har %1$d svägerskor inlagda.',
+
+            '%2$s has %1$d brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d brothers-in-law recorded.' =>
+                '%2$s har %1$d svåger inlagd.' . I18N::PLURAL . '%2$s har %1$d svågrar inlagda.',
+
+            '%2$s has %1$d sibling-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d siblings-in-law of unknown sex recorded.' =>
+                '%2$s har %1$d svärsyskon av okänt kön inlagt.' . I18N::PLURAL . '%2$s har %1$d svärsyskon av okänt kön inlagda.',
+
+            '%2$s has %1$d brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law and '   =>
+                '%2$s har %1$d svåger och ' . I18N::PLURAL . '%2$s har %1$d svågrar och ',
+
+            '%d sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d sisters-in-law recorded (%d in total).'   =>
+                '%d svägerska inlagd (totalt %d).' . I18N::PLURAL . '%d svägerskor inlagda (totalt %d).',
+
+            '%2$s has %1$d sister-in-law and ' . I18N::PLURAL . '%2$s has %1$d sisters-in-law and ' =>
+                '%2$s har %1$d svägerska och ' . I18N::PLURAL . '%2$s har %1$d svägerskor och ',
+
+            '%d sibling-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d siblings-in-law of unknown sex recorded (%d in total).' =>
+                '%d svärsyskon av okänt kön inlagd (totalt %d).' . I18N::PLURAL . '%d svärsyskon av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d brother-in-law, ' . I18N::PLURAL . '%2$s has %1$d brothers-in-law, ' =>
+                '%2$s har %1$d svåger, ' . I18N::PLURAL . '%2$s har %1$d svågrar, ',
+
+            '%d sister-in-law, and ' . I18N::PLURAL . '%d sisters-in-law, and ' =>
+                '%d svägerska, och ' . I18N::PLURAL . '%d svägerskor, och ',
+
+            'Co-siblings-in-law' => 'Syskon till svärsyskon',
+            '%s has no co-siblings-in-law recorded.' =>
+                '%s har inga syskon till svärsyskon inlagda.',
+
+            '%s has one co-sister-in-law recorded.' =>
+                '%s har en syster till svärsyskon inlagd.',
+
+            '%s has one co-brother-in-law recorded.' =>
+                '%s har en bror till svärsyskon inlagd.',
+
+            '%s has one co-sibling-in-law of unknown sex recorded.' =>
+                '%s har ett syskon till svärsyskon inlagt. Kön okänt.',
+
+            '%2$s has %1$d co-sister-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law recorded.' =>
+                '%2$s har %1$d syster till svärsyskon inlagd.' . I18N::PLURAL . '%2$s har %1$d systrar till svärsyskon inlagda.',
+
+            '%2$s has %1$d co-brother-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law recorded.' =>
+                '%2$s har %1$d bror till svärsyskon inlagd.' . I18N::PLURAL . '%2$s har %1$d bröder till svärsyskon inlagda.',
+
+            '%2$s has %1$d co-sibling-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d co-siblings-in-law of unknown sex recorded.' =>
+                '%2$s har %1$d syskon till svärsyskon inlagd. Kön okänt.' . I18N::PLURAL . '%2$s har %1$d syskon till svärsyskon inlagda. Kön okänt.',
+
+            '%2$s has %1$d co-brother-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law and ' =>
+                '%2$s har %1$d bror till svärsyskon och ' . I18N::PLURAL . '%2$s har %1$d bröder till svärsyskon och ',
+
+            '%d co-sister-in-law recorded (%d in total).' . I18N::PLURAL . '%d co-sisters-in-law recorded (%d in total).'   =>
+                '%d syster till svärsyskon inlagd (totalt %d).' . I18N::PLURAL . '%d systrar till svärsyskon inlagda (totalt %d).',
+
+            '%2$s has %1$d co-sister-in-law and ' . I18N::PLURAL . '%2$s has %1$d co-sisters-in-law and ' =>
+                '%2$s har %1$d syster till svärsyskon och ' . I18N::PLURAL . '%2$s har %1$d systrar till svärsyskon och ',
+
+            '%d co-sibling-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d co-siblings-in-law of unknown sex recorded (%d in total).' =>
+                '%d syskon till svärsyskon inlagd. Kön okänt. (totalt %d).' . I18N::PLURAL . '%d syskon till svärsyskon inlagda. Kön okänt. (totalt %d).',
+
+            '%2$s has %1$d co-brother-in-law, ' . I18N::PLURAL . '%2$s has %1$d co-brothers-in-law, ' =>
+                '%2$s har %1$d bror till svärsyskon, ' . I18N::PLURAL . '%2$s har %1$d bröder till svärsyskon, ',
+
+            '%d co-sister-in-law, and ' . I18N::PLURAL . '%d co-sisters-in-law, and ' =>
+                '%d syster till svärsyskon, och ' . I18N::PLURAL . '%d systrar till svärsyskon, och ',
+
+            'Cousins' => 'Kusiner',
+            '%s has no first cousins recorded.' => '%s har ingen kusin inlagd.',
+            '%s has one female first cousin recorded.' => '%s har en kvinnlig kusin inlagd.',
+            '%s has one male first cousin recorded.' => '%s har en manlig kusin inlagd.',
+            '%s has one first cousin of unknown sex recorded.' => '%s har en kusin av okänt kön inlagd.',
+
+            '%2$s has %1$d female first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d female first cousins recorded.' =>
+                '%2$s har %1$d kvinnlig kusin inlagd.' . I18N::PLURAL . '%2$s har %1$d kvinnliga kusiner inlagda.',
+
+            '%2$s has %1$d male first cousin recorded.' . I18N::PLURAL . '%2$s has %1$d male first cousins recorded.' =>
+                '%2$s har %1$d manlig kusin inlagd.' . I18N::PLURAL . '%2$s har %1$d manliga kusiner inlagda.',
+
+            '%2$s has %1$d first cousin of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d first cousins of unknown sex recorded.' =>
+                '%2$s har %1$d kusin av okänt kön inlagd.' . I18N::PLURAL . '%2$s har %1$d kusiner av okönt kön inlagda.',
+
+            '%2$s has %1$d male first cousin and ' . I18N::PLURAL . '%2$s has %1$d male first cousins and '   =>
+                '%2$s har %1$d manlig kusin och ' . I18N::PLURAL . '%2$s har %1$d manliga kusiner och ',
+
+            '%d female first cousin recorded (%d in total).' . I18N::PLURAL . '%d female first cousins recorded (%d in total).'   =>
+                '%d kvinnlig kusin inlagd (totalt %d).' . I18N::PLURAL . '%d kvinnliga kusiner inlagda (totalt %d).',
+
+            '%2$s has %1$d female first cousin and ' . I18N::PLURAL . '%2$s has %1$d female first cousins and ' =>
+                '%2$s har %1$d kvinnlig kusin och ' . I18N::PLURAL . '%2$s har %1$d kvinnliga kusiner och ',
+
+            '%d first cousin of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d first cousins of unknown sex recorded (%d in total).' =>
+                '%d kusin av okänt kön inlagd (totalt %d).' . I18N::PLURAL . '%d kusiner av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d male first cousin, ' . I18N::PLURAL . '%2$s has %1$d male first cousins, ' =>
+                '%2$s har %1$d manlig kusin, ' . I18N::PLURAL . '%2$s har %1$d manliga kusiner, ',
+
+            '%d female first cousin, and ' . I18N::PLURAL . '%d female first cousins, and ' =>
+                '%d kvinnlig kusin, och ' . I18N::PLURAL . '%d kvinnliga kusiner, och ',
+
+            'Nephews and Nieces' => 'Syskonbarn',
+            '%s has no nephews or nieces recorded.' => '%s har inga syskonbarn inlagda.',
+            '%s has one niece recorded.' => '%s har en brors- eller systerdotter inlagd.',
+            '%s has one nephew recorded.' => '%s har en bror- eller systerson inlagd.',
+
+            '%s has one nephew or niece of unknown sex recorded.' =>
+                '%s har en brors- eller systerdotter av okänt kön inlagd.',
+
+            '%2$s has %1$d niece recorded.' . I18N::PLURAL . '%2$s has %1$d nieces recorded.' =>
+                '%2$s har %1$d brors-/systerdotter inlagd' . I18N::PLURAL . '%2$s har %1$d brors-/systerdöttrar inlagda.',
+
+            '%2$s has %1$d nephew recorded.' . I18N::PLURAL . '%2$s has %1$d nephews recorded.' =>
+                '%2$s har %1$d brors-/systerson inlagd.' . I18N::PLURAL . '%2$s har %1$d bror-/systersöner inlagda.',
+
+            '%2$s has %1$d nephew or niece of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d nephews or nieces of unknown sex recorded.' =>
+                '%2$s har %1$d bror-/systerson eller brors-/systerdotter inlagd. Kön okänt.' . I18N::PLURAL . '%2$s har %1$d brors-/systersöner eller brors-/systerdöttrar inlagda. Kön okänt.',
+
+            '%2$s has %1$d nephew and ' . I18N::PLURAL . '%2$s has %1$d nephews and ' =>
+                '%2$s har %1$d bror-/systerson och ' . I18N::PLURAL . '%2$s har %1$d bror-/systersöner och ',
+
+            '%d niece recorded (%d in total).' . I18N::PLURAL . '%d nieces recorded (%d in total).'   =>
+                '%d brors-/systerdotter inlagd (totalt %d).' . I18N::PLURAL . '%d brors-/systerdöttrar inlagda (totalt %d).',
+
+            '%2$s has %1$d niece and ' . I18N::PLURAL . '%2$s has %1$d nieces and ' =>
+                '%2$s har %1$d brors-/systerdotter och ' . I18N::PLURAL . '%2$s har %1$d brors-/systerdöttrar och ',
+
+            '%d nephew or niece of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d nephews or nieces of unknown sex recorded (%d in total).' =>
+                '%d barn till syskon inlagd. Kön okänt. (totalt %d).' . I18N::PLURAL . '%d barn till syskon inlagda. Kön okänt. (totalt %d).',
+
+            '%2$s has %1$d nephew, ' . I18N::PLURAL . '%2$s has %1$d nephews, ' =>
+                '%2$s har %1$d bror-/systerson, ' . I18N::PLURAL . '%2$s har %1$d bror-/systersöner, ',
+
+            '%d niece, and ' . I18N::PLURAL . '%d nieces, and ' =>
+                '%d brors-/systerdotter, och ' . I18N::PLURAL . '%d brors-/systerdöttrar, och ',
+
+            'Children' => 'Barn',
+            '%s has no children recorded.' => '%s har inget barn inlagt.',
+            '%s has one daughter recorded.' => '%s har en dotter inlagd.',
+            '%s has one son recorded.' => '%s har en son inlagd.',
+            '%s has one child of unknown sex recorded.' => '%s har ett barn av okänt kön inlagt.',
+
+            '%2$s has %1$d daughter recorded.' . I18N::PLURAL . '%2$s has %1$d daughters recorded.' =>
+                '%2$s har %1$d dotter inlagd.' . I18N::PLURAL . '%2$s har %1$d döttrar inlagda.',
+
+            '%2$s has %1$d son recorded.' . I18N::PLURAL . '%2$s has %1$d sons recorded.' =>
+                '%2$s har %1$d son inlagd.' . I18N::PLURAL . '%2$s har %1$d söner inlagda.',
+
+            '%2$s has %1$d child of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d children of unknown sex recorded.' =>
+                '%2$s har %1$d barn av okänt kön inlagt.' . I18N::PLURAL . '%2$s har %1$d barn av okänt kön inlagda.',
+
+            '%2$s has %1$d son and ' . I18N::PLURAL . '%2$s has %1$d sons and ' =>
+                '%2$s har %1$d son och ' . I18N::PLURAL . '%2$s har %1$d söner och ',
+
+            '%d daughter recorded (%d in total).' . I18N::PLURAL . '%d daughters recorded (%d in total).'   =>
+                '%d dotter inlagd (totalt %d).' . I18N::PLURAL . '%d döttrar inlagda (totalt %d).',
+
+            '%2$s has %1$d daughter and ' . I18N::PLURAL . '%2$s has %1$d daughters and ' =>
+                '%2$s har %1$d dotter och ' . I18N::PLURAL . '%2$s har %1$d döttrar och ',
+
+            '%d child of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d children of unknown sex recorded (%d in total).' =>
+                '%d barn av okänt kön inlagt (totalt %d).' . I18N::PLURAL . '%d barn av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d son, ' . I18N::PLURAL . '%2$s has %1$d sons, ' =>
+                '%2$s har %1$d son, ' . I18N::PLURAL . '%2$s har %1$d söner, ',
+
+            '%d daughter, and ' . I18N::PLURAL . '%d daughters, and ' =>
+                '%d dotter, och ' . I18N::PLURAL . '%d döttrar, och ',
+
+
+            'Children-in-law' => 'Svärbarn',
+            '%s has no children-in-law recorded.' => '%s har inget svärbarn inlagt.',
+            '%s has one daughter-in-law recorded.' => '%s har en svärdotter inlagd.',
+            '%s has one son-in-law recorded.' => '%s har en svärson inlagd.',
+            '%s has one child-in-law of unknown sex recorded.' => '%s har ett svärbarn av okänt kön inlagt.',
+
+            '%2$s has %1$d daughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d daughters-in-law recorded.' =>
+                '%2$s har %1$d svärdotter inlagd.' . I18N::PLURAL . '%2$s har %1$d svärdöttrar inlagda.',
+
+            '%2$s has %1$d son-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d sons-in-law recorded.' =>
+                '%2$s har %1$d svärson inlagd.' . I18N::PLURAL . '%2$s har %1$d svärsöner inlagda.',
+
+            '%2$s has %1$d child-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d children-in-law recorded.' =>
+                '%2$s har %1$d svärbarn inlagt.' . I18N::PLURAL . '%2$s har %1$d svärbarn inlagda.',
+
+            '%2$s has %1$d son-in-law and ' . I18N::PLURAL . '%2$s has %1$d sons-in-law and ' =>
+                '%2$s har %1$d svärson och ' . I18N::PLURAL . '%2$s har %1$d svärsöner och ',
+
+            '%d daughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d daughters-in-law recorded (%d in total).'   =>
+                '%d svärdotter inlagd (totalt %d).' . I18N::PLURAL . '%d svärdöttrar inlagda (totalt %d).',
+
+            '%2$s has %1$d daughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d daughters-in-law and ' =>
+                '%2$s har %1$d svärdotter och ' . I18N::PLURAL . '%2$s har %1$d svärdöttrar och ',
+
+            '%d child-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d children-in-law of unknown sex recorded (%d in total).' =>
+                '%d svärbarn av okänt kön inlagt (totalt %d).' . I18N::PLURAL . '%d svärbarn av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d son-in-law, ' . I18N::PLURAL . '%2$s has %1$d sons-in-law, ' =>
+                '%2$s har %1$d svärson, ' . I18N::PLURAL . '%2$s har %1$d svärsöner, ',
+
+            '%d daughter-in-law, and ' . I18N::PLURAL . '%d daughters-in-law, and ' =>
+                '%d svärdotter, och ' . I18N::PLURAL . '%d svärdöttrar, och ',
+
+
+            'Grandchildren' => 'Barnbarn',
+            '%s has no grandchildren recorded.' => '%s har inga barnbarn inlagda.',
+            '%s has one granddaughter recorded.' => '%s har ett flick-barnbarn inlagt.',
+            '%s has one grandson recorded.' => '%s har ett pojk-barnbarn inlagt.',
+            '%s has one grandchild of unknown sex recorded.' => '%s har ett barnbarn av okänt kön inlagt.',
+
+            '%2$s has %1$d granddaughter recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters recorded.' =>
+                '%2$s har %1$d flick-barnbarn inlagt.' . I18N::PLURAL . '%2$s har %1$d flick-barnbarn inlagda.',
+
+            '%2$s has %1$d grandson recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons recorded.' =>
+                '%2$s har %1$d pojk-barnbarn inlagt.' . I18N::PLURAL . '%2$s har %1$d pojk-barnbarn inlagda.',
+
+            '%2$s has %1$d grandchild of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren of unknown sex recorded.' =>
+                '%2$s har %1$d barnbarn av okänt kön inlagt.' . I18N::PLURAL . '%2$s har %1$d barnbarn av okänt kön inlagt.',
+
+            '%2$s has %1$d grandson and ' . I18N::PLURAL . '%2$s has %1$d grandsons and ' =>
+                '%2$s har %1$d pojk-barnbarn och ' . I18N::PLURAL . '%2$s har %1$d pojk-barnbarn och ',
+
+            '%d granddaughter recorded (%d in total).' . I18N::PLURAL . '%d granddaughters recorded (%d in total).'   =>
+                '%d flick-barnbarn inlagt (totalt %d).' . I18N::PLURAL . '%d flick-barnbarn inlagda (totalt %d).',
+
+            '%2$s has %1$d granddaughter and ' . I18N::PLURAL . '%2$s has %1$d granddaughters and ' =>
+                '%2$s har %1$d flick-barnbarn och ' . I18N::PLURAL . '%2$s har %1$d flick-barnbarn och ',
+
+            '%d grandchild of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren of unknown sex recorded (%d in total).' =>
+                '%d barnbarn av okänt kön inlagt (totalt %d).' . I18N::PLURAL . '%d barnbarn av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d grandson, ' . I18N::PLURAL . '%2$s has %1$d grandsons, ' =>
+                '%2$s har %1$d pojk-barnbarn, ' . I18N::PLURAL . '%2$s har %1$d pojk-barnbarn, ',
+
+            '%d granddaughter, and ' . I18N::PLURAL . '%d granddaughters, and ' =>
+                '%d flick-barnbarn, och ' . I18N::PLURAL . '%d flick-barnbarn, och ',
+
+
+            'Grandchildren-in-law' => 'Svärbarnbarn',
+            '%s has no grandchildren-in-law recorded.' => '%s har inga svärbarnbarn inlagda.',
+            '%s has one granddaughter-in-law recorded.' => '%s har ett flick-svärbarnbarn inlagt.',
+            '%s has one grandson-in-law recorded.' => '%s har ett pojk-svärbarnbarn inlagt.',
+            '%s has one grandchild-in-law of unknown sex recorded.' => '%s har ett svärbarnbarn av okänt kön inlagt.',
+
+            '%2$s has %1$d granddaughter-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law recorded.' =>
+                '%2$s har %1$d flick-svärbarnbarn inlagt.' . I18N::PLURAL . '%2$s har %1$d flick-svärbarnbarn inlagda.',
+
+            '%2$s has %1$d grandson-in-law recorded.' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law recorded.' =>
+                '%2$s har %1$d pojk-svärbarnbarn inlagt.' . I18N::PLURAL . '%2$s har %1$d pojk-svärbarnbarn inlagda.',
+
+            '%2$s has %1$d grandchild-in-law of unknown sex recorded.' . I18N::PLURAL . '%2$s has %1$d grandchildren-in-law of unknown sex recorded.' =>
+                '%2$s har %1$d svärbarnbarn av okänt kön inlagt.' . I18N::PLURAL . '%2$s har %1$d svärbarnbarn av okänt kön inlagda.',
+
+            '%2$s has %1$d grandson-in-law and ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law and ' =>
+                '%2$s har %1$d pojk-svärbarnbarn och ' . I18N::PLURAL . '%2$s har %1$d pojk-svärbarnbarn och ',
+
+            '%d granddaughter-in-law recorded (%d in total).' . I18N::PLURAL . '%d granddaughters-in-law recorded (%d in total).' =>
+                '%d flick-svärbarnbarn inlagt (totalt %d).' . I18N::PLURAL . '%d flick-svärbarnbarn inlagda (totalt %d).',
+
+            '%2$s has %1$d granddaughter-in-law and ' . I18N::PLURAL . '%2$s has %1$d granddaughters-in-law and ' =>
+                '%2$s har %1$d flick-svärbarnbarn och ' . I18N::PLURAL . '%2$s har %1$d flick-svärbarnbarn och ',
+
+            '%d grandchild-in-law of unknown sex recorded (%d in total).' . I18N::PLURAL . '%d grandchildren-in-law of unknown sex recorded (%d in total).' =>
+                '%d svärbarnbarn av okänt kön inlagt (totalt %d).' . I18N::PLURAL . '%d svärbarnbarn av okänt kön inlagda (totalt %d).',
+
+            '%2$s has %1$d grandson-in-law, ' . I18N::PLURAL . '%2$s has %1$d grandsons-in-law, ' =>
+                '%2$s har %1$d pojk-svärbarnbarn, ' . I18N::PLURAL . '%2$s har %1$d pojk-svärbarnbarn, ',
+
+            '%d granddaughter-in-law, and ' . I18N::PLURAL . '%d granddaughters-in-law, and ' =>
+                '%d flick-svärbarnbarn, och ' . I18N::PLURAL . '%d flick-svärbarnbarn, och ',
+
+        ];
+    }
+
     /**
      * @return array
      */
@@ -5263,7 +6042,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'не використовувати цей фільтр',
             'show only male persons' => 'показати тільки чоловіків',
             'show only female persons' => 'показати тільки фінок',
-            'show only persons of unknown gender' => 'показати тільки персон з невідомою статтю',
+            'show only persons of other or unknown gender' => 'показати тільки персон з невідомою статтю',
             'show only alive persons' => 'показати тільки живих',
             'show only dead persons' => 'показати тільки померлих',
             'alive' => 'живий',
@@ -5583,7 +6362,7 @@ class ExtendedFamilyTranslations
             'don\'t use this filter' => 'không sử dụng bộ lọc này',
             'show only male persons' => 'Chỉ hiển thị giới tính nam',
             'show only female persons' => 'Chỉ hiển thị giới tính nữ',
-            'show only persons of unknown gender' => 'Chỉ hiển thị những người có giới tính không xác định',
+            'show only persons of other or unknown gender' => 'Chỉ hiển thị những người có giới tính không xác định',
             'show only alive persons' => 'Chỉ hiển thị những người còn sống',
             'show only dead persons' => 'Chỉ hiển thị những người đã mất',
             'alive' => 'Chỉ hiển thị người còn sống',
@@ -5933,7 +6712,7 @@ class ExtendedFamilyTranslations
             'don\t use this filter'=>'不要使用此筛选器',
             'show only male persons'=>'只显示男性',
             'show only female persons'=>'只显示女性',
-            'show only persons of unknown gender'=>'只显示未知性别的人',
+            'show only persons of other or unknown gender'=>'只显示未知性别的人',
             'show only alive persons'=>'只显示活着的人',
             'show only dead persons'=>'只显示死人',
             'alive'=>'在世的',
@@ -6293,7 +7072,7 @@ class ExtendedFamilyTranslations
             'don\t use this filter'=>'不要使用此篩選器',
             'show only male persons'=>'只顯示男性',
             'show only female persons'=>'只顯示女性',
-            'show only persons of unknown gender'=>'只顯示未知性別的人',
+            'show only persons of other or unknown gender'=>'只顯示未知性別的人',
             'show only alive persons'=>'只顯示活著的人',
             'show only dead persons'=>'只顯示死人',
             'alive'=>'在世的',

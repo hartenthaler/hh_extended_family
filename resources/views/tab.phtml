@@ -46,15 +46,15 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                     <th>
                         <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
                             <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only male persons") ?>">
-                                <input class="hh-extended-filter-button" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="M">
+                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="M">
                                 <span class="wt-icon-sex wt-icon-sex-m"><i class="fas fa-mars fa-fw" aria-hidden="true"></i></span>
                             </label>
                             <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only female persons") ?>">
-                                <input class="hh-extended-filter-button" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="F">
+                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="F">
                                 <span class="wt-icon-sex wt-icon-sex-f"><i class="fas fa-venus fa-fw" aria-hidden="true"></i></span>
                             </label>
-                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only persons of unknown gender") ?>">
-                                <input class="hh-extended-filter-button" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="U">
+                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only persons of other or unknown gender") ?>">
+                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="U">
                                 <span class="wt-icon-sex wt-icon-sex-u"><i class="fas fa-genderless fa-fw" aria-hidden="true"></i></span>
                             </label>
                         </div>
@@ -63,11 +63,11 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                     <th>
                         <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
                             <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only alive persons") ?>">
-                                <input class="hh-extended-filter-button" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="Y">
+                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="Y">
                                 <?= I18N::translate("alive") ?>
                             </label>
                             <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only dead persons") ?>">
-                                <input class="hh-extended-filter-button" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="N">
+                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="N">
                                 <?= I18N::translate("dead") ?>
                             </label>
                         </div>
@@ -1150,70 +1150,59 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
   $(".hh-extended-filter[data-filter-value='N']").addClass('d-none');
   
   // filter click function
-  $(".hh-extended-filter-button").click(function() {
+  $(".hh-extended-filter-button").click(function ()
+  {
       let checkbox = $(this);
+      let siblings = checkbox.closest(".btn-group").find("input[type='checkbox']"); // Sucht nur Buttons in derselben Gruppe
 
-      // deselect other options of this filter box
-      let siblings = checkbox.siblings("input[type='checkbox']");
-      siblings.prop("checked", false).removeAttr("checked");
       let checked = checkbox.prop("checked");
-      let filter  = checked ? checkbox.data("filter-value") : "";
 
-      siblings.removeClass('active');
+      // Entferne `checked` und `active` von allen benachbarten Buttons
+      siblings.prop("checked", false).removeClass("active");
 
-      // apply and clear the filters
-      let thisCheckbox = $(this);
-      let thisFilterType = thisCheckbox.data("filter-type");
-
-      if (sessionStorage.getItem('sexFilterValue') == null) {
-        sessionStorage.setItem('sexFilterValue',"");
-      }
-      if (sessionStorage.getItem('aliveFilterValue') == null) {
-        sessionStorage.setItem('aliveFilterValue',"");
+      // Wende `checked` und `active` nur auf aktuellen Button an
+      if (checked) {
+          checkbox.prop("checked", true);
+          checkbox.closest("label").addClass("active"); // Wichtig für Bootstrap
+      } else {
+          checkbox.closest("label").removeClass("active");
       }
 
-      if (thisCheckbox.prop("checked")) {
-          if(thisFilterType == "sex") {
-            sessionStorage.setItem('sexFilterValue',thisCheckbox.data("filter-value"));
-          }    
-          else {
-            sessionStorage.setItem('aliveFilterValue',thisCheckbox.data("filter-value"));
-          }
-      }
-      else {
-          if(thisFilterType == "sex") {
-            sessionStorage.setItem('sexFilterValue',"");
-          }
-          else {
-            sessionStorage.setItem('aliveFilterValue',"");
-          }
+      // Speichere die Filterwerte
+      let filterType = checkbox.data("filter-type");
+
+      if (filterType === "sex") {
+          sessionStorage.setItem(
+              "sexFilterValue",
+              checked ? checkbox.data("filter-value") : ""
+          );
+      } else if (filterType === "alive") {
+          sessionStorage.setItem(
+              "aliveFilterValue",
+              checked ? checkbox.data("filter-value") : ""
+          );
       }
 
-      var filterValue = sessionStorage.getItem('sexFilterValue') + sessionStorage.getItem('aliveFilterValue');
+      // Hole die aktuellen Filterwerte aus dem sessionStorage
+      let sexFilterValue = sessionStorage.getItem("sexFilterValue") || "";
+      let aliveFilterValue = sessionStorage.getItem("aliveFilterValue") || "";
 
-      if(filterValue == "") {
-          var filterValue = "all";
+      // Kombiniere die beiden Filterwerte
+      let filterValue = sexFilterValue + aliveFilterValue;
+
+      // Fallback: Wenn kein Filter aktiv ist, zeige "all"
+      if (filterValue === "") {
+          filterValue = "all";
       }
 
-      // make all blocks invisible
-      $(".hh-extended-filter[data-filter-value='MY']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='FY']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='UY']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='MN']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='FN']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='UN']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='M']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='F']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='U']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='Y']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='N']").addClass('d-none');
-      $(".hh-extended-filter[data-filter-value='all']").addClass('d-none');
 
-      // make selected block visible
-      $(".hh-extended-filter[data-filter-value='" + filterValue + "']").removeClass('d-none');
+      // Alle Blöcke unsichtbar machen
+      $(".hh-extended-filter").addClass("d-none");
 
-// console.log("hh-extended-filter[data-filter-value='"+filterValue+"']");
-      
-    })
+      // Zeige den passenden Block
+      $(".hh-extended-filter[data-filter-value='" + filterValue + "']").removeClass("d-none");
+
+      // console.log("hh-extended-filter[data-filter-value='"+filterValue+"']");
+  });
 </script>
 <?php View::endpush() ?>

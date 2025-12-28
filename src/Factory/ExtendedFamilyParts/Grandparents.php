@@ -67,8 +67,18 @@ class Grandparents extends ExtendedFamilyPart
         $config = new FindBranchConfig(
             'grandparents',
             [
-            'bio'  => ['M' => self::GROUP_GRANDPARENTS_FATHER_BIO, 'F' => self::GROUP_GRANDPARENTS_MOTHER_BIO, 'U' => self::GROUP_GRANDPARENTS_U_BIO],
-            'step' => ['M' => self::GROUP_GRANDPARENTS_FATHER_STEP, 'F' => self::GROUP_GRANDPARENTS_MOTHER_STEP, 'U' => self::GROUP_GRANDPARENTS_U_STEP]
+            'bio'  => [
+                        'M' => self::GROUP_GRANDPARENTS_FATHER_BIO,
+                        'F' => self::GROUP_GRANDPARENTS_MOTHER_BIO,
+                        'U' => self::GROUP_GRANDPARENTS_U_BIO,
+                        'X' => self::GROUP_GRANDPARENTS_U_BIO
+                      ],
+            'step' => [
+                        'M' => self::GROUP_GRANDPARENTS_FATHER_STEP,
+                        'F' => self::GROUP_GRANDPARENTS_MOTHER_STEP,
+                        'U' => self::GROUP_GRANDPARENTS_U_STEP,
+                        'X' => self::GROUP_GRANDPARENTS_U_STEP
+                      ]
             ]
         );
         $this->addFamilyBranches($config);

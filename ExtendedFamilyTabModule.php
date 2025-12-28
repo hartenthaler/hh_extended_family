@@ -2,7 +2,7 @@
 /*
  * webtrees - extended family tab (custom module)
  *
- * Copyright (C) 2025 Hermann Hartenthaler.
+ * Copyright (C) 2026 Hermann Hartenthaler.
  * Copyright (C) 2013 Vytautas Krivickas and vytux.com.
  * Copyright (C) 2013 Nigel Osborne and kiwtrees.net.
  *
@@ -25,13 +25,13 @@
 
 /*
  * tbd
- * --------------------------  ab hier für das Release 2.2.1.2    ------------------------------------------------*
- * issues: see GitHub
+ * --------------------------  ab hier für das Release 2.2.1.4    ------------------------------------------------*
+ * issues "bug": see GitHub
  *
  * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
- * Code: Anpassungen an Bootstrap 5 (Filter-Buttons)
  * Code: collection für Familien ausprogrammieren in ExtendedFamily.php
  * Code: automatisches Kopieren in den Sammelbehälter verwerfen und stattdessen Button in Betrieb nehmen
+ * Code: neuer Familienteil "great grandchildren" erstellen
  * Code: Fehler in Grandchildren suchen
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Code: prüfen ob allCountUnique immer richtig berechnet wird
@@ -40,7 +40,9 @@
  * Übersetzung: Satz umformulieren, da Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
  * READme: alle Screenshots aktualisieren
  *
- * --------------------------  ab hier für ein Release nach 2.2.1.2    ------------------------------------------------
+ * --------------------------  ab hier für ein Release nach 2.2.1.4    ------------------------------------------------
+ * all issues: see GitHub
+ *
  * Code: neuen webtrees Validator zur Prüfung reinkommender Parameter verwenden (siehe Beispiele Magicsunday Fanchart)
  * Code: Grandchildren.php: statt großem Block wieder Unterfunktionen nutzen
  * Code: Ist die Funktion "getPedigreeValue" in ExtendedFamilySupport.php wirklich überflüssig? Dann löschen.
@@ -82,7 +84,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 //use Cissee\Webtrees\Module\ExtendedRelationships;
 
-use function str_starts_with;   // will be added in PHP 8.0
+use function str_starts_with;
 use function explode;
 use function implode;
 use function count;
@@ -125,7 +127,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.1.2';
+    public const CUSTOM_VERSION     = '2.2.1.3';
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
                                                             self::CUSTOM_MODULE . '/raw/main/latest-version.txt';
 
@@ -696,6 +698,9 @@ class ExtendedFamilyTabModule extends AbstractModule
                 break;
             case 'sk':
                 $customTranslation = ExtendedFamilyTranslations::slovakTranslations();
+                break;
+            case 'sv':
+                $customTranslation = ExtendedFamilyTranslations::swedishTranslations();
                 break;
             case 'uk':
                 $customTranslation = ExtendedFamilyTranslations::ukrainianTranslations();
