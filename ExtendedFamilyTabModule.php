@@ -68,6 +68,7 @@ declare(strict_types=1);
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Hartenthaler\Webtrees\Helpers\Functions;
+use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Individual;
@@ -153,7 +154,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      * @param Individual $proband
      * @return object
      */
-    private function getExtendedFamily(Individual $proband): object
+    public function getExtendedFamily(Individual $proband): object
     {
         return new ExtendedFamily($proband, $this->buildConfig($proband));
     }
@@ -624,12 +625,19 @@ class ExtendedFamilyTabModule extends AbstractModule
     public function getTabContent(Individual $individual): string
     {
         /*return view($this->name() . '::test.blade', ['title'=>'Laravel Blade Example']);*/
+
+        // use helper function to check if huhwt-cce is accessible in current user context
+        $cce_ok                     = Functions::test_CCE_ ( $individual->tree(), Auth::user());
+
         return view($this->name() . '::' . 'tab',
             [
+            'module'                => $this->name(),
+            'individual'            => $individual,
             'extfam_obj'            => $this->getExtendedFamily($individual),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
+            'cce_ok'                => $cce_ok,
             ]);
-    }
+        }
 
     /** {@inheritdoc} */
     public function canLoadAjax(): bool

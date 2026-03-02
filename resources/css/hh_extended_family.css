@@ -176,3 +176,7 @@
     background-color: lightgrey;
     color: red;    
 }
+
+.disabled > form > .btn{
+    background-color: gray !important;
+}

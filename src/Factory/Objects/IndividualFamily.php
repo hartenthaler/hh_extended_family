@@ -54,9 +54,9 @@ class IndividualFamily
      * @param Individual|null $referencePerson2
      */
     public function __construct(Individual $individual,
-                                Family $family = null,
-                                Individual $referencePerson = null,
-                                Individual $referencePerson2 = null)
+                                ?Family $family = null,
+                                ?Individual $referencePerson = null,
+                                ?Individual $referencePerson2 = null)
     {
         $this->objectIndiFamily = (object)[];
         $this->objectIndiFamily->individual = $individual;
@@ -94,13 +94,14 @@ class IndividualFamily
     /**
      * get family of this object
      *
-     * @return Family|void
+     * @return Family|null
      */
-    public function getFamily(): Family
+    public function getFamily(): Family|null
     {
        if (isset($this->objectIndiFamily->family)) {
            return $this->objectIndiFamily->family;
        }
+       return null;
     }
 
     /**
