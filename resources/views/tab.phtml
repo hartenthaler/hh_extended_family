@@ -4,6 +4,9 @@ use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\Session;
+
 use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // using const of this module
 
@@ -31,11 +34,19 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
  */
 
 /**
+ * @var Individual  $individual             the primary individual
  * @var object  $extfam_obj             contains all the information which has to be shown
  * @var string  $extended_family_css    used in javascript code as a link to the css file
+ * @var bool        $cce_ok                 is huhwt-cce accessible in current user context
  */
 
- ?>
+    if ($cce_ok) {
+        $cce_class  = '';
+    } else {
+        $cce_class  = 'disabled';
+    }
+
+?>
  
 <div class="wt-tab-hh-extended-family py-4">
     <?php if ($extfam_obj->config->showFilterOptions &&
@@ -80,11 +91,14 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
         <div class="hh-extended-filter" data-filter-value="<?= $filterOption ?>">
             <?php if ($filterObj->efp->summary->allCount > 0): ?>
                 <?php if ($extfam_obj->config->useClippingsCart): ?>
-                    <label class="btn btn-outline-secondary" title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
-                        <button type="submit" class="btn btn-primary">
-                            <?= view('icons/copy') ?>
-                            <?= I18N::translate("copy to clippings cart") ?>
-                        </button>
+                    <label class="btn btn-outline-secondary <?= $cce_class ?>" title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
+                        <form method="post" action="<?= e(route(ClippingsCartEnhancedModule::class, [ 'tree' => $tree_name, 'action' => 'clip_hhEF', 'xref' => $individual->xref(), 'part' => $filterOption ])); ?>">
+                            <?= csrf_field(); ?>
+                            <button type="submit" class="btn btn-primary">
+                                <?= view('icons/copy') ?>
+                                <?= I18N::translate("copy to clippings cart") ?>
+                            </button>
+                        </form>
                     </label>
                 <?php endif ?>
                 <?php foreach ($filterObj->efp as $propName => $propValue) : ?>
