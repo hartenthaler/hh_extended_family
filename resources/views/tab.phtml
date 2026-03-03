@@ -7,6 +7,8 @@ use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Session;
 
+use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
+
 use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // using const of this module
 
@@ -35,8 +37,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
 
 /**
  * @var Individual  $individual             the primary individual
- * @var object  $extfam_obj             contains all the information which has to be shown
- * @var string  $extended_family_css    used in javascript code as a link to the css file
+ * @var object      $extfam_obj             contains all the information which has to be shown
+ * @var string      $extended_family_css    used in javascript code as a link to the css file
  * @var bool        $cce_ok                 is huhwt-cce accessible in current user context
  */
 
@@ -45,6 +47,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
     } else {
         $cce_class  = 'disabled';
     }
+    $tree_name      = $individual->tree()->name();
 
 ?>
  
