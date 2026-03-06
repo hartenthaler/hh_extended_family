@@ -2,10 +2,10 @@
 /*
  * webtrees - extended family part
  *
- * Copyright (C) 2021 Hermann Hartenthaler. All rights reserved.
+ * Copyright (C) 2026 Hermann Hartenthaler. All rights reserved.
  *
  * webtrees: online genealogy / web based family history software
- * Copyright (C) 2021 webtrees development team.
+ * Copyright (C) 2026 webtrees development team.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -70,13 +70,13 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Family;
-use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Session;
 use Illuminate\Support\Collection;
 
-use function explode;
-use function count;
+use function ucfirst;
+use function is_array;
+
 
 /**
  * class ExtendedFamily
@@ -221,7 +221,7 @@ class ExtendedFamily
                 }
             }
         }
-        // tbd remove
+        // tbd remove because it is implemented now totally different
         if ($this->config->useClippingsCart) {
             //$this->addExtendedFamilyToClippingsCart($this->collectAllIndividuals($this->filters['all']), $this->collectAllFamilies($this->filters['all']));
         }
@@ -273,7 +273,9 @@ class ExtendedFamily
     }
 
     /**
-     * collect all families of the extended family
+     * tbd: remove because it is implemented now totally differently
+     *
+     * collect all families of the extended family,
      * maybe excluding the additional families of the partner chains
      *
      * @param object $extendedFamily
@@ -299,6 +301,8 @@ class ExtendedFamily
     }
 
     /**
+     * tbd: remove because it is implemented now totally differently
+     *
      * add all members of the extended family (individuals and their families) to the webtrees clippings cart
      *
      * @param Collection $individuals
@@ -318,6 +322,8 @@ class ExtendedFamily
     }
 
     /**
+     * tbd: remove because it is implemented now totally differently
+     *
      * add an individual and all linked other records to the clippings cart
      *
      * @param Individual $individual

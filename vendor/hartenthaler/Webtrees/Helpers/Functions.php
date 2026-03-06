@@ -2,10 +2,10 @@
 
 /**
  * webtrees: online genealogy application
- * Copyright (C) 2025 webtrees development team
+ * Copyright (C) 2026 webtrees development team
  *                    <https://webtrees.net>
  *
- * Copyright (C) 2025 Hermann Hartenthaler
+ * Copyright (C) 2026 Hermann Hartenthaler
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -54,12 +54,12 @@ class Functions
     }
     
     /**
+     * Test if _huhwt-cce_ is installed and accessible
+     *
      * @param Tree              $tree
      * @param UserInterface     $user
      *
      * @return bool
-     * 
-     * test if _huhwt-cce_ is installed and accessible
      */
     public static function test_CCE_ (Tree $tree, UserInterface $user) : bool
     {
@@ -71,5 +71,4 @@ class Functions
         }
         return $retval;
     }
-
 }

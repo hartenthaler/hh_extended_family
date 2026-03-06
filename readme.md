@@ -100,7 +100,10 @@ and all available themes and all other custom modules.
 <a name="installation"></a>
 ## Installation
 
-This section documents installation instructions for this module.
+Install and use [Custom Module Manager](https://github.com/Jefferson49/CustomModuleManager) for an easy and convenient installation of webtrees custom modules.
++ Open the Custom Module Manager view in webtrees, scroll to "Extended Family", and click on the "Install Module" button.
+
+**Manual installation**:
 
 1. Make database backup
 1. Download the [latest release](https://github.com/hartenthaler/hh_extended_family/releases/latest)

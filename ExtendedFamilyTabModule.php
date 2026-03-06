@@ -7,7 +7,7 @@
  * Copyright (C) 2013 Nigel Osborne and kiwtrees.net.
  *
  * webtrees: online genealogy application
- * Copyright (C) 2025 webtrees development team.
+ * Copyright (C) 2026 webtrees development team.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -129,7 +129,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     // Custom module version
     public const CUSTOM_VERSION     = '2.2.5.0';
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
-                                                            self::CUSTOM_MODULE . '/raw/main/latest-version.txt';
+                                                              self::CUSTOM_MODULE . '/raw/main/latest-version.txt';
 
     /**
      * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
@@ -625,8 +625,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     {
         /*return view($this->name() . '::test.blade', ['title'=>'Laravel Blade Example']);*/
 
-        // use helper function to check if huhwt-cce is accessible in current user context
-        $cce_ok                     = Functions::test_CCE_ ( $individual->tree(), Auth::user());
+        // use helper function to check if huhwt-cce is accessible in the current user context
 
         return view($this->name() . '::' . 'tab',
             [
@@ -634,7 +633,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'individual'            => $individual,
             'extfam_obj'            => $this->getExtendedFamily($individual),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
-            'cce_ok'                => $cce_ok,
+            'cce_ok'                => Functions::test_CCE_ ( $individual->tree(), Auth::user()),
             ]);
         }
 

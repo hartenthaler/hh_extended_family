@@ -5,7 +5,6 @@ use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
-use Fisharebest\Webtrees\Session;
 
 use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
 
@@ -36,9 +35,9 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
  */
 
 /**
- * @var Individual  $individual             the primary individual
+ * @var Individual  $individual             the primary individual (proband)
  * @var object      $extfam_obj             contains all the information which has to be shown
- * @var string      $extended_family_css    used in javascript code as a link to the css file
+ * @var string      $extended_family_css    used in JavaScript code as a link to the CSS file
  * @var bool        $cce_ok                 is huhwt-cce accessible in current user context
  */
 
@@ -47,7 +46,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
     } else {
         $cce_class  = 'disabled';
     }
-    $tree_name      = $individual->tree()->name();
+    $tree_name = $individual->tree()->name();
 
 ?>
  
@@ -94,12 +93,18 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
         <div class="hh-extended-filter" data-filter-value="<?= $filterOption ?>">
             <?php if ($filterObj->efp->summary->allCount > 0): ?>
                 <?php if ($extfam_obj->config->useClippingsCart): ?>
-                    <label class="btn btn-outline-secondary <?= $cce_class ?>" title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
-                        <form method="post" action="<?= e(route(ClippingsCartEnhancedModule::class, [ 'tree' => $tree_name, 'action' => 'clip_hhEF', 'xref' => $individual->xref(), 'part' => $filterOption ])); ?>">
+                    <label class="btn btn-outline-secondary <?= $cce_class ?>"
+                           title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
+                        <form method="post" action="<?= e(route(ClippingsCartEnhancedModule::class, [
+                                'tree'   => $tree_name,
+                                'action' => 'clip_hhEF',
+                                'xref'   => $individual->xref(),
+                                'part'   => $filterOption
+                            ])); ?>">
                             <?= csrf_field(); ?>
                             <button type="submit" class="btn btn-primary">
                                 <?= view('icons/copy') ?>
-                                <?= I18N::translate("copy to clippings cart") ?>
+                                <?= I18N::translate("copy to clippings cart")." = ".$tree_name ?>
                             </button>
                         </form>
                     </label>
@@ -1116,21 +1121,21 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                             <?php if ($filterObj->efp->summary->allCountUnique - 1 < $filterObj->efp->summary->allCount - ($extfam_obj->config->countPartnerChainsToTotal?0:(false?$filterObj->efp->partner_chains->allCount:0))) : ?>
                                 <?= I18N::translate('Some of them are member in more than one part of the extended family.') ?>
                             <?php endif ?>
-                            <?php if ($extfam_obj->config->showEmptyBlock == 1) : ?>
-                                <?php if (count($filterObj->efp->summary->summaryMessageEmptyBlocks) > 0) : ?>
-                                    <?php $summaryListA = ExtendedFamilySupport::translateFamilyPart($filterObj->efp->summary->summaryMessageEmptyBlocks[0]) ?>
-                                    <?php if (count($filterObj->efp->summary->summaryMessageEmptyBlocks) == 1) : ?>
-                                        <p><?= I18N::translate('%s has no %s recorded.', $extfam_obj->proband->niceName, $summaryListA) ?></p>
-                                    <?php else: ?>
-                                        <?php for ($i = 1; $i <= count($filterObj->efp->summary->summaryMessageEmptyBlocks)-2; $i++): ?>
-                                            <?php $summaryListA .= ', ' . ExtendedFamilySupport::translateFamilyPart($filterObj->efp->summary->summaryMessageEmptyBlocks[$i]) ?>
-                                        <?php endfor ?>
-                                        <?php $summaryListB = ExtendedFamilySupport::translateFamilyPart($filterObj->efp->summary->summaryMessageEmptyBlocks[count($filterObj->efp->summary->summaryMessageEmptyBlocks)-1]) ?>
-                                        <p><?= I18N::translate('%s has no %s, and no %s recorded.', $extfam_obj->proband->niceName, $summaryListA, $summaryListB) ?></p>
-                                    <?php endif ?>
+                        </p>
+                        <?php if ($extfam_obj->config->showEmptyBlock == 1) : ?>
+                            <?php if (count($filterObj->efp->summary->summaryMessageEmptyBlocks) > 0) : ?>
+                                <?php $summaryListA = ExtendedFamilySupport::translateFamilyPart($filterObj->efp->summary->summaryMessageEmptyBlocks[0]) ?>
+                                <?php if (count($filterObj->efp->summary->summaryMessageEmptyBlocks) == 1) : ?>
+                                    <p><?= I18N::translate('%s has no %s recorded.', $extfam_obj->proband->niceName, $summaryListA) ?></p>
+                                <?php else: ?>
+                                    <?php for ($i = 1; $i <= count($filterObj->efp->summary->summaryMessageEmptyBlocks)-2; $i++): ?>
+                                        <?php $summaryListA .= ', ' . ExtendedFamilySupport::translateFamilyPart($filterObj->efp->summary->summaryMessageEmptyBlocks[$i]) ?>
+                                    <?php endfor ?>
+                                    <?php $summaryListB = ExtendedFamilySupport::translateFamilyPart($filterObj->efp->summary->summaryMessageEmptyBlocks[count($filterObj->efp->summary->summaryMessageEmptyBlocks)-1]) ?>
+                                    <p><?= I18N::translate('%s has no %s, and no %s recorded.', $extfam_obj->proband->niceName, $summaryListA, $summaryListB) ?></p>
                                 <?php endif ?>
                             <?php endif ?>
-                        </p>
+                        <?php endif ?>
                     </div>
                 <?php endif ?>
             <?php else: ?>
@@ -1211,7 +1216,6 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
       if (filterValue === "") {
           filterValue = "all";
       }
-
 
       // Alle Blöcke unsichtbar machen
       $(".hh-extended-filter").addClass("d-none");

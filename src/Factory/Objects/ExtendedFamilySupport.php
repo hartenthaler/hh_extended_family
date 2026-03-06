@@ -122,7 +122,7 @@ class ExtendedFamilySupport
         return [
             'M',
             'F',
-            'U',
+            'U',    // used for sex = "X" (other) and sex ="U" (unknown)
         ];
     }
 

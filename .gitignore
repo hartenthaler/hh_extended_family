@@ -2,3 +2,10 @@
 resources/views/alexa.php
 resources/views/test.blade.phtml
 resources/views/test_tmp.blade.phtml
+ExtendedFamilyTabModule.php.old
+resources/css/hh_extended_family.css.old
+resources/views/tab.phtml.old
+resources/views/tab_alt.phtml
+resources/views/tbd the next line should be only presented if efp partner.docx
+src/Factory/Objects/IndividualFamily.php.old
+vendor/hartenthaler/Webtrees/Helpers/Functions.php-old
