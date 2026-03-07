@@ -92,7 +92,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
     <?php foreach ($extfam_obj->filters as $filterOption => $filterObj) : ?>
         <div class="hh-extended-filter" data-filter-value="<?= $filterOption ?>">
             <?php if ($filterObj->efp->summary->allCount > 0): ?>
-                <?php if ($extfam_obj->config->useClippingsCart): ?>
+                <?php if ($extfam_obj->config->useClippingsCart && $cce_ok): ?>
                     <label class="btn btn-outline-secondary <?= $cce_class ?>"
                            title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
                         <form method="post" action="<?= e(route(ClippingsCartEnhancedModule::class, [
