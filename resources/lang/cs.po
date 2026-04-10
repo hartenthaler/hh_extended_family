@@ -1,0 +1,2528 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-10 21:44+0200\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:315
+msgid "Rada"
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:333
+#, fuzzy
+msgid "linkage "
+msgstr "vztah prokázaný"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:383
+msgid "stillborn"
+msgstr "mrtvě narozený/á"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:386
+msgid "died as infant"
+msgstr "zemřela/a jako nemluvně"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:424
+msgid "Uncles and Aunts"
+msgstr "Strýcové a tety"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:426
+msgid "Uncles and Aunts by marriage"
+msgstr "Vyženění/vyvdaní strýcové a tety"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:428
+msgid "Partner chains"
+msgstr "Řetězce partnerů"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:430
+msgid "Nephews and Nieces"
+msgstr "Synovci a neteře"
+
+#: src/Factory/Objects/ProbandName.php:131
+msgid "He"
+msgstr "On"
+
+#: src/Factory/Objects/ProbandName.php:132
+msgid "She"
+msgstr "Ona"
+
+#: src/Factory/Objects/ProbandName.php:133
+msgid "He/she"
+msgstr "On/ona"
+
+#: src/Factory/Objects/ProbandName.php:150
+msgid "Mr."
+msgstr "Pan"
+
+#: src/Factory/Objects/ProbandName.php:151
+msgid "Mrs."
+msgstr "Paní"
+
+#: src/Factory/Objects/PlaceAbbreviation.php:200
+msgid "Full place name"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:201
+msgid "City only"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:202
+msgid "City and country"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:203
+msgid "City and 2 letter ISO country code"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:204
+msgid "City and 3 letter ISO country code"
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:298
+#, php-format
+msgid "The preferences for the module “%s” have been updated."
+msgstr ""
+
+#: resources/views/tab.phtml:61
+msgid "show only male persons"
+msgstr "zobrazit pouze osoby mužského pohlaví"
+
+#: resources/views/tab.phtml:65
+msgid "show only female persons"
+msgstr "zobrazit pouze osoby ženského pohlaví"
+
+#: resources/views/tab.phtml:69
+msgid "show only persons of other or unknown gender"
+msgstr "zobrazit pouze osoby neznámého pohlaví"
+
+#: resources/views/tab.phtml:78
+msgid "show only alive persons"
+msgstr "zobrazit pouze žijící osoby"
+
+#: resources/views/tab.phtml:80
+msgid "alive"
+msgstr "žijící"
+
+#: resources/views/tab.phtml:82
+msgid "show only dead persons"
+msgstr "zobrazit pouze zemřelé osoby"
+
+#: resources/views/tab.phtml:84
+msgid "dead"
+msgstr "zemřelí"
+
+#: resources/views/tab.phtml:97
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "kopírovat všechny členy širší rodiny do schránky výstřižků"
+
+#: resources/views/tab.phtml:107
+msgid "copy to clippings cart"
+msgstr "kopírovat do schránky výstřižků"
+
+#: resources/views/tab.phtml:119
+#, php-format
+msgid "generation +%s"
+msgstr "generace +%s"
+
+#: resources/views/tab.phtml:121
+msgid "same generation"
+msgstr "stejná generace"
+
+#: resources/views/tab.phtml:123
+#, php-format
+msgid "generation %s"
+msgstr "generace %s"
+
+#: resources/views/tab.phtml:128
+#, php-format
+msgid "relationship coefficient: %.1f"
+msgstr "Koeficient příbuznosti: %.1f"
+
+#: resources/views/tab.phtml:133
+msgid "no blood relationship"
+msgstr "nepokrevní příbuzenství"
+
+#: resources/views/tab.phtml:143
+#, php-format
+msgid "%s has one great-grandmother recorded."
+msgstr "%s má zaznamenanou jednu prabábu."
+
+#: resources/views/tab.phtml:145
+#, php-format
+msgid "%s has one great-grandfather recorded."
+msgstr "%s má zaznamenaného jednoho praděda."
+
+#: resources/views/tab.phtml:147
+#, php-format
+msgid "%s has one great-grandparent of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho praprarodiče neznámého pohlaví."
+
+#: resources/views/tab.phtml:151
+#, php-format
+msgid "%2$s has %1$d great-grandmother recorded."
+msgid_plural "%2$s has %1$d great-grandmothers recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d prabábu."
+msgstr[1] "%2$s má zaznamenané %1$d prabáby."
+msgstr[2] "%2$s má zaznamenaných %1$d prabab."
+
+#: resources/views/tab.phtml:153
+#, php-format
+msgid "%2$s has %1$d great-grandfather recorded."
+msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d praděda."
+msgstr[1] "%2$s má zaznamenané %1$d pradědy."
+msgstr[2] "%2$s má zaznamenaných %1$d pradědů."
+
+#: resources/views/tab.phtml:155
+#, php-format
+msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d praprarodiče neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d praprarodiče neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d praprarodičú neznámého pohlaví."
+
+#: resources/views/tab.phtml:157 resources/views/tab.phtml:160
+#, php-format
+msgid "%2$s has %1$d great-grandfather and "
+msgid_plural "%2$s has %1$d great-grandfathers and "
+msgstr[0] "%2$s má zaznamenaného %1$d praděda a "
+msgstr[1] "%2$s má zaznamenané %1$d pradědy a "
+msgstr[2] "%2$s má zaznamenaných %1$d pradědů a "
+
+#: resources/views/tab.phtml:158
+#, php-format
+msgid "%d great-grandmother recorded (%d in total)."
+msgid_plural "%d great-grandmothers recorded (%d in total)."
+msgstr[0] "%d prabábu (celkem %d)."
+msgstr[1] "%d prabáby (celkem %d)."
+msgstr[2] "%d prabab (celkem %d)."
+
+#: resources/views/tab.phtml:161 resources/views/tab.phtml:164
+#: resources/views/tab.phtml:168
+#, php-format
+msgid "%d great-grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d praprarodiče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d praprarodiče neznámého pohlaví (celkem %d)."
+msgstr[2] "%d praprarodičů neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:163
+#, php-format
+msgid "%2$s has %1$d great-grandmother and "
+msgid_plural "%2$s has %1$d great-grandmothers and "
+msgstr[0] "%2$s má zaznamenanou %1$d prabábu a "
+msgstr[1] "%2$s má zaznamenané %1$d prabáby a "
+msgstr[2] "%2$s má zaznamenaných %1$d prabab a "
+
+#: resources/views/tab.phtml:166
+#, php-format
+msgid "%2$s has %1$d great-grandfather, "
+msgid_plural "%2$s has %1$d great-grandfathers, "
+msgstr[0] "%2$s má %1$d praděda, "
+msgstr[1] "%2$s má %1$d pradědy, "
+msgstr[2] "%2$s má %1$d pradědů, "
+
+#: resources/views/tab.phtml:167
+#, php-format
+msgid "%d great-grandmother, and "
+msgid_plural "%d great-grandmothers, and "
+msgstr[0] "%d prabábu, a "
+msgstr[1] "%d prabáby, a "
+msgstr[2] "%d prabab, a "
+
+#: resources/views/tab.phtml:174
+#, php-format
+msgid "%s has one grandmother recorded."
+msgstr "%s má zaznamenanou jednu bábu."
+
+#: resources/views/tab.phtml:176
+#, php-format
+msgid "%s has one grandfather recorded."
+msgstr "%s má zaznamenaného jednoho děda."
+
+#: resources/views/tab.phtml:178
+#, php-format
+msgid "%s has one grandparent of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho prarodiče neznámého pohlaví."
+
+#: resources/views/tab.phtml:182
+#, php-format
+msgid "%2$s has %1$d grandmother recorded."
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d bábu."
+msgstr[1] "%2$s má zaznamenané %1$d báby."
+msgstr[2] "%2$s má zaznamenaných %1$d bab."
+
+#: resources/views/tab.phtml:184
+#, php-format
+msgid "%2$s has %1$d grandfather recorded."
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d děda."
+msgstr[1] "%2$s má zaznamenané %1$d dědy."
+msgstr[2] "%2$s má zaznamenaných %1$d dědů."
+
+#: resources/views/tab.phtml:186
+#, php-format
+msgid "%2$s has %1$d grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d prarodiče neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d prarodiče neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d prarodičú neznámého pohlaví."
+
+#: resources/views/tab.phtml:188 resources/views/tab.phtml:191
+#, php-format
+msgid "%2$s has %1$d grandfather and "
+msgid_plural "%2$s has %1$d grandfathers and "
+msgstr[0] "%2$s má zaznamenaného %1$d děda a "
+msgstr[1] "%2$s má zaznamenané %1$d dědy a "
+msgstr[2] "%2$s má zaznamenaných %1$d dědů a "
+
+#: resources/views/tab.phtml:189
+#, php-format
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] "%d bábu (celkem %d)."
+msgstr[1] "%d báby (celkem %d)."
+msgstr[2] "%d bab (celkem %d)."
+
+#: resources/views/tab.phtml:192 resources/views/tab.phtml:195
+#: resources/views/tab.phtml:199
+#, php-format
+msgid "%d grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d prarodiče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d prarodiče neznámého pohlaví (celkem %d)."
+msgstr[2] "%d prarodičů neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:194
+#, php-format
+msgid "%2$s has %1$d grandmother and "
+msgid_plural "%2$s has %1$d grandmothers and "
+msgstr[0] "%2$s má zaznamenanou %1$d bábu a "
+msgstr[1] "%2$s má zaznamenané %1$d báby a "
+msgstr[2] "%2$s má zaznamenaných %1$d bab a "
+
+#: resources/views/tab.phtml:197
+#, php-format
+msgid "%2$s has %1$d grandfather, "
+msgid_plural "%2$s has %1$d grandfathers, "
+msgstr[0] "%2$s má %1$d děda, "
+msgstr[1] "%2$s má %1$d dědy, "
+msgstr[2] "%2$s má %1$d dědů, "
+
+#: resources/views/tab.phtml:198
+#, php-format
+msgid "%d grandmother, and "
+msgid_plural "%d grandmothers, and "
+msgstr[0] "%d bábu, a "
+msgstr[1] "%d báby, a "
+msgstr[2] "%d bab, a "
+
+#: resources/views/tab.phtml:205
+#, php-format
+msgid "%s has one aunt recorded."
+msgstr "%s má zaznamenanou jednu tetu."
+
+#: resources/views/tab.phtml:207
+#, php-format
+msgid "%s has one uncle recorded."
+msgstr "%s má zaznamenaného jednoho strýce."
+
+#: resources/views/tab.phtml:209
+#, php-format
+msgid "%s has one uncle or aunt of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho strýce nebo jednu tetu neznámého pohlaví."
+
+#: resources/views/tab.phtml:213
+#, php-format
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d tetu."
+msgstr[1] "%2$s má zaznamenané %1$d tety."
+msgstr[2] "%2$s má zaznamenaných %1$d tet."
+
+#: resources/views/tab.phtml:215
+#, php-format
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d strýce."
+msgstr[1] "%2$s má zaznamenané %1$d strýce."
+msgstr[2] "%2$s má zaznamenaných %1$d strýců."
+
+#: resources/views/tab.phtml:217
+#, php-format
+msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d strýce nebo tetu neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d strýce nebo tety neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d strýců nebo tet neznámého pohlaví."
+
+#: resources/views/tab.phtml:219 resources/views/tab.phtml:222
+#, php-format
+msgid "%2$s has %1$d uncle and "
+msgid_plural "%2$s has %1$d uncles and "
+msgstr[0] "%2$s má zaznamenaného %1$d strýce a "
+msgstr[1] "%2$s má zaznamenané %1$d strýce a "
+msgstr[2] "%2$s má zaznamenaných %1$d strýců a "
+
+#: resources/views/tab.phtml:220
+#, php-format
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] "%d tetu (celkem %d)."
+msgstr[1] "%d tety (celkem %d)."
+msgstr[2] "%d tet (celkem %d)."
+
+#: resources/views/tab.phtml:223 resources/views/tab.phtml:226
+#: resources/views/tab.phtml:230
+#, php-format
+msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
+msgstr[0] "%d strýce nebo tetu neznámého pohlaví (celkem %d)."
+msgstr[1] "%d strýce nebo tety neznámého pohlaví (celkem %d)."
+msgstr[2] "%d strýců nebo tet neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:225
+#, php-format
+msgid "%2$s has %1$d aunt and "
+msgid_plural "%2$s has %1$d aunts and "
+msgstr[0] "%2$s má zaznamenanou %1$d tetu a "
+msgstr[1] "%2$s má zaznamenané %1$d tety a "
+msgstr[2] "%2$s má zaznamenaných %1$d tet a "
+
+#: resources/views/tab.phtml:228
+#, php-format
+msgid "%2$s has %1$d uncle, "
+msgid_plural "%2$s has %1$d uncles, "
+msgstr[0] "%2$s má %1$d strýce, "
+msgstr[1] "%2$s má %1$d strýce, "
+msgstr[2] "%2$s má %1$d strýců, "
+
+#: resources/views/tab.phtml:229
+#, php-format
+msgid "%d aunt, and "
+msgid_plural "%d aunts, and "
+msgstr[0] "%d tetu, a "
+msgstr[1] "%d tety, a "
+msgstr[2] "%d tet, a "
+
+#: resources/views/tab.phtml:236
+#, php-format
+msgid "%s has one aunt by marriage recorded."
+msgstr "%s má zaznamenanou jednu vyženěnou/vyvdanou tetu."
+
+#: resources/views/tab.phtml:238
+#, php-format
+msgid "%s has one uncle by marriage recorded."
+msgstr "%s má zaznamenaného jednoho vyženěného/vyvdaného strýce."
+
+#: resources/views/tab.phtml:240
+#, php-format
+msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
+msgstr ""
+"%s má zaznamenaného jednoho vyženěného/vyvdaného strýce nebo jednu vyženěnou/"
+"vyvdanou tetu naznámého pohlaví."
+
+#: resources/views/tab.phtml:244
+#, php-format
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d vyženěnou/vyvdanou tetu."
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané tety."
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných tet."
+
+#: resources/views/tab.phtml:246
+#, php-format
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce."
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané strýce."
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců."
+
+#: resources/views/tab.phtml:248
+#, php-format
+msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
+msgid_plural ""
+"%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+msgstr[0] ""
+"%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce nebo vyženěnou/"
+"vyvdanou tetu neznámého pohlaví."
+msgstr[1] ""
+"%2$s má zaznamenané %1$d vyženěné/vyvdané strýce nebo vyženěné/vyvdané tety "
+"neznámého pohlaví."
+msgstr[2] ""
+"%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců nebo vyženěných/"
+"vyvdaných tet neznámého pohlaví."
+
+#: resources/views/tab.phtml:250 resources/views/tab.phtml:253
+#, php-format
+msgid "%2$s has %1$d uncle by marriage and "
+msgid_plural "%2$s has %1$d uncles by marriage and "
+msgstr[0] "%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce a "
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané strýce a "
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců a "
+
+#: resources/views/tab.phtml:251
+#, php-format
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] "%d vyženěnou/vyvdanou tetu (celkem %d)."
+msgstr[1] "%d vyženěné/vyvdané tety (celkem %d)."
+msgstr[2] "%d vyženěných/vyvdaných tet (celkem %d)."
+
+#: resources/views/tab.phtml:254 resources/views/tab.phtml:257
+#: resources/views/tab.phtml:261
+#, php-format
+msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
+msgid_plural ""
+"%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+msgstr[0] ""
+"%d vyženěného/vyvdaného strýce nebo tetu neznámého pohlaví (celkem %d)."
+msgstr[1] "%d vyženěné/vyvdané strýce nebo tety neznámého pohlaví (celkem %d)."
+msgstr[2] ""
+"%d vyženěných/vyvdaných strýců nebo tet neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:256
+#, php-format
+msgid "%2$s has %1$d aunt by marriage and "
+msgid_plural "%2$s has %1$d aunts by marriage and "
+msgstr[0] "%2$s má zaznamenanou %1$d vyženěnou/vyvdanou tetu a "
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané tety a "
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných tet a "
+
+#: resources/views/tab.phtml:259
+#, php-format
+msgid "%2$s has %1$d uncle by marriage, "
+msgid_plural "%2$s has %1$d uncles by marriage, "
+msgstr[0] "%2$s má %1$d vyženěného/vyvdaného strýce, "
+msgstr[1] "%2$s má %1$d vyženěné/vyvdané strýce, "
+msgstr[2] "%2$s má %1$d vyženěných/vyvdaných strýců, "
+
+#: resources/views/tab.phtml:260
+#, php-format
+msgid "%d aunt by marriage, and "
+msgid_plural "%d aunts by marriage, and "
+msgstr[0] "%d vyženěnou/vyvdanou tetu, a "
+msgstr[1] "%d vyženěné/vyvdané tety, a "
+msgstr[2] "%d vyženěných/vyvdaných tet, a "
+
+#: resources/views/tab.phtml:267
+#, php-format
+msgid "%s has one mother recorded."
+msgstr "%s má zaznamenanou jednu matku."
+
+#: resources/views/tab.phtml:269
+#, php-format
+msgid "%s has one father recorded."
+msgstr "%s má zaznamenaného jednoho otce."
+
+#: resources/views/tab.phtml:271
+#, php-format
+msgid "%s has one parent of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho rodiče neznámého pohlaví."
+
+#: resources/views/tab.phtml:275
+#, php-format
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d matku."
+msgstr[1] "%2$s má zaznamenané %1$d matky."
+msgstr[2] "%2$s má zaznamenaných %1$d matek."
+
+#: resources/views/tab.phtml:277
+#, php-format
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d otce."
+msgstr[1] "%2$s má zaznamenané %1$d otce."
+msgstr[2] "%2$s má zaznamenaných %1$d otců."
+
+#: resources/views/tab.phtml:279
+#, php-format
+msgid "%2$s has %1$d parent of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d rodiče neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d rodiče neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d rodičú neznámého pohlaví."
+
+#: resources/views/tab.phtml:281 resources/views/tab.phtml:284
+#, php-format
+msgid "%2$s has %1$d father and "
+msgid_plural "%2$s has %1$d fathers and "
+msgstr[0] "%2$s má zaznamenaného %1$d otce a "
+msgstr[1] "%2$s má zaznamenané %1$d otce a "
+msgstr[2] "%2$s má zaznamenaných %1$d otců a "
+
+#: resources/views/tab.phtml:282
+#, php-format
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] "%d matku (celkem %d)."
+msgstr[1] "%d matky (celkem %d)."
+msgstr[2] "%d matek (celkem %d)."
+
+#: resources/views/tab.phtml:285 resources/views/tab.phtml:288
+#: resources/views/tab.phtml:292
+#, php-format
+msgid "%d parent of unknown sex recorded (%d in total)."
+msgid_plural "%d parents of unknown sex recorded (%d in total)."
+msgstr[0] "%d rodiče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d rodiče neznámého pohlaví (celkem %d)."
+msgstr[2] "%d rodičů neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:287
+#, php-format
+msgid "%2$s has %1$d mother and "
+msgid_plural "%2$s has %1$d mothers and "
+msgstr[0] "%2$s má zaznamenanou %1$d matku a "
+msgstr[1] "%2$s má zaznamenané %1$d matky a "
+msgstr[2] "%2$s má zaznamenaných %1$d matek a "
+
+#: resources/views/tab.phtml:290
+#, php-format
+msgid "%2$s has %1$d father, "
+msgid_plural "%2$s has %1$d fathers, "
+msgstr[0] "%2$s má %1$d otce, "
+msgstr[1] "%2$s má %1$d otce, "
+msgstr[2] "%2$s má %1$d otců, "
+
+#: resources/views/tab.phtml:291
+#, php-format
+msgid "%d mother, and "
+msgid_plural "%d mothers, and "
+msgstr[0] "%d matku, a "
+msgstr[1] "%d matky, a "
+msgstr[2] "%d matek, a "
+
+#: resources/views/tab.phtml:303
+#, php-format
+msgid "%s has one mother-in-law recorded."
+msgstr "%s má zaznamenanou jednu tchyni."
+
+#: resources/views/tab.phtml:305
+#, php-format
+msgid "%s has one father-in-law recorded."
+msgstr "%s má zaznamenaného jednoho tchána."
+
+#: resources/views/tab.phtml:307
+#, php-format
+msgid "%s has one parent-in-law of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho tchána či tchyni neznámého pohlaví."
+
+#: resources/views/tab.phtml:311
+#, php-format
+msgid "%2$s has %1$d mother-in-law recorded."
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d tchyni."
+msgstr[1] "%2$s má zaznamenané %1$d tchyně."
+msgstr[2] "%2$s má zaznamenaných %1$d tchyní."
+
+#: resources/views/tab.phtml:313
+#, php-format
+msgid "%2$s has %1$d father-in-law recorded."
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d tchána."
+msgstr[1] "%2$s má zaznamenané %1$d tchány."
+msgstr[2] "%2$s má zaznamenaných %1$d tchánů."
+
+#: resources/views/tab.phtml:315
+#, php-format
+msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d tchána či tchyni neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d tchány či tchyně neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d tchánů či tchyní neznámého pohlaví."
+
+#: resources/views/tab.phtml:317 resources/views/tab.phtml:320
+#, php-format
+msgid "%2$s has %1$d father-in-law and "
+msgid_plural "%2$s has %1$d fathers-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d tchána a "
+msgstr[1] "%2$s má zaznamenané %1$d tchány a "
+msgstr[2] "%2$s má zaznamenaných %1$d tchánů a "
+
+#: resources/views/tab.phtml:318
+#, php-format
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] "%d tchyni (celkem %d)."
+msgstr[1] "%d tchyně (celkem %d)."
+msgstr[2] "%d tchyní (celkem %d)."
+
+#: resources/views/tab.phtml:321 resources/views/tab.phtml:324
+#: resources/views/tab.phtml:328
+#, php-format
+msgid "%d parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d tchána či tchyni neznámého pohlaví (celkem %d)."
+msgstr[1] "%d tchány či tchyně neznámého pohlaví (celkem %d)."
+msgstr[2] "%d tchánů či tchyní neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:323
+#, php-format
+msgid "%2$s has %1$d mother-in-law and "
+msgid_plural "%2$s has %1$d mothers-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d tchyni a "
+msgstr[1] "%2$s má zaznamenané %1$d tchyně a "
+msgstr[2] "%2$s má zaznamenaných %1$d tchyní a "
+
+#: resources/views/tab.phtml:326
+#, php-format
+msgid "%2$s has %1$d father-in-law, "
+msgid_plural "%2$s has %1$d fathers-in-law, "
+msgstr[0] "%2$s má %1$d tchána, "
+msgstr[1] "%2$s má %1$d tchány, "
+msgstr[2] "%2$s má %1$d tchánů, "
+
+#: resources/views/tab.phtml:327
+#, php-format
+msgid "%d mother-in-law, and "
+msgid_plural "%d mothers-in-law, and "
+msgstr[0] "%d tchyni, a "
+msgstr[1] "%d tchyně, a "
+msgstr[2] "%d tchyní, a "
+
+#: resources/views/tab.phtml:334
+#, php-format
+msgid "%s has one co-mother-in-law recorded."
+msgstr "%s má zaznamenanou jednu spolutchyni."
+
+#: resources/views/tab.phtml:336
+#, php-format
+msgid "%s has one co-father-in-law recorded."
+msgstr "%s má zaznamenaného jednoho spolutchána."
+
+#: resources/views/tab.phtml:338
+#, php-format
+msgid "%s has one co-parent-in-law of unknown sex recorded."
+msgstr ""
+"%s má zaznamenaného jednoho spolutchána či spolutchyni neznámého pohlaví."
+
+#: resources/views/tab.phtml:342
+#, php-format
+msgid "%2$s has %1$d co-mother-in-law recorded."
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d spolutchyni."
+msgstr[1] "%2$s má zaznamenané %1$d spolutchyně."
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchyní."
+
+#: resources/views/tab.phtml:344
+#, php-format
+msgid "%2$s has %1$d co-father-in-law recorded."
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d spolutchána."
+msgstr[1] "%2$s má zaznamenané %1$d spolutchány."
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchánů."
+
+#: resources/views/tab.phtml:346
+#, php-format
+msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
+msgstr[0] ""
+"%2$s má zaznamenaného %1$d spolutchána či spolutchyni neznámého pohlaví."
+msgstr[1] ""
+"%2$s má zaznamenané %1$d spolutchány či spolutchyně neznámého pohlaví."
+msgstr[2] ""
+"%2$s má zaznamenaných %1$d spolutchánů či spolutchyní neznámého pohlaví."
+
+#: resources/views/tab.phtml:348 resources/views/tab.phtml:351
+#, php-format
+msgid "%2$s has %1$d co-father-in-law and "
+msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d spolutchána a "
+msgstr[1] "%2$s má zaznamenané %1$d spolutchány a "
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchánů a "
+
+#: resources/views/tab.phtml:349
+#, php-format
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] "%d spolutchyni (celkem %d)."
+msgstr[1] "%d spolutchyně (celkem %d)."
+msgstr[2] "%d spolutchyní (celkem %d)."
+
+#: resources/views/tab.phtml:352 resources/views/tab.phtml:355
+#: resources/views/tab.phtml:359
+#, php-format
+msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d spolutchána či spolutchyni neznámého pohlaví (celkem %d)."
+msgstr[1] "%d spolutchány či spolutchyně neznámého pohlaví (celkem %d)."
+msgstr[2] "%d spolutchánů či spolutchyní neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:354
+#, php-format
+msgid "%2$s has %1$d co-mother-in-law and "
+msgid_plural "%2$s has %1$d co-mothers-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d spolutchyni a "
+msgstr[1] "%2$s má zaznamenané %1$d spolutchyně a "
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchyní a "
+
+#: resources/views/tab.phtml:357
+#, php-format
+msgid "%2$s has %1$d co-father-in-law, "
+msgid_plural "%2$s has %1$d co-fathers-in-law, "
+msgstr[0] "%2$s má %1$d spolutchána, "
+msgstr[1] "%2$s má %1$d spolutchány, "
+msgstr[2] "%2$s má %1$d spolutchánů, "
+
+#: resources/views/tab.phtml:358
+#, php-format
+msgid "%d co-mother-in-law, and "
+msgid_plural "%d co-mothers-in-law, and "
+msgstr[0] "%d spolutchyni, a "
+msgstr[1] "%d spolutchyně, a "
+msgstr[2] "%d spolutchyní, a "
+
+#: resources/views/tab.phtml:365
+#, php-format
+msgid "%s has one female partner recorded."
+msgstr "%s má zaznamenanou jednu partnerku."
+
+#: resources/views/tab.phtml:367
+#, php-format
+msgid "%s has one male partner recorded."
+msgstr "%s má zaznamenaného jednoho partnera."
+
+#: resources/views/tab.phtml:369
+#, php-format
+msgid "%s has one partner of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho partnera neznámého pohlaví."
+
+#: resources/views/tab.phtml:374
+#, php-format
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d partnerku."
+msgstr[1] "%2$s má zaznamenané %1$d partnerky."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerek."
+
+#: resources/views/tab.phtml:376
+#, php-format
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera."
+msgstr[1] "%2$s má zaznamenané %1$d partnery."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů."
+
+#: resources/views/tab.phtml:378
+#, php-format
+msgid "%2$s has %1$d partner of unknown sex recorded."
+msgid_plural "%2$s has %1$d partners of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d partnery neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů neznámého pohlaví."
+
+#: resources/views/tab.phtml:380 resources/views/tab.phtml:383
+#: resources/views/tab.phtml:399 resources/views/tab.phtml:419
+#: resources/views/tab.phtml:424 resources/views/tab.phtml:434
+#, php-format
+msgid "%2$s has %1$d male partner and "
+msgid_plural "%2$s has %1$d male partners and "
+msgstr[0] "%2$s má zaznamenaného %1$d partnera a "
+msgstr[1] "%2$s má zaznamenané %1$d partnery a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů a "
+
+#: resources/views/tab.phtml:381
+#, php-format
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] "%d partnerku (celkem %d)."
+msgstr[1] "%d partnerky (celkem %d)."
+msgstr[2] "%d partnerek (celkem %d)."
+
+#: resources/views/tab.phtml:384 resources/views/tab.phtml:387
+#: resources/views/tab.phtml:391
+#, fuzzy, php-format
+msgid "%d partner of unknown sex recorded (%d in total)."
+msgid_plural "%d partners of unknown sex recorded (%d in total)."
+msgstr[0] "%d rodiče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d rodiče neznámého pohlaví (celkem %d)."
+msgstr[2] "%d rodičů neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:386 resources/views/tab.phtml:395
+#: resources/views/tab.phtml:429
+#, php-format
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "%2$s má zaznamenanou %1$d partnerku a "
+msgstr[1] "%2$s má zaznamenané %1$d partnerky a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerek a "
+
+#: resources/views/tab.phtml:389
+#, php-format
+msgid "%2$s has %1$d male partner, "
+msgid_plural "%2$s has %1$d male partners, "
+msgstr[0] "%2$s má %1$d partnera, "
+msgstr[1] "%2$s má %1$d partnery, "
+msgstr[2] "%2$s má %1$d partnerů, "
+
+#: resources/views/tab.phtml:390 resources/views/tab.phtml:435
+#, php-format
+msgid "%d female partner, and "
+msgid_plural "%d female partners, and "
+msgstr[0] "%d partnerku, a "
+msgstr[1] "%d partnerky, a "
+msgstr[2] "%d partnerek, a "
+
+#: resources/views/tab.phtml:396
+#, php-format
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d partnera partnerek (celkem %d)."
+msgstr[1] "%d partnery partnerek (celkem %d)."
+msgstr[2] "%d partnerů partnerek (celkem %d)."
+
+#: resources/views/tab.phtml:400
+#, php-format
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d partnerku partnerů (celkem %d)."
+msgstr[1] "%d partnerky partnerů (celkem %d)."
+msgstr[2] "%d partnerek partnerů (celkem %d)."
+
+#: resources/views/tab.phtml:407
+#, fuzzy, php-format
+msgid "%d female partner in this partner chain recorded"
+msgid_plural "%d female partners in this partner chain recorded"
+msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[2] "%d partnerek v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+
+#: resources/views/tab.phtml:408 resources/views/tab.phtml:412
+#: resources/views/tab.phtml:416 resources/views/tab.phtml:421
+#: resources/views/tab.phtml:426 resources/views/tab.phtml:431
+#, php-format
+msgid "including %s"
+msgstr ""
+
+#: resources/views/tab.phtml:411
+#, fuzzy, php-format
+msgid "%d male partner in this partner chain recorded"
+msgid_plural "%d male partners in this partner chain recorded"
+msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[2] "%d partnerek v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+
+#: resources/views/tab.phtml:415
+#, fuzzy, php-format
+msgid "%d partner of unknown sex in this partner chain recorded"
+msgid_plural "%d partners of unknown sex in this partner chain recorded"
+msgstr[0] ""
+"%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+msgstr[1] ""
+"%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+msgstr[2] ""
+"%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+
+#: resources/views/tab.phtml:420
+#, fuzzy, php-format
+msgid "%1$d female partner in this partner chain recorded (%2$d in total"
+msgid_plural ""
+"%1$d female partners in this partner chain recorded (%2$d in total"
+msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[2] "%d partnerek v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+
+#: resources/views/tab.phtml:425 resources/views/tab.phtml:430
+#, fuzzy, php-format
+msgid ""
+"%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
+msgid_plural ""
+"%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
+msgstr[0] ""
+"%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+msgstr[1] ""
+"%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+msgstr[2] ""
+"%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+
+#: resources/views/tab.phtml:436
+#, fuzzy, php-format
+msgid ""
+"%1$d partner of unknown sex in this partner chain recorded (%2$d in total, "
+"including %3$s)."
+msgid_plural ""
+"%1$d partners of unknown sex in this partner chain recorded (%2$d in total, "
+"including %3$s)."
+msgstr[0] ""
+"%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+msgstr[1] ""
+"%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+msgstr[2] ""
+"%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
+"%3$s')."
+
+#: resources/views/tab.phtml:440
+#, php-format
+msgid "There are %d branches in the partner chain. "
+msgstr "V řetězci partnerů jsou %d linie."
+
+#: resources/views/tab.phtml:442
+#, php-format
+msgid ""
+"The longest branch in the partner chain to %2$s consists of %1$d partners "
+"(including %3$s)."
+msgstr ""
+"Nejdelší linie v řetězci k osobě '%2$s' sestává z %1$d partnerů (vč. osoby "
+"'%3$s')."
+
+#: resources/views/tab.phtml:444
+#, php-format
+msgid ""
+"The longest branch in the partner chain consists of %1$d partners (including "
+"%2$s)."
+msgstr ""
+"Nejdelší linie v řetězci partnerů sestává z %1$d partnerů (vč. osoby '%2$s')."
+
+#: resources/views/tab.phtml:451
+#, php-format
+msgid "%s has one sister recorded."
+msgstr "%s má zaznamenanou jednu sestru."
+
+#: resources/views/tab.phtml:453
+#, php-format
+msgid "%s has one brother recorded."
+msgstr "%s má zaznamenaného jednoho bratra."
+
+#: resources/views/tab.phtml:455
+#, php-format
+msgid "%s has one sibling of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho sourozence neznámého pohlaví."
+
+#: resources/views/tab.phtml:459
+#, php-format
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d sestru."
+msgstr[1] "%2$s má zaznamenané %1$d sestry."
+msgstr[2] "%2$s má zaznamenaných %1$d sester."
+
+#: resources/views/tab.phtml:461
+#, php-format
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d bratra."
+msgstr[1] "%2$s má zaznamenané %1$d bratry."
+msgstr[2] "%2$s má zaznamenaných %1$d bratrů."
+
+#: resources/views/tab.phtml:463
+#, php-format
+msgid "%2$s has %1$d sibling of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d sourozence neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d sourozence neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d sourozenců neznámého pohlaví."
+
+#: resources/views/tab.phtml:465 resources/views/tab.phtml:468
+#, php-format
+msgid "%2$s has %1$d brother and "
+msgid_plural "%2$s has %1$d brothers and "
+msgstr[0] "%2$s má zaznamenaného %1$d bratra a "
+msgstr[1] "%2$s má zaznamenané %1$d bratry a "
+msgstr[2] "%2$s má zaznamenaných %1$d bratrů a "
+
+#: resources/views/tab.phtml:466
+#, php-format
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] "%d sestru (celkem %d)."
+msgstr[1] "%d sestry (celkem %d)."
+msgstr[2] "%d sester (celkem %d)."
+
+#: resources/views/tab.phtml:469 resources/views/tab.phtml:472
+#: resources/views/tab.phtml:476
+#, php-format
+msgid "%d sibling of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings of unknown sex recorded (%d in total)."
+msgstr[0] "%d sourozence neznámého pohlaví (celkem %d)."
+msgstr[1] "%d sourozence neznámého pohlaví (celkem %d)."
+msgstr[2] "%d sourozenců neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:471
+#, php-format
+msgid "%2$s has %1$d sister and "
+msgid_plural "%2$s has %1$d sisters and "
+msgstr[0] "%2$s má zaznamenanou %1$d sestru a "
+msgstr[1] "%2$s má zaznamenané %1$d sestry a "
+msgstr[2] "%2$s má zaznamenaných %1$d sester a "
+
+#: resources/views/tab.phtml:474
+#, php-format
+msgid "%2$s has %1$d brother, "
+msgid_plural "%2$s has %1$d brothers, "
+msgstr[0] "%2$s má %1$d bratra, "
+msgstr[1] "%2$s má %1$d bratry, "
+msgstr[2] "%2$s má %1$d bratrů, "
+
+#: resources/views/tab.phtml:475
+#, php-format
+msgid "%d sister, and "
+msgid_plural "%d sisters, and "
+msgstr[0] "%d sestru, a "
+msgstr[1] "%d sestry, a "
+msgstr[2] "%d sester, a "
+
+#: resources/views/tab.phtml:487
+#, php-format
+msgid "%s has one sister-in-law recorded."
+msgstr "%s má zaznamenanou jednu švagrovou."
+
+#: resources/views/tab.phtml:489
+#, php-format
+msgid "%s has one brother-in-law recorded."
+msgstr "%s má zaznamenaného jednoho švagra."
+
+#: resources/views/tab.phtml:491
+#, php-format
+msgid "%s has one sibling-in-law of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho švagra či švagrovou neznámého pohlaví."
+
+#: resources/views/tab.phtml:495
+#, php-format
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d švagrovou."
+msgstr[1] "%2$s má zaznamenané %1$d švagrové."
+msgstr[2] "%2$s má zaznamenaných %1$d švagrových."
+
+#: resources/views/tab.phtml:497
+#, php-format
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d švagra."
+msgstr[1] "%2$s má zaznamenané %1$d švagry."
+msgstr[2] "%2$s má zaznamenaných %1$d švagrů."
+
+#: resources/views/tab.phtml:499
+#, php-format
+msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d švagra či švagrovou neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d švagry či švagrové neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d švagrů či švagrových neznámého pohlaví."
+
+#: resources/views/tab.phtml:501 resources/views/tab.phtml:504
+#, php-format
+msgid "%2$s has %1$d brother-in-law and "
+msgid_plural "%2$s has %1$d brothers-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d švagra a "
+msgstr[1] "%2$s má zaznamenané %1$d švagry a "
+msgstr[2] "%2$s má zaznamenaných %1$d švagrů a "
+
+#: resources/views/tab.phtml:502
+#, php-format
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] "%d švagrovou (celkem %d)."
+msgstr[1] "%d švagrové (celkem %d)."
+msgstr[2] "%d švagrových (celkem %d)."
+
+#: resources/views/tab.phtml:505 resources/views/tab.phtml:508
+#: resources/views/tab.phtml:512
+#, php-format
+msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d švagra či švagrovou neznámého pohlaví (celkem %d)."
+msgstr[1] "%d švagry či švagrové neznámého pohlaví (celkem %d)."
+msgstr[2] "%d švagrů či švagrových neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:507
+#, php-format
+msgid "%2$s has %1$d sister-in-law and "
+msgid_plural "%2$s has %1$d sisters-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d švagrovou a "
+msgstr[1] "%2$s má zaznamenané %1$d švagrové a "
+msgstr[2] "%2$s má zaznamenaných %1$d švagrových a "
+
+#: resources/views/tab.phtml:510
+#, php-format
+msgid "%2$s has %1$d brother-in-law, "
+msgid_plural "%2$s has %1$d brothers-in-law, "
+msgstr[0] "%2$s má %1$d švagra, "
+msgstr[1] "%2$s má %1$d švagry, "
+msgstr[2] "%2$s má %1$d švagrů, "
+
+#: resources/views/tab.phtml:511
+#, php-format
+msgid "%d sister-in-law, and "
+msgid_plural "%d sisters-in-law, and "
+msgstr[0] "%d švagrovou, a "
+msgstr[1] "%d švagrové, a "
+msgstr[2] "%d švagrových, a "
+
+#: resources/views/tab.phtml:523
+#, php-format
+msgid "%s has one co-sister-in-law recorded."
+msgstr "%s má zaznamenanou jednu spolušvagrovou."
+
+#: resources/views/tab.phtml:525
+#, php-format
+msgid "%s has one co-brother-in-law recorded."
+msgstr "%s má zaznamenaného jednoho spolušvagra."
+
+#: resources/views/tab.phtml:527
+#, php-format
+msgid "%s has one co-sibling-in-law of unknown sex recorded."
+msgstr ""
+"%s má zaznamenaného jednoho spolušvagra či spolušvagrovou neznámého pohlaví."
+
+#: resources/views/tab.phtml:531
+#, php-format
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d spolušvagrovou."
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagrové."
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrových."
+
+#: resources/views/tab.phtml:533
+#, php-format
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d spolušvagra."
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagry."
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrů."
+
+#: resources/views/tab.phtml:535
+#, php-format
+msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
+msgstr[0] ""
+"%2$s má zaznamenaného %1$d spolušvagra či spolušvagrovou neznámého pohlaví."
+msgstr[1] ""
+"%2$s má zaznamenané %1$d spolušvagry či spolušvagrové neznámého pohlaví."
+msgstr[2] ""
+"%2$s má zaznamenaných %1$d spolušvagrů či spolušvagrových neznámého pohlaví."
+
+#: resources/views/tab.phtml:537 resources/views/tab.phtml:540
+#, php-format
+msgid "%2$s has %1$d co-brother-in-law and "
+msgid_plural "%2$s has %1$d co-brothers-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d spolušvagra a "
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagry a "
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrů a "
+
+#: resources/views/tab.phtml:538
+#, php-format
+msgid "%d co-sister-in-law recorded (%d in total)."
+msgid_plural "%d co-sisters-in-law recorded (%d in total)."
+msgstr[0] "%d spolušvagrovou (celkem %d)."
+msgstr[1] "%d spolušvagrové (celkem %d)."
+msgstr[2] "%d spolušvagrových (celkem %d)."
+
+#: resources/views/tab.phtml:541 resources/views/tab.phtml:544
+#: resources/views/tab.phtml:548
+#, php-format
+msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d spolušvagra či spolušvagrovou neznámého pohlaví (celkem %d)."
+msgstr[1] "%d spolušvagry či spolušvagrové neznámého pohlaví (celkem %d)."
+msgstr[2] "%d spolušvagrů či spolušvagrových neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:543
+#, php-format
+msgid "%2$s has %1$d co-sister-in-law and "
+msgid_plural "%2$s has %1$d co-sisters-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d spolušvagrovou a "
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagrové a "
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrových a "
+
+#: resources/views/tab.phtml:546
+#, php-format
+msgid "%2$s has %1$d co-brother-in-law, "
+msgid_plural "%2$s has %1$d co-brothers-in-law, "
+msgstr[0] "%2$s má %1$d spolušvagra, "
+msgstr[1] "%2$s má %1$d spolušvagry, "
+msgstr[2] "%2$s má %1$d spolušvagrů, "
+
+#: resources/views/tab.phtml:547
+#, php-format
+msgid "%d co-sister-in-law, and "
+msgid_plural "%d co-sisters-in-law, and "
+msgstr[0] "%d spolušvagrovou, a "
+msgstr[1] "%d spolušvagrové, a "
+msgstr[2] "%d spolušvagrových, a "
+
+#: resources/views/tab.phtml:559
+#, php-format
+msgid "%s has one female first cousin recorded."
+msgstr "%s má zaznamenanou jednu sestřenici."
+
+#: resources/views/tab.phtml:561
+#, php-format
+msgid "%s has one male first cousin recorded."
+msgstr "%s má zaznamenaného jednoho bratrance."
+
+#: resources/views/tab.phtml:563
+#, php-format
+msgid "%s has one first cousin of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho bratrance či sestřenici neznámého pohlaví."
+
+#: resources/views/tab.phtml:567
+#, php-format
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d sestřenici."
+msgstr[1] "%2$s má zaznamenané %1$d sestřenice."
+msgstr[2] "%2$s má zaznamenaných %1$d sestřenic."
+
+#: resources/views/tab.phtml:569
+#, php-format
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d bratrance."
+msgstr[1] "%2$s má zaznamenané %1$d bratrance."
+msgstr[2] "%2$s má zaznamenaných %1$d bratranců."
+
+#: resources/views/tab.phtml:571
+#, php-format
+msgid "%2$s has %1$d first cousin of unknown sex recorded."
+msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
+msgstr[0] ""
+"%2$s má zaznamenaného %1$d bratrance či sestřenici neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d bratrance či sestřenice neznámého pohlaví."
+msgstr[2] ""
+"%2$s má zaznamenaných %1$d bratranců či sestřenic neznámého pohlaví."
+
+#: resources/views/tab.phtml:573 resources/views/tab.phtml:576
+#, php-format
+msgid "%2$s has %1$d male first cousin and "
+msgid_plural "%2$s has %1$d male first cousins and "
+msgstr[0] "%2$s má zaznamenaného %1$d bratrance a "
+msgstr[1] "%2$s má zaznamenané %1$d bratrance a "
+msgstr[2] "%2$s má zaznamenaných %1$d bratranců a "
+
+#: resources/views/tab.phtml:574
+#, php-format
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] "%d sestřenici (celkem %d)."
+msgstr[1] "%d sestřenice (celkem %d)."
+msgstr[2] "%d sestřenic (celkem %d)."
+
+#: resources/views/tab.phtml:577 resources/views/tab.phtml:580
+#: resources/views/tab.phtml:584
+#, php-format
+msgid "%d first cousin of unknown sex recorded (%d in total)."
+msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
+msgstr[0] "%d bratrance či sestřenici neznámého pohlaví (celkem %d)."
+msgstr[1] "%d bratrance či sestřenice neznámého pohlaví (celkem %d)."
+msgstr[2] "%d bratranců či sestřenic neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:579
+#, php-format
+msgid "%2$s has %1$d female first cousin and "
+msgid_plural "%2$s has %1$d female first cousins and "
+msgstr[0] "%2$s má zaznamenanou %1$d sestřenici a "
+msgstr[1] "%2$s má zaznamenané %1$d sestřenice a "
+msgstr[2] "%2$s má zaznamenaných %1$d sestřenic a "
+
+#: resources/views/tab.phtml:582
+#, php-format
+msgid "%2$s has %1$d male first cousin, "
+msgid_plural "%2$s has %1$d male first cousins, "
+msgstr[0] "%2$s má %1$d bratrance, "
+msgstr[1] "%2$s má %1$d bratrance, "
+msgstr[2] "%2$s má %1$d bratranců, "
+
+#: resources/views/tab.phtml:583
+#, php-format
+msgid "%d female first cousin, and "
+msgid_plural "%d female first cousins, and "
+msgstr[0] "%d sestřenici, a "
+msgstr[1] "%d sestřenice, a "
+msgstr[2] "%d sestřenic, a "
+
+#: resources/views/tab.phtml:590
+#, php-format
+msgid "%s has one niece recorded."
+msgstr "%s má zaznamenanou jednu neteř."
+
+#: resources/views/tab.phtml:592
+#, php-format
+msgid "%s has one nephew recorded."
+msgstr "%s má zaznamenaného jednoho synovce."
+
+#: resources/views/tab.phtml:594
+#, php-format
+msgid "%s has one nephew or niece of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho synovce či neteř neznámého pohlaví."
+
+#: resources/views/tab.phtml:598
+#, php-format
+msgid "%2$s has %1$d niece recorded."
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d sestřenici."
+msgstr[1] "%2$s má zaznamenané %1$d sestřenice."
+msgstr[2] "%2$s má zaznamenaných %1$d sestřenic."
+
+#: resources/views/tab.phtml:600
+#, php-format
+msgid "%2$s has %1$d nephew recorded."
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d synovce."
+msgstr[1] "%2$s má zaznamenané %1$d synovce."
+msgstr[2] "%2$s má zaznamenaných %1$d synovců."
+
+#: resources/views/tab.phtml:602
+#, php-format
+msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
+msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d synovce či neteř neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d synovce či neteře neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d synovců či neteří neznámého pohlaví."
+
+#: resources/views/tab.phtml:604 resources/views/tab.phtml:607
+#, php-format
+msgid "%2$s has %1$d nephew and "
+msgid_plural "%2$s has %1$d nephews and "
+msgstr[0] "%2$s má zaznamenaného %1$d synovce a "
+msgstr[1] "%2$s má zaznamenané %1$d synovce a "
+msgstr[2] "%2$s má zaznamenaných %1$d synovců a "
+
+#: resources/views/tab.phtml:605
+#, php-format
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] "%d neteř (celkem %d)."
+msgstr[1] "%d neteře (celkem %d)."
+msgstr[2] "%d neteří (celkem %d)."
+
+#: resources/views/tab.phtml:608 resources/views/tab.phtml:611
+#: resources/views/tab.phtml:615
+#, php-format
+msgid "%d nephew or niece of unknown sex recorded (%d in total)."
+msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
+msgstr[0] "%d synovce či neteř neznámého pohlaví (celkem %d)."
+msgstr[1] "%d synovce či neteře neznámého pohlaví (celkem %d)."
+msgstr[2] "%d synovců či neteří neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:610
+#, php-format
+msgid "%2$s has %1$d niece and "
+msgid_plural "%2$s has %1$d nieces and "
+msgstr[0] "%2$s má zaznamenanou %1$d neteř a "
+msgstr[1] "%2$s má zaznamenané %1$d neteře a "
+msgstr[2] "%2$s má zaznamenaných %1$d neteří a "
+
+#: resources/views/tab.phtml:613
+#, php-format
+msgid "%2$s has %1$d nephew, "
+msgid_plural "%2$s has %1$d nephews, "
+msgstr[0] "%2$s má %1$d synovce, "
+msgstr[1] "%2$s má %1$d synovce, "
+msgstr[2] "%2$s má %1$d synovců, "
+
+#: resources/views/tab.phtml:614
+#, php-format
+msgid "%d niece, and "
+msgid_plural "%d nieces, and "
+msgstr[0] "%d neteř, a "
+msgstr[1] "%d neteře, a "
+msgstr[2] "%d neteří, a "
+
+#: resources/views/tab.phtml:621
+#, php-format
+msgid "%s has one daughter recorded."
+msgstr "%s má zaznamenanou jednu dceru."
+
+#: resources/views/tab.phtml:623
+#, php-format
+msgid "%s has one son recorded."
+msgstr "%s má zaznamenaného jednoho syna."
+
+#: resources/views/tab.phtml:625
+#, php-format
+msgid "%s has one child of unknown sex recorded."
+msgstr "%s má zaznamenané jedno dítě neznámého pohlaví."
+
+#: resources/views/tab.phtml:629
+#, php-format
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d dceru."
+msgstr[1] "%2$s má zaznamenané %1$d dcery."
+msgstr[2] "%2$s má zaznamenaných %1$d dcer."
+
+#: resources/views/tab.phtml:631
+#, php-format
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d syna."
+msgstr[1] "%2$s má zaznamenané %1$d syny."
+msgstr[2] "%2$s má zaznamenaných %1$d synů."
+
+#: resources/views/tab.phtml:633
+#, php-format
+msgid "%2$s has %1$d child of unknown sex recorded."
+msgid_plural "%2$s has %1$d children of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d dítě neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d děti neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d dětí neznámého pohlaví."
+
+#: resources/views/tab.phtml:635 resources/views/tab.phtml:638
+#, php-format
+msgid "%2$s has %1$d son and "
+msgid_plural "%2$s has %1$d sons and "
+msgstr[0] "%2$s má zaznamenaného %1$d syna a "
+msgstr[1] "%2$s má zaznamenané %1$d syny a "
+msgstr[2] "%2$s má zaznamenaných %1$d synů a "
+
+#: resources/views/tab.phtml:636
+#, php-format
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] "%d dceru (celkem %d)."
+msgstr[1] "%d dcery (celkem %d)."
+msgstr[2] "%d dcer (celkem %d)."
+
+#: resources/views/tab.phtml:639 resources/views/tab.phtml:642
+#: resources/views/tab.phtml:646
+#, php-format
+msgid "%d child of unknown sex recorded (%d in total)."
+msgid_plural "%d children of unknown sex recorded (%d in total)."
+msgstr[0] "%d dítě neznámého pohlaví (celkem %d)."
+msgstr[1] "%d děti neznámého pohlaví (celkem %d)."
+msgstr[2] "%d dětí neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:641
+#, php-format
+msgid "%2$s has %1$d daughter and "
+msgid_plural "%2$s has %1$d daughters and "
+msgstr[0] "%2$s má zaznamenanou %1$d dceru a "
+msgstr[1] "%2$s má zaznamenané %1$d dcery a "
+msgstr[2] "%2$s má zaznamenaných %1$d dcer a "
+
+#: resources/views/tab.phtml:644
+#, php-format
+msgid "%2$s has %1$d son, "
+msgid_plural "%2$s has %1$d sons, "
+msgstr[0] "%2$s má %1$d syna, "
+msgstr[1] "%2$s má %1$d syny, "
+msgstr[2] "%2$s má %1$d synů, "
+
+#: resources/views/tab.phtml:645
+#, php-format
+msgid "%d daughter, and "
+msgid_plural "%d daughters, and "
+msgstr[0] "%d dceru, a "
+msgstr[1] "%d dcery, a "
+msgstr[2] "%d dcer, a "
+
+#: resources/views/tab.phtml:652
+#, php-format
+msgid "%s has one daughter-in-law recorded."
+msgstr "%s má zaznamenanou jednu snachu."
+
+#: resources/views/tab.phtml:654
+#, php-format
+msgid "%s has one son-in-law recorded."
+msgstr "%s má zaznamenaného jednoho zetě."
+
+#: resources/views/tab.phtml:656
+#, php-format
+msgid "%s has one child-in-law of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho zetě či snachu neznámého pohlaví."
+
+#: resources/views/tab.phtml:660
+#, php-format
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d snachu."
+msgstr[1] "%2$s má zaznamenané %1$d snachy."
+msgstr[2] "%2$s má zaznamenaných %1$d snach."
+
+#: resources/views/tab.phtml:662
+#, php-format
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d zetě."
+msgstr[1] "%2$s má zaznamenané %1$d zetě."
+msgstr[2] "%2$s má zaznamenaných %1$d zeťů."
+
+#: resources/views/tab.phtml:664
+#, php-format
+msgid "%2$s has %1$d child-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d children-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d zetě či snachu neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d zetě či snachy neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d zetů či snach neznámého pohlaví."
+
+#: resources/views/tab.phtml:666 resources/views/tab.phtml:669
+#, php-format
+msgid "%2$s has %1$d son-in-law and "
+msgid_plural "%2$s has %1$d sons-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d zetě a "
+msgstr[1] "%2$s má zaznamenané %1$d zetě a "
+msgstr[2] "%2$s má zaznamenaných %1$d zeťů a "
+
+#: resources/views/tab.phtml:667
+#, php-format
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] "%d snachu (celkem %d)."
+msgstr[1] "%d snachy (celkem %d)."
+msgstr[2] "%d snach (celkem %d)."
+
+#: resources/views/tab.phtml:670 resources/views/tab.phtml:673
+#: resources/views/tab.phtml:677
+#, php-format
+msgid "%d child-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d zetě či snachu neznámého pohlaví (celkem %d)."
+msgstr[1] "%d zetě či snachy neznámého pohlaví (celkem %d)."
+msgstr[2] "%d zeťů či snach neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:672
+#, php-format
+msgid "%2$s has %1$d daughter-in-law and "
+msgid_plural "%2$s has %1$d daughters-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d snachu a "
+msgstr[1] "%2$s má zaznamenané %1$d snachy a "
+msgstr[2] "%2$s má zaznamenaných %1$d snach a "
+
+#: resources/views/tab.phtml:675
+#, php-format
+msgid "%2$s has %1$d son-in-law, "
+msgid_plural "%2$s has %1$d sons-in-law, "
+msgstr[0] "%2$s má %1$d zetě, "
+msgstr[1] "%2$s má %1$d zetě, "
+msgstr[2] "%2$s má %1$d zeťů, "
+
+#: resources/views/tab.phtml:676
+#, php-format
+msgid "%d daughter-in-law, and "
+msgid_plural "%d daughters-in-law, and "
+msgstr[0] "%d snachu, a "
+msgstr[1] "%d snachy, a "
+msgstr[2] "%d snach, a "
+
+#: resources/views/tab.phtml:683
+#, php-format
+msgid "%s has one granddaughter recorded."
+msgstr "%s má zaznamenanou jednu vnučku."
+
+#: resources/views/tab.phtml:685
+#, php-format
+msgid "%s has one grandson recorded."
+msgstr "%s má zaznamenaného jednoho vnuka."
+
+#: resources/views/tab.phtml:687
+#, php-format
+msgid "%s has one grandchild of unknown sex recorded."
+msgstr "%s má zaznamenané jedno vnouče neznámého pohlaví."
+
+#: resources/views/tab.phtml:691
+#, php-format
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d vnučku."
+msgstr[1] "%2$s má zaznamenané %1$d vnučky."
+msgstr[2] "%2$s má zaznamenaných %1$d vnuček."
+
+#: resources/views/tab.phtml:693
+#, php-format
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d vnuka."
+msgstr[1] "%2$s má zaznamenané %1$d vnuky."
+msgstr[2] "%2$s má zaznamenaných %1$d vnuků."
+
+#: resources/views/tab.phtml:695
+#, php-format
+msgid "%2$s has %1$d grandchild of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d vnouče neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d vnoučata neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d vnoučat neznámého pohlaví."
+
+#: resources/views/tab.phtml:697 resources/views/tab.phtml:700
+#, php-format
+msgid "%2$s has %1$d grandson and "
+msgid_plural "%2$s has %1$d grandsons and "
+msgstr[0] "%2$s má zaznamenaného %1$d vnuka a "
+msgstr[1] "%2$s má zaznamenané %1$d vnuky a "
+msgstr[2] "%2$s má zaznamenaných %1$d vnuků a "
+
+#: resources/views/tab.phtml:698
+#, php-format
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] "%d vnučku (celkem %d)."
+msgstr[1] "%d vnučky (celkem %d)."
+msgstr[2] "%d vnuček (celkem %d)."
+
+#: resources/views/tab.phtml:701 resources/views/tab.phtml:704
+#: resources/views/tab.phtml:708
+#, php-format
+msgid "%d grandchild of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
+msgstr[0] "%d vnouče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d vnoučata neznámého pohlaví (celkem %d)."
+msgstr[2] "%d vnoučat neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:703
+#, php-format
+msgid "%2$s has %1$d granddaughter and "
+msgid_plural "%2$s has %1$d granddaughters and "
+msgstr[0] "%2$s má zaznamenanou %1$d vnučku a "
+msgstr[1] "%2$s má zaznamenané %1$d vnučky a "
+msgstr[2] "%2$s má zaznamenaných %1$d vnuček a "
+
+#: resources/views/tab.phtml:706
+#, php-format
+msgid "%2$s has %1$d grandson, "
+msgid_plural "%2$s has %1$d grandsons, "
+msgstr[0] "%2$s má %1$d vnuka, "
+msgstr[1] "%2$s má %1$d vnuky, "
+msgstr[2] "%2$s má %1$d vnuků, "
+
+#: resources/views/tab.phtml:707
+#, php-format
+msgid "%d granddaughter, and "
+msgid_plural "%d granddaughters, and "
+msgstr[0] "%d vnučku, a "
+msgstr[1] "%d vnučky, a "
+msgstr[2] "%d vnuček, a "
+
+#: resources/views/tab.phtml:714
+#, php-format
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "%s má zaznamenanou jednu partnerku vnuka."
+
+#: resources/views/tab.phtml:716
+#, php-format
+msgid "%s has one grandson-in-law recorded."
+msgstr "%s má zaznamenaného jednoho partnera vnučky."
+
+#: resources/views/tab.phtml:718
+#, php-format
+msgid "%s has one grandchild-in-law of unknown sex recorded."
+msgstr "%s má zaznamenané jednoho partnera vnoučete neznámého pohlaví."
+
+#: resources/views/tab.phtml:722
+#, php-format
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d partnerku vnuka."
+msgstr[1] "%2$s má zaznamenané %1$d partnerky vnuků."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerek vnuků."
+
+#: resources/views/tab.phtml:724
+#, php-format
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnučky."
+msgstr[1] "%2$s má zaznamenané %1$d partnery vnuček."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů vnuček."
+
+#: resources/views/tab.phtml:726
+#, php-format
+msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnoučete neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d partnery vnoučat neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů vnoučat neznámého pohlaví."
+
+#: resources/views/tab.phtml:728 resources/views/tab.phtml:731
+#, php-format
+msgid "%2$s has %1$d grandson-in-law and "
+msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnučka a "
+msgstr[1] "%2$s má zaznamenané %1$d partnery vnuček a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů vnuček a "
+
+#: resources/views/tab.phtml:729
+#, php-format
+msgid "%d granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgstr[0] "%d partnerku vnuka (celkem %d)."
+msgstr[1] "%d partnerky vnuků (celkem %d)."
+msgstr[2] "%d partnerek vnuků (celkem %d)."
+
+#: resources/views/tab.phtml:732 resources/views/tab.phtml:735
+#: resources/views/tab.phtml:739
+#, php-format
+msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d partnera vnoučete neznámého pohlaví (celkem %d)."
+msgstr[1] "%d partnery vnoučat neznámého pohlaví (celkem %d)."
+msgstr[2] "%d partnerů vnoučat neznámého pohlaví (celkem %d)."
+
+#: resources/views/tab.phtml:734
+#, php-format
+msgid "%2$s has %1$d granddaughter-in-law and "
+msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d partnerku vnuka a "
+msgstr[1] "%2$s má zaznamenané %1$d partnerky vnuků a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerek vnuků a "
+
+#: resources/views/tab.phtml:737
+#, php-format
+msgid "%2$s has %1$d grandson-in-law, "
+msgid_plural "%2$s has %1$d grandsons-in-law, "
+msgstr[0] "%2$s má %1$d partnera vnučky, "
+msgstr[1] "%2$s má %1$d partnery vnuček, "
+msgstr[2] "%2$s má %1$d partnerů vnuček, "
+
+#: resources/views/tab.phtml:738
+#, php-format
+msgid "%d granddaughter-in-law, and "
+msgid_plural "%d granddaughters-in-law, and "
+msgstr[0] "%d partnerku vnuka, a "
+msgstr[1] "%d partnerky vnuků, a "
+msgstr[2] "%d partnerek vnuků, a "
+
+#: resources/views/tab.phtml:752
+msgid "Partner of "
+msgstr "Partner osoby "
+
+#: resources/views/tab.phtml:821 resources/views/tab.phtml:823
+#: resources/views/tab.phtml:898
+msgid " with "
+msgstr " s osobou "
+
+#: resources/views/tab.phtml:823 resources/views/tab.phtml:833
+#: resources/views/tab.phtml:1019
+msgid "Partnership"
+msgstr "Partnerství"
+
+#: resources/views/tab.phtml:877 resources/views/tab.phtml:914
+msgid "Brother"
+msgstr ""
+
+#: resources/views/tab.phtml:879 resources/views/tab.phtml:916
+msgid "Sister"
+msgstr ""
+
+#: resources/views/tab.phtml:881 resources/views/tab.phtml:902
+#: resources/views/tab.phtml:918 resources/views/tab.phtml:938
+#, fuzzy
+msgid "Sibling"
+msgstr "Sourozenci"
+
+#: resources/views/tab.phtml:891 resources/views/tab.phtml:929
+#, php-format
+msgid "Brother %1$s of partner %2$s"
+msgstr "Bratr %1$s partnera %2$s"
+
+#: resources/views/tab.phtml:893 resources/views/tab.phtml:931
+#, php-format
+msgid "Sister %1$s of partner %2$s"
+msgstr "Sestra %1$s partnera %2$s"
+
+#: resources/views/tab.phtml:895 resources/views/tab.phtml:933
+#: resources/views/tab.phtml:945
+#, php-format
+msgid "Sibling %1$s of partner %2$s"
+msgstr "Sourozenec %1$s partnera %2$s"
+
+#: resources/views/tab.phtml:904
+#, fuzzy
+msgid "Partner"
+msgstr "Partneři"
+
+#: resources/views/tab.phtml:955
+#, fuzzy
+msgid "Son"
+msgstr "Nevlastní syn"
+
+#: resources/views/tab.phtml:957
+#, fuzzy
+msgid "Daughter"
+msgstr "Nevlastní dcera"
+
+#: resources/views/tab.phtml:959 resources/views/tab.phtml:972
+#, fuzzy
+msgid "Child"
+msgstr "Děti"
+
+#: resources/views/tab.phtml:963
+msgid "Stepson"
+msgstr "Nevlastní syn"
+
+#: resources/views/tab.phtml:965
+msgid "Stepdaughter"
+msgstr "Nevlastní dcera"
+
+#: resources/views/tab.phtml:967 resources/views/tab.phtml:974
+msgid "Stepchild"
+msgstr "Nevlastní dítě"
+
+#: resources/views/tab.phtml:985 resources/views/tab.phtml:1031
+#, php-format
+msgid "Parents %1$s (%2$s) of %3$s"
+msgstr "Rodiče %1$s (%2$s) osoby '%3$s'"
+
+#: resources/views/tab.phtml:989
+#, php-format
+msgid "Stepparents %1$s (%2$s) of %3$s"
+msgstr "Nevlastní rodiče %1$s (%2$s) osoby '%3$s'"
+
+#: resources/views/tab.phtml:994
+#, php-format
+msgid "Parents %1$s (%2$s) of stepfather %3$s"
+msgstr "Rodiče %1$s (%2$s) nevlastního otce %3$s"
+
+#: resources/views/tab.phtml:996
+#, php-format
+msgid "Parents %1$s (%2$s) of stepmother %3$s"
+msgstr "Rodiče %1$s (%2$s) nevlastní matky %3$s"
+
+#: resources/views/tab.phtml:998
+#, php-format
+msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgstr "Rodiče %1$s (%2$s) nevlastního rodiče %3$s"
+
+#: resources/views/tab.phtml:1004
+#, php-format
+msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
+msgstr "Prarodiče %1$s (%2$s) nevlastního otce %3$s"
+
+#: resources/views/tab.phtml:1006
+#, php-format
+msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
+msgstr "Prarodiče %1$s (%2$s) nevlastní matky %3$s"
+
+#: resources/views/tab.phtml:1008
+#, php-format
+msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
+msgstr "Prarodiče %1$s (%2$s) nevlastního rodiče %3$s"
+
+#: resources/views/tab.phtml:1011 resources/views/tab.phtml:1048
+#: resources/views/tab.phtml:1050
+msgid "Parents"
+msgstr "Rodiče"
+
+#: resources/views/tab.phtml:1017 resources/views/tab.phtml:1037
+#, php-format
+msgid "Parents %1$s of %2$s"
+msgstr "Rodiče %1$s osoby '%2$s'"
+
+#: resources/views/tab.phtml:1033 resources/views/tab.phtml:1039
+#, php-format
+msgid "Partners of %s"
+msgstr "Partneři osoby '%s'"
+
+#: resources/views/tab.phtml:1099
+#, php-format
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s zde nemá zaznamenané žádné strýce ani tety."
+
+#: resources/views/tab.phtml:1101
+#, php-format
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s nemá zaznamenané žádné vyženěné/vyvdané strýce ani tety."
+
+#: resources/views/tab.phtml:1103
+#, php-format
+msgid "%s has no members of a partner chain recorded."
+msgstr "U osoby '%s' nejsou zaznamenané žádné řetězce partnerů."
+
+#: resources/views/tab.phtml:1105
+#, php-format
+msgid "%s has no first cousins recorded."
+msgstr "%s nemá zaznamenané žádné bratrance ani sestřenice."
+
+#: resources/views/tab.phtml:1107
+#, php-format
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s nemá zaznamenané žádné synovce ani neteře."
+
+#: resources/views/tab.phtml:1109
+#, fuzzy, php-format
+msgid "%s has no "
+msgstr "%s nemá zaznamenanou skupinu %s."
+
+#: resources/views/tab.phtml:1118
+msgid "Summary for the shown extended family"
+msgstr "Souhrn zobrazené širší rodiny"
+
+#: resources/views/tab.phtml:1119
+#, php-format
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "Širší rodina osoby '%1$s' má jednoho člena."
+msgstr[1] "Širší rodina osoby '%1$s' má %2$d členy (včetně osoby '%1$s')."
+msgstr[2] "Širší rodina osoby '%1$s' má %2$d členů (včetně osoby '%1$s')."
+
+#: resources/views/tab.phtml:1120
+msgid "(additional members of the partner chains are not counted)"
+msgstr "(Členové partnerských řetězců nejsou započteni.)"
+
+#: resources/views/tab.phtml:1122
+msgid "Some of them are member in more than one part of the extended family."
+msgstr "Někteří jsou členy více než jedné skupiny širší rodiny."
+
+#: resources/views/tab.phtml:1129
+#, php-format
+msgid "%s has no %s recorded."
+msgstr "%s nemá zaznamenanou skupinu %s."
+
+#: resources/views/tab.phtml:1135
+#, php-format
+msgid "%s has no %s, and no %s recorded."
+msgstr "Osoba '%s' nemá zaznamenané skupiny %s ani skupinu %s."
+
+#: resources/views/tab.phtml:1142
+msgid "No family available"
+msgstr "Rodina chybí"
+
+#: resources/views/settings.phtml:25
+msgid "Control panel"
+msgstr ""
+
+#: resources/views/settings.phtml:35
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "V jakém pořadí se skupiny širší rodiny zobrazí?"
+
+#: resources/views/settings.phtml:39
+msgid "Family part (generation relative to proband)"
+msgstr "Skupina širší rodiny (generace vzhledem k probandovi)"
+
+#: resources/views/settings.phtml:40 resources/views/settings.phtml:62
+msgid "Enabled"
+msgstr ""
+
+#: resources/views/settings.phtml:42 resources/views/settings.phtml:69
+msgid "Move up"
+msgstr ""
+
+#: resources/views/settings.phtml:43 resources/views/settings.phtml:74
+msgid "Move down"
+msgstr ""
+
+#: resources/views/settings.phtml:84
+msgid "Show options to filter the results?"
+msgstr "Mají se zobrazit filtry výsledků?"
+
+#: resources/views/settings.phtml:85
+msgid ""
+"This allows a user to filter the members of the extended family by gender "
+"and if they are alive or dead."
+msgstr ""
+"Toto umožňuje filtrovat členy širší rodiny podle pohlaví a jsou-li živí či "
+"po smrti."
+
+#: resources/views/settings.phtml:90
+msgid "Show filter options"
+msgstr "Zobrazit filtry"
+
+#: resources/views/settings.phtml:93 resources/views/settings.phtml:107
+#: resources/views/settings.phtml:139 resources/views/settings.phtml:153
+#: resources/views/settings.phtml:167 resources/views/settings.phtml:181
+#: resources/views/settings.phtml:195 resources/views/settings.phtml:209
+msgid "yes"
+msgstr ""
+
+#: resources/views/settings.phtml:93 resources/views/settings.phtml:107
+#: resources/views/settings.phtml:139 resources/views/settings.phtml:153
+#: resources/views/settings.phtml:167 resources/views/settings.phtml:181
+#: resources/views/settings.phtml:195 resources/views/settings.phtml:209
+msgid "no"
+msgstr ""
+
+#: resources/views/settings.phtml:98
+msgid "Should a summary block be shown?"
+msgstr "Má se zobrazovat blok souhrnu?"
+
+#: resources/views/settings.phtml:99
+msgid "The summary contains information about the extended family in total."
+msgstr "Souhrn obsahuje celkové informace o širší rodině."
+
+#: resources/views/settings.phtml:104
+msgid "Show summary"
+msgstr "Zobrazovat souhrn"
+
+#: resources/views/settings.phtml:112
+msgid "How should empty parts of extended family be presented?"
+msgstr "Jak se mají zobrazit prázdné skupiny (bloky) širší rodiny?"
+
+#: resources/views/settings.phtml:117
+msgid "Show empty block"
+msgstr "Zobrazit prázdné bloky"
+
+#: resources/views/settings.phtml:120
+msgid "yes, always at standard location"
+msgstr "ano, vždy na obvyklém místě"
+
+#: resources/views/settings.phtml:120
+msgid "no, but collect messages about empty blocks at the summary block"
+msgstr "ne, ale uvést prázdné bloky v bloku souhrnu"
+
+#: resources/views/settings.phtml:120
+msgid "never"
+msgstr "nikdy"
+
+#: resources/views/settings.phtml:125
+msgid ""
+"Count the members of the partner chains as members of the extended family?"
+msgstr "Počítat členy partnerských řetězců za členy širší rodiny?"
+
+#: resources/views/settings.phtml:127
+msgid ""
+"If you select \"no\", then the additional members in the partner chains will "
+"not be counted to the total number of individuals in the extended family."
+msgstr ""
+"Volba \"ne\" způsobí, že členové partnerských řetězců se nezapočítají do "
+"celkového počtu osob v širší rodině."
+
+#: resources/views/settings.phtml:128
+msgid ""
+"And these persons and families will be not selected when a user decides to "
+"copy the extended family to the clippings cart."
+msgstr ""
+"A tyto osoby a rodiny se nezahrnou do kopie širší rodiny do schránky "
+"výstřižků."
+
+#: resources/views/settings.phtml:129
+msgid ""
+"But even in this case, you can copy these persons and families to the "
+"clippings cart by using a special menu topic of the custom module \"enhanced "
+"clippings cart\": \"add partner chains for an individual\"."
+msgstr ""
+"Přesto však je možno zkopírovat tyto osoby a rodiny do schránky výstřižků "
+"pomocí dodatkového modulu \"vylepšené výstřižky\" zvolením \"přidat "
+"partnerské řetězce osoby\"."
+
+#: resources/views/settings.phtml:130
+msgid ""
+"This is only relevant if you have chosen in the above table, that the "
+"partner chains should be shown as a part of the extended family."
+msgstr ""
+"Toto se ale vztahuje jen na případ, kdy je zobrazování partnerských řetězců "
+"jako skupiny širší rodiny povoleno (v tabulce výše)."
+
+#: resources/views/settings.phtml:136
+msgid "Include them"
+msgstr "Počítat je"
+
+#: resources/views/settings.phtml:144
+msgid "Show name of proband as short name or as full name?"
+msgstr ""
+"Má se jméno probanta zobrazit jako zkrácené jméno, nebo jako úplné jméno?"
+
+#: resources/views/settings.phtml:145
+msgid ""
+"The short name is based on the probands Rufname or nickname. If these are "
+"not available, the first of the given names is used, if one is given. "
+"Otherwise the last name is used."
+msgstr ""
+"Za zkrácené probantovo jméno se vezme domácké jméno nebo přezdívka. Pokud "
+"neexistuje, vezme se první křestní jméno, je-li k dispozici. Pokud ani to "
+"ne, vezme se příjmení."
+
+#: resources/views/settings.phtml:150
+msgid "Show short name"
+msgstr "Zobrazovat zkrácené jméno"
+
+#: resources/views/settings.phtml:158
+msgid "Show labels in special situations?"
+msgstr "Mají se zobrazovat štítky pro zvláštní situace?"
+
+#: resources/views/settings.phtml:159
+msgid ""
+"Labels (or stickers) are used for example for adopted persons or foster "
+"children."
+msgstr ""
+"Štítky se zobrazí např. pro adoptované osoby nebo děti v pěstounské péči. "
+
+#: resources/views/settings.phtml:164
+msgid "Show labels"
+msgstr "Zobrazovat štítky"
+
+#: resources/views/settings.phtml:172
+msgid "Show parameters of extended family part?"
+msgstr "Mají se zobrazit parametry skupin širší rodiny?"
+
+#: resources/views/settings.phtml:173
+msgid ""
+"Display of additional information for each part of the extended family, such "
+"as the generation shift and the coefficient of relationship, which is a "
+"measure of the degree of consanguinity."
+msgstr ""
+"Zobrazovat doplňující informace ke každé skupině širší rodiny, jako jsou "
+"posun generací a koeficient příbuznosti, který je mírou pokrevního "
+"příbuzenství."
+
+#: resources/views/settings.phtml:178
+msgid "Show parameters"
+msgstr "Zobrazovat parametry"
+
+#: resources/views/settings.phtml:186
+msgid "Use the compact design?"
+msgstr "Má se použít kompaktní vzhled?"
+
+#: resources/views/settings.phtml:187
+msgid ""
+"The compact design only shows the name and life span for each person. The "
+"enriched design also shows a photo (if this is activated for this tree) as "
+"well as birth and death information."
+msgstr ""
+"V kompaktním vzhledu se u osob zobrazuje jen jméno a životní letopočty. V "
+"obohaceném vzhledu se zobrazí také foto (pokud je pro daný strom aktivováno) "
+"a údaje o narození a úmrtí."
+
+#: resources/views/settings.phtml:192
+msgid "Use the compact design"
+msgstr "Použít kompaktní vzhled"
+
+#: resources/views/settings.phtml:200
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr "Zobrazovat tlačítko \"kopírovat do schránky výstřižků\"?"
+
+#: resources/views/settings.phtml:201
+msgid ""
+"This allows a user to copy all members of the extended family to the "
+"clippings cart."
+msgstr "To umožní zkopírovat všechny členy širší rodiny do schránky výstřižků."
+
+#: resources/views/settings.phtml:206
+msgid "Show button"
+msgstr "Zobrazovat tlačítko"
+
+#: resources/views/settings.phtml:216
+msgid "save"
+msgstr ""
+
+#~ msgid "Extended family"
+#~ msgstr "Širší rodina"
+
+#~ msgid "A tab showing the extended family of an individual."
+#~ msgstr "Panel širší rodiny dané osoby (probanda)."
+
+#~ msgid "don't use this filter"
+#~ msgstr "tento filtr nepoužívat"
+
+#~ msgid "a dead person"
+#~ msgstr "zemřelá osoba"
+
+#~ msgid "a living person"
+#~ msgstr "žijící osoba"
+
+#~ msgid "not a male person"
+#~ msgstr "osoba nikoliv mužského pohlaví"
+
+#~ msgid "not a female person"
+#~ msgstr "osoba nikoliv ženského pohlaví"
+
+#~ msgid "not a person of unknown gender"
+#~ msgstr "osoba nikoliv neznámého pohlaví"
+
+#~ msgid "twin"
+#~ msgstr "dvojče"
+
+#~ msgid "triplet"
+#~ msgstr "trojče"
+
+#~ msgid "quadruplet"
+#~ msgstr "čtyřče"
+
+#~ msgid "quintuplet"
+#~ msgstr "paterče"
+
+#~ msgid "sextuplet"
+#~ msgstr "šesterče"
+
+#~ msgid "septuplet"
+#~ msgstr "sedmerče"
+
+#~ msgid "octuplet"
+#~ msgstr "osmerče"
+
+#~ msgid "nonuplet"
+#~ msgstr "devaterče"
+
+#~ msgid "decuplet"
+#~ msgstr "desaterče"
+
+#~ msgid "linkage challenged"
+#~ msgstr "vztah sporný"
+
+#~ msgid "linkage disproven"
+#~ msgstr "vztah vyvrácený"
+
+#~ msgid "Marriage"
+#~ msgstr "Manželství"
+
+#~ msgid "Ex-marriage"
+#~ msgstr "Rozvedené manželství"
+
+#~ msgid "Fiancée"
+#~ msgstr "Zasnoubení"
+
+#~ msgid "Biological grandparents of father"
+#~ msgstr "Vlastní prarodiče otce"
+
+#~ msgid "Biological grandparents of mother"
+#~ msgstr "Vlastní prarodiče matky"
+
+#~ msgid "Biological grandparents of parent"
+#~ msgstr "Vlastní prarodiče rodiče"
+
+#~ msgid "Stepparents of biological parent of father"
+#~ msgstr "Nevlastní rodiče vlastního rodiče otce"
+
+#~ msgid "Stepparents of biological parent of mother"
+#~ msgstr "Nevlastní rodiče vlastního rodiče matky"
+
+#~ msgid "Stepparents of biological grandparent"
+#~ msgstr "Nevlastní rodiče vlastního prarodiče"
+
+#~ msgid "Parents of stepparent of father"
+#~ msgstr "Rodiče nevlastního rodiče otce"
+
+#~ msgid "Parents of stepparent of mother"
+#~ msgstr "Rodiče nevlastního rodiče matky"
+
+#~ msgid "Parents of stepparent of parent"
+#~ msgstr "Rodiče nevlastního rodiče rodiče"
+
+#~ msgid "Grandparents of stepparent"
+#~ msgstr "Prarodiče nevlastního rodiče"
+
+#~ msgid "Biological great-grandparents"
+#~ msgstr "Vlastní praprarodiče"
+
+#~ msgid "Biological parents of father"
+#~ msgstr "Vlastní rodiče otce"
+
+#~ msgid "Biological parents of mother"
+#~ msgstr "Vlastní rodiče matky"
+
+#~ msgid "Biological parents of parent"
+#~ msgstr "Vlastní rodiče jednoho z rodičů"
+
+#~ msgid "Stepparents of father"
+#~ msgstr "Nevlastní rodiče otce"
+
+#~ msgid "Stepparents of mother"
+#~ msgstr "Nevlastní rodiče matky"
+
+#~ msgid "Stepparents of parent"
+#~ msgstr "Nevlastní rodiče rodiče"
+
+#~ msgid "Parents of stepparent"
+#~ msgstr "Rodiče nevlastního rodiče"
+
+#~ msgid "Biological grandparents"
+#~ msgstr "Vlastní prarodiče"
+
+#~ msgid "Siblings of father"
+#~ msgstr "Sourozenci otce"
+
+#~ msgid "Siblings of mother"
+#~ msgstr "Sourozenci matky"
+
+#~ msgid "Full siblings of biological parents"
+#~ msgstr "Vlastní sourozenci vlastních rodičů"
+
+#~ msgid "Siblings-in-law of father"
+#~ msgstr "Švagři a švagrové otce"
+
+#~ msgid "Siblings-in-law of mother"
+#~ msgstr "Švagři a švagrové matky"
+
+#~ msgid "Biological parents"
+#~ msgstr "Vlastní rodiče"
+
+#~ msgid "Stepparents"
+#~ msgstr "Nevlastní rodiče"
+
+#~ msgid "Parents-in-law of biological children"
+#~ msgstr "Tcháni a tchyně vlastních dětí"
+
+#~ msgid "Parents-in-law of stepchildren"
+#~ msgstr "Tcháni a tchyně nevlastních dětí"
+
+#~ msgid "Full siblings"
+#~ msgstr "Plnorodí sourozenci"
+
+#~ msgid "Half siblings"
+#~ msgstr "Polorodí sourozenci"
+
+#~ msgid "Stepsiblings"
+#~ msgstr "Nevlastní sourozenci"
+
+#~ msgid "Children of full siblings of father"
+#~ msgstr "Děti plnorodých sourozenců otce"
+
+#~ msgid "Children of full siblings of mother"
+#~ msgstr "Děti plnorodých sourozenců matky"
+
+#~ msgid "Children of full siblings of parent"
+#~ msgstr "Děti plnorodých sourozenců jednoho rodiče"
+
+#~ msgid "Children of half siblings of father"
+#~ msgstr "Děti polorodých sourozenců otce"
+
+#~ msgid "Children of half siblings of mother"
+#~ msgstr "Děti polorodých sourozenců matky"
+
+#~ msgid "Children of half siblings of parent"
+#~ msgstr "Děti polorodých sourozenců jednoho rodiče"
+
+#~ msgid "Siblings of partners"
+#~ msgstr "Sourozenci partnerů"
+
+#~ msgid "Partners of siblings"
+#~ msgstr "Partneři sourozenců"
+
+#~ msgid "Siblings of siblings-in-law"
+#~ msgstr "Sourozenci švagrů a švagrových"
+
+#~ msgid "Partners of siblings-in-law"
+#~ msgstr "Partneři švagrů a švagrových"
+
+#~ msgid "Children of full siblings of biological parents"
+#~ msgstr "Děti plnorodých sourozenců vlastních rodičů"
+
+#~ msgid "Children of siblings"
+#~ msgstr "Děti sourozenců"
+
+#~ msgid "Children of full siblings"
+#~ msgstr "Děti plnorodých sourozenců"
+
+#~ msgid "Siblings' stepchildren"
+#~ msgstr "Nevlastní děti sourozenců"
+
+#~ msgid "Children of siblings of partners"
+#~ msgstr "Děti sourozenců partnerů"
+
+#~ msgid "Biological children"
+#~ msgstr "Vlastní děti"
+
+#~ msgid "Stepchildren"
+#~ msgstr "Nevlastní děti"
+
+#~ msgid "Partners of biological children"
+#~ msgstr "Partneři vlastních dětí"
+
+#~ msgid "Partners of stepchildren"
+#~ msgstr "Partneři nevlastních dětí"
+
+#~ msgid "Biological grandchildren"
+#~ msgstr "Vlastní vnoučata"
+
+#~ msgid "Stepchildren of children"
+#~ msgstr "Nevlastní děti dětí"
+
+#~ msgid "Children of stepchildren"
+#~ msgstr "Děti nevlastních dětí"
+
+#~ msgid "Stepchildren of stepchildren"
+#~ msgstr "Nevlastní děti nevlastních dětí"
+
+#~ msgid "Partners of biological grandchildren"
+#~ msgstr "Partneři vlastních vnoučat"
+
+#~ msgid "Partners of stepchildren of children"
+#~ msgstr "Partneři nevlastních dětí vlastních dětí"
+
+#~ msgid "Partners of children of stepchildren"
+#~ msgstr "Partneři dětí nevlastních dětí"
+
+#~ msgid "Partners of stepchildren of stepchildren"
+#~ msgstr "Partneři nevlastních dětí nevlastních dětí"
+
+#~ msgid "Father's family (%d)"
+#~ msgstr "Otcova rodina (%d)"
+
+#~ msgid "Mother's family (%d)"
+#~ msgstr "Matčina rodina (%d)"
+
+#~ msgid "Father's and Mother's family (%d)"
+#~ msgstr "Otcova a matčina rodina (%d)"
+
+#~ msgid "Great-grandparents"
+#~ msgstr "Praprarodiče"
+
+#~ msgid "%s has no great-grandparents recorded."
+#~ msgstr "%s nemá zaznamenané žádné praprarodiče."
+
+#~ msgid "Grandparents"
+#~ msgstr "Prarodiče"
+
+#~ msgid "%s has no grandparents recorded."
+#~ msgstr "%s nemá zaznamenané žádné prarodiče."
+
+#~ msgid "%s has no parents recorded."
+#~ msgstr "%s nemá zaznamenané žádné rodiče."
+
+#~ msgid "Parents-in-law"
+#~ msgstr "Tcháni a tchyně"
+
+#~ msgid "%s has no parents-in-law recorded."
+#~ msgstr "%s zde nemá zaznamenaného žádného tchána ani tchyni."
+
+#~ msgid "Co-parents-in-law"
+#~ msgstr "Tcháni a tchyně dětí (spolutcháni a spolutchyně)"
+
+#~ msgid "%s has no co-parents-in-law recorded."
+#~ msgstr "%s nemá zaznamenané žádné spolutchány ani spolutchyně."
+
+#~ msgid "%s has no partners recorded."
+#~ msgstr "%s zde nemá zaznamenaného žádného partnera."
+
+#~ msgid "%2$s has %1$d partner and "
+#~ msgid_plural "%2$s has %1$d partners and "
+#~ msgstr[0] "%2$s má zaznamenaného %1$d partnera a "
+#~ msgstr[1] "%2$s má zaznamenané %1$d partnery a "
+#~ msgstr[2] "%2$s má zaznamenaných %1$d partnerů a "
+
+#~ msgid "%d female partner and "
+#~ msgid_plural "%d female partners and "
+#~ msgstr[0] "%d partnerku, a "
+#~ msgstr[1] "%d partnerky, a "
+#~ msgstr[2] "%d partnerek, a "
+
+#~ msgid "%s has no siblings recorded."
+#~ msgstr "%s zde nemá zaznamenané žádné sourozence."
+
+#~ msgid "Siblings-in-law"
+#~ msgstr "Švagři a švagrové"
+
+#~ msgid "%s has no siblings-in-law recorded."
+#~ msgstr "%s nemá zaznamenané žádné švagry ani švagrové."
+
+#~ msgid "Co-siblings-in-law"
+#~ msgstr ""
+#~ "Partneři a sourozenci švagrů a švagrových (spolušvagři a spolušvagrové)"
+
+#~ msgid "%s has no co-siblings-in-law recorded."
+#~ msgstr "%s nemá zaznamenané žádné spolušvagry ani spolušvagrové."
+
+#~ msgid "Cousins"
+#~ msgstr "Bratranci a sestřenice"
+
+#~ msgid "%s has no children recorded."
+#~ msgstr "%s nemá zaznamenané žádné děti."
+
+#~ msgid "Children-in-law"
+#~ msgstr "Zeťové a snachy"
+
+#~ msgid "%s has no children-in-law recorded."
+#~ msgstr "%s nemá zaznamenané žádné zetě ani snachy."
+
+#~ msgid "Grandchildren"
+#~ msgstr "Vnoučata"
+
+#~ msgid "%s has no grandchildren recorded."
+#~ msgstr "%s nemá zaznamenaná žádná vnoučata."
+
+#~ msgid "Grandchildren-in-law"
+#~ msgstr "Partneři vnoučat"
+
+#~ msgid "%s has no grandchildren-in-law recorded."
+#~ msgstr "%s nemá zaznamenané žádné partnery vnoučat."
