@@ -1,1514 +1,2347 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-10 21:44+0200\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Extended family"
-msgstr "Storfamilie"
+#: src/Factory/Objects/ExtendedFamilySupport.php:315
+msgid "Rada"
+msgstr ""
 
-msgid "A tab showing the extended family of an individual."
-msgstr "En fane som viser en persons storfamilie."
+#: src/Factory/Objects/ExtendedFamilySupport.php:333
+#, fuzzy
+msgid "linkage "
+msgstr "påvist slektskap"
 
-msgid "In which sequence should the parts of the extended family be shown?"
-msgstr "I hvilken rekkefølge skal storfamiliens deler vises?"
-
-msgid "Family part (generation relative to proband)"
-msgstr "Familiedel (generation relative to proband)"
-
-msgid "Show name of proband as short name or as full name?"
-msgstr "Skal hovedpersonens navn vises i kortform eller som fullt navn?"
-
-msgid "Show options to filter the results?"
-msgstr "Vis alternativ for å filtrere resultatene?"
-
-msgid "Show filter options"
-msgstr "Vis filteralternativ"
-
-msgid "How should empty parts of extended family be presented?"
-msgstr "Hvordan skal manglende deler av storfamilien vises?"
-
-msgid "Show empty block"
-msgstr "Vis tomme familiedeler"
-
-msgid "yes, always at standard location"
-msgstr "ja, alltid på vanlig sted"
-
-msgid "no, but collect messages about empty blocks at the end"
-msgstr "nei, men samle opplysninger om manglende familiedeler til sist"
-
-msgid "never"
-msgstr "aldri"
-
-msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
-msgstr "Kortformen er basert på hovedpersonens kallenavn. Er dette ikke registrert, blir det første fornavnet brukt, så lenge det er registrert. Ellers brukes etternavnet."
-
-msgid "Show short name"
-msgstr "Vis kortform av navnet"
-
-msgid "Show labels in special situations?"
-msgstr "Vis etiketter i spesielle situasjoner?"
-
-msgid "Labels (or stickers) are used for example for adopted persons or foster children."
-msgstr "Etiketter brukes f.eks. for adoptivbarn eller fosterbarn."
-
-msgid "Show labels"
-msgstr "Vis etiketter"
-
-msgid "Use the compact design?"
-msgstr "Bruk kompakt design?"
-
-msgid "Use the compact design"
-msgstr "Bruk kompakt design"
-
-msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
-msgstr "Kompakt design viser bare navn og levetid for hver person. Utvidet design viser dessuten bilde (hvis det er aktivert for dette slektstreet) og informasjoner om fødsel og død."
-
-msgid "Show parameters of extended family part?"
-msgstr "Vis parametre for de utvidede familiedelene?"
-
-msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
-msgstr "Visning av tilleggsinformasjon for hver enkelt del av storfamilien, som f.eks. generasjonsorskyvning og slektskapskoeffisient, som er et mål for graden av blodsslektskap."
-
-msgid "Show parameters"
-msgstr "Vis parametre"
-
-msgid "generation +%s"
-msgstr "generasjon +%s"
-
-msgid "same generation"
-msgstr "samme generasjon"
-
-msgid "generation %s"
-msgstr "generasjon %s"
-
-msgid "relationship coefficient: %.1f"
-msgstr "slektskapskoeffisient: %.1f"
-
-msgid "no blood relationship"
-msgstr "intet blodsbånd"
-
-msgid "don't use this filter"
-msgstr "bruk ikke dette filteret"
-
-msgid "show only male persons"
-msgstr "vis bare personer av hankjønn"
-
-msgid "show only female persons"
-msgstr "vis bare personer av hunkjønn"
-
-msgid "show only persons of other or unknown gender"
-msgstr "vis bare personer av ukjent kjønn"
-
-msgid "show only alive persons"
-msgstr "vis bare nålevende personer"
-
-msgid "show only dead persons"
-msgstr "vis bare avdøde personer"
-
-msgid "alive"
-msgstr "nålevende"
-
-msgid "dead"
-msgstr "død"
-
-msgid "a dead person"
-msgstr "en avdød person"
-
-msgid "a living person"
-msgstr "en nålevende person"
-
-msgid "not a male person"
-msgstr "ingen person av hankjønn"
-
-msgid "not a female person"
-msgstr "ingen person av hunkjønn"
-
-msgid "not a person of unknown gender"
-msgstr "ingen person av ukjent kjønn"
-
-msgid "copy all members of the extended family to the clippings cart"
-msgstr "kopiér alle medlemmer av storfamilien til utklippsmappen"
-
-msgid "copy to clippings cart"
-msgstr "kopiér til utklippsmappen"
-
-msgid "twin"
-msgstr "tvilling"
-
-msgid "triplet"
-msgstr "trilling"
-
-msgid "quadruplet"
-msgstr "firling"
-
-msgid "quintuplet"
-msgstr "femling"
-
-msgid "sextuplet"
-msgstr "seksling"
-
-msgid "septuplet"
-msgstr "syvling"
-
-msgid "octuplet"
-msgstr "åttling"
-
-msgid "nonuplet"
-msgstr "niling"
-
-msgid "decuplet"
-msgstr "tiling"
-
+#: src/Factory/Objects/ExtendedFamilySupport.php:383
 msgid "stillborn"
 msgstr "dødfødt"
 
+#: src/Factory/Objects/ExtendedFamilySupport.php:386
 msgid "died as infant"
 msgstr "død som spedbarn"
 
-msgid "linkage challenged"
-msgstr "usikkert slektskap"
-
-msgid "linkage disproven"
-msgstr "påviselig manglende slektskap"
-
-msgid "linkage proven"
-msgstr "påvist slektskap"
-
-msgid "Marriage"
-msgstr "Ekteskap"
-
-msgid "Ex-marriage"
-msgstr "Tidligere ekteskap"
-
-msgid "Partnership"
-msgstr "Partnerskap"
-
-msgid "Fiancée"
-msgstr "Forlovelse"
-
-msgid " with "
-msgstr " med "
-
-msgid "Biological grandparents of father"
-msgstr "Fars biologiske besteforeldre"
-
-msgid "Biological grandparents of mother"
-msgstr "Mors biologiske besteforeldre"
-
-msgid "Biological grandparents of parent"
-msgstr "Forelders biologiske besteforeldre"
-
-msgid "Stepparents of biological parent of father"
-msgstr "Steforeldre til fars biologiske forelder"
-
-msgid "Stepparents of biological parent of mother"
-msgstr "Steforeldre til mors biologiske forelder"
-
-msgid "Stepparents of biological grandparent"
-msgstr "Steforeldre til en biologisk besteforelder"
-
-msgid "Parents of stepparent of father"
-msgstr "Fars steforelders foreldre"
-
-msgid "Parents of stepparent of mother"
-msgstr "Mors steforelders foreldre"
-
-msgid "Parents of stepparent of parent"
-msgstr "Foreldre til en forelders steforelder"
-
-msgid "Grandparents of stepparent"
-msgstr "Besteforeldre til steforelder"
-
-msgid "Biological great-grandparents"
-msgstr "Biologiske oldeforeldre"
-
-msgid "Biological parents of father"
-msgstr "Biologiske farforeldre"
-
-msgid "Biological parents of mother"
-msgstr "Biologiske morforeldre"
-
-msgid "Biological parents of parent"
-msgstr "Biologiske besteforeldre"
-
-msgid "Stepparents of father"
-msgstr "Fars steforeldre"
-
-msgid "Stepparents of mother"
-msgstr "Mors steforeldre"
-
-msgid "Stepparents of parent"
-msgstr "Forelders steforeldre"
-
-msgid "Parents of stepparent"
-msgstr "Steforelders foreldre"
-
-msgid "Biological grandparents"
-msgstr "Biologiske besteforeldre"
-
-msgid "Siblings of father"
-msgstr "Fars søsken"
-
-msgid "Siblings of mother"
-msgstr "Mors søsken"
-
-msgid "Full siblings of biological parents"
-msgstr "Helsøsken av biologiske foreldre"
-
-msgid "Siblings-in-law of father"
-msgstr "Fars svigersøsken"
-
-msgid "Siblings-in-law of mother"
-msgstr "Mors svigersøsken"
-
-msgid "Biological parents"
-msgstr "Biologiske foreldre"
-
-msgid "Stepparents"
-msgstr "Steforeldre"
-
-msgid "Parents-in-law of biological children"
-msgstr "Biologisk barns svigerforeldre"
-
-msgid "Parents-in-law of stepchildren"
-msgstr "Stebarns svigerforeldre"
-
-msgid "Full siblings"
-msgstr "Helsøsken"
-
-msgid "Half siblings"
-msgstr "Halvsøsken"
-
-msgid "Stepsiblings"
-msgstr "Stesøsken"
-
-msgid "Children of full siblings of father"
-msgstr "Barn av fars helsøsken"
-
-msgid "Children of full siblings of mother"
-msgstr "Barn av mors helsøsken"
-
-msgid "Children of full siblings of parent"
-msgstr "Barn av en forelders helsøsken"
-
-msgid "Children of half siblings of father"
-msgstr "Barn av fars halvsøsken"
-
-msgid "Children of half siblings of mother"
-msgstr "Barn av mors halvsøsken"
-
-msgid "Children of half siblings of parent"
-msgstr "Barn av en forelders halvsøsken"
-
-msgid "Siblings of partners"
-msgstr "Partners søsken"
-
-msgid "Partners of siblings"
-msgstr "Søskens partner"
-
-msgid "Siblings of siblings-in-law"
-msgstr "Søsken av svigersøsken"
-
-msgid "Partners of siblings-in-law"
-msgstr "Svigersøskens partner"
-
-msgid "Children of full siblings of biological parents"
-msgstr "Barn av en biologisk forelders helsøsken"
-
-msgid "Children of siblings"
-msgstr "Barn av søsken"
-
-msgid "Children of full siblings"
-msgstr "Barn av helsøsken"
-
-msgid "Siblings' stepchildren"
-msgstr "Søskens stebarn"
-
-msgid "Children of siblings of partners"
-msgstr "Barn av partners søsken"
-
-msgid "Biological children"
-msgstr "Biologiske barn"
-
-msgid "Stepchildren"
-msgstr "Stebarn"
-
-msgid "Stepchild"
-msgstr "Stebarn"
-
-msgid "Stepson"
-msgstr "Stesønn"
-
-msgid "Stepdaughter"
-msgstr "Stedatter"
-
-msgid "Partners of biological children"
-msgstr "Biologiske barns partner"
-
-msgid "Partners of stepchildren"
-msgstr "Stebarns partner"
-
-msgid "Biological grandchildren"
-msgstr "Biologiske barnebarn"
-
-msgid "Stepchildren of children"
-msgstr "Barns stebarn"
-
-msgid "Children of stepchildren"
-msgstr "Stebarns barn"
-
-msgid "Stepchildren of stepchildren"
-msgstr "Stebarns stebarn"
-
-msgid "Partners of biological grandchildren"
-msgstr "Biologisk barnebarns partner"
-
-msgid "Partners of stepchildren of children"
-msgstr "Barns stebarns partner"
-
-msgid "Partners of children of stepchildren"
-msgstr "Stebarns barns partner"
-
-msgid "Partners of stepchildren of stepchildren"
-msgstr "Stebarns stebarns partner"
-
+#: src/Factory/Objects/ExtendedFamilySupport.php:424
+msgid "Uncles and Aunts"
+msgstr "Onkler og tanter"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:426
+msgid "Uncles and Aunts by marriage"
+msgstr "Inngifte onkler og tanter"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:428
+msgid "Partner chains"
+msgstr "Partnerkjeder"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:430
+msgid "Nephews and Nieces"
+msgstr "Nevøer og nieser"
+
+#: src/Factory/Objects/ProbandName.php:131
 msgid "He"
 msgstr "Han"
 
+#: src/Factory/Objects/ProbandName.php:132
 msgid "She"
 msgstr "Hun"
 
+#: src/Factory/Objects/ProbandName.php:133
 msgid "He/she"
 msgstr "Han/hun"
 
+#: src/Factory/Objects/ProbandName.php:150
 msgid "Mr."
 msgstr "Herr"
 
+#: src/Factory/Objects/ProbandName.php:151
 msgid "Mrs."
 msgstr "Fru"
 
-msgid "No family available"
-msgstr "Ingen familie funnet"
+#: src/Factory/Objects/PlaceAbbreviation.php:200
+msgid "Full place name"
+msgstr ""
 
-msgid "Summary for the shown extended family"
-msgstr "Sammendrag for den viste storfamilien"
+#: src/Factory/Objects/PlaceAbbreviation.php:201
+msgid "City only"
+msgstr ""
 
-msgid "The extended family has only %1$s as a member."
-msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
-msgstr[0] "%1$s er det eneste medlemmet av storfamilien."
-msgstr[1] "Storfamilien til %1$s har %2$d medlemmer (medregnet %1$s)."
+#: src/Factory/Objects/PlaceAbbreviation.php:202
+msgid "City and country"
+msgstr ""
 
-msgid "%s has no %s recorded."
-msgstr "%s har ingen registrerte %s."
+#: src/Factory/Objects/PlaceAbbreviation.php:203
+msgid "City and 2 letter ISO country code"
+msgstr ""
 
-msgid "%s has no %s, and no %s recorded."
-msgstr "%s har ingen registrerte %s og ingen %s."
+#: src/Factory/Objects/PlaceAbbreviation.php:204
+msgid "City and 3 letter ISO country code"
+msgstr ""
 
-msgid "Father's family (%d)"
-msgstr "Fars familie (%d)"
+#: ExtendedFamilyTabModule.php:298
+#, php-format
+msgid "The preferences for the module “%s” have been updated."
+msgstr ""
 
-msgid "Mother's family (%d)"
-msgstr "Mors familie (%d)"
+#: resources/views/tab.phtml:61
+msgid "show only male persons"
+msgstr "vis bare personer av hankjønn"
 
-msgid "Father's and Mother's family (%d)"
-msgstr "Fars og mors familie (%d)"
+#: resources/views/tab.phtml:65
+msgid "show only female persons"
+msgstr "vis bare personer av hunkjønn"
 
-msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
-msgstr "Besteforeldre %1$s (%2$s) til stefar %3$s"
+#: resources/views/tab.phtml:69
+msgid "show only persons of other or unknown gender"
+msgstr "vis bare personer av ukjent kjønn"
 
-msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
-msgstr "Besteforeldre %1$s (%2$s) til stemor %3$s"
+#: resources/views/tab.phtml:78
+msgid "show only alive persons"
+msgstr "vis bare nålevende personer"
 
-msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
-msgstr "Besteforeldre %1$s (%2$s) til steforelder %3$s"
+#: resources/views/tab.phtml:80
+msgid "alive"
+msgstr "nålevende"
 
-msgid "Stepparents %1$s (%2$s) of %3$s"
-msgstr "Steforeldre %1$s (%2$s) til %3$s"
+#: resources/views/tab.phtml:82
+msgid "show only dead persons"
+msgstr "vis bare avdøde personer"
 
-msgid "Parents %1$s (%2$s) of stepfather %3$s"
-msgstr "Foreldre %1$s (%2$s) til stefar %3$s"
+#: resources/views/tab.phtml:84
+msgid "dead"
+msgstr "død"
 
-msgid "Parents %1$s (%2$s) of stepmother %3$s"
-msgstr "Foreldre %1$s (%2$s) til stemor %3$s"
+#: resources/views/tab.phtml:97
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "kopiér alle medlemmer av storfamilien til utklippsmappen"
 
-msgid "Parents %1$s (%2$s) of stepparent %3$s"
-msgstr "Foreldre %1$s (%2$s) til steforelder %3$s"
+#: resources/views/tab.phtml:107
+msgid "copy to clippings cart"
+msgstr "kopiér til utklippsmappen"
 
-msgid "Parents %1$s of %2$s"
-msgstr "Foreldre %1$s til %2$s"
+#: resources/views/tab.phtml:119
+#, php-format
+msgid "generation +%s"
+msgstr "generasjon +%s"
 
-msgid "Parents %1$s (%2$s) of %3$s"
-msgstr "Foreldre %1$s (%2$s) til %3$s"
+#: resources/views/tab.phtml:121
+msgid "same generation"
+msgstr "samme generasjon"
 
-msgid "Partners of %s"
-msgstr "Partner til %s"
+#: resources/views/tab.phtml:123
+#, php-format
+msgid "generation %s"
+msgstr "generasjon %s"
 
-msgid "Brother %1$s of partner %2$s"
-msgstr "Bror %1$s til partner %2$s"
+#: resources/views/tab.phtml:128
+#, php-format
+msgid "relationship coefficient: %.1f"
+msgstr "slektskapskoeffisient: %.1f"
 
-msgid "Sister %1$s of partner %2$s"
-msgstr "Søster %1$s til partner %2$s"
+#: resources/views/tab.phtml:133
+msgid "no blood relationship"
+msgstr "intet blodsbånd"
 
-msgid "Sibling %1$s of partner %2$s"
-msgstr "Søsken %1$s til partner %2$s"
-
-msgid "Great-grandparents"
-msgstr "Oldeforeldre"
-
-msgid "%s has no great-grandparents recorded."
-msgstr "%s har ingen registrerte oldeforeldre."
-
+#: resources/views/tab.phtml:143
+#, php-format
 msgid "%s has one great-grandmother recorded."
 msgstr "%s har én registrert oldemor."
 
+#: resources/views/tab.phtml:145
+#, php-format
 msgid "%s has one great-grandfather recorded."
 msgstr "%s har én registrert oldefar."
 
+#: resources/views/tab.phtml:147
+#, php-format
 msgid "%s has one great-grandparent of unknown sex recorded."
 msgstr "%s har én registrert oldeforelder av ukjent kjønn."
 
+#: resources/views/tab.phtml:151
+#, php-format
 msgid "%2$s has %1$d great-grandmother recorded."
 msgid_plural "%2$s has %1$d great-grandmothers recorded."
 msgstr[0] "%2$s har %1$d registrert oldemor."
 msgstr[1] "%2$s har %1$d registrerte oldemødre."
 
+#: resources/views/tab.phtml:153
+#, php-format
 msgid "%2$s has %1$d great-grandfather recorded."
 msgid_plural "%2$s has %1$d great-grandfathers recorded."
 msgstr[0] "%2$s har %1$d registrert oldefar."
 msgstr[1] "%2$s har %1$d registrerte oldefedre."
 
+#: resources/views/tab.phtml:155
+#, php-format
 msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
 msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert oldeforelder av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte oldeforeldre av ukjent kjønn."
 
+#: resources/views/tab.phtml:157 resources/views/tab.phtml:160
+#, php-format
 msgid "%2$s has %1$d great-grandfather and "
 msgid_plural "%2$s has %1$d great-grandfathers and "
 msgstr[0] "%2$s har %1$d registrert oldefar og"
 msgstr[1] "%2$s har %1$d registrerte oldeforeldre og "
 
+#: resources/views/tab.phtml:158
+#, php-format
 msgid "%d great-grandmother recorded (%d in total)."
 msgid_plural "%d great-grandmothers recorded (%d in total)."
 msgstr[0] "%d oldemor registrert (til sammen %d)."
 msgstr[1] "%d oldemødre registrert (til sammen %d)."
 
-msgid "%2$s has %1$d great-grandmother and "
-msgid_plural "%2$s has %1$d great-grandmothers and "
-msgstr[0] "%2$s har %1$d registrert oldemor og "
-msgstr[1] "%2$s har %1$d registrerte oldemødre og "
-
+#: resources/views/tab.phtml:161 resources/views/tab.phtml:164
+#: resources/views/tab.phtml:168
+#, php-format
 msgid "%d great-grandparent of unknown sex recorded (%d in total)."
 msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
 msgstr[0] "%d oldeforelder av ukjent kjønn registrert (til sammen %d)."
 msgstr[1] "%d oldeforeldre av ukjent kjønn registrert (til sammen %d)."
 
+#: resources/views/tab.phtml:163
+#, php-format
+msgid "%2$s has %1$d great-grandmother and "
+msgid_plural "%2$s has %1$d great-grandmothers and "
+msgstr[0] "%2$s har %1$d registrert oldemor og "
+msgstr[1] "%2$s har %1$d registrerte oldemødre og "
+
+#: resources/views/tab.phtml:166
+#, php-format
 msgid "%2$s has %1$d great-grandfather, "
 msgid_plural "%2$s has %1$d great-grandfathers, "
 msgstr[0] "%2$s har %1$d registrert oldefar, "
 msgstr[1] "%2$s har %1$d oldefedre, "
 
+#: resources/views/tab.phtml:167
+#, php-format
 msgid "%d great-grandmother, and "
 msgid_plural "%d great-grandmothers, and "
 msgstr[0] "%d oldemor, og "
 msgstr[1] "%d oldemødre, og "
 
-msgid "Grandparents"
-msgstr "Besteforeldre"
-
-msgid "%s has no grandparents recorded."
-msgstr "%s har ingen registrerte besteforeldre."
-
+#: resources/views/tab.phtml:174
+#, php-format
 msgid "%s has one grandmother recorded."
 msgstr "%s har én registrert bestemor."
 
+#: resources/views/tab.phtml:176
+#, php-format
 msgid "%s has one grandfather recorded."
 msgstr "%s har én registrert bestefar."
 
+#: resources/views/tab.phtml:178
+#, php-format
 msgid "%s has one grandparent of unknown sex recorded."
 msgstr "%s har én registrert besteforelder av ukjent kjønn."
 
+#: resources/views/tab.phtml:182
+#, php-format
 msgid "%2$s has %1$d grandmother recorded."
 msgid_plural "%2$s has %1$d grandmothers recorded."
 msgstr[0] "%2$s har %1$d registrert bestemor."
 msgstr[1] "%2$s har %1$d registrerte bestemødre."
 
+#: resources/views/tab.phtml:184
+#, php-format
 msgid "%2$s has %1$d grandfather recorded."
 msgid_plural "%2$s has %1$d grandfathers recorded."
 msgstr[0] "%2$s har %1$d registrert bestefar."
 msgstr[1] "%2$s har %1$d registrerte bestefedre."
 
+#: resources/views/tab.phtml:186
+#, php-format
 msgid "%2$s has %1$d grandparent of unknown sex recorded."
 msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert besteforelder av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte besteforeldre av ukjent kjønn."
 
+#: resources/views/tab.phtml:188 resources/views/tab.phtml:191
+#, php-format
 msgid "%2$s has %1$d grandfather and "
 msgid_plural "%2$s has %1$d grandfathers and "
 msgstr[0] "%2$s har %1$d registrert bestefar og "
 msgstr[1] "%2$s har %1$d registrerte bestefedre og "
 
+#: resources/views/tab.phtml:189
+#, php-format
 msgid "%d grandmother recorded (%d in total)."
 msgid_plural "%d grandmothers recorded (%d in total)."
 msgstr[0] "%d bestemor registrert (til sammen %d)."
 msgstr[1] "%d bestemødre registrert (til sammen %d)."
 
-msgid "%2$s has %1$d grandmother and "
-msgid_plural "%2$s has %1$d grandmothers and "
-msgstr[0] "%2$s har %1$d registrert bestemor og "
-msgstr[1] "%2$s har %1$d registrerte bestemødre og "
-
+#: resources/views/tab.phtml:192 resources/views/tab.phtml:195
+#: resources/views/tab.phtml:199
+#, php-format
 msgid "%d grandparent of unknown sex recorded (%d in total)."
 msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
 msgstr[0] "%d besteforelder av ukjent kjønn registrert (til sammen %d)."
 msgstr[1] "%d besteforeldre av ukjent kjønn registrert (til sammen %d)."
 
+#: resources/views/tab.phtml:194
+#, php-format
+msgid "%2$s has %1$d grandmother and "
+msgid_plural "%2$s has %1$d grandmothers and "
+msgstr[0] "%2$s har %1$d registrert bestemor og "
+msgstr[1] "%2$s har %1$d registrerte bestemødre og "
+
+#: resources/views/tab.phtml:197
+#, php-format
 msgid "%2$s has %1$d grandfather, "
 msgid_plural "%2$s has %1$d grandfathers, "
 msgstr[0] "%2$s har %1$d registrert bestefar, "
 msgstr[1] "%2$s har %1$d bestefedre, "
 
+#: resources/views/tab.phtml:198
+#, php-format
 msgid "%d grandmother, and "
 msgid_plural "%d grandmothers, and "
 msgstr[0] "%d bestemor og "
 msgstr[1] "%d bestemødre og "
 
-msgid "Uncles and Aunts"
-msgstr "Onkler og tanter"
-
-msgid "%s has no uncles or aunts recorded."
-msgstr "%s har ingen registrerte onkler eller tanter."
-
+#: resources/views/tab.phtml:205
+#, php-format
 msgid "%s has one aunt recorded."
 msgstr "%s har én registrert tante."
 
+#: resources/views/tab.phtml:207
+#, php-format
 msgid "%s has one uncle recorded."
 msgstr "%s har én registrert onkel."
 
+#: resources/views/tab.phtml:209
+#, php-format
 msgid "%s has one uncle or aunt of unknown sex recorded."
 msgstr "%s har én registrert onkel eller tante av ukjent kjønn."
 
+#: resources/views/tab.phtml:213
+#, php-format
 msgid "%2$s has %1$d aunt recorded."
 msgid_plural "%2$s has %1$d aunts recorded."
 msgstr[0] "%2$s har %1$d registrert tante."
 msgstr[1] "%2$s har %1$d registrerte tanter."
 
+#: resources/views/tab.phtml:215
+#, php-format
 msgid "%2$s has %1$d uncle recorded."
 msgid_plural "%2$s has %1$d uncles recorded."
 msgstr[0] "%2$s har %1$d registrert onkel."
 msgstr[1] "%2$s har %1$d registrerte onkler."
 
+#: resources/views/tab.phtml:217
+#, php-format
 msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
 msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert onkel eller tante av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte onkler eller tanter av ukjent kjønn."
 
+#: resources/views/tab.phtml:219 resources/views/tab.phtml:222
+#, php-format
 msgid "%2$s has %1$d uncle and "
 msgid_plural "%2$s has %1$d uncles and "
 msgstr[0] "%2$s har %1$d registrert onkel og "
 msgstr[1] "%2$s har %1$d registrerte onkler og "
 
+#: resources/views/tab.phtml:220
+#, php-format
 msgid "%d aunt recorded (%d in total)."
 msgid_plural "%d aunts recorded (%d in total)."
 msgstr[0] "%d tante (til sammen %d)."
 msgstr[1] "%d tanter (til sammen %d)."
 
-msgid "%2$s has %1$d aunt and "
-msgid_plural "%2$s has %1$d aunts and "
-msgstr[0] "%2$s har %1$d registrert tante og "
-msgstr[1] "%2$s har %1$d registrerte tanter og "
-
+#: resources/views/tab.phtml:223 resources/views/tab.phtml:226
+#: resources/views/tab.phtml:230
+#, php-format
 msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
 msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
 msgstr[0] "%d onkel eller tante av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d onkler eller tanter av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:225
+#, php-format
+msgid "%2$s has %1$d aunt and "
+msgid_plural "%2$s has %1$d aunts and "
+msgstr[0] "%2$s har %1$d registrert tante og "
+msgstr[1] "%2$s har %1$d registrerte tanter og "
+
+#: resources/views/tab.phtml:228
+#, php-format
 msgid "%2$s has %1$d uncle, "
 msgid_plural "%2$s has %1$d uncles, "
 msgstr[0] "%2$s har %1$d registrert onkel, "
 msgstr[1] "%2$s har %1$d onkler, "
 
+#: resources/views/tab.phtml:229
+#, php-format
 msgid "%d aunt, and "
 msgid_plural "%d aunts, and "
 msgstr[0] "%d tante, og "
 msgstr[1] "%d tanter, og "
 
-msgid "Uncles and Aunts by marriage"
-msgstr "Inngifte onkler og tanter"
-
-msgid "%s has no uncles or aunts by marriage recorded."
-msgstr "%s har ingen registrerte inngifte onkler eller tanter."
-
+#: resources/views/tab.phtml:236
+#, php-format
 msgid "%s has one aunt by marriage recorded."
 msgstr "%s har én registrert inngift tante."
 
+#: resources/views/tab.phtml:238
+#, php-format
 msgid "%s has one uncle by marriage recorded."
 msgstr "%s har én registrert inngift onkel."
 
+#: resources/views/tab.phtml:240
+#, php-format
 msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
 msgstr "%s har én registrert inngift onkel eller tante av ukjent kjønn."
 
+#: resources/views/tab.phtml:244
+#, php-format
 msgid "%2$s has %1$d aunt by marriage recorded."
 msgid_plural "%2$s has %1$d aunts by marriage recorded."
 msgstr[0] "%2$s har %1$d registrert inngift tante."
 msgstr[1] "%2$s har registrert %1$d inngifte tanter."
 
+#: resources/views/tab.phtml:246
+#, php-format
 msgid "%2$s has %1$d uncle by marriage recorded."
 msgid_plural "%2$s has %1$d uncles by marriage recorded."
 msgstr[0] "%2$s har %1$d registrert inngift onkel."
 msgstr[1] "%2$s har %1$d registrerte inngifte onkler."
 
+#: resources/views/tab.phtml:248
+#, php-format
 msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
-msgid_plural "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+msgid_plural ""
+"%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert inngift onkel eller tante av ukjent kjønn."
-msgstr[1] "%2$s har %1$d registrerte inngifte onkler eller tanter av ukjent kjønn."
+msgstr[1] ""
+"%2$s har %1$d registrerte inngifte onkler eller tanter av ukjent kjønn."
 
+#: resources/views/tab.phtml:250 resources/views/tab.phtml:253
+#, php-format
 msgid "%2$s has %1$d uncle by marriage and "
 msgid_plural "%2$s has %1$d uncles by marriage and "
 msgstr[0] "%2$s har registrert %1$d inngift onkel og "
 msgstr[1] "%2$s har registrert %1$d inngifte onkler og "
 
+#: resources/views/tab.phtml:251
+#, php-format
 msgid "%d aunt by marriage recorded (%d in total)."
 msgid_plural "%d aunts by marriage recorded (%d in total)."
 msgstr[0] "%d inngift tante (til sammen %d)."
 msgstr[1] "%d inngifte tanter (til sammen %d)."
 
+#: resources/views/tab.phtml:254 resources/views/tab.phtml:257
+#: resources/views/tab.phtml:261
+#, php-format
+msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
+msgid_plural ""
+"%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+msgstr[0] "%d inngift onkel eller tante av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d inngifte onkler eller tanter av ukjent kjønn (til sammen %d)."
+
+#: resources/views/tab.phtml:256
+#, php-format
 msgid "%2$s has %1$d aunt by marriage and "
 msgid_plural "%2$s has %1$d aunts by marriage and "
 msgstr[0] "%2$s har registrert %1$d inngift tante og "
 msgstr[1] "%2$s har registrert %1$d inngifte tanter og "
 
-msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
-msgid_plural "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
-msgstr[0] "%d inngift onkel eller tante av ukjent kjønn (til sammen %d)."
-msgstr[1] "%d inngifte onkler eller tanter av ukjent kjønn (til sammen %d)."
-
+#: resources/views/tab.phtml:259
+#, php-format
 msgid "%2$s has %1$d uncle by marriage, "
 msgid_plural "%2$s has %1$d uncles by marriage, "
 msgstr[0] "%2$s har %1$d registrert inngift onkel, "
 msgstr[1] "%2$s har %1$d registrerte inngifte onkler, "
 
+#: resources/views/tab.phtml:260
+#, php-format
 msgid "%d aunt by marriage, and "
 msgid_plural "%d aunts by marriage, and "
 msgstr[0] "%d inngift tante og "
 msgstr[1] "%d inngifte tanter og "
 
-msgid "Parents"
-msgstr "Foreldre"
-
-msgid "%s has no parents recorded."
-msgstr "%s har ingen registrerte foreldre."
-
+#: resources/views/tab.phtml:267
+#, php-format
 msgid "%s has one mother recorded."
 msgstr "%s har én registrert mor."
 
+#: resources/views/tab.phtml:269
+#, php-format
 msgid "%s has one father recorded."
 msgstr "%s har én registrert far."
 
+#: resources/views/tab.phtml:271
+#, php-format
 msgid "%s has one parent of unknown sex recorded."
 msgstr "%s har én registrert forelder av ukjent kjønn."
 
+#: resources/views/tab.phtml:275
+#, php-format
 msgid "%2$s has %1$d mother recorded."
 msgid_plural "%2$s has %1$d mothers recorded."
 msgstr[0] "%2$s har %1$d registrert mor."
 msgstr[1] "%2$s har %1$d registrerte mødre."
 
+#: resources/views/tab.phtml:277
+#, php-format
 msgid "%2$s has %1$d father recorded."
 msgid_plural "%2$s has %1$d fathers recorded."
 msgstr[0] "%2$s har %1$d registrert far."
 msgstr[1] "%2$s har %1$d registrerte fedre."
 
+#: resources/views/tab.phtml:279
+#, php-format
 msgid "%2$s has %1$d parent of unknown sex recorded."
 msgid_plural "%2$s has %1$d parents of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert forelder av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte foreldre av ukjent kjønn."
 
+#: resources/views/tab.phtml:281 resources/views/tab.phtml:284
+#, php-format
 msgid "%2$s has %1$d father and "
 msgid_plural "%2$s has %1$d fathers and "
 msgstr[0] "%2$s har %1$d registrert far og "
 msgstr[1] "%2$s har %1$d registrerte fedre og "
 
+#: resources/views/tab.phtml:282
+#, php-format
 msgid "%d mother recorded (%d in total)."
 msgid_plural "%d mothers recorded (%d in total)."
 msgstr[0] "%d mor (til sammen %d)."
 msgstr[1] "%d mødre (til sammen %d)."
 
-msgid "%2$s has %1$d mother and "
-msgid_plural "%2$s has %1$d mothers and "
-msgstr[0] "%2$s har %1$d registrert mor og "
-msgstr[1] "%2$s har %1$d registrerte mødre og "
-
+#: resources/views/tab.phtml:285 resources/views/tab.phtml:288
+#: resources/views/tab.phtml:292
+#, php-format
 msgid "%d parent of unknown sex recorded (%d in total)."
 msgid_plural "%d parents of unknown sex recorded (%d in total)."
 msgstr[0] "%d forelder av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d foreldre av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:287
+#, php-format
+msgid "%2$s has %1$d mother and "
+msgid_plural "%2$s has %1$d mothers and "
+msgstr[0] "%2$s har %1$d registrert mor og "
+msgstr[1] "%2$s har %1$d registrerte mødre og "
+
+#: resources/views/tab.phtml:290
+#, php-format
 msgid "%2$s has %1$d father, "
 msgid_plural "%2$s has %1$d fathers, "
 msgstr[0] "%2$s har %1$d registrert far, "
 msgstr[1] "%2$s har %1$d registrerte fedre, "
 
+#: resources/views/tab.phtml:291
+#, php-format
 msgid "%d mother, and "
 msgid_plural "%d mothers, and "
 msgstr[0] "%d mor og "
 msgstr[1] "%d mødre og "
 
-msgid "Parents-in-law"
-msgstr "Svigerforeldre"
-
-msgid "%s has no parents-in-law recorded."
-msgstr "%s har ingen registrerte svigerforeldre."
-
+#: resources/views/tab.phtml:303
+#, php-format
 msgid "%s has one mother-in-law recorded."
 msgstr "%s har én registrert svigermor."
 
+#: resources/views/tab.phtml:305
+#, php-format
 msgid "%s has one father-in-law recorded."
 msgstr "%s har én registrert svigerfar."
 
+#: resources/views/tab.phtml:307
+#, php-format
 msgid "%s has one parent-in-law of unknown sex recorded."
 msgstr "%s har én registrert svigerforelder av ukjent kjønn."
 
+#: resources/views/tab.phtml:311
+#, php-format
 msgid "%2$s has %1$d mother-in-law recorded."
 msgid_plural "%2$s has %1$d mothers-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert svigermor."
 msgstr[1] "%2$s har %1$d registrerte svigermødre."
 
+#: resources/views/tab.phtml:313
+#, php-format
 msgid "%2$s has %1$d father-in-law recorded."
 msgid_plural "%2$s has %1$d fathers-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert svigerfar."
 msgstr[1] "%2$s har %1$d registrerte svigerfedre."
 
+#: resources/views/tab.phtml:315
+#, php-format
 msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert svigerforelder av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte svigerforeldre av ukjent kjønn."
 
+#: resources/views/tab.phtml:317 resources/views/tab.phtml:320
+#, php-format
 msgid "%2$s has %1$d father-in-law and "
 msgid_plural "%2$s has %1$d fathers-in-law and "
 msgstr[0] "%2$s har %1$d registrert svigerfar og "
 msgstr[1] "%2$s har %1$d registrerte svigerfedre og "
 
+#: resources/views/tab.phtml:318
+#, php-format
 msgid "%d mother-in-law recorded (%d in total)."
 msgid_plural "%d mothers-in-law recorded (%d in total)."
 msgstr[0] "%d svigermor (til sammen %d)."
 msgstr[1] "%d svigermødre (til sammen %d)."
 
-msgid "%2$s has %1$d mother-in-law and "
-msgid_plural "%2$s has %1$d mothers-in-law and "
-msgstr[0] "%2$s har %1$d registrert svigermor og "
-msgstr[1] "%2$s har %1$d registrerte svigermødre og "
-
+#: resources/views/tab.phtml:321 resources/views/tab.phtml:324
+#: resources/views/tab.phtml:328
+#, php-format
 msgid "%d parent-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d svigerforelder av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d svigerforeldre av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:323
+#, php-format
+msgid "%2$s has %1$d mother-in-law and "
+msgid_plural "%2$s has %1$d mothers-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigermor og "
+msgstr[1] "%2$s har %1$d registrerte svigermødre og "
+
+#: resources/views/tab.phtml:326
+#, php-format
 msgid "%2$s has %1$d father-in-law, "
 msgid_plural "%2$s has %1$d fathers-in-law, "
 msgstr[0] "%2$s har %1$d registrert svigerfar, "
 msgstr[1] "%2$s har %1$d svigerfedre, "
 
+#: resources/views/tab.phtml:327
+#, php-format
 msgid "%d mother-in-law, and "
 msgid_plural "%d mothers-in-law, and "
 msgstr[0] "%d svigermor og "
 msgstr[1] "%d svigermødre og "
 
-msgid "Co-parents-in-law"
-msgstr "Barns svigerforeldre"
-
-msgid "%s has no co-parents-in-law recorded."
-msgstr "%s har ingen registrerte barns svigerforeldre."
-
+#: resources/views/tab.phtml:334
+#, php-format
 msgid "%s has one co-mother-in-law recorded."
 msgstr "%s har én registrert barns svigermor."
 
+#: resources/views/tab.phtml:336
+#, php-format
 msgid "%s has one co-father-in-law recorded."
 msgstr "%s har én registrert barns svigerfar."
 
+#: resources/views/tab.phtml:338
+#, php-format
 msgid "%s has one co-parent-in-law of unknown sex recorded."
 msgstr "%s har én registrert barns svigerforelder av ukjent kjønn."
 
+#: resources/views/tab.phtml:342
+#, php-format
 msgid "%2$s has %1$d co-mother-in-law recorded."
 msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert barns svigermor."
 msgstr[1] "%2$s har %1$d registrerte barns svigermødre."
 
+#: resources/views/tab.phtml:344
+#, php-format
 msgid "%2$s has %1$d co-father-in-law recorded."
 msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert barns svigerfar."
 msgstr[1] "%2$s har %1$d registrerte barns svigerfedre."
 
+#: resources/views/tab.phtml:346
+#, php-format
 msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert barns svigerforelder av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte barns svigerforeldre av ukjent kjønn."
 
+#: resources/views/tab.phtml:348 resources/views/tab.phtml:351
+#, php-format
 msgid "%2$s has %1$d co-father-in-law and "
 msgid_plural "%2$s has %1$d co-fathers-in-law and "
 msgstr[0] "%2$s har registrert %1$d barns svigerfar og "
 msgstr[1] "%2$s har registrert %1$d barns svigerfedre og "
 
+#: resources/views/tab.phtml:349
+#, php-format
 msgid "%d co-mother-in-law recorded (%d in total)."
 msgid_plural "%d co-mothers-in-law recorded (%d in total)."
 msgstr[0] "%d barns svigermor (til sammen %d)."
 msgstr[1] "%d barns svigermødre (til sammen %d)."
 
-msgid "%2$s has %1$d co-mother-in-law and "
-msgid_plural "%2$s has %1$d co-mothers-in-law and "
-msgstr[0] "%2$s har registrert %1$d barns svigermor og "
-msgstr[1] "%2$s har registrert %1$d barns svigermødre og "
-
+#: resources/views/tab.phtml:352 resources/views/tab.phtml:355
+#: resources/views/tab.phtml:359
+#, php-format
 msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d barns svigerforelder av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d barns svigerforeldre av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:354
+#, php-format
+msgid "%2$s has %1$d co-mother-in-law and "
+msgid_plural "%2$s has %1$d co-mothers-in-law and "
+msgstr[0] "%2$s har registrert %1$d barns svigermor og "
+msgstr[1] "%2$s har registrert %1$d barns svigermødre og "
+
+#: resources/views/tab.phtml:357
+#, php-format
 msgid "%2$s has %1$d co-father-in-law, "
 msgid_plural "%2$s has %1$d co-fathers-in-law, "
 msgstr[0] "%2$s har %1$d registrert barns svigerfar, "
 msgstr[1] "%2$s har %1$d registrerte barns svigerfedre, "
 
+#: resources/views/tab.phtml:358
+#, php-format
 msgid "%d co-mother-in-law, and "
 msgid_plural "%d co-mothers-in-law, and "
 msgstr[0] "%d barns svigermor, og "
 msgstr[1] "%d barns svigermødre, og "
 
-msgid "Partners"
-msgstr "Partnere"
-
-msgid "Partner of "
-msgstr "Partner av "
-
-msgid "%s has no partners recorded."
-msgstr "%s har ingen registrerte partnere."
-
+#: resources/views/tab.phtml:365
+#, php-format
 msgid "%s has one female partner recorded."
 msgstr "%s har én registrert kvinnelig partner."
 
+#: resources/views/tab.phtml:367
+#, php-format
 msgid "%s has one male partner recorded."
 msgstr "%s har én registrert mannlig partner."
 
+#: resources/views/tab.phtml:369
+#, php-format
 msgid "%s has one partner of unknown sex recorded."
 msgstr "%s har én registrert partner av ukjent kjønn."
 
+#: resources/views/tab.phtml:374
+#, php-format
 msgid "%2$s has %1$d female partner recorded."
 msgid_plural "%2$s has %1$d female partners recorded."
 msgstr[0] "%2$s har %1$d registrert kvinnelig partner."
 msgstr[1] "%2$s har %1$d registrerte kvinnelige partnere."
 
+#: resources/views/tab.phtml:376
+#, php-format
 msgid "%2$s has %1$d male partner recorded."
 msgid_plural "%2$s has %1$d male partners recorded."
 msgstr[0] "%2$s har %1$d registrert mannlig partner."
 msgstr[1] "%2$s har %1$d registrerte mannlige partnere."
 
+#: resources/views/tab.phtml:378
+#, php-format
 msgid "%2$s has %1$d partner of unknown sex recorded."
 msgid_plural "%2$s has %1$d partners of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert partner av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte partnere av ukjent kjønn."
 
+#: resources/views/tab.phtml:380 resources/views/tab.phtml:383
+#: resources/views/tab.phtml:399 resources/views/tab.phtml:419
+#: resources/views/tab.phtml:424 resources/views/tab.phtml:434
+#, php-format
 msgid "%2$s has %1$d male partner and "
 msgid_plural "%2$s has %1$d male partners and "
 msgstr[0] "%2$s har %1$d mannlig partner og "
 msgstr[1] "%2$s har %1$d mannlige partnere og "
 
-msgid "%2$s has %1$d female partner and "
-msgid_plural "%2$s has %1$d female partners and "
-msgstr[0] "%2$s har %1$d registrert kvinnelig partner og "
-msgstr[1] "%2$s har %1$d registrerte kvinnelige partnere og "
-
+#: resources/views/tab.phtml:381
+#, php-format
 msgid "%d female partner recorded (%d in total)."
 msgid_plural "%d female partners recorded (%d in total)."
 msgstr[0] "%d kvinnelig partner (til sammen %d)."
 msgstr[1] "%d kvinnelige partnere (til sammen %d)."
 
-msgid "%2$s has %1$d partner and "
-msgid_plural "%2$s has %1$d partners and "
-msgstr[0] "%2$s har %1$d registrert partner og "
-msgstr[1] "%2$s har %1$d registrerte partnere og "
+#: resources/views/tab.phtml:384 resources/views/tab.phtml:387
+#: resources/views/tab.phtml:391
+#, fuzzy, php-format
+msgid "%d partner of unknown sex recorded (%d in total)."
+msgid_plural "%d partners of unknown sex recorded (%d in total)."
+msgstr[0] "%d forelder av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d foreldre av ukjent kjønn (til sammen %d)."
 
-msgid "%d male partner of female partners recorded (%d in total)."
-msgid_plural "%d male partners of female partners recorded (%d in total)."
-msgstr[0] "%d mannlig partner av kvinnelige partnere (til sammen %d)."
-msgstr[1] "%d mannlige partnere av kvinnelige partnere (til sammen %d)."
+#: resources/views/tab.phtml:386 resources/views/tab.phtml:395
+#: resources/views/tab.phtml:429
+#, php-format
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "%2$s har %1$d registrert kvinnelig partner og "
+msgstr[1] "%2$s har %1$d registrerte kvinnelige partnere og "
 
-msgid "%d female partner of male partners recorded (%d in total)."
-msgid_plural "%d female partners of male partners recorded (%d in total)."
-msgstr[0] "%d kvinnelig partner av mannlige partnere (til sammen %d)."
-msgstr[1] "%d kvinnelige partnere av mannlige partnere (til sammen %d)."
+#: resources/views/tab.phtml:389
+#, fuzzy, php-format
+msgid "%2$s has %1$d male partner, "
+msgid_plural "%2$s has %1$d male partners, "
+msgstr[0] "%2$s har %1$d mannlig partner og "
+msgstr[1] "%2$s har %1$d mannlige partnere og "
 
-msgid "Partner chains"
-msgstr "Partnerkjeder"
-
-msgid "%s has no members of a partner chain recorded."
-msgstr "%s inngår ikke i noen partnerkjede."
-
-msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
-msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
-msgstr[0] "%1$d kvinnelig partner registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
-msgstr[1] "%1$d kvinnelige partnere registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
-
-msgid "%1$d female partner and "
-msgid_plural "%d female partners and "
-msgstr[0] "%1$d kvinnelig partner og "
-msgstr[1] "%1$d kvinnelige partnere og "
-
-msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
-msgid_plural "%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
-msgstr[0] "%1$d partner av ukjent kjønn registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
-msgstr[1] "%1$d partnere av ukjent kjønn registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
-
+#: resources/views/tab.phtml:390 resources/views/tab.phtml:435
+#, php-format
 msgid "%d female partner, and "
 msgid_plural "%d female partners, and "
 msgstr[0] "%d kvinnelig partner og "
 msgstr[1] "%d kvinnelige partnere og "
 
+#: resources/views/tab.phtml:396
+#, php-format
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d mannlig partner av kvinnelige partnere (til sammen %d)."
+msgstr[1] "%d mannlige partnere av kvinnelige partnere (til sammen %d)."
+
+#: resources/views/tab.phtml:400
+#, php-format
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d kvinnelig partner av mannlige partnere (til sammen %d)."
+msgstr[1] "%d kvinnelige partnere av mannlige partnere (til sammen %d)."
+
+#: resources/views/tab.phtml:407
+#, fuzzy, php-format
+msgid "%d female partner in this partner chain recorded"
+msgid_plural "%d female partners in this partner chain recorded"
+msgstr[0] ""
+"%1$d kvinnelig partner registrert i denne partnerkjeden (til sammen %2$d, "
+"including %3$s)."
+msgstr[1] ""
+"%1$d kvinnelige partnere registrert i denne partnerkjeden (til sammen %2$d, "
+"including %3$s)."
+
+#: resources/views/tab.phtml:408 resources/views/tab.phtml:412
+#: resources/views/tab.phtml:416 resources/views/tab.phtml:421
+#: resources/views/tab.phtml:426 resources/views/tab.phtml:431
+#, php-format
+msgid "including %s"
+msgstr ""
+
+#: resources/views/tab.phtml:411
+#, fuzzy, php-format
+msgid "%d male partner in this partner chain recorded"
+msgid_plural "%d male partners in this partner chain recorded"
+msgstr[0] ""
+"%1$d kvinnelig partner registrert i denne partnerkjeden (til sammen %2$d, "
+"including %3$s)."
+msgstr[1] ""
+"%1$d kvinnelige partnere registrert i denne partnerkjeden (til sammen %2$d, "
+"including %3$s)."
+
+#: resources/views/tab.phtml:415
+#, fuzzy, php-format
+msgid "%d partner of unknown sex in this partner chain recorded"
+msgid_plural "%d partners of unknown sex in this partner chain recorded"
+msgstr[0] ""
+"%1$d partner av ukjent kjønn registrert i denne partnerkjeden (til sammen "
+"%2$d, including %3$s)."
+msgstr[1] ""
+"%1$d partnere av ukjent kjønn registrert i denne partnerkjeden (til sammen "
+"%2$d, including %3$s)."
+
+#: resources/views/tab.phtml:420
+#, fuzzy, php-format
+msgid "%1$d female partner in this partner chain recorded (%2$d in total"
+msgid_plural ""
+"%1$d female partners in this partner chain recorded (%2$d in total"
+msgstr[0] ""
+"%1$d kvinnelig partner registrert i denne partnerkjeden (til sammen %2$d, "
+"including %3$s)."
+msgstr[1] ""
+"%1$d kvinnelige partnere registrert i denne partnerkjeden (til sammen %2$d, "
+"including %3$s)."
+
+#: resources/views/tab.phtml:425 resources/views/tab.phtml:430
+#, fuzzy, php-format
+msgid ""
+"%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
+msgid_plural ""
+"%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
+msgstr[0] ""
+"%1$d partner av ukjent kjønn registrert i denne partnerkjeden (til sammen "
+"%2$d, including %3$s)."
+msgstr[1] ""
+"%1$d partnere av ukjent kjønn registrert i denne partnerkjeden (til sammen "
+"%2$d, including %3$s)."
+
+#: resources/views/tab.phtml:436
+#, php-format
+msgid ""
+"%1$d partner of unknown sex in this partner chain recorded (%2$d in total, "
+"including %3$s)."
+msgid_plural ""
+"%1$d partners of unknown sex in this partner chain recorded (%2$d in total, "
+"including %3$s)."
+msgstr[0] ""
+"%1$d partner av ukjent kjønn registrert i denne partnerkjeden (til sammen "
+"%2$d, including %3$s)."
+msgstr[1] ""
+"%1$d partnere av ukjent kjønn registrert i denne partnerkjeden (til sammen "
+"%2$d, including %3$s)."
+
+#: resources/views/tab.phtml:440
+#, php-format
 msgid "There are %d branches in the partner chain. "
 msgstr "Det er %d grener i partnerkjeden. "
 
-msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
-msgstr "Den lengste grenen i partnerkjeden med %2$s består av %1$d partnere (%3$s medregnet)."
+#: resources/views/tab.phtml:442
+#, php-format
+msgid ""
+"The longest branch in the partner chain to %2$s consists of %1$d partners "
+"(including %3$s)."
+msgstr ""
+"Den lengste grenen i partnerkjeden med %2$s består av %1$d partnere (%3$s "
+"medregnet)."
 
-msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
-msgstr "Den lengste grenen i partnerkjeden består av %1$d partnere (%2$s medregnet)."
+#: resources/views/tab.phtml:444
+#, php-format
+msgid ""
+"The longest branch in the partner chain consists of %1$d partners (including "
+"%2$s)."
+msgstr ""
+"Den lengste grenen i partnerkjeden består av %1$d partnere (%2$s medregnet)."
 
-msgid "Siblings"
-msgstr "Søsken"
-
-msgid "%s has no siblings recorded."
-msgstr "%s har ingen registrerte søsken."
-
+#: resources/views/tab.phtml:451
+#, php-format
 msgid "%s has one sister recorded."
 msgstr "%s har én registrert søster."
 
+#: resources/views/tab.phtml:453
+#, php-format
 msgid "%s has one brother recorded."
 msgstr "%s har én registrert bror."
 
+#: resources/views/tab.phtml:455
+#, php-format
 msgid "%s has one sibling of unknown sex recorded."
 msgstr "%s har ett registrert søsken av ukjent kjønn."
 
+#: resources/views/tab.phtml:459
+#, php-format
 msgid "%2$s has %1$d sister recorded."
 msgid_plural "%2$s has %1$d sisters recorded."
 msgstr[0] "%2$s har %1$d registrert søster."
 msgstr[1] "%2$s har %1$d registrerte søstre."
 
+#: resources/views/tab.phtml:461
+#, php-format
 msgid "%2$s has %1$d brother recorded."
 msgid_plural "%2$s has %1$d brothers recorded."
 msgstr[0] "%2$s har %1$d registrert bror."
 msgstr[1] "%2$s har %1$d registrerte brødre."
 
+#: resources/views/tab.phtml:463
+#, php-format
 msgid "%2$s has %1$d sibling of unknown sex recorded."
 msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert søsken av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte søsken av ukjent kjønn."
 
+#: resources/views/tab.phtml:465 resources/views/tab.phtml:468
+#, php-format
 msgid "%2$s has %1$d brother and "
 msgid_plural "%2$s has %1$d brothers and "
 msgstr[0] "%2$s har %1$d registrert bror og "
 msgstr[1] "%2$s har %1$d brødre og "
 
+#: resources/views/tab.phtml:466
+#, php-format
 msgid "%d sister recorded (%d in total)."
 msgid_plural "%d sisters recorded (%d in total)."
 msgstr[0] "%d søster (til sammen %d)."
 msgstr[1] "%d søstre (til sammen %d)."
 
-msgid "%2$s has %1$d sister and "
-msgid_plural "%2$s has %1$d sisters and "
-msgstr[0] "%2$s har %1$d registrert søster og "
-msgstr[1] "%2$s har %1$d registrerte søstre og "
-
+#: resources/views/tab.phtml:469 resources/views/tab.phtml:472
+#: resources/views/tab.phtml:476
+#, php-format
 msgid "%d sibling of unknown sex recorded (%d in total)."
 msgid_plural "%d siblings of unknown sex recorded (%d in total)."
 msgstr[0] "%d søsken av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d søsken av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:471
+#, php-format
+msgid "%2$s has %1$d sister and "
+msgid_plural "%2$s has %1$d sisters and "
+msgstr[0] "%2$s har %1$d registrert søster og "
+msgstr[1] "%2$s har %1$d registrerte søstre og "
+
+#: resources/views/tab.phtml:474
+#, php-format
 msgid "%2$s has %1$d brother, "
 msgid_plural "%2$s has %1$d brothers, "
 msgstr[0] "%2$s har %1$d registrert bror, "
 msgstr[1] "%2$s har %1$d brødre, "
 
+#: resources/views/tab.phtml:475
+#, php-format
 msgid "%d sister, and "
 msgid_plural "%d sisters, and "
 msgstr[0] "%d søster og "
 msgstr[1] "%d søstre og "
 
-msgid "Siblings-in-law"
-msgstr "Svigersøsken"
-
-msgid "%s has no siblings-in-law recorded."
-msgstr "%s har ingen registrerte svigersøsken."
-
+#: resources/views/tab.phtml:487
+#, php-format
 msgid "%s has one sister-in-law recorded."
 msgstr "%s har én registrert svigerinne."
 
+#: resources/views/tab.phtml:489
+#, php-format
 msgid "%s has one brother-in-law recorded."
 msgstr "%s har én registrert svoger."
 
+#: resources/views/tab.phtml:491
+#, php-format
 msgid "%s has one sibling-in-law of unknown sex recorded."
 msgstr "%s har ett registrert svigersøsken av ukjent kjønn."
 
+#: resources/views/tab.phtml:495
+#, php-format
 msgid "%2$s has %1$d sister-in-law recorded."
 msgid_plural "%2$s has %1$d sisters-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert svigerinne."
 msgstr[1] "%2$s har %1$d registrerte svigerinner."
 
+#: resources/views/tab.phtml:497
+#, php-format
 msgid "%2$s has %1$d brother-in-law recorded."
 msgid_plural "%2$s has %1$d brothers-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert svoger."
 msgstr[1] "%2$s har %1$d registrerte svogre."
 
+#: resources/views/tab.phtml:499
+#, php-format
 msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert svigersøsken av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte svigersøsken av ukjent kjønn."
 
+#: resources/views/tab.phtml:501 resources/views/tab.phtml:504
+#, php-format
 msgid "%2$s has %1$d brother-in-law and "
 msgid_plural "%2$s has %1$d brothers-in-law and "
 msgstr[0] "%2$s har %1$d registrert svoger og "
 msgstr[1] "%2$s har %1$d registrerte svogre og "
 
+#: resources/views/tab.phtml:502
+#, php-format
 msgid "%d sister-in-law recorded (%d in total)."
 msgid_plural "%d sisters-in-law recorded (%d in total)."
 msgstr[0] "%d svigerinne (til sammen %d)."
 msgstr[1] "%d svigerinner (til sammen %d)."
 
-msgid "%2$s has %1$d sister-in-law and "
-msgid_plural "%2$s has %1$d sisters-in-law and "
-msgstr[0] "%2$s har %1$d registrert svigerinne og "
-msgstr[1] "%2$s har %1$d registrerte svigerinner og "
-
+#: resources/views/tab.phtml:505 resources/views/tab.phtml:508
+#: resources/views/tab.phtml:512
+#, php-format
 msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d svigersøsken av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d svigersøsken av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:507
+#, php-format
+msgid "%2$s has %1$d sister-in-law and "
+msgid_plural "%2$s has %1$d sisters-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigerinne og "
+msgstr[1] "%2$s har %1$d registrerte svigerinner og "
+
+#: resources/views/tab.phtml:510
+#, php-format
 msgid "%2$s has %1$d brother-in-law, "
 msgid_plural "%2$s has %1$d brothers-in-law, "
 msgstr[0] "%2$s har %1$d registrert svoger, "
 msgstr[1] "%2$s har %1$d svogre, "
 
+#: resources/views/tab.phtml:511
+#, php-format
 msgid "%d sister-in-law, and "
 msgid_plural "%d sisters-in-law, and "
 msgstr[0] "%d svigerinne, og "
 msgstr[1] "%d svigerinner, og "
 
-msgid "Co-siblings-in-law"
-msgstr "Ektefelles svigersøsken"
-
-msgid "%s has no co-siblings-in-law recorded."
-msgstr "%s har ingen registrerte ektefelles svigersøsken."
-
+#: resources/views/tab.phtml:523
+#, php-format
 msgid "%s has one co-sister-in-law recorded."
 msgstr "%s har én registrert ektefelles svigerinne."
 
+#: resources/views/tab.phtml:525
+#, php-format
 msgid "%s has one co-brother-in-law recorded."
 msgstr "%s har én registrert ektefelles svoger."
 
+#: resources/views/tab.phtml:527
+#, php-format
 msgid "%s has one co-sibling-in-law of unknown sex recorded."
 msgstr "%s har ett registrert ektefelles svigersøsken av ukjent kjønn."
 
+#: resources/views/tab.phtml:531
+#, php-format
 msgid "%2$s has %1$d co-sister-in-law recorded."
 msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert ektefelles svigerinne."
 msgstr[1] "%2$s har %1$d registrerte ektefelles svigerinner."
 
+#: resources/views/tab.phtml:533
+#, php-format
 msgid "%2$s has %1$d co-brother-in-law recorded."
 msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert ektefelles svoger."
 msgstr[1] "%2$s har %1$d registrerte ektefelles svogre."
 
+#: resources/views/tab.phtml:535
+#, php-format
 msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert ektefelles svigersøsken av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte ektefelles svigersøsken av ukjent kjønn."
 
+#: resources/views/tab.phtml:537 resources/views/tab.phtml:540
+#, php-format
 msgid "%2$s has %1$d co-brother-in-law and "
 msgid_plural "%2$s has %1$d co-brothers-in-law and "
 msgstr[0] "%2$s har %1$d registrert ektefelles svoger og "
 msgstr[1] "%2$s har %1$d registrerte ektefelles svogre og "
 
+#: resources/views/tab.phtml:538
+#, php-format
 msgid "%d co-sister-in-law recorded (%d in total)."
 msgid_plural "%d co-sisters-in-law recorded (%d in total)."
 msgstr[0] "%d ektefelles svigerinne (til sammen %d)."
 msgstr[1] "%d ektefelles svigerinner (til sammen %d)."
 
-msgid "%2$s has %1$d co-sister-in-law and "
-msgid_plural "%2$s has %1$d co-sisters-in-law and "
-msgstr[0] "%2$s har %1$d registrert ektefelles svigerinne og "
-msgstr[1] "%2$s har %1$d registrerte ektefelles svigerinner og "
-
+#: resources/views/tab.phtml:541 resources/views/tab.phtml:544
+#: resources/views/tab.phtml:548
+#, php-format
 msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d ektefelles svigersøsken av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d ektefelles svigersøsken av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:543
+#, php-format
+msgid "%2$s has %1$d co-sister-in-law and "
+msgid_plural "%2$s has %1$d co-sisters-in-law and "
+msgstr[0] "%2$s har %1$d registrert ektefelles svigerinne og "
+msgstr[1] "%2$s har %1$d registrerte ektefelles svigerinner og "
+
+#: resources/views/tab.phtml:546
+#, php-format
 msgid "%2$s has %1$d co-brother-in-law, "
 msgid_plural "%2$s has %1$d co-brothers-in-law, "
 msgstr[0] "%2$s har %1$d registrert ektefelles svoger, "
 msgstr[1] "%2$s har %1$d registrerte ektefelles svogre, "
 
+#: resources/views/tab.phtml:547
+#, php-format
 msgid "%d co-sister-in-law, and "
 msgid_plural "%d co-sisters-in-law, and "
 msgstr[0] "%d ektefelles svigerinne, og "
 msgstr[1] "%d ektefelles svigerinner, og "
 
-msgid "Cousins"
-msgstr "Søskenbarn"
-
-msgid "%s has no first cousins recorded."
-msgstr "%s har ingen registrerte søskenbarn."
-
+#: resources/views/tab.phtml:559
+#, php-format
 msgid "%s has one female first cousin recorded."
 msgstr "%s har én registrert kusine."
 
+#: resources/views/tab.phtml:561
+#, php-format
 msgid "%s has one male first cousin recorded."
 msgstr "%s har én registrert fetter."
 
+#: resources/views/tab.phtml:563
+#, php-format
 msgid "%s has one first cousin of unknown sex recorded."
 msgstr "%s har ett registrert søskenbarn av ukjent kjønn."
 
+#: resources/views/tab.phtml:567
+#, php-format
 msgid "%2$s has %1$d female first cousin recorded."
 msgid_plural "%2$s has %1$d female first cousins recorded."
 msgstr[0] "%2$s har %1$d registrert kusine."
 msgstr[1] "%2$s har %1$d registrerte kusiner."
 
+#: resources/views/tab.phtml:569
+#, php-format
 msgid "%2$s has %1$d male first cousin recorded."
 msgid_plural "%2$s has %1$d male first cousins recorded."
 msgstr[0] "%2$s har %1$d registrert fetter."
 msgstr[1] "%2$s har %1$d registrerte fetre."
 
+#: resources/views/tab.phtml:571
+#, php-format
 msgid "%2$s has %1$d first cousin of unknown sex recorded."
 msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert søskenbarn av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte søskenbarn av ukjent kjønn."
 
+#: resources/views/tab.phtml:573 resources/views/tab.phtml:576
+#, php-format
 msgid "%2$s has %1$d male first cousin and "
 msgid_plural "%2$s has %1$d male first cousins and "
 msgstr[0] "%2$s har %1$d registrert fetter og "
 msgstr[1] "%2$s har %1$d registrerte fetre og "
 
+#: resources/views/tab.phtml:574
+#, php-format
 msgid "%d female first cousin recorded (%d in total)."
 msgid_plural "%d female first cousins recorded (%d in total)."
 msgstr[0] "%d kusine (til sammen %d)."
 msgstr[1] "%d kusiner (til sammen %d)."
 
-msgid "%2$s has %1$d female first cousin and "
-msgid_plural "%2$s has %1$d female first cousins and "
-msgstr[0] "%2$s har %1$d registrert kusine og "
-msgstr[1] "%2$s har %1$d registrerte kusiner og "
-
+#: resources/views/tab.phtml:577 resources/views/tab.phtml:580
+#: resources/views/tab.phtml:584
+#, php-format
 msgid "%d first cousin of unknown sex recorded (%d in total)."
 msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
 msgstr[0] "%d søskenbarn av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d søskenbarn av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:579
+#, php-format
+msgid "%2$s has %1$d female first cousin and "
+msgid_plural "%2$s has %1$d female first cousins and "
+msgstr[0] "%2$s har %1$d registrert kusine og "
+msgstr[1] "%2$s har %1$d registrerte kusiner og "
+
+#: resources/views/tab.phtml:582
+#, php-format
 msgid "%2$s has %1$d male first cousin, "
 msgid_plural "%2$s has %1$d male first cousins, "
 msgstr[0] "%2$s har %1$d registrert fetter, "
 msgstr[1] "%2$s har %1$d fetre, "
 
+#: resources/views/tab.phtml:583
+#, php-format
 msgid "%d female first cousin, and "
 msgid_plural "%d female first cousins, and "
 msgstr[0] "%d kusine og "
 msgstr[1] "%d kusiner og "
 
-msgid "Nephews and Nieces"
-msgstr "Nevøer og nieser"
-
-msgid "%s has no nephews or nieces recorded."
-msgstr "%s har ingen registrerte nevøer eller nieser."
-
+#: resources/views/tab.phtml:590
+#, php-format
 msgid "%s has one niece recorded."
 msgstr "%s har én registrert niese."
 
+#: resources/views/tab.phtml:592
+#, php-format
 msgid "%s has one nephew recorded."
 msgstr "%s har én registrert nevø."
 
+#: resources/views/tab.phtml:594
+#, php-format
 msgid "%s has one nephew or niece of unknown sex recorded."
 msgstr "%s har én registrert nevø eller niese av ukjent kjønn."
 
+#: resources/views/tab.phtml:598
+#, php-format
 msgid "%2$s has %1$d niece recorded."
 msgid_plural "%2$s has %1$d nieces recorded."
 msgstr[0] "%2$s har %1$d registrert niese."
 msgstr[1] "%2$s har %1$d registrerte nieser."
 
+#: resources/views/tab.phtml:600
+#, php-format
 msgid "%2$s has %1$d nephew recorded."
 msgid_plural "%2$s has %1$d nephews recorded."
 msgstr[0] "%2$s har %1$d registrert nevø."
 msgstr[1] "%2$s har %1$d registrerte nevøer."
 
+#: resources/views/tab.phtml:602
+#, php-format
 msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
 msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert nevø eller niese av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte nevøer eller nieser av ukjent kjønn."
 
+#: resources/views/tab.phtml:604 resources/views/tab.phtml:607
+#, php-format
 msgid "%2$s has %1$d nephew and "
 msgid_plural "%2$s has %1$d nephews and "
 msgstr[0] "%2$s har %1$d registrert nevø og "
 msgstr[1] "%2$s har %1$d registrerte nevøer og "
 
+#: resources/views/tab.phtml:605
+#, php-format
 msgid "%d niece recorded (%d in total)."
 msgid_plural "%d nieces recorded (%d in total)."
 msgstr[0] "%d niese (til sammen %d)."
 msgstr[1] "%d nieser (til sammen %d)."
 
-msgid "%2$s has %1$d niece and "
-msgid_plural "%2$s has %1$d nieces and "
-msgstr[0] "%2$s har %1$d registrert niese og "
-msgstr[1] "%2$s har %1$d nieser og "
-
+#: resources/views/tab.phtml:608 resources/views/tab.phtml:611
+#: resources/views/tab.phtml:615
+#, php-format
 msgid "%d nephew or niece of unknown sex recorded (%d in total)."
 msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
 msgstr[0] "%d nevø eller niese av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d nevøer eller nieser av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:610
+#, php-format
+msgid "%2$s has %1$d niece and "
+msgid_plural "%2$s has %1$d nieces and "
+msgstr[0] "%2$s har %1$d registrert niese og "
+msgstr[1] "%2$s har %1$d nieser og "
+
+#: resources/views/tab.phtml:613
+#, php-format
 msgid "%2$s has %1$d nephew, "
 msgid_plural "%2$s has %1$d nephews, "
 msgstr[0] "%2$s har %1$d registrert nevø, "
 msgstr[1] "%2$s har %1$d nevøer, "
 
+#: resources/views/tab.phtml:614
+#, php-format
 msgid "%d niece, and "
 msgid_plural "%d nieces, and "
 msgstr[0] "%d niese, og "
 msgstr[1] "%d nieser, og "
 
-msgid "Children"
-msgstr "Barn"
-
-msgid "%s has no children recorded."
-msgstr "%s har ingen registrerte barn."
-
+#: resources/views/tab.phtml:621
+#, php-format
 msgid "%s has one daughter recorded."
 msgstr "%s har én registrert datter."
 
+#: resources/views/tab.phtml:623
+#, php-format
 msgid "%s has one son recorded."
 msgstr "%s har én registrert sønn."
 
+#: resources/views/tab.phtml:625
+#, php-format
 msgid "%s has one child of unknown sex recorded."
 msgstr "%s har ett registrert barn av ukjent kjønn."
 
+#: resources/views/tab.phtml:629
+#, php-format
 msgid "%2$s has %1$d daughter recorded."
 msgid_plural "%2$s has %1$d daughters recorded."
 msgstr[0] "%2$s har %1$d registrert datter."
 msgstr[1] "%2$s har %1$d registrerte døtre."
 
+#: resources/views/tab.phtml:631
+#, php-format
 msgid "%2$s has %1$d son recorded."
 msgid_plural "%2$s has %1$d sons recorded."
 msgstr[0] "%2$s har %1$d registrert sønn."
 msgstr[1] "%2$s har %1$d registrerte sønner."
 
+#: resources/views/tab.phtml:633
+#, php-format
 msgid "%2$s has %1$d child of unknown sex recorded."
 msgid_plural "%2$s has %1$d children of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert barn av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte barn av ukjent kjønn."
 
+#: resources/views/tab.phtml:635 resources/views/tab.phtml:638
+#, php-format
 msgid "%2$s has %1$d son and "
 msgid_plural "%2$s has %1$d sons and "
 msgstr[0] "%2$s har %1$d registrert sønn og "
 msgstr[1] "%2$s har %1$d registrerte sønner og "
 
+#: resources/views/tab.phtml:636
+#, php-format
 msgid "%d daughter recorded (%d in total)."
 msgid_plural "%d daughters recorded (%d in total)."
 msgstr[0] "%d datter (til sammen %d)."
 msgstr[1] "%d døtre (til sammen %d)."
 
-msgid "%2$s has %1$d daughter and "
-msgid_plural "%2$s has %1$d daughters and "
-msgstr[0] "%2$s har %1$d registrert datter og "
-msgstr[1] "%2$s har %1$d registrerte døtre og "
-
+#: resources/views/tab.phtml:639 resources/views/tab.phtml:642
+#: resources/views/tab.phtml:646
+#, php-format
 msgid "%d child of unknown sex recorded (%d in total)."
 msgid_plural "%d children of unknown sex recorded (%d in total)."
 msgstr[0] "%d barn av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d barn av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:641
+#, php-format
+msgid "%2$s has %1$d daughter and "
+msgid_plural "%2$s has %1$d daughters and "
+msgstr[0] "%2$s har %1$d registrert datter og "
+msgstr[1] "%2$s har %1$d registrerte døtre og "
+
+#: resources/views/tab.phtml:644
+#, php-format
 msgid "%2$s has %1$d son, "
 msgid_plural "%2$s has %1$d sons, "
 msgstr[0] "%2$s har %1$d registrert sønn, "
 msgstr[1] "%2$s har %1$d registrerte sønner, "
 
+#: resources/views/tab.phtml:645
+#, php-format
 msgid "%d daughter, and "
 msgid_plural "%d daughters, and "
 msgstr[0] "%d datter, og "
 msgstr[1] "%d døtre, og "
 
-msgid "Children-in-law"
-msgstr "Svigerbarn"
-
-msgid "%s has no children-in-law recorded."
-msgstr "%s har ingen registrerte svigerbarn."
-
+#: resources/views/tab.phtml:652
+#, php-format
 msgid "%s has one daughter-in-law recorded."
 msgstr "%s har én registrert svigerdatter."
 
+#: resources/views/tab.phtml:654
+#, php-format
 msgid "%s has one son-in-law recorded."
 msgstr "%s har én registrert svigersønn."
 
+#: resources/views/tab.phtml:656
+#, php-format
 msgid "%s has one child-in-law of unknown sex recorded."
 msgstr "%s har ett registrert svigerbarn av ukjent kjønn."
 
+#: resources/views/tab.phtml:660
+#, php-format
 msgid "%2$s has %1$d daughter-in-law recorded."
 msgid_plural "%2$s has %1$d daughters-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert svigerdatter."
 msgstr[1] "%2$s har %1$d registrerte svigerdøtre."
 
+#: resources/views/tab.phtml:662
+#, php-format
 msgid "%2$s has %1$d son-in-law recorded."
 msgid_plural "%2$s has %1$d sons-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert svigersønn."
 msgstr[1] "%2$s har %1$d registrerte svigersønner."
 
-msgid "%2$s has %1$d child-in-law recorded."
-msgid_plural "%2$s has %1$d children-in-law recorded."
-msgstr[0] "%2$s har %1$d registrert svigerbarn."
-msgstr[1] "%2$s har %1$d registrerte svigerbarn."
+#: resources/views/tab.phtml:664
+#, fuzzy, php-format
+msgid "%2$s has %1$d child-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d children-in-law of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert svigerbarnebarn av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn av ukjent kjønn."
 
+#: resources/views/tab.phtml:666 resources/views/tab.phtml:669
+#, php-format
 msgid "%2$s has %1$d son-in-law and "
 msgid_plural "%2$s has %1$d sons-in-law and "
 msgstr[0] "%2$s har %1$d registrert svigersønn og "
 msgstr[1] "%2$s har %1$d registrerte svigersønner og "
 
+#: resources/views/tab.phtml:667
+#, php-format
 msgid "%d daughter-in-law recorded (%d in total)."
 msgid_plural "%d daughters-in-law recorded (%d in total)."
 msgstr[0] "%d svigerdatter (til sammen %d)."
 msgstr[1] "%d svigerdøtre (til sammen %d)."
 
-msgid "%2$s has %1$d daughter-in-law and "
-msgid_plural "%2$s has %1$d daughters-in-law and "
-msgstr[0] "%2$s har %1$d registrert svigerdatter og "
-msgstr[1] "%2$s har %1$d registrerte svigerdøtre og "
-
+#: resources/views/tab.phtml:670 resources/views/tab.phtml:673
+#: resources/views/tab.phtml:677
+#, php-format
 msgid "%d child-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d svigerbarn av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d svigerbarn av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:672
+#, php-format
+msgid "%2$s has %1$d daughter-in-law and "
+msgid_plural "%2$s has %1$d daughters-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigerdatter og "
+msgstr[1] "%2$s har %1$d registrerte svigerdøtre og "
+
+#: resources/views/tab.phtml:675
+#, php-format
 msgid "%2$s has %1$d son-in-law, "
 msgid_plural "%2$s has %1$d sons-in-law, "
 msgstr[0] "%2$s har %1$d registrert svigersønn, "
 msgstr[1] "%2$s har %1$d registrerte svigersønner, "
 
+#: resources/views/tab.phtml:676
+#, php-format
 msgid "%d daughter-in-law, and "
 msgid_plural "%d daughters-in-law, and "
 msgstr[0] "%d svigerdatter, og "
 msgstr[1] "%d svigerdøtre, og "
 
-msgid "Grandchildren"
-msgstr "Barnebarn"
-
-msgid "%s has no grandchildren recorded."
-msgstr "%s har ingen registrerte barnebarn."
-
+#: resources/views/tab.phtml:683
+#, php-format
 msgid "%s has one granddaughter recorded."
 msgstr "%s har én registrert sønne-/datterdatter."
 
+#: resources/views/tab.phtml:685
+#, php-format
 msgid "%s has one grandson recorded."
 msgstr "%s har én registrert sønne-/dattersønn."
 
+#: resources/views/tab.phtml:687
+#, php-format
 msgid "%s has one grandchild of unknown sex recorded."
 msgstr "%s har ett registrert barnebarn av ukjent kjønn."
 
+#: resources/views/tab.phtml:691
+#, php-format
 msgid "%2$s has %1$d granddaughter recorded."
 msgid_plural "%2$s has %1$d granddaughters recorded."
 msgstr[0] "%2$s har %1$d registrert sønne-/datterdatter."
 msgstr[1] "%2$s har %1$d registrerte sønne-/datterdøtre."
 
+#: resources/views/tab.phtml:693
+#, php-format
 msgid "%2$s has %1$d grandson recorded."
 msgid_plural "%2$s has %1$d grandsons recorded."
 msgstr[0] "%2$s har %1$d registrert sønne-/dattersønn."
 msgstr[1] "%2$s har %1$d registrerte sønne-/dattersønner."
 
+#: resources/views/tab.phtml:695
+#, php-format
 msgid "%2$s has %1$d grandchild of unknown sex recorded."
 msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert barnebarn av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte barnebarn av ukjent kjønn."
 
+#: resources/views/tab.phtml:697 resources/views/tab.phtml:700
+#, php-format
 msgid "%2$s has %1$d grandson and "
 msgid_plural "%2$s has %1$d grandsons and "
 msgstr[0] "%2$s har %1$d registrert sønne-/dattersønn og "
 msgstr[1] "%2$s har %1$d registrerte sønne-/dattersønner og "
 
+#: resources/views/tab.phtml:698
+#, php-format
 msgid "%d granddaughter recorded (%d in total)."
 msgid_plural "%d granddaughters recorded (%d in total)."
 msgstr[0] "%d sønne-/datterdatter (til sammen %d)."
 msgstr[1] "%d sønne-/datterdøtre (til sammen %d)."
 
-msgid "%2$s has %1$d granddaughter and "
-msgid_plural "%2$s has %1$d granddaughters and "
-msgstr[0] "%2$s har %1$d registrert sønne-/datterdatter og "
-msgstr[1] "%2$s har %1$d registrerte sønne-/datterdøtre og "
-
+#: resources/views/tab.phtml:701 resources/views/tab.phtml:704
+#: resources/views/tab.phtml:708
+#, php-format
 msgid "%d grandchild of unknown sex recorded (%d in total)."
 msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
 msgstr[0] "%d barnebarn av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d barnebarn av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:703
+#, php-format
+msgid "%2$s has %1$d granddaughter and "
+msgid_plural "%2$s has %1$d granddaughters and "
+msgstr[0] "%2$s har %1$d registrert sønne-/datterdatter og "
+msgstr[1] "%2$s har %1$d registrerte sønne-/datterdøtre og "
+
+#: resources/views/tab.phtml:706
+#, php-format
 msgid "%2$s has %1$d grandson, "
 msgid_plural "%2$s has %1$d grandsons, "
 msgstr[0] "%2$s har %1$d registrert sønne-/dattersønn, "
 msgstr[1] "%2$s har %1$d registrerte sønne-/dattersønner, "
 
+#: resources/views/tab.phtml:707
+#, php-format
 msgid "%d granddaughter, and "
 msgid_plural "%d granddaughters, and "
 msgstr[0] "%d sønne-/datterdatter, og "
 msgstr[1] "%d sønne-/datterdøtre, og "
 
-msgid "Grandchildren-in-law"
-msgstr "Svigerbarnebarn"
-
-msgid "%s has no grandchildren-in-law recorded."
-msgstr "%s har ingen registrerte svigerbarnebarn."
-
+#: resources/views/tab.phtml:714
+#, php-format
 msgid "%s has one granddaughter-in-law recorded."
 msgstr "%s har ett registrert svigerbarnebarn."
 
+#: resources/views/tab.phtml:716
+#, php-format
 msgid "%s has one grandson-in-law recorded."
 msgstr "%s har ett registrert svigerbarnebarn."
 
+#: resources/views/tab.phtml:718
+#, php-format
 msgid "%s has one grandchild-in-law of unknown sex recorded."
 msgstr "%s har ett registrert svigerbarnebarn av ukjent kjønn."
 
+#: resources/views/tab.phtml:722
+#, php-format
 msgid "%2$s has %1$d granddaughter-in-law recorded."
 msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert svigerbarnebarn."
 msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn."
 
+#: resources/views/tab.phtml:724
+#, php-format
 msgid "%2$s has %1$d grandson-in-law recorded."
 msgid_plural "%2$s has %1$d grandsons-in-law recorded."
 msgstr[0] "%2$s har %1$d registrert svigerbarnebarn."
 msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn."
 
+#: resources/views/tab.phtml:726
+#, php-format
 msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
 msgstr[0] "%2$s har %1$d registrert svigerbarnebarn av ukjent kjønn."
 msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn av ukjent kjønn."
 
+#: resources/views/tab.phtml:728 resources/views/tab.phtml:731
+#, php-format
 msgid "%2$s has %1$d grandson-in-law and "
 msgid_plural "%2$s has %1$d grandsons-in-law and "
 msgstr[0] "%2$s har %1$d registrert svigerbarnebarn og "
 msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn og "
 
+#: resources/views/tab.phtml:729
+#, php-format
 msgid "%d granddaughter-in-law recorded (%d in total)."
 msgid_plural "%d granddaughters-in-law recorded (%d in total)."
 msgstr[0] "%d svigerbarnebarn (til sammen %d)."
 msgstr[1] "%d svigerbarnebarn (til sammen %d)."
 
-msgid "%2$s has %1$d granddaughter-in-law and "
-msgid_plural "%2$s has %1$d granddaughters-in-law and "
-msgstr[0] "%2$s har %1$d registrert svigerbarnebarn og "
-msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn og "
-
+#: resources/views/tab.phtml:732 resources/views/tab.phtml:735
+#: resources/views/tab.phtml:739
+#, php-format
 msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d svigerbarnebarn av ukjent kjønn (til sammen %d)."
 msgstr[1] "%d svigerbarnebarn av ukjent kjønn (til sammen %d)."
 
+#: resources/views/tab.phtml:734
+#, php-format
+msgid "%2$s has %1$d granddaughter-in-law and "
+msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigerbarnebarn og "
+msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn og "
+
+#: resources/views/tab.phtml:737
+#, php-format
 msgid "%2$s has %1$d grandson-in-law, "
 msgid_plural "%2$s has %1$d grandsons-in-law, "
 msgstr[0] "%2$s har %1$d registrert svigerbarnebarn, "
 msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn, "
 
+#: resources/views/tab.phtml:738
+#, php-format
 msgid "%d granddaughter-in-law, and "
 msgid_plural "%d granddaughters-in-law, and "
 msgstr[0] "%d svigerbarnebarn og "
 msgstr[1] "%d svigerbarnebarn og "
+
+#: resources/views/tab.phtml:752
+msgid "Partner of "
+msgstr "Partner av "
+
+#: resources/views/tab.phtml:821 resources/views/tab.phtml:823
+#: resources/views/tab.phtml:898
+msgid " with "
+msgstr " med "
+
+#: resources/views/tab.phtml:823 resources/views/tab.phtml:833
+#: resources/views/tab.phtml:1019
+msgid "Partnership"
+msgstr "Partnerskap"
+
+#: resources/views/tab.phtml:877 resources/views/tab.phtml:914
+msgid "Brother"
+msgstr ""
+
+#: resources/views/tab.phtml:879 resources/views/tab.phtml:916
+msgid "Sister"
+msgstr ""
+
+#: resources/views/tab.phtml:881 resources/views/tab.phtml:902
+#: resources/views/tab.phtml:918 resources/views/tab.phtml:938
+#, fuzzy
+msgid "Sibling"
+msgstr "Søsken"
+
+#: resources/views/tab.phtml:891 resources/views/tab.phtml:929
+#, php-format
+msgid "Brother %1$s of partner %2$s"
+msgstr "Bror %1$s til partner %2$s"
+
+#: resources/views/tab.phtml:893 resources/views/tab.phtml:931
+#, php-format
+msgid "Sister %1$s of partner %2$s"
+msgstr "Søster %1$s til partner %2$s"
+
+#: resources/views/tab.phtml:895 resources/views/tab.phtml:933
+#: resources/views/tab.phtml:945
+#, php-format
+msgid "Sibling %1$s of partner %2$s"
+msgstr "Søsken %1$s til partner %2$s"
+
+#: resources/views/tab.phtml:904
+#, fuzzy
+msgid "Partner"
+msgstr "Partnere"
+
+#: resources/views/tab.phtml:955
+#, fuzzy
+msgid "Son"
+msgstr "Stesønn"
+
+#: resources/views/tab.phtml:957
+#, fuzzy
+msgid "Daughter"
+msgstr "Stedatter"
+
+#: resources/views/tab.phtml:959 resources/views/tab.phtml:972
+#, fuzzy
+msgid "Child"
+msgstr "Barn"
+
+#: resources/views/tab.phtml:963
+msgid "Stepson"
+msgstr "Stesønn"
+
+#: resources/views/tab.phtml:965
+msgid "Stepdaughter"
+msgstr "Stedatter"
+
+#: resources/views/tab.phtml:967 resources/views/tab.phtml:974
+msgid "Stepchild"
+msgstr "Stebarn"
+
+#: resources/views/tab.phtml:985 resources/views/tab.phtml:1031
+#, php-format
+msgid "Parents %1$s (%2$s) of %3$s"
+msgstr "Foreldre %1$s (%2$s) til %3$s"
+
+#: resources/views/tab.phtml:989
+#, php-format
+msgid "Stepparents %1$s (%2$s) of %3$s"
+msgstr "Steforeldre %1$s (%2$s) til %3$s"
+
+#: resources/views/tab.phtml:994
+#, php-format
+msgid "Parents %1$s (%2$s) of stepfather %3$s"
+msgstr "Foreldre %1$s (%2$s) til stefar %3$s"
+
+#: resources/views/tab.phtml:996
+#, php-format
+msgid "Parents %1$s (%2$s) of stepmother %3$s"
+msgstr "Foreldre %1$s (%2$s) til stemor %3$s"
+
+#: resources/views/tab.phtml:998
+#, php-format
+msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgstr "Foreldre %1$s (%2$s) til steforelder %3$s"
+
+#: resources/views/tab.phtml:1004
+#, php-format
+msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
+msgstr "Besteforeldre %1$s (%2$s) til stefar %3$s"
+
+#: resources/views/tab.phtml:1006
+#, php-format
+msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
+msgstr "Besteforeldre %1$s (%2$s) til stemor %3$s"
+
+#: resources/views/tab.phtml:1008
+#, php-format
+msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
+msgstr "Besteforeldre %1$s (%2$s) til steforelder %3$s"
+
+#: resources/views/tab.phtml:1011 resources/views/tab.phtml:1048
+#: resources/views/tab.phtml:1050
+msgid "Parents"
+msgstr "Foreldre"
+
+#: resources/views/tab.phtml:1017 resources/views/tab.phtml:1037
+#, php-format
+msgid "Parents %1$s of %2$s"
+msgstr "Foreldre %1$s til %2$s"
+
+#: resources/views/tab.phtml:1033 resources/views/tab.phtml:1039
+#, php-format
+msgid "Partners of %s"
+msgstr "Partner til %s"
+
+#: resources/views/tab.phtml:1099
+#, php-format
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s har ingen registrerte onkler eller tanter."
+
+#: resources/views/tab.phtml:1101
+#, php-format
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s har ingen registrerte inngifte onkler eller tanter."
+
+#: resources/views/tab.phtml:1103
+#, php-format
+msgid "%s has no members of a partner chain recorded."
+msgstr "%s inngår ikke i noen partnerkjede."
+
+#: resources/views/tab.phtml:1105
+#, php-format
+msgid "%s has no first cousins recorded."
+msgstr "%s har ingen registrerte søskenbarn."
+
+#: resources/views/tab.phtml:1107
+#, php-format
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s har ingen registrerte nevøer eller nieser."
+
+#: resources/views/tab.phtml:1109
+#, fuzzy, php-format
+msgid "%s has no "
+msgstr "%s har ingen registrerte %s."
+
+#: resources/views/tab.phtml:1118
+msgid "Summary for the shown extended family"
+msgstr "Sammendrag for den viste storfamilien"
+
+#: resources/views/tab.phtml:1119
+#, php-format
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "%1$s er det eneste medlemmet av storfamilien."
+msgstr[1] "Storfamilien til %1$s har %2$d medlemmer (medregnet %1$s)."
+
+#: resources/views/tab.phtml:1120
+#, fuzzy
+msgid "(additional members of the partner chains are not counted)"
+msgstr "%s inngår ikke i noen partnerkjede."
+
+#: resources/views/tab.phtml:1122
+msgid "Some of them are member in more than one part of the extended family."
+msgstr ""
+
+#: resources/views/tab.phtml:1129
+#, php-format
+msgid "%s has no %s recorded."
+msgstr "%s har ingen registrerte %s."
+
+#: resources/views/tab.phtml:1135
+#, php-format
+msgid "%s has no %s, and no %s recorded."
+msgstr "%s har ingen registrerte %s og ingen %s."
+
+#: resources/views/tab.phtml:1142
+msgid "No family available"
+msgstr "Ingen familie funnet"
+
+#: resources/views/settings.phtml:25
+msgid "Control panel"
+msgstr ""
+
+#: resources/views/settings.phtml:35
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "I hvilken rekkefølge skal storfamiliens deler vises?"
+
+#: resources/views/settings.phtml:39
+msgid "Family part (generation relative to proband)"
+msgstr "Familiedel (generation relative to proband)"
+
+#: resources/views/settings.phtml:40 resources/views/settings.phtml:62
+msgid "Enabled"
+msgstr ""
+
+#: resources/views/settings.phtml:42 resources/views/settings.phtml:69
+msgid "Move up"
+msgstr ""
+
+#: resources/views/settings.phtml:43 resources/views/settings.phtml:74
+msgid "Move down"
+msgstr ""
+
+#: resources/views/settings.phtml:84
+msgid "Show options to filter the results?"
+msgstr "Vis alternativ for å filtrere resultatene?"
+
+#: resources/views/settings.phtml:85
+msgid ""
+"This allows a user to filter the members of the extended family by gender "
+"and if they are alive or dead."
+msgstr ""
+
+#: resources/views/settings.phtml:90
+msgid "Show filter options"
+msgstr "Vis filteralternativ"
+
+#: resources/views/settings.phtml:93 resources/views/settings.phtml:107
+#: resources/views/settings.phtml:139 resources/views/settings.phtml:153
+#: resources/views/settings.phtml:167 resources/views/settings.phtml:181
+#: resources/views/settings.phtml:195 resources/views/settings.phtml:209
+msgid "yes"
+msgstr ""
+
+#: resources/views/settings.phtml:93 resources/views/settings.phtml:107
+#: resources/views/settings.phtml:139 resources/views/settings.phtml:153
+#: resources/views/settings.phtml:167 resources/views/settings.phtml:181
+#: resources/views/settings.phtml:195 resources/views/settings.phtml:209
+msgid "no"
+msgstr ""
+
+#: resources/views/settings.phtml:98
+msgid "Should a summary block be shown?"
+msgstr ""
+
+#: resources/views/settings.phtml:99
+msgid "The summary contains information about the extended family in total."
+msgstr ""
+
+#: resources/views/settings.phtml:104
+msgid "Show summary"
+msgstr ""
+
+#: resources/views/settings.phtml:112
+msgid "How should empty parts of extended family be presented?"
+msgstr "Hvordan skal manglende deler av storfamilien vises?"
+
+#: resources/views/settings.phtml:117
+msgid "Show empty block"
+msgstr "Vis tomme familiedeler"
+
+#: resources/views/settings.phtml:120
+msgid "yes, always at standard location"
+msgstr "ja, alltid på vanlig sted"
+
+#: resources/views/settings.phtml:120
+#, fuzzy
+msgid "no, but collect messages about empty blocks at the summary block"
+msgstr "nei, men samle opplysninger om manglende familiedeler til sist"
+
+#: resources/views/settings.phtml:120
+msgid "never"
+msgstr "aldri"
+
+#: resources/views/settings.phtml:125
+msgid ""
+"Count the members of the partner chains as members of the extended family?"
+msgstr ""
+
+#: resources/views/settings.phtml:127
+msgid ""
+"If you select \"no\", then the additional members in the partner chains will "
+"not be counted to the total number of individuals in the extended family."
+msgstr ""
+
+#: resources/views/settings.phtml:128
+msgid ""
+"And these persons and families will be not selected when a user decides to "
+"copy the extended family to the clippings cart."
+msgstr ""
+
+#: resources/views/settings.phtml:129
+msgid ""
+"But even in this case, you can copy these persons and families to the "
+"clippings cart by using a special menu topic of the custom module \"enhanced "
+"clippings cart\": \"add partner chains for an individual\"."
+msgstr ""
+
+#: resources/views/settings.phtml:130
+msgid ""
+"This is only relevant if you have chosen in the above table, that the "
+"partner chains should be shown as a part of the extended family."
+msgstr ""
+
+#: resources/views/settings.phtml:136
+msgid "Include them"
+msgstr ""
+
+#: resources/views/settings.phtml:144
+msgid "Show name of proband as short name or as full name?"
+msgstr "Skal hovedpersonens navn vises i kortform eller som fullt navn?"
+
+#: resources/views/settings.phtml:145
+msgid ""
+"The short name is based on the probands Rufname or nickname. If these are "
+"not available, the first of the given names is used, if one is given. "
+"Otherwise the last name is used."
+msgstr ""
+"Kortformen er basert på hovedpersonens kallenavn. Er dette ikke registrert, "
+"blir det første fornavnet brukt, så lenge det er registrert. Ellers brukes "
+"etternavnet."
+
+#: resources/views/settings.phtml:150
+msgid "Show short name"
+msgstr "Vis kortform av navnet"
+
+#: resources/views/settings.phtml:158
+msgid "Show labels in special situations?"
+msgstr "Vis etiketter i spesielle situasjoner?"
+
+#: resources/views/settings.phtml:159
+msgid ""
+"Labels (or stickers) are used for example for adopted persons or foster "
+"children."
+msgstr "Etiketter brukes f.eks. for adoptivbarn eller fosterbarn."
+
+#: resources/views/settings.phtml:164
+msgid "Show labels"
+msgstr "Vis etiketter"
+
+#: resources/views/settings.phtml:172
+msgid "Show parameters of extended family part?"
+msgstr "Vis parametre for de utvidede familiedelene?"
+
+#: resources/views/settings.phtml:173
+msgid ""
+"Display of additional information for each part of the extended family, such "
+"as the generation shift and the coefficient of relationship, which is a "
+"measure of the degree of consanguinity."
+msgstr ""
+"Visning av tilleggsinformasjon for hver enkelt del av storfamilien, som f."
+"eks. generasjonsorskyvning og slektskapskoeffisient, som er et mål for "
+"graden av blodsslektskap."
+
+#: resources/views/settings.phtml:178
+msgid "Show parameters"
+msgstr "Vis parametre"
+
+#: resources/views/settings.phtml:186
+msgid "Use the compact design?"
+msgstr "Bruk kompakt design?"
+
+#: resources/views/settings.phtml:187
+msgid ""
+"The compact design only shows the name and life span for each person. The "
+"enriched design also shows a photo (if this is activated for this tree) as "
+"well as birth and death information."
+msgstr ""
+"Kompakt design viser bare navn og levetid for hver person. Utvidet design "
+"viser dessuten bilde (hvis det er aktivert for dette slektstreet) og "
+"informasjoner om fødsel og død."
+
+#: resources/views/settings.phtml:192
+msgid "Use the compact design"
+msgstr "Bruk kompakt design"
+
+#: resources/views/settings.phtml:200
+#, fuzzy
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr "kopiér til utklippsmappen"
+
+#: resources/views/settings.phtml:201
+#, fuzzy
+msgid ""
+"This allows a user to copy all members of the extended family to the "
+"clippings cart."
+msgstr "kopiér alle medlemmer av storfamilien til utklippsmappen"
+
+#: resources/views/settings.phtml:206
+#, fuzzy
+msgid "Show button"
+msgstr "Vis filteralternativ"
+
+#: resources/views/settings.phtml:216
+msgid "save"
+msgstr ""
+
+#~ msgid "Extended family"
+#~ msgstr "Storfamilie"
+
+#~ msgid "A tab showing the extended family of an individual."
+#~ msgstr "En fane som viser en persons storfamilie."
+
+#~ msgid "don't use this filter"
+#~ msgstr "bruk ikke dette filteret"
+
+#~ msgid "a dead person"
+#~ msgstr "en avdød person"
+
+#~ msgid "a living person"
+#~ msgstr "en nålevende person"
+
+#~ msgid "not a male person"
+#~ msgstr "ingen person av hankjønn"
+
+#~ msgid "not a female person"
+#~ msgstr "ingen person av hunkjønn"
+
+#~ msgid "not a person of unknown gender"
+#~ msgstr "ingen person av ukjent kjønn"
+
+#~ msgid "twin"
+#~ msgstr "tvilling"
+
+#~ msgid "triplet"
+#~ msgstr "trilling"
+
+#~ msgid "quadruplet"
+#~ msgstr "firling"
+
+#~ msgid "quintuplet"
+#~ msgstr "femling"
+
+#~ msgid "sextuplet"
+#~ msgstr "seksling"
+
+#~ msgid "septuplet"
+#~ msgstr "syvling"
+
+#~ msgid "octuplet"
+#~ msgstr "åttling"
+
+#~ msgid "nonuplet"
+#~ msgstr "niling"
+
+#~ msgid "decuplet"
+#~ msgstr "tiling"
+
+#~ msgid "linkage challenged"
+#~ msgstr "usikkert slektskap"
+
+#~ msgid "linkage disproven"
+#~ msgstr "påviselig manglende slektskap"
+
+#~ msgid "Marriage"
+#~ msgstr "Ekteskap"
+
+#~ msgid "Ex-marriage"
+#~ msgstr "Tidligere ekteskap"
+
+#~ msgid "Fiancée"
+#~ msgstr "Forlovelse"
+
+#~ msgid "Biological grandparents of father"
+#~ msgstr "Fars biologiske besteforeldre"
+
+#~ msgid "Biological grandparents of mother"
+#~ msgstr "Mors biologiske besteforeldre"
+
+#~ msgid "Biological grandparents of parent"
+#~ msgstr "Forelders biologiske besteforeldre"
+
+#~ msgid "Stepparents of biological parent of father"
+#~ msgstr "Steforeldre til fars biologiske forelder"
+
+#~ msgid "Stepparents of biological parent of mother"
+#~ msgstr "Steforeldre til mors biologiske forelder"
+
+#~ msgid "Stepparents of biological grandparent"
+#~ msgstr "Steforeldre til en biologisk besteforelder"
+
+#~ msgid "Parents of stepparent of father"
+#~ msgstr "Fars steforelders foreldre"
+
+#~ msgid "Parents of stepparent of mother"
+#~ msgstr "Mors steforelders foreldre"
+
+#~ msgid "Parents of stepparent of parent"
+#~ msgstr "Foreldre til en forelders steforelder"
+
+#~ msgid "Grandparents of stepparent"
+#~ msgstr "Besteforeldre til steforelder"
+
+#~ msgid "Biological great-grandparents"
+#~ msgstr "Biologiske oldeforeldre"
+
+#~ msgid "Biological parents of father"
+#~ msgstr "Biologiske farforeldre"
+
+#~ msgid "Biological parents of mother"
+#~ msgstr "Biologiske morforeldre"
+
+#~ msgid "Biological parents of parent"
+#~ msgstr "Biologiske besteforeldre"
+
+#~ msgid "Stepparents of father"
+#~ msgstr "Fars steforeldre"
+
+#~ msgid "Stepparents of mother"
+#~ msgstr "Mors steforeldre"
+
+#~ msgid "Stepparents of parent"
+#~ msgstr "Forelders steforeldre"
+
+#~ msgid "Parents of stepparent"
+#~ msgstr "Steforelders foreldre"
+
+#~ msgid "Biological grandparents"
+#~ msgstr "Biologiske besteforeldre"
+
+#~ msgid "Siblings of father"
+#~ msgstr "Fars søsken"
+
+#~ msgid "Siblings of mother"
+#~ msgstr "Mors søsken"
+
+#~ msgid "Full siblings of biological parents"
+#~ msgstr "Helsøsken av biologiske foreldre"
+
+#~ msgid "Siblings-in-law of father"
+#~ msgstr "Fars svigersøsken"
+
+#~ msgid "Siblings-in-law of mother"
+#~ msgstr "Mors svigersøsken"
+
+#~ msgid "Biological parents"
+#~ msgstr "Biologiske foreldre"
+
+#~ msgid "Stepparents"
+#~ msgstr "Steforeldre"
+
+#~ msgid "Parents-in-law of biological children"
+#~ msgstr "Biologisk barns svigerforeldre"
+
+#~ msgid "Parents-in-law of stepchildren"
+#~ msgstr "Stebarns svigerforeldre"
+
+#~ msgid "Full siblings"
+#~ msgstr "Helsøsken"
+
+#~ msgid "Half siblings"
+#~ msgstr "Halvsøsken"
+
+#~ msgid "Stepsiblings"
+#~ msgstr "Stesøsken"
+
+#~ msgid "Children of full siblings of father"
+#~ msgstr "Barn av fars helsøsken"
+
+#~ msgid "Children of full siblings of mother"
+#~ msgstr "Barn av mors helsøsken"
+
+#~ msgid "Children of full siblings of parent"
+#~ msgstr "Barn av en forelders helsøsken"
+
+#~ msgid "Children of half siblings of father"
+#~ msgstr "Barn av fars halvsøsken"
+
+#~ msgid "Children of half siblings of mother"
+#~ msgstr "Barn av mors halvsøsken"
+
+#~ msgid "Children of half siblings of parent"
+#~ msgstr "Barn av en forelders halvsøsken"
+
+#~ msgid "Siblings of partners"
+#~ msgstr "Partners søsken"
+
+#~ msgid "Partners of siblings"
+#~ msgstr "Søskens partner"
+
+#~ msgid "Siblings of siblings-in-law"
+#~ msgstr "Søsken av svigersøsken"
+
+#~ msgid "Partners of siblings-in-law"
+#~ msgstr "Svigersøskens partner"
+
+#~ msgid "Children of full siblings of biological parents"
+#~ msgstr "Barn av en biologisk forelders helsøsken"
+
+#~ msgid "Children of siblings"
+#~ msgstr "Barn av søsken"
+
+#~ msgid "Children of full siblings"
+#~ msgstr "Barn av helsøsken"
+
+#~ msgid "Siblings' stepchildren"
+#~ msgstr "Søskens stebarn"
+
+#~ msgid "Children of siblings of partners"
+#~ msgstr "Barn av partners søsken"
+
+#~ msgid "Biological children"
+#~ msgstr "Biologiske barn"
+
+#~ msgid "Stepchildren"
+#~ msgstr "Stebarn"
+
+#~ msgid "Partners of biological children"
+#~ msgstr "Biologiske barns partner"
+
+#~ msgid "Partners of stepchildren"
+#~ msgstr "Stebarns partner"
+
+#~ msgid "Biological grandchildren"
+#~ msgstr "Biologiske barnebarn"
+
+#~ msgid "Stepchildren of children"
+#~ msgstr "Barns stebarn"
+
+#~ msgid "Children of stepchildren"
+#~ msgstr "Stebarns barn"
+
+#~ msgid "Stepchildren of stepchildren"
+#~ msgstr "Stebarns stebarn"
+
+#~ msgid "Partners of biological grandchildren"
+#~ msgstr "Biologisk barnebarns partner"
+
+#~ msgid "Partners of stepchildren of children"
+#~ msgstr "Barns stebarns partner"
+
+#~ msgid "Partners of children of stepchildren"
+#~ msgstr "Stebarns barns partner"
+
+#~ msgid "Partners of stepchildren of stepchildren"
+#~ msgstr "Stebarns stebarns partner"
+
+#~ msgid "Father's family (%d)"
+#~ msgstr "Fars familie (%d)"
+
+#~ msgid "Mother's family (%d)"
+#~ msgstr "Mors familie (%d)"
+
+#~ msgid "Father's and Mother's family (%d)"
+#~ msgstr "Fars og mors familie (%d)"
+
+#~ msgid "Great-grandparents"
+#~ msgstr "Oldeforeldre"
+
+#~ msgid "%s has no great-grandparents recorded."
+#~ msgstr "%s har ingen registrerte oldeforeldre."
+
+#~ msgid "Grandparents"
+#~ msgstr "Besteforeldre"
+
+#~ msgid "%s has no grandparents recorded."
+#~ msgstr "%s har ingen registrerte besteforeldre."
+
+#~ msgid "%s has no parents recorded."
+#~ msgstr "%s har ingen registrerte foreldre."
+
+#~ msgid "Parents-in-law"
+#~ msgstr "Svigerforeldre"
+
+#~ msgid "%s has no parents-in-law recorded."
+#~ msgstr "%s har ingen registrerte svigerforeldre."
+
+#~ msgid "Co-parents-in-law"
+#~ msgstr "Barns svigerforeldre"
+
+#~ msgid "%s has no co-parents-in-law recorded."
+#~ msgstr "%s har ingen registrerte barns svigerforeldre."
+
+#~ msgid "%s has no partners recorded."
+#~ msgstr "%s har ingen registrerte partnere."
+
+#~ msgid "%2$s has %1$d partner and "
+#~ msgid_plural "%2$s has %1$d partners and "
+#~ msgstr[0] "%2$s har %1$d registrert partner og "
+#~ msgstr[1] "%2$s har %1$d registrerte partnere og "
+
+#~ msgid "%1$d female partner and "
+#~ msgid_plural "%d female partners and "
+#~ msgstr[0] "%1$d kvinnelig partner og "
+#~ msgstr[1] "%1$d kvinnelige partnere og "
+
+#~ msgid "%s has no siblings recorded."
+#~ msgstr "%s har ingen registrerte søsken."
+
+#~ msgid "Siblings-in-law"
+#~ msgstr "Svigersøsken"
+
+#~ msgid "%s has no siblings-in-law recorded."
+#~ msgstr "%s har ingen registrerte svigersøsken."
+
+#~ msgid "Co-siblings-in-law"
+#~ msgstr "Ektefelles svigersøsken"
+
+#~ msgid "%s has no co-siblings-in-law recorded."
+#~ msgstr "%s har ingen registrerte ektefelles svigersøsken."
+
+#~ msgid "Cousins"
+#~ msgstr "Søskenbarn"
+
+#~ msgid "%s has no children recorded."
+#~ msgstr "%s har ingen registrerte barn."
+
+#~ msgid "Children-in-law"
+#~ msgstr "Svigerbarn"
+
+#~ msgid "%s has no children-in-law recorded."
+#~ msgstr "%s har ingen registrerte svigerbarn."
+
+#~ msgid "%2$s has %1$d child-in-law recorded."
+#~ msgid_plural "%2$s has %1$d children-in-law recorded."
+#~ msgstr[0] "%2$s har %1$d registrert svigerbarn."
+#~ msgstr[1] "%2$s har %1$d registrerte svigerbarn."
+
+#~ msgid "Grandchildren"
+#~ msgstr "Barnebarn"
+
+#~ msgid "%s has no grandchildren recorded."
+#~ msgstr "%s har ingen registrerte barnebarn."
+
+#~ msgid "Grandchildren-in-law"
+#~ msgstr "Svigerbarnebarn"
+
+#~ msgid "%s has no grandchildren-in-law recorded."
+#~ msgstr "%s har ingen registrerte svigerbarnebarn."
