@@ -67,6 +67,7 @@ declare(strict_types=1);
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Hartenthaler\Webtrees\Helpers\Functions;
+use Fisharebest\Localization\Translation;
 use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
@@ -664,67 +665,9 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     public function customTranslations(string $language): array
     {
-        // Here we are using an array for translations.
-        // If you had .MO files, you could use them with: return (new Translation('path/to/file.mo'))->asArray();
-
-        require_once(__DIR__ . '/resources/lang/ExtendedFamilyTranslations.php');
-
-        switch ($language) {
-            case 'ca':
-            case 'ca-ES':
-                $customTranslation = ExtendedFamilyTranslations::catalanTranslations();
-                break;
-            case 'cs':
-                $customTranslation = ExtendedFamilyTranslations::czechTranslations();
-                break;
-            case 'de':
-                $customTranslation = ExtendedFamilyTranslations::germanTranslations();
-                break;
-            case 'es':
-                $customTranslation = ExtendedFamilyTranslations::spanishTranslations();
-                break;
-            case 'fr':
-            case 'fr-CA':
-                $customTranslation = ExtendedFamilyTranslations::frenchTranslations();
-                break;
-            case 'hi':
-                $customTranslation = ExtendedFamilyTranslations::hindiTranslations();
-                break;
-            case 'it':
-                $customTranslation = ExtendedFamilyTranslations::italianTranslations();           // tbd
-                break;
-            case 'nb':
-                $customTranslation = ExtendedFamilyTranslations::norwegianBokmålTranslations();
-                break;
-            case 'nl':
-                $customTranslation = ExtendedFamilyTranslations::dutchTranslations();
-                break;
-            case 'ru':
-                $customTranslation = ExtendedFamilyTranslations::russianTranslations();
-                break;
-            case 'sk':
-                $customTranslation = ExtendedFamilyTranslations::slovakTranslations();
-                break;
-            case 'sv':
-                $customTranslation = ExtendedFamilyTranslations::swedishTranslations();
-                break;
-            case 'uk':
-                $customTranslation = ExtendedFamilyTranslations::ukrainianTranslations();
-                break;
-            case 'vi':
-                $customTranslation = ExtendedFamilyTranslations::vietnameseTranslations();
-                break;
-            case 'zh-Hans':
-                $customTranslation = ExtendedFamilyTranslations::chineseSimplifiedTranslations();
-                break;
-            case 'zh-Hant':
-                $customTranslation = ExtendedFamilyTranslations::chineseTraditionalTranslations();
-                break;
-            default:
-                $customTranslation = [];
-                break;
-        }
-        return $customTranslation;
+        $file_base = $this->resourcesFolder() . 'lang' . DIRECTORY_SEPARATOR . $language;
+        $file = file_exists($file_base . '.php') ? $file_base . '.php' : $file_base . '.po';
+        return file_exists($file) ? (new Translation($file))->asArray() : [];
     }
 }
 return new ExtendedFamilyTabModule;
