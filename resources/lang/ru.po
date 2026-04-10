@@ -1,0 +1,1723 @@
+msgid ""
+msgstr ""
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Extended family"
+msgstr "Родственники"
+
+msgid "A tab showing the extended family of an individual."
+msgstr "Вкладка с родственниками человека"
+
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "В какой последовательности будут показаны блоки родственников?"
+
+msgid "Family part (generation relative to proband)"
+msgstr "Родственники (поколение относительно указанного)"
+
+msgid "Show name of proband as short name or as full name?"
+msgstr "Показать имя исходного человека кратко или полностью?"
+
+msgid "Show options to filter the results?"
+msgstr "Показать параметры фильтрации результатов?"
+
+msgid "Show filter options"
+msgstr "Показать параметры фильтрации"
+
+msgid "How should empty parts of extended family be presented?"
+msgstr "Как отображать пустые блоки родственников?"
+
+msgid "Show empty block"
+msgstr "Показать пустые блоки"
+
+msgid "yes, always at standard location"
+msgstr "да, всегда в обычном месте"
+
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "нет, но собирать сообщения о пустых блоках в конце"
+
+msgid "never"
+msgstr "никогда"
+
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "Краткое имя основано на имени или прозвище исходного человека. Если они недоступны, используется первое указанное. В противном случае используется фамилия."
+
+msgid "Show short name"
+msgstr "Показать короткое имя"
+
+msgid "Show labels in special situations?"
+msgstr "Показать ярлыки в особых ситуациях?"
+
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "Ярлыки (или метки) используются, например, для усыновлённых или приёмных детей."
+
+msgid "Show labels"
+msgstr "Показать ярлыки"
+
+msgid "Use the compact design?"
+msgstr "Использовать компактный дизайн?"
+
+msgid "Use the compact design"
+msgstr "Использовать компактный дизайн"
+
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "Компактный дизайн показывает только имя и продолжительность жизни каждого человека. В улучшенном дизайне также отображается фотография (если она активирована для этого дерева), а также информация о рождении и смерти."
+
+msgid "Show parameters of extended family part?"
+msgstr "Показать параметры по части родственников?"
+
+msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
+msgstr "Отображение дополнительной информации для каждой части родственников, такой как сдвиг поколения и коэффициент соотношения степени родства."
+
+msgid "Show parameters"
+msgstr "Показать параметры"
+
+msgid "This allows a user to filter the members of the extended family by gender and if they are alive or dead."
+msgstr "Это позволяет пользователю фильтровать родственников по полу, живы или мертвы."
+
+msgid "Should a summary block be shown?"
+msgstr "Должен ли быть показан блок сводки?"
+
+msgid "The summary contains information about the extended family in total."
+msgstr "В сводке содержится общая информация о родственниках."
+
+msgid "Show summary"
+msgstr "Показать сводку"
+
+msgid "Count the members of the partner chains as members of the extended family?"
+msgstr "Считать ли супругов родственниками?"
+
+msgid "If you select \"no\", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family."
+msgstr "Если вы выберете \"нет\", то партнеры не будут засчитываться в общее число родственников."
+
+msgid "And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart."
+msgstr "И эти люди и семьи не будут выбраны, когда пользователь решит скопировать расширенное семейство в корзину вырезок."
+
+msgid "But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module \"enhanced clippings cart\": \"add partner chains for an individual\"."
+msgstr "Но даже в этом случае вы можете скопировать этих людей и семьи в корзину вырезок, используя специальный раздел меню расширенного модуля корзин вырезок: \"добавить цепочки партнеров для отдельного человека\"."
+
+msgid "This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family."
+msgstr "Это важно только в том случае, если выбрано, что партнеры должны отображаться как родственники."
+
+msgid "Include them"
+msgstr "Включая их"
+
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr "Показать кнопку \"добавить в корзину вырезок\"?"
+
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr "Это позволяет пользователю копировать всех родственников в корзину вырезок."
+
+msgid "Show button"
+msgstr "Показать кнопку"
+
+msgid "generation +%s"
+msgstr "+%s поколение"
+
+msgid "same generation"
+msgstr "То же поколение"
+
+msgid "generation %s"
+msgstr "%s поколение"
+
+msgid "relationship coefficient: %.1f"
+msgstr "Коэффициент родства: %.1f"
+
+msgid "no blood relationship"
+msgstr "Нет кровного родства"
+
+msgid "don't use this filter"
+msgstr "не использовать этот фильтр"
+
+msgid "show only male persons"
+msgstr "показать только мужчин"
+
+msgid "show only female persons"
+msgstr "показать только женщин"
+
+msgid "show only persons of other or unknown gender"
+msgstr "показать только с неизвестным полом"
+
+msgid "show only alive persons"
+msgstr "показать только живых"
+
+msgid "show only dead persons"
+msgstr "показать только умерших"
+
+msgid "alive"
+msgstr "живые"
+
+msgid "dead"
+msgstr "умершие"
+
+msgid "a dead person"
+msgstr "умерший человек"
+
+msgid "a living person"
+msgstr "живой человек"
+
+msgid "not a male person"
+msgstr "не мужчина"
+
+msgid "not a female person"
+msgstr "не женщина"
+
+msgid "not a person of unknown gender"
+msgstr "не с неизвестным полом"
+
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "copy all members of the extended family to the clippings cart"
+
+msgid "copy to clippings cart"
+msgstr "copy to clippings cart"
+
+msgid "twin"
+msgstr "двойняшка"
+
+msgid "triplet"
+msgstr "тройняшка"
+
+msgid "quadruplet"
+msgstr "четверняшка"
+
+msgid "quintuplet"
+msgstr "пятерняшка"
+
+msgid "sextuplet"
+msgstr "шестерняшка"
+
+msgid "septuplet"
+msgstr "семерняшка"
+
+msgid "octuplet"
+msgstr "восьмерняшка"
+
+msgid "nonuplet"
+msgstr "девятерняшка"
+
+msgid "decuplet"
+msgstr "десятерняшка"
+
+msgid "stillborn"
+msgstr "мёртворожденный"
+
+msgid "died as infant"
+msgstr "умерший в младенчестве"
+
+msgid "linkage challenged"
+msgstr "связь оспоренная"
+
+msgid "linkage disproven"
+msgstr "связь опровергнутая"
+
+msgid "linkage proven"
+msgstr "связь подтверждённая"
+
+msgid "Marriage"
+msgstr "В браке"
+
+msgid "Ex-marriage"
+msgstr "В разводе"
+
+msgid "Partnership"
+msgstr "По линии"
+
+msgid "Fianc?e"
+msgstr "Помолвка"
+
+msgid " with "
+msgstr " с "
+
+msgid "Biological grandparents of father"
+msgstr "Прадедушки и прабабушки по отцу"
+
+msgid "Biological grandparents of mother"
+msgstr "Прадедушки и прабабушки по матери"
+
+msgid "Biological grandparents of parent"
+msgstr "Прадедушки и прабабушки"
+
+msgid "Stepparents of biological parent of father"
+msgstr "Приёмные родители родителя отца"
+
+msgid "Stepparents of biological parent of mother"
+msgstr "Приёмные родители родителя матери"
+
+msgid "Stepparents of biological grandparent"
+msgstr "Приёмные родители дедушки или бабушки"
+
+msgid "Parents of stepparent of father"
+msgstr "Родители приёмного родителя отца"
+
+msgid "Parents of stepparent of mother"
+msgstr "Родители приёмного родителя матери"
+
+msgid "Parents of stepparent of parent"
+msgstr "Родители приёмного родителя отца или матери"
+
+msgid "Grandparents of stepparent"
+msgstr "Дедушки и бабаушки приёмных родителей"
+
+msgid "Biological great-grandparents"
+msgstr "Прадедушки и прабабушки"
+
+msgid "Biological parents of father"
+msgstr "Дедушка и бабушка по отцу"
+
+msgid "Biological parents of mother"
+msgstr "Дедушка и бабушка по матери"
+
+msgid "Biological parents of parent"
+msgstr "Дедушка и бабушка по родителю"
+
+msgid "Stepparents of father"
+msgstr "Приёмные родители отца"
+
+msgid "Stepparents of mother"
+msgstr "Приёмные родители матери"
+
+msgid "Stepparents of parent"
+msgstr "Приёмные родители отца или матери"
+
+msgid "Parents of stepparent"
+msgstr "Родители приёмного отца или матери"
+
+msgid "Biological grandparents"
+msgstr "Дедушки и бабушки"
+
+msgid "Siblings of father"
+msgstr "Дяди и тёти по отцу"
+
+msgid "Siblings of mother"
+msgstr "Дяди и тёти по матери"
+
+msgid "Full siblings of biological parents"
+msgstr "Кровные братья и сестры"
+
+msgid "Siblings-in-law of father"
+msgstr "Супруги дядь и тёть по отцу"
+
+msgid "Siblings-in-law of mother"
+msgstr "Супруги дядь и тёть по матери"
+
+msgid "Biological parents"
+msgstr "Родители"
+
+msgid "Stepparents"
+msgstr "Приёмные родители"
+
+msgid "Parents-in-law of biological children"
+msgstr "Сваты через родных детей"
+
+msgid "Parents-in-law of stepchildren"
+msgstr "Сваты через приёмных детей"
+
+msgid "Full siblings"
+msgstr "Родные братья и сёстры"
+
+msgid "Half siblings"
+msgstr "Сводные братья и сёстры"
+
+msgid "Stepsiblings"
+msgstr "Приёмные братья и сёстры"
+
+msgid "Children of full siblings of father"
+msgstr "Дети родных братьев и сестёр отца"
+
+msgid "Children of full siblings of mother"
+msgstr "Дети родных братьев и сестёр матери"
+
+msgid "Children of full siblings of parent"
+msgstr "Дети родных братьев и сестёр родителей"
+
+msgid "Children of half siblings of father"
+msgstr "Дети сводных братьев и сестёр отца"
+
+msgid "Children of half siblings of mother"
+msgstr "Дети сводных братьев и сестёр матери"
+
+msgid "Children of half siblings of parent"
+msgstr "Дети сводных братьев и сестёр родителей"
+
+msgid "Siblings of partners"
+msgstr "Братья и сёстры супругов"
+
+msgid "Partners of siblings"
+msgstr "Супруги братьев и сестёр"
+
+msgid "Siblings of siblings-in-law"
+msgstr "Братья и сёстры братьев и сестёр"
+
+msgid "Partners of siblings-in-law"
+msgstr "Супруги братьев и сестёр супруга(и)"
+
+msgid "Children of full siblings of biological parents"
+msgstr "Дети родных братьев и сестёр родителей"
+
+msgid "Children of siblings"
+msgstr "Дети братьев и сестёр"
+
+msgid "Children of full siblings"
+msgstr "Дети родных братьев и сестёр"
+
+msgid "Siblings' stepchildren"
+msgstr "Приёмные дети братьев и сестёр"
+
+msgid "Children of siblings of partners"
+msgstr "Дети братьев и сестёр супруга(и)"
+
+msgid "Biological children"
+msgstr "Дети"
+
+msgid "Stepchildren"
+msgstr "Приёмные дети"
+
+msgid "Stepchild"
+msgstr "Приёмный ребёнок"
+
+msgid "Stepson"
+msgstr "Пасынок"
+
+msgid "Stepdaughter"
+msgstr "Падчерица"
+
+msgid "Partners of biological children"
+msgstr "Супруги родных детей"
+
+msgid "Partners of stepchildren"
+msgstr "Супруги приёмных детей"
+
+msgid "Biological grandchildren"
+msgstr "Родные внуки и внучки"
+
+msgid "Stepchildren of children"
+msgstr "Приёмные внуки и внучки от родных детей"
+
+msgid "Children of stepchildren"
+msgstr "Дети от приёмных детей"
+
+msgid "Stepchildren of stepchildren"
+msgstr "Приёмные внуки и внучки от приёмных детей"
+
+msgid "Partners of biological grandchildren"
+msgstr "Супруги внуков и внучек"
+
+msgid "Partners of stepchildren of children"
+msgstr "Супруги приёмных детей детей"
+
+msgid "Partners of children of stepchildren"
+msgstr "Супруги детей приёмных детей"
+
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Супруги приёмных детей приёмных детей"
+
+msgid "He"
+msgstr "Ему"
+
+msgid "She"
+msgstr "Ей"
+
+msgid "He/she"
+msgstr "Ему/ей"
+
+msgid "Mr."
+msgstr "Г-н"
+
+msgid "Mrs."
+msgstr "Г-жа"
+
+msgid "No family available"
+msgstr "Родственников не найдено"
+
+msgid "Summary for the shown extended family"
+msgstr "Сводка по родственникам"
+
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "Родственников у %1$s имеется только один."
+msgstr[1] "%1$s имеет %2$d родственников."
+msgstr[2] "%1$s имеет %2$d родственников."
+
+msgid "(additional members of the partner chains are not counted)"
+msgstr "(дополнительные супружеские цепочки не учитываются)"
+
+msgid "Some of them are member in more than one part of the extended family."
+msgstr "Некоторые из них связаны несколькими родственными связями."
+
+msgid "%s has no %s recorded."
+msgstr "%s не имеет %s записей."
+
+msgid "%s has no %s, and no %s recorded."
+msgstr "%s не имеет %s и %s записей."
+
+msgid "Father's family (%d)"
+msgstr "Родственников по отцу (%d)"
+
+msgid "Mother's family (%d)"
+msgstr "Родственников по матери (%d)"
+
+msgid "Father's and Mother's family (%d)"
+msgstr "Родственников по отцу и по матери (%d)"
+
+msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
+msgstr "Дедушки и бабушки %1$s (%2$s) отчима %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
+msgstr "Дедушки и бабушки %1$s (%2$s) мачехи %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
+msgstr "Дедушки и бабушки %1$s (%2$s) приёмного родителя %3$s"
+
+msgid "Stepparents %1$s (%2$s) of %3$s"
+msgstr "Приёмные родители %1$s (%2$s) у %3$s"
+
+msgid "Parents %1$s (%2$s) of stepfather %3$s"
+msgstr "Родители %1$s (%2$s) у отчима %3$s"
+
+msgid "Parents %1$s (%2$s) of stepmother %3$s"
+msgstr "Родители %1$s (%2$s) у мачехи %3$s"
+
+msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgstr "Родители %1$s (%2$s) у приёмного родителя %3$s"
+
+msgid "Parents %1$s of %2$s"
+msgstr "Родители %1$s у %2$s"
+
+msgid "Parents %1$s (%2$s) of %3$s"
+msgstr "Родители %1$s (%2$s) у %3$s"
+
+msgid "Partners of %s"
+msgstr "Супруги %s"
+
+msgid "Brother %1$s of partner %2$s"
+msgstr "Брат %1$s супруга(и) %2$s"
+
+msgid "Sister %1$s of partner %2$s"
+msgstr "Сестра %1$s супруга(и) %2$s"
+
+msgid "Sibling %1$s of partner %2$s"
+msgstr "Сестра или брат %1$s супруга(и) %2$s"
+
+msgid "Great-grandparents"
+msgstr "Прадедушки и прабабушки"
+
+msgid "%s has no great-grandparents recorded."
+msgstr "%s не имеет записанных прадедушек или прабабушек."
+
+msgid "%s has one great-grandmother recorded."
+msgstr "%s имеет одну записанную прабабушку."
+
+msgid "%s has one great-grandfather recorded."
+msgstr "%s имеет одного записанного прадедушку."
+
+msgid "%s has one great-grandparent of unknown sex recorded."
+msgstr "%s имеет одного записанного прадедушку или прабабушку."
+
+msgid "%2$s has %1$d great-grandmother recorded."
+msgid_plural "%2$s has %1$d great-grandmothers recorded."
+msgstr[0] "%2$s имеет %1$d прабабушку записанной."
+msgstr[1] "%2$s имеет %1$d прабабушек записанными."
+msgstr[2] "%2$s имеет %1$d прабабушек записанными."
+
+msgid "%2$s has %1$d great-grandfather recorded."
+msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgstr[0] "%2$s имеет %1$d прадедушку записанным."
+msgstr[1] "%2$s имеет %1$d прадедушек записанными."
+msgstr[2] "%2$s имеет %1$d прадедушек записанными."
+
+msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d прадедушку или прабабушку записанного."
+msgstr[1] "%2$s имеет %1$d прадедушек или прабабушек записанными."
+msgstr[2] "%2$s имеет %1$d прадедушек или прабабушек записанными."
+
+msgid "%2$s has %1$d great-grandfather and "
+msgid_plural "%2$s has %1$d great-grandfathers and "
+msgstr[0] "%2$s имеет %1$d прадедушку и "
+msgstr[1] "%2$s имеет %1$d прадедушек и "
+msgstr[2] "%2$s имеет %1$d прадедушек и "
+
+msgid "%d great-grandmother recorded (%d in total)."
+msgid_plural "%d great-grandmothers recorded (%d in total)."
+msgstr[0] "%d прабабушку записанными (всего %d)."
+msgstr[1] "%d прабабушек записанными (всего %d)."
+msgstr[2] "%d прабабушек записанными (всего %d)."
+
+msgid "%2$s has %1$d great-grandmother and "
+msgid_plural "%2$s has %1$d great-grandmothers and "
+msgstr[0] "%2$s имеет %1$d прабабушку и "
+msgstr[1] "%2$s имеет %1$d прабабушек и "
+msgstr[2] "%2$s имеет %1$d прабабушек и "
+
+msgid "%d great-grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d прадедушку или прабабушку записанными (всего %d)."
+msgstr[1] "%d прадедушек или прабабушек записанными (всего %d)."
+msgstr[2] "%d прадедушек или прабабушек записанными (всего %d)."
+
+msgid "%2$s has %1$d great-grandfather, "
+msgid_plural "%2$s has %1$d great-grandfathers, "
+msgstr[0] "%2$s имеет %1$d прадедушку, "
+msgstr[1] "%2$s имеет %1$d прадедушек, "
+msgstr[2] "%2$s имеет %1$d прадедушек, "
+
+msgid "%d great-grandmother, and "
+msgid_plural "%d great-grandmothers, and "
+msgstr[0] "%d прабабушку, и "
+msgstr[1] "%d прабабушек, и "
+msgstr[2] "%d прабабушек, и "
+
+msgid "Grandparents"
+msgstr "Дедушки и бабушки"
+
+msgid "%s has no grandparents recorded."
+msgstr "%s не имеет записанных дедушек или бабушек."
+
+msgid "%s has one grandmother recorded."
+msgstr "%s имеет одну записанную бабушку."
+
+msgid "%s has one grandfather recorded."
+msgstr "%s имеет одного записанного дедушку."
+
+msgid "%s has one grandparent of unknown sex recorded."
+msgstr "%s имеет одного записанного дедушку или бабушку."
+
+msgid "%2$s has %1$d grandmother recorded."
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "%2$s имеет %1$d бабушку записанной."
+msgstr[1] "%2$s имеет %1$d бабушек записанными."
+msgstr[2] "%2$s имеет %1$d бабушек записанными."
+
+msgid "%2$s has %1$d grandfather recorded."
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "%2$s имеет %1$d дедушку записанным."
+msgstr[1] "%2$s имеет %1$d дедушек записанными."
+msgstr[2] "%2$s имеет %1$d дедушек записанными."
+
+msgid "%2$s has %1$d grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d дедушку или бабушку записанного."
+msgstr[1] "%2$s имеет %1$d дедушек или бабушек записанными."
+msgstr[2] "%2$s имеет %1$d дедушек или бабушек записанными."
+
+msgid "%2$s has %1$d grandfather and "
+msgid_plural "%2$s has %1$d grandfathers and "
+msgstr[0] "%2$s имеет %1$d дедушку и "
+msgstr[1] "%2$s имеет %1$d дедушек и "
+msgstr[2] "%2$s имеет %1$d дедушек и "
+
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] "%d бабушку записанными (всего %d)."
+msgstr[1] "%d бабушек записанными (всего %d)."
+msgstr[2] "%d бабушек записанными (всего %d)."
+
+msgid "%2$s has %1$d grandmother and "
+msgid_plural "%2$s has %1$d grandmothers and "
+msgstr[0] "%2$s имеет %1$d бабушку и "
+msgstr[1] "%2$s имеет %1$d бабушек и "
+msgstr[2] "%2$s имеет %1$d бабушек и "
+
+msgid "%d grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d дедушку или бабушку записанными (всего %d)."
+msgstr[1] "%d дедушек или бабушек записанными (всего %d)."
+msgstr[2] "%d дедушек или бабушек записанными (всего %d)."
+
+msgid "%2$s has %1$d grandfather, "
+msgid_plural "%2$s has %1$d grandfathers, "
+msgstr[0] "%2$s имеет %1$d дедушку, "
+msgstr[1] "%2$s имеет %1$d дедушек, "
+msgstr[2] "%2$s имеет %1$d дедушек, "
+
+msgid "%d grandmother, and "
+msgid_plural "%d grandmothers, and "
+msgstr[0] "%d бабушку, и "
+msgstr[1] "%d бабушек, и "
+msgstr[2] "%d бабушек, и "
+
+msgid "Uncles and Aunts"
+msgstr "Дяди и тёти"
+
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s не имеет записанных дядь или тёть."
+
+msgid "%s has one aunt recorded."
+msgstr "%s имеет одну записанную тётю."
+
+msgid "%s has one uncle recorded."
+msgstr "%s имеет одного записанного дядю."
+
+msgid "%s has one uncle or aunt of unknown sex recorded."
+msgstr "%s имеет одного записанного дядю или тётю."
+
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] "%2$s имеет %1$d тётю записанной."
+msgstr[1] "%2$s имеет %1$d тёть записанными."
+msgstr[2] "%2$s имеет %1$d тёть записанными."
+
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] "%2$s имеет %1$d дядю записанным."
+msgstr[1] "%2$s имеет %1$d дядь записанными."
+msgstr[2] "%2$s имеет %1$d дядь записанными."
+
+msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d дядю или тётю записанного."
+msgstr[1] "%2$s имеет %1$d дядь или тёть записанными."
+msgstr[2] "%2$s имеет %1$d дядь или тёть записанными."
+
+msgid "%2$s has %1$d uncle and "
+msgid_plural "%2$s has %1$d uncles and "
+msgstr[0] "%2$s имеет %1$d дядю и "
+msgstr[1] "%2$s имеет %1$d дядь и "
+msgstr[2] "%2$s имеет %1$d дядь и "
+
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] "%d тётю записанными (всего %d)."
+msgstr[1] "%d тёть записанными (всего %d)."
+msgstr[2] "%d тёть записанными (всего %d)."
+
+msgid "%2$s has %1$d aunt and "
+msgid_plural "%2$s has %1$d aunts and "
+msgstr[0] "%2$s имеет %1$d тётю и "
+msgstr[1] "%2$s имеет %1$d тёть и "
+msgstr[2] "%2$s имеет %1$d тёть и "
+
+msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
+msgstr[0] "%d дядю или тётю записанными (всего %d)."
+msgstr[1] "%d дядь или тёть записанными (всего %d)."
+msgstr[2] "%d дядь или тёть записанными (всего %d)."
+
+msgid "%2$s has %1$d uncle, "
+msgid_plural "%2$s has %1$d uncles, "
+msgstr[0] "%2$s имеет %1$d дядю, "
+msgstr[1] "%2$s имеет %1$d дядь, "
+msgstr[2] "%2$s имеет %1$d дядь, "
+
+msgid "%d aunt, and "
+msgid_plural "%d aunts, and "
+msgstr[0] "%d тётю, и "
+msgstr[1] "%d тёть, и "
+msgstr[2] "%d тёть, и "
+
+msgid "Uncles and Aunts by marriage"
+msgstr "Супруги дядь и тёть"
+
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s не имеет записанных супругов дядь или тёть."
+
+msgid "%s has one aunt by marriage recorded."
+msgstr "%s имеет одну записанную супругу дяди."
+
+msgid "%s has one uncle by marriage recorded."
+msgstr "%s имеет одного записанного супруга тёти."
+
+msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
+msgstr "%s имеет одного записанного супруга дяди или тёти."
+
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] "%2$s имеет %1$d тётю записанной."
+msgstr[1] "%2$s имеет %1$d тёть записанными."
+msgstr[2] "%2$s имеет %1$d тёть записанными."
+
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] "%2$s имеет %1$d дядю записанным."
+msgstr[1] "%2$s имеет %1$d дядь записанными."
+msgstr[2] "%2$s имеет %1$d дядь записанными."
+
+msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d дядю или тётю записанного."
+msgstr[1] "%2$s имеет %1$d дядь или тёть записанными."
+msgstr[2] "%2$s имеет %1$d дядь или тёть записанными."
+
+msgid "%2$s has %1$d uncle by marriage and "
+msgid_plural "%2$s has %1$d uncles by marriage and "
+msgstr[0] "%2$s имеет %1$d дядю и "
+msgstr[1] "%2$s имеет %1$d дядь и "
+msgstr[2] "%2$s имеет %1$d дядь и "
+
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] "%d тётю записанными (всего %d)."
+msgstr[1] "%d тёть записанными (всего %d)."
+msgstr[2] "%d тёть записанными (всего %d)."
+
+msgid "%2$s has %1$d aunt by marriage and "
+msgid_plural "%2$s has %1$d aunts by marriage and "
+msgstr[0] "%2$s имеет %1$d тётю и "
+msgstr[1] "%2$s имеет %1$d тёть и "
+msgstr[2] "%2$s имеет %1$d тёть и "
+
+msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+msgstr[0] "%d дядю или тётю записанными (всего %d)."
+msgstr[1] "%d дядь или тёть записанными (всего %d)."
+msgstr[2] "%d дядь или тёть записанными (всего %d)."
+
+msgid "%2$s has %1$d uncle by marriage, "
+msgid_plural "%2$s has %1$d uncles by marriage, "
+msgstr[0] "%2$s имеет %1$d дядю, "
+msgstr[1] "%2$s имеет %1$d дядь, "
+msgstr[2] "%2$s имеет %1$d дядь, "
+
+msgid "%d aunt by marriage, and "
+msgid_plural "%d aunts by marriage, and "
+msgstr[0] "%d тётю, и "
+msgstr[1] "%d тёть, и "
+msgstr[2] "%d тёть, и "
+
+msgid "Parents"
+msgstr "Родители"
+
+msgid "%s has no parents recorded."
+msgstr "%s не имеет записанных отца и матери."
+
+msgid "%s has one mother recorded."
+msgstr "%s имеет записанную мать."
+
+msgid "%s has one father recorded."
+msgstr "%s имеет записанного отца."
+
+msgid "%s has one parent of unknown sex recorded."
+msgstr "%s имеет записанного отца или мать."
+
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] "%2$s имеет %1$d мать записанной."
+msgstr[1] "%2$s имеет %1$d матерей записанными."
+msgstr[2] "%2$s имеет %1$d матерей записанными."
+
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] "%2$s имеет %1$d отца записанным."
+msgstr[1] "%2$s имеет %1$d отцов записанными."
+msgstr[2] "%2$s имеет %1$d отцов записанными."
+
+msgid "%2$s has %1$d parent of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d отца или мать записанным."
+msgstr[1] "%2$s имеет %1$d отцов или матерей записанными."
+msgstr[2] "%2$s имеет %1$d отцов или матерей записанными."
+
+msgid "%2$s has %1$d father and "
+msgid_plural "%2$s has %1$d fathers and "
+msgstr[0] "%2$s имеет %1$d отца и "
+msgstr[1] "%2$s имеет %1$d отцов и "
+msgstr[2] "%2$s имеет %1$d отцов и "
+
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] "%d мать записанными (всего %d)."
+msgstr[1] "%d матерей записанными (всего %d)."
+msgstr[2] "%d матерей записанными (всего %d)."
+
+msgid "%2$s has %1$d mother and "
+msgid_plural "%2$s has %1$d mothers and "
+msgstr[0] "%2$s имеет %1$d мать и "
+msgstr[1] "%2$s имеет %1$d матерей и "
+msgstr[2] "%2$s имеет %1$d матерей и "
+
+msgid "%d parent of unknown sex recorded (%d in total)."
+msgid_plural "%d parents of unknown sex recorded (%d in total)."
+msgstr[0] "%d отца или мать записанными (всего %d)."
+msgstr[1] "%d отцов или матерей записанными (всего %d)."
+msgstr[2] "%d отцов или матерей записанными (всего %d)."
+
+msgid "%2$s has %1$d father, "
+msgid_plural "%2$s has %1$d fathers, "
+msgstr[0] "%2$s имеет %1$d отца, "
+msgstr[1] "%2$s имеет %1$d отцов, "
+msgstr[2] "%2$s имеет %1$d отцов, "
+
+msgid "%d mother, and "
+msgid_plural "%d mothers, and "
+msgstr[0] "%d мать, и "
+msgstr[1] "%d матерей, и "
+msgstr[2] "%d матерей, и "
+
+msgid "Parents-in-law"
+msgstr "Родители супругов (тесть, тёща, свёкр, свекровь)"
+
+msgid "%s has no parents-in-law recorded."
+msgstr "%s не имеет записанных родителей супругов."
+
+msgid "%s has one mother-in-law recorded."
+msgstr "%s имеет записанную мать супруга(и)."
+
+msgid "%s has one father-in-law recorded."
+msgstr "%s имеет записанного отца супруга(и)."
+
+msgid "%s has one parent-in-law of unknown sex recorded."
+msgstr "%s имеет записанного отца или мать супруга(и)."
+
+msgid "%2$s has %1$d mother-in-law recorded."
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "%2$s имеет %1$d мать записанной."
+msgstr[1] "%2$s имеет %1$d матерей записанными."
+msgstr[2] "%2$s имеет %1$d матерей записанными."
+
+msgid "%2$s has %1$d father-in-law recorded."
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "%2$s имеет %1$d отца записанным."
+msgstr[1] "%2$s имеет %1$d отцов записанными."
+msgstr[2] "%2$s имеет %1$d отцов записанными."
+
+msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d отца или мать записанным."
+msgstr[1] "%2$s имеет %1$d отцов или матерей записанными."
+msgstr[2] "%2$s имеет %1$d отцов или матерей записанными."
+
+msgid "%2$s has %1$d father-in-law and "
+msgid_plural "%2$s has %1$d fathers-in-law and "
+msgstr[0] "%2$s имеет %1$d отца и "
+msgstr[1] "%2$s имеет %1$d отцов и "
+msgstr[2] "%2$s имеет %1$d отцов и "
+
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] "%d мать записанными (всего %d)."
+msgstr[1] "%d матерей записанными (всего %d)."
+msgstr[2] "%d матерей записанными (всего %d)."
+
+msgid "%2$s has %1$d mother-in-law and "
+msgid_plural "%2$s has %1$d mothers-in-law and "
+msgstr[0] "%2$s имеет %1$d мать и "
+msgstr[1] "%2$s имеет %1$d матерей и "
+msgstr[2] "%2$s имеет %1$d матерей и "
+
+msgid "%d parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d отца или мать записанными (всего %d)."
+msgstr[1] "%d отцов или матерей записанными (всего %d)."
+msgstr[2] "%d отцов или матерей записанными (всего %d)."
+
+msgid "%2$s has %1$d father-in-law, "
+msgid_plural "%2$s has %1$d fathers-in-law, "
+msgstr[0] "%2$s имеет %1$d отца, "
+msgstr[1] "%2$s имеет %1$d отцов, "
+msgstr[2] "%2$s имеет %1$d отцов, "
+
+msgid "%d mother-in-law, and "
+msgid_plural "%d mothers-in-law, and "
+msgstr[0] "%d мать, и "
+msgstr[1] "%d матерей, и "
+msgstr[2] "%d матерей, и "
+
+msgid "Co-parents-in-law"
+msgstr "Сваты"
+
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s не имеет записанных сватов."
+
+msgid "%s has one co-mother-in-law recorded."
+msgstr "%s имеет записанную сватью."
+
+msgid "%s has one co-father-in-law recorded."
+msgstr "%s имеет записанного свата."
+
+msgid "%s has one co-parent-in-law of unknown sex recorded."
+msgstr "%s имеет записанного свата или сватью."
+
+msgid "%2$s has %1$d co-mother-in-law recorded."
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "%2$s имеет %1$d сватью записанной."
+msgstr[1] "%2$s имеет %1$d сватьи записанными."
+msgstr[2] "%2$s имеет %1$d сватий записанными."
+
+msgid "%2$s has %1$d co-father-in-law recorded."
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "%2$s имеет %1$d свата записанным."
+msgstr[1] "%2$s имеет %1$d сватов записанными."
+msgstr[2] "%2$s имеет %1$d сватов записанными."
+
+msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d свата или сватью записанным."
+msgstr[1] "%2$s имеет %1$d сватов или сватий записанными."
+msgstr[2] "%2$s имеет %1$d сватов или сватий записанными."
+
+msgid "%2$s has %1$d co-father-in-law and "
+msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgstr[0] "%2$s имеет %1$d свата и "
+msgstr[1] "%2$s имеет %1$d сватов и "
+msgstr[2] "%2$s имеет %1$d сватов и "
+
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] "%d сватью записанными (всего %d)."
+msgstr[1] "%d сватий записанными (всего %d)."
+msgstr[2] "%d сватий записанными (всего %d)."
+
+msgid "%2$s has %1$d co-mother-in-law and "
+msgid_plural "%2$s has %1$d co-mothers-in-law and "
+msgstr[0] "%2$s имеет %1$d сватью и "
+msgstr[1] "%2$s имеет %1$d сватий и "
+msgstr[2] "%2$s имеет %1$d сватий и "
+
+msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d свата или сватью записанными (всего %d)."
+msgstr[1] "%d сватов или сватий записанными (всего %d)."
+msgstr[2] "%d сватов или сватий записанными (всего %d)."
+
+msgid "%2$s has %1$d co-father-in-law, "
+msgid_plural "%2$s has %1$d co-fathers-in-law, "
+msgstr[0] "%2$s имеет %1$d свата, "
+msgstr[1] "%2$s имеет %1$d сватов, "
+msgstr[2] "%2$s имеет %1$d сватов, "
+
+msgid "%d co-mother-in-law, and "
+msgid_plural "%d co-mothers-in-law, and "
+msgstr[0] "%d сватью, и "
+msgstr[1] "%d сватий, и "
+msgstr[2] "%d сватий, и "
+
+msgid "Partners"
+msgstr "Супруги"
+
+msgid "Partner of "
+msgstr "Супруги у "
+
+msgid "%s has no partners recorded."
+msgstr "%s не имеет записанных супругов."
+
+msgid "%s has one female partner recorded."
+msgstr "%s имеет записанную супругу."
+
+msgid "%s has one male partner recorded."
+msgstr "%s имеет записанного супруга."
+
+msgid "%s has one partner of unknown sex recorded."
+msgstr "%s имеет записанного супруга или супругу."
+
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] "%2$s имеет %1$d супругу записанной."
+msgstr[1] "%2$s имеет %1$d супруги записанными."
+msgstr[2] "%2$s имеет %1$d супруг записанными."
+
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] "%2$s имеет %1$d супруга записанным."
+msgstr[1] "%2$s имеет %1$d супругов записанными."
+msgstr[2] "%2$s имеет %1$d супругов записанными."
+
+msgid "%2$s has %1$d partner of unknown sex recorded."
+msgid_plural "%2$s has %1$d partners of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d супруга или супругу записанным."
+msgstr[1] "%2$s имеет %1$d супруга или супруги записанными."
+msgstr[2] "%2$s имеет %1$d супругов или супруг записанными."
+
+msgid "%2$s has %1$d male partner and "
+msgid_plural "%2$s has %1$d male partners and "
+msgstr[0] "%2$s имеет %1$d супруга и "
+msgstr[1] "%2$s имеет %1$d супругов и "
+msgstr[2] "%2$s имеет %1$d супругов и "
+
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "%2$s имеет %1$d супругу и "
+msgstr[1] "%2$s имеет %1$d супруги и "
+msgstr[2] "%2$s имеет %1$d супруг и "
+
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] "%d супругу записанными (всего %d)."
+msgstr[1] "%d супруги записанными (всего %d)."
+msgstr[2] "%d супруг записанными (всего %d)."
+
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s имеет %1$d супруга и "
+msgstr[1] "%2$s имеет %1$d супругов и "
+msgstr[2] "%2$s имеет %1$d супругов и "
+
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d супруга супругу записанными (всего %d)."
+msgstr[1] "%d супругов супруг записанными (всего %d)."
+msgstr[2] "%d супругов супруг записанными (всего %d)."
+
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d супругу супруга записанными (всего %d)."
+msgstr[1] "%d супруги супругов записанными (всего %d)."
+msgstr[2] "%d супруг супругов записанными (всего %d)."
+
+msgid "Partner chains"
+msgstr "Супружеские связи"
+
+msgid "%s has no members of a partner chain recorded."
+msgstr "%s не имеет записанных супружеских связей."
+
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d супругу записанными в этой супружеской связи (всего %2$d, including %3$s)."
+msgstr[1] "%1$d супруги записанными в этой супружеской связи (всего %2$d, including %3$s)."
+msgstr[2] "%1$d супруг записанными в этой супружеской связи (всего %2$d, including %3$s)."
+
+msgid "%d female partner and "
+msgid_plural "%d female partners and "
+msgstr[0] "%d супругу и "
+msgstr[1] "%d супруги и "
+msgstr[2] "%d супруг и "
+
+msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d супруга или супругу записанными в этой супружеской связи (всего %2$d, including %3$s)."
+msgstr[1] "%1$d супругов или супруги записанными в этой супружеской связи (всего %2$d, including %3$s)."
+msgstr[2] "%1$d супругов или супруг записанными в этой супружеской связи (всего %2$d, including %3$s)."
+
+msgid "%2$s has %1$d male partner, "
+msgid_plural "%2$s has %1$d male partners, "
+msgstr[0] "%2$s имеет %1$d супруга, "
+msgstr[1] "%2$s имеет %1$d супругов, "
+msgstr[2] "%2$s имеет %1$d супругов, "
+
+msgid "%d female partner, and "
+msgid_plural "%d female partners, and "
+msgstr[0] "%d супругу, и "
+msgstr[1] "%d супруги, и "
+msgstr[2] "%d супруг, и "
+
+msgid "There are %d branches in the partner chain. "
+msgstr "В супружеской цепи имеется %d ветвей. "
+
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
+msgstr "Самая длинная ветвь в супружеской цепи для %2$s состоит из %1$d супругов (включая %3$s)."
+
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
+msgstr "Самая длинная ветвь в супружеской цепи состоит из %1$d супругов (включая %2$s)."
+
+msgid "Siblings"
+msgstr "Братья и сёстры"
+
+msgid "%s has no siblings recorded."
+msgstr "%s не имеет записанных братьев и сестёр."
+
+msgid "%s has one sister recorded."
+msgstr "%s имеет записанную сестру."
+
+msgid "%s has one brother recorded."
+msgstr "%s имеет записанного брата."
+
+msgid "%s has one sibling of unknown sex recorded."
+msgstr "%s имеет записанного брата или сестру."
+
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] "%2$s имеет %1$d сестру записанной."
+msgstr[1] "%2$s имеет %1$d сестёр записанными."
+msgstr[2] "%2$s имеет %1$d сестёр записанными."
+
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] "%2$s имеет %1$d брата записанным."
+msgstr[1] "%2$s имеет %1$d братьев записанными."
+msgstr[2] "%2$s имеет %1$d братьев записанными."
+
+msgid "%2$s has %1$d sibling of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d брата или сестру записанным."
+msgstr[1] "%2$s имеет %1$d братьев или сестёр записанными."
+msgstr[2] "%2$s имеет %1$d братьев или сестёр записанными."
+
+msgid "%2$s has %1$d brother and "
+msgid_plural "%2$s has %1$d brothers and "
+msgstr[0] "%2$s имеет %1$d брата и "
+msgstr[1] "%2$s имеет %1$d братьев и "
+msgstr[2] "%2$s имеет %1$d братьев и "
+
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] "%d сестру записанными (всего %d)."
+msgstr[1] "%d сестёр записанными (всего %d)."
+msgstr[2] "%d сестёр записанными (всего %d)."
+
+msgid "%2$s has %1$d sister and "
+msgid_plural "%2$s has %1$d sisters and "
+msgstr[0] "%2$s имеет %1$d сестру и "
+msgstr[1] "%2$s имеет %1$d сестёр и "
+msgstr[2] "%2$s имеет %1$d сестёр и "
+
+msgid "%d sibling of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings of unknown sex recorded (%d in total)."
+msgstr[0] "%d брата или сестру записанными (всего %d)."
+msgstr[1] "%d братьев или сестёр записанными (всего %d)."
+msgstr[2] "%d братьев или сестёр записанными (всего %d)."
+
+msgid "%2$s has %1$d brother, "
+msgid_plural "%2$s has %1$d brothers, "
+msgstr[0] "%2$s имеет %1$d брата, "
+msgstr[1] "%2$s имеет %1$d братьев, "
+msgstr[2] "%2$s имеет %1$d братьев, "
+
+msgid "%d sister, and "
+msgid_plural "%d sisters, and "
+msgstr[0] "%d сестру, и "
+msgstr[1] "%d сестёр, и "
+msgstr[2] "%d сестёр, и "
+
+msgid "Siblings-in-law"
+msgstr "Братья и сёстры супругов (деверь, золовка, шурин, свояченица)"
+
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s не имеет записанных братьев и сестёр."
+
+msgid "%s has one sister-in-law recorded."
+msgstr "%s имеет записанную сестру."
+
+msgid "%s has one brother-in-law recorded."
+msgstr "%s имеет записанного брата."
+
+msgid "%s has one sibling-in-law of unknown sex recorded."
+msgstr "%s имеет записанного брата или сестру."
+
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] "%2$s имеет %1$d сестру записанной."
+msgstr[1] "%2$s имеет %1$d сестёр записанными."
+msgstr[2] "%2$s имеет %1$d сестёр записанными."
+
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] "%2$s имеет %1$d брата записанным."
+msgstr[1] "%2$s имеет %1$d братьев записанными."
+msgstr[2] "%2$s имеет %1$d братьев записанными."
+
+msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d брата или сестру записанным."
+msgstr[1] "%2$s имеет %1$d братьев или сестёр записанными."
+msgstr[2] "%2$s имеет %1$d братьев или сестёр записанными."
+
+msgid "%2$s has %1$d brother-in-law and "
+msgid_plural "%2$s has %1$d brothers-in-law and "
+msgstr[0] "%2$s имеет %1$d брата и "
+msgstr[1] "%2$s имеет %1$d братьев и "
+msgstr[2] "%2$s имеет %1$d братьев и "
+
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] "%d сестру записанными (всего %d)."
+msgstr[1] "%d сестёр записанными (всего %d)."
+msgstr[2] "%d сестёр записанными (всего %d)."
+
+msgid "%2$s has %1$d sister-in-law and "
+msgid_plural "%2$s has %1$d sisters-in-law and "
+msgstr[0] "%2$s имеет %1$d сестру и "
+msgstr[1] "%2$s имеет %1$d сестёр и "
+msgstr[2] "%2$s имеет %1$d сестёр и "
+
+msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d брата или сестру записанными (всего %d)."
+msgstr[1] "%d братьев или сестёр записанными (всего %d)."
+msgstr[2] "%d братьев или сестёр записанными (всего %d)."
+
+msgid "%2$s has %1$d brother-in-law, "
+msgid_plural "%2$s has %1$d brothers-in-law, "
+msgstr[0] "%2$s имеет %1$d брата, "
+msgstr[1] "%2$s имеет %1$d братьев, "
+msgstr[2] "%2$s имеет %1$d братьев, "
+
+msgid "%d sister-in-law, and "
+msgid_plural "%d sisters-in-law, and "
+msgstr[0] "%d сестру, и "
+msgstr[1] "%d сестёр, и "
+msgstr[2] "%d сестёр, и "
+
+msgid "Co-siblings-in-law"
+msgstr "Братья и сёстры супругов (по отношению друг к другу)"
+
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "%s не имеет записанных братьев и сестёр."
+
+msgid "%s has one co-sister-in-law recorded."
+msgstr "%s имеет записанную сестру."
+
+msgid "%s has one co-brother-in-law recorded."
+msgstr "%s имеет записанного брата."
+
+msgid "%s has one co-sibling-in-law of unknown sex recorded."
+msgstr "%s имеет записанного брата или сестру."
+
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] "%2$s имеет %1$d сестру записанной."
+msgstr[1] "%2$s имеет %1$d сестёр записанными."
+msgstr[2] "%2$s имеет %1$d сестёр записанными."
+
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] "%2$s имеет %1$d брата записанным."
+msgstr[1] "%2$s имеет %1$d братьев записанными."
+msgstr[2] "%2$s имеет %1$d братьев записанными."
+
+msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d брата или сестру записанным."
+msgstr[1] "%2$s имеет %1$d братьев или сестёр записанными."
+msgstr[2] "%2$s имеет %1$d братьев или сестёр записанными."
+
+msgid "%2$s has %1$d co-brother-in-law and "
+msgid_plural "%2$s has %1$d co-brothers-in-law and "
+msgstr[0] "%2$s имеет %1$d брата и "
+msgstr[1] "%2$s имеет %1$d братьев и "
+msgstr[2] "%2$s имеет %1$d братьев и "
+
+msgid "%d co-sister-in-law recorded (%d in total)."
+msgid_plural "%d co-sisters-in-law recorded (%d in total)."
+msgstr[0] "%d сестру записанными (всего %d)."
+msgstr[1] "%d сестёр записанными (всего %d)."
+msgstr[2] "%d сестёр записанными (всего %d)."
+
+msgid "%2$s has %1$d co-sister-in-law and "
+msgid_plural "%2$s has %1$d co-sisters-in-law and "
+msgstr[0] "%2$s имеет %1$d сестру и "
+msgstr[1] "%2$s имеет %1$d сестёр и "
+msgstr[2] "%2$s имеет %1$d сестёр и "
+
+msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d брата или сестру записанными (всего %d)."
+msgstr[1] "%d братьев или сестёр записанными (всего %d)."
+msgstr[2] "%d братьев или сестёр записанными (всего %d)."
+
+msgid "%2$s has %1$d co-brother-in-law, "
+msgid_plural "%2$s has %1$d co-brothers-in-law, "
+msgstr[0] "%2$s имеет %1$d брата, "
+msgstr[1] "%2$s имеет %1$d братьев, "
+msgstr[2] "%2$s имеет %1$d братьев, "
+
+msgid "%d co-sister-in-law, and "
+msgid_plural "%d co-sisters-in-law, and "
+msgstr[0] "%d сестру, и "
+msgstr[1] "%d сестёр, и "
+msgstr[2] "%d сестёр, и "
+
+msgid "Cousins"
+msgstr "Двоюродные братья и сёстры"
+
+msgid "%s has no first cousins recorded."
+msgstr "%s не имеет записанных двоюродных братьев и сестёр."
+
+msgid "%s has one female first cousin recorded."
+msgstr "%s имеет записанную двоюродную сестру."
+
+msgid "%s has one male first cousin recorded."
+msgstr "%s имеет записанного двоюродного брата."
+
+msgid "%s has one first cousin of unknown sex recorded."
+msgstr "%s имеет записанного двуюродного брата или сестру."
+
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] "%2$s имеет %1$d сестру записанной."
+msgstr[1] "%2$s имеет %1$d сестёр записанными."
+msgstr[2] "%2$s имеет %1$d сестёр записанными."
+
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] "%2$s имеет %1$d брата записанным."
+msgstr[1] "%2$s имеет %1$d братьев записанными."
+msgstr[2] "%2$s имеет %1$d братьев записанными."
+
+msgid "%2$s has %1$d first cousin of unknown sex recorded."
+msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d брата или сестру записанным."
+msgstr[1] "%2$s имеет %1$d братьев или сестёр записанными."
+msgstr[2] "%2$s имеет %1$d братьев или сестёр записанными."
+
+msgid "%2$s has %1$d male first cousin and "
+msgid_plural "%2$s has %1$d male first cousins and "
+msgstr[0] "%2$s имеет %1$d брата и "
+msgstr[1] "%2$s имеет %1$d братьев и "
+msgstr[2] "%2$s имеет %1$d братьев и "
+
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] "%d сестру записанными (всего %d)."
+msgstr[1] "%d сестёр записанными (всего %d)."
+msgstr[2] "%d сестёр записанными (всего %d)."
+
+msgid "%2$s has %1$d female first cousin and "
+msgid_plural "%2$s has %1$d female first cousins and "
+msgstr[0] "%2$s имеет %1$d сестру и "
+msgstr[1] "%2$s имеет %1$d сестёр и "
+msgstr[2] "%2$s имеет %1$d сестёр и "
+
+msgid "%d first cousin of unknown sex recorded (%d in total)."
+msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
+msgstr[0] "%d брата или сестру записанными (всего %d)."
+msgstr[1] "%d братьев или сестёр записанными (всего %d)."
+msgstr[2] "%d братьев или сестёр записанными (всего %d)."
+
+msgid "%2$s has %1$d male first cousin, "
+msgid_plural "%2$s has %1$d male first cousins, "
+msgstr[0] "%2$s имеет %1$d брата, "
+msgstr[1] "%2$s имеет %1$d братьев, "
+msgstr[2] "%2$s имеет %1$d братьев, "
+
+msgid "%d female first cousin, and "
+msgid_plural "%d female first cousins, and "
+msgstr[0] "%d сестру, и "
+msgstr[1] "%d сестёр, и "
+msgstr[2] "%d сестёр, и "
+
+msgid "Nephews and Nieces"
+msgstr "Племянники и племянницы"
+
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s не имеет записанных племянников и племянниц."
+
+msgid "%s has one niece recorded."
+msgstr "%s имеет записанную племянницу."
+
+msgid "%s has one nephew recorded."
+msgstr "%s имеет записанного племянника."
+
+msgid "%s has one nephew or niece of unknown sex recorded."
+msgstr "%s имеет записанного племянника или племянницу."
+
+msgid "%2$s has %1$d niece recorded."
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "%2$s имеет %1$d племянницу записанной."
+msgstr[1] "%2$s имеет %1$d племянницы записанными."
+msgstr[2] "%2$s имеет %1$d племянниц записанными."
+
+msgid "%2$s has %1$d nephew recorded."
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "%2$s имеет %1$d племянника записанным."
+msgstr[1] "%2$s имеет %1$d племянников записанными."
+msgstr[2] "%2$s имеет %1$d племянников записанными."
+
+msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
+msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d племянника или племянницу записанным."
+msgstr[1] "%2$s имеет %1$d племянников или племянниц записанными."
+msgstr[2] "%2$s имеет %1$d племянников или племянниц записанными."
+
+msgid "%2$s has %1$d nephew and "
+msgid_plural "%2$s has %1$d nephews and "
+msgstr[0] "%2$s имеет %1$d племянника и "
+msgstr[1] "%2$s имеет %1$d племянников и "
+msgstr[2] "%2$s имеет %1$d племянников и "
+
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] "%d племянницу записанными (всего %d)."
+msgstr[1] "%d племянниц записанными (всего %d)."
+msgstr[2] "%d племянниц записанными (всего %d)."
+
+msgid "%2$s has %1$d niece and "
+msgid_plural "%2$s has %1$d nieces and "
+msgstr[0] "%2$s имеет %1$d племянницу и "
+msgstr[1] "%2$s имеет %1$d племянниц и "
+msgstr[2] "%2$s имеет %1$d племянниц и "
+
+msgid "%d nephew or niece of unknown sex recorded (%d in total)."
+msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
+msgstr[0] "%d племянника или племянницу записанными (всего %d)."
+msgstr[1] "%d племянников или племянниц записанными (всего %d)."
+msgstr[2] "%d племянников или племянниц записанными (всего %d)."
+
+msgid "%2$s has %1$d nephew, "
+msgid_plural "%2$s has %1$d nephews, "
+msgstr[0] "%2$s имеет %1$d племянника, "
+msgstr[1] "%2$s имеет %1$d племянников, "
+msgstr[2] "%2$s имеет %1$d племянников, "
+
+msgid "%d niece, and "
+msgid_plural "%d nieces, and "
+msgstr[0] "%d племянницу, и "
+msgstr[1] "%d племянниц, и "
+msgstr[2] "%d племянниц, и "
+
+msgid "Children"
+msgstr "Дети"
+
+msgid "%s has no children recorded."
+msgstr "%s не имеет записанных детей."
+
+msgid "%s has one daughter recorded."
+msgstr "%s имеет записанную дочь."
+
+msgid "%s has one son recorded."
+msgstr "%s имеет записанного сына."
+
+msgid "%s has one child of unknown sex recorded."
+msgstr "%s имеет записанного ребёнка."
+
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] "%2$s имеет %1$d дочь записанной."
+msgstr[1] "%2$s имеет %1$d дочери записанными."
+msgstr[2] "%2$s имеет %1$d дочерей записанными."
+
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] "%2$s имеет %1$d сына записанным."
+msgstr[1] "%2$s имеет %1$d сыновей записанными."
+msgstr[2] "%2$s имеет %1$d сыновей записанными."
+
+msgid "%2$s has %1$d child of unknown sex recorded."
+msgid_plural "%2$s has %1$d children of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d ребёнка записанным."
+msgstr[1] "%2$s имеет %1$d детей записанными."
+msgstr[2] "%2$s имеет %1$d детей записанными."
+
+msgid "%2$s has %1$d son and "
+msgid_plural "%2$s has %1$d sons and "
+msgstr[0] "%2$s имеет %1$d сына и "
+msgstr[1] "%2$s имеет %1$d сыновей и "
+msgstr[2] "%2$s имеет %1$d сыновей и "
+
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] "%d дочь записанными (всего %d)."
+msgstr[1] "%d дочерей записанными (всего %d)."
+msgstr[2] "%d дочерей записанными (всего %d)."
+
+msgid "%2$s has %1$d daughter and "
+msgid_plural "%2$s has %1$d daughters and "
+msgstr[0] "%2$s имеет %1$d дочь и "
+msgstr[1] "%2$s имеет %1$d дочерей и "
+msgstr[2] "%2$s имеет %1$d дочерей и "
+
+msgid "%d child of unknown sex recorded (%d in total)."
+msgid_plural "%d children of unknown sex recorded (%d in total)."
+msgstr[0] "%d детей записанными (всего %d)."
+msgstr[1] "%d детей записанными (всего %d)."
+msgstr[2] "%d детей записанными (всего %d)."
+
+msgid "%2$s has %1$d son, "
+msgid_plural "%2$s has %1$d sons, "
+msgstr[0] "%2$s имеет %1$d сына, "
+msgstr[1] "%2$s имеет %1$d сыновей, "
+msgstr[2] "%2$s имеет %1$d сыновей, "
+
+msgid "%d daughter, and "
+msgid_plural "%d daughters, and "
+msgstr[0] "%d дочь, и "
+msgstr[1] "%d дочерей, и "
+msgstr[2] "%d дочерей, и "
+
+msgid "Children-in-law"
+msgstr "Супруги детей (зять, невестка)"
+
+msgid "%s has no children-in-law recorded."
+msgstr "%s не имеет записанных супругов детей."
+
+msgid "%s has one daughter-in-law recorded."
+msgstr "%s имеет записанную невестку."
+
+msgid "%s has one son-in-law recorded."
+msgstr "%s имеет записанного зятя."
+
+msgid "%s has one child-in-law of unknown sex recorded."
+msgstr "%s имеет записанного зятя или невестку."
+
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] "%2$s имеет %1$d невестку записанной."
+msgstr[1] "%2$s имеет %1$d невесток записанными."
+msgstr[2] "%2$s имеет %1$d невесток записанными."
+
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] "%2$s имеет %1$d зятя записанным."
+msgstr[1] "%2$s имеет %1$d зятьёв записанными."
+msgstr[2] "%2$s имеет %1$d зятьёв записанными."
+
+msgid "%2$s has %1$d child-in-law recorded."
+msgid_plural "%2$s has %1$d children-in-law recorded."
+msgstr[0] "%2$s имеет %1$d зятя или невестку записанным."
+msgstr[1] "%2$s имеет %1$d зятьёв или невесток записанными."
+msgstr[2] "%2$s имеет %1$d зятьёв или невесток записанными."
+
+msgid "%2$s has %1$d son-in-law and "
+msgid_plural "%2$s has %1$d sons-in-law and "
+msgstr[0] "%2$s имеет %1$d зятя и "
+msgstr[1] "%2$s имеет %1$d зятьёв и "
+msgstr[2] "%2$s имеет %1$d зятьёв и "
+
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] "%d невестку записанными (всего %d)."
+msgstr[1] "%d невесток записанными (всего %d)."
+msgstr[2] "%d невесток записанными (всего %d)."
+
+msgid "%2$s has %1$d daughter-in-law and "
+msgid_plural "%2$s has %1$d daughters-in-law and "
+msgstr[0] "%2$s имеет %1$d невестку и "
+msgstr[1] "%2$s имеет %1$d невесток и "
+msgstr[2] "%2$s имеет %1$d невесток и "
+
+msgid "%d child-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d зятя или невестку записанными (всего %d)."
+msgstr[1] "%d зятьёв или невесток записанными (всего %d)."
+msgstr[2] "%d зятьёв или невесток записанными (всего %d)."
+
+msgid "%2$s has %1$d son-in-law, "
+msgid_plural "%2$s has %1$d sons-in-law, "
+msgstr[0] "%2$s имеет %1$d зятя, "
+msgstr[1] "%2$s имеет %1$d зятьёв, "
+msgstr[2] "%2$s имеет %1$d зятьёв, "
+
+msgid "%d daughter-in-law, and "
+msgid_plural "%d daughters-in-law, and "
+msgstr[0] "%d невестку, и "
+msgstr[1] "%d невесток, и "
+msgstr[2] "%d невесток, и "
+
+msgid "Grandchildren"
+msgstr "Внуки и внучки"
+
+msgid "%s has no grandchildren recorded."
+msgstr "%s не имеет записанных внуков и внучек."
+
+msgid "%s has one granddaughter recorded."
+msgstr "%s имеет записанную внучку."
+
+msgid "%s has one grandson recorded."
+msgstr "%s имеет записанного внука."
+
+msgid "%s has one grandchild of unknown sex recorded."
+msgstr "%s имеет записанного внука или внучку."
+
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] "%2$s имеет %1$d внучку записанной."
+msgstr[1] "%2$s имеет %1$d внучек записанными."
+msgstr[2] "%2$s имеет %1$d внучек записанными."
+
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] "%2$s имеет %1$d внука записанным."
+msgstr[1] "%2$s имеет %1$d внуков записанными."
+msgstr[2] "%2$s имеет %1$d внуков записанными."
+
+msgid "%2$s has %1$d grandchild of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d внука или внучку записанным."
+msgstr[1] "%2$s имеет %1$d внуков или внучек записанными."
+msgstr[2] "%2$s имеет %1$d внуков или внучек записанными."
+
+msgid "%2$s has %1$d grandson and "
+msgid_plural "%2$s has %1$d grandsons and "
+msgstr[0] "%2$s имеет %1$d внука и "
+msgstr[1] "%2$s имеет %1$d внуков и "
+msgstr[2] "%2$s имеет %1$d внуков и "
+
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] "%d внучку записанными (всего %d)."
+msgstr[1] "%d внучек записанными (всего %d)."
+msgstr[2] "%d внучек записанными (всего %d)."
+
+msgid "%2$s has %1$d granddaughter and "
+msgid_plural "%2$s has %1$d granddaughters and "
+msgstr[0] "%2$s имеет %1$d внучку и "
+msgstr[1] "%2$s имеет %1$d внучек и "
+msgstr[2] "%2$s имеет %1$d внучек и "
+
+msgid "%d grandchild of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
+msgstr[0] "%d внука или внучку записанными (всего %d)."
+msgstr[1] "%d внуков или внучек записанными (всего %d)."
+msgstr[2] "%d внуков или внучек записанными (всего %d)."
+
+msgid "%2$s has %1$d grandson, "
+msgid_plural "%2$s has %1$d grandsons, "
+msgstr[0] "%2$s имеет %1$d внука, "
+msgstr[1] "%2$s имеет %1$d внуков, "
+msgstr[2] "%2$s имеет %1$d внуков, "
+
+msgid "%d granddaughter, and "
+msgid_plural "%d granddaughters, and "
+msgstr[0] "%d внучку, и "
+msgstr[1] "%d внучек, и "
+msgstr[2] "%d внучек, и "
+
+msgid "Grandchildren-in-law"
+msgstr "Супруги внуков и внучек"
+
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "%s не имеет записанных супругов внуков и внучек."
+
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "%s имеет записанную внучку."
+
+msgid "%s has one grandson-in-law recorded."
+msgstr "%s имеет записанного внука."
+
+msgid "%s has one grandchild-in-law of unknown sex recorded."
+msgstr "%s имеет записанного внука или внучку."
+
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] "%2$s имеет %1$d внучку записанной."
+msgstr[1] "%2$s имеет %1$d внучек записанными."
+msgstr[2] "%2$s имеет %1$d внучек записанными."
+
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] "%2$s имеет %1$d внука записанным."
+msgstr[1] "%2$s имеет %1$d внуков записанными."
+msgstr[2] "%2$s имеет %1$d внуков записанными."
+
+msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+msgstr[0] "%2$s имеет %1$d внука или внучку записанным."
+msgstr[1] "%2$s имеет %1$d внуков или внучек записанными."
+msgstr[2] "%2$s имеет %1$d внуков или внучек записанными."
+
+msgid "%2$s has %1$d grandson-in-law and "
+msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgstr[0] "%2$s имеет %1$d внука и "
+msgstr[1] "%2$s имеет %1$d внуков и "
+msgstr[2] "%2$s имеет %1$d внуков и "
+
+msgid "%d granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgstr[0] "%d внучку записанными (всего %d)."
+msgstr[1] "%d внучек записанными (всего %d)."
+msgstr[2] "%d внучек записанными (всего %d)."
+
+msgid "%2$s has %1$d granddaughter-in-law and "
+msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgstr[0] "%2$s имеет %1$d внучку и "
+msgstr[1] "%2$s имеет %1$d внучек и "
+msgstr[2] "%2$s имеет %1$d внучек и "
+
+msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d внука или внучку записанными (всего %d)."
+msgstr[1] "%d внуков или внучек записанными (всего %d)."
+msgstr[2] "%d внуков или внучек записанными (всего %d)."
+
+msgid "%2$s has %1$d grandson-in-law, "
+msgid_plural "%2$s has %1$d grandsons-in-law, "
+msgstr[0] "%2$s имеет %1$d внука, "
+msgstr[1] "%2$s имеет %1$d внуков, "
+msgstr[2] "%2$s имеет %1$d внуков, "
+
+msgid "%d granddaughter-in-law, and "
+msgid_plural "%d granddaughters-in-law, and "
+msgstr[0] "%d внучку, и "
+msgstr[1] "%d внучек, и "
+msgstr[2] "%d внучек, и "

@@ -1,0 +1,1606 @@
+msgid ""
+msgstr ""
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Extended family"
+msgstr "Famille élargie"
+
+msgid "A tab showing the extended family of an individual."
+msgstr "Un onglet montrant la famille élargie d'un individu."
+
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "Dans quel ordre les parties de la famille élargie doivent-elles être montrées?"
+
+msgid "Family part (generation relative to proband)"
+msgstr "Blocs familiaux (generation relative to proband)"
+
+msgid "Show name of proband as short name or as full name?"
+msgstr "Afficher le nom du racine comme nom court ou comme nom complet?"
+
+msgid "Show options to filter the results?"
+msgstr "Afficher des options pour filtrer les résultats?"
+
+msgid "Show filter options"
+msgstr "Afficher les options de filtrage"
+
+msgid "How should empty parts of extended family be presented?"
+msgstr "Comment présenter les parties vides de la famille élargie?"
+
+msgid "Show empty block"
+msgstr "Afficher le bloc vide"
+
+msgid "yes, always at standard location"
+msgstr "oui, toujours à l'emplacement standard"
+
+msgid "no, but collect messages about empty blocks at the summary block"
+msgstr "non, mais collecte des messages sur les blocs vides à la fin"
+
+msgid "never"
+msgstr "jamais"
+
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "Le nom court est basé sur le nom de famille ou le surnom du racine. Si ceux-ci ne sont pas disponibles, le premier des prénoms est utilisé, s'il y en a un. Sinon, c'est le nom de famille qui est utilisé."
+
+msgid "Show short name"
+msgstr "Afficher le nom court"
+
+msgid "Show labels in special situations?"
+msgstr "Afficher les étiquettes dans des situations particulières?"
+
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "Les étiquettes sont utilisées par exemple pour les personnes adoptées ou les enfants placés en famille d'accueil."
+
+msgid "Show labels"
+msgstr "Afficher les étiquettes"
+
+msgid "Use the compact design?"
+msgstr "Utilisez le design compact?"
+
+msgid "Use the compact design"
+msgstr "Utilisation du design compact"
+
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "Le design compact ne montre que le nom et la durée de vie de chaque personne. Le design enrichi montre également une photo (si celle-ci est activée pour cet arbre) ainsi que des informations sur la naissance et le décès."
+
+msgid "Show parameters of extended family part?"
+msgstr "Montrer les paramètres de la partie de la famille élargie?"
+
+msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
+msgstr "Affichage d'informations supplémentaires pour chaque partie de la famille élargie, telles que le décalage des générations et le coefficient de parenté, qui est une mesure du degré de consanguinité."
+
+msgid "Show parameters"
+msgstr "Afficher les paramètres"
+
+msgid "This allows a user to filter the members of the extended family by gender and if they are alive or dead."
+msgstr "Permet de classer les membres de la famille étendue par gendre et par vivant ou décédé."
+
+msgid "Should a summary block be shown?"
+msgstr "La syntèse doit-elle être visible?"
+
+msgid "The summary contains information about the extended family in total."
+msgstr "La synthèse indique le nombre de membres formant la famille étendue."
+
+msgid "Show summary"
+msgstr "Afficher la synthèse"
+
+msgid "Count the members of the partner chains as members of the extended family?"
+msgstr "Doit-on comptabiliser les membres de la famille étendue du conjoint?"
+
+msgid "If you select \"no\", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family."
+msgstr "Si vous cochez \"non\", alors les membres de la famille étendue du conjoint ne seront pas comptabilisés dans le total de la famille étendue."
+
+msgid "And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart."
+msgstr "Ces personnes et leurs familles ne seront pas selectionnées lorque l'utilisateur fera une copie de la famille étendue dans le panier."
+
+msgid "But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module \"enhanced clippings cart\": \"add partner chains for an individual\"."
+msgstr "Mais, même dans ce cas, l'utilisateur peut inclure ces personnes et leurs familles dans l'exrtrait de gedcom en utilisant le menu spécial \"le panier étendu\": \"inclure les chaînes de partenaires de l'individu\"."
+
+msgid "This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family."
+msgstr "Ce n'est pertinent que vous avez choisi dans la table précédente que les branches du conjoint doivent faire partie de la famille étendu de l'individu."
+
+msgid "Include them"
+msgstr "Include them"
+
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr "Afficher le bouton \"Copie dans le panier\"?"
+
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr "Ce bouton permet de copier les membres de la famille étendue dans le panier."
+
+msgid "Show button"
+msgstr "Afficher le bouton"
+
+msgid "generation +%s"
+msgstr "génération +%s"
+
+msgid "same generation"
+msgstr "même génération"
+
+msgid "generation %s"
+msgstr "génération %s"
+
+msgid "relationship coefficient: %.1f"
+msgstr "coefficient de relation : %.1f"
+
+msgid "no blood relationship"
+msgstr "aucun lien de sang"
+
+msgid "don't use this filter"
+msgstr "n'utilisez pas ce filtre"
+
+msgid "show only male persons"
+msgstr "afficher uniquement les personnes de sexe masculin"
+
+msgid "show only female persons"
+msgstr "afficher uniquement les personnes de sexe féminin"
+
+msgid "show only persons of other or unknown gender"
+msgstr "afficher uniquement les personnes de sexe inconnu"
+
+msgid "show only alive persons"
+msgstr "afficher uniquement les personnes vivantes"
+
+msgid "show only dead persons"
+msgstr "ne montrer que les personnes décédées"
+
+msgid "alive"
+msgstr "vivant"
+
+msgid "dead"
+msgstr "décédé"
+
+msgid "a dead person"
+msgstr "une personne décédée"
+
+msgid "a living person"
+msgstr "une personne vivante"
+
+msgid "not a male person"
+msgstr "pas une personne de sexe masculin"
+
+msgid "not a female person"
+msgstr "pas une personne de sexe féminin"
+
+msgid "not a person of unknown gender"
+msgstr "pas une personne de sexe inconnu"
+
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "copy all members of the extended family to the clippings cart"
+
+msgid "copy to clippings cart"
+msgstr "Copie dans le panier"
+
+msgid "twin"
+msgstr "jumeau"
+
+msgid "triplet"
+msgstr "triplés"
+
+msgid "quadruplet"
+msgstr "quadruplés"
+
+msgid "quintuplet"
+msgstr "quintuplés"
+
+msgid "sextuplet"
+msgstr "sextuplés"
+
+msgid "septuplet"
+msgstr "septuplés"
+
+msgid "octuplet"
+msgstr "octuplés"
+
+msgid "nonuplet"
+msgstr "nonuplés"
+
+msgid "decuplet"
+msgstr "décuplés"
+
+msgid "stillborn"
+msgstr "mort-né"
+
+msgid "died as infant"
+msgstr "mort en bas âge"
+
+msgid "linkage challenged"
+msgstr "lien contesté"
+
+msgid "linkage disproven"
+msgstr "lien réfuté"
+
+msgid "linkage proven"
+msgstr "lien avéré"
+
+msgid "Marriage"
+msgstr "Mariage"
+
+msgid "Ex-marriage"
+msgstr "Ex-mariage"
+
+msgid "Partnership"
+msgstr "Conjoint"
+
+msgid "Fiancée"
+msgstr "Fiancée"
+
+msgid " with "
+msgstr " avec "
+
+msgid "Biological grandparents of father"
+msgstr "Grands-parents biologiques du père"
+
+msgid "Biological grandparents of mother"
+msgstr "Grands-parents biologiques de la mère"
+
+msgid "Biological grandparents of parent"
+msgstr "Grands-parents biologiques du parent"
+
+msgid "Stepparents of biological parent of father"
+msgstr "Beau-parents du parent biologique du père"
+
+msgid "Stepparents of biological parent of mother"
+msgstr "Beau-parents du parent biologique de la mère"
+
+msgid "Stepparents of biological grandparent"
+msgstr "Beau-parents d'un grand-parent biologique"
+
+msgid "Parents of stepparent of father"
+msgstr "Parents du beau-parent du père"
+
+msgid "Parents of stepparent of mother"
+msgstr "Parents du beau-parent de la mère"
+
+msgid "Parents of stepparent of parent"
+msgstr "Parents du beau-parent du parent"
+
+msgid "Grandparents of stepparent"
+msgstr "Grands-parents du beau-parent"
+
+msgid "Biological great-grandparents"
+msgstr "Arrière-grands-parents biologiques"
+
+msgid "Biological parents of father"
+msgstr "Parents biologiques du père"
+
+msgid "Biological parents of mother"
+msgstr "Parents biologiques de la mère"
+
+msgid "Biological parents of parent"
+msgstr "Parents biologiques du parent"
+
+msgid "Stepparents of father"
+msgstr "Beau-parents du père"
+
+msgid "Stepparents of mother"
+msgstr "Beau-parents de la mère"
+
+msgid "Stepparents of parent"
+msgstr "Beau-parents du parent"
+
+msgid "Parents of stepparent"
+msgstr "Parents de beaux-parents"
+
+msgid "Biological grandparents"
+msgstr "Grands-parents biologiques"
+
+msgid "Siblings of father"
+msgstr "Frères et sœurs du père"
+
+msgid "Siblings of mother"
+msgstr "Frères et sœurs de la mère"
+
+msgid "Full siblings of biological parents"
+msgstr "Frères et sœurs à part entière des parents biologiques"
+
+msgid "Siblings-in-law of father"
+msgstr "Beau-frère ou belle-sœur du père"
+
+msgid "Siblings-in-law of mother"
+msgstr "Beau-frère ou belle-sœur de la mère"
+
+msgid "Biological parents"
+msgstr "Parents biologiques"
+
+msgid "Stepparents"
+msgstr "Beaux-parents"
+
+msgid "Parents-in-law of biological children"
+msgstr "Beaux-parents d'enfants biologiques"
+
+msgid "Parents-in-law of stepchildren"
+msgstr "Les beaux-parents des beaux-enfants"
+
+msgid "Full siblings"
+msgstr "Tous les frères et sœurs"
+
+msgid "Half siblings"
+msgstr "Beaux-frères et belles-sœurs"
+
+msgid "Stepsiblings"
+msgstr "Frères et sœurs par alliance"
+
+msgid "Children of full siblings of father"
+msgstr "Enfants des frères et sœurs germains du père"
+
+msgid "Children of full siblings of mother"
+msgstr "Enfants des frères et sœurs germains de la mère"
+
+msgid "Children of full siblings of parent"
+msgstr "Cousins et cousines du côté des parents"
+
+msgid "Children of half siblings of father"
+msgstr "Enfants des demi-frères et demi-sœurs du père"
+
+msgid "Children of half siblings of mother"
+msgstr "Enfants des demi-frères et demi-sœurs de la mère"
+
+msgid "Children of half siblings of parent"
+msgstr "Enfants des demi-frères et demi-sœurs des parents"
+
+msgid "Siblings of partners"
+msgstr "Frères et sœurs du conjoint"
+
+msgid "Partners of siblings"
+msgstr "Conjoints de leurs frères et sœurs"
+
+msgid "Siblings of siblings-in-law"
+msgstr "Belle-famille"
+
+msgid "Partners of siblings-in-law"
+msgstr "Conjoints de leurs beaux-frères et belles-sœurs"
+
+msgid "Children of full siblings of biological parents"
+msgstr "Enfants de frères et sœurs de parents biologiques"
+
+msgid "Children of siblings"
+msgstr "Enfants de frères et sœurs"
+
+msgid "Children of full siblings"
+msgstr "Enfants de frères et sœurs à part entière"
+
+msgid "Siblings' stepchildren"
+msgstr "Les beaux-enfants des frères et sœurs"
+
+msgid "Children of siblings of partners"
+msgstr "Enfants des frères et sœurs du conjoint"
+
+msgid "Biological children"
+msgstr "Enfants biologiques"
+
+msgid "Stepchildren"
+msgstr "Beaux-enfants"
+
+msgid "Stepchild"
+msgstr "Beau-fils ou belle-fille"
+
+msgid "Stepson"
+msgstr "Gendre"
+
+msgid "Stepdaughter"
+msgstr "Bru"
+
+msgid "Partners of biological children"
+msgstr "Conjoints d'enfants biologiques"
+
+msgid "Partners of stepchildren"
+msgstr "Conjoint des beaux-enfants"
+
+msgid "Biological grandchildren"
+msgstr "Petits-enfants biologiques"
+
+msgid "Stepchildren of children"
+msgstr "Beaux-enfants"
+
+msgid "Children of stepchildren"
+msgstr "Enfants des beaux-enfants"
+
+msgid "Stepchildren of stepchildren"
+msgstr "Beau-fils ou belle-fille de beau-fils ou belle-fille"
+
+msgid "Partners of biological grandchildren"
+msgstr "Partenaires de petits-enfants biologiques"
+
+msgid "Partners of stepchildren of children"
+msgstr "Partenaires des beaux-enfants des enfants"
+
+msgid "Partners of children of stepchildren"
+msgstr "Partenaires des enfants des beaux-enfants"
+
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Partenaires des beaux-enfants des beaux-enfants"
+
+msgid "He"
+msgstr "Il"
+
+msgid "She"
+msgstr "Elle"
+
+msgid "He/she"
+msgstr "Il/elle"
+
+msgid "Mr."
+msgstr "Mr."
+
+msgid "Mrs."
+msgstr "Mme."
+
+msgid "No family available"
+msgstr "Aucune famille disponible"
+
+msgid "Summary for the shown extended family"
+msgstr "Synthèse de la famille élargie"
+
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "The extended family has only %1$s as a member."
+msgstr[1] "La famille étendue de %1$s comprend %2$d personnes (inclus %1$s)."
+
+msgid "(additional members of the partner chains are not counted)"
+msgstr "(les membres de la famille élargie du conjoint de l'individu ne sont pas comptabilisés)"
+
+msgid "Some of them are member in more than one part of the extended family."
+msgstr "Some of them are member in more than one part of the extended family."
+
+msgid "%s has no %s recorded."
+msgstr "%s no tiene %s registrados."
+
+msgid "%s has no %s, and no %s recorded."
+msgstr "%s n'a pas %s ni %s enregistré."
+
+msgid "Father's family (%d)"
+msgstr "Famille du père (%d)"
+
+msgid "Mother's family (%d)"
+msgstr "Famille de la mère (%d)"
+
+msgid "Father's and Mother's family (%d)"
+msgstr "Famille du père et de la mère (%d)"
+
+msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
+msgstr "Grands-parents %1$s (%2$s) du beau-père %3$s "
+
+msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
+msgstr "Grands-parents %1$s (%2$s) de la belle-mère %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
+msgstr "Grands-parents %1$s (%2$s) du beau-parent %3$s"
+
+msgid "Stepparents %1$s (%2$s) of %3$s"
+msgstr "Beaux-parents %1$s (%2$s) de %3$s"
+
+msgid "Parents %1$s (%2$s) of stepfather %3$s"
+msgstr "Parents %1$s (%2$s) du beau-père %3$s"
+
+msgid "Parents %1$s (%2$s) of stepmother %3$s"
+msgstr "Parents %1$s (%2$s) de la belle-mère %3$s"
+
+msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgstr "Parents %1$s (%2$s) du beau-parent %3$s"
+
+msgid "Parents %1$s of %2$s"
+msgstr "Parents %1$s de %2$s"
+
+msgid "Parents %1$s (%2$s) of %3$s"
+msgstr "Parents %1$s (%2$s) de %3$s"
+
+msgid "Partners of %s"
+msgstr "Conjoint de %s"
+
+msgid "Brother %1$s of partner %2$s"
+msgstr "Frère %1$s de conjoint %2$s"
+
+msgid "Sister %1$s of partner %2$s"
+msgstr "Soeur %1$s de conjoint %2$s"
+
+msgid "Sibling %1$s of partner %2$s"
+msgstr "Frères et soeurs %1$s de Conjoint %2$s"
+
+msgid "Great-grandparents"
+msgstr "Arrière-grands-parents"
+
+msgid "%s has no great-grandparents recorded."
+msgstr "%s n'a pas d'arrière-grands-parents enregistrés."
+
+msgid "%s has one great-grandmother recorded."
+msgstr "%s a une arrière-grand-mère enregistrée."
+
+msgid "%s has one great-grandfather recorded."
+msgstr "%s a un arrière-grand-père enregistré."
+
+msgid "%s has one great-grandparent of unknown sex recorded."
+msgstr "%s a un arrière-grand-parent de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d great-grandmother recorded."
+msgid_plural "%2$s has %1$d great-grandmothers recorded."
+msgstr[0] "%2$s a %1$d arrière-grand-mère enregistrée."
+msgstr[1] "%2$s a %1$d arrière-grands-mères enregistrées."
+
+msgid "%2$s has %1$d great-grandfather recorded."
+msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgstr[0] "%2$s a %1$d arrière-grand-père enregistré."
+msgstr[1] "%2$s a %1$d arrière-grands-pères enregistrés."
+
+msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
+msgstr[0] "%2$s a %1$d arrière-grand-parent de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d arrière-grands-parents de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d great-grandfather and "
+msgid_plural "%2$s has %1$d great-grandfathers and "
+msgstr[0] "%2$s a %1$d arrière-grand-père et "
+msgstr[1] "%2$s a %1$d arrière-grand-père et "
+
+msgid "%d great-grandmother recorded (%d in total)."
+msgid_plural "%d great-grandmothers recorded (%d in total)."
+msgstr[0] "%d arrière-grand-mère enregistrée (%d au total)."
+msgstr[1] "%d arrière-grands-mères enregistrées (%d au total)."
+
+msgid "%2$s has %1$d great-grandmother and "
+msgid_plural "%2$s has %1$d great-grandmothers and "
+msgstr[0] "%2$s a %1$d arrière-grand-mère et "
+msgstr[1] "%2$s a %1$d arrière-grands-mères et "
+
+msgid "%d great-grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d arrière-grand-parents de sexe inconnu enregistrés (%d au total)."
+msgstr[1] "%d arrière-grands-parents de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d great-grandfather, "
+msgid_plural "%2$s has %1$d great-grandfathers, "
+msgstr[0] "%2$s a %1$d arrière-grand-père, "
+msgstr[1] "%2$s a %1$d arrière-grands-pères, "
+
+msgid "%d great-grandmother, and "
+msgid_plural "%d great-grandmothers, and "
+msgstr[0] "%d arrière-grand-mère, et "
+msgstr[1] "%d arrière-grands-mères, et "
+
+msgid "Grandparents"
+msgstr "Grands-parents"
+
+msgid "%s has no grandparents recorded."
+msgstr "%s n'a pas de grands-parents enregistrés."
+
+msgid "%s has one grandmother recorded."
+msgstr "%s a une grand-mère enregistrée."
+
+msgid "%s has one grandfather recorded."
+msgstr "%s a un grand-père enregistré."
+
+msgid "%s has one grandparent recorded."
+msgstr "%s a un grand-parent enregistré."
+
+msgid "%2$s has %1$d grandmother recorded."
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "%2$s a %1$d grand-mère enregistrée."
+msgstr[1] "%2$s a %1$d grands-mères enregistrées."
+
+msgid "%2$s has %1$d grandfather recorded."
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "%2$s a %1$d grand-père enregistré."
+msgstr[1] "%2$s a %1$d grands-pères enregistrés."
+
+msgid "%2$s has %1$d grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
+msgstr[0] "%2$s a %1$d grand-parent de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d grands-parents de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d grandfather and "
+msgid_plural "%2$s has %1$d grandfathers and "
+msgstr[0] "%2$s a %1$d grand-père et "
+msgstr[1] "%2$s a %1$d grands-pères et "
+
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] "%d grand-mère enregistrée (%d au total)."
+msgstr[1] "%d grands-mères enregistrées (%d au total)."
+
+msgid "%2$s has %1$d grandmother and "
+msgid_plural "%2$s has %1$d grandmothers and "
+msgstr[0] "%2$s a %1$d grand-mère et "
+msgstr[1] "%2$s a %1$d grand-mères et "
+
+msgid "%d grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d grand-parent de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d grands-parents de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d grandfather, "
+msgid_plural "%2$s has %1$d grandfathers, "
+msgstr[0] "%2$s a %1$d grand-père, "
+msgstr[1] "%2$s a %1$d grands-pères, "
+
+msgid "%d grandmother, and "
+msgid_plural "%d grandmothers, and "
+msgstr[0] "%d grand-mère, et "
+msgstr[1] "%d grand-mères, et "
+
+msgid "Uncles and Aunts"
+msgstr "Oncles et tantes"
+
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s n'a pas d'oncle ou de tante enregistré."
+
+msgid "%s has one aunt recorded."
+msgstr "%s a une tante enregistrée."
+
+msgid "%s has one uncle recorded."
+msgstr "%s a un oncle enregistré."
+
+msgid "%s has one uncle or aunt recorded."
+msgstr "%s a un oncle ou une tante enregistrée."
+
+msgid "%s has one uncle or aunt of unknown sex recorded."
+msgstr "%s a un oncle ou une tante de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] "%2$s a %1$d tante enregistrée."
+msgstr[1] "%2$s a %1$d tantes enregistrées."
+
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] "%2$s a %1$d oncle enregistré."
+msgstr[1] "%2$s a %1$d oncles enregistrés."
+
+msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
+msgstr[0] "%2$s a %1$d oncle ou tante de sexe inconnu enregistré."
+msgstr[1] "oncles ou tantes de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d uncle and "
+msgid_plural "%2$s has %1$d uncles and "
+msgstr[0] "%2$s a %1$d oncle et "
+msgstr[1] "%2$s a %1$d oncles et "
+
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] "%d tante enregistrée (%d au total)."
+msgstr[1] "%d tantes enregistrées (%d au total)."
+
+msgid "%2$s has %1$d aunt and "
+msgid_plural "%2$s has %1$d aunts and "
+msgstr[0] "%2$s a %1$d tante et "
+msgstr[1] "%2$s a %1$d tantes et "
+
+msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
+msgstr[0] "%d oncle ou tante de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d oncles ou tantes de sexe inconnu enregistré (%d au total)."
+
+msgid "%2$s has %1$d uncle, "
+msgid_plural "%2$s has %1$d uncles, "
+msgstr[0] "%2$s a %1$d oncle, "
+msgstr[1] "%2$s a %1$d oncles, "
+
+msgid "%d aunt, and "
+msgid_plural "%d aunts, and "
+msgstr[0] "%d tante, et "
+msgstr[1] "%d tantes, et "
+
+msgid "Uncles and Aunts by marriage"
+msgstr "Oncles et tantes par alliance"
+
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s n'a pas d'oncle par alliance enregistré."
+
+msgid "%s has one aunt by marriage recorded."
+msgstr "%s a une tante par alliance enregistrée."
+
+msgid "%s has one uncle by marriage recorded."
+msgstr "%s a un oncle par alliance enregistré."
+
+msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
+msgstr "%s a un oncle ou une tante par alliance de sexe inconnu enregistré. "
+
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] "%2$s a %1$d tante par alliance enregistrée."
+msgstr[1] "%2$s a %1$d tantes par alliance enregistrées."
+
+msgid "%s has one uncle or aunt by marriage recorded."
+msgstr "%s a un oncle ou une tante par alliance enregistré(e)."
+
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] "%2$s a %1$d oncle par alliance enregistré."
+msgstr[1] "%2$s a %1$d oncles par alliance enregistrés."
+
+msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+msgstr[0] "%2$s a %1$d oncle ou tante par alliance de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d oncles ou tantes par alliance de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d uncle by marriage and "
+msgid_plural "%2$s has %1$d uncles by marriage and "
+msgstr[0] "%2$s a %1$d oncle par alliance et "
+msgstr[1] "%2$s a %1$d oncles par alliance et "
+
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] "%d tante par alliance enregistrée (%d au total)."
+msgstr[1] "%d tantes par alliance enregistrées (%d au total)."
+
+msgid "%2$s has %1$d aunt by marriage and "
+msgid_plural "%2$s has %1$d aunts by marriage and "
+msgstr[0] "%2$s a %1$d tante par alliance et "
+msgstr[1] "%2$s a %1$d tantes par alliance et "
+
+msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+msgstr[0] "%d oncle ou tante par alliance de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d oncles ou tantes par mariage de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d uncle by marriage, "
+msgid_plural "%2$s has %1$d uncles by marriage, "
+msgstr[0] "%2$s a %1$d oncle par alliance, "
+msgstr[1] "%2$s a %1$d oncles par alliance, "
+
+msgid "%d aunt by marriage, and "
+msgid_plural "%d aunts by marriage, and "
+msgstr[0] "%d tante par alliance, et "
+msgstr[1] "%d tantes par alliance, et "
+
+msgid "Parents"
+msgstr "Parents"
+
+msgid "%s has no parents recorded."
+msgstr "%s n'a pas de parent enregistré."
+
+msgid "%s has one mother recorded."
+msgstr "%s n'a pas de mère enregistrée"
+
+msgid "%s has one father recorded."
+msgstr "%s n'a pas de père enregistré."
+
+msgid "%s has one parent recorded."
+msgstr "%s a un parent enregistré."
+
+msgid "%s has one parent of unknown sex recorded."
+msgstr "%s a un parent de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] "%2$s a %1$d mère enregistrée."
+msgstr[1] "%2$s a %1$d mères enregistrées."
+
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] "%2$s a %1$d père enregistré."
+msgstr[1] "%2$s a %1$d pères enregistrés."
+
+msgid "%2$s has %1$d parent of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents of unknown sex recorded."
+msgstr[0] "%2$s a %1$d parent de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d parents de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d father and "
+msgid_plural "%2$s has %1$d fathers and "
+msgstr[0] "%2$s a %1$d père et "
+msgstr[1] "%2$s a %1$d pères et "
+
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] "%d mère enregistrée (%d au total)."
+msgstr[1] "%d mères enregistrées (%d au total)."
+
+msgid "%2$s has %1$d mother and "
+msgid_plural "%2$s has %1$d mothers and "
+msgstr[0] "%2$s a %1$d mère et "
+msgstr[1] "%2$s a %1$d mères et "
+
+msgid "%d parent of unknown sex recorded (%d in total)."
+msgid_plural "%d parents of unknown sex recorded (%d in total)."
+msgstr[0] "%d parent de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d parents de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d father, "
+msgid_plural "%2$s has %1$d fathers, "
+msgstr[0] "%2$s a %1$d père, "
+msgstr[1] "%2$s a %1$d pères, "
+
+msgid "%d mother, and "
+msgid_plural "%d mothers, and "
+msgstr[0] "%d mère, et "
+msgstr[1] "%d mères, et "
+
+msgid "Parents-in-law"
+msgstr "Beaux-parents"
+
+msgid "%s has no parents-in-law recorded."
+msgstr "%s n'a pas de beau-parent enregistré."
+
+msgid "%s has one mother-in-law recorded."
+msgstr "%s a une belle-mère enregistrée."
+
+msgid "%s has one father-in-law recorded."
+msgstr "%s a un beau-père enregistré."
+
+msgid "%s has one parent-in-law recorded."
+msgstr "%s a un beau-père ou une belle-mère enregistré(e)."
+
+msgid "%s has one parent-in-law of unknown sex recorded."
+msgstr "%s a un beau-parent de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d mother-in-law recorded."
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "%2$s a %1$d belle-mère enregistrée."
+msgstr[1] "%2$s a %1$d belles-mères enregistrées."
+
+msgid "%2$s has %1$d father-in-law recorded."
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "%2$s a %1$d beau-père enregistré."
+msgstr[1] "%2$s a %1$d beaux-pères enregistrés."
+
+msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s a %1$d beaux-parents de sexe inconnu enregistrés."
+msgstr[1] "%2$s a %1$d beaux-parents de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d father-in-law and "
+msgid_plural "%2$s has %1$d fathers-in-law and "
+msgstr[0] "%2$s a %1$d beau-père et "
+msgstr[1] "%2$s a %1$d beaux-pères et "
+
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] "%d belle-mère enregistrée (%d au total)."
+msgstr[1] "%d belles-mères enregistrées (%d au total)."
+
+msgid "%2$s has %1$d mother-in-law and "
+msgid_plural "%2$s has %1$d mothers-in-law and "
+msgstr[0] "%2$s a %1$d belle-mère et "
+msgstr[1] "%2$s a %1$d belles-mères et "
+
+msgid "%d parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d beaux-parents de sexe inconnu enregistrés (%d au total)."
+msgstr[1] "%d beaux-parents de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d father-in-law, "
+msgid_plural "%2$s has %1$d fathers-in-law, "
+msgstr[0] "%2$s a %1$d beau-père, "
+msgstr[1] "%2$s a %1$d beaux-pères, "
+
+msgid "%d mother-in-law, and "
+msgid_plural "%d mothers-in-law, and "
+msgstr[0] "%d belle-mère, et "
+msgstr[1] "%d belles-mères, et "
+
+msgid "Co-parents-in-law"
+msgstr "Beaux-parents"
+
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s n'a pas de beau-parent enregistré."
+
+msgid "%s has one co-mother-in-law recorded."
+msgstr "%s a une belle-mère enregistrée."
+
+msgid "%s has one co-father-in-law recorded."
+msgstr "%s a un beau-père enregistré."
+
+msgid "%s has one co-parent-in-law of unknown sex recorded."
+msgstr "%s a un co-parent de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d co-mother-in-law recorded."
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "%2$s a %1$d belle-mère enregistrée."
+msgstr[1] "%2$s a %1$d belles-mères enregistrées."
+
+msgid "%2$s has %1$d co-father-in-law recorded."
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "%2$s a %1$d beau-père enregistré."
+msgstr[1] "%2$s a %1$d beaux-pères enregistrés."
+
+msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s a %1$d beaux-parents de sexe inconnu enregistrés."
+msgstr[1] "%2$s a %1$d beaux-parents de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d co-father-in-law and "
+msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgstr[0] "%2$s a %1$d beau-père et "
+msgstr[1] "%2$s a %1$d beaux-pères et "
+
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] "%d belle-mère enregistrée (%d au total)."
+msgstr[1] "%d belles-mères enregistrées (%d au total)."
+
+msgid "%2$s has %1$d co-mother-in-law and "
+msgid_plural "%2$s has %1$d co-mothers-in-law and "
+msgstr[0] "%2$s a %1$d belle-mère et "
+msgstr[1] "%2$s a %1$d belles-mères et "
+
+msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d beaux-parents de sexe inconnu enregistrés (%d au total)."
+msgstr[1] "%d beaux-parents de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d co-father-in-law, "
+msgid_plural "%2$s has %1$d co-fathers-in-law, "
+msgstr[0] "%2$s a %1$d beau-père, "
+msgstr[1] "%2$s a %1$d beaux-pères, "
+
+msgid "%d co-mother-in-law, and "
+msgid_plural "%d co-mothers-in-law, and "
+msgstr[0] "%d belle-mère, et "
+msgstr[1] "%d belles-mères, et "
+
+msgid "%s has one co-parent-in-law recorded."
+msgstr "%s a un beau-père ou une belle-mère enregistré(e)."
+
+msgid "Partners"
+msgstr "Conjoint"
+
+msgid "Partner of "
+msgstr "Conjoint de "
+
+msgid "%s has no partners recorded."
+msgstr "%s n'a pas de conjoint enregistré."
+
+msgid "%s has one female partner recorded."
+msgstr "%s a une conjointe enregistrée."
+
+msgid "%s has one male partner recorded."
+msgstr "%s a un conjoint enregistré."
+
+msgid "%s has one partner recorded."
+msgstr "%s a un conjoint ou conjointe enregistré."
+
+msgid "%s has one partner of unknown sex recorded."
+msgstr "%s a enregistré un partenaire de sexe inconnu."
+
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] "%2$s a %1$d conjointe enregistrée."
+msgstr[1] "%2$s a %1$d conjointes enregistrées."
+
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] "%2$s a %1$d conjoint enregistré."
+msgstr[1] "%2$s a %1$d conjoints enregistrés."
+
+msgid "%2$s has %1$d partner of unknown sex recorded."
+msgid_plural "%2$s has %1$d partners of unknown sex recorded."
+msgstr[0] "%2$s a enregistré %1$d partenaire de sexe inconnu."
+msgstr[1] "%2$s a enregistré %1$d partenaires de sexe inconnu."
+
+msgid "%2$s has %1$d male partner and "
+msgid_plural "%2$s has %1$d male partners and "
+msgstr[0] "%2$s a %1$d conjoint et "
+msgstr[1] "%2$s a %1$d conjoints et "
+
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "%2$s a %1$d conjointe et "
+msgstr[1] "%2$s a %1$d conjointes et "
+
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] "%d conjointe enregistrée (%d au total)."
+msgstr[1] "%d conjointes enregistrées (%d au total)."
+
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s a %1$d conjoint/conjointe et "
+msgstr[1] "%2$s a %1$d conjoints/conjointes et "
+
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d conjoint des  conjointes enregistrées (%d au total)."
+msgstr[1] "%d conjoints des conjointes enregistrées (%d au total)."
+
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d conjointe de conjoints enregistrés (%d au total)."
+msgstr[1] "%d conjointes de conjoints enregistrés (%d au total)."
+
+msgid "Partner chains"
+msgstr "Chaînes de partenaires"
+
+msgid "%s has no members of a partner chain recorded."
+msgstr "%s n'a pas de membre d'une chaîne de partenaires enregistré."
+
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d partenaire féminin dans cette chaîne de partenariat enregistré (%2$d au total, including %3$s)."
+msgstr[1] "%1$d partenaires féminines dans cette chaîne de partenariat enregistrées (%2$d au total, including %3$s)."
+
+msgid "%d female partner and "
+msgid_plural "%d female partners and "
+msgstr[0] "%d partenaire féminin et "
+msgstr[1] "%d partenaires féminines et "
+
+msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d partenaire de sexe inconnu enregistré dans cette chaîne de partenaires (%2$d au total, including %3$s)."
+msgstr[1] "%1$d partenaires de sexe inconnu dans cette chaîne de partenaires enregistrés (%2$d au total, including %3$s)."
+
+msgid "%2$s has %1$d male partner, "
+msgid_plural "%2$s has %1$d male partners, "
+msgstr[0] "%2$s a %1$d partenaire masculin, "
+msgstr[1] "%2$s a %1$d partenaires masculins, "
+
+msgid "%d female partner, and "
+msgid_plural "%d female partners, and "
+msgstr[0] "%d partenaire féminin, et "
+msgstr[1] "%d partenaires féminines, et "
+
+msgid "There are %d branches in the partner chain. "
+msgstr "Il y a %d branches de la chaîne de partenaires."
+
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
+msgstr "La branche la plus longue de la chaîne de partenaires vers %2$s est constituée de %1$d partenaires (dont %3$s)."
+
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
+msgstr "La branche la plus longue de la chaîne de partenaires est constituée de %1$d partenaires (dont %2$s)."
+
+msgid "Siblings"
+msgstr "Frères et soeurs"
+
+msgid "%s has no siblings recorded."
+msgstr "%s n'a pas de frère ou de soeur enregistré(e)."
+
+msgid "%s has one sister recorded."
+msgstr "%s a une soeur enregistrée."
+
+msgid "%s has one brother recorded."
+msgstr "%s a un frère enregistré."
+
+msgid "%s has one brother or sister recorded."
+msgstr "%s a un frère ou une soeur enregistré(e)."
+
+msgid "%s has one sibling of unknown sex recorded."
+msgstr "%s a un frère ou une sœur de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] "%2$s a %1$d soeur enregistrée."
+msgstr[1] "%2$s a %1$d soeurs enregistrées."
+
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] "%2$s a %1$d frère enregistré."
+msgstr[1] "%2$s a %1$d frères enregistrés."
+
+msgid "%2$s has %1$d sibling of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
+msgstr[0] "%2$s a %1$d frère ou sœur de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d frères et sœurs de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d brother and "
+msgid_plural "%2$s has %1$d brothers and "
+msgstr[0] "%2$s a %1$d frère et "
+msgstr[1] "%2$s a %1$d frères et "
+
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] "%d soeur enregistrée (%d au total)."
+msgstr[1] "%d soeurs enregistrées (%d au total)."
+
+msgid "%2$s has %1$d sister and "
+msgid_plural "%2$s has %1$d sisters and "
+msgstr[0] "%2$s a %1$d soeur et "
+msgstr[1] "%2$s a %1$d sœurs et "
+
+msgid "%d sibling of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings of unknown sex recorded (%d in total)."
+msgstr[0] "%d frère ou sœur de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d frères et sœurs de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d brother, "
+msgid_plural "%2$s has %1$d brothers, "
+msgstr[0] "%2$s a %1$d frère, "
+msgstr[1] "%2$s a %1$d frères, "
+
+msgid "%d sister, and "
+msgid_plural "%d sisters, and "
+msgstr[0] "%d soeur, et "
+msgstr[1] "%d sœurs, et "
+
+msgid "Siblings-in-law"
+msgstr "Beaux-frères et belles-soeurs"
+
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s n'a pas de beau-frère ou de belle-soeur enregistré(e)."
+
+msgid "%s has one sister-in-law recorded."
+msgstr "%s a une belle-soeur enregistrée."
+
+msgid "%s has one brother-in-law recorded."
+msgstr "%s a un beau-frère enregistré."
+
+msgid "%s has one sibling-in-law recorded."
+msgstr "%s a un beau-frère ou une belle-soeur enregistrée."
+
+msgid "%s has one sibling-in-law of unknown sex recorded."
+msgstr "%s a un beau-frère de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] "%2$s a %1$d belle-soeur enregistrée."
+msgstr[1] "%2$s a %1$d belles-soeurs enregistrées."
+
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] "%2$s a %1$d beau-frère enregistré."
+msgstr[1] "%2$s a %1$d beaux-frères enregistrés."
+
+msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s a %1$d beau-frère ou belle-soeur de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d beaux-frères et belles-soeurs de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d brother-in-law and "
+msgid_plural "%2$s has %1$d brothers-in-law and "
+msgstr[0] "%2$s a %1$d beau-frère et "
+msgstr[1] "%2$s a %1$d belle-soeur et "
+
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] "%d belle-soeur enregistrée (%d au total)."
+msgstr[1] "%d belles-soeurs enregistrées (%d au total)."
+
+msgid "%2$s has %1$d sister-in-law and "
+msgid_plural "%2$s has %1$d sisters-in-law and "
+msgstr[0] "%2$s a %1$d belle-soeur et "
+msgstr[1] "%2$s a %1$d belles-soeurs et "
+
+msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d beau-frère ou belle-soeur de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d beau-frères ou belles-soeurs de sexe inconnu enregistrés (%d au total). "
+
+msgid "%2$s has %1$d brother-in-law, "
+msgid_plural "%2$s has %1$d brothers-in-law, "
+msgstr[0] "%2$s a %1$d beau-frère, "
+msgstr[1] "%2$s a %1$d beaux-frères, "
+
+msgid "%d sister-in-law, and "
+msgid_plural "%d sisters-in-law, and "
+msgstr[0] "%d belle-soeur, et "
+msgstr[1] "%d belles-soeurs, et "
+
+msgid "Co-siblings-in-law"
+msgstr "Beaux-frères et belles-soeurs"
+
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "%s n'a pas de beau-frère ou de belle-soeur enregistré(e)."
+
+msgid "%s has one co-sister-in-law recorded."
+msgstr "%s a une belle-soeur enregistrée."
+
+msgid "%s has one co-brother-in-law recorded."
+msgstr "%s a un beau-frère enregistré."
+
+msgid "%s has one co-sibling-in-law of unknown sex recorded."
+msgstr "%s a un beau-frère ou belle-sœur de sexe inconnu enregistré."
+
+msgid "%s has one co-sibling-in-law recorded."
+msgstr "%s a un beau-frère ou une belle-soeur enregistrée."
+
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] "%2$s a %1$d belle-soeur enregistrée."
+msgstr[1] "%2$s a %1$d belles-soeurs enregistrées."
+
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] "%2$s a %1$d beau-frère enregistré."
+msgstr[1] "%2$s a %1$d beaux-frères enregistrés."
+
+msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s a %1$d beau-frère ou belle-soeur de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d beaux-frères ou belles-soeurs de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d co-brother-in-law and "
+msgid_plural "%2$s has %1$d co-brothers-in-law and "
+msgstr[0] "%2$s a %1$d beau-frère et "
+msgstr[1] "%2$s a %1$d belle-soeur et "
+
+msgid "%d co-sister-in-law recorded (%d in total)."
+msgid_plural "%d co-sisters-in-law recorded (%d in total)."
+msgstr[0] "%d belle-soeur enregistrée (%d au total)."
+msgstr[1] "%d belles-soeurs enregistrées (%d au total)."
+
+msgid "%2$s has %1$d co-sister-in-law and "
+msgid_plural "%2$s has %1$d co-sisters-in-law and "
+msgstr[0] "%2$s a %1$d belle-soeur et "
+msgstr[1] "%2$s a %1$d belles-soeurs et "
+
+msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d beau-frère ou belle-sœur de sexe inconnu enregistré (%d au total). "
+msgstr[1] "%d beaux-frères ou belles-sœurs de sexe inconnu enregistrés (%d au total). "
+
+msgid "%2$s has %1$d co-brother-in-law, "
+msgid_plural "%2$s has %1$d co-brothers-in-law, "
+msgstr[0] "%2$s a %1$d beau-frère "
+msgstr[1] "%2$s a %1$d beaux-frères "
+
+msgid "%d co-sister-in-law, and "
+msgid_plural "%d co-sisters-in-law, and "
+msgstr[0] "%d belle-soeur, et "
+msgstr[1] "%d belles-soeurs, et "
+
+msgid "Cousins"
+msgstr "Cousins germains"
+
+msgid "%s has no first cousins recorded."
+msgstr "%s n'a pas de cousin(e) germain(e) enregistré(e)."
+
+msgid "%s has one female first cousin recorded."
+msgstr "%s a une cousine germaine enregistrée."
+
+msgid "%s has one male first cousin recorded."
+msgstr "%s a un cousin germain enregistré."
+
+msgid "%s has one first cousin of unknown sex recorded."
+msgstr "%s a un cousin(e) germain(e) de sexe inconnu enregistré. "
+
+msgid "%s has one first cousin recorded."
+msgstr "%s a un cousin germain enregistré."
+
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] "%2$s a %1$d cousine germaine enregistrée."
+msgstr[1] "%2$s a %1$d cousines germaines enregistrées."
+
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] "%2$s a %1$d cousin germain enregistré."
+msgstr[1] "%2$s a %1$d cousins germains enregistrés."
+
+msgid "%2$s has %1$d first cousin of unknown sex recorded."
+msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
+msgstr[0] "%2$s a %1$d cousin(e) germain(e) de sexe inconnu enregistré. "
+msgstr[1] "%2$s a %1$d cousin(e)s germain(e)s de sexe inconnu enregistré(e)s. "
+
+msgid "%2$s has %1$d male first cousin and "
+msgid_plural "%2$s has %1$d male first cousins and "
+msgstr[0] "%2$s a %1$d cousin germain et "
+msgstr[1] "%2$s a %1$d cousins germains et "
+
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] "%d cousine germaine enregistrée (%d au total)."
+msgstr[1] "%d cousines germaines enregistrées (%d au total)."
+
+msgid "%2$s has %1$d female first cousin and "
+msgid_plural "%2$s has %1$d female first cousins and "
+msgstr[0] "%2$s a %1$d cousine germaine et "
+msgstr[1] "%2$s a %1$d cousines germaines et "
+
+msgid "%d first cousin of unknown sex recorded (%d in total)."
+msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
+msgstr[0] "%d cousin(e) germain(e) de sexe inconnu enregistré (%d au total). "
+msgstr[1] "%d cousin(e)s germain(e)s de sexe inconnu enregistré(e)s (%d au total). "
+
+msgid "%2$s has %1$d male first cousin, "
+msgid_plural "%2$s has %1$d male first cousins, "
+msgstr[0] "%2$s a %1$d cousin germain, "
+msgstr[1] "%2$s a %1$d cousins germains, "
+
+msgid "%d female first cousin, and "
+msgid_plural "%d female first cousins, and "
+msgstr[0] "%d cousine germaine, et "
+msgstr[1] "%d cousines germaines, et "
+
+msgid "Nephews and Nieces"
+msgstr "Neveux et nièces"
+
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s n'a pas de neveux ou nièces enregistrés."
+
+msgid "%s has one niece recorded."
+msgstr "%s a une nièce enregistrée."
+
+msgid "%s has one nephew recorded."
+msgstr "%s a un neveu enregistré."
+
+msgid "%s has one nephew or niece of unknown sex recorded."
+msgstr "%s a un neveu ou une nièce de sexe inconnu enregistré."
+
+msgid "%s has one nephew or niece recorded."
+msgstr "%s a un neveu ou une nièce enregistrés."
+
+msgid "%2$s has %1$d niece recorded."
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "%2$s a %1$d nièce enregistrée."
+msgstr[1] "%2$s a %1$d nièces enregistrées."
+
+msgid "%2$s has %1$d nephew recorded."
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "%2$s a %1$d neveu enregistré."
+msgstr[1] "%2$s a %1$d neveux enregistrés."
+
+msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
+msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
+msgstr[0] "%2$s a %1$d neveu ou nièce de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d neveux ou nièces de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d nephew and "
+msgid_plural "%2$s has %1$d nephews and "
+msgstr[0] "%2$s a %1$d neveu et "
+msgstr[1] "%2$s a %1$d neveux et "
+
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] "%d nièce enregistrée (%d au total)."
+msgstr[1] "%d nièces enregistrées (%d au total)."
+
+msgid "%2$s has %1$d niece and "
+msgid_plural "%2$s has %1$d nieces and "
+msgstr[0] "%2$s a %1$d nièce et "
+msgstr[1] "%2$s a %1$d nièces et "
+
+msgid "%d nephew or niece of unknown sex recorded (%d in total)."
+msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
+msgstr[0] "%d neveu ou nièce de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d nephews or nieces of unknown sex recorded (%d in total)."
+
+msgid "%2$s has %1$d nephew, "
+msgid_plural "%2$s has %1$d nephews, "
+msgstr[0] "%2$s a %1$d neveu, "
+msgstr[1] "%2$s a %1$d neveux, "
+
+msgid "%d niece, and "
+msgid_plural "%d nieces, and "
+msgstr[0] "%d nièce, et "
+msgstr[1] "%d nièces, et "
+
+msgid "Children"
+msgstr "Enfants"
+
+msgid "%s has no children recorded."
+msgstr "%s n'a pas d'enfant enregistré."
+
+msgid "%s has one daughter recorded."
+msgstr "%s a une fille enregistrée."
+
+msgid "%s has one son recorded."
+msgstr "%s a un fils enregistré."
+
+msgid "%s has one child of unknown sex recorded."
+msgstr "%s a enregistré un enfant de sexe inconnu."
+
+msgid "%s has one child recorded."
+msgstr "%s a un fils ou une fille enregistré."
+
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] "%2$s a %1$d fille enregistrée."
+msgstr[1] "%2$s a %1$d filles enregistrées."
+
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] "%2$s a %1$d fils enregistré."
+msgstr[1] "%2$s a %1$d fils enregistrés."
+
+msgid "%2$s has %1$d child of unknown sex recorded."
+msgid_plural "%2$s has %1$d children of unknown sex recorded."
+msgstr[0] "%2$s a enregistré %1$d enfant de sexe inconnu."
+msgstr[1] "%2$s a %1$d enfants de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d son and "
+msgid_plural "%2$s has %1$d sons and "
+msgstr[0] "%2$s a %1$d fils et "
+msgstr[1] "%2$s a %1$d fils et "
+
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] "%d fille enregistrée (%d au total)."
+msgstr[1] "%d filles enregistrées (%d au total)."
+
+msgid "%2$s has %1$d daughter and "
+msgid_plural "%2$s has %1$d daughters and "
+msgstr[0] "%2$s a %1$d fille et "
+msgstr[1] "%2$s a %1$d filles et "
+
+msgid "%d child of unknown sex recorded (%d in total)."
+msgid_plural "%d children of unknown sex recorded (%d in total)."
+msgstr[0] "%d enfant de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d enfants de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d son, "
+msgid_plural "%2$s has %1$d sons, "
+msgstr[0] "%2$s a %1$d fils, "
+msgstr[1] "%2$s a %1$d fils, "
+
+msgid "%d daughter, and "
+msgid_plural "%d daughters, and "
+msgstr[0] "%d fille, et "
+msgstr[1] "%d filles, et "
+
+msgid "Children-in-law"
+msgstr "Beaux-enfants"
+
+msgid "%s has no children-in-law recorded."
+msgstr "%s n'a pas de beaux-enfants enregistrés."
+
+msgid "%s has one daughter-in-law recorded."
+msgstr "%s a une belle-fille enregistrée."
+
+msgid "%s has one son-in-law recorded."
+msgstr "%s a un beau-fils enregistré."
+
+msgid "%s has one child-in-law of unknown sex recorded."
+msgstr "%s a un beau-enfant de sexe inconnu enregistré."
+
+msgid "%s has one child-in-law recorded."
+msgstr "%s a un beau-fils/belle fille enregistré."
+
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] "%2$s a %1$d belle-fille enregistré."
+msgstr[1] "%2$s a %1$d belles-filles enregistrées."
+
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] "%2$s a %1$d beau-fils enregistré."
+msgstr[1] "%2$s a %1$d beaux-fils enregistrés."
+
+msgid "%2$s has %1$d child-in-law recorded."
+msgid_plural "%2$s has %1$d children-in-law recorded."
+msgstr[0] "%2$s a %1$d beau-fils/belle-fille enregistré."
+msgstr[1] "%2$s a %1$d beaux-fils/belles-filles enregistrés."
+
+msgid "%2$s has %1$d son-in-law and "
+msgid_plural "%2$s has %1$d sons-in-law and "
+msgstr[0] "%2$s a %1$d beau-fils et "
+msgstr[1] "%2$s a %1$d beaux-fils et "
+
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] "%d belle-fille enregistrée (%d au total)."
+msgstr[1] "%d belles-filles enregistrées (%d au total)."
+
+msgid "%2$s has %1$d daughter-in-law and "
+msgid_plural "%2$s has %1$d daughters-in-law and "
+msgstr[0] "%2$s a %1$d belle-fille et "
+msgstr[1] "%2$s a %1$d belles-filles et "
+
+msgid "%d child-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d beau-fils /belle-fille de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d beaux-enfants de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d son-in-law, "
+msgid_plural "%2$s has %1$d sons-in-law, "
+msgstr[0] "%2$s a %1$d beau-fils, "
+msgstr[1] "%2$s a %1$d beaux-fils, "
+
+msgid "%d daughter-in-law, and "
+msgid_plural "%d daughters-in-law, and "
+msgstr[0] "%d belle-fille, et "
+msgstr[1] "%d belles-filles, et "
+
+msgid "Grandchildren"
+msgstr "Petits-enfants"
+
+msgid "%s has no grandchildren recorded."
+msgstr "%s n'a pas de petit-enfant enregistré."
+
+msgid "%s has one granddaughter recorded."
+msgstr "%s a une petite-fille enregistrée."
+
+msgid "%s has one grandson recorded."
+msgstr "%s a un petit-fils enregistré."
+
+msgid "%s has one grandchild of unknown sex recorded."
+msgstr "%s a un petit-enfant de sexe inconnu enregistré."
+
+msgid "%s has one grandchild recorded."
+msgstr "%s a un petit-enfant enregistré."
+
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] "%2$s a %1$d petite-fille enregistrée."
+msgstr[1] "%2$s a %1$d petites-filles enregistrées."
+
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] "%2$s a %1$d petit-fils enregistré."
+msgstr[1] "%2$s a %1$d petits-fils enregistrés."
+
+msgid "%2$s has %1$d grandchild of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
+msgstr[0] "%2$s a %1$d petit-enfant de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d petits-enfants de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d grandson and "
+msgid_plural "%2$s has %1$d grandsons and "
+msgstr[0] "%2$s a %1$d petit-fils et "
+msgstr[1] "%2$s a %1$d petits-fils et "
+
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] "%d petite-fille enregistrée (%d au total)."
+msgstr[1] "%d petites-filles enregistrées (%d au total)."
+
+msgid "%2$s has %1$d granddaughter and "
+msgid_plural "%2$s has %1$d granddaughters and "
+msgstr[0] "%2$s a %1$d petite-fille et "
+msgstr[1] "%2$s a %1$d petites-filles et "
+
+msgid "%d grandchild of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
+msgstr[0] "%d petit-enfant de sexe inconnu enregistré (%d au total)."
+msgstr[1] "%d petits-enfants de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d grandson, "
+msgid_plural "%2$s has %1$d grandsons, "
+msgstr[0] "%2$s a %1$d petit-fils, "
+msgstr[1] "%2$s a %1$d petits-fils, "
+
+msgid "%d granddaughter, and "
+msgid_plural "%d granddaughters, and "
+msgstr[0] "%d petite-fille, et "
+msgstr[1] "%d petites-filles, et "
+
+msgid "Grandchildren-in-law"
+msgstr "Beaux-enfants"
+
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "%s n'a pas de beaux-enfants enregistrés."
+
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "%s a une petite belle-fille enregistrée."
+
+msgid "%s has one grandson-in-law recorded."
+msgstr "%s a un petit-fils ou une petite-fille enregistré(e)."
+
+msgid "%s has one grandchild-in-law of unknown sex recorded."
+msgstr "%s a un petit-fils ou une petite-fille de sexe inconnu enregistré."
+
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] "%2$s a %1$d petite-belle-fille enregistrée."
+msgstr[1] "%2$s a %1$d petites-belles-filles enregistrées."
+
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] "%2$s a %1$d petits-enfants enregistrés."
+msgstr[1] "%2$s a %1$d petits-bois enregistrés."
+
+msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+msgstr[0] "%2$s a %1$d petit-fils ou petite-fille de sexe inconnu enregistré."
+msgstr[1] "%2$s a %1$d beaux-enfants de sexe inconnu enregistrés."
+
+msgid "%2$s has %1$d grandson-in-law and "
+msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgstr[0] "%2$s a %1$d petits-fils par alliance et "
+msgstr[1] "%2$s a %1$d petits-fils par alliance et "
+
+msgid "%d granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgstr[0] "%d belle-fille enregistrée (%d au total)."
+msgstr[1] "%d petites-filles-belles-filles enregistrées (%d au total)."
+
+msgid "%2$s has %1$d granddaughter-in-law and "
+msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgstr[0] "%2$s a %1$d petite-fille-belle-fille et "
+msgstr[1] "%2$s a %1$d petites-filles par alliance et "
+
+msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d beaux-enfants de sexe inconnu enregistrés (%d au total)."
+msgstr[1] "%d petits-enfants-belles-filles de sexe inconnu enregistrés (%d au total)."
+
+msgid "%2$s has %1$d grandson-in-law, "
+msgid_plural "%2$s has %1$d grandsons-in-law, "
+msgstr[0] "%2$s a %1$d petit-fils par alliance, "
+msgstr[1] "%2$s a %1$d petits-fils par alliance, "
+
+msgid "%d granddaughter-in-law, and "
+msgid_plural "%d granddaughters-in-law, and "
+msgstr[0] "%d petite-fille-belle-fille, et "
+msgstr[1] "%d petites-filles-belles-filles, et "

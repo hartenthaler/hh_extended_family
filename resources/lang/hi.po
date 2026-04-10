@@ -1,0 +1,178 @@
+msgid ""
+msgstr ""
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Extended family"
+msgstr "विस्तृत परिवार"
+
+msgid "A tab showing the extended family of an individual."
+msgstr "किसी व्यक्ति के विस्तृत परिवार को दर्शाने वाला टैब।"
+
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "विस्तारित परिवार के भागों को किस क्रम में दिखाया जाना चाहिए?"
+
+msgid "Family part (generation relative to proband)"
+msgstr "परिवार का हिस्सा (generation relative to proband)"
+
+msgid "Show name of proband as short name or as full name?"
+msgstr "विषय का नाम संक्षिप्त नाम के रूप में या पूरे नाम के रूप में दिखाएं?"
+
+msgid "Show options to filter the results?"
+msgstr "परिणामों को फ़िल्टर करने के लिए विकल्प दिखाएं?"
+
+msgid "Show filter options"
+msgstr "फ़िल्टर विकल्प दिखाएं"
+
+msgid "How should empty parts of extended family be presented?"
+msgstr "विस्तारित परिवार के खाली हिस्सों को कैसे प्रस्तुत किया जाना चाहिए?"
+
+msgid "Show empty block"
+msgstr "खाली ब्लॉक दिखाएं"
+
+msgid "yes, always at standard location"
+msgstr "हाँ, हमेशा मानक स्थान पर"
+
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "नहीं, लेकिन अंत में खाली ब्लॉकों के बारे में संदेश एकत्र करें"
+
+msgid "never"
+msgstr "कभी नहीं"
+
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "संक्षिप्त नाम रूफनाम या उपनाम की जांच पर आधारित है।  यदि ये उपलब्ध नहीं हैं, तो दिए गए नामों में से पहले का प्रयोग किया जाता है, यदि कोई दिया गया हो।  अन्यथा अंतिम नाम का उपयोग किया जाता है।"
+
+msgid "Show short name"
+msgstr "संक्षिप्त नाम दिखाएं"
+
+msgid "Show labels in special situations?"
+msgstr "विशेष परिस्थितियों में लेबल दिखाएं?"
+
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "उदाहरण के लिए गोद लिए गए व्यक्तियों या पालक बच्चों के लिए लेबल (या स्टिकर) का उपयोग किया जाता है।"
+
+msgid "Show labels"
+msgstr "लेबल दिखाएं"
+
+msgid "Use the compact design?"
+msgstr "कॉम्पैक्ट डिज़ाइन का उपयोग करें?"
+
+msgid "Use the compact design"
+msgstr "कॉम्पैक्ट डिज़ाइन का उपयोग करें"
+
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "कॉम्पैक्ट डिज़ाइन प्रत्येक व्यक्ति के लिए केवल नाम और जीवन काल दिखाता है।  समृद्ध डिज़ाइन एक तस्वीर (यदि यह इस वंशवृक्ष के लिए सक्रिय है) के साथ-साथ जन्म और मृत्यु की जानकारी भी दिखाता है।"
+
+msgid "Show parameters of extended family part?"
+msgstr "विस्तारित पारिवारिक भाग के पैरामीटर दिखाएँ?"
+
+msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
+msgstr "विस्तारित परिवार के प्रत्येक भाग के लिए अतिरिक्त जानकारी का प्रदर्शन, जैसे कि पीढ़ी का बदलाव और रिश्ते का गुणांक, जो कि समानता की डिग्री का एक उपाय है।"
+
+msgid "Show parameters"
+msgstr "पैरामीटर दिखाएं"
+
+msgid "generation +%s"
+msgstr "पीढ़ी +%s"
+
+msgid "same generation"
+msgstr "एक ही पीढ़ी"
+
+msgid "generation %s"
+msgstr "पीढ़ी %s"
+
+msgid "relationship coefficient: %.1f"
+msgstr "संबंध गुणांक: %.1f"
+
+msgid "no blood relationship"
+msgstr "खून का रिश्ता नहीं"
+
+msgid "don't use this filter"
+msgstr "इस फ़िल्टर का उपयोग न करें"
+
+msgid "show only male persons"
+msgstr "केवल पुरुष व्यक्तियों को दिखाएं"
+
+msgid "show only female persons"
+msgstr "केवल महिला व्यक्तियों को दिखाएं"
+
+msgid "show only persons of other or unknown gender"
+msgstr "केवल अज्ञात लिंग के व्यक्तियों को दिखाएं"
+
+msgid "show only alive persons"
+msgstr "केवल जिवित व्यक्तियों को दिखाएं"
+
+msgid "show only dead persons"
+msgstr "केवल मृतक व्यक्तियों को दिखाएं"
+
+msgid "alive"
+msgstr "जिवित"
+
+msgid "dead"
+msgstr "मृत"
+
+msgid "a dead person"
+msgstr "एक मृत व्यक्ति"
+
+msgid "a living person"
+msgstr "एक जीवित व्यक्ति"
+
+msgid "not a male person"
+msgstr "पुरुष व्यक्ति नहीं"
+
+msgid "not a female person"
+msgstr "महिला व्यक्ति नहीं"
+
+msgid "not a person of unknown gender"
+msgstr "अज्ञात लिंग का व्यक्ति नहीं"
+
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "copy all members of the extended family to the clippings cart"
+
+msgid "copy to clippings cart"
+msgstr "copy to clippings cart"
+
+msgid "twin"
+msgstr "जुड़वां"
+
+msgid "triplet"
+msgstr "त्रिक"
+
+msgid "quadruplet"
+msgstr "चतुष्क"
+
+msgid "quintuplet"
+msgstr "पंचक"
+
+msgid "sextuplet"
+msgstr "षटक"
+
+msgid "septuplet"
+msgstr "सप्तक"
+
+msgid "octuplet"
+msgstr "अष्टक"
+
+msgid "nonuplet"
+msgstr "नवक"
+
+msgid "decuplet"
+msgstr "दशक"
+
+msgid "stillborn"
+msgstr "मृत जन्म"
+
+msgid "died as infant"
+msgstr "बचपन में मृत"
+
+msgid "linkage challenged"
+msgstr "संबंध संदिग्ध"
+
+msgid "linkage disproven"
+msgstr "संबंध अस्वीकृत"
+
+msgid "linkage proven"
+msgstr "संबंध स्वीकृत"

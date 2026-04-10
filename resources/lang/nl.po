@@ -1,0 +1,1564 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Extended family"
+msgstr "Uitgebreide familie"
+
+msgid "A tab showing the extended family of an individual."
+msgstr "Een tabblad met de uitgebreide familie van een persoon."
+
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "In welke volgorde moeten de delen van de uitgebreide familie worden weergegeven?"
+
+msgid "Family part (generation relative to proband)"
+msgstr "Familiedeel (generatie ten opzichte van proband)"
+
+msgid "Show name of proband as short name or as full name?"
+msgstr "Naam van proband weergeven als korte naam of als volledige naam?"
+
+msgid "Show options to filter the results?"
+msgstr "Filteropties weergeven?"
+
+msgid "Show filter options"
+msgstr "Filteropties weergeven"
+
+msgid "How should empty parts of extended family be presented?"
+msgstr "Hoe moeten lege delen van de uitgebreide familie worden weergegeven?"
+
+msgid "Show empty block"
+msgstr "Lege familiedelen weergeven"
+
+msgid "yes, always at standard location"
+msgstr "ja, altijd op de standaardlocatie"
+
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "nee, maar verzamel berichten over lege familiedelen aan het eind"
+
+msgid "never"
+msgstr "nooit"
+
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "De korte naam is gebaseerd op de roepnaam of bijnaam van de proband. Als deze niet beschikbaar zijn, wordt de eerste van de voornamen gebruikt, als er een is opgegeven. Anders wordt de achternaam gebruikt."
+
+msgid "Show short name"
+msgstr "Korte naam weergeven"
+
+msgid "Show labels in special situations?"
+msgstr "Labels weergeven in bijzondere situaties?"
+
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "Labels worden gebruikt voor bijvoorbeeld geadopteerde personen of pleegkinderen."
+
+msgid "Show labels"
+msgstr "Labels weergeven"
+
+msgid "Use the compact design?"
+msgstr "Compact ontwerp gebruiken?"
+
+msgid "Use the compact design"
+msgstr "Gebruik compact ontwerp"
+
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "Het compacte ontwerp toont alleen de naam en de levensduur voor elke persoon. Het verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd), en geboorte- en overlijdensinformatie"
+
+msgid "Show parameters of extended family part?"
+msgstr "Parameters van uitgebreidefamiliedeel weergeven?"
+
+msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
+msgstr "Weergave van aanvullende informatie voor elk deel van de uitgebreide familie, zoals de generatieverschuiving en de verwantschapscoëfficiënt, die een vermenigvuldigingsfactor is voor de graad van bloedverwantschap."
+
+msgid "Show parameters"
+msgstr "Parameters weergeven"
+
+msgid "This allows a user to filter the members of the extended family by gender and if they are alive or dead."
+msgstr "Hiermee kan een gebruiker de leden van de uitgebreide familie filteren op geslacht en of ze levend of dood zijn."
+
+msgid "Should a summary block be shown?"
+msgstr "Moet een samenvattingsblok worden weergeven?"
+
+msgid "The summary contains information about the extended family in total."
+msgstr "De samenvatting bevat informatie over de totalen van de uitgebreide familie."
+
+msgid "Show summary"
+msgstr "Samenvatting weergeven"
+
+msgid "Count the members of the partner chains as members of the extended family?"
+msgstr "Tellen de leden van de partnerketens mee als leden van de uitgebreide familie?"
+
+msgid "If you select \"no\", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family."
+msgstr "Als u \"nee\" kiest, worden de extra leden in de partnerketens niet meegeteld bij het totaalaantal personen in de uitgebreide familie."
+
+msgid "And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart."
+msgstr "En deze personen en gezinnen zullen niet geselecteerd worden wanneer een gebruiker besluit om de uitgebreide familie naar de stamboomknipsels te kopiëren."
+
+msgid "But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module \"enhanced clippings cart\": \"add partner chains for an individual\"."
+msgstr "Maar ook in dat geval kunnen deze personen en gezinnen naar de stamboomknipsels worden gekopieerd worden door de volgende optie in het menu van de aangepaste module \"uitgebreide stamboomknipsels\" te gebruiken: \"voeg partnerketens toe voor één persoon\"."
+
+msgid "This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family."
+msgstr "Dit is alleen relevant als u er in bovenstaande tabel voor heeft gekozen om de partnerketens weer te geven als deel van de uitgebreide familie."
+
+msgid "Include them"
+msgstr "Opnemen"
+
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr "Een knop \"kopiëren naar stamboomknipsels\" weergeven?"
+
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr "Hiermee kan een gebruiker alle leden van de uitgebreide familie naar de stamboomknipsels kopiëren."
+
+msgid "Show button"
+msgstr "Knop weergeven"
+
+msgid "generation +%s"
+msgstr "generatie +%s"
+
+msgid "same generation"
+msgstr "dezelfde generatie"
+
+msgid "generation %s"
+msgstr "generatie %s"
+
+msgid "relationship coefficient: %.1f"
+msgstr "Verwantschapscoëfficiënt: %.1f"
+
+msgid "no blood relationship"
+msgstr "geen bloedverwantschap"
+
+msgid "don't use this filter"
+msgstr "gebruik dit filter niet"
+
+msgid "show only male persons"
+msgstr "toon alleen mannen"
+
+msgid "show only female persons"
+msgstr "toon alleen vrouwen"
+
+msgid "show only persons of other or unknown gender"
+msgstr "toon alleen personen van een ander of onbekend geslacht"
+
+msgid "show only alive persons"
+msgstr "toon alleen levende personen"
+
+msgid "show only dead persons"
+msgstr "toon alleen overleden personen"
+
+msgid "alive"
+msgstr "levend"
+
+msgid "dead"
+msgstr "overleden"
+
+msgid "a dead person"
+msgstr "een overleden persoon"
+
+msgid "a living person"
+msgstr "een levend persoon"
+
+msgid "not a male person"
+msgstr "geen mannelijk persoon"
+
+msgid "not a female person"
+msgstr "geen vrouwelijk persoon"
+
+msgid "not a person of unknown gender"
+msgstr "geen persoon van onbekend geslacht"
+
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "kopieer alle leden van de uitgebreide familie naar de stamboomknipsels"
+
+msgid "copy to clippings cart"
+msgstr "kopiëren naar stamboomknipsels"
+
+msgid "twin"
+msgstr "tweeling"
+
+msgid "triplet"
+msgstr "drieling"
+
+msgid "quadruplet"
+msgstr "vierling"
+
+msgid "quintuplet"
+msgstr "vijfling"
+
+msgid "sextuplet"
+msgstr "zesling"
+
+msgid "septuplet"
+msgstr "zevenling"
+
+msgid "octuplet"
+msgstr "achtling"
+
+msgid "nonuplet"
+msgstr "negenling"
+
+msgid "decuplet"
+msgstr "tienling"
+
+msgid "stillborn"
+msgstr "levenloos geboren"
+
+msgid "died as infant"
+msgstr "minder dan 1 jaar oud"
+
+msgid "linkage challenged"
+msgstr "koppeling betwist"
+
+msgid "linkage disproven"
+msgstr "koppeling weerlegd"
+
+msgid "linkage proven"
+msgstr "koppeling bewezen"
+
+msgid "Marriage"
+msgstr "Huwelijk"
+
+msgid "Ex-marriage"
+msgstr "Ex-huwelijk"
+
+msgid "Partnership"
+msgstr "Relatie"
+
+msgid "Fiancée"
+msgstr "Verloving"
+
+msgid " with "
+msgstr " met "
+
+msgid "Biological grandparents of father"
+msgstr "Biologische grootouders van de vader"
+
+msgid "Biological grandparents of mother"
+msgstr "Biologische grootouders van de moeder"
+
+msgid "Biological grandparents of parent"
+msgstr "Biologische grootouders van een ouder"
+
+msgid "Stepparents of biological parent of father"
+msgstr "Stiefouders van een biologische ouder van de vader"
+
+msgid "Stepparents of biological parent of mother"
+msgstr "Stiefouders van een biologische ouder van de moeder"
+
+msgid "Stepparents of biological grandparent"
+msgstr "Stiefouders van een biologische grootouder"
+
+msgid "Parents of stepparent of father"
+msgstr "Ouders van een stiefouder van de vader"
+
+msgid "Parents of stepparent of mother"
+msgstr "Ouders van een stiefouder van de moeder"
+
+msgid "Parents of stepparent of parent"
+msgstr "Ouders van een stiefouder van een ouder"
+
+msgid "Grandparents of stepparent"
+msgstr "Grootouders van een stiefouder"
+
+msgid "Biological great-grandparents"
+msgstr "Biologische overgrootouders"
+
+msgid "Biological parents of father"
+msgstr "Biologische ouders van de vader"
+
+msgid "Biological parents of mother"
+msgstr "Biologische ouders van de moeder"
+
+msgid "Biological parents of parent"
+msgstr "Biologische ouders van een ouder"
+
+msgid "Stepparents of father"
+msgstr "Stiefouders van de vader"
+
+msgid "Stepparents of mother"
+msgstr "Stiefouders van de moeder"
+
+msgid "Stepparents of parent"
+msgstr "Stiefouders van een ouder"
+
+msgid "Parents of stepparent"
+msgstr "Ouders van een stiefouder"
+
+msgid "Biological grandparents"
+msgstr "Biologische grootouders"
+
+msgid "Siblings of father"
+msgstr "Broers/zussen van de vader"
+
+msgid "Siblings of mother"
+msgstr "Broers/zussen van de moeder"
+
+msgid "Full siblings of biological parents"
+msgstr "Volle broers/zussen van biologische ouders"
+
+msgid "Siblings-in-law of father"
+msgstr "Zwagers/schoonzussen van de vader"
+
+msgid "Siblings-in-law of mother"
+msgstr "Zwagers/schoonzussen van de moeder"
+
+msgid "Biological parents"
+msgstr "Biologische ouders"
+
+msgid "Stepparents"
+msgstr "Stiefouders"
+
+msgid "Parents-in-law of biological children"
+msgstr "Schoonouders van biologische kinderen"
+
+msgid "Parents-in-law of stepchildren"
+msgstr "Schoonouders van stiefkinderen"
+
+msgid "Full siblings"
+msgstr "Volle broers/zussen"
+
+msgid "Half siblings"
+msgstr "Halfbroers/-zussen"
+
+msgid "Stepsiblings"
+msgstr "Stiefbroers/-zussen"
+
+msgid "Children of full siblings of father"
+msgstr "Kinderen van volle broers/zussen van de vader"
+
+msgid "Children of full siblings of mother"
+msgstr "Kinderen van volle broers/zussen van de moeder"
+
+msgid "Children of full siblings of parent"
+msgstr "Kinderen van volle broers/zussen van een ouder"
+
+msgid "Children of half siblings of father"
+msgstr "Kinderen van halfbroers/-zussen van de vader"
+
+msgid "Children of half siblings of mother"
+msgstr "Kinderen van halfbroers/-zussen van de moeder"
+
+msgid "Children of half siblings of parent"
+msgstr "Kinderen van halfbroers/-zussen van een ouder"
+
+msgid "Siblings of partners"
+msgstr "Broers/zussen van partners"
+
+msgid "Partners of siblings"
+msgstr "Partners van broers/zussen"
+
+msgid "Siblings of siblings-in-law"
+msgstr "Broers/zussen van zwagers/schoonzussen"
+
+msgid "Partners of siblings-in-law"
+msgstr "Partners van zwagers/schoonzussen"
+
+msgid "Children of full siblings of biological parents"
+msgstr "Kinderen van volle broers/zussen van biologische ouders"
+
+msgid "Children of siblings"
+msgstr "Kinderen van broers/zussen"
+
+msgid "Children of full siblings"
+msgstr "Kinderen van volle broers/zussen"
+
+msgid "Siblings' stepchildren"
+msgstr "Stiefkinderen van broers/zussen"
+
+msgid "Children of siblings of partners"
+msgstr "Kinderen van broers/zussen van partners"
+
+msgid "Biological children"
+msgstr "Biologische kinderen"
+
+msgid "Stepchildren"
+msgstr "Stiefkinderen"
+
+msgid "Stepchild"
+msgstr "Stiefkind"
+
+msgid "Stepson"
+msgstr "Stiefzoon"
+
+msgid "Stepdaughter"
+msgstr "Stiefdochter"
+
+msgid "Partners of biological children"
+msgstr "Partners van biologische kinderen"
+
+msgid "Partners of stepchildren"
+msgstr "Partners van stiefkinderen"
+
+msgid "Biological grandchildren"
+msgstr "Biologische kleinkinderen"
+
+msgid "Stepchildren of children"
+msgstr "Stiefkinderen van kinderen"
+
+msgid "Children of stepchildren"
+msgstr "Kinderen van stiefkinderen"
+
+msgid "Stepchildren of stepchildren"
+msgstr "Stiefkinderen van stiefkinderen"
+
+msgid "Partners of biological grandchildren"
+msgstr "Partners van biologische kleinkinderen"
+
+msgid "Partners of stepchildren of children"
+msgstr "Partners van stiefkinderen van kinderen"
+
+msgid "Partners of children of stepchildren"
+msgstr "Partners van kinderen van stiefkinderen"
+
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Partners van stiefkinderen van stiefkinderen"
+
+msgid "He"
+msgstr "hem"
+
+msgid "She"
+msgstr "haar"
+
+msgid "He/she"
+msgstr "hem/haar"
+
+msgid "Mr."
+msgstr "de heer"
+
+msgid "Mrs."
+msgstr "mevrouw"
+
+msgid "No family available"
+msgstr "Geen familie gevonden"
+
+msgid "Summary for the shown extended family"
+msgstr "Samenvatting voor de getoonde uitgebreide familie"
+
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "De uitgebreide familie heeft alleen %1$s als lid."
+msgstr[1] "De uitgebreide familie van %1$s heeft %2$d leden"
+
+msgid "(additional members of the partner chains are not counted)"
+msgstr "(extra leden van de partnerketens worden niet meegeteld)."
+
+msgid "Some of them are member in more than one part of the extended family."
+msgstr "Sommigen van hen zijn lid van meer dan één deel van de uitgebreide familie."
+
+msgid "%s has no %s recorded."
+msgstr "Voor %s zijn geen %s geregistreerd."
+
+msgid "%s has no %s, and no %s recorded."
+msgstr "Voor %s zijn geen %s en geen %s geregistreerd."
+
+msgid "Father's family (%d)"
+msgstr "Familie van de vader (%d)"
+
+msgid "Mother's family (%d)"
+msgstr "Familie van de moeder (%d)"
+
+msgid "Father's and Mother's family (%d)"
+msgstr "Familie van de vader en de moeder (%d)"
+
+msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
+msgstr "Grootouders %1$s (%2$s) van de stiefvader %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
+msgstr "Grootouders %1$s (%2$s) van de stiefmoeder %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
+msgstr "Grootouders %1$s (%2$s) van de stiefouder %3$s"
+
+msgid "Stepparents %1$s (%2$s) of %3$s"
+msgstr "Stiefouders %1$s (%2$s) van %3$s"
+
+msgid "Parents %1$s (%2$s) of stepfather %3$s"
+msgstr "Ouders %1$s (%2$s) van de stiefvader %3$s"
+
+msgid "Parents %1$s (%2$s) of stepmother %3$s"
+msgstr "Ouders %1$s (%2$s) van de stiefmoeder %3$s"
+
+msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgstr "Ouders %1$s (%2$s) van de stiefouder %3$s"
+
+msgid "Parents %1$s of %2$s"
+msgstr "Ouders %1$s van %2$s"
+
+msgid "Parents %1$s (%2$s) of %3$s"
+msgstr "Ouders %1$s (%2$s) van %3$s"
+
+msgid "Partners of %s"
+msgstr "Partners van %s"
+
+msgid "Brother %1$s of partner %2$s"
+msgstr "Broer %1$s van partner %2$s"
+
+msgid "Sister %1$s of partner %2$s"
+msgstr "Zus %1$s van partner %2$s"
+
+msgid "Sibling %1$s of partner %2$s"
+msgstr "Broer/zus %1$s van partner %2$s"
+
+msgid "Great-grandparents"
+msgstr "Overgrootouders"
+
+msgid "%s has no great-grandparents recorded."
+msgstr "Voor %s zijn geen overgrootouders geregistreerd."
+
+msgid "%s has one great-grandmother recorded."
+msgstr "Voor %s is een overgrootmoeder geregistreerd."
+
+msgid "%s has one great-grandfather recorded."
+msgstr "Voor %s is een overgrootvader geregistreerd."
+
+msgid "%s has one great-grandparent of unknown sex recorded."
+msgstr "Voor %s is een overgrootouder van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d great-grandmother recorded."
+msgid_plural "%2$s has %1$d great-grandmothers recorded."
+msgstr[0] "Voor %2$s is %1$d overgrootmoeder geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d overgrootmoeders geregistreerd"
+
+msgid "%2$s has %1$d great-grandfather recorded."
+msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgstr[0] "Voor %2$s is %1$d overgrootvader geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d overgrootvaders geregistreerd."
+
+msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d overgrootouder van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d overgrootouders van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d great-grandfather and "
+msgid_plural "%2$s has %1$d great-grandfathers and "
+msgstr[0] "Voor %2$s zijn %1$d overgrootvader en "
+msgstr[1] "Voor %2$s zijn %1$d overgrootvaders en "
+
+msgid "%d great-grandmother recorded (%d in total)."
+msgid_plural "%d great-grandmothers recorded (%d in total)."
+msgstr[0] "%d overgrootmoeder geregistreerd (%d in totaal)."
+msgstr[1] "%d overgrootmoeders geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d great-grandmother and "
+msgid_plural "%2$s has %1$d great-grandmothers and "
+msgstr[0] "Voor %2$s zijn %1$d overgrootmoeder en "
+msgstr[1] "Voor %2$s zijn %1$d overgrootmoeders en "
+
+msgid "%d great-grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d overgrootouder van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d overgrootouders van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d great-grandfather, "
+msgid_plural "%2$s has %1$d great-grandfathers, "
+msgstr[0] "Voor %2$s zijn %1$d overgrootvader, "
+msgstr[1] "Voor %2$s zijn %1$d overgrootvaders, "
+
+msgid "%d great-grandmother, and "
+msgid_plural "%d great-grandmothers, and "
+msgstr[0] "%d overgrootmoeder en "
+msgstr[1] "%d overgrootmoeder en "
+
+msgid "Grandparents"
+msgstr "Grootouders"
+
+msgid "%s has no grandparents recorded."
+msgstr "Voor %s zijn geen grootouders geregistreerd."
+
+msgid "%s has one grandmother recorded."
+msgstr "Voor %s is een grootmoeder geregistreerd."
+
+msgid "%s has one grandfather recorded."
+msgstr "Voor %s is een grootvader geregistreerd."
+
+msgid "%s has one grandparent of unknown sex recorded."
+msgstr "Voor %s is een grootouder van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d grandmother recorded."
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "Voor %2$s is %1$d grootmoeder geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d grootmoeders geregistreerd."
+
+msgid "%2$s has %1$d grandfather recorded."
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "Voor %2$s is %1$d grootvader geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d grootvaders geregistreerd."
+
+msgid "%2$s has %1$d grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d grootouder van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d grootouders van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d grandfather and "
+msgid_plural "%2$s has %1$d grandfathers and "
+msgstr[0] "Voor %2$s zijn %1$d grootvader en "
+msgstr[1] "Voor %2$s zijn %1$d grootvaders en "
+
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] "%d grootmoeder geregistreerd (%d in totaal)."
+msgstr[1] "%d grootmoeders geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d grandmother and "
+msgid_plural "%2$s has %1$d grandmothers and "
+msgstr[0] "Voor %2$s zijn %1$d grootmoeder en "
+msgstr[1] "Voor %2$s zijn %1$d grootmoeders en "
+
+msgid "%d grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d grootouder van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d grootouders van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d grandfather, "
+msgid_plural "%2$s has %1$d grandfathers, "
+msgstr[0] "Voor %2$s zijn %1$d grootvader, "
+msgstr[1] "Voor %2$s zijn %1$d grootvaders, "
+
+msgid "%d grandmother, and "
+msgid_plural "%d grandmothers, and "
+msgstr[0] "%d grootmoeder en "
+msgstr[1] "%d grootmoeders en "
+
+msgid "Uncles and Aunts"
+msgstr "Ooms en tantes"
+
+msgid "%s has no uncles or aunts recorded."
+msgstr "Voor %s zijn geen ooms/tantes geregistreerd."
+
+msgid "%s has one aunt recorded."
+msgstr "Voor %s is een tante geregistreerd."
+
+msgid "%s has one uncle recorded."
+msgstr "Voor %s is een oom geregistreerd."
+
+msgid "%s has one uncle or aunt of unknown sex recorded."
+msgstr "Voor %s is een oom/tante van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] "Voor %2$s is %1$d tante geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d tantes geregistreerd."
+
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] "Voor %2$s is %1$d oom geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d ooms geregistreerd."
+
+msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d oom/tante van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d ooms/tantes van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d uncle and "
+msgid_plural "%2$s has %1$d uncles and "
+msgstr[0] "Voor %2$s zijn %1$d oom en "
+msgstr[1] "Voor %2$s zijn %1$d ooms en "
+
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] "%d tante geregistreerd (%d in totaal)."
+msgstr[1] "%d tantes geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d aunt and "
+msgid_plural "%2$s has %1$d aunts and "
+msgstr[0] "Voor %2$s zijn %1$d tante en "
+msgstr[1] "Voor %2$s zijn %1$d tantes en "
+
+msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
+msgstr[0] "%d oom/tante van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d ooms/tantes van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d uncle, "
+msgid_plural "%2$s has %1$d uncles, "
+msgstr[0] "Voor %2$s zijn %1$d oom, "
+msgstr[1] "Voor %2$s zijn %1$d ooms, "
+
+msgid "%d aunt, and "
+msgid_plural "%d aunts, and "
+msgstr[0] "%d tante en "
+msgstr[1] "%d tantes en "
+
+msgid "Uncles and Aunts by marriage"
+msgstr "Aangetrouwde ooms en tantes"
+
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "Voor %s zijn geen aangetrouwde ooms/tantes geregistreerd."
+
+msgid "%s has one aunt by marriage recorded."
+msgstr "Voor %s is een aangetrouwde tante geregistreerd."
+
+msgid "%s has one uncle by marriage recorded."
+msgstr "Voor %s is een aangetrouwde oom geregistreerd."
+
+msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
+msgstr "Voor %s is een aangetrouwde oom/tante van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] "Voor %2$s is %1$d aangetrouwde tante geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d aangetrouwde tantes geregistreerd."
+
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] "Voor %2$s is %1$d aangetrouwde oom geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d aangetrouwde ooms geregistreerd."
+
+msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d aangetrouwde oom/tante van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d aangetrouwde ooms/tantes van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d uncle by marriage and "
+msgid_plural "%2$s has %1$d uncles by marriage and "
+msgstr[0] "Voor %2$s zijn %1$d aangetrouwde oom en "
+msgstr[1] "Voor %2$s zijn %1$d aangetrouwde ooms en "
+
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] "%d aangetrouwde tante geregistreerd (%d in totaal)."
+msgstr[1] "%d aangetrouwde tantes geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d aunt by marriage and "
+msgid_plural "%2$s has %1$d aunts by marriage and "
+msgstr[0] "Voor %2$s zijn %1$d aangetrouwde tante en "
+msgstr[1] "Voor %2$s zijn %1$d aangetrouwde tantes en "
+
+msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+msgstr[0] "%d aangetrouwde oom/tante van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d aangetrouwde ooms/tantes van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d uncle by marriage, "
+msgid_plural "%2$s has %1$d uncles by marriage, "
+msgstr[0] "Voor %2$s zijn %1$d aangetrouwde oom, "
+msgstr[1] "Voor %2$s zijn %1$d aangetrouwde ooms, "
+
+msgid "%d aunt by marriage, and "
+msgid_plural "%d aunts by marriage, and "
+msgstr[0] "%d aangetrouwde tante en "
+msgstr[1] "%d aangetrouwde tantes en "
+
+msgid "Parents"
+msgstr "Ouders"
+
+msgid "%s has no parents recorded."
+msgstr "Voor %s zijn geen ouders geregistreerd."
+
+msgid "%s has one mother recorded."
+msgstr "Voor %s is een moeder geregistreerd."
+
+msgid "%s has one father recorded."
+msgstr "Voor %s is een vader geregistreerd."
+
+msgid "%s has one parent of unknown sex recorded."
+msgstr "Voor %s is een ouder van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] "Voor %2$s is %1$d moeder geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d moeders geregistreerd."
+
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] "Voor %2$s is %1$d vader geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d vaders geregistreerd."
+
+msgid "%2$s has %1$d parent of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d ouder van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d ouders van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d father and "
+msgid_plural "%2$s has %1$d fathers and "
+msgstr[0] "Voor %2$s zijn %1$d vader en "
+msgstr[1] "Voor %2$s zijn %1$d vaders en "
+
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] "%d moeder geregistreerd (%d in totaal)."
+msgstr[1] "%d moeders geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d mother and "
+msgid_plural "%2$s has %1$d mothers and "
+msgstr[0] "Voor %2$s zijn %1$d moeder en "
+msgstr[1] "Voor %2$s zijn %1$d moeders en "
+
+msgid "%d parent of unknown sex recorded (%d in total)."
+msgid_plural "%d parents of unknown sex recorded (%d in total)."
+msgstr[0] "%d ouder van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d ouders van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d father, "
+msgid_plural "%2$s has %1$d fathers, "
+msgstr[0] "Voor %2$s zijn %1$d vader, "
+msgstr[1] "Voor %2$s zijn %1$d vaders, "
+
+msgid "%d mother, and "
+msgid_plural "%d mothers, and "
+msgstr[0] "%d moeder en "
+msgstr[1] "%d moeders en "
+
+msgid "Parents-in-law"
+msgstr "Schoonouders"
+
+msgid "%s has no parents-in-law recorded."
+msgstr "Voor %s zijn geen schoonouders geregistreerd."
+
+msgid "%s has one mother-in-law recorded."
+msgstr "Voor %s is een schoonmoeder geregistreerd."
+
+msgid "%s has one father-in-law recorded."
+msgstr "Voor %s is een schoonvader geregistreerd."
+
+msgid "%s has one parent-in-law of unknown sex recorded."
+msgstr "Voor %s is een schoonouder van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d mother-in-law recorded."
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoonmoeder geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonmoeders geregistreerd."
+
+msgid "%2$s has %1$d father-in-law recorded."
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoonvader geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonvaders geregistreerd."
+
+msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d schoonouder van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonouders van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d father-in-law and "
+msgid_plural "%2$s has %1$d fathers-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d schoonvader en "
+msgstr[1] "Voor %2$s zijn %1$d schoonvaders en "
+
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] "%d schoonmoeder geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonmoeder geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d mother-in-law and "
+msgid_plural "%2$s has %1$d mothers-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d schoonmoeder en "
+msgstr[1] "Voor %2$s zijn %1$d schoonmoeders en "
+
+msgid "%d parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d schoonouder van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonouders van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d father-in-law, "
+msgid_plural "%2$s has %1$d fathers-in-law, "
+msgstr[0] "Voor %2$s zijn %1$d schoonvader, "
+msgstr[1] "Voor %2$s zijn %1$d schoonvaders, "
+
+msgid "%d mother-in-law, and "
+msgid_plural "%d mothers-in-law, and "
+msgstr[0] "%d schoonmoeder en "
+msgstr[1] "%d schoonmoeders en "
+
+msgid "Co-parents-in-law"
+msgstr "Ouders van schoonkinderen"
+
+msgid "%s has no co-parents-in-law recorded."
+msgstr "Voor %s zijn geen ouders van schoonkinderen geregistreerd."
+
+msgid "%s has one co-mother-in-law recorded."
+msgstr "Voor %s is een moeder van schoonkinderen geregistreerd."
+
+msgid "%s has one co-father-in-law recorded."
+msgstr "Voor %s is een vader van schoonkinderen geregistreerd."
+
+msgid "%s has one co-parent-in-law of unknown sex recorded."
+msgstr "Voor %s is een ouder (van onbekend geslacht) van schoonkinderen geregistreerd."
+
+msgid "%2$s has %1$d co-mother-in-law recorded."
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d moeder van schoonkinderen geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d moeders van schoonkinderen geregistreerd."
+
+msgid "%2$s has %1$d co-father-in-law recorded."
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d vader van schoonkinderen geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d vaders van schoonkinderen geregistreerd."
+
+msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d ouder (van onbekend geslacht) van schoonkinderen geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d ouders (van onbekend geslacht) van schoonkinderen geregistreerd."
+
+msgid "%2$s has %1$d co-father-in-law and "
+msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d vader en "
+msgstr[1] "Voor %2$s zijn %1$d vaders en "
+
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] "%d moeder van schoonkinderen geregistreerd (%d in totaal)."
+msgstr[1] "%d moeders van schoonkinderen geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d co-mother-in-law and "
+msgid_plural "%2$s has %1$d co-mothers-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d moeder en "
+msgstr[1] "Voor %2$s zijn %1$d moeders en "
+
+msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d ouder (van onbekend geslacht) van schoonkinderen geregistreerd (%d in totaal)."
+msgstr[1] "%d ouders (van onbekend geslacht) van schoonkinderen geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d co-father-in-law, "
+msgid_plural "%2$s has %1$d co-fathers-in-law, "
+msgstr[0] "Voor %2$s zijn %1$d vader, "
+msgstr[1] "Voor %2$s zijn %1$d vaders, "
+
+msgid "%d co-mother-in-law, and "
+msgid_plural "%d co-mothers-in-law, and "
+msgstr[0] "%d moeder en "
+msgstr[1] "%d moeders en "
+
+msgid "Partners"
+msgstr "Partners"
+
+msgid "Partner of "
+msgstr "Partner van "
+
+msgid "%s has no partners recorded."
+msgstr "Voor %s zijn geen partners geregistreerd."
+
+msgid "%s has one female partner recorded."
+msgstr "Voor %s is een vrouwelijke partner geregistreerd."
+
+msgid "%s has one male partner recorded."
+msgstr "Voor %s is een mannelijke partner geregistreerd."
+
+msgid "%s has one partner of unknown sex recorded."
+msgstr "Voor %s is een partner van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] "Voor %2$s is %1$d vrouwelijke partner geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d vrouwelijke partners geregistreerd."
+
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] "Voor %2$s is %1$d mannelijke partner geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d mannelijke partners geregistreerd."
+
+msgid "%2$s has %1$d partner of unknown sex recorded."
+msgid_plural "%2$s has %1$d partners of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d partner van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d partners van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d male partner and "
+msgid_plural "%2$s has %1$d male partners and "
+msgstr[0] "Voor %2$s zijn %1$d mannelijke partner en "
+msgstr[1] "Voor %2$s zijn %1$d mannelijke partners en "
+
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "Voor %2$s zijn %1$d vrouwelijke partner en "
+msgstr[1] "Voor %2$s zijn %1$d vrouwelijke partners en "
+
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] "%d vrouwelijke partner geregistreerd (%d in totaal)."
+msgstr[1] "%d vrouwelijke partners geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "Voor %2$s zijn %1$d partner en "
+msgstr[1] "Voor %2$s zijn %1$d partners en "
+
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d mannelijke partner van vrouwelijke partners geregistreerd (%d in totaal)."
+msgstr[1] "%d mannelijke partners van vrouwelijke partners geregistreerd (%d in totaal)."
+
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d vrouwelijke partner van mannelijke partners geregistreerd (%d in totaal)."
+msgstr[1] "%d vrouwelijke partners van mannelijke partners geregistreerd (%d in totaal)."
+
+msgid "Partner chains"
+msgstr "Partnerketens"
+
+msgid "%s has no members of a partner chain recorded."
+msgstr "Voor %s zijn geen leden van een partnerketen geregistreerd."
+
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s)."
+msgstr[1] "%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s)."
+
+msgid "%d female partner and "
+msgid_plural "%d female partners and "
+msgstr[0] "%d vrouwelijke partner en "
+msgstr[1] "%d vrouwelijke partners en "
+
+msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s)."
+msgstr[1] "%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s)."
+
+msgid "%2$s has %1$d male partner, "
+msgid_plural "%2$s has %1$d male partners, "
+msgstr[0] "Voor %2$s zijn %1$d mannelijke partner, "
+msgstr[1] "Voor %2$s zijn %1$d mannelijke partners, "
+
+msgid "%d female partner, and "
+msgid_plural "%d female partners, and "
+msgstr[0] "%d vrouwelijke partner en "
+msgstr[1] "%d vrouwelijke partners en "
+
+msgid "There are %d branches in the partner chain. "
+msgstr "Er zijn %d takken in de partnerketen."
+
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
+msgstr "De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s)."
+
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
+msgstr "De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s)."
+
+msgid "Siblings"
+msgstr "Broers en zussen"
+
+msgid "%s has no siblings recorded."
+msgstr "Voor %s zijn geen broers/zussen geregistreerd."
+
+msgid "%s has one sister recorded."
+msgstr "Voor %s is een zus geregistreerd."
+
+msgid "%s has one brother recorded."
+msgstr "Voor %s is een broer geregistreerd."
+
+msgid "%s has one sibling of unknown sex recorded."
+msgstr "Voor %s is een broer/zus van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] "Voor %2$s is %1$d zus geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d zussen geregistreerd."
+
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] "Voor %2$s is %1$d broer geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d broers geregistreerd."
+
+msgid "%2$s has %1$d sibling of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d een broer/zus van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d een broers/zussen van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d brother and "
+msgid_plural "%2$s has %1$d brothers and "
+msgstr[0] "Voor %2$s zijn %1$d broer en "
+msgstr[1] "Voor %2$s zijn %1$d broers en "
+
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] "%d zus geregistreerd (%d in totaal)."
+msgstr[1] "%d zussen geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d sister and "
+msgid_plural "%2$s has %1$d sisters and "
+msgstr[0] "Voor %2$s zijn %1$d zus en "
+msgstr[1] "Voor %2$s zijn %1$d zussen en "
+
+msgid "%d sibling of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings of unknown sex recorded (%d in total)."
+msgstr[0] "%d broer/zus van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d broers/zussen van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d brother, "
+msgid_plural "%2$s has %1$d brothers, "
+msgstr[0] "Voor %2$s zijn %1$d broer, "
+msgstr[1] "Voor %2$s zijn %1$d broers, "
+
+msgid "%d sister, and "
+msgid_plural "%d sisters, and "
+msgstr[0] "%d zus en "
+msgstr[1] "%d zussen en "
+
+msgid "Siblings-in-law"
+msgstr "Zwagers en schoonzussen"
+
+msgid "%s has no siblings-in-law recorded."
+msgstr "Voor %s zijn geen zwagers/schoonzussen geregistreerd."
+
+msgid "%s has one sister-in-law recorded."
+msgstr "Voor %s is een schoonzus geregistreerd."
+
+msgid "%s has one brother-in-law recorded."
+msgstr "Voor %s is een zwager geregistreerd."
+
+msgid "%s has one sibling-in-law of unknown sex recorded."
+msgstr "Voor %s is een zwager/schoonzus van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoonzus geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonzussen geregistreerd."
+
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d zwager geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d zwagers geregistreerd."
+
+msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d zwager/schoonzus van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d zwagers/schoonzussen van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d brother-in-law and "
+msgid_plural "%2$s has %1$d brothers-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d zwager en "
+msgstr[1] "Voor %2$s zijn %1$d zwagers en "
+
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] "%d schoonzus geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonzussen geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d sister-in-law and "
+msgid_plural "%2$s has %1$d sisters-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d schoonzus en "
+msgstr[1] "Voor %2$s zijn %1$d schoonzussen en "
+
+msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d zwager/schoonzus van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d zwagers/schoonzuszen van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d brother-in-law, "
+msgid_plural "%2$s has %1$d brothers-in-law, "
+msgstr[0] "Voor %2$s zijn %1$d zwager, "
+msgstr[1] "Voor %2$s zijn %1$d zwagers, "
+
+msgid "%d sister-in-law, and "
+msgid_plural "%d sisters-in-law, and "
+msgstr[0] "%d schoonzus en "
+msgstr[1] "%d schoonzussen en "
+
+msgid "Co-siblings-in-law"
+msgstr "Broers/zussen/partners van zwagers of schoonzussen"
+
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "Voor %s zijn geen broers/zussen/partners van zwagers/schoonzussen geregistreerd."
+
+msgid "%s has one co-sister-in-law recorded."
+msgstr "Voor %s is een zus/vrouwelijke partner van een zwager/schoonzus geregistreerd."
+
+msgid "%s has one co-brother-in-law recorded."
+msgstr "Voor %s is een broer/mannelijke partner van een zwager/schoonzus geregistreerd."
+
+msgid "%s has one co-sibling-in-law of unknown sex recorded."
+msgstr "Voor %s is een broer/zus/partner (van onbekend geslacht) van een zwager/schoonzus geregistreerd."
+
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d zus/vrouwelijke partner van een zwager/schoonzus geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d zussen/vrouwelijke partners van zwagers/schoonzussen geregistreerd."
+
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d broer/mannelijke partner van een zwager/schoonzus geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d broers/mannelijke partners van zwagers/schoonzussen geregistreerd."
+
+msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d broer/zus/partner (van onbekend geslacht) van een zwager/schoonzus geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d broers/zussen/partners (van onbekend geslacht) van zwagers/schoonzussen geregistreerd."
+
+msgid "%2$s has %1$d co-brother-in-law and "
+msgid_plural "%2$s has %1$d co-brothers-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d broer/mannelijke partner en "
+msgstr[1] "Voor %2$s zijn %1$d broers/mannelijke partners en "
+
+msgid "%d co-sister-in-law recorded (%d in total)."
+msgid_plural "%d co-sisters-in-law recorded (%d in total)."
+msgstr[0] "%d zus/vrouwelijke partner van zwagers/schoonzussen geregistreerd (%d in totaal)."
+msgstr[1] "%d zussen/vrouwelijke partners van zwagers/schoonzussen geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d co-sister-in-law and "
+msgid_plural "%2$s has %1$d co-sisters-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d zus/vrouwelijke partner en "
+msgstr[1] "Voor %2$s zijn %1$d zussen/vrouwelijke partners en "
+
+msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d broer/zus/partner (van onbekend geslacht) van zwagers/schoonzussen geregistreerd (%d in totaal)."
+msgstr[1] "%d broers/zussen/partners (van onbekend geslacht) van zwagers/schoonzussen geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d co-brother-in-law, "
+msgid_plural "%2$s has %1$d co-brothers-in-law, "
+msgstr[0] "Voor %2$s zijn %1$d broer/mannelijke partner, "
+msgstr[1] "Voor %2$s zijn %1$d broers/mannelijke partners, "
+
+msgid "%d co-sister-in-law, and "
+msgid_plural "%d co-sisters-in-law, and "
+msgstr[0] "%d zus/vrouwelijke partner en "
+msgstr[1] "%d zussen/vrouwelijke partners en "
+
+msgid "Cousins"
+msgstr "Volle neven en nichten (kinderen van oom of tante)"
+
+msgid "%s has no first cousins recorded."
+msgstr "Voor %s zijn geen volle neven/nichten geregistreerd."
+
+msgid "%s has one female first cousin recorded."
+msgstr "Voor %s is een volle nicht geregistreerd."
+
+msgid "%s has one male first cousin recorded."
+msgstr "Voor %s is een volle neef geregistreerd."
+
+msgid "%s has one first cousin of unknown sex recorded."
+msgstr "Voor %s is een volle neef/nicht van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] "Voor %2$s is %1$d volle nicht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d volle nichten geregistreerd."
+
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] "Voor %2$s is %1$d volle neef geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d volle neven geregistreerd."
+
+msgid "%2$s has %1$d first cousin of unknown sex recorded."
+msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d volle neef/nicht van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d volle neven/nichten van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d male first cousin and "
+msgid_plural "%2$s has %1$d male first cousins and "
+msgstr[0] "Voor %2$s zijn %1$d volle neef en "
+msgstr[1] "Voor %2$s zijn %1$d volle neven en "
+
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] "%d volle nicht geregistreerd (%d in totaal)."
+msgstr[1] "%d volle nichten geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d female first cousin and "
+msgid_plural "%2$s has %1$d female first cousins and "
+msgstr[0] "Voor %2$s zijn %1$d volle nicht en "
+msgstr[1] "Voor %2$s zijn %1$d volle nichten en "
+
+msgid "%d first cousin of unknown sex recorded (%d in total)."
+msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
+msgstr[0] "%d volle neef/nicht van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d volle neven/nichten van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d male first cousin, "
+msgid_plural "%2$s has %1$d male first cousins, "
+msgstr[0] "Voor %2$s zijn %1$d volle neef, "
+msgstr[1] "Voor %2$s zijn %1$d volle neven, "
+
+msgid "%d female first cousin, and "
+msgid_plural "%d female first cousins, and "
+msgstr[0] "%d volle nicht en "
+msgstr[1] "%d volle nichten en "
+
+msgid "Nephews and Nieces"
+msgstr "Neefjes en nichtjes (kinderen van broer of zus)"
+
+msgid "%s has no nephews or nieces recorded."
+msgstr "Voor %s zijn geen neefjes/nichtjes (kinderen van broer/zus) geregistreerd."
+
+msgid "%s has one niece recorded."
+msgstr "Voor %s is een nichtje geregistreerd."
+
+msgid "%s has one nephew recorded."
+msgstr "Voor %s is een neefje geregistreerd."
+
+msgid "%s has one nephew or niece of unknown sex recorded."
+msgstr "Voor %s is een neefje/nichtje van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d niece recorded."
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "Voor %2$s is %1$d nichtje geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d nichtjes geregistreerd."
+
+msgid "%2$s has %1$d nephew recorded."
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "Voor %2$s is %1$d neefje geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d neefjes geregistreerd."
+
+msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
+msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d neefje/nichtje van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d neefjes/nichtje van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d nephew and "
+msgid_plural "%2$s has %1$d nephews and "
+msgstr[0] "Voor %2$s zijn %1$d neefje en "
+msgstr[1] "Voor %2$s zijn %1$d neefjes en "
+
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] "%d nichtje geregistreerd (%d in totaal)."
+msgstr[1] "%d nichtjes geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d niece and "
+msgid_plural "%2$s has %1$d nieces and "
+msgstr[0] "Voor %2$s zijn %1$d nichtje en "
+msgstr[1] "Voor %2$s zijn %1$d nichtjes en "
+
+msgid "%d nephew or niece of unknown sex recorded (%d in total)."
+msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
+msgstr[0] "%d neefje/nichtje van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d neefjes/nichtjes van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d nephew, "
+msgid_plural "%2$s has %1$d nephews, "
+msgstr[0] "Voor %2$s zijn %1$d neefje, "
+msgstr[1] "Voor %2$s zijn %1$d neefjes, "
+
+msgid "%d niece, and "
+msgid_plural "%d nieces, and "
+msgstr[0] "%d nichtje en "
+msgstr[1] "%d nichtjes en "
+
+msgid "Children"
+msgstr "Kinderen"
+
+msgid "%s has no children recorded."
+msgstr "Voor %s zijn geen kinderen geregistreerd."
+
+msgid "%s has one daughter recorded."
+msgstr "Voor %s is een dochter geregistreerd."
+
+msgid "%s has one son recorded."
+msgstr "Voor %s is een zoon geregistreerd."
+
+msgid "%s has one child of unknown sex recorded."
+msgstr "Voor %s is een kind van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] "Voor %2$s is %1$d dochter geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d dochters geregistreerd."
+
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] "Voor %2$s is %1$d zoon geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d zonen geregistreerd."
+
+msgid "%2$s has %1$d child of unknown sex recorded."
+msgid_plural "%2$s has %1$d children of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d kind van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d kinderen van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d son and "
+msgid_plural "%2$s has %1$d sons and "
+msgstr[0] "Voor %2$s zijn %1$d zoon en "
+msgstr[1] "Voor %2$s zijn %1$d zonen en "
+
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] "%d dochter geregistreerd (%d in totaal)."
+msgstr[1] "%d dochters geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d daughter and "
+msgid_plural "%2$s has %1$d daughters and "
+msgstr[0] "Voor %2$s zijn %1$d dochter en "
+msgstr[1] "Voor %2$s zijn %1$d dochters en "
+
+msgid "%d child of unknown sex recorded (%d in total)."
+msgid_plural "%d children of unknown sex recorded (%d in total)."
+msgstr[0] "%d kind van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d kinderen van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d son, "
+msgid_plural "%2$s has %1$d sons, "
+msgstr[0] "Voor %2$s zijn %1$d zoon, "
+msgstr[1] "Voor %2$s zijn %1$d zonen, "
+
+msgid "%d daughter, and "
+msgid_plural "%d daughters, and "
+msgstr[0] "%d dochter en "
+msgstr[1] "%d dochters en "
+
+msgid "Children-in-law"
+msgstr "Schoonkinderen"
+
+msgid "%s has no children-in-law recorded."
+msgstr "Voor %s zijn geen schoonkinderen geregistreerd."
+
+msgid "%s has one daughter-in-law recorded."
+msgstr "Voor %s is een schoondochter geregistreerd."
+
+msgid "%s has one son-in-law recorded."
+msgstr "Voor %s is een schoonzoon geregistreerd."
+
+msgid "%s has one child-in-law of unknown sex recorded."
+msgstr "Voor %s is een schoonkind van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoondochter geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoondochters geregistreerd."
+
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoonzoon geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonzonen geregistreerd."
+
+msgid "%2$s has %1$d child-in-law recorded."
+msgid_plural "%2$s has %1$d children-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoonkind van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s is %1$d schoonkinderen van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d son-in-law and "
+msgid_plural "%2$s has %1$d sons-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d schoonzoon en "
+msgstr[1] "Voor %2$s zijn %1$d schoonzonen en "
+
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] "%d schoondochter geregistreerd (%d in totaal)."
+msgstr[1] "%d schoondochters geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d daughter-in-law and "
+msgid_plural "%2$s has %1$d daughters-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d schoondochter en "
+msgstr[1] "Voor %2$s zijn %1$d schoondochters en "
+
+msgid "%d child-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d schoonkind van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d son-in-law, "
+msgid_plural "%2$s has %1$d sons-in-law, "
+msgstr[0] "Voor %2$s zijn %1$d schoonzoon, "
+msgstr[1] "Voor %2$s zijn %1$d schoonzonen, "
+
+msgid "%d daughter-in-law, and "
+msgid_plural "%d daughters-in-law, and "
+msgstr[0] "%d schoondochter en "
+msgstr[1] "%d schoondochters en "
+
+msgid "Grandchildren"
+msgstr "Kleinkinderen"
+
+msgid "%s has no grandchildren recorded."
+msgstr "Voor %s zijn geen kleinkinderen geregistreerd."
+
+msgid "%s has one granddaughter recorded."
+msgstr "Voor %s is een kleindochter geregistreerd."
+
+msgid "%s has one grandson recorded."
+msgstr "Voor %s is een kleinzoon geregistreerd."
+
+msgid "%s has one grandchild of unknown sex recorded."
+msgstr "Voor %s is een kleinkind van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] "Voor %2$s is %1$d kleindochter geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d kleindochters geregistreerd."
+
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] "Voor %2$s is %1$d kleinzoon geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d kleinzonen geregistreerd."
+
+msgid "%2$s has %1$d grandchild of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d kleinkind van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d kleinkinderen van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d grandson and "
+msgid_plural "%2$s has %1$d grandsons and "
+msgstr[0] "Voor %2$s zijn %1$d kleinzoon en "
+msgstr[1] "Voor %2$s zijn %1$d kleinzonen en "
+
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] "%d kleindochter geregistreerd (%d in totaal)."
+msgstr[1] "%d kleindochters geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d granddaughter and "
+msgid_plural "%2$s has %1$d granddaughters and "
+msgstr[0] "Voor %2$s zijn %1$d kleindochter en "
+msgstr[1] "Voor %2$s zijn %1$d kleindochters en "
+
+msgid "%d grandchild of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
+msgstr[0] "%d kleinkind van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d kleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d grandson, "
+msgid_plural "%2$s has %1$d grandsons, "
+msgstr[0] "Voor %2$s zijn %1$d kleinzoon, "
+msgstr[1] "Voor %2$s zijn %1$d kleinzonen, "
+
+msgid "%d granddaughter, and "
+msgid_plural "%d granddaughters, and "
+msgstr[0] "%d kleindochter en "
+msgstr[1] "%d kleindochters en "
+
+msgid "Grandchildren-in-law"
+msgstr "Schoonkleinkinderen"
+
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "Voor %s zijn geen schoonkleinkinderen geregistreerd."
+
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "Voor %s is een schoonkleindochter geregistreerd."
+
+msgid "%s has one grandson-in-law recorded."
+msgstr "Voor %s is een schoonkleinzoon geregistreerd."
+
+msgid "%s has one grandchild-in-law of unknown sex recorded."
+msgstr "Voor %s is een schoonkleinkind van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoonkleindochter geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonkleindochters geregistreerd."
+
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoonkleinzoon geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen geregistreerd."
+
+msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d schoonkleinkind van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonkleinkinderen van onbekend geslacht geregistreerd."
+
+msgid "%2$s has %1$d grandson-in-law and "
+msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d schoonkleinzoon en "
+msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen en "
+
+msgid "%d granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgstr[0] "%d schoonkleindochter geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonkleindochters geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d granddaughter-in-law and "
+msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgstr[0] "Voor %2$s zijn %1$d schoonkleindochter en "
+msgstr[1] "Voor %2$s zijn %1$d schoonkleindochters en "
+
+msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d schoonkleinkind van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+
+msgid "%2$s has %1$d grandson-in-law, "
+msgid_plural "%2$s has %1$d grandsons-in-law, "
+msgstr[0] "Voor %2$s zijn %1$d schoonkleinzoon, "
+msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen, "
+
+msgid "%d granddaughter-in-law, and "
+msgid_plural "%d granddaughters-in-law, and "
+msgstr[0] "%d schoonkleindochter en "
+msgstr[1] "%d schoonkleindochters en "

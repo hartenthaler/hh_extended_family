@@ -1,0 +1,1723 @@
+msgid ""
+msgstr ""
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+
+msgid "Extended family"
+msgstr "Širší rodina"
+
+msgid "A tab showing the extended family of an individual."
+msgstr "Panel širší rodiny dané osoby (probanda)."
+
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "V jakém pořadí se skupiny širší rodiny zobrazí?"
+
+msgid "Family part (generation relative to proband)"
+msgstr "Skupina širší rodiny (generace vzhledem k probandovi)"
+
+msgid "Show name of proband as short name or as full name?"
+msgstr "Má se jméno probanta zobrazit jako zkrácené jméno, nebo jako úplné jméno?"
+
+msgid "Show options to filter the results?"
+msgstr "Mají se zobrazit filtry výsledků?"
+
+msgid "Show filter options"
+msgstr "Zobrazit filtry"
+
+msgid "How should empty parts of extended family be presented?"
+msgstr "Jak se mají zobrazit prázdné skupiny (bloky) širší rodiny?"
+
+msgid "Show empty block"
+msgstr "Zobrazit prázdné bloky"
+
+msgid "yes, always at standard location"
+msgstr "ano, vždy na obvyklém místě"
+
+msgid "no, but collect messages about empty blocks at the summary block"
+msgstr "ne, ale uvést prázdné bloky v bloku souhrnu"
+
+msgid "never"
+msgstr "nikdy"
+
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "Za zkrácené probantovo jméno se vezme domácké jméno nebo přezdívka. Pokud neexistuje, vezme se první křestní jméno, je-li k dispozici. Pokud ani to ne, vezme se příjmení."
+
+msgid "Show short name"
+msgstr "Zobrazovat zkrácené jméno"
+
+msgid "Show labels in special situations?"
+msgstr "Mají se zobrazovat štítky pro zvláštní situace?"
+
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "Štítky se zobrazí např. pro adoptované osoby nebo děti v pěstounské péči. "
+
+msgid "Show labels"
+msgstr "Zobrazovat štítky"
+
+msgid "Use the compact design?"
+msgstr "Má se použít kompaktní vzhled?"
+
+msgid "Use the compact design"
+msgstr "Použít kompaktní vzhled"
+
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "V kompaktním vzhledu se u osob zobrazuje jen jméno a životní letopočty. V obohaceném vzhledu se zobrazí také foto (pokud je pro daný strom aktivováno) a údaje o narození a úmrtí."
+
+msgid "Show parameters of extended family part?"
+msgstr "Mají se zobrazit parametry skupin širší rodiny?"
+
+msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
+msgstr "Zobrazovat doplňující informace ke každé skupině širší rodiny, jako jsou posun generací a koeficient příbuznosti, který je mírou pokrevního příbuzenství."
+
+msgid "Show parameters"
+msgstr "Zobrazovat parametry"
+
+msgid "This allows a user to filter the members of the extended family by gender and if they are alive or dead."
+msgstr "Toto umožňuje filtrovat členy širší rodiny podle pohlaví a jsou-li živí či po smrti."
+
+msgid "Should a summary block be shown?"
+msgstr "Má se zobrazovat blok souhrnu?"
+
+msgid "The summary contains information about the extended family in total."
+msgstr "Souhrn obsahuje celkové informace o širší rodině."
+
+msgid "Show summary"
+msgstr "Zobrazovat souhrn"
+
+msgid "Count the members of the partner chains as members of the extended family?"
+msgstr "Počítat členy partnerských řetězců za členy širší rodiny?"
+
+msgid "If you select \"no\", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family."
+msgstr "Volba \"ne\" způsobí, že členové partnerských řetězců se nezapočítají do celkového počtu osob v širší rodině."
+
+msgid "And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart."
+msgstr "A tyto osoby a rodiny se nezahrnou do kopie širší rodiny do schránky výstřižků."
+
+msgid "But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module \"enhanced clippings cart\": \"add partner chains for an individual\"."
+msgstr "Přesto však je možno zkopírovat tyto osoby a rodiny do schránky výstřižků pomocí dodatkového modulu \"vylepšené výstřižky\" zvolením \"přidat partnerské řetězce osoby\"."
+
+msgid "This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family."
+msgstr "Toto se ale vztahuje jen na případ, kdy je zobrazování partnerských řetězců jako skupiny širší rodiny povoleno (v tabulce výše)."
+
+msgid "Include them"
+msgstr "Počítat je"
+
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr "Zobrazovat tlačítko \"kopírovat do schránky výstřižků\"?"
+
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr "To umožní zkopírovat všechny členy širší rodiny do schránky výstřižků."
+
+msgid "Show button"
+msgstr "Zobrazovat tlačítko"
+
+msgid "generation +%s"
+msgstr "generace +%s"
+
+msgid "same generation"
+msgstr "stejná generace"
+
+msgid "generation %s"
+msgstr "generace %s"
+
+msgid "relationship coefficient: %.1f"
+msgstr "Koeficient příbuznosti: %.1f"
+
+msgid "no blood relationship"
+msgstr "nepokrevní příbuzenství"
+
+msgid "don't use this filter"
+msgstr "tento filtr nepoužívat"
+
+msgid "show only male persons"
+msgstr "zobrazit pouze osoby mužského pohlaví"
+
+msgid "show only female persons"
+msgstr "zobrazit pouze osoby ženského pohlaví"
+
+msgid "show only persons of other or unknown gender"
+msgstr "zobrazit pouze osoby neznámého pohlaví"
+
+msgid "show only alive persons"
+msgstr "zobrazit pouze žijící osoby"
+
+msgid "show only dead persons"
+msgstr "zobrazit pouze zemřelé osoby"
+
+msgid "alive"
+msgstr "žijící"
+
+msgid "dead"
+msgstr "zemřelí"
+
+msgid "a dead person"
+msgstr "zemřelá osoba"
+
+msgid "a living person"
+msgstr "žijící osoba"
+
+msgid "not a male person"
+msgstr "osoba nikoliv mužského pohlaví"
+
+msgid "not a female person"
+msgstr "osoba nikoliv ženského pohlaví"
+
+msgid "not a person of unknown gender"
+msgstr "osoba nikoliv neznámého pohlaví"
+
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "kopírovat všechny členy širší rodiny do schránky výstřižků"
+
+msgid "copy to clippings cart"
+msgstr "kopírovat do schránky výstřižků"
+
+msgid "twin"
+msgstr "dvojče"
+
+msgid "triplet"
+msgstr "trojče"
+
+msgid "quadruplet"
+msgstr "čtyřče"
+
+msgid "quintuplet"
+msgstr "paterče"
+
+msgid "sextuplet"
+msgstr "šesterče"
+
+msgid "septuplet"
+msgstr "sedmerče"
+
+msgid "octuplet"
+msgstr "osmerče"
+
+msgid "nonuplet"
+msgstr "devaterče"
+
+msgid "decuplet"
+msgstr "desaterče"
+
+msgid "stillborn"
+msgstr "mrtvě narozený/á"
+
+msgid "died as infant"
+msgstr "zemřela/a jako nemluvně"
+
+msgid "linkage challenged"
+msgstr "vztah sporný"
+
+msgid "linkage disproven"
+msgstr "vztah vyvrácený"
+
+msgid "linkage proven"
+msgstr "vztah prokázaný"
+
+msgid "Marriage"
+msgstr "Manželství"
+
+msgid "Ex-marriage"
+msgstr "Rozvedené manželství"
+
+msgid "Partnership"
+msgstr "Partnerství"
+
+msgid "Fiancée"
+msgstr "Zasnoubení"
+
+msgid " with "
+msgstr " s osobou "
+
+msgid "Biological grandparents of father"
+msgstr "Vlastní prarodiče otce"
+
+msgid "Biological grandparents of mother"
+msgstr "Vlastní prarodiče matky"
+
+msgid "Biological grandparents of parent"
+msgstr "Vlastní prarodiče rodiče"
+
+msgid "Stepparents of biological parent of father"
+msgstr "Nevlastní rodiče vlastního rodiče otce"
+
+msgid "Stepparents of biological parent of mother"
+msgstr "Nevlastní rodiče vlastního rodiče matky"
+
+msgid "Stepparents of biological grandparent"
+msgstr "Nevlastní rodiče vlastního prarodiče"
+
+msgid "Parents of stepparent of father"
+msgstr "Rodiče nevlastního rodiče otce"
+
+msgid "Parents of stepparent of mother"
+msgstr "Rodiče nevlastního rodiče matky"
+
+msgid "Parents of stepparent of parent"
+msgstr "Rodiče nevlastního rodiče rodiče"
+
+msgid "Grandparents of stepparent"
+msgstr "Prarodiče nevlastního rodiče"
+
+msgid "Biological great-grandparents"
+msgstr "Vlastní praprarodiče"
+
+msgid "Biological parents of father"
+msgstr "Vlastní rodiče otce"
+
+msgid "Biological parents of mother"
+msgstr "Vlastní rodiče matky"
+
+msgid "Biological parents of parent"
+msgstr "Vlastní rodiče jednoho z rodičů"
+
+msgid "Stepparents of father"
+msgstr "Nevlastní rodiče otce"
+
+msgid "Stepparents of mother"
+msgstr "Nevlastní rodiče matky"
+
+msgid "Stepparents of parent"
+msgstr "Nevlastní rodiče rodiče"
+
+msgid "Parents of stepparent"
+msgstr "Rodiče nevlastního rodiče"
+
+msgid "Biological grandparents"
+msgstr "Vlastní prarodiče"
+
+msgid "Siblings of father"
+msgstr "Sourozenci otce"
+
+msgid "Siblings of mother"
+msgstr "Sourozenci matky"
+
+msgid "Full siblings of biological parents"
+msgstr "Vlastní sourozenci vlastních rodičů"
+
+msgid "Siblings-in-law of father"
+msgstr "Švagři a švagrové otce"
+
+msgid "Siblings-in-law of mother"
+msgstr "Švagři a švagrové matky"
+
+msgid "Biological parents"
+msgstr "Vlastní rodiče"
+
+msgid "Stepparents"
+msgstr "Nevlastní rodiče"
+
+msgid "Parents-in-law of biological children"
+msgstr "Tcháni a tchyně vlastních dětí"
+
+msgid "Parents-in-law of stepchildren"
+msgstr "Tcháni a tchyně nevlastních dětí"
+
+msgid "Full siblings"
+msgstr "Plnorodí sourozenci"
+
+msgid "Half siblings"
+msgstr "Polorodí sourozenci"
+
+msgid "Stepsiblings"
+msgstr "Nevlastní sourozenci"
+
+msgid "Children of full siblings of father"
+msgstr "Děti plnorodých sourozenců otce"
+
+msgid "Children of full siblings of mother"
+msgstr "Děti plnorodých sourozenců matky"
+
+msgid "Children of full siblings of parent"
+msgstr "Děti plnorodých sourozenců jednoho rodiče"
+
+msgid "Children of half siblings of father"
+msgstr "Děti polorodých sourozenců otce"
+
+msgid "Children of half siblings of mother"
+msgstr "Děti polorodých sourozenců matky"
+
+msgid "Children of half siblings of parent"
+msgstr "Děti polorodých sourozenců jednoho rodiče"
+
+msgid "Siblings of partners"
+msgstr "Sourozenci partnerů"
+
+msgid "Partners of siblings"
+msgstr "Partneři sourozenců"
+
+msgid "Siblings of siblings-in-law"
+msgstr "Sourozenci švagrů a švagrových"
+
+msgid "Partners of siblings-in-law"
+msgstr "Partneři švagrů a švagrových"
+
+msgid "Children of full siblings of biological parents"
+msgstr "Děti plnorodých sourozenců vlastních rodičů"
+
+msgid "Children of siblings"
+msgstr "Děti sourozenců"
+
+msgid "Children of full siblings"
+msgstr "Děti plnorodých sourozenců"
+
+msgid "Siblings' stepchildren"
+msgstr "Nevlastní děti sourozenců"
+
+msgid "Children of siblings of partners"
+msgstr "Děti sourozenců partnerů"
+
+msgid "Biological children"
+msgstr "Vlastní děti"
+
+msgid "Stepchildren"
+msgstr "Nevlastní děti"
+
+msgid "Stepchild"
+msgstr "Nevlastní dítě"
+
+msgid "Stepson"
+msgstr "Nevlastní syn"
+
+msgid "Stepdaughter"
+msgstr "Nevlastní dcera"
+
+msgid "Partners of biological children"
+msgstr "Partneři vlastních dětí"
+
+msgid "Partners of stepchildren"
+msgstr "Partneři nevlastních dětí"
+
+msgid "Biological grandchildren"
+msgstr "Vlastní vnoučata"
+
+msgid "Stepchildren of children"
+msgstr "Nevlastní děti dětí"
+
+msgid "Children of stepchildren"
+msgstr "Děti nevlastních dětí"
+
+msgid "Stepchildren of stepchildren"
+msgstr "Nevlastní děti nevlastních dětí"
+
+msgid "Partners of biological grandchildren"
+msgstr "Partneři vlastních vnoučat"
+
+msgid "Partners of stepchildren of children"
+msgstr "Partneři nevlastních dětí vlastních dětí"
+
+msgid "Partners of children of stepchildren"
+msgstr "Partneři dětí nevlastních dětí"
+
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Partneři nevlastních dětí nevlastních dětí"
+
+msgid "He"
+msgstr "On"
+
+msgid "She"
+msgstr "Ona"
+
+msgid "He/she"
+msgstr "On/ona"
+
+msgid "Mr."
+msgstr "Pan"
+
+msgid "Mrs."
+msgstr "Paní"
+
+msgid "No family available"
+msgstr "Rodina chybí"
+
+msgid "Summary for the shown extended family"
+msgstr "Souhrn zobrazené širší rodiny"
+
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "Širší rodina osoby '%1$s' má jednoho člena."
+msgstr[1] "Širší rodina osoby '%1$s' má %2$d členy (včetně osoby '%1$s')."
+msgstr[2] "Širší rodina osoby '%1$s' má %2$d členů (včetně osoby '%1$s')."
+
+msgid "(additional members of the partner chains are not counted)"
+msgstr "(Členové partnerských řetězců nejsou započteni.)"
+
+msgid "Some of them are member in more than one part of the extended family."
+msgstr "Někteří jsou členy více než jedné skupiny širší rodiny."
+
+msgid "%s has no %s recorded."
+msgstr "%s nemá zaznamenanou skupinu %s."
+
+msgid "%s has no %s, and no %s recorded."
+msgstr "Osoba '%s' nemá zaznamenané skupiny %s ani skupinu %s."
+
+msgid "Father's family (%d)"
+msgstr "Otcova rodina (%d)"
+
+msgid "Mother's family (%d)"
+msgstr "Matčina rodina (%d)"
+
+msgid "Father's and Mother's family (%d)"
+msgstr "Otcova a matčina rodina (%d)"
+
+msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
+msgstr "Prarodiče %1$s (%2$s) nevlastního otce %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
+msgstr "Prarodiče %1$s (%2$s) nevlastní matky %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
+msgstr "Prarodiče %1$s (%2$s) nevlastního rodiče %3$s"
+
+msgid "Stepparents %1$s (%2$s) of %3$s"
+msgstr "Nevlastní rodiče %1$s (%2$s) osoby '%3$s'"
+
+msgid "Parents %1$s (%2$s) of stepfather %3$s"
+msgstr "Rodiče %1$s (%2$s) nevlastního otce %3$s"
+
+msgid "Parents %1$s (%2$s) of stepmother %3$s"
+msgstr "Rodiče %1$s (%2$s) nevlastní matky %3$s"
+
+msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgstr "Rodiče %1$s (%2$s) nevlastního rodiče %3$s"
+
+msgid "Parents %1$s of %2$s"
+msgstr "Rodiče %1$s osoby '%2$s'"
+
+msgid "Parents %1$s (%2$s) of %3$s"
+msgstr "Rodiče %1$s (%2$s) osoby '%3$s'"
+
+msgid "Partners of %s"
+msgstr "Partneři osoby '%s'"
+
+msgid "Brother %1$s of partner %2$s"
+msgstr "Bratr %1$s partnera %2$s"
+
+msgid "Sister %1$s of partner %2$s"
+msgstr "Sestra %1$s partnera %2$s"
+
+msgid "Sibling %1$s of partner %2$s"
+msgstr "Sourozenec %1$s partnera %2$s"
+
+msgid "Great-grandparents"
+msgstr "Praprarodiče"
+
+msgid "%s has no great-grandparents recorded."
+msgstr "%s nemá zaznamenané žádné praprarodiče."
+
+msgid "%s has one great-grandmother recorded."
+msgstr "%s má zaznamenanou jednu prabábu."
+
+msgid "%s has one great-grandfather recorded."
+msgstr "%s má zaznamenaného jednoho praděda."
+
+msgid "%s has one great-grandparent of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho praprarodiče neznámého pohlaví."
+
+msgid "%2$s has %1$d great-grandmother recorded."
+msgid_plural "%2$s has %1$d great-grandmothers recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d prabábu."
+msgstr[1] "%2$s má zaznamenané %1$d prabáby."
+msgstr[2] "%2$s má zaznamenaných %1$d prabab."
+
+msgid "%2$s has %1$d great-grandfather recorded."
+msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d praděda."
+msgstr[1] "%2$s má zaznamenané %1$d pradědy."
+msgstr[2] "%2$s má zaznamenaných %1$d pradědů."
+
+msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d praprarodiče neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d praprarodiče neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d praprarodičú neznámého pohlaví."
+
+msgid "%2$s has %1$d great-grandfather and "
+msgid_plural "%2$s has %1$d great-grandfathers and "
+msgstr[0] "%2$s má zaznamenaného %1$d praděda a "
+msgstr[1] "%2$s má zaznamenané %1$d pradědy a "
+msgstr[2] "%2$s má zaznamenaných %1$d pradědů a "
+
+msgid "%d great-grandmother recorded (%d in total)."
+msgid_plural "%d great-grandmothers recorded (%d in total)."
+msgstr[0] "%d prabábu (celkem %d)."
+msgstr[1] "%d prabáby (celkem %d)."
+msgstr[2] "%d prabab (celkem %d)."
+
+msgid "%2$s has %1$d great-grandmother and "
+msgid_plural "%2$s has %1$d great-grandmothers and "
+msgstr[0] "%2$s má zaznamenanou %1$d prabábu a "
+msgstr[1] "%2$s má zaznamenané %1$d prabáby a "
+msgstr[2] "%2$s má zaznamenaných %1$d prabab a "
+
+msgid "%d great-grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d praprarodiče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d praprarodiče neznámého pohlaví (celkem %d)."
+msgstr[2] "%d praprarodičů neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d great-grandfather, "
+msgid_plural "%2$s has %1$d great-grandfathers, "
+msgstr[0] "%2$s má %1$d praděda, "
+msgstr[1] "%2$s má %1$d pradědy, "
+msgstr[2] "%2$s má %1$d pradědů, "
+
+msgid "%d great-grandmother, and "
+msgid_plural "%d great-grandmothers, and "
+msgstr[0] "%d prabábu, a "
+msgstr[1] "%d prabáby, a "
+msgstr[2] "%d prabab, a "
+
+msgid "Grandparents"
+msgstr "Prarodiče"
+
+msgid "%s has no grandparents recorded."
+msgstr "%s nemá zaznamenané žádné prarodiče."
+
+msgid "%s has one grandmother recorded."
+msgstr "%s má zaznamenanou jednu bábu."
+
+msgid "%s has one grandfather recorded."
+msgstr "%s má zaznamenaného jednoho děda."
+
+msgid "%s has one grandparent of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho prarodiče neznámého pohlaví."
+
+msgid "%2$s has %1$d grandmother recorded."
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d bábu."
+msgstr[1] "%2$s má zaznamenané %1$d báby."
+msgstr[2] "%2$s má zaznamenaných %1$d bab."
+
+msgid "%2$s has %1$d grandfather recorded."
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d děda."
+msgstr[1] "%2$s má zaznamenané %1$d dědy."
+msgstr[2] "%2$s má zaznamenaných %1$d dědů."
+
+msgid "%2$s has %1$d grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d prarodiče neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d prarodiče neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d prarodičú neznámého pohlaví."
+
+msgid "%2$s has %1$d grandfather and "
+msgid_plural "%2$s has %1$d grandfathers and "
+msgstr[0] "%2$s má zaznamenaného %1$d děda a "
+msgstr[1] "%2$s má zaznamenané %1$d dědy a "
+msgstr[2] "%2$s má zaznamenaných %1$d dědů a "
+
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] "%d bábu (celkem %d)."
+msgstr[1] "%d báby (celkem %d)."
+msgstr[2] "%d bab (celkem %d)."
+
+msgid "%2$s has %1$d grandmother and "
+msgid_plural "%2$s has %1$d grandmothers and "
+msgstr[0] "%2$s má zaznamenanou %1$d bábu a "
+msgstr[1] "%2$s má zaznamenané %1$d báby a "
+msgstr[2] "%2$s má zaznamenaných %1$d bab a "
+
+msgid "%d grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d prarodiče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d prarodiče neznámého pohlaví (celkem %d)."
+msgstr[2] "%d prarodičů neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d grandfather, "
+msgid_plural "%2$s has %1$d grandfathers, "
+msgstr[0] "%2$s má %1$d děda, "
+msgstr[1] "%2$s má %1$d dědy, "
+msgstr[2] "%2$s má %1$d dědů, "
+
+msgid "%d grandmother, and "
+msgid_plural "%d grandmothers, and "
+msgstr[0] "%d bábu, a "
+msgstr[1] "%d báby, a "
+msgstr[2] "%d bab, a "
+
+msgid "Uncles and Aunts"
+msgstr "Strýcové a tety"
+
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s zde nemá zaznamenané žádné strýce ani tety."
+
+msgid "%s has one aunt recorded."
+msgstr "%s má zaznamenanou jednu tetu."
+
+msgid "%s has one uncle recorded."
+msgstr "%s má zaznamenaného jednoho strýce."
+
+msgid "%s has one uncle or aunt of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho strýce nebo jednu tetu neznámého pohlaví."
+
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d tetu."
+msgstr[1] "%2$s má zaznamenané %1$d tety."
+msgstr[2] "%2$s má zaznamenaných %1$d tet."
+
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d strýce."
+msgstr[1] "%2$s má zaznamenané %1$d strýce."
+msgstr[2] "%2$s má zaznamenaných %1$d strýců."
+
+msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d strýce nebo tetu neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d strýce nebo tety neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d strýců nebo tet neznámého pohlaví."
+
+msgid "%2$s has %1$d uncle and "
+msgid_plural "%2$s has %1$d uncles and "
+msgstr[0] "%2$s má zaznamenaného %1$d strýce a "
+msgstr[1] "%2$s má zaznamenané %1$d strýce a "
+msgstr[2] "%2$s má zaznamenaných %1$d strýců a "
+
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] "%d tetu (celkem %d)."
+msgstr[1] "%d tety (celkem %d)."
+msgstr[2] "%d tet (celkem %d)."
+
+msgid "%2$s has %1$d aunt and "
+msgid_plural "%2$s has %1$d aunts and "
+msgstr[0] "%2$s má zaznamenanou %1$d tetu a "
+msgstr[1] "%2$s má zaznamenané %1$d tety a "
+msgstr[2] "%2$s má zaznamenaných %1$d tet a "
+
+msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
+msgstr[0] "%d strýce nebo tetu neznámého pohlaví (celkem %d)."
+msgstr[1] "%d strýce nebo tety neznámého pohlaví (celkem %d)."
+msgstr[2] "%d strýců nebo tet neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d uncle, "
+msgid_plural "%2$s has %1$d uncles, "
+msgstr[0] "%2$s má %1$d strýce, "
+msgstr[1] "%2$s má %1$d strýce, "
+msgstr[2] "%2$s má %1$d strýců, "
+
+msgid "%d aunt, and "
+msgid_plural "%d aunts, and "
+msgstr[0] "%d tetu, a "
+msgstr[1] "%d tety, a "
+msgstr[2] "%d tet, a "
+
+msgid "Uncles and Aunts by marriage"
+msgstr "Vyženění/vyvdaní strýcové a tety"
+
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s nemá zaznamenané žádné vyženěné/vyvdané strýce ani tety."
+
+msgid "%s has one aunt by marriage recorded."
+msgstr "%s má zaznamenanou jednu vyženěnou/vyvdanou tetu."
+
+msgid "%s has one uncle by marriage recorded."
+msgstr "%s má zaznamenaného jednoho vyženěného/vyvdaného strýce."
+
+msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho vyženěného/vyvdaného strýce nebo jednu vyženěnou/vyvdanou tetu naznámého pohlaví."
+
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d vyženěnou/vyvdanou tetu."
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané tety."
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných tet."
+
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce."
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané strýce."
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců."
+
+msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce nebo vyženěnou/vyvdanou tetu neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané strýce nebo vyženěné/vyvdané tety neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců nebo vyženěných/vyvdaných tet neznámého pohlaví."
+
+msgid "%2$s has %1$d uncle by marriage and "
+msgid_plural "%2$s has %1$d uncles by marriage and "
+msgstr[0] "%2$s má zaznamenaného %1$d vyženěného/vyvdaného strýce a "
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané strýce a "
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných strýců a "
+
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] "%d vyženěnou/vyvdanou tetu (celkem %d)."
+msgstr[1] "%d vyženěné/vyvdané tety (celkem %d)."
+msgstr[2] "%d vyženěných/vyvdaných tet (celkem %d)."
+
+msgid "%2$s has %1$d aunt by marriage and "
+msgid_plural "%2$s has %1$d aunts by marriage and "
+msgstr[0] "%2$s má zaznamenanou %1$d vyženěnou/vyvdanou tetu a "
+msgstr[1] "%2$s má zaznamenané %1$d vyženěné/vyvdané tety a "
+msgstr[2] "%2$s má zaznamenaných %1$d vyženěných/vyvdaných tet a "
+
+msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+msgstr[0] "%d vyženěného/vyvdaného strýce nebo tetu neznámého pohlaví (celkem %d)."
+msgstr[1] "%d vyženěné/vyvdané strýce nebo tety neznámého pohlaví (celkem %d)."
+msgstr[2] "%d vyženěných/vyvdaných strýců nebo tet neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d uncle by marriage, "
+msgid_plural "%2$s has %1$d uncles by marriage, "
+msgstr[0] "%2$s má %1$d vyženěného/vyvdaného strýce, "
+msgstr[1] "%2$s má %1$d vyženěné/vyvdané strýce, "
+msgstr[2] "%2$s má %1$d vyženěných/vyvdaných strýců, "
+
+msgid "%d aunt by marriage, and "
+msgid_plural "%d aunts by marriage, and "
+msgstr[0] "%d vyženěnou/vyvdanou tetu, a "
+msgstr[1] "%d vyženěné/vyvdané tety, a "
+msgstr[2] "%d vyženěných/vyvdaných tet, a "
+
+msgid "Parents"
+msgstr "Rodiče"
+
+msgid "%s has no parents recorded."
+msgstr "%s nemá zaznamenané žádné rodiče."
+
+msgid "%s has one mother recorded."
+msgstr "%s má zaznamenanou jednu matku."
+
+msgid "%s has one father recorded."
+msgstr "%s má zaznamenaného jednoho otce."
+
+msgid "%s has one parent of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho rodiče neznámého pohlaví."
+
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d matku."
+msgstr[1] "%2$s má zaznamenané %1$d matky."
+msgstr[2] "%2$s má zaznamenaných %1$d matek."
+
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d otce."
+msgstr[1] "%2$s má zaznamenané %1$d otce."
+msgstr[2] "%2$s má zaznamenaných %1$d otců."
+
+msgid "%2$s has %1$d father and "
+msgid_plural "%2$s has %1$d fathers and "
+msgstr[0] "%2$s má zaznamenaného %1$d otce a "
+msgstr[1] "%2$s má zaznamenané %1$d otce a "
+msgstr[2] "%2$s má zaznamenaných %1$d otců a "
+
+msgid "%2$s has %1$d parent of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d rodiče neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d rodiče neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d rodičú neznámého pohlaví."
+
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] "%d matku (celkem %d)."
+msgstr[1] "%d matky (celkem %d)."
+msgstr[2] "%d matek (celkem %d)."
+
+msgid "%2$s has %1$d mother and "
+msgid_plural "%2$s has %1$d mothers and "
+msgstr[0] "%2$s má zaznamenanou %1$d matku a "
+msgstr[1] "%2$s má zaznamenané %1$d matky a "
+msgstr[2] "%2$s má zaznamenaných %1$d matek a "
+
+msgid "%d parent of unknown sex recorded (%d in total)."
+msgid_plural "%d parents of unknown sex recorded (%d in total)."
+msgstr[0] "%d rodiče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d rodiče neznámého pohlaví (celkem %d)."
+msgstr[2] "%d rodičů neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d father, "
+msgid_plural "%2$s has %1$d fathers, "
+msgstr[0] "%2$s má %1$d otce, "
+msgstr[1] "%2$s má %1$d otce, "
+msgstr[2] "%2$s má %1$d otců, "
+
+msgid "%d mother, and "
+msgid_plural "%d mothers, and "
+msgstr[0] "%d matku, a "
+msgstr[1] "%d matky, a "
+msgstr[2] "%d matek, a "
+
+msgid "Parents-in-law"
+msgstr "Tcháni a tchyně"
+
+msgid "%s has no parents-in-law recorded."
+msgstr "%s zde nemá zaznamenaného žádného tchána ani tchyni."
+
+msgid "%s has one mother-in-law recorded."
+msgstr "%s má zaznamenanou jednu tchyni."
+
+msgid "%s has one father-in-law recorded."
+msgstr "%s má zaznamenaného jednoho tchána."
+
+msgid "%s has one parent-in-law of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho tchána či tchyni neznámého pohlaví."
+
+msgid "%2$s has %1$d mother-in-law recorded."
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d tchyni."
+msgstr[1] "%2$s má zaznamenané %1$d tchyně."
+msgstr[2] "%2$s má zaznamenaných %1$d tchyní."
+
+msgid "%2$s has %1$d father-in-law recorded."
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d tchána."
+msgstr[1] "%2$s má zaznamenané %1$d tchány."
+msgstr[2] "%2$s má zaznamenaných %1$d tchánů."
+
+msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d tchána či tchyni neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d tchány či tchyně neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d tchánů či tchyní neznámého pohlaví."
+
+msgid "%2$s has %1$d father-in-law and "
+msgid_plural "%2$s has %1$d fathers-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d tchána a "
+msgstr[1] "%2$s má zaznamenané %1$d tchány a "
+msgstr[2] "%2$s má zaznamenaných %1$d tchánů a "
+
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] "%d tchyni (celkem %d)."
+msgstr[1] "%d tchyně (celkem %d)."
+msgstr[2] "%d tchyní (celkem %d)."
+
+msgid "%2$s has %1$d mother-in-law and "
+msgid_plural "%2$s has %1$d mothers-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d tchyni a "
+msgstr[1] "%2$s má zaznamenané %1$d tchyně a "
+msgstr[2] "%2$s má zaznamenaných %1$d tchyní a "
+
+msgid "%d parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d tchána či tchyni neznámého pohlaví (celkem %d)."
+msgstr[1] "%d tchány či tchyně neznámého pohlaví (celkem %d)."
+msgstr[2] "%d tchánů či tchyní neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d father-in-law, "
+msgid_plural "%2$s has %1$d fathers-in-law, "
+msgstr[0] "%2$s má %1$d tchána, "
+msgstr[1] "%2$s má %1$d tchány, "
+msgstr[2] "%2$s má %1$d tchánů, "
+
+msgid "%d mother-in-law, and "
+msgid_plural "%d mothers-in-law, and "
+msgstr[0] "%d tchyni, a "
+msgstr[1] "%d tchyně, a "
+msgstr[2] "%d tchyní, a "
+
+msgid "Co-parents-in-law"
+msgstr "Tcháni a tchyně dětí (spolutcháni a spolutchyně)"
+
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s nemá zaznamenané žádné spolutchány ani spolutchyně."
+
+msgid "%s has one co-mother-in-law recorded."
+msgstr "%s má zaznamenanou jednu spolutchyni."
+
+msgid "%s has one co-father-in-law recorded."
+msgstr "%s má zaznamenaného jednoho spolutchána."
+
+msgid "%s has one co-parent-in-law of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho spolutchána či spolutchyni neznámého pohlaví."
+
+msgid "%2$s has %1$d co-mother-in-law recorded."
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d spolutchyni."
+msgstr[1] "%2$s má zaznamenané %1$d spolutchyně."
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchyní."
+
+msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d spolutchána či spolutchyni neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d spolutchány či spolutchyně neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchánů či spolutchyní neznámého pohlaví."
+
+msgid "%2$s has %1$d co-father-in-law recorded."
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d spolutchána."
+msgstr[1] "%2$s má zaznamenané %1$d spolutchány."
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchánů."
+
+msgid "%2$s has %1$d co-father-in-law and "
+msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d spolutchána a "
+msgstr[1] "%2$s má zaznamenané %1$d spolutchány a "
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchánů a "
+
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] "%d spolutchyni (celkem %d)."
+msgstr[1] "%d spolutchyně (celkem %d)."
+msgstr[2] "%d spolutchyní (celkem %d)."
+
+msgid "%2$s has %1$d co-mother-in-law and "
+msgid_plural "%2$s has %1$d co-mothers-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d spolutchyni a "
+msgstr[1] "%2$s má zaznamenané %1$d spolutchyně a "
+msgstr[2] "%2$s má zaznamenaných %1$d spolutchyní a "
+
+msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d spolutchána či spolutchyni neznámého pohlaví (celkem %d)."
+msgstr[1] "%d spolutchány či spolutchyně neznámého pohlaví (celkem %d)."
+msgstr[2] "%d spolutchánů či spolutchyní neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d co-father-in-law, "
+msgid_plural "%2$s has %1$d co-fathers-in-law, "
+msgstr[0] "%2$s má %1$d spolutchána, "
+msgstr[1] "%2$s má %1$d spolutchány, "
+msgstr[2] "%2$s má %1$d spolutchánů, "
+
+msgid "%d co-mother-in-law, and "
+msgid_plural "%d co-mothers-in-law, and "
+msgstr[0] "%d spolutchyni, a "
+msgstr[1] "%d spolutchyně, a "
+msgstr[2] "%d spolutchyní, a "
+
+msgid "Partners"
+msgstr "Partneři"
+
+msgid "Partner of "
+msgstr "Partner osoby "
+
+msgid "%s has no partners recorded."
+msgstr "%s zde nemá zaznamenaného žádného partnera."
+
+msgid "%s has one female partner recorded."
+msgstr "%s má zaznamenanou jednu partnerku."
+
+msgid "%s has one male partner recorded."
+msgstr "%s má zaznamenaného jednoho partnera."
+
+msgid "%s has one partner of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho partnera neznámého pohlaví."
+
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d partnerku."
+msgstr[1] "%2$s má zaznamenané %1$d partnerky."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerek."
+
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera."
+msgstr[1] "%2$s má zaznamenané %1$d partnery."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů."
+
+msgid "%2$s has %1$d partner of unknown sex recorded."
+msgid_plural "%2$s has %1$d partners of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d partnery neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů neznámého pohlaví."
+
+msgid "%2$s has %1$d male partner and "
+msgid_plural "%2$s has %1$d male partners and "
+msgstr[0] "%2$s má zaznamenaného %1$d partnera a "
+msgstr[1] "%2$s má zaznamenané %1$d partnery a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů a "
+
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "%2$s má zaznamenanou %1$d partnerku a "
+msgstr[1] "%2$s má zaznamenané %1$d partnerky a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerek a "
+
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] "%d partnerku (celkem %d)."
+msgstr[1] "%d partnerky (celkem %d)."
+msgstr[2] "%d partnerek (celkem %d)."
+
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s má zaznamenaného %1$d partnera a "
+msgstr[1] "%2$s má zaznamenané %1$d partnery a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů a "
+
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d partnera partnerek (celkem %d)."
+msgstr[1] "%d partnery partnerek (celkem %d)."
+msgstr[2] "%d partnerů partnerek (celkem %d)."
+
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d partnerku partnerů (celkem %d)."
+msgstr[1] "%d partnerky partnerů (celkem %d)."
+msgstr[2] "%d partnerek partnerů (celkem %d)."
+
+msgid "Partner chains"
+msgstr "Řetězce partnerů"
+
+msgid "%s has no members of a partner chain recorded."
+msgstr "U osoby '%s' nejsou zaznamenané žádné řetězce partnerů."
+
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[2] "%d partnerek v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+
+msgid "%d female partner and "
+msgid_plural "%d female partners and "
+msgstr[0] "%d partnerku, a "
+msgstr[1] "%d partnerky, a "
+msgstr[2] "%d partnerek, a "
+
+msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[1] "%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[2] "%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+
+msgid "%2$s has %1$d male partner, "
+msgid_plural "%2$s has %1$d male partners, "
+msgstr[0] "%2$s má %1$d partnera, "
+msgstr[1] "%2$s má %1$d partnery, "
+msgstr[2] "%2$s má %1$d partnerů, "
+
+msgid "%d female partner, and "
+msgid_plural "%d female partners, and "
+msgstr[0] "%d partnerku, a "
+msgstr[1] "%d partnerky, a "
+msgstr[2] "%d partnerek, a "
+
+msgid "There are %d branches in the partner chain. "
+msgstr "V řetězci partnerů jsou %d linie."
+
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
+msgstr "Nejdelší linie v řetězci k osobě '%2$s' sestává z %1$d partnerů (vč. osoby '%3$s')."
+
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
+msgstr "Nejdelší linie v řetězci partnerů sestává z %1$d partnerů (vč. osoby '%2$s')."
+
+msgid "Siblings"
+msgstr "Sourozenci"
+
+msgid "%s has no siblings recorded."
+msgstr "%s zde nemá zaznamenané žádné sourozence."
+
+msgid "%s has one sister recorded."
+msgstr "%s má zaznamenanou jednu sestru."
+
+msgid "%s has one brother recorded."
+msgstr "%s má zaznamenaného jednoho bratra."
+
+msgid "%s has one sibling of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho sourozence neznámého pohlaví."
+
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d sestru."
+msgstr[1] "%2$s má zaznamenané %1$d sestry."
+msgstr[2] "%2$s má zaznamenaných %1$d sester."
+
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d bratra."
+msgstr[1] "%2$s má zaznamenané %1$d bratry."
+msgstr[2] "%2$s má zaznamenaných %1$d bratrů."
+
+msgid "%2$s has %1$d sibling of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d sourozence neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d sourozence neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d sourozenců neznámého pohlaví."
+
+msgid "%2$s has %1$d brother and "
+msgid_plural "%2$s has %1$d brothers and "
+msgstr[0] "%2$s má zaznamenaného %1$d bratra a "
+msgstr[1] "%2$s má zaznamenané %1$d bratry a "
+msgstr[2] "%2$s má zaznamenaných %1$d bratrů a "
+
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] "%d sestru (celkem %d)."
+msgstr[1] "%d sestry (celkem %d)."
+msgstr[2] "%d sester (celkem %d)."
+
+msgid "%2$s has %1$d sister and "
+msgid_plural "%2$s has %1$d sisters and "
+msgstr[0] "%2$s má zaznamenanou %1$d sestru a "
+msgstr[1] "%2$s má zaznamenané %1$d sestry a "
+msgstr[2] "%2$s má zaznamenaných %1$d sester a "
+
+msgid "%d sibling of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings of unknown sex recorded (%d in total)."
+msgstr[0] "%d sourozence neznámého pohlaví (celkem %d)."
+msgstr[1] "%d sourozence neznámého pohlaví (celkem %d)."
+msgstr[2] "%d sourozenců neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d brother, "
+msgid_plural "%2$s has %1$d brothers, "
+msgstr[0] "%2$s má %1$d bratra, "
+msgstr[1] "%2$s má %1$d bratry, "
+msgstr[2] "%2$s má %1$d bratrů, "
+
+msgid "%d sister, and "
+msgid_plural "%d sisters, and "
+msgstr[0] "%d sestru, a "
+msgstr[1] "%d sestry, a "
+msgstr[2] "%d sester, a "
+
+msgid "Siblings-in-law"
+msgstr "Švagři a švagrové"
+
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s nemá zaznamenané žádné švagry ani švagrové."
+
+msgid "%s has one sister-in-law recorded."
+msgstr "%s má zaznamenanou jednu švagrovou."
+
+msgid "%s has one brother-in-law recorded."
+msgstr "%s má zaznamenaného jednoho švagra."
+
+msgid "%s has one sibling-in-law of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho švagra či švagrovou neznámého pohlaví."
+
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d švagrovou."
+msgstr[1] "%2$s má zaznamenané %1$d švagrové."
+msgstr[2] "%2$s má zaznamenaných %1$d švagrových."
+
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d švagra."
+msgstr[1] "%2$s má zaznamenané %1$d švagry."
+msgstr[2] "%2$s má zaznamenaných %1$d švagrů."
+
+msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d švagra či švagrovou neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d švagry či švagrové neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d švagrů či švagrových neznámého pohlaví."
+
+msgid "%2$s has %1$d brother-in-law and "
+msgid_plural "%2$s has %1$d brothers-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d švagra a "
+msgstr[1] "%2$s má zaznamenané %1$d švagry a "
+msgstr[2] "%2$s má zaznamenaných %1$d švagrů a "
+
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] "%d švagrovou (celkem %d)."
+msgstr[1] "%d švagrové (celkem %d)."
+msgstr[2] "%d švagrových (celkem %d)."
+
+msgid "%2$s has %1$d sister-in-law and "
+msgid_plural "%2$s has %1$d sisters-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d švagrovou a "
+msgstr[1] "%2$s má zaznamenané %1$d švagrové a "
+msgstr[2] "%2$s má zaznamenaných %1$d švagrových a "
+
+msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d švagra či švagrovou neznámého pohlaví (celkem %d)."
+msgstr[1] "%d švagry či švagrové neznámého pohlaví (celkem %d)."
+msgstr[2] "%d švagrů či švagrových neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d brother-in-law, "
+msgid_plural "%2$s has %1$d brothers-in-law, "
+msgstr[0] "%2$s má %1$d švagra, "
+msgstr[1] "%2$s má %1$d švagry, "
+msgstr[2] "%2$s má %1$d švagrů, "
+
+msgid "%d sister-in-law, and "
+msgid_plural "%d sisters-in-law, and "
+msgstr[0] "%d švagrovou, a "
+msgstr[1] "%d švagrové, a "
+msgstr[2] "%d švagrových, a "
+
+msgid "Co-siblings-in-law"
+msgstr "Partneři a sourozenci švagrů a švagrových (spolušvagři a spolušvagrové)"
+
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "%s nemá zaznamenané žádné spolušvagry ani spolušvagrové."
+
+msgid "%s has one co-sister-in-law recorded."
+msgstr "%s má zaznamenanou jednu spolušvagrovou."
+
+msgid "%s has one co-brother-in-law recorded."
+msgstr "%s má zaznamenaného jednoho spolušvagra."
+
+msgid "%s has one co-sibling-in-law of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho spolušvagra či spolušvagrovou neznámého pohlaví."
+
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d spolušvagrovou."
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagrové."
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrových."
+
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d spolušvagra."
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagry."
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrů."
+
+msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d spolušvagra či spolušvagrovou neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagry či spolušvagrové neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrů či spolušvagrových neznámého pohlaví."
+
+msgid "%2$s has %1$d co-brother-in-law and "
+msgid_plural "%2$s has %1$d co-brothers-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d spolušvagra a "
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagry a "
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrů a "
+
+msgid "%d co-sister-in-law recorded (%d in total)."
+msgid_plural "%d co-sisters-in-law recorded (%d in total)."
+msgstr[0] "%d spolušvagrovou (celkem %d)."
+msgstr[1] "%d spolušvagrové (celkem %d)."
+msgstr[2] "%d spolušvagrových (celkem %d)."
+
+msgid "%2$s has %1$d co-sister-in-law and "
+msgid_plural "%2$s has %1$d co-sisters-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d spolušvagrovou a "
+msgstr[1] "%2$s má zaznamenané %1$d spolušvagrové a "
+msgstr[2] "%2$s má zaznamenaných %1$d spolušvagrových a "
+
+msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d spolušvagra či spolušvagrovou neznámého pohlaví (celkem %d)."
+msgstr[1] "%d spolušvagry či spolušvagrové neznámého pohlaví (celkem %d)."
+msgstr[2] "%d spolušvagrů či spolušvagrových neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d co-brother-in-law, "
+msgid_plural "%2$s has %1$d co-brothers-in-law, "
+msgstr[0] "%2$s má %1$d spolušvagra, "
+msgstr[1] "%2$s má %1$d spolušvagry, "
+msgstr[2] "%2$s má %1$d spolušvagrů, "
+
+msgid "%d co-sister-in-law, and "
+msgid_plural "%d co-sisters-in-law, and "
+msgstr[0] "%d spolušvagrovou, a "
+msgstr[1] "%d spolušvagrové, a "
+msgstr[2] "%d spolušvagrových, a "
+
+msgid "Cousins"
+msgstr "Bratranci a sestřenice"
+
+msgid "%s has no first cousins recorded."
+msgstr "%s nemá zaznamenané žádné bratrance ani sestřenice."
+
+msgid "%s has one female first cousin recorded."
+msgstr "%s má zaznamenanou jednu sestřenici."
+
+msgid "%s has one male first cousin recorded."
+msgstr "%s má zaznamenaného jednoho bratrance."
+
+msgid "%s has one first cousin of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho bratrance či sestřenici neznámého pohlaví."
+
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d sestřenici."
+msgstr[1] "%2$s má zaznamenané %1$d sestřenice."
+msgstr[2] "%2$s má zaznamenaných %1$d sestřenic."
+
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d bratrance."
+msgstr[1] "%2$s má zaznamenané %1$d bratrance."
+msgstr[2] "%2$s má zaznamenaných %1$d bratranců."
+
+msgid "%2$s has %1$d first cousin of unknown sex recorded."
+msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d bratrance či sestřenici neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d bratrance či sestřenice neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d bratranců či sestřenic neznámého pohlaví."
+
+msgid "%2$s has %1$d male first cousin and "
+msgid_plural "%2$s has %1$d male first cousins and "
+msgstr[0] "%2$s má zaznamenaného %1$d bratrance a "
+msgstr[1] "%2$s má zaznamenané %1$d bratrance a "
+msgstr[2] "%2$s má zaznamenaných %1$d bratranců a "
+
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] "%d sestřenici (celkem %d)."
+msgstr[1] "%d sestřenice (celkem %d)."
+msgstr[2] "%d sestřenic (celkem %d)."
+
+msgid "%2$s has %1$d female first cousin and "
+msgid_plural "%2$s has %1$d female first cousins and "
+msgstr[0] "%2$s má zaznamenanou %1$d sestřenici a "
+msgstr[1] "%2$s má zaznamenané %1$d sestřenice a "
+msgstr[2] "%2$s má zaznamenaných %1$d sestřenic a "
+
+msgid "%d first cousin of unknown sex recorded (%d in total)."
+msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
+msgstr[0] "%d bratrance či sestřenici neznámého pohlaví (celkem %d)."
+msgstr[1] "%d bratrance či sestřenice neznámého pohlaví (celkem %d)."
+msgstr[2] "%d bratranců či sestřenic neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d male first cousin, "
+msgid_plural "%2$s has %1$d male first cousins, "
+msgstr[0] "%2$s má %1$d bratrance, "
+msgstr[1] "%2$s má %1$d bratrance, "
+msgstr[2] "%2$s má %1$d bratranců, "
+
+msgid "%d female first cousin, and "
+msgid_plural "%d female first cousins, and "
+msgstr[0] "%d sestřenici, a "
+msgstr[1] "%d sestřenice, a "
+msgstr[2] "%d sestřenic, a "
+
+msgid "Nephews and Nieces"
+msgstr "Synovci a neteře"
+
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s nemá zaznamenané žádné synovce ani neteře."
+
+msgid "%s has one niece recorded."
+msgstr "%s má zaznamenanou jednu neteř."
+
+msgid "%s has one nephew recorded."
+msgstr "%s má zaznamenaného jednoho synovce."
+
+msgid "%s has one nephew or niece of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho synovce či neteř neznámého pohlaví."
+
+msgid "%2$s has %1$d niece recorded."
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d sestřenici."
+msgstr[1] "%2$s má zaznamenané %1$d sestřenice."
+msgstr[2] "%2$s má zaznamenaných %1$d sestřenic."
+
+msgid "%2$s has %1$d nephew recorded."
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d synovce."
+msgstr[1] "%2$s má zaznamenané %1$d synovce."
+msgstr[2] "%2$s má zaznamenaných %1$d synovců."
+
+msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
+msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d synovce či neteř neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d synovce či neteře neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d synovců či neteří neznámého pohlaví."
+
+msgid "%2$s has %1$d nephew and "
+msgid_plural "%2$s has %1$d nephews and "
+msgstr[0] "%2$s má zaznamenaného %1$d synovce a "
+msgstr[1] "%2$s má zaznamenané %1$d synovce a "
+msgstr[2] "%2$s má zaznamenaných %1$d synovců a "
+
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] "%d neteř (celkem %d)."
+msgstr[1] "%d neteře (celkem %d)."
+msgstr[2] "%d neteří (celkem %d)."
+
+msgid "%2$s has %1$d niece and "
+msgid_plural "%2$s has %1$d nieces and "
+msgstr[0] "%2$s má zaznamenanou %1$d neteř a "
+msgstr[1] "%2$s má zaznamenané %1$d neteře a "
+msgstr[2] "%2$s má zaznamenaných %1$d neteří a "
+
+msgid "%d nephew or niece of unknown sex recorded (%d in total)."
+msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
+msgstr[0] "%d synovce či neteř neznámého pohlaví (celkem %d)."
+msgstr[1] "%d synovce či neteře neznámého pohlaví (celkem %d)."
+msgstr[2] "%d synovců či neteří neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d nephew, "
+msgid_plural "%2$s has %1$d nephews, "
+msgstr[0] "%2$s má %1$d synovce, "
+msgstr[1] "%2$s má %1$d synovce, "
+msgstr[2] "%2$s má %1$d synovců, "
+
+msgid "%d niece, and "
+msgid_plural "%d nieces, and "
+msgstr[0] "%d neteř, a "
+msgstr[1] "%d neteře, a "
+msgstr[2] "%d neteří, a "
+
+msgid "Children"
+msgstr "Děti"
+
+msgid "%s has no children recorded."
+msgstr "%s nemá zaznamenané žádné děti."
+
+msgid "%s has one daughter recorded."
+msgstr "%s má zaznamenanou jednu dceru."
+
+msgid "%s has one son recorded."
+msgstr "%s má zaznamenaného jednoho syna."
+
+msgid "%s has one child of unknown sex recorded."
+msgstr "%s má zaznamenané jedno dítě neznámého pohlaví."
+
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d dceru."
+msgstr[1] "%2$s má zaznamenané %1$d dcery."
+msgstr[2] "%2$s má zaznamenaných %1$d dcer."
+
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d syna."
+msgstr[1] "%2$s má zaznamenané %1$d syny."
+msgstr[2] "%2$s má zaznamenaných %1$d synů."
+
+msgid "%2$s has %1$d child of unknown sex recorded."
+msgid_plural "%2$s has %1$d children of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d dítě neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d děti neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d dětí neznámého pohlaví."
+
+msgid "%2$s has %1$d son and "
+msgid_plural "%2$s has %1$d sons and "
+msgstr[0] "%2$s má zaznamenaného %1$d syna a "
+msgstr[1] "%2$s má zaznamenané %1$d syny a "
+msgstr[2] "%2$s má zaznamenaných %1$d synů a "
+
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] "%d dceru (celkem %d)."
+msgstr[1] "%d dcery (celkem %d)."
+msgstr[2] "%d dcer (celkem %d)."
+
+msgid "%2$s has %1$d daughter and "
+msgid_plural "%2$s has %1$d daughters and "
+msgstr[0] "%2$s má zaznamenanou %1$d dceru a "
+msgstr[1] "%2$s má zaznamenané %1$d dcery a "
+msgstr[2] "%2$s má zaznamenaných %1$d dcer a "
+
+msgid "%d child of unknown sex recorded (%d in total)."
+msgid_plural "%d children of unknown sex recorded (%d in total)."
+msgstr[0] "%d dítě neznámého pohlaví (celkem %d)."
+msgstr[1] "%d děti neznámého pohlaví (celkem %d)."
+msgstr[2] "%d dětí neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d son, "
+msgid_plural "%2$s has %1$d sons, "
+msgstr[0] "%2$s má %1$d syna, "
+msgstr[1] "%2$s má %1$d syny, "
+msgstr[2] "%2$s má %1$d synů, "
+
+msgid "%d daughter, and "
+msgid_plural "%d daughters, and "
+msgstr[0] "%d dceru, a "
+msgstr[1] "%d dcery, a "
+msgstr[2] "%d dcer, a "
+
+msgid "Children-in-law"
+msgstr "Zeťové a snachy"
+
+msgid "%s has no children-in-law recorded."
+msgstr "%s nemá zaznamenané žádné zetě ani snachy."
+
+msgid "%s has one daughter-in-law recorded."
+msgstr "%s má zaznamenanou jednu snachu."
+
+msgid "%s has one son-in-law recorded."
+msgstr "%s má zaznamenaného jednoho zetě."
+
+msgid "%s has one child-in-law of unknown sex recorded."
+msgstr "%s má zaznamenaného jednoho zetě či snachu neznámého pohlaví."
+
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d snachu."
+msgstr[1] "%2$s má zaznamenané %1$d snachy."
+msgstr[2] "%2$s má zaznamenaných %1$d snach."
+
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d zetě."
+msgstr[1] "%2$s má zaznamenané %1$d zetě."
+msgstr[2] "%2$s má zaznamenaných %1$d zeťů."
+
+msgid "%2$s has %1$d child-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d children-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d zetě či snachu neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d zetě či snachy neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d zetů či snach neznámého pohlaví."
+
+msgid "%2$s has %1$d son-in-law and "
+msgid_plural "%2$s has %1$d sons-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d zetě a "
+msgstr[1] "%2$s má zaznamenané %1$d zetě a "
+msgstr[2] "%2$s má zaznamenaných %1$d zeťů a "
+
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] "%d snachu (celkem %d)."
+msgstr[1] "%d snachy (celkem %d)."
+msgstr[2] "%d snach (celkem %d)."
+
+msgid "%2$s has %1$d daughter-in-law and "
+msgid_plural "%2$s has %1$d daughters-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d snachu a "
+msgstr[1] "%2$s má zaznamenané %1$d snachy a "
+msgstr[2] "%2$s má zaznamenaných %1$d snach a "
+
+msgid "%d child-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d zetě či snachu neznámého pohlaví (celkem %d)."
+msgstr[1] "%d zetě či snachy neznámého pohlaví (celkem %d)."
+msgstr[2] "%d zeťů či snach neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d son-in-law, "
+msgid_plural "%2$s has %1$d sons-in-law, "
+msgstr[0] "%2$s má %1$d zetě, "
+msgstr[1] "%2$s má %1$d zetě, "
+msgstr[2] "%2$s má %1$d zeťů, "
+
+msgid "%d daughter-in-law, and "
+msgid_plural "%d daughters-in-law, and "
+msgstr[0] "%d snachu, a "
+msgstr[1] "%d snachy, a "
+msgstr[2] "%d snach, a "
+
+msgid "Grandchildren"
+msgstr "Vnoučata"
+
+msgid "%s has no grandchildren recorded."
+msgstr "%s nemá zaznamenaná žádná vnoučata."
+
+msgid "%s has one granddaughter recorded."
+msgstr "%s má zaznamenanou jednu vnučku."
+
+msgid "%s has one grandson recorded."
+msgstr "%s má zaznamenaného jednoho vnuka."
+
+msgid "%s has one grandchild of unknown sex recorded."
+msgstr "%s má zaznamenané jedno vnouče neznámého pohlaví."
+
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d vnučku."
+msgstr[1] "%2$s má zaznamenané %1$d vnučky."
+msgstr[2] "%2$s má zaznamenaných %1$d vnuček."
+
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d vnuka."
+msgstr[1] "%2$s má zaznamenané %1$d vnuky."
+msgstr[2] "%2$s má zaznamenaných %1$d vnuků."
+
+msgid "%2$s has %1$d grandchild of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d vnouče neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d vnoučata neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d vnoučat neznámého pohlaví."
+
+msgid "%2$s has %1$d grandson and "
+msgid_plural "%2$s has %1$d grandsons and "
+msgstr[0] "%2$s má zaznamenaného %1$d vnuka a "
+msgstr[1] "%2$s má zaznamenané %1$d vnuky a "
+msgstr[2] "%2$s má zaznamenaných %1$d vnuků a "
+
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] "%d vnučku (celkem %d)."
+msgstr[1] "%d vnučky (celkem %d)."
+msgstr[2] "%d vnuček (celkem %d)."
+
+msgid "%2$s has %1$d granddaughter and "
+msgid_plural "%2$s has %1$d granddaughters and "
+msgstr[0] "%2$s má zaznamenanou %1$d vnučku a "
+msgstr[1] "%2$s má zaznamenané %1$d vnučky a "
+msgstr[2] "%2$s má zaznamenaných %1$d vnuček a "
+
+msgid "%d grandchild of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
+msgstr[0] "%d vnouče neznámého pohlaví (celkem %d)."
+msgstr[1] "%d vnoučata neznámého pohlaví (celkem %d)."
+msgstr[2] "%d vnoučat neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d grandson, "
+msgid_plural "%2$s has %1$d grandsons, "
+msgstr[0] "%2$s má %1$d vnuka, "
+msgstr[1] "%2$s má %1$d vnuky, "
+msgstr[2] "%2$s má %1$d vnuků, "
+
+msgid "%d granddaughter, and "
+msgid_plural "%d granddaughters, and "
+msgstr[0] "%d vnučku, a "
+msgstr[1] "%d vnučky, a "
+msgstr[2] "%d vnuček, a "
+
+msgid "Grandchildren-in-law"
+msgstr "Partneři vnoučat"
+
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "%s nemá zaznamenané žádné partnery vnoučat."
+
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "%s má zaznamenanou jednu partnerku vnuka."
+
+msgid "%s has one grandson-in-law recorded."
+msgstr "%s má zaznamenaného jednoho partnera vnučky."
+
+msgid "%s has one grandchild-in-law of unknown sex recorded."
+msgstr "%s má zaznamenané jednoho partnera vnoučete neznámého pohlaví."
+
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanou %1$d partnerku vnuka."
+msgstr[1] "%2$s má zaznamenané %1$d partnerky vnuků."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerek vnuků."
+
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnučky."
+msgstr[1] "%2$s má zaznamenané %1$d partnery vnuček."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů vnuček."
+
+msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnoučete neznámého pohlaví."
+msgstr[1] "%2$s má zaznamenané %1$d partnery vnoučat neznámého pohlaví."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů vnoučat neznámého pohlaví."
+
+msgid "%2$s has %1$d grandson-in-law and "
+msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnučka a "
+msgstr[1] "%2$s má zaznamenané %1$d partnery vnuček a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerů vnuček a "
+
+msgid "%d granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgstr[0] "%d partnerku vnuka (celkem %d)."
+msgstr[1] "%d partnerky vnuků (celkem %d)."
+msgstr[2] "%d partnerek vnuků (celkem %d)."
+
+msgid "%2$s has %1$d granddaughter-in-law and "
+msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgstr[0] "%2$s má zaznamenanou %1$d partnerku vnuka a "
+msgstr[1] "%2$s má zaznamenané %1$d partnerky vnuků a "
+msgstr[2] "%2$s má zaznamenaných %1$d partnerek vnuků a "
+
+msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d partnera vnoučete neznámého pohlaví (celkem %d)."
+msgstr[1] "%d partnery vnoučat neznámého pohlaví (celkem %d)."
+msgstr[2] "%d partnerů vnoučat neznámého pohlaví (celkem %d)."
+
+msgid "%2$s has %1$d grandson-in-law, "
+msgid_plural "%2$s has %1$d grandsons-in-law, "
+msgstr[0] "%2$s má %1$d partnera vnučky, "
+msgstr[1] "%2$s má %1$d partnery vnuček, "
+msgstr[2] "%2$s má %1$d partnerů vnuček, "
+
+msgid "%d granddaughter-in-law, and "
+msgid_plural "%d granddaughters-in-law, and "
+msgstr[0] "%d partnerku vnuka, a "
+msgstr[1] "%d partnerky vnuků, a "
+msgstr[2] "%d partnerek vnuků, a "

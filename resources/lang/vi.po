@@ -1,0 +1,793 @@
+msgid ""
+msgstr ""
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Extended family"
+msgstr "Gia đình mở rộng"
+
+msgid "A tab showing the extended family of an individual."
+msgstr "Một bảng hiển thị thêm các thành phần gia đình mở rộng của một cá nhân."
+
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "Thứ tự các thành phần trong gia đình mở rộng được hiển thị?"
+
+msgid "Family part (generation relative to proband)"
+msgstr "Thành phần gia đình (generation relative to proband)"
+
+msgid "Show name of proband as short name or as full name?"
+msgstr "Hiển thị tên dưới dạng tên ngắn hay tên đầy đủ?"
+
+msgid "Show options to filter the results?"
+msgstr "Hiển thị các tùy chọn để lọc kết quả?"
+
+msgid "Show filter options"
+msgstr "Hiển thị các tùy chọn bộ lọc"
+
+msgid "Filter results (should be made available to be used by user instead of admin):"
+msgstr "Lọc kết quả (nên được cung cấp để người dùng sử dụng thay vì quản trị viên)"
+
+msgid "Filter by gender"
+msgstr "Lọc theo giới tính"
+
+msgid "Filter by alive/dead"
+msgstr "Lọc theo còn sống / đã mất"
+
+msgid "How should empty parts of extended family be presented?"
+msgstr "Các thành phần gia đình không có thông tin được trình bày như thế nào?"
+
+msgid "Show empty block"
+msgstr "Hiển thị thành phần gia đình không có thông tin"
+
+msgid "yes, always at standard location"
+msgstr "Luôn hiển thị"
+
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "Không, nhưng thu thập thông báo về các khối trống ở cuối"
+
+msgid "never"
+msgstr "Không hiển thị"
+
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "Tên viết tắt dựa hoặc biệt danh. Nếu chúng không có sẵn, tên đầu tiên trong số các tên đã cho sẽ được sử dụng, nếu một tên được đưa ra. Nếu không, họ sẽ được sử dụng."
+
+msgid "Show short name"
+msgstr "Hiển thị tên rút gọn"
+
+msgid "Show labels in special situations?"
+msgstr "Hiển thị nhãn trong các trường hợp đặc biệt?"
+
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "Nhãn (hoặc nhãn dán) được sử dụng chẳng hạn cho người được nhận nuôi hoặc cha/mẹ kế. "
+
+msgid "Show labels"
+msgstr "Hiển thị nhãn dán"
+
+msgid "Use the compact design?"
+msgstr "Hiển thị các thông tin rút gọn?"
+
+msgid "Use the compact design"
+msgstr "Áp dụng hiển thị thông tin rút gọn"
+
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "Hiển thị rút gọn chỉ ghi tên, năm sinh năm mất cho mỗi người. Hiển thị đầy đủ sẽ bao gồm một bức ảnh (nếu điều này được kích hoạt cho cây gia đình này) cũng như thông tin về ngày sinh, nơi sinh và ngày mất, nơi mất của một cá nhân."
+
+msgid "don't use this filter"
+msgstr "không sử dụng bộ lọc này"
+
+msgid "show only male persons"
+msgstr "Chỉ hiển thị giới tính nam"
+
+msgid "show only female persons"
+msgstr "Chỉ hiển thị giới tính nữ"
+
+msgid "show only persons of other or unknown gender"
+msgstr "Chỉ hiển thị những người có giới tính không xác định"
+
+msgid "show only alive persons"
+msgstr "Chỉ hiển thị những người còn sống"
+
+msgid "show only dead persons"
+msgstr "Chỉ hiển thị những người đã mất"
+
+msgid "alive"
+msgstr "Chỉ hiển thị người còn sống"
+
+msgid "dead"
+msgstr "Chỉ hiện thì người đã mất"
+
+msgid "a dead person"
+msgstr "một người đã mất"
+
+msgid "a living person"
+msgstr "một người còn sống"
+
+msgid "not a male person"
+msgstr "không có người giới tính nam"
+
+msgid "not a female person"
+msgstr "không có người giới tính nữ"
+
+msgid "not a person of unknown gender"
+msgstr "không có người không xác định giới tính"
+
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "copy all members of the extended family to the clippings cart"
+
+msgid "copy to clippings cart"
+msgstr "copy to clippings cart"
+
+msgid "twin"
+msgstr "sinh đôi"
+
+msgid "triplet"
+msgstr "sinh ba"
+
+msgid "quadruplet"
+msgstr "sinh bốn"
+
+msgid "quintuplet"
+msgstr "sinh năm"
+
+msgid "sextuplet"
+msgstr "sinh sáu"
+
+msgid "septuplet"
+msgstr "sinh bảy"
+
+msgid "octuplet"
+msgstr "sinh tám"
+
+msgid "nonuplet"
+msgstr "sinh chín"
+
+msgid "decuplet"
+msgstr "sinh mười"
+
+msgid "Marriage"
+msgstr "Kết hôn"
+
+msgid "Ex-marriage"
+msgstr "Kết hôn lại"
+
+msgid "Partnership"
+msgstr "Quan hệ hôn nhân"
+
+msgid "Fiancée"
+msgstr "Hôn ước"
+
+msgid " with "
+msgstr " với "
+
+msgid "Biological parents of father"
+msgstr "Ông bà nội"
+
+msgid "Biological parents of mother"
+msgstr "Ông bà ngoại"
+
+msgid "Biological parents of parent"
+msgstr "Ông bà"
+
+msgid "Stepparents of father"
+msgstr "Bố mẹ kế của bố"
+
+msgid "Stepparents of mother"
+msgstr "Bố mẹ kế của mẹ"
+
+msgid "Stepparents of parent"
+msgstr "Bố mẹ kế của bố mẹ"
+
+msgid "Parents of stepparent"
+msgstr "Bố mẹ của bố mẹ kế"
+
+msgid "Siblings of father"
+msgstr "Anh chị em của bố"
+
+msgid "Siblings of mother"
+msgstr "Anh chị em của mẹ"
+
+msgid "Siblings-in-law of father"
+msgstr "Anh chị em dâu rể của bố"
+
+msgid "Siblings-in-law of mother"
+msgstr "Anh chị em dâu rể của mẹ"
+
+msgid "Biological parents"
+msgstr "Bố mẹ"
+
+msgid "Stepparents"
+msgstr "Bố/Mẹ kế"
+
+msgid "Parents-in-law of biological children"
+msgstr "Bố mẹ chồng của con đẻ"
+
+msgid "Parents-in-law of stepchildren"
+msgstr "Bố mẹ chồng của con ghẻ"
+
+msgid "Full siblings"
+msgstr "Anh chị em ruột"
+
+msgid "Half siblings"
+msgstr "Anh chị em cùng cha khác mẹ/cùng mẹ khác cha"
+
+msgid "Stepsiblings"
+msgstr "Anh chị em kế"
+
+msgid "Children of full siblings of father"
+msgstr "Anh chị em cùng cha"
+
+msgid "Children of full siblings of mother"
+msgstr "Anh chị em cụng mẹ"
+
+msgid "Children of full siblings of parent"
+msgstr "Anh chị em cùng cha mẹ"
+
+msgid "Children of half siblings of father"
+msgstr "Anh chị em cùng cha khác mẹ"
+
+msgid "Children of half siblings of mother"
+msgstr "Anh chị em cùng mẹ khác cha"
+
+msgid "Children of half siblings of parent"
+msgstr "Anh chị em cùng cha mẹ"
+
+msgid "Siblings of partners"
+msgstr "Anh, chị, em ruột của chồng (vợ)"
+
+msgid "Partners of siblings"
+msgstr "Vợ/chồng của anh chị em"
+
+msgid "Children of siblings"
+msgstr "Con của anh chị em ruột"
+
+msgid "Siblings' stepchildren"
+msgstr "Anh chị em là con riêng"
+
+msgid "Children of siblings of partners"
+msgstr "Con của anh, chị, em ruột của chồng/vợ"
+
+msgid "Biological children"
+msgstr "Con"
+
+msgid "Stepchildren"
+msgstr "Con ghẻ"
+
+msgid "Stepchild"
+msgstr "Con riêng"
+
+msgid "Stepson"
+msgstr "Con trai riêng"
+
+msgid "Stepdaughter"
+msgstr "Con gái riêng"
+
+msgid "Partners of biological children"
+msgstr "Bạn đời của con ruột"
+
+msgid "Partners of stepchildren"
+msgstr "Bạn đời của con riêng"
+
+msgid "Biological grandchildren"
+msgstr "Cháu"
+
+msgid "Stepchildren of children"
+msgstr "Con ghẻ của con"
+
+msgid "Children of stepchildren"
+msgstr "Con của con riêng"
+
+msgid "Stepchildren of stepchildren"
+msgstr "Con riêng của con riêng"
+
+msgid "He"
+msgstr "Anh"
+
+msgid "She"
+msgstr "Cô"
+
+msgid "He/she"
+msgstr "Anh/Cô"
+
+msgid "Mr."
+msgstr "Ông"
+
+msgid "Mrs."
+msgstr "Bà"
+
+msgid "No family available"
+msgstr "Không có thông tin về gia đình"
+
+msgid "Summary for the shown extended family"
+msgstr "Summary for the shown extended family"
+
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "The extended family has only %1$s as a member."
+msgstr[1] "The extended family of %1$s has %2$d members (including %1$s)."
+
+msgid "%s has no %s recorded."
+msgstr "%s không có %s thông tin được ghi lại."
+
+msgid "%s has no %s, and no %s recorded."
+msgstr "%s không có %s và không có %s thông tin được ghi lại."
+
+msgid "Father's family (%d)"
+msgstr "Gia đình bên Bố (%d)"
+
+msgid "Mother's family (%d)"
+msgstr "Gia đình bên Mẹ (%d)"
+
+msgid "Father's and Mother's family (%d)"
+msgstr "Gia đình của Bố và Mẹ (%d)"
+
+msgid "Grandparents"
+msgstr "Ông bà"
+
+msgid "%s has no grandparents recorded."
+msgstr "%s không có thông tin về ông bà."
+
+msgid "%s has one grandmother recorded."
+msgstr "%s có một người bà."
+
+msgid "%s has one grandfather recorded."
+msgstr "%s có một người ông."
+
+msgid "%s has one grandparent recorded."
+msgstr "%s có ông bà."
+
+msgid "%2$s has %1$d grandmother recorded."
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "%2$s có %1$d bà nội."
+
+msgid "%2$s has %1$d grandfather recorded."
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "%2$s có %1$d ông nội."
+
+msgid "%2$s has %1$d grandfather and "
+msgid_plural "%2$s has %1$d grandfathers and "
+msgstr[0] "%2$s có %1$d ông nội và "
+
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] "%d bà nội."
+
+msgid "Uncles and Aunts"
+msgstr "Bác trai, bác gái, chú và cô"
+
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s không có thông tin về bác / cô chú."
+
+msgid "%s has one aunt recorded."
+msgstr "%s có một bác gái hoặc cô."
+
+msgid "%s has one uncle recorded."
+msgstr "%s có một bác trai hoặc chú."
+
+msgid "%s has one uncle or aunt recorded."
+msgstr "%s có một bác trai/bác gái hoặc cô/chú."
+
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] "%2$s có %1$d người là bác gái hoặc cô."
+
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] "%2$s có %1$d người là chú bác."
+
+msgid "%2$s has %1$d uncle and "
+msgid_plural "%2$s has %1$d uncles and "
+msgstr[0] "%2$s có %1$d bác trai hoặc chú và "
+
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] "%d bác gái hoặc cô (có tất cả là %d người)."
+
+msgid "Uncles and Aunts by marriage"
+msgstr "Các bác rể/chú rể và các bác dâu/thím dâu"
+
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s Không có bác rể/chú rể hoặc bác/thím dâu nào."
+
+msgid "%s has one aunt by marriage recorded."
+msgstr "%s có một bác dâu hoặc thím dâu."
+
+msgid "%s has one uncle by marriage recorded."
+msgstr "%s có một bác rể hoặc chú rể."
+
+msgid "%s has one uncle or aunt by marriage recorded."
+msgstr "%s có một bác rể/chú rể hoặc bác dâu/thím dâu."
+
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] "%2$s có %1$d bác dâu/thím dâu."
+
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] "%2$s có %1$d bác rể/chú rể."
+
+msgid "%2$s has %1$d uncle by marriage and "
+msgid_plural "%2$s has %1$d uncles by marriage and "
+msgstr[0] "%2$s có %1$d bác rể/chú rể và "
+
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] "%d bác dâu/thím dâu (có tất cả là %d người)."
+
+msgid "Parents"
+msgstr "Bố mẹ"
+
+msgid "%s has no parents recorded."
+msgstr "%s không có thông tin về bố mẹ."
+
+msgid "%s has one mother recorded."
+msgstr "%s có một người mẹ."
+
+msgid "%s has one father recorded."
+msgstr "%s có một người bố."
+
+msgid "%s has one parent recorded."
+msgstr "%s có một ông bà."
+
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] "%2$s có %1$d người mẹ."
+
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] "%2$s có %1$d người bố."
+
+msgid "%2$s has %1$d father and "
+msgid_plural "%2$s has %1$d fathers and "
+msgstr[0] "%2$s có %1$d người bố và "
+
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] "%d người mẹ."
+
+msgid "Parents-in-law"
+msgstr "Bố mẹ chồng"
+
+msgid "%s has no parents-in-law recorded."
+msgstr "%s không có thông tin về bố mẹ chồng."
+
+msgid "%s has one mother-in-law recorded."
+msgstr "%s có một người mẹ chồng."
+
+msgid "%s has one father-in-law recorded."
+msgstr "%s có một người bố chồng."
+
+msgid "%s has one parent-in-law recorded."
+msgstr "%s có bố mẹ chồng."
+
+msgid "%2$s has %1$d mother-in-law recorded."
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "%2$s có %1$d mẹ chồng."
+
+msgid "%2$s has %1$d father-in-law recorded."
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "%2$s có %1$d bố chồng."
+
+msgid "%2$s has %1$d father-in-law and "
+msgid_plural "%2$s has %1$d fathers-in-law and "
+msgstr[0] "%2$s có %1$d bố chồng và "
+
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] "%d mẹ chồng (có tất cả là %d người)."
+
+msgid "Co-parents-in-law"
+msgstr "Thông gia"
+
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s không có thông tin về gia đình thông gia."
+
+msgid "%s has one co-mother-in-law recorded."
+msgstr "%s có một bà thông gia."
+
+msgid "%s has one co-father-in-law recorded."
+msgstr "%s có một ông thông gia."
+
+msgid "%s has one co-parent-in-law recorded."
+msgstr "%s có ông bà thông gia."
+
+msgid "%2$s has %1$d co-mother-in-law recorded."
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "%2$s có %1$d bà thông gia."
+
+msgid "%2$s has %1$d co-father-in-law recorded."
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "%2$s có %1$d ông thông gia."
+
+msgid "%2$s has %1$d co-father-in-law and "
+msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgstr[0] "%2$s có %1$d ông thông gia và "
+
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] "%d bà thông gia (có tất cả là %d người)."
+
+msgid "Siblings"
+msgstr "Anh chị em ruột"
+
+msgid "%s has no siblings recorded."
+msgstr "%s không có thông tin về anh chị em ruột."
+
+msgid "%s has one sister recorded."
+msgstr "%s có một chị gái hoặc em gái."
+
+msgid "%s has one brother recorded."
+msgstr "%s có một anh trai hoặc em trai."
+
+msgid "%s has one brother or sister recorded."
+msgstr "%s có môt anh em trai hoặc một chị em gái."
+
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] "%2$s có %1$d chị em gái."
+
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] "%2$s có %1$d người anh em trai."
+
+msgid "%2$s has %1$d brother and "
+msgid_plural "%2$s has %1$d brothers and "
+msgstr[0] "%2$s có %1$d anh em trai và "
+
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] "%d chị em gái (có tất cả là %d người)."
+
+msgid "Siblings-in-law"
+msgstr "Anh em rể và chị em dâu"
+
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s không có anh em rể hoặc chị em dâu."
+
+msgid "%s has one sister-in-law recorded."
+msgstr "%s có một người chị dâu hoặc em dâu."
+
+msgid "%s has one brother-in-law recorded."
+msgstr "%s có một người anh rể hoặc em rể ."
+
+msgid "%s has one sibling-in-law recorded."
+msgstr "%s có một anh em rể hoặc chị em dâu."
+
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] "%2$s có %1$d chị em dâu."
+
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] "%2$s có %1$d anh em rể."
+
+msgid "%2$s has %1$d brother-in-law and "
+msgid_plural "%2$s has %1$d brothers-in-law and "
+msgstr[0] "%2$s có %1$d anh em rể và"
+
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] "%d chị em dâu (có tất cả là %d người)."
+
+msgid "Partners"
+msgstr "Vợ chồng"
+
+msgid "Partner of "
+msgstr "Vợ (chồng) của "
+
+msgid "%s has no partners recorded."
+msgstr "%s không có thông tin về vợ/chồng."
+
+msgid "%s has one female partner recorded."
+msgstr "%s có một người vợ."
+
+msgid "%s has one male partner recorded."
+msgstr "%s có một người chồng."
+
+msgid "%s has one partner recorded."
+msgstr "%s có một vợ/chồng."
+
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] "%2$s có %1$d người vợ."
+
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] "%2$s có %1$d một người chồng."
+
+msgid "%2$s has %1$d male partner and "
+msgid_plural "%2$s has %1$d male partners and "
+msgstr[0] "%2$s có %1$d một người chồng và "
+
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "%2$s có %1$d một người vợ và "
+
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] "%d một người vợ (%d người)."
+
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s có %1$d một người vợ/chồng và "
+
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d chồng của những người vợ (có tất cả là %d người)."
+
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d vợ của những người chồng (có tất cả là %d người)."
+
+msgid "Partner chains"
+msgstr "Chuỗi đối tác"
+
+msgid "%s has no members of a partner chain recorded."
+msgstr "%s không có thành viên nào của chuỗi đối tác."
+
+msgid "There are %d branches in the partner chain. "
+msgstr "Có %d nhánh trong chuỗi đối tác."
+
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
+msgstr "Nhánh dài nhất trong chuỗi đối tác đến %2$s bao gồm %1$d đối tác (kể cả %3$s)."
+
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d đối tác nữ trong chuỗi đối tác này (có tất cả là %2$d người, including %3$s)."
+
+msgid "Cousins"
+msgstr "Anh chị em họ"
+
+msgid "%s has no first cousins recorded."
+msgstr "%s không có thông tin về anh em họ."
+
+msgid "%s has one female first cousin recorded."
+msgstr "%s có một chị em họ."
+
+msgid "%s has one male first cousin recorded."
+msgstr "%s có một anh em họ."
+
+msgid "%s has one first cousin recorded."
+msgstr "%s có một anh em họ."
+
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] "%2$s có %1$d chị họ/em gái họ."
+
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] "%2$s có %1$d anh/em trai họ."
+
+msgid "%2$s has %1$d male first cousin and "
+msgid_plural "%2$s has %1$d male first cousins and "
+msgstr[0] "%2$s có %1$d anh/em trai họ và "
+
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] "%d chị/em gái họ (có tất cả là %d người)."
+
+msgid "Nephews and Nieces"
+msgstr "Cháu (Là con của anh em trai ruột)"
+
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s không có thông tin về con của anh chị em ruột."
+
+msgid "%s has one niece recorded."
+msgstr "%s có một cháu gái."
+
+msgid "%s has one nephew recorded."
+msgstr "%s có một cháu trai."
+
+msgid "%s has one nephew or niece recorded."
+msgstr "%s có một cháu trai hoặc một cháu gái."
+
+msgid "%2$s has %1$d niece recorded."
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "%2$s có %1$d một cháu gái."
+
+msgid "%2$s has %1$d nephew recorded."
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "%2$s có %1$d một cháu trai."
+
+msgid "%2$s has %1$d nephew and "
+msgid_plural "%2$s has %1$d nephews and "
+msgstr[0] "%2$s có %1$d cháu trai và"
+
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] "%d cháu gái có tất cả là (có có tất cả là %d người)."
+
+msgid "Children"
+msgstr "Con"
+
+msgid "%s has no children recorded."
+msgstr "%s không có thông tin về con cái."
+
+msgid "%s has one daughter recorded."
+msgstr "%s có một con gái."
+
+msgid "%s has one son recorded."
+msgstr "%s có một con trai."
+
+msgid "%s has one child recorded."
+msgstr "%s có một người con được."
+
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] "%2$s có %1$d con gái."
+
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] "%2$s có %1$d con trai."
+
+msgid "%2$s has %1$d son and "
+msgid_plural "%2$s has %1$d sons and "
+msgstr[0] "%2$s có %1$d con trai và "
+
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] "%d con gái (có tất cả là %d người con)."
+
+msgid "Children-in-law"
+msgstr "Con dâu và con rể"
+
+msgid "%s has no children-in-law recorded."
+msgstr "%s không có thông tin về con dâu và con rể."
+
+msgid "%s has one daughter-in-law recorded."
+msgstr "%s có một con dâu."
+
+msgid "%s has one son-in-law recorded."
+msgstr "%s có một con rể."
+
+msgid "%s has one child-in-law recorded."
+msgstr "%s có con dâu hoặc con rể."
+
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] "%2$s có %1$d con dâu."
+
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] "%2$s có %1$d con rể."
+
+msgid "%2$s has %1$d son-in-law and "
+msgid_plural "%2$s has %1$d sons-in-law and "
+msgstr[0] "%2$s có %1$d con rể và "
+
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] "%d con dâu (có tất cả là %d người)."
+
+msgid "Grandchildren"
+msgstr "Cháu nội"
+
+msgid "%s has no grandchildren recorded."
+msgstr "%s không có thông tin về cháu."
+
+msgid "%s has one granddaughter recorded."
+msgstr "%s có một cháu gái."
+
+msgid "%s has one grandson recorded."
+msgstr "%s có một cháu trai."
+
+msgid "%s has one grandchild recorded."
+msgstr "%s có một cháu."
+
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] "%2$s có %1$d cháu gái."
+
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] "%2$s có %1$d cháu trai."
+
+msgid "%2$s has %1$d grandson and "
+msgid_plural "%2$s has %1$d grandsons and "
+msgstr[0] "%2$s có %1$d cháu trai và "
+
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] "%d cháu gái (có tất cả là %d người)."

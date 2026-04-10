@@ -1,0 +1,1514 @@
+msgid ""
+msgstr ""
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Extended family"
+msgstr "Storfamilie"
+
+msgid "A tab showing the extended family of an individual."
+msgstr "En fane som viser en persons storfamilie."
+
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "I hvilken rekkefølge skal storfamiliens deler vises?"
+
+msgid "Family part (generation relative to proband)"
+msgstr "Familiedel (generation relative to proband)"
+
+msgid "Show name of proband as short name or as full name?"
+msgstr "Skal hovedpersonens navn vises i kortform eller som fullt navn?"
+
+msgid "Show options to filter the results?"
+msgstr "Vis alternativ for å filtrere resultatene?"
+
+msgid "Show filter options"
+msgstr "Vis filteralternativ"
+
+msgid "How should empty parts of extended family be presented?"
+msgstr "Hvordan skal manglende deler av storfamilien vises?"
+
+msgid "Show empty block"
+msgstr "Vis tomme familiedeler"
+
+msgid "yes, always at standard location"
+msgstr "ja, alltid på vanlig sted"
+
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "nei, men samle opplysninger om manglende familiedeler til sist"
+
+msgid "never"
+msgstr "aldri"
+
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "Kortformen er basert på hovedpersonens kallenavn. Er dette ikke registrert, blir det første fornavnet brukt, så lenge det er registrert. Ellers brukes etternavnet."
+
+msgid "Show short name"
+msgstr "Vis kortform av navnet"
+
+msgid "Show labels in special situations?"
+msgstr "Vis etiketter i spesielle situasjoner?"
+
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "Etiketter brukes f.eks. for adoptivbarn eller fosterbarn."
+
+msgid "Show labels"
+msgstr "Vis etiketter"
+
+msgid "Use the compact design?"
+msgstr "Bruk kompakt design?"
+
+msgid "Use the compact design"
+msgstr "Bruk kompakt design"
+
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "Kompakt design viser bare navn og levetid for hver person. Utvidet design viser dessuten bilde (hvis det er aktivert for dette slektstreet) og informasjoner om fødsel og død."
+
+msgid "Show parameters of extended family part?"
+msgstr "Vis parametre for de utvidede familiedelene?"
+
+msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
+msgstr "Visning av tilleggsinformasjon for hver enkelt del av storfamilien, som f.eks. generasjonsorskyvning og slektskapskoeffisient, som er et mål for graden av blodsslektskap."
+
+msgid "Show parameters"
+msgstr "Vis parametre"
+
+msgid "generation +%s"
+msgstr "generasjon +%s"
+
+msgid "same generation"
+msgstr "samme generasjon"
+
+msgid "generation %s"
+msgstr "generasjon %s"
+
+msgid "relationship coefficient: %.1f"
+msgstr "slektskapskoeffisient: %.1f"
+
+msgid "no blood relationship"
+msgstr "intet blodsbånd"
+
+msgid "don't use this filter"
+msgstr "bruk ikke dette filteret"
+
+msgid "show only male persons"
+msgstr "vis bare personer av hankjønn"
+
+msgid "show only female persons"
+msgstr "vis bare personer av hunkjønn"
+
+msgid "show only persons of other or unknown gender"
+msgstr "vis bare personer av ukjent kjønn"
+
+msgid "show only alive persons"
+msgstr "vis bare nålevende personer"
+
+msgid "show only dead persons"
+msgstr "vis bare avdøde personer"
+
+msgid "alive"
+msgstr "nålevende"
+
+msgid "dead"
+msgstr "død"
+
+msgid "a dead person"
+msgstr "en avdød person"
+
+msgid "a living person"
+msgstr "en nålevende person"
+
+msgid "not a male person"
+msgstr "ingen person av hankjønn"
+
+msgid "not a female person"
+msgstr "ingen person av hunkjønn"
+
+msgid "not a person of unknown gender"
+msgstr "ingen person av ukjent kjønn"
+
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "kopiér alle medlemmer av storfamilien til utklippsmappen"
+
+msgid "copy to clippings cart"
+msgstr "kopiér til utklippsmappen"
+
+msgid "twin"
+msgstr "tvilling"
+
+msgid "triplet"
+msgstr "trilling"
+
+msgid "quadruplet"
+msgstr "firling"
+
+msgid "quintuplet"
+msgstr "femling"
+
+msgid "sextuplet"
+msgstr "seksling"
+
+msgid "septuplet"
+msgstr "syvling"
+
+msgid "octuplet"
+msgstr "åttling"
+
+msgid "nonuplet"
+msgstr "niling"
+
+msgid "decuplet"
+msgstr "tiling"
+
+msgid "stillborn"
+msgstr "dødfødt"
+
+msgid "died as infant"
+msgstr "død som spedbarn"
+
+msgid "linkage challenged"
+msgstr "usikkert slektskap"
+
+msgid "linkage disproven"
+msgstr "påviselig manglende slektskap"
+
+msgid "linkage proven"
+msgstr "påvist slektskap"
+
+msgid "Marriage"
+msgstr "Ekteskap"
+
+msgid "Ex-marriage"
+msgstr "Tidligere ekteskap"
+
+msgid "Partnership"
+msgstr "Partnerskap"
+
+msgid "Fiancée"
+msgstr "Forlovelse"
+
+msgid " with "
+msgstr " med "
+
+msgid "Biological grandparents of father"
+msgstr "Fars biologiske besteforeldre"
+
+msgid "Biological grandparents of mother"
+msgstr "Mors biologiske besteforeldre"
+
+msgid "Biological grandparents of parent"
+msgstr "Forelders biologiske besteforeldre"
+
+msgid "Stepparents of biological parent of father"
+msgstr "Steforeldre til fars biologiske forelder"
+
+msgid "Stepparents of biological parent of mother"
+msgstr "Steforeldre til mors biologiske forelder"
+
+msgid "Stepparents of biological grandparent"
+msgstr "Steforeldre til en biologisk besteforelder"
+
+msgid "Parents of stepparent of father"
+msgstr "Fars steforelders foreldre"
+
+msgid "Parents of stepparent of mother"
+msgstr "Mors steforelders foreldre"
+
+msgid "Parents of stepparent of parent"
+msgstr "Foreldre til en forelders steforelder"
+
+msgid "Grandparents of stepparent"
+msgstr "Besteforeldre til steforelder"
+
+msgid "Biological great-grandparents"
+msgstr "Biologiske oldeforeldre"
+
+msgid "Biological parents of father"
+msgstr "Biologiske farforeldre"
+
+msgid "Biological parents of mother"
+msgstr "Biologiske morforeldre"
+
+msgid "Biological parents of parent"
+msgstr "Biologiske besteforeldre"
+
+msgid "Stepparents of father"
+msgstr "Fars steforeldre"
+
+msgid "Stepparents of mother"
+msgstr "Mors steforeldre"
+
+msgid "Stepparents of parent"
+msgstr "Forelders steforeldre"
+
+msgid "Parents of stepparent"
+msgstr "Steforelders foreldre"
+
+msgid "Biological grandparents"
+msgstr "Biologiske besteforeldre"
+
+msgid "Siblings of father"
+msgstr "Fars søsken"
+
+msgid "Siblings of mother"
+msgstr "Mors søsken"
+
+msgid "Full siblings of biological parents"
+msgstr "Helsøsken av biologiske foreldre"
+
+msgid "Siblings-in-law of father"
+msgstr "Fars svigersøsken"
+
+msgid "Siblings-in-law of mother"
+msgstr "Mors svigersøsken"
+
+msgid "Biological parents"
+msgstr "Biologiske foreldre"
+
+msgid "Stepparents"
+msgstr "Steforeldre"
+
+msgid "Parents-in-law of biological children"
+msgstr "Biologisk barns svigerforeldre"
+
+msgid "Parents-in-law of stepchildren"
+msgstr "Stebarns svigerforeldre"
+
+msgid "Full siblings"
+msgstr "Helsøsken"
+
+msgid "Half siblings"
+msgstr "Halvsøsken"
+
+msgid "Stepsiblings"
+msgstr "Stesøsken"
+
+msgid "Children of full siblings of father"
+msgstr "Barn av fars helsøsken"
+
+msgid "Children of full siblings of mother"
+msgstr "Barn av mors helsøsken"
+
+msgid "Children of full siblings of parent"
+msgstr "Barn av en forelders helsøsken"
+
+msgid "Children of half siblings of father"
+msgstr "Barn av fars halvsøsken"
+
+msgid "Children of half siblings of mother"
+msgstr "Barn av mors halvsøsken"
+
+msgid "Children of half siblings of parent"
+msgstr "Barn av en forelders halvsøsken"
+
+msgid "Siblings of partners"
+msgstr "Partners søsken"
+
+msgid "Partners of siblings"
+msgstr "Søskens partner"
+
+msgid "Siblings of siblings-in-law"
+msgstr "Søsken av svigersøsken"
+
+msgid "Partners of siblings-in-law"
+msgstr "Svigersøskens partner"
+
+msgid "Children of full siblings of biological parents"
+msgstr "Barn av en biologisk forelders helsøsken"
+
+msgid "Children of siblings"
+msgstr "Barn av søsken"
+
+msgid "Children of full siblings"
+msgstr "Barn av helsøsken"
+
+msgid "Siblings' stepchildren"
+msgstr "Søskens stebarn"
+
+msgid "Children of siblings of partners"
+msgstr "Barn av partners søsken"
+
+msgid "Biological children"
+msgstr "Biologiske barn"
+
+msgid "Stepchildren"
+msgstr "Stebarn"
+
+msgid "Stepchild"
+msgstr "Stebarn"
+
+msgid "Stepson"
+msgstr "Stesønn"
+
+msgid "Stepdaughter"
+msgstr "Stedatter"
+
+msgid "Partners of biological children"
+msgstr "Biologiske barns partner"
+
+msgid "Partners of stepchildren"
+msgstr "Stebarns partner"
+
+msgid "Biological grandchildren"
+msgstr "Biologiske barnebarn"
+
+msgid "Stepchildren of children"
+msgstr "Barns stebarn"
+
+msgid "Children of stepchildren"
+msgstr "Stebarns barn"
+
+msgid "Stepchildren of stepchildren"
+msgstr "Stebarns stebarn"
+
+msgid "Partners of biological grandchildren"
+msgstr "Biologisk barnebarns partner"
+
+msgid "Partners of stepchildren of children"
+msgstr "Barns stebarns partner"
+
+msgid "Partners of children of stepchildren"
+msgstr "Stebarns barns partner"
+
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Stebarns stebarns partner"
+
+msgid "He"
+msgstr "Han"
+
+msgid "She"
+msgstr "Hun"
+
+msgid "He/she"
+msgstr "Han/hun"
+
+msgid "Mr."
+msgstr "Herr"
+
+msgid "Mrs."
+msgstr "Fru"
+
+msgid "No family available"
+msgstr "Ingen familie funnet"
+
+msgid "Summary for the shown extended family"
+msgstr "Sammendrag for den viste storfamilien"
+
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "%1$s er det eneste medlemmet av storfamilien."
+msgstr[1] "Storfamilien til %1$s har %2$d medlemmer (medregnet %1$s)."
+
+msgid "%s has no %s recorded."
+msgstr "%s har ingen registrerte %s."
+
+msgid "%s has no %s, and no %s recorded."
+msgstr "%s har ingen registrerte %s og ingen %s."
+
+msgid "Father's family (%d)"
+msgstr "Fars familie (%d)"
+
+msgid "Mother's family (%d)"
+msgstr "Mors familie (%d)"
+
+msgid "Father's and Mother's family (%d)"
+msgstr "Fars og mors familie (%d)"
+
+msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
+msgstr "Besteforeldre %1$s (%2$s) til stefar %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
+msgstr "Besteforeldre %1$s (%2$s) til stemor %3$s"
+
+msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
+msgstr "Besteforeldre %1$s (%2$s) til steforelder %3$s"
+
+msgid "Stepparents %1$s (%2$s) of %3$s"
+msgstr "Steforeldre %1$s (%2$s) til %3$s"
+
+msgid "Parents %1$s (%2$s) of stepfather %3$s"
+msgstr "Foreldre %1$s (%2$s) til stefar %3$s"
+
+msgid "Parents %1$s (%2$s) of stepmother %3$s"
+msgstr "Foreldre %1$s (%2$s) til stemor %3$s"
+
+msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgstr "Foreldre %1$s (%2$s) til steforelder %3$s"
+
+msgid "Parents %1$s of %2$s"
+msgstr "Foreldre %1$s til %2$s"
+
+msgid "Parents %1$s (%2$s) of %3$s"
+msgstr "Foreldre %1$s (%2$s) til %3$s"
+
+msgid "Partners of %s"
+msgstr "Partner til %s"
+
+msgid "Brother %1$s of partner %2$s"
+msgstr "Bror %1$s til partner %2$s"
+
+msgid "Sister %1$s of partner %2$s"
+msgstr "Søster %1$s til partner %2$s"
+
+msgid "Sibling %1$s of partner %2$s"
+msgstr "Søsken %1$s til partner %2$s"
+
+msgid "Great-grandparents"
+msgstr "Oldeforeldre"
+
+msgid "%s has no great-grandparents recorded."
+msgstr "%s har ingen registrerte oldeforeldre."
+
+msgid "%s has one great-grandmother recorded."
+msgstr "%s har én registrert oldemor."
+
+msgid "%s has one great-grandfather recorded."
+msgstr "%s har én registrert oldefar."
+
+msgid "%s has one great-grandparent of unknown sex recorded."
+msgstr "%s har én registrert oldeforelder av ukjent kjønn."
+
+msgid "%2$s has %1$d great-grandmother recorded."
+msgid_plural "%2$s has %1$d great-grandmothers recorded."
+msgstr[0] "%2$s har %1$d registrert oldemor."
+msgstr[1] "%2$s har %1$d registrerte oldemødre."
+
+msgid "%2$s has %1$d great-grandfather recorded."
+msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgstr[0] "%2$s har %1$d registrert oldefar."
+msgstr[1] "%2$s har %1$d registrerte oldefedre."
+
+msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert oldeforelder av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte oldeforeldre av ukjent kjønn."
+
+msgid "%2$s has %1$d great-grandfather and "
+msgid_plural "%2$s has %1$d great-grandfathers and "
+msgstr[0] "%2$s har %1$d registrert oldefar og"
+msgstr[1] "%2$s har %1$d registrerte oldeforeldre og "
+
+msgid "%d great-grandmother recorded (%d in total)."
+msgid_plural "%d great-grandmothers recorded (%d in total)."
+msgstr[0] "%d oldemor registrert (til sammen %d)."
+msgstr[1] "%d oldemødre registrert (til sammen %d)."
+
+msgid "%2$s has %1$d great-grandmother and "
+msgid_plural "%2$s has %1$d great-grandmothers and "
+msgstr[0] "%2$s har %1$d registrert oldemor og "
+msgstr[1] "%2$s har %1$d registrerte oldemødre og "
+
+msgid "%d great-grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d oldeforelder av ukjent kjønn registrert (til sammen %d)."
+msgstr[1] "%d oldeforeldre av ukjent kjønn registrert (til sammen %d)."
+
+msgid "%2$s has %1$d great-grandfather, "
+msgid_plural "%2$s has %1$d great-grandfathers, "
+msgstr[0] "%2$s har %1$d registrert oldefar, "
+msgstr[1] "%2$s har %1$d oldefedre, "
+
+msgid "%d great-grandmother, and "
+msgid_plural "%d great-grandmothers, and "
+msgstr[0] "%d oldemor, og "
+msgstr[1] "%d oldemødre, og "
+
+msgid "Grandparents"
+msgstr "Besteforeldre"
+
+msgid "%s has no grandparents recorded."
+msgstr "%s har ingen registrerte besteforeldre."
+
+msgid "%s has one grandmother recorded."
+msgstr "%s har én registrert bestemor."
+
+msgid "%s has one grandfather recorded."
+msgstr "%s har én registrert bestefar."
+
+msgid "%s has one grandparent of unknown sex recorded."
+msgstr "%s har én registrert besteforelder av ukjent kjønn."
+
+msgid "%2$s has %1$d grandmother recorded."
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "%2$s har %1$d registrert bestemor."
+msgstr[1] "%2$s har %1$d registrerte bestemødre."
+
+msgid "%2$s has %1$d grandfather recorded."
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "%2$s har %1$d registrert bestefar."
+msgstr[1] "%2$s har %1$d registrerte bestefedre."
+
+msgid "%2$s has %1$d grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert besteforelder av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte besteforeldre av ukjent kjønn."
+
+msgid "%2$s has %1$d grandfather and "
+msgid_plural "%2$s has %1$d grandfathers and "
+msgstr[0] "%2$s har %1$d registrert bestefar og "
+msgstr[1] "%2$s har %1$d registrerte bestefedre og "
+
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] "%d bestemor registrert (til sammen %d)."
+msgstr[1] "%d bestemødre registrert (til sammen %d)."
+
+msgid "%2$s has %1$d grandmother and "
+msgid_plural "%2$s has %1$d grandmothers and "
+msgstr[0] "%2$s har %1$d registrert bestemor og "
+msgstr[1] "%2$s har %1$d registrerte bestemødre og "
+
+msgid "%d grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d besteforelder av ukjent kjønn registrert (til sammen %d)."
+msgstr[1] "%d besteforeldre av ukjent kjønn registrert (til sammen %d)."
+
+msgid "%2$s has %1$d grandfather, "
+msgid_plural "%2$s has %1$d grandfathers, "
+msgstr[0] "%2$s har %1$d registrert bestefar, "
+msgstr[1] "%2$s har %1$d bestefedre, "
+
+msgid "%d grandmother, and "
+msgid_plural "%d grandmothers, and "
+msgstr[0] "%d bestemor og "
+msgstr[1] "%d bestemødre og "
+
+msgid "Uncles and Aunts"
+msgstr "Onkler og tanter"
+
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s har ingen registrerte onkler eller tanter."
+
+msgid "%s has one aunt recorded."
+msgstr "%s har én registrert tante."
+
+msgid "%s has one uncle recorded."
+msgstr "%s har én registrert onkel."
+
+msgid "%s has one uncle or aunt of unknown sex recorded."
+msgstr "%s har én registrert onkel eller tante av ukjent kjønn."
+
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] "%2$s har %1$d registrert tante."
+msgstr[1] "%2$s har %1$d registrerte tanter."
+
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] "%2$s har %1$d registrert onkel."
+msgstr[1] "%2$s har %1$d registrerte onkler."
+
+msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert onkel eller tante av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte onkler eller tanter av ukjent kjønn."
+
+msgid "%2$s has %1$d uncle and "
+msgid_plural "%2$s has %1$d uncles and "
+msgstr[0] "%2$s har %1$d registrert onkel og "
+msgstr[1] "%2$s har %1$d registrerte onkler og "
+
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] "%d tante (til sammen %d)."
+msgstr[1] "%d tanter (til sammen %d)."
+
+msgid "%2$s has %1$d aunt and "
+msgid_plural "%2$s has %1$d aunts and "
+msgstr[0] "%2$s har %1$d registrert tante og "
+msgstr[1] "%2$s har %1$d registrerte tanter og "
+
+msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
+msgstr[0] "%d onkel eller tante av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d onkler eller tanter av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d uncle, "
+msgid_plural "%2$s has %1$d uncles, "
+msgstr[0] "%2$s har %1$d registrert onkel, "
+msgstr[1] "%2$s har %1$d onkler, "
+
+msgid "%d aunt, and "
+msgid_plural "%d aunts, and "
+msgstr[0] "%d tante, og "
+msgstr[1] "%d tanter, og "
+
+msgid "Uncles and Aunts by marriage"
+msgstr "Inngifte onkler og tanter"
+
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s har ingen registrerte inngifte onkler eller tanter."
+
+msgid "%s has one aunt by marriage recorded."
+msgstr "%s har én registrert inngift tante."
+
+msgid "%s has one uncle by marriage recorded."
+msgstr "%s har én registrert inngift onkel."
+
+msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
+msgstr "%s har én registrert inngift onkel eller tante av ukjent kjønn."
+
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] "%2$s har %1$d registrert inngift tante."
+msgstr[1] "%2$s har registrert %1$d inngifte tanter."
+
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] "%2$s har %1$d registrert inngift onkel."
+msgstr[1] "%2$s har %1$d registrerte inngifte onkler."
+
+msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert inngift onkel eller tante av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte inngifte onkler eller tanter av ukjent kjønn."
+
+msgid "%2$s has %1$d uncle by marriage and "
+msgid_plural "%2$s has %1$d uncles by marriage and "
+msgstr[0] "%2$s har registrert %1$d inngift onkel og "
+msgstr[1] "%2$s har registrert %1$d inngifte onkler og "
+
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] "%d inngift tante (til sammen %d)."
+msgstr[1] "%d inngifte tanter (til sammen %d)."
+
+msgid "%2$s has %1$d aunt by marriage and "
+msgid_plural "%2$s has %1$d aunts by marriage and "
+msgstr[0] "%2$s har registrert %1$d inngift tante og "
+msgstr[1] "%2$s har registrert %1$d inngifte tanter og "
+
+msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+msgstr[0] "%d inngift onkel eller tante av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d inngifte onkler eller tanter av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d uncle by marriage, "
+msgid_plural "%2$s has %1$d uncles by marriage, "
+msgstr[0] "%2$s har %1$d registrert inngift onkel, "
+msgstr[1] "%2$s har %1$d registrerte inngifte onkler, "
+
+msgid "%d aunt by marriage, and "
+msgid_plural "%d aunts by marriage, and "
+msgstr[0] "%d inngift tante og "
+msgstr[1] "%d inngifte tanter og "
+
+msgid "Parents"
+msgstr "Foreldre"
+
+msgid "%s has no parents recorded."
+msgstr "%s har ingen registrerte foreldre."
+
+msgid "%s has one mother recorded."
+msgstr "%s har én registrert mor."
+
+msgid "%s has one father recorded."
+msgstr "%s har én registrert far."
+
+msgid "%s has one parent of unknown sex recorded."
+msgstr "%s har én registrert forelder av ukjent kjønn."
+
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] "%2$s har %1$d registrert mor."
+msgstr[1] "%2$s har %1$d registrerte mødre."
+
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] "%2$s har %1$d registrert far."
+msgstr[1] "%2$s har %1$d registrerte fedre."
+
+msgid "%2$s has %1$d parent of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert forelder av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte foreldre av ukjent kjønn."
+
+msgid "%2$s has %1$d father and "
+msgid_plural "%2$s has %1$d fathers and "
+msgstr[0] "%2$s har %1$d registrert far og "
+msgstr[1] "%2$s har %1$d registrerte fedre og "
+
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] "%d mor (til sammen %d)."
+msgstr[1] "%d mødre (til sammen %d)."
+
+msgid "%2$s has %1$d mother and "
+msgid_plural "%2$s has %1$d mothers and "
+msgstr[0] "%2$s har %1$d registrert mor og "
+msgstr[1] "%2$s har %1$d registrerte mødre og "
+
+msgid "%d parent of unknown sex recorded (%d in total)."
+msgid_plural "%d parents of unknown sex recorded (%d in total)."
+msgstr[0] "%d forelder av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d foreldre av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d father, "
+msgid_plural "%2$s has %1$d fathers, "
+msgstr[0] "%2$s har %1$d registrert far, "
+msgstr[1] "%2$s har %1$d registrerte fedre, "
+
+msgid "%d mother, and "
+msgid_plural "%d mothers, and "
+msgstr[0] "%d mor og "
+msgstr[1] "%d mødre og "
+
+msgid "Parents-in-law"
+msgstr "Svigerforeldre"
+
+msgid "%s has no parents-in-law recorded."
+msgstr "%s har ingen registrerte svigerforeldre."
+
+msgid "%s has one mother-in-law recorded."
+msgstr "%s har én registrert svigermor."
+
+msgid "%s has one father-in-law recorded."
+msgstr "%s har én registrert svigerfar."
+
+msgid "%s has one parent-in-law of unknown sex recorded."
+msgstr "%s har én registrert svigerforelder av ukjent kjønn."
+
+msgid "%2$s has %1$d mother-in-law recorded."
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigermor."
+msgstr[1] "%2$s har %1$d registrerte svigermødre."
+
+msgid "%2$s has %1$d father-in-law recorded."
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigerfar."
+msgstr[1] "%2$s har %1$d registrerte svigerfedre."
+
+msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert svigerforelder av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte svigerforeldre av ukjent kjønn."
+
+msgid "%2$s has %1$d father-in-law and "
+msgid_plural "%2$s has %1$d fathers-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigerfar og "
+msgstr[1] "%2$s har %1$d registrerte svigerfedre og "
+
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] "%d svigermor (til sammen %d)."
+msgstr[1] "%d svigermødre (til sammen %d)."
+
+msgid "%2$s has %1$d mother-in-law and "
+msgid_plural "%2$s has %1$d mothers-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigermor og "
+msgstr[1] "%2$s har %1$d registrerte svigermødre og "
+
+msgid "%d parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d svigerforelder av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d svigerforeldre av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d father-in-law, "
+msgid_plural "%2$s has %1$d fathers-in-law, "
+msgstr[0] "%2$s har %1$d registrert svigerfar, "
+msgstr[1] "%2$s har %1$d svigerfedre, "
+
+msgid "%d mother-in-law, and "
+msgid_plural "%d mothers-in-law, and "
+msgstr[0] "%d svigermor og "
+msgstr[1] "%d svigermødre og "
+
+msgid "Co-parents-in-law"
+msgstr "Barns svigerforeldre"
+
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s har ingen registrerte barns svigerforeldre."
+
+msgid "%s has one co-mother-in-law recorded."
+msgstr "%s har én registrert barns svigermor."
+
+msgid "%s has one co-father-in-law recorded."
+msgstr "%s har én registrert barns svigerfar."
+
+msgid "%s has one co-parent-in-law of unknown sex recorded."
+msgstr "%s har én registrert barns svigerforelder av ukjent kjønn."
+
+msgid "%2$s has %1$d co-mother-in-law recorded."
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert barns svigermor."
+msgstr[1] "%2$s har %1$d registrerte barns svigermødre."
+
+msgid "%2$s has %1$d co-father-in-law recorded."
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert barns svigerfar."
+msgstr[1] "%2$s har %1$d registrerte barns svigerfedre."
+
+msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert barns svigerforelder av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte barns svigerforeldre av ukjent kjønn."
+
+msgid "%2$s has %1$d co-father-in-law and "
+msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgstr[0] "%2$s har registrert %1$d barns svigerfar og "
+msgstr[1] "%2$s har registrert %1$d barns svigerfedre og "
+
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] "%d barns svigermor (til sammen %d)."
+msgstr[1] "%d barns svigermødre (til sammen %d)."
+
+msgid "%2$s has %1$d co-mother-in-law and "
+msgid_plural "%2$s has %1$d co-mothers-in-law and "
+msgstr[0] "%2$s har registrert %1$d barns svigermor og "
+msgstr[1] "%2$s har registrert %1$d barns svigermødre og "
+
+msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d barns svigerforelder av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d barns svigerforeldre av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d co-father-in-law, "
+msgid_plural "%2$s has %1$d co-fathers-in-law, "
+msgstr[0] "%2$s har %1$d registrert barns svigerfar, "
+msgstr[1] "%2$s har %1$d registrerte barns svigerfedre, "
+
+msgid "%d co-mother-in-law, and "
+msgid_plural "%d co-mothers-in-law, and "
+msgstr[0] "%d barns svigermor, og "
+msgstr[1] "%d barns svigermødre, og "
+
+msgid "Partners"
+msgstr "Partnere"
+
+msgid "Partner of "
+msgstr "Partner av "
+
+msgid "%s has no partners recorded."
+msgstr "%s har ingen registrerte partnere."
+
+msgid "%s has one female partner recorded."
+msgstr "%s har én registrert kvinnelig partner."
+
+msgid "%s has one male partner recorded."
+msgstr "%s har én registrert mannlig partner."
+
+msgid "%s has one partner of unknown sex recorded."
+msgstr "%s har én registrert partner av ukjent kjønn."
+
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] "%2$s har %1$d registrert kvinnelig partner."
+msgstr[1] "%2$s har %1$d registrerte kvinnelige partnere."
+
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] "%2$s har %1$d registrert mannlig partner."
+msgstr[1] "%2$s har %1$d registrerte mannlige partnere."
+
+msgid "%2$s has %1$d partner of unknown sex recorded."
+msgid_plural "%2$s has %1$d partners of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert partner av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte partnere av ukjent kjønn."
+
+msgid "%2$s has %1$d male partner and "
+msgid_plural "%2$s has %1$d male partners and "
+msgstr[0] "%2$s har %1$d mannlig partner og "
+msgstr[1] "%2$s har %1$d mannlige partnere og "
+
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "%2$s har %1$d registrert kvinnelig partner og "
+msgstr[1] "%2$s har %1$d registrerte kvinnelige partnere og "
+
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] "%d kvinnelig partner (til sammen %d)."
+msgstr[1] "%d kvinnelige partnere (til sammen %d)."
+
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s har %1$d registrert partner og "
+msgstr[1] "%2$s har %1$d registrerte partnere og "
+
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d mannlig partner av kvinnelige partnere (til sammen %d)."
+msgstr[1] "%d mannlige partnere av kvinnelige partnere (til sammen %d)."
+
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d kvinnelig partner av mannlige partnere (til sammen %d)."
+msgstr[1] "%d kvinnelige partnere av mannlige partnere (til sammen %d)."
+
+msgid "Partner chains"
+msgstr "Partnerkjeder"
+
+msgid "%s has no members of a partner chain recorded."
+msgstr "%s inngår ikke i noen partnerkjede."
+
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d kvinnelig partner registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
+msgstr[1] "%1$d kvinnelige partnere registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
+
+msgid "%1$d female partner and "
+msgid_plural "%d female partners and "
+msgstr[0] "%1$d kvinnelig partner og "
+msgstr[1] "%1$d kvinnelige partnere og "
+
+msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d partner av ukjent kjønn registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
+msgstr[1] "%1$d partnere av ukjent kjønn registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
+
+msgid "%d female partner, and "
+msgid_plural "%d female partners, and "
+msgstr[0] "%d kvinnelig partner og "
+msgstr[1] "%d kvinnelige partnere og "
+
+msgid "There are %d branches in the partner chain. "
+msgstr "Det er %d grener i partnerkjeden. "
+
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
+msgstr "Den lengste grenen i partnerkjeden med %2$s består av %1$d partnere (%3$s medregnet)."
+
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
+msgstr "Den lengste grenen i partnerkjeden består av %1$d partnere (%2$s medregnet)."
+
+msgid "Siblings"
+msgstr "Søsken"
+
+msgid "%s has no siblings recorded."
+msgstr "%s har ingen registrerte søsken."
+
+msgid "%s has one sister recorded."
+msgstr "%s har én registrert søster."
+
+msgid "%s has one brother recorded."
+msgstr "%s har én registrert bror."
+
+msgid "%s has one sibling of unknown sex recorded."
+msgstr "%s har ett registrert søsken av ukjent kjønn."
+
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] "%2$s har %1$d registrert søster."
+msgstr[1] "%2$s har %1$d registrerte søstre."
+
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] "%2$s har %1$d registrert bror."
+msgstr[1] "%2$s har %1$d registrerte brødre."
+
+msgid "%2$s has %1$d sibling of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert søsken av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte søsken av ukjent kjønn."
+
+msgid "%2$s has %1$d brother and "
+msgid_plural "%2$s has %1$d brothers and "
+msgstr[0] "%2$s har %1$d registrert bror og "
+msgstr[1] "%2$s har %1$d brødre og "
+
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] "%d søster (til sammen %d)."
+msgstr[1] "%d søstre (til sammen %d)."
+
+msgid "%2$s has %1$d sister and "
+msgid_plural "%2$s has %1$d sisters and "
+msgstr[0] "%2$s har %1$d registrert søster og "
+msgstr[1] "%2$s har %1$d registrerte søstre og "
+
+msgid "%d sibling of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings of unknown sex recorded (%d in total)."
+msgstr[0] "%d søsken av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d søsken av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d brother, "
+msgid_plural "%2$s has %1$d brothers, "
+msgstr[0] "%2$s har %1$d registrert bror, "
+msgstr[1] "%2$s har %1$d brødre, "
+
+msgid "%d sister, and "
+msgid_plural "%d sisters, and "
+msgstr[0] "%d søster og "
+msgstr[1] "%d søstre og "
+
+msgid "Siblings-in-law"
+msgstr "Svigersøsken"
+
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s har ingen registrerte svigersøsken."
+
+msgid "%s has one sister-in-law recorded."
+msgstr "%s har én registrert svigerinne."
+
+msgid "%s has one brother-in-law recorded."
+msgstr "%s har én registrert svoger."
+
+msgid "%s has one sibling-in-law of unknown sex recorded."
+msgstr "%s har ett registrert svigersøsken av ukjent kjønn."
+
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigerinne."
+msgstr[1] "%2$s har %1$d registrerte svigerinner."
+
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svoger."
+msgstr[1] "%2$s har %1$d registrerte svogre."
+
+msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert svigersøsken av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte svigersøsken av ukjent kjønn."
+
+msgid "%2$s has %1$d brother-in-law and "
+msgid_plural "%2$s has %1$d brothers-in-law and "
+msgstr[0] "%2$s har %1$d registrert svoger og "
+msgstr[1] "%2$s har %1$d registrerte svogre og "
+
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] "%d svigerinne (til sammen %d)."
+msgstr[1] "%d svigerinner (til sammen %d)."
+
+msgid "%2$s has %1$d sister-in-law and "
+msgid_plural "%2$s has %1$d sisters-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigerinne og "
+msgstr[1] "%2$s har %1$d registrerte svigerinner og "
+
+msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d svigersøsken av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d svigersøsken av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d brother-in-law, "
+msgid_plural "%2$s has %1$d brothers-in-law, "
+msgstr[0] "%2$s har %1$d registrert svoger, "
+msgstr[1] "%2$s har %1$d svogre, "
+
+msgid "%d sister-in-law, and "
+msgid_plural "%d sisters-in-law, and "
+msgstr[0] "%d svigerinne, og "
+msgstr[1] "%d svigerinner, og "
+
+msgid "Co-siblings-in-law"
+msgstr "Ektefelles svigersøsken"
+
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "%s har ingen registrerte ektefelles svigersøsken."
+
+msgid "%s has one co-sister-in-law recorded."
+msgstr "%s har én registrert ektefelles svigerinne."
+
+msgid "%s has one co-brother-in-law recorded."
+msgstr "%s har én registrert ektefelles svoger."
+
+msgid "%s has one co-sibling-in-law of unknown sex recorded."
+msgstr "%s har ett registrert ektefelles svigersøsken av ukjent kjønn."
+
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert ektefelles svigerinne."
+msgstr[1] "%2$s har %1$d registrerte ektefelles svigerinner."
+
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert ektefelles svoger."
+msgstr[1] "%2$s har %1$d registrerte ektefelles svogre."
+
+msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert ektefelles svigersøsken av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte ektefelles svigersøsken av ukjent kjønn."
+
+msgid "%2$s has %1$d co-brother-in-law and "
+msgid_plural "%2$s has %1$d co-brothers-in-law and "
+msgstr[0] "%2$s har %1$d registrert ektefelles svoger og "
+msgstr[1] "%2$s har %1$d registrerte ektefelles svogre og "
+
+msgid "%d co-sister-in-law recorded (%d in total)."
+msgid_plural "%d co-sisters-in-law recorded (%d in total)."
+msgstr[0] "%d ektefelles svigerinne (til sammen %d)."
+msgstr[1] "%d ektefelles svigerinner (til sammen %d)."
+
+msgid "%2$s has %1$d co-sister-in-law and "
+msgid_plural "%2$s has %1$d co-sisters-in-law and "
+msgstr[0] "%2$s har %1$d registrert ektefelles svigerinne og "
+msgstr[1] "%2$s har %1$d registrerte ektefelles svigerinner og "
+
+msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d ektefelles svigersøsken av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d ektefelles svigersøsken av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d co-brother-in-law, "
+msgid_plural "%2$s has %1$d co-brothers-in-law, "
+msgstr[0] "%2$s har %1$d registrert ektefelles svoger, "
+msgstr[1] "%2$s har %1$d registrerte ektefelles svogre, "
+
+msgid "%d co-sister-in-law, and "
+msgid_plural "%d co-sisters-in-law, and "
+msgstr[0] "%d ektefelles svigerinne, og "
+msgstr[1] "%d ektefelles svigerinner, og "
+
+msgid "Cousins"
+msgstr "Søskenbarn"
+
+msgid "%s has no first cousins recorded."
+msgstr "%s har ingen registrerte søskenbarn."
+
+msgid "%s has one female first cousin recorded."
+msgstr "%s har én registrert kusine."
+
+msgid "%s has one male first cousin recorded."
+msgstr "%s har én registrert fetter."
+
+msgid "%s has one first cousin of unknown sex recorded."
+msgstr "%s har ett registrert søskenbarn av ukjent kjønn."
+
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] "%2$s har %1$d registrert kusine."
+msgstr[1] "%2$s har %1$d registrerte kusiner."
+
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] "%2$s har %1$d registrert fetter."
+msgstr[1] "%2$s har %1$d registrerte fetre."
+
+msgid "%2$s has %1$d first cousin of unknown sex recorded."
+msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert søskenbarn av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte søskenbarn av ukjent kjønn."
+
+msgid "%2$s has %1$d male first cousin and "
+msgid_plural "%2$s has %1$d male first cousins and "
+msgstr[0] "%2$s har %1$d registrert fetter og "
+msgstr[1] "%2$s har %1$d registrerte fetre og "
+
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] "%d kusine (til sammen %d)."
+msgstr[1] "%d kusiner (til sammen %d)."
+
+msgid "%2$s has %1$d female first cousin and "
+msgid_plural "%2$s has %1$d female first cousins and "
+msgstr[0] "%2$s har %1$d registrert kusine og "
+msgstr[1] "%2$s har %1$d registrerte kusiner og "
+
+msgid "%d first cousin of unknown sex recorded (%d in total)."
+msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
+msgstr[0] "%d søskenbarn av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d søskenbarn av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d male first cousin, "
+msgid_plural "%2$s has %1$d male first cousins, "
+msgstr[0] "%2$s har %1$d registrert fetter, "
+msgstr[1] "%2$s har %1$d fetre, "
+
+msgid "%d female first cousin, and "
+msgid_plural "%d female first cousins, and "
+msgstr[0] "%d kusine og "
+msgstr[1] "%d kusiner og "
+
+msgid "Nephews and Nieces"
+msgstr "Nevøer og nieser"
+
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s har ingen registrerte nevøer eller nieser."
+
+msgid "%s has one niece recorded."
+msgstr "%s har én registrert niese."
+
+msgid "%s has one nephew recorded."
+msgstr "%s har én registrert nevø."
+
+msgid "%s has one nephew or niece of unknown sex recorded."
+msgstr "%s har én registrert nevø eller niese av ukjent kjønn."
+
+msgid "%2$s has %1$d niece recorded."
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "%2$s har %1$d registrert niese."
+msgstr[1] "%2$s har %1$d registrerte nieser."
+
+msgid "%2$s has %1$d nephew recorded."
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "%2$s har %1$d registrert nevø."
+msgstr[1] "%2$s har %1$d registrerte nevøer."
+
+msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
+msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert nevø eller niese av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte nevøer eller nieser av ukjent kjønn."
+
+msgid "%2$s has %1$d nephew and "
+msgid_plural "%2$s has %1$d nephews and "
+msgstr[0] "%2$s har %1$d registrert nevø og "
+msgstr[1] "%2$s har %1$d registrerte nevøer og "
+
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] "%d niese (til sammen %d)."
+msgstr[1] "%d nieser (til sammen %d)."
+
+msgid "%2$s has %1$d niece and "
+msgid_plural "%2$s has %1$d nieces and "
+msgstr[0] "%2$s har %1$d registrert niese og "
+msgstr[1] "%2$s har %1$d nieser og "
+
+msgid "%d nephew or niece of unknown sex recorded (%d in total)."
+msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
+msgstr[0] "%d nevø eller niese av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d nevøer eller nieser av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d nephew, "
+msgid_plural "%2$s has %1$d nephews, "
+msgstr[0] "%2$s har %1$d registrert nevø, "
+msgstr[1] "%2$s har %1$d nevøer, "
+
+msgid "%d niece, and "
+msgid_plural "%d nieces, and "
+msgstr[0] "%d niese, og "
+msgstr[1] "%d nieser, og "
+
+msgid "Children"
+msgstr "Barn"
+
+msgid "%s has no children recorded."
+msgstr "%s har ingen registrerte barn."
+
+msgid "%s has one daughter recorded."
+msgstr "%s har én registrert datter."
+
+msgid "%s has one son recorded."
+msgstr "%s har én registrert sønn."
+
+msgid "%s has one child of unknown sex recorded."
+msgstr "%s har ett registrert barn av ukjent kjønn."
+
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] "%2$s har %1$d registrert datter."
+msgstr[1] "%2$s har %1$d registrerte døtre."
+
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] "%2$s har %1$d registrert sønn."
+msgstr[1] "%2$s har %1$d registrerte sønner."
+
+msgid "%2$s has %1$d child of unknown sex recorded."
+msgid_plural "%2$s has %1$d children of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert barn av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte barn av ukjent kjønn."
+
+msgid "%2$s has %1$d son and "
+msgid_plural "%2$s has %1$d sons and "
+msgstr[0] "%2$s har %1$d registrert sønn og "
+msgstr[1] "%2$s har %1$d registrerte sønner og "
+
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] "%d datter (til sammen %d)."
+msgstr[1] "%d døtre (til sammen %d)."
+
+msgid "%2$s has %1$d daughter and "
+msgid_plural "%2$s has %1$d daughters and "
+msgstr[0] "%2$s har %1$d registrert datter og "
+msgstr[1] "%2$s har %1$d registrerte døtre og "
+
+msgid "%d child of unknown sex recorded (%d in total)."
+msgid_plural "%d children of unknown sex recorded (%d in total)."
+msgstr[0] "%d barn av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d barn av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d son, "
+msgid_plural "%2$s has %1$d sons, "
+msgstr[0] "%2$s har %1$d registrert sønn, "
+msgstr[1] "%2$s har %1$d registrerte sønner, "
+
+msgid "%d daughter, and "
+msgid_plural "%d daughters, and "
+msgstr[0] "%d datter, og "
+msgstr[1] "%d døtre, og "
+
+msgid "Children-in-law"
+msgstr "Svigerbarn"
+
+msgid "%s has no children-in-law recorded."
+msgstr "%s har ingen registrerte svigerbarn."
+
+msgid "%s has one daughter-in-law recorded."
+msgstr "%s har én registrert svigerdatter."
+
+msgid "%s has one son-in-law recorded."
+msgstr "%s har én registrert svigersønn."
+
+msgid "%s has one child-in-law of unknown sex recorded."
+msgstr "%s har ett registrert svigerbarn av ukjent kjønn."
+
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigerdatter."
+msgstr[1] "%2$s har %1$d registrerte svigerdøtre."
+
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigersønn."
+msgstr[1] "%2$s har %1$d registrerte svigersønner."
+
+msgid "%2$s has %1$d child-in-law recorded."
+msgid_plural "%2$s has %1$d children-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigerbarn."
+msgstr[1] "%2$s har %1$d registrerte svigerbarn."
+
+msgid "%2$s has %1$d son-in-law and "
+msgid_plural "%2$s has %1$d sons-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigersønn og "
+msgstr[1] "%2$s har %1$d registrerte svigersønner og "
+
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] "%d svigerdatter (til sammen %d)."
+msgstr[1] "%d svigerdøtre (til sammen %d)."
+
+msgid "%2$s has %1$d daughter-in-law and "
+msgid_plural "%2$s has %1$d daughters-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigerdatter og "
+msgstr[1] "%2$s har %1$d registrerte svigerdøtre og "
+
+msgid "%d child-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d svigerbarn av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d svigerbarn av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d son-in-law, "
+msgid_plural "%2$s has %1$d sons-in-law, "
+msgstr[0] "%2$s har %1$d registrert svigersønn, "
+msgstr[1] "%2$s har %1$d registrerte svigersønner, "
+
+msgid "%d daughter-in-law, and "
+msgid_plural "%d daughters-in-law, and "
+msgstr[0] "%d svigerdatter, og "
+msgstr[1] "%d svigerdøtre, og "
+
+msgid "Grandchildren"
+msgstr "Barnebarn"
+
+msgid "%s has no grandchildren recorded."
+msgstr "%s har ingen registrerte barnebarn."
+
+msgid "%s has one granddaughter recorded."
+msgstr "%s har én registrert sønne-/datterdatter."
+
+msgid "%s has one grandson recorded."
+msgstr "%s har én registrert sønne-/dattersønn."
+
+msgid "%s has one grandchild of unknown sex recorded."
+msgstr "%s har ett registrert barnebarn av ukjent kjønn."
+
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] "%2$s har %1$d registrert sønne-/datterdatter."
+msgstr[1] "%2$s har %1$d registrerte sønne-/datterdøtre."
+
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] "%2$s har %1$d registrert sønne-/dattersønn."
+msgstr[1] "%2$s har %1$d registrerte sønne-/dattersønner."
+
+msgid "%2$s has %1$d grandchild of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert barnebarn av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte barnebarn av ukjent kjønn."
+
+msgid "%2$s has %1$d grandson and "
+msgid_plural "%2$s has %1$d grandsons and "
+msgstr[0] "%2$s har %1$d registrert sønne-/dattersønn og "
+msgstr[1] "%2$s har %1$d registrerte sønne-/dattersønner og "
+
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] "%d sønne-/datterdatter (til sammen %d)."
+msgstr[1] "%d sønne-/datterdøtre (til sammen %d)."
+
+msgid "%2$s has %1$d granddaughter and "
+msgid_plural "%2$s has %1$d granddaughters and "
+msgstr[0] "%2$s har %1$d registrert sønne-/datterdatter og "
+msgstr[1] "%2$s har %1$d registrerte sønne-/datterdøtre og "
+
+msgid "%d grandchild of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
+msgstr[0] "%d barnebarn av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d barnebarn av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d grandson, "
+msgid_plural "%2$s has %1$d grandsons, "
+msgstr[0] "%2$s har %1$d registrert sønne-/dattersønn, "
+msgstr[1] "%2$s har %1$d registrerte sønne-/dattersønner, "
+
+msgid "%d granddaughter, and "
+msgid_plural "%d granddaughters, and "
+msgstr[0] "%d sønne-/datterdatter, og "
+msgstr[1] "%d sønne-/datterdøtre, og "
+
+msgid "Grandchildren-in-law"
+msgstr "Svigerbarnebarn"
+
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "%s har ingen registrerte svigerbarnebarn."
+
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "%s har ett registrert svigerbarnebarn."
+
+msgid "%s has one grandson-in-law recorded."
+msgstr "%s har ett registrert svigerbarnebarn."
+
+msgid "%s has one grandchild-in-law of unknown sex recorded."
+msgstr "%s har ett registrert svigerbarnebarn av ukjent kjønn."
+
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigerbarnebarn."
+msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn."
+
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigerbarnebarn."
+msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn."
+
+msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+msgstr[0] "%2$s har %1$d registrert svigerbarnebarn av ukjent kjønn."
+msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn av ukjent kjønn."
+
+msgid "%2$s has %1$d grandson-in-law and "
+msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigerbarnebarn og "
+msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn og "
+
+msgid "%d granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgstr[0] "%d svigerbarnebarn (til sammen %d)."
+msgstr[1] "%d svigerbarnebarn (til sammen %d)."
+
+msgid "%2$s has %1$d granddaughter-in-law and "
+msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgstr[0] "%2$s har %1$d registrert svigerbarnebarn og "
+msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn og "
+
+msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d svigerbarnebarn av ukjent kjønn (til sammen %d)."
+msgstr[1] "%d svigerbarnebarn av ukjent kjønn (til sammen %d)."
+
+msgid "%2$s has %1$d grandson-in-law, "
+msgid_plural "%2$s has %1$d grandsons-in-law, "
+msgstr[0] "%2$s har %1$d registrert svigerbarnebarn, "
+msgstr[1] "%2$s har %1$d registrerte svigerbarnebarn, "
+
+msgid "%d granddaughter-in-law, and "
+msgid_plural "%d granddaughters-in-law, and "
+msgstr[0] "%d svigerbarnebarn og "
+msgstr[1] "%d svigerbarnebarn og "

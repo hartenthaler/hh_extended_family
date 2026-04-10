@@ -1,0 +1,1049 @@
+msgid ""
+msgstr ""
+"Language: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Extended family"
+msgstr "大家庭"
+
+msgid "A tab showing the extended family of an individual."
+msgstr "显示本人大家庭的选项卡。"
+
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "大家庭的各位部分应该按什么顺序显示？"
+
+msgid "Family part (generation relative to proband)"
+msgstr "家庭部分（相对于本人的世代）"
+
+msgid "Move"
+msgstr "移动"
+
+msgid "Show name of proband as short name or as full name?"
+msgstr "本人姓名显示简称还是全名？"
+
+msgid "Show options to filter the results (gender and alive/dead)?"
+msgstr "显示过滤结果的选项（性别和活/死）？"
+
+msgid "Count the members of the partner chains as members of the extended family?"
+msgstr "是否将配偶系列的成员计算为大家庭的成员？"
+
+msgid "If you select \"no\", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family."
+msgstr "如果选择“否”，则配偶系列中的其他成员将不会计入大家庭中的个人总数"
+
+msgid "And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart."
+msgstr "当用户决定将扩展族复制到剪报购物车时，将不会选择这些人员和家庭。"
+
+msgid "But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module \"enhanced clippings cart\": \"add partner chains for an individual\"."
+msgstr "但即使在这种情况下，您也可以使用自定义模块“增强剪报购物车”的特殊菜单主题“为个人添加配偶系列”，将这些人员和家庭复制到剪报购物车。"
+
+msgid "This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family."
+msgstr "只有在上表中选择配偶系列应显示为扩展族的一部分时，这才相关。"
+
+msgid "Show options to filter the results?"
+msgstr "是否显示筛选结果的选项？"
+
+msgid "This allows a user to filter the members of the extended family by gender and if they are alive or dead."
+msgstr "这允许用户按性别以及是否活着或去世筛选大家庭成员。"
+
+msgid "Show parameters of extended family part?"
+msgstr "是否显示大族庭的关系参数？"
+
+msgid "Include them"
+msgstr "包含他们"
+
+msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
+msgstr "显示大家庭每个部分的其他信息，例如世代更替和关系系数，这是血亲程度的衡量标准。"
+
+msgid "Show filter options"
+msgstr "显示过滤器选项"
+
+msgid "How should empty parts of extended family be presented?"
+msgstr "大家庭的空部分应该如何呈现？"
+
+msgid "Show empty block"
+msgstr "显示空块"
+
+msgid "yes, always at standard location"
+msgstr "是的，总是在标准地点"
+
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "没有，但是在最后收集关于空块的消息"
+
+msgid "never"
+msgstr "从不"
+
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "简称基于本人的姓名或昵称。如果这些名称不可用，则使用给定名称中的第一位（如果给定）。否则将使用姓氏。"
+
+msgid "Show short name"
+msgstr "显示短名称"
+
+msgid "Should a summary block be shown?"
+msgstr "是否应显示摘要块？"
+
+msgid "The summary contains information about the extended family in total."
+msgstr "摘要包含有关大家庭的全部信息。"
+
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr "显示“复制到剪辑板”按钮？"
+
+msgid "copy to clippings cart"
+msgstr "复制到剪辑板"
+
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr "这允许用户将扩展族的所有成员复制到剪报购物车。"
+
+msgid "no, but collect messages about empty blocks at the summary block"
+msgstr "否，但在摘要块中收集有关空块的消息"
+
+msgid "Show labels in special situations?"
+msgstr "在特殊情况下显示标签？"
+
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "标签（或贴纸）用于收养人或寄养儿童。"
+
+msgid "Show labels"
+msgstr "显示标签"
+
+msgid "Use the compact design?"
+msgstr "使用紧凑型设计？"
+
+msgid "Use the compact design"
+msgstr "使用紧凑的设计"
+
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "紧凑的设计只显示每位人的姓名和寿命。丰富的设计还显示了一张照片（如果这是为这棵树激活的）以及出生和死亡信息。"
+
+msgid "Show parameters"
+msgstr "显示参数"
+
+msgid "Show button"
+msgstr "显示按钮"
+
+msgid "Show summary"
+msgstr "显示摘要"
+
+msgid "don\\t use this filter"
+msgstr "不要使用此筛选器"
+
+msgid "show only male persons"
+msgstr "只显示男性"
+
+msgid "show only female persons"
+msgstr "只显示女性"
+
+msgid "show only persons of other or unknown gender"
+msgstr "只显示未知性别的人"
+
+msgid "show only alive persons"
+msgstr "只显示活着的人"
+
+msgid "show only dead persons"
+msgstr "只显示死人"
+
+msgid "alive"
+msgstr "在世的"
+
+msgid "dead"
+msgstr "去世的"
+
+msgid "a dead person"
+msgstr "一位逝者"
+
+msgid "a living person"
+msgstr "一位生者"
+
+msgid "not a male person"
+msgstr "不是男性"
+
+msgid "not a female person"
+msgstr "不是女性"
+
+msgid "not a person of unknown gender"
+msgstr "不是一位性别不明的人"
+
+msgid "twin"
+msgstr "双胞胎"
+
+msgid "triplet"
+msgstr "三胞胎"
+
+msgid "quadruplet"
+msgstr "四胞胎"
+
+msgid "quintuplet"
+msgstr "五胞胎"
+
+msgid "sextuplet"
+msgstr "六胞胎"
+
+msgid "septuplet"
+msgstr "七胞胎"
+
+msgid "octuplet"
+msgstr "八胞胎"
+
+msgid "nonuplet"
+msgstr "九胞胎"
+
+msgid "decuplet"
+msgstr "十胞胎"
+
+msgid "stillborn"
+msgstr "死胎"
+
+msgid "died as infant"
+msgstr "在婴儿时期就去世了"
+
+msgid "linkage challenged"
+msgstr "联系受到挑战"
+
+msgid "linkage disproven"
+msgstr "连锁反证"
+
+msgid "linkage proven"
+msgstr "链接已被证明"
+
+msgid "Marriage"
+msgstr "结婚"
+
+msgid "Ex-marriage"
+msgstr "前任"
+
+msgid "Partnership"
+msgstr "婚姻关系"
+
+msgid "Fiancée"
+msgstr "未婚妻"
+
+msgid " with "
+msgstr "："
+
+msgid "Biological parents of father"
+msgstr "父亲的亲生父母"
+
+msgid "Biological parents of mother"
+msgstr "母亲的亲生父母"
+
+msgid "Biological grandparents of father"
+msgstr "父亲的亲生祖父母"
+
+msgid "Biological grandparents of mother"
+msgstr "母亲的亲生祖父母"
+
+msgid "Biological parents of parent"
+msgstr "亲生父母"
+
+msgid "Biological great-grandparents"
+msgstr "亲生曾祖父母"
+
+msgid "Stepparents of father"
+msgstr "继父"
+
+msgid "Stepparents of mother"
+msgstr "继母"
+
+msgid "Stepparents of parent"
+msgstr "父母的继父母"
+
+msgid "Parents of stepparent"
+msgstr "继父或继母的父母"
+
+msgid "Siblings of father"
+msgstr "父亲的兄弟姐妹"
+
+msgid "Siblings of mother"
+msgstr "母亲的兄弟姐妹"
+
+msgid "Siblings-in-law of father"
+msgstr "父亲兄弟姐妹的配偶"
+
+msgid "Siblings-in-law of mother"
+msgstr "母亲兄弟姐妹的配偶"
+
+msgid "Biological parents"
+msgstr "亲生父母"
+
+msgid "Stepparents"
+msgstr "继父母"
+
+msgid "Parents-in-law of biological children"
+msgstr "亲生子女的岳父母\\公婆"
+
+msgid "Parents-in-law of stepchildren"
+msgstr "继子女的岳父母\\公婆"
+
+msgid "Full siblings"
+msgstr "兄弟姐妹"
+
+msgid "Half siblings"
+msgstr "同父异母的兄弟姐妹"
+
+msgid "Stepsiblings"
+msgstr "继兄弟姐妹"
+
+msgid "Children of full siblings of father"
+msgstr "父亲的兄弟姐妹的子女"
+
+msgid "Children of full siblings of mother"
+msgstr "母亲兄弟姐妹的子女"
+
+msgid "Children of full siblings of parent"
+msgstr "父母的兄弟姐妹的子女"
+
+msgid "Children of half siblings of father"
+msgstr "同父异母兄弟姐妹的子女"
+
+msgid "Children of half siblings of mother"
+msgstr "母亲同父异母兄弟姐妹的子女"
+
+msgid "Children of half siblings of parent"
+msgstr "同父异母兄弟姐妹的子女"
+
+msgid "Siblings of partners"
+msgstr "配偶的兄弟姐妹"
+
+msgid "Partners of siblings"
+msgstr "兄弟姐妹的配偶"
+
+msgid "Siblings of siblings-in-law"
+msgstr "姐妹夫\\姨子的兄弟姐妹"
+
+msgid "Partners of siblings-in-law"
+msgstr "姊夫\\叔子\\姨子的配偶"
+
+msgid "Children of siblings"
+msgstr "兄弟姐妹的子女"
+
+msgid "Children of full siblings"
+msgstr "兄弟姐妹的子女"
+
+msgid "Siblings' stepchildren"
+msgstr "兄弟姐妹的继子女"
+
+msgid "Children of siblings of partners"
+msgstr "配偶兄弟姐妹的子女"
+
+msgid "Children of full siblings of biological parents"
+msgstr "亲生父母的亲兄弟姐妹的子女"
+
+msgid "Biological children"
+msgstr "亲生子女"
+
+msgid "Stepchildren"
+msgstr "继子女"
+
+msgid "Stepchild"
+msgstr "继子"
+
+msgid "Stepson"
+msgstr "继子"
+
+msgid "Stepdaughter"
+msgstr "继女"
+
+msgid "Partners of biological children"
+msgstr "亲生子女的配偶"
+
+msgid "Partners of biological grandchildren"
+msgstr "亲生孙辈的配偶"
+
+msgid "Partners of stepchildren"
+msgstr "继子女的配偶"
+
+msgid "Biological grandchildren"
+msgstr "亲生孙辈"
+
+msgid "Stepchildren of children"
+msgstr "孩子的继子女"
+
+msgid "Children of stepchildren"
+msgstr "继子女的子女"
+
+msgid "Stepchildren of stepchildren"
+msgstr "继子女的继子女"
+
+msgid "no blood relationship"
+msgstr "没有血缘关系"
+
+msgid "relationship coefficient: %.1f"
+msgstr "血缘相关系数：%.1f"
+
+msgid "generation +%s"
+msgstr "前 +%s 辈 "
+
+msgid "generation %s"
+msgstr "后 %s 辈 "
+
+msgid "same generation"
+msgstr "同辈人 "
+
+msgid "He"
+msgstr "他"
+
+msgid "She"
+msgstr "她"
+
+msgid "He/she"
+msgstr "他/她"
+
+msgid "Mr."
+msgstr "先生"
+
+msgid "Mrs."
+msgstr "女士"
+
+msgid "No family available"
+msgstr "没有家人"
+
+msgid "Summary for the shown extended family"
+msgstr "所示大家庭的摘要"
+
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "%1$s的大家庭有%2$d位成员（包括%1$s）。"
+
+msgid "%s has no %s recorded."
+msgstr "%没有记录%s。"
+
+msgid "%s has no %s, and no %s recorded."
+msgstr "%s没有%s，也没有%s记录。"
+
+msgid "(additional members of the partner chains are not counted)"
+msgstr "（不包括配偶系列的其他成员）"
+
+msgid "Some of them are member in more than one part of the extended family."
+msgstr "他们中的一些人是大家庭中不止一个部分的成员。"
+
+msgid "Father\\s family (%d)"
+msgstr "父亲的家庭（%d）"
+
+msgid "Mother\\s family (%d)"
+msgstr "母亲的家庭（%d）"
+
+msgid "Father\\s and Mother's family (%d)"
+msgstr "父亲和母亲的家庭（%d）"
+
+msgid "Parents %1$s of %2$s"
+msgstr "%2$s的父母%1$s"
+
+msgid "Parents %1$s (%2$s) of %3$s"
+msgstr "父亲母亲%1$s（%2$s）生育了%3$s"
+
+msgid "Partners of %s"
+msgstr "%s 的配偶"
+
+msgid "Brother %1$s of partner %2$s"
+msgstr "配偶%2$s的兄弟%1$s"
+
+msgid "Sister %1$s of partner %2$s"
+msgstr "配偶%2$s的姐妹%1$s"
+
+msgid "Sibling %1$s of partner %2$s"
+msgstr "配偶%2$s的兄弟%1$s"
+
+msgid "Great-grandparents"
+msgstr "曾祖父辈"
+
+msgid "%s has no great-grandparents recorded."
+msgstr "%s没有曾祖父辈的记录。"
+
+msgid "%s has one great-grandmother recorded."
+msgstr "%s有一个曾祖母的记录。"
+
+msgid "%s has one great-grandfather recorded."
+msgstr "%s有一个曾祖父的记录。"
+
+msgid "%s has one great-grandparent of unknown sex recorded."
+msgstr "%s有一个曾祖辈的记录。"
+
+msgid "%2$s has %1$d great-grandmother recorded."
+msgid_plural "%2$s has %1$d great-grandmothers recorded."
+msgstr[0] "%s有%1$d个曾祖母的记录。"
+
+msgid "%2$s has %1$d great-grandfather recorded."
+msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgstr[0] "%s有%1$d个曾祖父的记录。"
+
+msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
+msgstr[0] "%s有%1$d个曾祖父辈的记录。"
+
+msgid "%2$s has %1$d great-grandfather and "
+msgid_plural "%2$s has %1$d great-grandfathers and "
+msgstr[0] "%2$s记录有%1$d个曾祖父和"
+
+msgid "%d great-grandmother recorded (%d in total)."
+msgid_plural "%d great-grandmothers recorded (%d in total)."
+msgstr[0] "%d个曾祖母 (共%d位)."
+
+msgid "%2$s has %1$d great-grandmother and "
+msgid_plural "%2$s has %1$d great-grandmothers and "
+msgstr[0] "%2$s有%1$d位曾祖母和"
+
+msgid "%d great-grandparent of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
+msgstr[0] "%d位曾祖辈 (共%d位)"
+
+msgid "%2$s has %1$d great-grandfather,"
+msgid_plural "%2$s has %1$d great-grandfathers,"
+msgstr[0] "%2$s有%1$d位曾祖父"
+
+msgid "%d great-grandmother, and "
+msgid_plural "%d great-grandmothers, and "
+msgstr[0] "%d位曾祖母和"
+
+msgid "Grandparents"
+msgstr "祖父辈"
+
+msgid "Biological grandparents"
+msgstr "亲生祖父母"
+
+msgid "%s has no grandparents recorded."
+msgstr "%s没有祖父母的记录。"
+
+msgid "%s has one grandmother recorded."
+msgstr "%s有一位祖母的记录。"
+
+msgid "%s has one grandfather recorded."
+msgstr "%s有一位祖父的记录。"
+
+msgid "%s has one grandparent recorded."
+msgstr "%s有一位祖父母的记录。"
+
+msgid "%2$s has %1$d grandmother recorded. "
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "%2$s有%1$d位祖母"
+
+msgid "%2$s has %1$d grandfather recorded. "
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "%2$s有%1$d位祖父"
+
+msgid "%2$s has %1$d grandfather and "
+msgid_plural "%2$s has %1$d grandfathers and "
+msgstr[0] "%2$s有%1$d位祖父和"
+
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] "%d位祖母（共%d位）。"
+
+msgid "Uncles and Aunts"
+msgstr "叔父舅父姑妈和姨妈"
+
+msgid "Full siblings of biological parents"
+msgstr "亲生父母的兄弟姐妹"
+
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s没有记录叔父舅父姑妈或姨妈。"
+
+msgid "%s has one aunt recorded."
+msgstr "%s有一位姑妈(姨妈)的记录。"
+
+msgid "%s has one uncle recorded."
+msgstr "%s有一位叔(舅)父的记录。"
+
+msgid "%s has one uncle or aunt recorded."
+msgstr "%s有一位叔(舅)父或姑妈(姨妈)的记录。"
+
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] "%2$s有%1$d姑妈(姨妈)。"
+
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] "%2$s有%1$d位叔(舅)父。"
+
+msgid "%2$s has %1$d uncle and "
+msgid_plural "%2$s has %1$d uncles and "
+msgstr[0] "%2$s有%1$d位叔(舅)父和"
+
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] "%d位姑妈(姨妈)（共%d位）。"
+
+msgid "Uncles and Aunts by marriage"
+msgstr "姑父、姨父、婶婶或舅娘"
+
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s没有记录姑父、姨父、婶婶或舅娘。"
+
+msgid "%s has one aunt by marriage recorded."
+msgstr "%s有一位婶婶或舅娘记录。"
+
+msgid "%s has one uncle by marriage recorded."
+msgstr "%s有一位姑父或姨父记录。"
+
+msgid "%s has one uncle or aunt by marriage recorded."
+msgstr "%s有一位姑父、姨父、婶婶或舅娘。"
+
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] "%2$s有%1$d位婶婶(舅娘)"
+
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] "%2$s有%1$d位姑父(姨父)。"
+
+msgid "%2$s has %1$d uncle by marriage and "
+msgid_plural "%2$s has %1$d uncles by marriage and "
+msgstr[0] "%2$s有%1$d位姑父(姨父)和"
+
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] "%d位婶婶(舅娘)（共%d位）。"
+
+msgid "Parents"
+msgstr "父亲母亲"
+
+msgid "%s has no parents recorded."
+msgstr "%s没有父母的记录。"
+
+msgid "%s has one mother recorded."
+msgstr "%s有一位母亲的记录。"
+
+msgid "%s has one father recorded."
+msgstr "%s有一位父亲的记录。"
+
+msgid "%s has one parent recorded."
+msgstr "%s有单亲记录。"
+
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] "%2$s有%1$d位母亲"
+
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] "%2$s有%1$d位父亲"
+
+msgid "%2$s has %1$d father and "
+msgid_plural "%2$s has %1$d fathers and "
+msgstr[0] "%2$s有%1$d位父亲和"
+
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] "%d名母亲的记录（共%d位）。"
+
+msgid "Parents-in-law"
+msgstr "岳父母（公婆）"
+
+msgid "%s has no parents-in-law recorded."
+msgstr "%s没有岳父母（公婆）的记录。"
+
+msgid "%s has one mother-in-law recorded."
+msgstr "%s有一位岳母（婆婆）的记录。"
+
+msgid "%s has one father-in-law recorded."
+msgstr "%s有一位岳父（公公）的记录。"
+
+msgid "%s has one parent-in-law recorded."
+msgstr "%s有一位岳父母（公婆）。"
+
+msgid "%2$s has %1$d mother-in-law recorded. "
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "%2$s有%1$d位岳母（婆婆）"
+
+msgid "%2$s has %1$d father-in-law recorded. "
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "%2$s有%1$d位岳父（公公）"
+
+msgid "%2$s has %1$d father-in-law and "
+msgid_plural "%2$s has %1$d fathers-in-law and "
+msgstr[0] "%2$s有%1$d位岳父（公公）和"
+
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] "%d位岳母（婆婆）的记录（共%d位）。"
+
+msgid "Co-parents-in-law"
+msgstr "儿女亲家"
+
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s没有儿女亲家记录。"
+
+msgid "%s has one co-mother-in-law recorded."
+msgstr "%s有一位亲家母的记录。"
+
+msgid "%s has one co-father-in-law recorded."
+msgstr "%s有一位亲家公的记录。"
+
+msgid "%s has one co-parent-in-law recorded."
+msgstr "%s有一位儿女亲家记录。"
+
+msgid "%2$s has %1$d co-mother-in-law recorded. "
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "%2$s有%1$d位亲家母"
+
+msgid "%2$s has %1$d co-father-in-law recorded. "
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "%2$s有%1$d位亲家公"
+
+msgid "%2$s has %1$d co-father-in-law and "
+msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgstr[0] "%2$s有%1$d位亲家公和"
+
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] "%d位亲家母（共%d）。"
+
+msgid "Siblings"
+msgstr "兄弟姐妹"
+
+msgid "%s has no siblings recorded."
+msgstr "%s没有兄弟姐妹的记录。"
+
+msgid "%s has one sister recorded."
+msgstr "%s有一位姐妹的记录。"
+
+msgid "%s has one brother recorded."
+msgstr "%s有一位兄弟的记录。"
+
+msgid "%s has one brother or sister recorded."
+msgstr "%s有一个兄弟姐妹的记录。"
+
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] "%2$s有%1$d位姐妹"
+
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] "%2$s有%1$d位兄弟"
+
+msgid "%2$s has %1$d brother and "
+msgid_plural "%2$s has %1$d brothers and "
+msgstr[0] "%2$s有%1$d位兄弟和"
+
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] "%d位姐妹的记录（共%d位）"
+
+msgid "Siblings-in-law"
+msgstr "姐(妹)夫\\叔子\\嫂子\\弟媳\\舅子\\姨子"
+
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s没有嫂子(姑姐妹\\弟媳\\姨子)。"
+
+msgid "%s has one sister-in-law recorded."
+msgstr "%s有一位嫂子(姑姐妹\\弟媳\\姨子)。"
+
+msgid "%s has one brother-in-law recorded."
+msgstr "%s有一位姐(妹)夫或舅子的记录。"
+
+msgid "%s has one sibling-in-law recorded."
+msgstr "%s有一个子妹配偶的记录。"
+
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] "%2$s有%1$d位嫂子(姑姐妹\\弟媳\\姨子)"
+
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] "%2$s有%1$d位姐夫(妹夫\\叔子\\舅子)"
+
+msgid "%2$s has %1$d brother-in-law and "
+msgid_plural "%2$s has %1$d brothers-in-law and "
+msgstr[0] "%2$s有%1$d位姐夫(妹夫\\叔子\\舅子)和"
+
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] "%d位嫂子(姑姐妹\\弟媳\\姨子)（共%d位）"
+
+msgid "Co-siblings-in-law"
+msgstr "姻亲：舅母子\\妯娌\\连襟\\姊夫"
+
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "%s没有妯娌、连襟、姊夫记录。"
+
+msgid "%s has one co-sister-in-law recorded."
+msgstr "%s有一位舅母子\\妯娌记录。"
+
+msgid "%s has one co-brother-in-law recorded."
+msgstr "%s有一位连襟\\姊兄弟记录。"
+
+msgid "%s has one co-sibling-in-law recorded."
+msgstr "%s有一位舅母子\\妯娌\\连襟\\姊夫记录。"
+
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] "%2$s有%1$d位舅母子\\妯娌"
+
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] "%2$s有%1$d位连襟\\姊夫"
+
+msgid "%2$s has %1$d co-brother-in-law and "
+msgid_plural "%2$s has %1$d co-brothers-in-law and "
+msgstr[0] "%2$s有%1$d位连襟\\姊夫和"
+
+msgid "%d co-sister-in-law recorded (%d in total)."
+msgid_plural "%d co-sisters-in-law recorded (%d in total)."
+msgstr[0] "%d名舅母子\\妯娌（共%d位）"
+
+msgid "Partners"
+msgstr "配偶"
+
+msgid "Partner of "
+msgstr "配偶："
+
+msgid "%s has no partners recorded."
+msgstr "%s没有配偶的记录。"
+
+msgid "%s has one female partner recorded."
+msgstr "%s有一位妻子。"
+
+msgid "%s has one male partner recorded."
+msgstr "%s有一名丈夫。"
+
+msgid "%s has one partner recorded."
+msgstr "%s有一位配偶。"
+
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] "%2$s有%1$d位配偶"
+
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] "%2$s有%1$d位配偶"
+
+msgid "%2$s has %1$d male partner and "
+msgid_plural "%2$s has %1$d male partners and "
+msgstr[0] "%2$s有%1$d名丈夫和"
+
+msgid "%2$s has %1$d female partner and "
+msgid_plural "%2$s has %1$d female partners and "
+msgstr[0] "%2$s有%1$d名妻子和"
+
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] "%d位配偶（共%d位）"
+
+msgid "%d male partner recorded (%d in total)."
+msgid_plural "%d male partners recorded (%d in total)."
+msgstr[0] "%d位配偶（共%d位）"
+
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] "%d位妻子的配偶(共%d位)"
+
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] "%d位丈夫的配偶(共%d位)"
+
+msgid "Partner chains"
+msgstr "配偶系列"
+
+msgid "%s has no members of a partner chain recorded."
+msgstr "%s没有记录配偶系列的成员。"
+
+msgid "There are %d branches in the partner chain. "
+msgstr "配偶系列中有%d位分支。"
+
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
+msgstr "%2$s配偶系列中最长的分支由%1$d位配偶（包括%3$s）组成。"
+
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
+msgstr "配偶系列中最长的分支由%1$d位配偶（包括%2$s）组成。"
+
+msgid "%d female partner in this partner chain recorded (%d in total). "
+msgid_plural "%d female partners in this partner chain recorded (%d in total)."
+msgstr[0] "%此配偶系列中有d名女性配偶（%d总计）"
+
+msgid "Cousins"
+msgstr "堂表亲"
+
+msgid "%s has no first cousins recorded."
+msgstr "%s没有表亲记录"
+
+msgid "%s has one female first cousin recorded."
+msgstr "%s有一位堂表姐妹的记录。"
+
+msgid "%s has one male first cousin recorded."
+msgstr "%s有一位堂表兄弟的记录。"
+
+msgid "%s has one first cousin recorded."
+msgstr "%s有一位堂表亲的记录。"
+
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] "%2$s有%1$d位堂表姐妹。"
+
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] "%2$s有%1$d位堂表兄弟"
+
+msgid "%2$s has %1$d male first cousin and "
+msgid_plural "%2$s has %1$d male first cousins and "
+msgstr[0] "%2$s有%1$d位堂表兄弟和"
+
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] "%d位堂表姐妹（共%d位）。"
+
+msgid "Nephews and Nieces"
+msgstr "侄子和侄女"
+
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s没有侄子或侄女的记录。"
+
+msgid "%s has one niece recorded."
+msgstr "%s有一位侄女的记录。"
+
+msgid "%s has one nephew recorded."
+msgstr "%s有一位侄子的记录。"
+
+msgid "%s has one nephew or niece recorded."
+msgstr "%s有一位侄子或侄女的记录。"
+
+msgid "%2$s has %1$d niece recorded. "
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "%2$s有%1$d位侄女"
+
+msgid "%2$s has %1$d nephew recorded. "
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "%2$s有%1$d位侄子"
+
+msgid "%2$s has %1$d nephew and "
+msgid_plural "%2$s has %1$d nephews and "
+msgstr[0] "%2$s有%1$d位侄子和"
+
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] "%d位侄女记录（共%d位）"
+
+msgid "Children"
+msgstr "子女"
+
+msgid "%s has no children recorded."
+msgstr "%s没有子女的记录。"
+
+msgid "%s has one daughter recorded."
+msgstr "%s有一个女儿。"
+
+msgid "%s has one son recorded."
+msgstr "%s有一个儿子的记录。"
+
+msgid "%s has one child recorded."
+msgstr "%s有一个子女。"
+
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] "%2$s有%1$d个女儿"
+
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] "%2$s有%1$d个儿子"
+
+msgid "%2$s has %1$d son and "
+msgid_plural "%2$s has %1$d sons and "
+msgstr[0] "%2$s有%1$d个儿子和"
+
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] "%d个女儿（共%d位）。"
+
+msgid "Children-in-law"
+msgstr "儿媳和女婿"
+
+msgid "%s has no children-in-law recorded."
+msgstr "%s没有儿媳和女婿记录。"
+
+msgid "%s has one daughter-in-law recorded."
+msgstr "%s有一个儿媳的记录。"
+
+msgid "%s has one son-in-law recorded."
+msgstr "%s有一个女婿的记录。"
+
+msgid "%s has one child-in-law recorded."
+msgstr "%s有一个儿媳或女婿的记录。"
+
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] "%2$s有%1$d位儿媳"
+
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] "%2$s有%1$d位女婿记录"
+
+msgid "%2$s has %1$d son-in-law and "
+msgid_plural "%2$s has %1$d sons-in-law and "
+msgstr[0] "%2$s有%1$d位女婿和"
+
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] "%d位儿媳（共%d位）。"
+
+msgid "Grandchildren"
+msgstr "孙辈"
+
+msgid "%s has no grandchildren recorded."
+msgstr "%s没有孙辈的记录。"
+
+msgid "%s has one granddaughter recorded."
+msgstr "%s有一个孙女。"
+
+msgid "%s has one grandson recorded."
+msgstr "%s有一个孙子。"
+
+msgid "%s has one grandchild recorded."
+msgstr "%s有一位孙辈的记录。"
+
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] "%2$s有%1$d位孙女"
+
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] "%2$s有%1$d位孙子"
+
+msgid "%2$s has %1$d grandson and "
+msgid_plural "%2$s has %1$d grandsons and "
+msgstr[0] "%2$s有%1$d位孙子和"
+
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] "%d位孙女记录（共%d位）"
+
+msgid "Grandchildren-in-law"
+msgstr "孙媳妇和孙女婿"
+
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "%s没有孙媳妇和孙女婿的记录。"
+
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "%s有一位孙媳妇"
+
+msgid "%s has one grandson-in-law recorded."
+msgstr "%s有一位孙女婿"
+
+msgid "%s has one grandchild-in-law of unknown sex recorded."
+msgstr "%s有一位孙辈的配偶"
+
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] "%2$s有%1$d位孙媳妇"
+
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] "%2$s有%1$d位孙女婿"
+
+msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+msgstr[0] "%s有%1$d位孙辈的配偶"
+
+msgid "%2$s has %1$d grandson-in-law and "
+msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgstr[0] "%2$s有%1$d位孙女婿和"
+
+msgid "%d granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgstr[0] "%d位孙媳妇（共%d位）"
+
+msgid "%2$s has %1$d granddaughter-in-law and "
+msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgstr[0] "%2$s有%1$d位孙媳妇和"
+
+msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d位孙辈的配偶（共%d位）。"
