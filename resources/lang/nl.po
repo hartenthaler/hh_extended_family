@@ -641,58 +641,54 @@ msgstr[1] "%d schoonmoeders en "
 #: resources/views/tab.phtml:334
 #, php-format
 msgid "%s has one co-mother-in-law recorded."
-msgstr "%s heeft een schoonmoeder van de partner geregistreerd."
+msgstr "%s heeft een mede-schoonmoeder geregistreerd."
 
 #: resources/views/tab.phtml:336
 #, php-format
 msgid "%s has one co-father-in-law recorded."
-msgstr "%s heeft een schoonvader van de partner geregistreerd."
+msgstr "%s heeft een mede-schoonvader geregistreerd."
 
 #: resources/views/tab.phtml:338
 #, php-format
 msgid "%s has one co-parent-in-law of unknown sex recorded."
-msgstr ""
-"%s heeft een schoonouder (van onbekend geslacht) van de partner "
-"geregistreerd."
+msgstr "%s heeft een mede-schoonouder (van onbekend geslacht) geregistreerd."
 
 #: resources/views/tab.phtml:342
 #, php-format
 msgid "%2$s has %1$d co-mother-in-law recorded."
 msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
-msgstr[0] "%2$s heeft %1$d schoonmoeder van de partner geregistreerd."
-msgstr[1] "%2$s heeft %1$d schoonmoeders van de partner geregistreerd."
+msgstr[0] "%2$s heeft %1$d mede-schoonmoeder geregistreerd."
+msgstr[1] "%2$s heeft %1$d mede-schoonmoeders geregistreerd."
 
 #: resources/views/tab.phtml:344
 #, php-format
 msgid "%2$s has %1$d co-father-in-law recorded."
 msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
-msgstr[0] "%2$s heeft %1$d schoonvader van de partner geregistreerd."
-msgstr[1] "%2$s heeft %1$d schoonvaders van de partner geregistreerd."
+msgstr[0] "%2$s heeft %1$d mede-schoonvader geregistreerd."
+msgstr[1] "%2$s heeft %1$d mede-schoonvaders geregistreerd."
 
 #: resources/views/tab.phtml:346
 #, php-format
 msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
 msgstr[0] ""
-"%2$s heeft %1$d schoonouder (van onbekend geslacht) van de partner "
-"geregistreerd."
+"%2$s heeft %1$d mede-schoonouder (van onbekend geslacht) geregistreerd."
 msgstr[1] ""
-"%2$s heeft %1$d schoonouders (van onbekend geslacht) van de partner "
-"geregistreerd."
+"%2$s heeft %1$d mede-schoonouders (van onbekend geslacht) geregistreerd."
 
 #: resources/views/tab.phtml:348 resources/views/tab.phtml:351
 #, php-format
 msgid "%2$s has %1$d co-father-in-law and "
 msgid_plural "%2$s has %1$d co-fathers-in-law and "
-msgstr[0] "%2$s heeft %1$d schoonvader van de partner en "
-msgstr[1] "%2$s heeft %1$d schoonvaders van de partner en "
+msgstr[0] "%2$s heeft %1$d mede-schoonvader en "
+msgstr[1] "%2$s heeft %1$d mede-schoonvaders en "
 
 #: resources/views/tab.phtml:349
 #, php-format
 msgid "%d co-mother-in-law recorded (%d in total)."
 msgid_plural "%d co-mothers-in-law recorded (%d in total)."
-msgstr[0] "%d schoonmoeder van de partner geregistreerd (%d in totaal)."
-msgstr[1] "%d schoonmoeders van de partner geregistreerd (%d in totaal)."
+msgstr[0] "%d mede-schoonmoeder geregistreerd (%d in totaal)."
+msgstr[1] "%d mede-schoonmoeders geregistreerd (%d in totaal)."
 
 #: resources/views/tab.phtml:352 resources/views/tab.phtml:355
 #: resources/views/tab.phtml:359
@@ -700,32 +696,30 @@ msgstr[1] "%d schoonmoeders van de partner geregistreerd (%d in totaal)."
 msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
 msgstr[0] ""
-"%d schoonouder (van onbekend geslacht) van de partner geregistreerd (%d in "
-"totaal)."
+"%d mede-schoonouder (van onbekend geslacht) geregistreerd (%d in totaal)."
 msgstr[1] ""
-"%d schoonouders (van onbekend geslacht) van de partner geregistreerd (%d in "
-"totaal)."
+"%d mede-schoonouders (van onbekend geslacht) geregistreerd (%d in totaal)."
 
 #: resources/views/tab.phtml:354
 #, php-format
 msgid "%2$s has %1$d co-mother-in-law and "
 msgid_plural "%2$s has %1$d co-mothers-in-law and "
-msgstr[0] "%2$s heeft %1$d schoonmoeder van de partner en "
-msgstr[1] "%2$s heeft %1$d schoonmoeders van de partner en "
+msgstr[0] "%2$s heeft %1$d mede-schoonmoeder en "
+msgstr[1] "%2$s heeft %1$d mede-schoonmoeders en "
 
 #: resources/views/tab.phtml:357
 #, php-format
 msgid "%2$s has %1$d co-father-in-law, "
 msgid_plural "%2$s has %1$d co-fathers-in-law, "
-msgstr[0] "%2$s heeft %1$d schoonvader van de partner, "
-msgstr[1] "%2$s heeft %1$d schoonvaders van de partner, "
+msgstr[0] "%2$s heeft %1$d mede-schoonvader, "
+msgstr[1] "%2$s heeft %1$d mede-schoonvaders, "
 
 #: resources/views/tab.phtml:358
 #, php-format
 msgid "%d co-mother-in-law, and "
 msgid_plural "%d co-mothers-in-law, and "
-msgstr[0] "%d schoonmoeder van de partner en "
-msgstr[1] "%d schoonmoeders van de partner en "
+msgstr[0] "%d mede-schoonmoeder en "
+msgstr[1] "%d mede-schoonmoeders en "
 
 #: resources/views/tab.phtml:365
 #, php-format
@@ -1082,58 +1076,56 @@ msgstr[1] "%d schoonzussen en "
 #: resources/views/tab.phtml:523
 #, php-format
 msgid "%s has one co-sister-in-law recorded."
-msgstr "%s heeft een schoonzus van de partner geregistreerd."
+msgstr "%s heeft een mede-schoonzus geregistreerd."
 
 #: resources/views/tab.phtml:525
 #, php-format
 msgid "%s has one co-brother-in-law recorded."
-msgstr "%s heeft een zwager van de partner geregistreerd."
+msgstr "%s heeft een mede-zwager geregistreerd."
 
 #: resources/views/tab.phtml:527
 #, php-format
 msgid "%s has one co-sibling-in-law of unknown sex recorded."
 msgstr ""
-"%s heeft een zwager/schoonzus (van onbekend geslacht) van de partner "
-"geregistreerd."
+"%s heeft een mede-zwager/schoonzus (van onbekend geslacht) geregistreerd."
 
 #: resources/views/tab.phtml:531
 #, php-format
 msgid "%2$s has %1$d co-sister-in-law recorded."
 msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
-msgstr[0] "%2$s heeft %1$d schoonzus van de partner geregistreerd."
-msgstr[1] "%2$s heeft %1$d schoonzussen van de partner geregistreerd."
+msgstr[0] "%2$s heeft %1$d mede-schoonzus geregistreerd."
+msgstr[1] "%2$s heeft %1$d mede-schoonzussen geregistreerd."
 
 #: resources/views/tab.phtml:533
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law recorded."
 msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
-msgstr[0] "%2$s heeft %1$d zwager van de partner geregistreerd."
-msgstr[1] "%2$s heeft %1$d zwagers van de partner geregistreerd."
+msgstr[0] "%2$s heeft %1$d mede-zwager geregistreerd."
+msgstr[1] "%2$s heeft %1$d mede-zwagers geregistreerd."
 
 #: resources/views/tab.phtml:535
 #, php-format
 msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
 msgstr[0] ""
-"%2$s heeft %1$d zwager/schoonzus (van onbekend geslacht) van de partner "
-"geregistreerd."
+"%2$s heeft %1$d mede-zwager/schoonzus (van onbekend geslacht) geregistreerd."
 msgstr[1] ""
-"%2$s heeft %1$d zwagers/schoonzussen (van onbekend geslacht) van de partner "
+"%2$s heeft %1$d mede-zwagers/schoonzussen (van onbekend geslacht) "
 "geregistreerd."
 
 #: resources/views/tab.phtml:537 resources/views/tab.phtml:540
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law and "
 msgid_plural "%2$s has %1$d co-brothers-in-law and "
-msgstr[0] "%2$s heeft %1$d zwager van de partner en "
-msgstr[1] "%2$s heeft %1$d zwagers van de partner en "
+msgstr[0] "%2$s heeft %1$d mede-zwager en "
+msgstr[1] "%2$s heeft %1$d mede-zwagers en "
 
 #: resources/views/tab.phtml:538
 #, php-format
 msgid "%d co-sister-in-law recorded (%d in total)."
 msgid_plural "%d co-sisters-in-law recorded (%d in total)."
-msgstr[0] "%d schoonzus van de partner geregistreerd (%d in totaal)."
-msgstr[1] "%d schoonzussen van de partner geregistreerd (%d in totaal)."
+msgstr[0] "%d mede-schoonzus geregistreerd (%d in totaal)."
+msgstr[1] "%d mede-schoonzussen geregistreerd (%d in totaal)."
 
 #: resources/views/tab.phtml:541 resources/views/tab.phtml:544
 #: resources/views/tab.phtml:548
@@ -1141,32 +1133,32 @@ msgstr[1] "%d schoonzussen van de partner geregistreerd (%d in totaal)."
 msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
 msgstr[0] ""
-"%d zwager/schoonzus (van onbekend geslacht) van de partner geregistreerd (%d "
-"in totaal)."
+"%d mede-zwager/schoonzus (van onbekend geslacht) geregistreerd (%d in "
+"totaal)."
 msgstr[1] ""
-"%d zwagers/schoonzussen (van onbekend geslacht) van de partner geregistreerd "
-"(%d in totaal)."
+"%d mede-zwagers/schoonzussen (van onbekend geslacht) geregistreerd (%d in "
+"totaal)."
 
 #: resources/views/tab.phtml:543
 #, php-format
 msgid "%2$s has %1$d co-sister-in-law and "
 msgid_plural "%2$s has %1$d co-sisters-in-law and "
-msgstr[0] "%2$s heeft %1$d schoonzus van de partner en "
-msgstr[1] "%2$s heeft %1$d schoonzussen van de partner en "
+msgstr[0] "%2$s heeft %1$d mede-schoonzus en "
+msgstr[1] "%2$s heeft %1$d mede-schoonzussen en "
 
 #: resources/views/tab.phtml:546
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law, "
 msgid_plural "%2$s has %1$d co-brothers-in-law, "
-msgstr[0] "%2$s heeft %1$d zwager van de partner en "
-msgstr[1] "%2$s heeft %1$d zwagers van de partner en "
+msgstr[0] "%2$s heeft %1$d mede-zwager en "
+msgstr[1] "%2$s heeft %1$d mede-zwagers en "
 
 #: resources/views/tab.phtml:547
 #, php-format
 msgid "%d co-sister-in-law, and "
 msgid_plural "%d co-sisters-in-law, and "
-msgstr[0] "%d schoonzus van de partner en "
-msgstr[1] "%d schoonzussen van de partner en "
+msgstr[0] "%d mede-schoonzus en "
+msgstr[1] "%d mede-schoonzussen en "
 
 #: resources/views/tab.phtml:559
 #, php-format
