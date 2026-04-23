@@ -118,7 +118,7 @@ Install and use [Custom Module Manager](https://github.com/Jefferson49/CustomMod
 <a name="upgrade"></a>
 ## Upgrade
 
-To update simply replace the hh_extended_family files with the new ones from the latest release.
+To update simply replace the `hh_extended_family` files with the new ones from the latest release.
 
 <a name="translation"></a>
 ## Translation
@@ -131,7 +131,7 @@ The strings are delimited by an apostroph "'", so if you need an apostroph in yo
 You can do this via a pull request (if you know how) or by e-mail.
 Updated translations will be included in the next release of this module.
 
-There are now, beside English and German, translations to
+There are now, besides English and German, translations to
 * Catalan by @bernatbanyuls
 * Chinese by @olor (=iyoua)
 * Czech by @jpretired
@@ -152,7 +152,7 @@ There are now, beside English and German, translations to
 
 <span style="font-weight: bold;">Issues: </span>you can report errors raising an issue in this GitHub repository.
 
-<span style="font-weight: bold;">Forum: </span>general webtrees support can be found at the [webtrees forum](http://www.webtrees.net/).
+<span style="font-weight: bold;">Forum: </span>general **webtrees** support can be found at the [webtrees forum](http://www.webtrees.net/).
 
 <a name="license"></a>
 ## License
