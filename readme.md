@@ -1,167 +1,234 @@
-# webtrees module hh_extended_family
+# 🌳 **webtrees** module for Extended Family (hh_extended_family)
 
+![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
+![webtrees major version](https://img.shields.io/badge/webtrees-v2.1.x-green)
 ![webtrees major version](https://img.shields.io/badge/webtrees-v2.2.x-green)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0f3951ce4532e3837215/maintainability)](https://codeclimate.com/github/hartenthaler/hh_extended_family/maintainability)
-![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_extended_family)
 
-This [webtrees](https://www.webtrees.net) module creates an additional tab in the Individual view
-which lists the members of the core and the extended family of that person:
-great-grandparents, grandparents, parents, parents-in-law, co-parents-in-law, uncles, aunts,
-partners, siblings, siblings-in-law, co-siblings-in-law, cousins, nephews, nieces,
-children, children-in-law, grandchildren, and grandchildren-in-law.
+This [webtrees](https://www.webtrees.net) custom module adds an **Extended family** tab to the individual page.
+It shows the core and extended family of a selected person and lets site administrators decide which relationship groups are visible, in which order they are shown, and how much detail is displayed.
 
 <a name="Contents"></a>
-## Contents
+## 📚 Contents
 
 This Readme contains the following main sections
 
-* [Description](#description)
-* [Screenshots](#screenshots)
-* [Requirements](#requirements)
-* [Installation](#installation)
-* [Upgrade](#upgrade)
-* [Translation](#translation)
-* [Contact Support](#support)
-* [License](#license)
+* [Purpose](#Purpose)
+* [Scope](#Scope)
+* [Main features](#Features)
+* [Family parts](#Family)
+* [Configuration](#Configuration)
+* [Architecture](#Architecture)
+* [Screenshots](#Screenshots)
+* [Requirements](#Requirements)
+* [Installation](#Installation)
+* [Upgrade](#Upgrade)
+* [Translation](#Translation)
+* [Support](#Support)
+* [License](#License)
 
-<a name="description"></a>
-## Description
+<a name="Purpose"></a>
+## 🎯 Purpose
 
-There is a module description in [German language](https://wiki.genealogy.net/Webtrees_Handbuch/Anleitung_f%C3%BCr_Webmaster/Erweiterungsmodule/Gro%C3%9Ffamilie) available.
+The standard webtrees individual page focuses on a person's direct family context.
+This module adds a broader relationship view that helps users understand the wider family network around a proband.
 
-This module presents the core and the extended family of a proband.
-It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology).
+It is based on the [Eskimo kinship system](https://en.wikipedia.org/wiki/Kinship_terminology), which distinguishes the nuclear family from collateral relatives such as uncles, aunts, cousins, nephews, and nieces.
 
-The user can filter the shown results by
-* gender and
-* dead/alive persons.
+A German module description is available in the [webtrees manual at genealogy.net](https://wiki.genealogy.net/Webtrees_Handbuch/Anleitung_f%C3%BCr_Webmaster/Erweiterungsmodule/Gro%C3%9Ffamilie).
 
-The admin can decide in the control panel 
-* which extended family parts should be shown and in which sequence they should be presented
-* if filter options should be presented for users
-* if a button "copy to clippings cart" should be shown
-* how empty parts of extended family should be presented
-* whether the name of proband is a full name or a short version
-* whether a compact design should be used or an enriched version, showing a photo as well as complete birth and death information
-* whether labels should be shown for each part of the extended family showing the generation shift and information about the related coefficient of relationship
-* whether labels like "adopted child", "foster child", "triplet", "stillborn", or "linkage challenged" should be used to indicate special situations
-  * GEDCOM records to indicate that a person
-    * is e.g. a triplet, should look like "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet" or "1 ASSO @I123@\n2 RELA triplet")
-    * is stillborn or died as an infant, should look like "1 BIRT\n2 AGE STILLBORN" or "1 DEAT\n2 AGE INFANT"
-    * has a special linkage status to the parent family (challenged, disproven, proven), should look like "1 FAMC @F123@\n2 STAT CHALLENGED"
+<a name="Scope"></a>
+## 🔎 Scope
 
-The default presentation sequence of the extended family parts is oriented at the generation of the people in this part, relative to the proband
-* great-grandparents                       // generation +3
-* grandparents                             // generation +2
-* uncles and aunts                         // generation +1
-* uncles and aunts by marriage             // generation +1
-* parents                                  // generation +1
-* parents-in-law                           // generation +1
-* co-parents-in-law                        // generation  0
-* partners and partner chains              // generation  0
-* siblings                                 // generation  0
-* siblings-in-law                          // generation  0
-* co-siblings-in-law			           // generation  0
-* cousins                                  // generation  0
-* nephews and nieces                       // generation -1
-* children                                 // generation -1
-* children-in-law                          // generation -1
-* grandchildren                            // generation -2
-* grandchildren-in-law                     // generation -2
-* great-grandchildren                      // generation -3 (tbd)
+The module adds one individual-page tab named **Extended family**.
+It does not create new GEDCOM records and it does not store relationship data in a separate database table.
+Instead, it derives the shown family groups from the existing webtrees data.
 
-<a name="screenshots"></a>
-## Screenshots
+The tab can show direct relatives, in-laws, relatives by marriage, partner chains, and descendant groups.
+Users can optionally filter the visible relatives by
 
-Screenshot of tab using the compact design
-<p align="center"><img src="docs/screenshot.png" alt="Screenshot of tab" align="center" width="80%"></p>
+* sex or gender category
+* living or deceased status
 
-Screenshot showing photo as well as birth and death information
-<p align="center"><img src="docs/screenshot_full.png" alt="Screenshot showing photo as well as birth and death information" align="center" width="85%"></p>
+Administrators can decide whether these filter controls are shown to regular users.
 
-Screenshot showing chain of partners (partner of partner of partner of ...)
-<p align="center"><img src="docs/screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
+<a name="Features"></a>
+## 💡 Main features
 
-Screenshot of control panel menu
-<p align="center"><img src="docs/screenshot_control_panel.png" alt="Screenshot of control panel menu" align="center" width="85%"></p>
+The module supports
 
-<a name="requirements"></a>
-## Requirements
+* configurable family parts and display order
+* compact and enriched layouts
+* optional thumbnail, birth, and death information
+* optional labels with generation shift and coefficient of relationship
+* optional labels for special GEDCOM situations, such as adopted child, foster child, triplet, stillborn, infant death, and challenged linkage
+* optional summary counts
+* optional handling of partner chains
+* optional "copy to clippings cart" action
+* configurable handling of empty family parts
+* full or shortened display name of the proband
+* full or shortened display name of the location names
 
-This module requires **webtrees** version 2.2 or later.
-This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
+Special labels are derived from GEDCOM patterns such as
 
-If you like to offer the function "copy extended family to the clippings cart", you have to install the custom 
-module [huhwt-cce](https://github.com/huhwt/huhwt-cce) (clippings cart enhanced) in the version 2.2.5.0 or newer.
+* `1 BIRT / 2 _ASSO @I123@ / 3 RELA triplet`
+* `1 ASSO @I123@ / 2 RELA triplet`
+* `1 BIRT / 2 AGE STILLBORN`
+* `1 DEAT / 2 AGE INFANT`
+* `1 FAMC @F123@ / 2 STAT CHALLENGED`
 
-This module was tested with **webtrees** 2.2.5 version
-and all available themes and all other custom modules.
+<a name="Family"></a>
+## 👥 Family parts
 
-<a name="installation"></a>
-## Installation
+The default presentation order is based on the generation shift relative to the proband.
 
-Install and use [Custom Module Manager](https://github.com/Jefferson49/CustomModuleManager) for an easy and convenient installation of webtrees custom modules.
-+ Open the Custom Module Manager view in webtrees, scroll to "Extended Family", and click on the "Install Module" button.
+* great-grandparents: generation +3
+* grandparents: generation +2
+* uncles and aunts: generation +1
+* uncles and aunts by marriage: generation +1
+* parents: generation +1
+* parents-in-law: generation +1
+* co-parents-in-law: generation 0
+* partners and partner chains: generation 0
+* siblings: generation 0
+* siblings-in-law: generation 0
+* co-siblings-in-law: generation 0
+* cousins: generation 0
+* nephews and nieces: generation -1
+* children: generation -1
+* children-in-law: generation -1
+* grandchildren: generation -2
+* grandchildren-in-law: generation -2
+
+Every family part can be enabled, disabled, and reordered in the webtrees control panel.
+
+<a name="Configuration"></a>
+## ⚙️ Configuration
+
+Administrators can configure the module in the webtrees control panel under the individual-page tab modules.
+
+The most important settings are
+
+* which family parts are shown
+* the order of the family parts
+* whether user filter options are available
+* whether empty family parts are hidden or shown
+* whether summary counts are displayed
+* whether partner chains count toward totals
+* whether the compact or enriched design is used
+* whether labels and relationship parameters are displayed
+* whether the clippings cart action is available
+
+<a name="Architecture"></a>
+## 🧭 Architecture
+
+The module is implemented as a webtrees custom tab module.
+The calculation logic is separated from the presentation layer: `ExtendedFamilyTabModule` integrates with webtrees, `ExtendedFamily` builds the computed family view, and family-part classes under `src/Factory/ExtendedFamilyParts/` derive the individual relationship groups.
+
+More details are documented in [docs/architecture.md](docs/architecture.md).
+
+<a name="Screenshots"></a>
+## 🖼 Screenshots
+
+Compact tab design
+
+<p align="center"><img src="docs/images/screenshot.png" alt="Screenshot of compact extended family tab" align="center" width="80%"></p>
+
+Enriched design with photo, birth information, and death information
+
+<p align="center"><img src="docs/images/screenshot_full.png" alt="Screenshot of enriched extended family tab" align="center" width="85%"></p>
+
+Partner chain view
+
+<p align="center"><img src="docs/images/screenshot_partner_chain.png" alt="Screenshot showing chain of partners" align="center" width="85%"></p>
+
+Control panel settings
+
+<p align="center"><img src="docs/images/screenshot_control_panel.png" alt="Screenshot of control panel settings" align="center" width="85%"></p>
+
+<a name="Requirements"></a>
+## 📌 Requirements
+
+This module requires **webtrees** version 2.1 or later.
+It has the same system requirements as [webtrees](https://github.com/fisharebest/webtrees#system-requirements).
+
+To use the functions related to the clippings cart,
+it is recommended to install the custom module
+[clippings cart extended](https://github.com/huhwt/huhwt-cce).
+
+The current module version is tested with **webtrees** 2.2.6,
+all available themes, and all other custom modules.
+
+The last version of this module for **webtrees** 2.0 is 2.0.16.58.
+
+<a name="Installation"></a>
+## 📥 Installation
+
+Install and use [Custom Module Manager](https://github.com/Jefferson49/CustomModuleManager) for an easy and convenient installation of **webtrees** custom modules.
++ Open the Custom Module Manager view in **webtrees**
++ scroll to "Extended Family", and click on the "Install Module" button.
 
 **Manual installation**:
+1. Make a database backup.
+1. Download the [latest release](https://github.com/Hartenthaler/hh_extended_family/releases/latest).
+1. Unzip the package into the `webtrees/modules_v4` directory of your web server.
+1. Rename the folder to `hh_extended_family`.
+1. Login to **webtrees** as administrator.
+1. Go to <span class="pointer">Control Panel / Modules / Individual page / Tabs</span>.
+1. Enable the module named **Extended family**.
+1. Save the module settings.
 
-1. Make database backup
-1. Download the [latest release](https://github.com/hartenthaler/hh_extended_family/releases/latest)
-1. Unzip the package into your `webtrees/modules_v4` directory of your web server
-1. Rename the folder to `hh_extended_family`
-1. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Individual page/Tabs</span>, and find the module. It will be called "Extended family". Check if it has a tick for "Enabled".
-1. Finally, click SAVE, to complete the installation.
+<a name="Upgrade"></a>
+## ⬆️ Upgrade
 
-<a name="upgrade"></a>
-## Upgrade
+To update the module, replace the `hh_extended_family` files with the files from the latest release.
 
-To update simply replace the `hh_extended_family` files with the new ones from the latest release.
+<a name="Translation"></a>
+## 🌍 Translation
 
-<a name="translation"></a>
-## Translation
+You can help translate this module.
+The translation strings are stored in `resources/lang/ExtendedFamilyTranslations.php`.
+The German translation is usually the most complete version and can be used as the reference for new translations.
 
-You can help to translate this module.
-The language information is stored in the file "resources/lang/ExtendedFamilyTranslation.php".
-The German part is the most actual and can be used as a base for your translation.
-Use a local editor, like notepad++ to make the translations and send it back to me.
-The strings are delimited by an apostroph "'", so if you need an apostroph in your string you have to use "\'" instead.
-You can do this via a pull request (if you know how) or by e-mail.
-Updated translations will be included in the next release of this module.
+Updated translations can be contributed by pull request or by e-mail.
+They will be included in a future release of the module.
 
-There are now, besides English and German, translations to
-* Catalan by @bernatbanyuls
-* Chinese by @olor (=iyoua)
-* Czech by @jpretired
-* Dutch by @TheDutchJewel
-* French by @PalmyreSG1, @fa10175, and @geugeu1
-* Hindi by @mrqd9
-* Italian by @tonio (under preparation)
-* Norwegian Bokmål by @eyolf
-* Russian by @aurbo
-* Slovak by @ro-la
-* Spanish by @yako1984 and @bernatbanyuls
-* Swedish by Simon W.
-* Ukrainian by @z-yurets
-* Vietnamese by @ngohuuthuan
+There are currently translations for
 
-<a name="support"></a>
-## Support
+* Catalan by [@bernatbanyuls](https://github.com/bernatbanyuls)
+* Chinese by [@olor](https://github.com/olor) (=iyoua)
+* Czech by [@jpretired](https://github.com/jpretired)
+* Dutch by [@TheDutchJewel](https://github.com/TheDutchJewel)
+* French by [@PalmyreSG1](https://github.com/PalmyreSG1), [@fa10175](https://github.com/fa10175), and [@geugeu1](https://github.com/geugeu1)
+* Hindi by [@mrqd9](https://github.com/mrqd9)
+* Italian by [@tonio](https://github.com/tonio)
+* Norwegian Bokmål by [@eyolf](https://github.com/eyolf)
+* Russian by [@aurbo](https://github.com/aurbo)
+* Slovak by [@ro-la](https://github.com/ro-la)
+* Spanish by [@yako1984](https://github.com/yako1984) and [@bernatbanyuls](https://github.com/bernatbanyuls)
+* Ukrainian by [@z-yurets](https://github.com/z-yurets)
+* Vietnamese by [@ngohuuthuan](https://github.com/ngohuuthuan)
 
-<span style="font-weight: bold;">Issues: </span>you can report errors raising an issue in this GitHub repository.
+<a name="Support"></a>
+## ❓ Support
 
-<span style="font-weight: bold;">Forum: </span>general **webtrees** support can be found at the [webtrees forum](http://www.webtrees.net/).
+* <span style="font-weight: bold;">Issues: </span>You can report errors by creating an issue in this GitHub repository.
+* <span style="font-weight: bold;">Feature requests: </span>You can suggest improvements by creating an issue in this GitHub repository.
+* <span style="font-weight: bold;">Forum: </span>General webtrees support can be found in the [webtrees forum](https://www.webtrees.net/).
 
-<a name="license"></a>
-## License
+<a name="License"></a>
+## 📄 License
+
+This module uses GPL-3.0-or-later as a license.
 
 * Copyright (C) 2026 Hermann Hartenthaler
 * Derived from **webtrees** - Copyright 2026 webtrees development team.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
@@ -169,8 +236,3 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-* * *
