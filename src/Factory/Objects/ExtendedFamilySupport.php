@@ -31,6 +31,7 @@ use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Registry;
 
 // string functions
+use function e;
 use function str_replace;
 use function strtolower;
 use function str_contains;  // will be added in PHP 8.0, at the moment part of the framework
@@ -229,6 +230,24 @@ class ExtendedFamilySupport
     }
 
     /**
+     * Generate a fact summary using the configured place format.
+     *
+     * @param Fact $event
+     * @param int $placeFormat
+     * @return string
+     */
+    public static function eventSummary(Fact $event, int $placeFormat): string
+    {
+        $summary = $event->summary();
+        if ($event->place()->gedcomName() === '') {
+            return $summary;
+        }
+
+        $place = PlaceAbbreviation::getAbbreviatedPlace($event->place()->gedcomName(), $placeFormat);
+        return str_replace($event->place()->shortName(), '<span class="ut">' . e($place) . '</span>', $summary);
+    }
+
+    /**
      * generate a translated pedigree label for a child
      * GEDCOM record could be for example "1 FAMC @xref@\n ...\n2 PEDI adopted"
      *
@@ -330,7 +349,16 @@ class ExtendedFamilySupport
     {
         if ($child->childFamilies()->first()) {
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 STAT (.+)/', $child->gedcom(), $match)) {
-                return I18N::translate('linkage ' . strtolower($match[1]));
+                switch (strtolower($match[1])) {
+                    case 'challenged':
+                        return I18N::translate('linkage challenged');
+
+                    case 'disproven':
+                        return I18N::translate('linkage disproven');
+
+                    case 'proven':
+                        return I18N::translate('linkage proven');
+                }
             }
         }
         return '';

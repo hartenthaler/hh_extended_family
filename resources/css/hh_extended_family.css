@@ -177,6 +177,8 @@
     color: red;    
 }
 
-.disabled > form > .btn{
+.disabled > form > .btn {
     background-color: gray !important;
+    opacity: 0.6;
+    pointer-events: none;    /* verhindert, dass der Button geklickt werden kann */
 }

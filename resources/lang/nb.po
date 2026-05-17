@@ -12,11 +12,6 @@ msgstr ""
 msgid "Rada"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:333
-#, fuzzy
-msgid "linkage "
-msgstr "påvist slektskap"
-
 #: src/Factory/Objects/ExtendedFamilySupport.php:383
 msgid "stillborn"
 msgstr "dødfødt"
@@ -2013,6 +2008,474 @@ msgstr "Vis filteralternativ"
 msgid "save"
 msgstr ""
 
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Extended family"
+msgstr "Storfamilie"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "A tab showing the extended family of an individual."
+msgstr "En fane som viser en persons storfamilie."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "nei, men samle opplysninger om manglende familiedeler til sist"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "don't use this filter"
+msgstr "bruk ikke dette filteret"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a dead person"
+msgstr "en avdød person"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a living person"
+msgstr "en nålevende person"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a male person"
+msgstr "ingen person av hankjønn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a female person"
+msgstr "ingen person av hunkjønn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a person of unknown gender"
+msgstr "ingen person av ukjent kjønn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "twin"
+msgstr "tvilling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "triplet"
+msgstr "trilling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quadruplet"
+msgstr "firling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quintuplet"
+msgstr "femling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "sextuplet"
+msgstr "seksling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "septuplet"
+msgstr "syvling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "octuplet"
+msgstr "åttling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "nonuplet"
+msgstr "niling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "decuplet"
+msgstr "tiling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage challenged"
+msgstr "usikkert slektskap"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage disproven"
+msgstr "påviselig manglende slektskap"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage proven"
+msgstr "påvist slektskap"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Marriage"
+msgstr "Ekteskap"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Ex-marriage"
+msgstr "Tidligere ekteskap"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Fiancée"
+msgstr "Forlovelse"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of father"
+msgstr "Fars biologiske besteforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of mother"
+msgstr "Mors biologiske besteforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of parent"
+msgstr "Forelders biologiske besteforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological parent of father"
+msgstr "Steforeldre til fars biologiske forelder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological parent of mother"
+msgstr "Steforeldre til mors biologiske forelder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological grandparent"
+msgstr "Steforeldre til en biologisk besteforelder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of father"
+msgstr "Fars steforelders foreldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of mother"
+msgstr "Mors steforelders foreldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of parent"
+msgstr "Foreldre til en forelders steforelder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents of stepparent"
+msgstr "Besteforeldre til steforelder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological great-grandparents"
+msgstr "Biologiske oldeforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of father"
+msgstr "Biologiske farforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of mother"
+msgstr "Biologiske morforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of parent"
+msgstr "Biologiske besteforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of father"
+msgstr "Fars steforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of mother"
+msgstr "Mors steforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of parent"
+msgstr "Forelders steforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent"
+msgstr "Steforelders foreldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents"
+msgstr "Biologiske besteforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of father"
+msgstr "Fars søsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of mother"
+msgstr "Mors søsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings of biological parents"
+msgstr "Helsøsken av biologiske foreldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of father"
+msgstr "Fars svigersøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of mother"
+msgstr "Mors svigersøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents"
+msgstr "Biologiske foreldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents"
+msgstr "Steforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of biological children"
+msgstr "Biologisk barns svigerforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of stepchildren"
+msgstr "Stebarns svigerforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings"
+msgstr "Helsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Half siblings"
+msgstr "Halvsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepsiblings"
+msgstr "Stesøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of father"
+msgstr "Barn av fars helsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of mother"
+msgstr "Barn av mors helsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of parent"
+msgstr "Barn av en forelders helsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of father"
+msgstr "Barn av fars halvsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of mother"
+msgstr "Barn av mors halvsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of parent"
+msgstr "Barn av en forelders halvsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of partners"
+msgstr "Partners søsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings"
+msgstr "Søskens partner"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of siblings-in-law"
+msgstr "Søsken av svigersøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings-in-law"
+msgstr "Svigersøskens partner"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of biological parents"
+msgstr "Barn av en biologisk forelders helsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings"
+msgstr "Barn av søsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings"
+msgstr "Barn av helsøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings' stepchildren"
+msgstr "Søskens stebarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings of partners"
+msgstr "Barn av partners søsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological children"
+msgstr "Biologiske barn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren"
+msgstr "Stebarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological children"
+msgstr "Biologiske barns partner"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren"
+msgstr "Stebarns partner"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandchildren"
+msgstr "Biologiske barnebarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of children"
+msgstr "Barns stebarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of stepchildren"
+msgstr "Stebarns barn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of stepchildren"
+msgstr "Stebarns stebarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological grandchildren"
+msgstr "Biologisk barnebarns partner"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren of children"
+msgstr "Barns stebarns partner"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of children of stepchildren"
+msgstr "Stebarns barns partner"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Stebarns stebarns partner"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's family (%d)"
+msgstr "Fars familie (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Mother's family (%d)"
+msgstr "Mors familie (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's and Mother's family (%d)"
+msgstr "Fars og mors familie (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Great-grandparents"
+msgstr "Oldeforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no great-grandparents recorded."
+msgstr "%s har ingen registrerte oldeforeldre."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents"
+msgstr "Besteforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandparents recorded."
+msgstr "%s har ingen registrerte besteforeldre."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents recorded."
+msgstr "%s har ingen registrerte foreldre."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law"
+msgstr "Svigerforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents-in-law recorded."
+msgstr "%s har ingen registrerte svigerforeldre."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-parents-in-law"
+msgstr "Barns svigerforeldre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s har ingen registrerte barns svigerforeldre."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners"
+msgstr "Partnere"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no partners recorded."
+msgstr "%s har ingen registrerte partnere."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s har %1$d registrert partner og "
+msgstr[1] "%2$s har %1$d registrerte partnere og "
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d kvinnelig partner registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
+msgstr[1] "%1$d kvinnelige partnere registrert i denne partnerkjeden (til sammen %2$d, including %3$s)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%1$d female partner and "
+msgid_plural "%d female partners and "
+msgstr[0] "%1$d kvinnelig partner og "
+msgstr[1] "%1$d kvinnelige partnere og "
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings"
+msgstr "Søsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings recorded."
+msgstr "%s har ingen registrerte søsken."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law"
+msgstr "Svigersøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s har ingen registrerte svigersøsken."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-siblings-in-law"
+msgstr "Ektefelles svigersøsken"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "%s har ingen registrerte ektefelles svigersøsken."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Cousins"
+msgstr "Søskenbarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children"
+msgstr "Barn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children recorded."
+msgstr "%s har ingen registrerte barn."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children-in-law"
+msgstr "Svigerbarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children-in-law recorded."
+msgstr "%s har ingen registrerte svigerbarn."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d child-in-law recorded."
+msgid_plural "%2$s has %1$d children-in-law recorded."
+msgstr[0] "%2$s har %1$d registrert svigerbarn."
+msgstr[1] "%2$s har %1$d registrerte svigerbarn."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren"
+msgstr "Barnebarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren recorded."
+msgstr "%s har ingen registrerte barnebarn."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren-in-law"
+msgstr "Svigerbarnebarn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "%s har ingen registrerte svigerbarnebarn."
+
 #~ msgid "Extended family"
 #~ msgstr "Storfamilie"
 
@@ -2345,3 +2808,32 @@ msgstr ""
 
 #~ msgid "%s has no grandchildren-in-law recorded."
 #~ msgstr "%s har ingen registrerte svigerbarnebarn."
+#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
+msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:756
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:788
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+#: resources/views/settings.phtml:247
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:250
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+

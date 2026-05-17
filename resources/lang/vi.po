@@ -12,10 +12,6 @@ msgstr ""
 msgid "Rada"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:333
-msgid "linkage "
-msgstr ""
-
 #: src/Factory/Objects/ExtendedFamilySupport.php:383
 msgid "stillborn"
 msgstr ""
@@ -1839,6 +1835,410 @@ msgstr "Hiển thị các tùy chọn bộ lọc"
 msgid "save"
 msgstr ""
 
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Extended family"
+msgstr "Gia đình mở rộng"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "A tab showing the extended family of an individual."
+msgstr "Một bảng hiển thị thêm các thành phần gia đình mở rộng của một cá nhân."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Filter results (should be made available to be used by user instead of admin):"
+msgstr "Lọc kết quả (nên được cung cấp để người dùng sử dụng thay vì quản trị viên)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Filter by gender"
+msgstr "Lọc theo giới tính"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Filter by alive/dead"
+msgstr "Lọc theo còn sống / đã mất"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "Không, nhưng thu thập thông báo về các khối trống ở cuối"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "don't use this filter"
+msgstr "không sử dụng bộ lọc này"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a dead person"
+msgstr "một người đã mất"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a living person"
+msgstr "một người còn sống"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a male person"
+msgstr "không có người giới tính nam"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a female person"
+msgstr "không có người giới tính nữ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a person of unknown gender"
+msgstr "không có người không xác định giới tính"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "twin"
+msgstr "sinh đôi"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "triplet"
+msgstr "sinh ba"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quadruplet"
+msgstr "sinh bốn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quintuplet"
+msgstr "sinh năm"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "sextuplet"
+msgstr "sinh sáu"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "septuplet"
+msgstr "sinh bảy"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "octuplet"
+msgstr "sinh tám"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "nonuplet"
+msgstr "sinh chín"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "decuplet"
+msgstr "sinh mười"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Marriage"
+msgstr "Kết hôn"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Ex-marriage"
+msgstr "Kết hôn lại"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Fiancée"
+msgstr "Hôn ước"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of father"
+msgstr "Ông bà nội"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of mother"
+msgstr "Ông bà ngoại"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of parent"
+msgstr "Ông bà"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of father"
+msgstr "Bố mẹ kế của bố"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of mother"
+msgstr "Bố mẹ kế của mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of parent"
+msgstr "Bố mẹ kế của bố mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent"
+msgstr "Bố mẹ của bố mẹ kế"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of father"
+msgstr "Anh chị em của bố"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of mother"
+msgstr "Anh chị em của mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of father"
+msgstr "Anh chị em dâu rể của bố"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of mother"
+msgstr "Anh chị em dâu rể của mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents"
+msgstr "Bố mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents"
+msgstr "Bố/Mẹ kế"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of biological children"
+msgstr "Bố mẹ chồng của con đẻ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of stepchildren"
+msgstr "Bố mẹ chồng của con ghẻ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings"
+msgstr "Anh chị em ruột"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Half siblings"
+msgstr "Anh chị em cùng cha khác mẹ/cùng mẹ khác cha"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepsiblings"
+msgstr "Anh chị em kế"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of father"
+msgstr "Anh chị em cùng cha"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of mother"
+msgstr "Anh chị em cụng mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of parent"
+msgstr "Anh chị em cùng cha mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of father"
+msgstr "Anh chị em cùng cha khác mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of mother"
+msgstr "Anh chị em cùng mẹ khác cha"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of parent"
+msgstr "Anh chị em cùng cha mẹ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of partners"
+msgstr "Anh, chị, em ruột của chồng (vợ)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings"
+msgstr "Vợ/chồng của anh chị em"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings"
+msgstr "Con của anh chị em ruột"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings' stepchildren"
+msgstr "Anh chị em là con riêng"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings of partners"
+msgstr "Con của anh, chị, em ruột của chồng/vợ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological children"
+msgstr "Con"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren"
+msgstr "Con ghẻ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological children"
+msgstr "Bạn đời của con ruột"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren"
+msgstr "Bạn đời của con riêng"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandchildren"
+msgstr "Cháu"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of children"
+msgstr "Con ghẻ của con"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of stepchildren"
+msgstr "Con của con riêng"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of stepchildren"
+msgstr "Con riêng của con riêng"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's family (%d)"
+msgstr "Gia đình bên Bố (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Mother's family (%d)"
+msgstr "Gia đình bên Mẹ (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's and Mother's family (%d)"
+msgstr "Gia đình của Bố và Mẹ (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents"
+msgstr "Ông bà"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandparents recorded."
+msgstr "%s không có thông tin về ông bà."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandparent recorded."
+msgstr "%s có ông bà."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one uncle or aunt recorded."
+msgstr "%s có một bác trai/bác gái hoặc cô/chú."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one uncle or aunt by marriage recorded."
+msgstr "%s có một bác rể/chú rể hoặc bác dâu/thím dâu."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents recorded."
+msgstr "%s không có thông tin về bố mẹ."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one parent recorded."
+msgstr "%s có một ông bà."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law"
+msgstr "Bố mẹ chồng"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents-in-law recorded."
+msgstr "%s không có thông tin về bố mẹ chồng."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one parent-in-law recorded."
+msgstr "%s có bố mẹ chồng."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-parents-in-law"
+msgstr "Thông gia"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s không có thông tin về gia đình thông gia."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one co-parent-in-law recorded."
+msgstr "%s có ông bà thông gia."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings"
+msgstr "Anh chị em ruột"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings recorded."
+msgstr "%s không có thông tin về anh chị em ruột."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one brother or sister recorded."
+msgstr "%s có môt anh em trai hoặc một chị em gái."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law"
+msgstr "Anh em rể và chị em dâu"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s không có anh em rể hoặc chị em dâu."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one sibling-in-law recorded."
+msgstr "%s có một anh em rể hoặc chị em dâu."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners"
+msgstr "Vợ chồng"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no partners recorded."
+msgstr "%s không có thông tin về vợ/chồng."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one partner recorded."
+msgstr "%s có một vợ/chồng."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s có %1$d một người vợ/chồng và "
+msgstr[1] "%2$s có %1$d một người vợ/chồng và "
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d đối tác nữ trong chuỗi đối tác này (có tất cả là %2$d người, including %3$s)."
+msgstr[1] "%1$d đối tác nữ trong chuỗi đối tác này (có tất cả là %2$d người, including %3$s)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Cousins"
+msgstr "Anh chị em họ"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one first cousin recorded."
+msgstr "%s có một anh em họ."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one nephew or niece recorded."
+msgstr "%s có một cháu trai hoặc một cháu gái."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children"
+msgstr "Con"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children recorded."
+msgstr "%s không có thông tin về con cái."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child recorded."
+msgstr "%s có một người con được."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children-in-law"
+msgstr "Con dâu và con rể"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children-in-law recorded."
+msgstr "%s không có thông tin về con dâu và con rể."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child-in-law recorded."
+msgstr "%s có con dâu hoặc con rể."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren"
+msgstr "Cháu nội"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren recorded."
+msgstr "%s không có thông tin về cháu."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandchild recorded."
+msgstr "%s có một cháu."
+
 #~ msgid "Extended family"
 #~ msgstr "Gia đình mở rộng"
 
@@ -2084,3 +2484,32 @@ msgstr ""
 
 #~ msgid "%s has no grandchildren recorded."
 #~ msgstr "%s không có thông tin về cháu."
+#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
+msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:756
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:788
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+#: resources/views/settings.phtml:247
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:250
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+

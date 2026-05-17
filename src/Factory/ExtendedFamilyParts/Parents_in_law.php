@@ -103,11 +103,13 @@ class Parents_in_law extends ExtendedFamilyPart
         foreach ($this->efpObject->groups as $famkey => $groupObj) {                    // check if this family is already stored in this part of the extended family
             if ($groupObj->family->xref() == $indifam->getFamily()->xref()) {           // family exists already
                 $this->efpObject->groups[$famkey]->members[] = $indifam->getIndividual();
+                $this->efpObject->groups[$famkey]->vitalEventsSummaries[] = $this->vitalEventsSummary($indifam->getIndividual());
                 return;
             }
         }
         $newObj = (object)[];                                           // individual not found and family not found
         $newObj->members[] = $indifam->getIndividual();
+        $newObj->vitalEventsSummaries[] = $this->vitalEventsSummary($indifam->getIndividual());
         $newObj->family = $indifam->getFamily();
         $newObj->familyStatus = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
         if (isset($indifam->getReferencePersons()[1])) {

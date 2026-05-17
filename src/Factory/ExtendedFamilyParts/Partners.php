@@ -116,9 +116,11 @@ class Partners extends ExtendedFamilyPart
                 }
             }
             $this->efpObject->groups[$spouse->xref()]->members[] = $individual;
+            $this->efpObject->groups[$spouse->xref()]->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
         } else {                                                                // generate new group of partners
             $newObj = (object)[];
             $newObj->members[] = $individual;
+            $newObj->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
             $newObj->partner = $spouse;
             $this->efpObject->groups[$spouse->xref()] = $newObj;
         }

@@ -36,10 +36,16 @@ class ExtendedFamilyPartFactory
      * @param string $extendedFamilyPart
      * @param Individual $proband
      * @param string $filterOption
+     * @param int $placeFormat
      */
-    public static function create(string $extendedFamilyPart, Individual $proband, string $filterOption)
+    public static function create(
+        string $extendedFamilyPart,
+        Individual $proband,
+        string $filterOption,
+        int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME
+    )
     {
         $class = "\\Hartenthaler\\Webtrees\\Module\\ExtendedFamily\\$extendedFamilyPart";
-        return new $class($proband, $filterOption);
+        return new $class($proband, $filterOption, $placeFormat);
     }
 }

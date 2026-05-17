@@ -12,11 +12,6 @@ msgstr ""
 msgid "Rada"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:333
-#, fuzzy
-msgid "linkage "
-msgstr "vzťah potvrdený"
-
 #: src/Factory/Objects/ExtendedFamilySupport.php:383
 msgid "stillborn"
 msgstr "mŕtvo narodené"
@@ -2159,6 +2154,418 @@ msgstr "Zobraziť voľby filtra"
 msgid "save"
 msgstr ""
 
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Extended family"
+msgstr "Širšia rodina"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "A tab showing the extended family of an individual."
+msgstr "Záložka širšej rodiny danej osoby."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "nie, zobraz správy o prázdnych blokoch na konci"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "don't use this filter"
+msgstr "nepoužiť tento filter"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a dead person"
+msgstr "zosnulá osoba"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a living person"
+msgstr "žijúca osoba"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a male person"
+msgstr "žiadna mužská osoba"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a female person"
+msgstr "žiadna ženská osoba"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a person of unknown gender"
+msgstr "žiadna osoba s neznámym pohlavím"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "twin"
+msgstr "dvojča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "triplet"
+msgstr "trojča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quadruplet"
+msgstr "štvorča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quintuplet"
+msgstr "pätorča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "sextuplet"
+msgstr "šestorča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "septuplet"
+msgstr "sedmorča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "octuplet"
+msgstr "osmorča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "nonuplet"
+msgstr "devätorča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "decuplet"
+msgstr "desatorča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage challenged"
+msgstr "vzťah spochybnené"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage disproven"
+msgstr "vzťa vyvrátený"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage proven"
+msgstr "vzťah potvrdený"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Marriage"
+msgstr "Manželstvo"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Ex-marriage"
+msgstr "Rozvedené manželstvo"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Fiancée"
+msgstr "Zasnúbenie"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of father"
+msgstr "Biologickí starí rodičia otca"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of mother"
+msgstr "Biologickí starí rodičia matky"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of parent"
+msgstr "Biologickí starí rodičia rodiča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological parent of father"
+msgstr "Nevlastní rodičia biologického rodiča otca"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological parent of mother"
+msgstr "Nevlastní rodičia biologického rodiča matky"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological grandparent"
+msgstr "Nevlastní rodičia bilogického starého rodiča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of father"
+msgstr "Rodičia nevlastného rodiča otca"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of mother"
+msgstr "Rodičia nevlastného rodiča matky"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of parent"
+msgstr "Rodičia nevlastného rodiča rodiča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents of stepparent"
+msgstr "Starí rodičia nevlastného rodiča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological great-grandparents"
+msgstr "Biologickí prarodičia"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of father"
+msgstr "Biologickí rodičia otca"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of mother"
+msgstr "Biologickí rodičia matky"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of parent"
+msgstr "Biologickí rodičia rodiča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of father"
+msgstr "Nevlastní rodičia otca"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of mother"
+msgstr "Nevlastní rodičia matky"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of parent"
+msgstr "Nevlastní rodičia rodiča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent"
+msgstr "Rodičia nevlastného rodiča"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents"
+msgstr "Biologickí starí rodičia"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of father"
+msgstr "Otcovi súrodenci"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of mother"
+msgstr "Matkini súrodenci"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings of biological parents"
+msgstr "Pokrvní súrodenci biologických rodičov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of father"
+msgstr "Otcovi švagrovia a švagriné"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of mother"
+msgstr "Matkini švagrovia a švagrovia"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents"
+msgstr "Biologickí rodičia"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents"
+msgstr "Nevlastní rodičia"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of biological children"
+msgstr "Svokrovci biologických detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of stepchildren"
+msgstr "Svokrovci nevlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings"
+msgstr "Súrodenci"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Half siblings"
+msgstr "Poloviční súrodenci"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepsiblings"
+msgstr "Nevlastní súrodenci"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of father"
+msgstr "Deti otcových súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of mother"
+msgstr "Deti matkiných súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of parent"
+msgstr "Deti súrodencov jedného z rodičov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of father"
+msgstr "Deti otcových polovičných súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of mother"
+msgstr "Deti matkiných polovičných súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of parent"
+msgstr "Deti polovičných súrodencov jedného z rodičov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of partners"
+msgstr "Súrodenci partnera"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings"
+msgstr "Partneri súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of siblings-in-law"
+msgstr "Súrodenci švagrov a švagrín"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings-in-law"
+msgstr "Partneri švagrov a švagrín"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of biological parents"
+msgstr "Deti súrodencov biologických rodičov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings"
+msgstr "Deti súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings"
+msgstr "Deti vlastných súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings' stepchildren"
+msgstr "Nevlastné deti súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings of partners"
+msgstr "Deti súrodencov partnera"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological children"
+msgstr "Biologické deti"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren"
+msgstr "Nevlastné deti"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological children"
+msgstr "Partneri vlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren"
+msgstr "Partneri nevlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandchildren"
+msgstr "Biologické vnúčatá"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of children"
+msgstr "Nevlastné deti detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of stepchildren"
+msgstr "Deti nevlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of stepchildren"
+msgstr "Nevlastné deti nevlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological grandchildren"
+msgstr "Partner biologického vnúčaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren of children"
+msgstr "Partner nevlastného dieťaťa dieťaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of children of stepchildren"
+msgstr "Partner dieťaťa nevlastného dieťaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Partner nevlastného dieťaťa nevlastného dieťaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's family (%d)"
+msgstr "Otcova rodina (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Mother's family (%d)"
+msgstr "Matkina rodina (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's and Mother's family (%d)"
+msgstr "Otcova a matkina rodina (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Great-grandparents"
+msgstr "Prastarí rodičia"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no great-grandparents recorded."
+msgstr "%s nemá zaznamených žiadnych prarodičov."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents"
+msgstr "Starí rodičia"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandparents recorded."
+msgstr "%s nemá zaznamenaných žiadnych starých rodičov."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents recorded."
+msgstr "%s nemá zaznamenaných žiadnych rodičov."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings recorded."
+msgstr "%s nemá zaznamenaných žiadnych súrodencov."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one brother or sister recorded."
+msgstr "%s má jedného súrodenca."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners"
+msgstr "Partneri"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no partners recorded."
+msgstr "%s nemá zaznamenaného žiadneho partnera."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one partner recorded."
+msgstr "%s má zaznamenaného jedného partnera."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Cousins"
+msgstr "Bratranci a sesternice"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one first cousin recorded."
+msgstr "%s má jedného prvostupňového bratranca alebo sesternicu."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one nephew or niece recorded."
+msgstr "%s má zaznamenaného jedného synovca alebo jednu neter."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children recorded."
+msgstr "%s nemá zaznamenané žiadne deti."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child recorded."
+msgstr "%s má jedno dieťa."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren"
+msgstr "Vnúčatá"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren recorded."
+msgstr "%s nemá zaznamenané žiadne vnúča."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandchild recorded."
+msgstr "%s má zaznamenané jedno vnúča."
+
 #~ msgid "Extended family"
 #~ msgstr "Širšia rodina"
 
@@ -2452,3 +2859,32 @@ msgstr ""
 
 #~ msgid "%s has one grandchild recorded."
 #~ msgstr "%s má zaznamenané jedno vnúča."
+#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
+msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:756
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:788
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+#: resources/views/settings.phtml:247
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:250
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+

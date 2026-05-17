@@ -27,12 +27,10 @@ declare(strict_types=1);
 
 namespace Hartenthaler\Webtrees\Helpers;
 
-use Fisharebest\Webtrees\Auth;
-use Fisharebest\Webtrees\Contracts\UserInterface;
-use Fisharebest\Webtrees\Services\ModuleService;
 use Fisharebest\Webtrees\Registry;
-use Fisharebest\Webtrees\Tree;
 use Fisharebest\Webtrees\Webtrees;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * Functions to be used in webtrees custom modules
@@ -42,7 +40,10 @@ class Functions
     /**
      * Get interface from container
      *
+     * @param string $id
      * @return mixed
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public static function getFromContainer(string $id) {
         if (version_compare(Webtrees::VERSION, '2.2.0', '>=')) {
@@ -51,24 +52,5 @@ class Functions
         else {
             return app($id);
         }    
-    }
-    
-    /**
-     * Test if _huhwt-cce_ is installed and accessible
-     *
-     * @param Tree              $tree
-     * @param UserInterface     $user
-     *
-     * @return bool
-     */
-    public static function test_CCE_ (Tree $tree, UserInterface $user) : bool
-    {
-        $retval = false;
-        $module_service = new ModuleService();
-        $CCE_module = $module_service->findByName('_huhwt-cce_');
-        if ($CCE_module !== null ) {
-            $retval =  $CCE_module->accessLevel($tree, 'Fisharebest\Webtrees\Module\ModuleMenuInterface') >= Auth::accessLevel($tree, $user);
-        }
-        return $retval;
     }
 }

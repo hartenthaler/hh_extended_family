@@ -13,10 +13,6 @@ msgstr ""
 msgid "Rada"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:333
-msgid "linkage "
-msgstr ""
-
 #: src/Factory/Objects/ExtendedFamilySupport.php:383
 msgid "stillborn"
 msgstr ""
@@ -2166,6 +2162,346 @@ msgstr "Показати параметри фільтрації"
 msgid "save"
 msgstr ""
 
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Extended family"
+msgstr "Розширена сім'я"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "A tab showing the extended family of an individual."
+msgstr "Додає вкладку з розширеним виглядом родини для картки персони"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "ні, але збирати повідомлення про порожні блоки в кінці"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "don't use this filter"
+msgstr "не використовувати цей фільтр"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a dead person"
+msgstr "жива людина"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a living person"
+msgstr "померла людина"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a male person"
+msgstr "не є чоловіком"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a female person"
+msgstr "не є жінкою"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a person of unknown gender"
+msgstr "не є персоною з невідомою статтю"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "twin"
+msgstr "близнюк"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "triplet"
+msgstr "близнюк (трійня)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quadruplet"
+msgstr "близнюк (четверо)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quintuplet"
+msgstr "близнюк (п'ятеро)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "sextuplet"
+msgstr "близнюк (шестеро)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "septuplet"
+msgstr "близнюк (семеро)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "octuplet"
+msgstr "близнюк (восьмеро)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "nonuplet"
+msgstr "близнюк (дев'ятеро)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "decuplet"
+msgstr "близнюк (десятеро)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Marriage"
+msgstr "Шлюб"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Ex-marriage"
+msgstr "Розвід"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Fiancée"
+msgstr "Заручини"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of father"
+msgstr "Стриї і стрийни"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of mother"
+msgstr "Вуйки і вуйни"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of father"
+msgstr "Батькові шурини і своячениці"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of mother"
+msgstr "Дівери і зовиці матері"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents"
+msgstr "Рідні батьки"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents"
+msgstr "Прийомні батьки"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of biological children"
+msgstr "Свати через рідних дітей"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of stepchildren"
+msgstr "Свати через прийомних дітей"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological children"
+msgstr "Рідні діти"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren"
+msgstr "Прийомні діти"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological children"
+msgstr "Пртнери рідних дітей"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren"
+msgstr "Партнери прийомних дітей"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandchildren"
+msgstr "Рідні онуки"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of children"
+msgstr "Прийомні онуки від рідних дітей"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of stepchildren"
+msgstr "Онки від прийомних дітей"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of stepchildren"
+msgstr "Прийомні онуки від прийомних дітей"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings"
+msgstr "Рідні брати і сестри"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Half siblings"
+msgstr "Напіврідні брати і сестри"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepsiblings"
+msgstr "Зведені брати і сестри"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of partners"
+msgstr "Брати і сестри партнерів"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings"
+msgstr "Партнери братів і сестер"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings"
+msgstr "Діти братів і сестер"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings' stepchildren"
+msgstr "Прийомні діти братів і сестер"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings of partners"
+msgstr "Діти партнерів братів і сестер"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's family (%d)"
+msgstr "Сім'я батька (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Mother's family (%d)"
+msgstr "Сім'я матері (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's and Mother's family (%d)"
+msgstr "Сім'я батька і матері (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents"
+msgstr "Бабусі і дідусі"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandparents recorded."
+msgstr "%s не має жодного запису про бабусю чи дідуся."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandparent recorded."
+msgstr "%s має запис про одного дідуся чи бабусю."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents recorded."
+msgstr "%s не має жодного запису про батьків."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one parent recorded."
+msgstr "%s має запис про одного з батьків."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law"
+msgstr "Тесті і свекри"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents-in-law recorded."
+msgstr "%s не має жодного запису про батьків."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one parent-in-law recorded."
+msgstr "%s має запис про одного з батьків."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-parents-in-law"
+msgstr "Свати"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s не має жодного запису про сватів."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one co-parent-in-law recorded."
+msgstr "%s має один запис про свата або сваху."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one uncle or aunt recorded."
+msgstr "%s має запис про одного дядька чи тітку."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one uncle or aunt by marriage recorded."
+msgstr "%s має запис про одне одруження дядька чи тітки."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings"
+msgstr "Брати і сестри"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings recorded."
+msgstr "%s не має жодного запису про братів і сестер."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one brother or sister recorded."
+msgstr "%s має запис про одну сестру або брата."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law"
+msgstr "Брати та сестри подружжя"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s не має записів про братів і сестер партнера."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one sibling-in-law recorded."
+msgstr "%s має запис про одну сестру або брата партнера."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners"
+msgstr "Подружжя"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no partners recorded."
+msgstr "%s не має жодного запису про одруження."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one partner recorded."
+msgstr "%s має запис про одного партнера."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s має %1$d запис про чоловіка і "
+msgstr[1] "%2$s має %1$d записи про чоловіків і "
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d партнерку в цій низці партнерів (загалом %2$d, including %3$s)."
+msgstr[1] "%1$d партнерки в цій низці партнерів (загалом %2$d, including %3$s)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Cousins"
+msgstr "Двоюрідні брати і сестри"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one first cousin recorded."
+msgstr "%s має запис про одного двоюрідного брата чи сестру."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one nephew or niece recorded."
+msgstr "%s має запис про одного племінника чи племінницю."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children"
+msgstr "Діти"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children recorded."
+msgstr "%s не має жодного запису про дітей."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child recorded."
+msgstr "%s запис про одну дитину."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children-in-law"
+msgstr "Зяті й невістки"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children-in-law recorded."
+msgstr "%s не має записів про зятів і невісток."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child-in-law recorded."
+msgstr "%s має запис про одного зятя або невістку."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren"
+msgstr "Онуки"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren recorded."
+msgstr "%s не має жодного запису про онуків."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandchild recorded."
+msgstr "%s має запис про одного внука чи онуку."
+
 #~ msgid "Extended family"
 #~ msgstr "Розширена сім'я"
 
@@ -2363,3 +2699,32 @@ msgstr ""
 
 #~ msgid "%s has no grandchildren recorded."
 #~ msgstr "%s не має жодного запису про онуків."
+#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
+msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:756
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:788
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+#: resources/views/settings.phtml:247
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:250
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+

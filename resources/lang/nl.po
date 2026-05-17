@@ -17,10 +17,6 @@ msgstr ""
 msgid "Rada"
 msgstr "Rada"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:333
-msgid "linkage "
-msgstr "koppeling "
-
 #: src/Factory/Objects/ExtendedFamilySupport.php:383
 msgid "stillborn"
 msgstr "levenloos geboren"
@@ -2065,6 +2061,474 @@ msgstr "Toon knop"
 msgid "save"
 msgstr "opslaan"
 
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Extended family"
+msgstr "Uitgebreide familie"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "A tab showing the extended family of an individual."
+msgstr "Een tabblad met de uitgebreide familie van een persoon."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "nee, maar verzamel berichten over lege familiedelen aan het eind"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "don't use this filter"
+msgstr "gebruik dit filter niet"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a dead person"
+msgstr "een overleden persoon"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a living person"
+msgstr "een levend persoon"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a male person"
+msgstr "geen mannelijk persoon"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a female person"
+msgstr "geen vrouwelijk persoon"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a person of unknown gender"
+msgstr "geen persoon van onbekend geslacht"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "twin"
+msgstr "tweeling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "triplet"
+msgstr "drieling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quadruplet"
+msgstr "vierling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quintuplet"
+msgstr "vijfling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "sextuplet"
+msgstr "zesling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "septuplet"
+msgstr "zevenling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "octuplet"
+msgstr "achtling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "nonuplet"
+msgstr "negenling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "decuplet"
+msgstr "tienling"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage challenged"
+msgstr "koppeling betwist"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage disproven"
+msgstr "koppeling weerlegd"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage proven"
+msgstr "koppeling bewezen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Marriage"
+msgstr "Huwelijk"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Ex-marriage"
+msgstr "Ex-huwelijk"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Fiancée"
+msgstr "Verloving"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of father"
+msgstr "Biologische grootouders van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of mother"
+msgstr "Biologische grootouders van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of parent"
+msgstr "Biologische grootouders van een ouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological parent of father"
+msgstr "Stiefouders van een biologische ouder van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological parent of mother"
+msgstr "Stiefouders van een biologische ouder van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological grandparent"
+msgstr "Stiefouders van een biologische grootouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of father"
+msgstr "Ouders van een stiefouder van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of mother"
+msgstr "Ouders van een stiefouder van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of parent"
+msgstr "Ouders van een stiefouder van een ouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents of stepparent"
+msgstr "Grootouders van een stiefouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological great-grandparents"
+msgstr "Biologische overgrootouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of father"
+msgstr "Biologische ouders van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of mother"
+msgstr "Biologische ouders van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of parent"
+msgstr "Biologische ouders van een ouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of father"
+msgstr "Stiefouders van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of mother"
+msgstr "Stiefouders van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of parent"
+msgstr "Stiefouders van een ouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent"
+msgstr "Ouders van een stiefouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents"
+msgstr "Biologische grootouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of father"
+msgstr "Broers/zussen van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of mother"
+msgstr "Broers/zussen van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings of biological parents"
+msgstr "Volle broers/zussen van biologische ouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of father"
+msgstr "Zwagers/schoonzussen van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of mother"
+msgstr "Zwagers/schoonzussen van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents"
+msgstr "Biologische ouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents"
+msgstr "Stiefouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of biological children"
+msgstr "Schoonouders van biologische kinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of stepchildren"
+msgstr "Schoonouders van stiefkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings"
+msgstr "Volle broers/zussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Half siblings"
+msgstr "Halfbroers/-zussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepsiblings"
+msgstr "Stiefbroers/-zussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of father"
+msgstr "Kinderen van volle broers/zussen van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of mother"
+msgstr "Kinderen van volle broers/zussen van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of parent"
+msgstr "Kinderen van volle broers/zussen van een ouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of father"
+msgstr "Kinderen van halfbroers/-zussen van de vader"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of mother"
+msgstr "Kinderen van halfbroers/-zussen van de moeder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of parent"
+msgstr "Kinderen van halfbroers/-zussen van een ouder"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of partners"
+msgstr "Broers/zussen van partners"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings"
+msgstr "Partners van broers/zussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of siblings-in-law"
+msgstr "Broers/zussen van zwagers/schoonzussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings-in-law"
+msgstr "Partners van zwagers/schoonzussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of biological parents"
+msgstr "Kinderen van volle broers/zussen van biologische ouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings"
+msgstr "Kinderen van broers/zussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings"
+msgstr "Kinderen van volle broers/zussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings' stepchildren"
+msgstr "Stiefkinderen van broers/zussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings of partners"
+msgstr "Kinderen van broers/zussen van partners"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological children"
+msgstr "Biologische kinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren"
+msgstr "Stiefkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological children"
+msgstr "Partners van biologische kinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren"
+msgstr "Partners van stiefkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandchildren"
+msgstr "Biologische kleinkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of children"
+msgstr "Stiefkinderen van kinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of stepchildren"
+msgstr "Kinderen van stiefkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of stepchildren"
+msgstr "Stiefkinderen van stiefkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological grandchildren"
+msgstr "Partners van biologische kleinkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren of children"
+msgstr "Partners van stiefkinderen van kinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of children of stepchildren"
+msgstr "Partners van kinderen van stiefkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Partners van stiefkinderen van stiefkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's family (%d)"
+msgstr "Familie van de vader (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Mother's family (%d)"
+msgstr "Familie van de moeder (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's and Mother's family (%d)"
+msgstr "Familie van de vader en de moeder (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Great-grandparents"
+msgstr "Overgrootouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no great-grandparents recorded."
+msgstr "Voor %s zijn geen overgrootouders geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents"
+msgstr "Grootouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandparents recorded."
+msgstr "Voor %s zijn geen grootouders geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents recorded."
+msgstr "Voor %s zijn geen ouders geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law"
+msgstr "Schoonouders"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents-in-law recorded."
+msgstr "Voor %s zijn geen schoonouders geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-parents-in-law"
+msgstr "Ouders van schoonkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-parents-in-law recorded."
+msgstr "Voor %s zijn geen ouders van schoonkinderen geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners"
+msgstr "Partners"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no partners recorded."
+msgstr "Voor %s zijn geen partners geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "Voor %2$s zijn %1$d partner en "
+msgstr[1] "Voor %2$s zijn %1$d partners en "
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s)."
+msgstr[1] "%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%d female partner and "
+msgid_plural "%d female partners and "
+msgstr[0] "%d vrouwelijke partner en "
+msgstr[1] "%d vrouwelijke partners en "
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings"
+msgstr "Broers en zussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings recorded."
+msgstr "Voor %s zijn geen broers/zussen geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law"
+msgstr "Zwagers en schoonzussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings-in-law recorded."
+msgstr "Voor %s zijn geen zwagers/schoonzussen geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-siblings-in-law"
+msgstr "Broers/zussen/partners van zwagers of schoonzussen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "Voor %s zijn geen broers/zussen/partners van zwagers/schoonzussen geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Cousins"
+msgstr "Volle neven en nichten (kinderen van oom of tante)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children"
+msgstr "Kinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children recorded."
+msgstr "Voor %s zijn geen kinderen geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children-in-law"
+msgstr "Schoonkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children-in-law recorded."
+msgstr "Voor %s zijn geen schoonkinderen geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d child-in-law recorded."
+msgid_plural "%2$s has %1$d children-in-law recorded."
+msgstr[0] "Voor %2$s is %1$d schoonkind van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s is %1$d schoonkinderen van onbekend geslacht geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren"
+msgstr "Kleinkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren recorded."
+msgstr "Voor %s zijn geen kleinkinderen geregistreerd."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren-in-law"
+msgstr "Schoonkleinkinderen"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "Voor %s zijn geen schoonkleinkinderen geregistreerd."
+
 #~ msgid "Extended family"
 #~ msgstr "Uitgebreide familie"
 
@@ -2401,3 +2865,32 @@ msgstr "opslaan"
 
 #~ msgid "%s has no grandchildren-in-law recorded."
 #~ msgstr "Voor %s zijn geen schoonkleinkinderen geregistreerd."
+#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
+msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:756
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:788
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+#: resources/views/settings.phtml:247
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:250
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+

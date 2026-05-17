@@ -1,0 +1,93 @@
+<?php
+
+use Fisharebest\Webtrees\View;
+
+/**
+ * @var string $extended_family_css used in JavaScript code as a link to the CSS file
+ */
+?>
+
+<?php View::push('javascript') ?>
+<script>
+  // stylesheet
+  var newSheet = document.createElement("link");
+  newSheet.setAttribute("rel","stylesheet");
+  newSheet.setAttribute("type","text/css");
+  newSheet.setAttribute("href","<?= $extended_family_css ?>");
+  document.head.appendChild(newSheet);
+
+  // filter: reset filter values
+  sessionStorage.removeItem('sexFilterValue');
+  sessionStorage.removeItem('aliveFilterValue');
+
+  // filter: initial status: show only "all"
+  $(".hh-extended-filter[data-filter-value='MY']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='FY']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='UY']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='MN']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='FN']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='UN']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='M']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='F']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='U']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='Y']").addClass('d-none');
+  $(".hh-extended-filter[data-filter-value='N']").addClass('d-none');
+
+  // filter click function
+  $(".hh-extended-filter-button").click(function ()
+  {
+      let checkbox = $(this);
+      let buttonGroup = checkbox.closest(".btn-group");
+      let siblings = buttonGroup.find("input[type='checkbox']");
+
+      let checked = checkbox.prop("checked");
+
+      // Entferne `checked` und `active` von allen benachbarten Buttons
+      siblings.prop("checked", false);
+      buttonGroup.find("label.btn").removeClass("active");
+
+      // Wende `checked` und `active` nur auf aktuellen Button an
+      if (checked) {
+          checkbox.prop("checked", true);
+          checkbox.closest("label").addClass("active"); // Wichtig für Bootstrap
+      } else {
+          checkbox.closest("label").removeClass("active");
+      }
+
+      // Speichere die Filterwerte
+      let filterType = checkbox.data("filter-type");
+
+      if (filterType === "sex") {
+          sessionStorage.setItem(
+              "sexFilterValue",
+              checked ? checkbox.data("filter-value") : ""
+          );
+      } else if (filterType === "alive") {
+          sessionStorage.setItem(
+              "aliveFilterValue",
+              checked ? checkbox.data("filter-value") : ""
+          );
+      }
+
+      // Hole die aktuellen Filterwerte aus dem sessionStorage
+      let sexFilterValue = sessionStorage.getItem("sexFilterValue") || "";
+      let aliveFilterValue = sessionStorage.getItem("aliveFilterValue") || "";
+
+      // Kombiniere die beiden Filterwerte
+      let filterValue = sexFilterValue + aliveFilterValue;
+
+      // Fallback: Wenn kein Filter aktiv ist, zeige "all"
+      if (filterValue === "") {
+          filterValue = "all";
+      }
+
+      // Alle Blöcke unsichtbar machen
+      $(".hh-extended-filter").addClass("d-none");
+
+      // Zeige den passenden Block
+      $(".hh-extended-filter[data-filter-value='" + filterValue + "']").removeClass("d-none");
+
+      // console.log("hh-extended-filter[data-filter-value='"+filterValue+"']");
+  });
+</script>
+<?php View::endpush() ?>

@@ -23,6 +23,7 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
 
 use function array_key_exists;
@@ -54,6 +55,11 @@ abstract class ExtendedFamilyPart
      * @var Individual $proband
      */
     protected Individual $proband;
+
+    /**
+     * @var int $placeFormat selected format for event places
+     */
+    protected int $placeFormat;
     
     // ------------ definition of methods
 
@@ -62,9 +68,15 @@ abstract class ExtendedFamilyPart
      *
      * @param Individual $proband
      * @param string $filterOption
+     * @param int $placeFormat
      */
-    public function __construct(Individual $proband, string $filterOption)
+    public function __construct(
+        Individual $proband,
+        string $filterOption,
+        int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME
+    )
     {
+        $this->placeFormat = $placeFormat;
         $this->initialize($proband);
         $this->addEfpMembers();
         $this->filterAndAddCounters($filterOption);
@@ -408,6 +420,24 @@ abstract class ExtendedFamilyPart
     }
 
     /**
+     * Generate prepared birth/death summaries for display in event boxes.
+     *
+     * @param Individual $individual
+     * @return string
+     */
+    protected function vitalEventsSummary(Individual $individual): string
+    {
+        $summary = '';
+        foreach (['BIRT', 'DEAT'] as $tag) {
+            $event = $individual->facts([$tag])->first();
+            if ($event instanceof Fact) {
+                $summary .= ExtendedFamilySupport::eventSummary($event, $this->placeFormat);
+            }
+        }
+        return $summary;
+    }
+
+    /**
      * add an individual to an already existing group as part of an extended family part
      *
      * @param IndividualFamily $indifam
@@ -420,6 +450,7 @@ abstract class ExtendedFamilyPart
         $this->efpObject->groups[$groupName]->families[] = $indifam->getFamily();
         $this->efpObject->groups[$groupName]->familiesStatus[] = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
         $this->efpObject->groups[$groupName]->referencePersons[] = $indifam->getReferencePersons();
+        $this->efpObject->groups[$groupName]->vitalEventsSummaries[] = $this->vitalEventsSummary($indifam->getIndividual());
     }
 
     /**
@@ -438,7 +469,8 @@ abstract class ExtendedFamilyPart
             ExtendedFamilySupport::generateChildLabels($indifam->getIndividual()),
             $indifam->getFamily(),
             ExtendedFamilySupport::findFamilyStatus($indifam->getFamily()),
-            $indifam->getReferencePersons()
+            $indifam->getReferencePersons(),
+            $this->vitalEventsSummary($indifam->getIndividual())
         );
         $this->efpObject->groups[$groupName] = $newObj->getFamilyPart();
     }

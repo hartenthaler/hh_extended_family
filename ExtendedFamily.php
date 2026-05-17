@@ -71,11 +71,10 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
-use Fisharebest\Webtrees\Session;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
 use Illuminate\Support\Collection;
 
 use function ucfirst;
-use function is_array;
 
 
 /**
@@ -106,6 +105,7 @@ class ExtendedFamily
      *        ->showThumbnail                       bool
      *        ->sizeThumbnailW                      int (in pixel)
      *        ->sizeThumbnailH                      int (in pixel)
+     *        ->placeFormat                         int
      */
     public object $config;
     
@@ -185,7 +185,7 @@ class ExtendedFamily
                     $extfamObj->efp->summary->allCount = 0;
                     foreach ($this->config->shownFamilyParts as $efp => $element) {
                         if ($element->enabled) {
-                            $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption);
+                            $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption, $this->config->placeFormat);
                             $extfamObj->efp->$efp = $efpO->getEfpObject();
                             $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
                         }
@@ -203,7 +203,7 @@ class ExtendedFamily
             $extfamObj->efp->summary->allCount = 0;
             foreach ($this->config->shownFamilyParts as $efp => $element) {
                 if ($element->enabled) {
-                    $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, 'all');
+                    $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, 'all', $this->config->placeFormat);
                     $extfamObj->efp->$efp = $efpO->getEfpObject();
                     $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
                 }
@@ -254,27 +254,44 @@ class ExtendedFamily
      */
     public function collectAllIndividuals(object $extendedFamily): Collection
     {
-        $collection = collect([$this->proband->indi]);                            // add proband to the extended family
+        $collection = new Collection();
+        $this->addIndividualToCollection($collection, $this->proband->indi);
+
         foreach ($extendedFamily->efp as $propName => $propValue) {
-            if ($propName == 'partner_chains' && $this->config->countPartnerChainsToTotal) {
-                // we include the additional members of partner chains only if the option is set
-                $collection = $collection->concat($propValue->collectionIndividuals);
-            } elseif ($propName !== 'summary') {
-                foreach ($propValue->groups as $group) {
-                    foreach ($group->members as $individual) {
-                        $collection->add($individual);
+            if ($propName === 'summary') {
+                continue;
+            }
+
+            if ($propName === 'partner_chains') {
+                if ($this->config->countPartnerChainsToTotal && isset($propValue->collectionIndividuals) && is_iterable($propValue->collectionIndividuals)) {
+                    foreach ($propValue->collectionIndividuals as $individual) {
+                        $this->addIndividualToCollection($collection, $individual);
                     }
+                }
+                continue;
+            }
+
+            if (!isset($propValue->groups) || !is_iterable($propValue->groups)) {
+                continue;
+            }
+
+            foreach ($propValue->groups as $group) {
+                if (!isset($group->members) || !is_iterable($group->members)) {
+                    continue;
+                }
+
+                foreach ($group->members as $individual) {
+                    $this->addIndividualToCollection($collection, $individual);
                 }
             }
         }
+
         return $collection->unique(function ($item) {
             return $item->xref();
-        });
+        })->values();
     }
 
     /**
-     * tbd: remove because it is implemented now totally differently
-     *
      * collect all families of the extended family,
      * maybe excluding the additional families of the partner chains
      *
@@ -285,100 +302,91 @@ class ExtendedFamily
     {
         $collection = new Collection();
         foreach ($extendedFamily->efp as $propName => $propValue) {
-            if ($propName == 'partner_chains' && $this->config->countPartnerChainsToTotal) {
-                // we include the additional families of partner chains only if the option is set
-                $collection = $collection->concat($propValue->collectionFamilies);
-            } elseif ($propName !== 'summary') {
-                foreach ($propValue->groups as $group) {
-                    return $collection; // tbd
-                    foreach ($group->members as $family) {
-                        $collection->add($family);
+            if ($propName === 'summary') {
+                continue;
+            }
+
+            if ($propName === 'partner_chains') {
+                if ($this->config->countPartnerChainsToTotal && isset($propValue->collectionFamilies) && is_iterable($propValue->collectionFamilies)) {
+                    foreach ($propValue->collectionFamilies as $family) {
+                        $this->addFamilyToCollection($collection, $family);
                     }
+                }
+                continue;
+            }
+
+            if (!isset($propValue->groups) || !is_iterable($propValue->groups)) {
+                continue;
+            }
+
+            foreach ($propValue->groups as $group) {
+                if (isset($group->families) && is_iterable($group->families)) {
+                    foreach ($group->families as $family) {
+                        $this->addFamilyToCollection($collection, $family);
+                    }
+                }
+
+                if (isset($group->family)) {
+                    $this->addFamilyToCollection($collection, $group->family);
                 }
             }
         }
-        return $collection;
+
+        return $collection->unique(function ($item) {
+            return $item->xref();
+        })->values();
     }
 
     /**
-     * tbd: remove because it is implemented now totally differently
+     * Add an individual to a collection, ignoring incomplete family-part entries.
      *
+     * @param Collection $collection
+     * @param mixed $individual
+     * @return void
+     */
+    private function addIndividualToCollection(Collection $collection, $individual): void
+    {
+        if ($individual instanceof Individual) {
+            $collection->add($individual);
+        }
+    }
+
+    /**
+     * Add a family to a collection, ignoring incomplete family-part entries.
+     *
+     * @param Collection $collection
+     * @param mixed $family
+     * @return void
+     */
+    private function addFamilyToCollection(Collection $collection, $family): void
+    {
+        if ($family instanceof Family) {
+            $collection->add($family);
+        }
+    }
+
+    /**
      * add all members of the extended family (individuals and their families) to the webtrees clippings cart
      *
      * @param Collection $individuals
-     * @param Collection $families
+     * @param Collection|null $families
      */
-    public function addExtendedFamilyToClippingsCart(Collection $individuals, Collection $families = null): void
+    public function addExtendedFamilyToClippingsCart(Collection $individuals, ?Collection $families = null): void
     {
-        $individuals->each(function($item, $key) {
-            $this->addIndividualToCart($item);
+        $cart_writer = new ClippingsCartWriter();
+
+        $individuals->each(function($item, $key) use ($cart_writer) {
+            if ($item instanceof Individual) {
+                $cart_writer->addIndividualToCart($item);
+            }
         });
 
         if ($families) {
-            $families->each(function($item, $key) {
-                $this->addFamilyToCart($item);
+            $families->each(function($item, $key) use ($cart_writer) {
+                if ($item instanceof Family) {
+                    $cart_writer->addFamilyToCart($item);
+                }
             });
-        }
-    }
-
-    /**
-     * tbd: remove because it is implemented now totally differently
-     *
-     * add an individual and all linked other records to the clippings cart
-     *
-     * @param Individual $individual
-     */
-    protected function addIndividualToCart(Individual $individual): void
-    {
-        if ($individual->canShow()) {
-            $cart = Session::get('cart');
-            $cart = is_array($cart) ? $cart : [];
-
-            $tree = $individual->tree()->name();
-            $xref = $individual->xref();
-
-            if (($cart[$tree][$xref] ?? false) === false) {
-                $cart[$tree][$xref] = true;
-                Session::put('cart', $cart);
-                /* add all linked records to the clippings cart
-                $this->addLocationLinksToCart($individual);
-                $this->addMediaLinksToCart($individual);
-                $this->addNoteLinksToCart($individual);
-                $this->addSourceLinksToCart($individual);
-                */
-            }
-        }
-    }
-
-    /**
-     * add a family and the spouses and all linked other records to the clippings cart
-     *
-     * @param Family $family
-     */
-    protected function addFamilyToCart(Family $family): void
-    {
-        $cart = Session::get('cart');
-        $cart = is_array($cart) ? $cart : [];
-
-        $tree = $family->tree()->name();
-        $xref = $family->xref();
-
-        if (($cart[$tree][$xref] ?? false) === false) {
-            $cart[$tree][$xref] = true;
-
-            Session::put('cart', $cart);
-            //echo "<br>**** added family $xref to clippings cart ****";
-
-            foreach ($family->spouses() as $spouse) {
-                $this->addIndividualToCart($spouse);
-            }
-            /* add all linked records to the clippings cart
-            $this->addLocationLinksToCart($family);
-            $this->addMediaLinksToCart($family);
-            $this->addNoteLinksToCart($family);
-            $this->addSourceLinksToCart($family);
-            $this->addSubmitterLinksToCart($family);
-            */
         }
     }
 }

@@ -27,6 +27,7 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Statistics\Service\CountryService;
 
 use function count;
 use function explode;
@@ -36,10 +37,9 @@ use function strtoupper;
 use function trim;
 use function file_get_contents;
 use function json_decode;
+use function preg_match;
 
 /**
- * tbd: Systemadministrator muss im Control panel eine der Optionen aus abbrPlacesOptions() auswählen
- * tbd: enthalten Ortsangaben html-Elemente (siehe https://github.com/elysch/webtrees-mitalteli-chart-family-book/blob/main/src/FamilyBookChartEnhancedModule.php)
  * tbd: kann man bei vorhandenem _LOC: Ortsangaben und GOV-Hierarchie zusätzlich darstellen?
  */
 
@@ -75,6 +75,14 @@ class PlaceAbbreviation
             return $place_long;
         }
 
+        $htmlBefore = '';
+        $htmlAfter = '';
+        if (preg_match('@^(<[^>]+?>)(.*)(</[^>]+?>)$@', $place_long, $matches)) {
+            $htmlBefore = $matches[1];
+            $place_long = $matches[2];
+            $htmlAfter = $matches[3];
+        }
+
         // Cut the place name up into pieces using the commas
         $place_chunks = explode(",", $place_long);
         $place = "";
@@ -88,8 +96,18 @@ class PlaceAbbreviation
             $place .= trim($place_chunks[0]);
 
             if ($place_format == self::OPTION_CITY_ONLY) {
-                return $place;
+                return $htmlBefore . $place . $htmlAfter;
             }
+        }
+
+        if ($place_format == self::OPTION_CITY_AND_COUNTRY) {
+            if (!empty($place_chunks[$chunk_count - 1]) && ($chunk_count > 1)) {
+                if (!empty($place)) {
+                    $place .= ", ";
+                }
+                return $htmlBefore . $place . self::countryNameFromValue($place_chunks[$chunk_count - 1]) . $htmlAfter;
+            }
+            return $htmlBefore . $place . $htmlAfter;
         }
 
         /* Otherwise, we have chosen one of the ISO code options */
@@ -101,26 +119,11 @@ class PlaceAbbreviation
                 $code = "iso3";
                 break;
             default:
-                return $place_long;
+                return $htmlBefore . $place_long . $htmlAfter;
         }
 
         $countries = self::loadCountryDataFile($code);
-
-        // Chose to keep just the first and last sections
-        if ($place_format == self::OPTION_CITY_AND_COUNTRY) {
-            if (!empty($place_chunks[$chunk_count - 1]) && ($chunk_count > 1)) {
-                if (!empty($place)) {
-                    $place .= ", ";
-                }
-                // Add last section, but convert to full name if it's ISO
-                $country = self::getIsoCountry($countries, trim($place_chunks[$chunk_count - 1]));
-                // Translate city/country combo if translation available in webtrees, else just translate country
-                if ($place . $country === I18N::translate($place . $country)) {
-                    return $place . I18N::translate($country);
-                }
-                return I18N::translate($place . $country);
-            }
-        }
+        $country = strip_tags(strtolower(trim($place_chunks[$chunk_count - 1])));
 
         /* Der folgende Kommentar ist unvollständig oder widersprüchlich. tbd: austesten */
         /* It's possible the place name string was blank, meaning our return variable is
@@ -131,34 +134,120 @@ class PlaceAbbreviation
 
         /* Look up our country in the array of country names.
            It must be an exact match, or it won't be abbreviated to the country code. */
-        if (isset($countries[strip_tags(strtolower(trim($place_chunks[$chunk_count - 1])))])) {
-            $place .= $countries[strip_tags(strtolower(trim($place_chunks[$chunk_count - 1])))];
+        if (isset($countries[$country])) {
+            $place .= $countries[$country];
+        } else if (self::isIsoCountryCode($country)) {
+            $place .= self::convertIsoCountryCode($country, $code);
         } else {
             // We didn't find country in the abbreviation list, so just add the full country name
             if (!empty($place_chunks[$chunk_count - 1])) {
                 $place .= trim($place_chunks[$chunk_count - 1]);
             }
         }
-        return $place;
+        return $htmlBefore . $place . $htmlAfter;
     }
 
-    private static function getIsoCountry(array $countries, string $country): string {
-        // Our country might have been stored as a country code, in this case we should convert
-        // to the country, then convert back to the code. This allows conversion from 2 to 3 or
-        // 3 to 2 character ISO codes
-        $country = self::getIsoCountry($countries, $country);
-
-        /* Look up our country in the array of country names.
-           It must be an exact match, or it won't be abbreviated to the country code. */
-        if (isset($countries[strtolower(trim($country))])) {
-            return $countries[strtolower(trim($country))];
-        }
-        // We didn't find country in the abbreviation list, so just add the full country name
-        if (!empty($country)) {
-            return trim($country);
-        }
-        return '';
+    /**
+     * Check whether a country value looks like an ISO-2 or ISO-3 code.
+     *
+     * @param string $country
+     * @return bool
+     */
+    private static function isIsoCountryCode(string $country): bool
+    {
+        return preg_match('/^[a-z]{2,3}$/', $country) === 1;
     }
+
+    /**
+     * Convert an existing ISO-2 or ISO-3 country code to the selected target code.
+     *
+     * @param string $country
+     * @param string $targetCode iso2 or iso3
+     * @return string
+     */
+    private static function convertIsoCountryCode(string $country, string $targetCode): string
+    {
+        $iso2Countries = self::loadCountryDataFile('iso2');
+        $iso3Countries = self::loadCountryDataFile('iso3');
+
+        foreach ($iso3Countries as $name => $iso3) {
+            if ($country === strtolower($iso3) || (isset($iso2Countries[$name]) && $country === strtolower($iso2Countries[$name]))) {
+                return $targetCode === 'iso2' ? $iso2Countries[$name] : $iso3;
+            }
+        }
+
+        return strtoupper($country);
+    }
+
+    /**
+     * Convert a country value from PLAC to a translated country name, if possible.
+     *
+     * @param string $countryValue
+     * @return string
+     */
+    private static function countryNameFromValue(string $countryValue): string
+    {
+        $country = strip_tags(strtolower(trim($countryValue)));
+
+        if ($country === '') {
+            return '';
+        }
+
+        $iso3Countries = self::loadCountryDataFile('iso3');
+        $iso3 = null;
+
+        if (isset($iso3Countries[$country])) {
+            $iso3 = strtoupper($iso3Countries[$country]);
+        } else if (self::isIsoCountryCode($country)) {
+            $iso3 = self::convertIsoCountryCode($country, 'iso3');
+        }
+
+        if ($iso3 !== null && class_exists(CountryService::class)) {
+            try {
+                $countries = (new CountryService())->getAllCountries();
+
+                if (isset($countries[$iso3])) {
+                    return $countries[$iso3];
+                }
+            } catch (\Throwable) {
+                // Fall back to the original PLAC value if webtrees country data is unavailable.
+            }
+        }
+
+        if ($iso3 !== null) {
+            $countryName = self::englishCountryNameFromIso3($iso3);
+
+            if ($countryName !== null) {
+                return $countryName;
+            }
+        }
+
+        return trim($countryValue);
+    }
+
+    /**
+     * Get the English country name from the Carbon country list bundled with webtrees.
+     *
+     * @param string $iso3
+     * @return string|null
+     */
+    private static function englishCountryNameFromIso3(string $iso3): ?string
+    {
+        $iso2 = self::convertIsoCountryCode(strtolower($iso3), 'iso2');
+
+        $regionsFile = dirname(__DIR__, 5) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'nesbot' .
+            DIRECTORY_SEPARATOR . 'carbon' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Carbon' .
+            DIRECTORY_SEPARATOR . 'List' . DIRECTORY_SEPARATOR . 'regions.php';
+
+        if (!is_file($regionsFile)) {
+            return null;
+        }
+
+        $regions = require $regionsFile;
+
+        return $regions[$iso2] ?? null;
+    }
+
     /**
      * Loads country data from JSON file
      * https://github.com/Neriderc/GVExport/blob/main/app/Settings.php
@@ -168,7 +257,7 @@ class PlaceAbbreviation
      * @param $type string iso2 or iso3
      * @return array|false
      */
-    private static function loadCountryDataFile(string $type): array|false {
+    private static function loadCountryDataFile(string $type) {
         $folder = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' .
                     DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR;
 
@@ -195,7 +284,7 @@ class PlaceAbbreviation
      *
      * @return	array string	option list
      */
-    public function abbrPlacesOptions(): array {
+    public static function abbrPlacesOptions(): array {
         return [
             self::OPTION_FULL_PLACE_NAME  => I18N::translate("Full place name"),
             self::OPTION_CITY_ONLY        => I18N::translate("City only"),

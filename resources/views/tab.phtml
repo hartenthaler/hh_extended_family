@@ -1,12 +1,8 @@
 <?php
 
 use Fisharebest\Webtrees\I18N;
-use Fisharebest\Webtrees\View;
-use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
-
-use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
 
 use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // using const of this module
@@ -36,104 +32,43 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
 
 /**
  * @var Individual  $individual             the primary individual (proband)
+ * @var string      $module                 module namespace used for partial views
  * @var object      $extfam_obj             contains all the information which has to be shown
  * @var string      $extended_family_css    used in JavaScript code as a link to the CSS file
  * @var bool        $cce_ok                 is huhwt-cce accessible in current user context
+ * @var string      $clippings_cart_action  selected action for the clippings-cart button
  */
 
-    if ($cce_ok) {
-        $cce_class  = '';
-    } else {
-        $cce_class  = 'disabled';
-    }
+    $cce_class = '';
     $tree_name = $individual->tree()->name();
 
 ?>
  
 <div class="wt-tab-hh-extended-family py-4">
-    <?php if ($extfam_obj->config->showFilterOptions &&
-              ($extfam_obj->filters['all']->efp->summary->allCount > 0)): // all ?>
-        <table>
-            <tr>
-                <div class="btn-toolbar d-flex justify-content-between mb-2" role="toolbar">
-                    <th>
-                        <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
-                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only male persons") ?>">
-                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="M">
-                                <span class="wt-icon-sex wt-icon-sex-m"><i class="fas fa-mars fa-fw" aria-hidden="true"></i></span>
-                            </label>
-                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only female persons") ?>">
-                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="F">
-                                <span class="wt-icon-sex wt-icon-sex-f"><i class="fas fa-venus fa-fw" aria-hidden="true"></i></span>
-                            </label>
-                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only persons of other or unknown gender") ?>">
-                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="U">
-                                <span class="wt-icon-sex wt-icon-sex-u"><i class="fas fa-genderless fa-fw" aria-hidden="true"></i></span>
-                            </label>
-                        </div>
-                    </th>
-                    <th>&nbsp;</th>
-                    <th>
-                        <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
-                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only alive persons") ?>">
-                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="Y">
-                                <?= I18N::translate("alive") ?>
-                            </label>
-                            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only dead persons") ?>">
-                                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="N">
-                                <?= I18N::translate("dead") ?>
-                            </label>
-                        </div>
-                    </th>
-                </div>
-            </tr>
-        </table>
-    <?php endif ?>
+    <?= view($module . '::partials/filter-controls', [
+        'extfam_obj' => $extfam_obj,
+    ]) ?>
     <?php foreach ($extfam_obj->filters as $filterOption => $filterObj) : ?>
         <div class="hh-extended-filter" data-filter-value="<?= $filterOption ?>">
             <?php if ($filterObj->efp->summary->allCount > 0): ?>
-                <?php if ($extfam_obj->config->useClippingsCart && $cce_ok): ?>
-                    <label class="btn btn-outline-secondary <?= $cce_class ?>"
-                           title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
-                        <form method="post" action="<?= e(route(ClippingsCartEnhancedModule::class, [
-                                'tree'   => $tree_name,
-                                'action' => 'clip_hhEF',
-                                'xref'   => $individual->xref(),
-                                'part'   => $filterOption
-                            ])); ?>">
-                            <?= csrf_field(); ?>
-                            <button type="submit" class="btn btn-primary">
-                                <?= view('icons/copy') ?>
-                                <?= I18N::translate("copy to clippings cart")." = ".$tree_name ?>
-                            </button>
-                        </form>
-                    </label>
+                <?php if ($extfam_obj->config->useClippingsCart): ?>
+                    <?= view($module . '::partials/clippings-cart-button', [
+                        'action_mode'  => $clippings_cart_action,
+                        'cce_class'    => $cce_class,
+                        'filterOption' => $filterOption,
+                        'individual'   => $individual,
+                        'module'       => $module,
+                        'tree_name'    => $tree_name,
+                    ]) ?>
                 <?php endif ?>
                 <?php foreach ($filterObj->efp as $propName => $propValue) : ?>
                     <?php if ($propName !== 'summary'): ?>
                         <?php if (($filterObj->efp->$propName->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
-                            <h2><?= ExtendedFamilySupport::translateFamilyPart($filterObj->efp->$propName->partName) ?></h2>
-                            <?php if ($extfam_obj->config->showParameters): ?>
-                                <span class="hh_extended_family_parameter">
-                                    <?php if ($extfam_obj->config->familyPartParameters[$propName]['generation'] > 0): ?>
-                                        <?= I18N::translate('generation +%s', $extfam_obj->config->familyPartParameters[$propName]['generation']) ?>
-                                    <?php elseif ($extfam_obj->config->familyPartParameters[$propName]['generation'] == 0): ?>
-                                        <?= I18N::translate('same generation') ?>
-                                    <?php else: ?>
-                                        <?= I18N::translate('generation %s', $extfam_obj->config->familyPartParameters[$propName]['generation']) ?>
-                                    <?php endif ?>
-                                </span>
-                                <span class="hh_extended_family_parameter">
-                                    <?php if ($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficient'] > 0): ?>
-                                        <?= I18N::translate('relationship coefficient: %.1f', 100*$extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficient']) ?>%
-                                        <?php if (isset($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficientComment'])): ?>
-                                            (<?= I18N::translate($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficientComment']) ?>)
-                                        <?php endif ?>
-                                    <?php else: ?>
-                                        <?= I18N::translate('no blood relationship') ?>
-                                    <?php endif ?>
-                                </span>
-                            <?php endif ?>
+                            <?= view($module . '::partials/family-part-header', [
+                                'extfam_obj' => $extfam_obj,
+                                'filterObj'  => $filterObj,
+                                'propName'   => $propName,
+                            ]) ?>
                         <?php endif ?>
                         <?php if ($filterObj->efp->$propName->allCount): ?>
                             <div id="hh-extended-family-summary">
@@ -762,7 +697,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                 &nbsp;(<?= count($group->members) ?>)
                                             </h4>
                                             <?php $i = 1; ?>
-                                            <?php foreach ($group->members as $indi) : ?>
+                                            <?php foreach ($group->members as $key => $indi) : ?>
                                                 <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                                     <?php if ($indi->canShow()): ?>
                                                         <?php if ($extfam_obj->config->showThumbnail): ?>
@@ -774,14 +709,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
                                                             <span class="hh_extended_family_birth_death">
-                                                                <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                <?php if ($event instanceof Fact): ?>
-                                                                    <?= $event->summary(); ?>
-                                                                <?php endif ?>
-                                                                <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                <?php if ($event instanceof Fact): ?>
-                                                                    <?= $event->summary(); ?>
-                                                                <?php endif ?>
+                                                                <?= $group->vitalEventsSummaries[$key] ?? '' ?>
                                                             </span>
                                                         <?php endif ?>
                                                     <?php else: ?>
@@ -833,7 +761,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                     <h5><?= I18N::translate('Partnership') ?>&nbsp;<?= $group->family->fullName() ?></h5>
                                                 <?php endif ?>
                                             <?php endif ?>
-                                            <?php foreach ($group->members as $indi) : ?>
+                                            <?php foreach ($group->members as $key => $indi) : ?>
                                                 <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                                                     <?php if ($indi->canShow()): ?>
                                                         <?php if ($extfam_obj->config->showThumbnail): ?>
@@ -845,14 +773,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
                                                             <span class="hh_extended_family_birth_death">
-                                                                <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                <?php if ($event instanceof Fact): ?>
-                                                                    <?= $event->summary(); ?>
-                                                                <?php endif ?>
-                                                                <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                <?php if ($event instanceof Fact): ?>
-                                                                    <?= $event->summary(); ?>
-                                                                <?php endif ?>
+                                                                <?= $group->vitalEventsSummaries[$key] ?? '' ?>
                                                             </span>
                                                         <?php endif ?>
                                                     <?php else: ?>
@@ -1063,14 +984,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                             <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                                                         <?php else: ?>
                                                             <span class="hh_extended_family_birth_death">
-                                                                <?php $event = $indi->facts(['BIRT'])->first(); ?>
-                                                                <?php if ($event instanceof Fact): ?>
-                                                                    <?= $event->summary(); ?>
-                                                                <?php endif ?>
-                                                                <?php $event = $indi->facts(['DEAT'])->first(); ?>
-                                                                <?php if ($event instanceof Fact): ?>
-                                                                    <?= $event->summary(); ?>
-                                                                <?php endif ?>
+                                                                <?= $group->vitalEventsSummaries[$key] ?? '' ?>
                                                             </span>
                                                         <?php endif ?>
                                                         <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
@@ -1145,85 +1059,6 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
     <?php endforeach ?>
 </div>
 
-<?php View::push('javascript') ?>
-<script>
-  // stylesheet
-  var newSheet = document.createElement("link");
-  newSheet.setAttribute("rel","stylesheet");
-  newSheet.setAttribute("type","text/css");
-  newSheet.setAttribute("href","<?= $extended_family_css ?>");
-  document.head.appendChild(newSheet);
-  
-  // filter: reset filter values
-  sessionStorage.removeItem('sexFilterValue');
-  sessionStorage.removeItem('aliveFilterValue');
-  
-  // filter: initial status: show only "all"
-  $(".hh-extended-filter[data-filter-value='MY']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='FY']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='UY']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='MN']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='FN']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='UN']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='M']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='F']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='U']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='Y']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='N']").addClass('d-none');
-  
-  // filter click function
-  $(".hh-extended-filter-button").click(function ()
-  {
-      let checkbox = $(this);
-      let siblings = checkbox.closest(".btn-group").find("input[type='checkbox']"); // Sucht nur Buttons in derselben Gruppe
-
-      let checked = checkbox.prop("checked");
-
-      // Entferne `checked` und `active` von allen benachbarten Buttons
-      siblings.prop("checked", false).removeClass("active");
-
-      // Wende `checked` und `active` nur auf aktuellen Button an
-      if (checked) {
-          checkbox.prop("checked", true);
-          checkbox.closest("label").addClass("active"); // Wichtig für Bootstrap
-      } else {
-          checkbox.closest("label").removeClass("active");
-      }
-
-      // Speichere die Filterwerte
-      let filterType = checkbox.data("filter-type");
-
-      if (filterType === "sex") {
-          sessionStorage.setItem(
-              "sexFilterValue",
-              checked ? checkbox.data("filter-value") : ""
-          );
-      } else if (filterType === "alive") {
-          sessionStorage.setItem(
-              "aliveFilterValue",
-              checked ? checkbox.data("filter-value") : ""
-          );
-      }
-
-      // Hole die aktuellen Filterwerte aus dem sessionStorage
-      let sexFilterValue = sessionStorage.getItem("sexFilterValue") || "";
-      let aliveFilterValue = sessionStorage.getItem("aliveFilterValue") || "";
-
-      // Kombiniere die beiden Filterwerte
-      let filterValue = sexFilterValue + aliveFilterValue;
-
-      // Fallback: Wenn kein Filter aktiv ist, zeige "all"
-      if (filterValue === "") {
-          filterValue = "all";
-      }
-
-      // Alle Blöcke unsichtbar machen
-      $(".hh-extended-filter").addClass("d-none");
-
-      // Zeige den passenden Block
-      $(".hh-extended-filter[data-filter-value='" + filterValue + "']").removeClass("d-none");
-
-      // console.log("hh-extended-filter[data-filter-value='"+filterValue+"']");
-  });
-</script>
-<?php View::endpush() ?>
+<?= view($module . '::partials/filter-script', [
+    'extended_family_css' => $extended_family_css,
+]) ?>

@@ -50,6 +50,7 @@ class FamilyPart
      *  ->families                  array of object
      *  ->familiesStatus            array of string
      *  ->referencePersons          array of array of Individual
+     *  ->vitalEventsSummaries      array of string
      */
     private object $familyPart;
 
@@ -64,6 +65,7 @@ class FamilyPart
      * @param Family $family
      * @param string $familyStatus
      * @param array $referencePersons
+     * @param string $vitalEventsSummary
      */
     public function __construct
         (
@@ -72,7 +74,8 @@ class FamilyPart
             array $labels,
             Family $family,
             string $familyStatus,
-            array $referencePersons
+            array $referencePersons,
+            string $vitalEventsSummary
         )
     {
         $this->familyPart = (object)[];
@@ -82,6 +85,7 @@ class FamilyPart
         $this->familyPart->families[] = $family;
         $this->familyPart->familiesStatus[] = $familyStatus;
         $this->familyPart->referencePersons[] = $referencePersons;
+        $this->familyPart->vitalEventsSummaries[] = $vitalEventsSummary;
     }
 
     /**

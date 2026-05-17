@@ -12,11 +12,6 @@ msgstr ""
 msgid "Rada"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:333
-#, fuzzy
-msgid "linkage "
-msgstr "lien avéré"
-
 #: src/Factory/Objects/ExtendedFamilySupport.php:383
 msgid "stillborn"
 msgstr "mort-né"
@@ -2039,6 +2034,530 @@ msgstr "Afficher le bouton"
 msgid "save"
 msgstr ""
 
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Extended family"
+msgstr "Famille élargie"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "A tab showing the extended family of an individual."
+msgstr "Un onglet montrant la famille élargie d'un individu."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "don't use this filter"
+msgstr "n'utilisez pas ce filtre"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a dead person"
+msgstr "une personne décédée"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a living person"
+msgstr "une personne vivante"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a male person"
+msgstr "pas une personne de sexe masculin"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a female person"
+msgstr "pas une personne de sexe féminin"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a person of unknown gender"
+msgstr "pas une personne de sexe inconnu"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "twin"
+msgstr "jumeau"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "triplet"
+msgstr "triplés"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quadruplet"
+msgstr "quadruplés"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quintuplet"
+msgstr "quintuplés"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "sextuplet"
+msgstr "sextuplés"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "septuplet"
+msgstr "septuplés"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "octuplet"
+msgstr "octuplés"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "nonuplet"
+msgstr "nonuplés"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "decuplet"
+msgstr "décuplés"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage challenged"
+msgstr "lien contesté"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage disproven"
+msgstr "lien réfuté"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage proven"
+msgstr "lien avéré"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Marriage"
+msgstr "Mariage"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Ex-marriage"
+msgstr "Ex-mariage"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Fiancée"
+msgstr "Fiancée"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of father"
+msgstr "Grands-parents biologiques du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of mother"
+msgstr "Grands-parents biologiques de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of parent"
+msgstr "Grands-parents biologiques du parent"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological parent of father"
+msgstr "Beau-parents du parent biologique du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological parent of mother"
+msgstr "Beau-parents du parent biologique de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of biological grandparent"
+msgstr "Beau-parents d'un grand-parent biologique"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of father"
+msgstr "Parents du beau-parent du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of mother"
+msgstr "Parents du beau-parent de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent of parent"
+msgstr "Parents du beau-parent du parent"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents of stepparent"
+msgstr "Grands-parents du beau-parent"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological great-grandparents"
+msgstr "Arrière-grands-parents biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of father"
+msgstr "Parents biologiques du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of mother"
+msgstr "Parents biologiques de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of parent"
+msgstr "Parents biologiques du parent"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of father"
+msgstr "Beau-parents du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of mother"
+msgstr "Beau-parents de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of parent"
+msgstr "Beau-parents du parent"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent"
+msgstr "Parents de beaux-parents"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents"
+msgstr "Grands-parents biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of father"
+msgstr "Frères et sœurs du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of mother"
+msgstr "Frères et sœurs de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings of biological parents"
+msgstr "Frères et sœurs à part entière des parents biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of father"
+msgstr "Beau-frère ou belle-sœur du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of mother"
+msgstr "Beau-frère ou belle-sœur de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents"
+msgstr "Parents biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents"
+msgstr "Beaux-parents"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of biological children"
+msgstr "Beaux-parents d'enfants biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of stepchildren"
+msgstr "Les beaux-parents des beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings"
+msgstr "Tous les frères et sœurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Half siblings"
+msgstr "Beaux-frères et belles-sœurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepsiblings"
+msgstr "Frères et sœurs par alliance"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of father"
+msgstr "Enfants des frères et sœurs germains du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of mother"
+msgstr "Enfants des frères et sœurs germains de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of parent"
+msgstr "Cousins et cousines du côté des parents"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of father"
+msgstr "Enfants des demi-frères et demi-sœurs du père"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of mother"
+msgstr "Enfants des demi-frères et demi-sœurs de la mère"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of parent"
+msgstr "Enfants des demi-frères et demi-sœurs des parents"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of partners"
+msgstr "Frères et sœurs du conjoint"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings"
+msgstr "Conjoints de leurs frères et sœurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of siblings-in-law"
+msgstr "Belle-famille"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings-in-law"
+msgstr "Conjoints de leurs beaux-frères et belles-sœurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of biological parents"
+msgstr "Enfants de frères et sœurs de parents biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings"
+msgstr "Enfants de frères et sœurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings"
+msgstr "Enfants de frères et sœurs à part entière"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings' stepchildren"
+msgstr "Les beaux-enfants des frères et sœurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings of partners"
+msgstr "Enfants des frères et sœurs du conjoint"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological children"
+msgstr "Enfants biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren"
+msgstr "Beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological children"
+msgstr "Conjoints d'enfants biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren"
+msgstr "Conjoint des beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandchildren"
+msgstr "Petits-enfants biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of children"
+msgstr "Beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of stepchildren"
+msgstr "Enfants des beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of stepchildren"
+msgstr "Beau-fils ou belle-fille de beau-fils ou belle-fille"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological grandchildren"
+msgstr "Partenaires de petits-enfants biologiques"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren of children"
+msgstr "Partenaires des beaux-enfants des enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of children of stepchildren"
+msgstr "Partenaires des enfants des beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Partenaires des beaux-enfants des beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's family (%d)"
+msgstr "Famille du père (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Mother's family (%d)"
+msgstr "Famille de la mère (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father's and Mother's family (%d)"
+msgstr "Famille du père et de la mère (%d)"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Great-grandparents"
+msgstr "Arrière-grands-parents"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no great-grandparents recorded."
+msgstr "%s n'a pas d'arrière-grands-parents enregistrés."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents"
+msgstr "Grands-parents"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandparents recorded."
+msgstr "%s n'a pas de grands-parents enregistrés."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandparent recorded."
+msgstr "%s a un grand-parent enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one uncle or aunt recorded."
+msgstr "%s a un oncle ou une tante enregistrée."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one uncle or aunt by marriage recorded."
+msgstr "%s a un oncle ou une tante par alliance enregistré(e)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents recorded."
+msgstr "%s n'a pas de parent enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one parent recorded."
+msgstr "%s a un parent enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law"
+msgstr "Beaux-parents"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents-in-law recorded."
+msgstr "%s n'a pas de beau-parent enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one parent-in-law recorded."
+msgstr "%s a un beau-père ou une belle-mère enregistré(e)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-parents-in-law"
+msgstr "Beaux-parents"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s n'a pas de beau-parent enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one co-parent-in-law recorded."
+msgstr "%s a un beau-père ou une belle-mère enregistré(e)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners"
+msgstr "Conjoint"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no partners recorded."
+msgstr "%s n'a pas de conjoint enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one partner recorded."
+msgstr "%s a un conjoint ou conjointe enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d partner and "
+msgid_plural "%2$s has %1$d partners and "
+msgstr[0] "%2$s a %1$d conjoint/conjointe et "
+msgstr[1] "%2$s a %1$d conjoints/conjointes et "
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d partenaire féminin dans cette chaîne de partenariat enregistré (%2$d au total, including %3$s)."
+msgstr[1] "%1$d partenaires féminines dans cette chaîne de partenariat enregistrées (%2$d au total, including %3$s)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%d female partner and "
+msgid_plural "%d female partners and "
+msgstr[0] "%d partenaire féminin et "
+msgstr[1] "%d partenaires féminines et "
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings"
+msgstr "Frères et soeurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings recorded."
+msgstr "%s n'a pas de frère ou de soeur enregistré(e)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one brother or sister recorded."
+msgstr "%s a un frère ou une soeur enregistré(e)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law"
+msgstr "Beaux-frères et belles-soeurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s n'a pas de beau-frère ou de belle-soeur enregistré(e)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one sibling-in-law recorded."
+msgstr "%s a un beau-frère ou une belle-soeur enregistrée."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-siblings-in-law"
+msgstr "Beaux-frères et belles-soeurs"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "%s n'a pas de beau-frère ou de belle-soeur enregistré(e)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one co-sibling-in-law recorded."
+msgstr "%s a un beau-frère ou une belle-soeur enregistrée."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Cousins"
+msgstr "Cousins germains"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one first cousin recorded."
+msgstr "%s a un cousin germain enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one nephew or niece recorded."
+msgstr "%s a un neveu ou une nièce enregistrés."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children"
+msgstr "Enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children recorded."
+msgstr "%s n'a pas d'enfant enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child recorded."
+msgstr "%s a un fils ou une fille enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children-in-law"
+msgstr "Beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children-in-law recorded."
+msgstr "%s n'a pas de beaux-enfants enregistrés."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child-in-law recorded."
+msgstr "%s a un beau-fils/belle fille enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d child-in-law recorded."
+msgid_plural "%2$s has %1$d children-in-law recorded."
+msgstr[0] "%2$s a %1$d beau-fils/belle-fille enregistré."
+msgstr[1] "%2$s a %1$d beaux-fils/belles-filles enregistrés."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren"
+msgstr "Petits-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren recorded."
+msgstr "%s n'a pas de petit-enfant enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandchild recorded."
+msgstr "%s a un petit-enfant enregistré."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren-in-law"
+msgstr "Beaux-enfants"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "%s n'a pas de beaux-enfants enregistrés."
+
 #~ msgid "Extended family"
 #~ msgstr "Famille élargie"
 
@@ -2416,3 +2935,32 @@ msgstr ""
 
 #~ msgid "%s has no grandchildren-in-law recorded."
 #~ msgstr "%s n'a pas de beaux-enfants enregistrés."
+#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
+msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:756
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:788
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+#: resources/views/settings.phtml:247
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:250
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+

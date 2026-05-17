@@ -1,0 +1,53 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
+
+/**
+ * @var string     $action_mode
+ * @var string     $cce_class
+ * @var string     $filterOption
+ * @var Individual $individual
+ * @var string     $module
+ * @var string     $tree_name
+ */
+
+$uses_internal_action = true;
+$action_url           = route('module', [
+    'module' => $module,
+    'action' => 'ClippingsCart',
+    'tree'   => $tree_name,
+]);
+
+if ($action_mode === 'cce') {
+    try {
+        $action_url = route(ClippingsCartEnhancedModule::class, [
+            'tree'   => $tree_name,
+            'action' => 'clip_hhEF',
+            'xref'   => $individual->xref(),
+            'part'   => $filterOption
+        ]);
+        $uses_internal_action = false;
+    } catch (\Throwable) {
+        $uses_internal_action = true;
+    }
+}
+?>
+
+<label class="btn btn-outline-secondary <?= $cce_class ?>"
+       title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
+    <form method="post" action="<?= e($action_url); ?>">
+        <?= csrf_field(); ?>
+        <?php if ($uses_internal_action) : ?>
+            <input type="hidden" name="tree" value="<?= e($tree_name) ?>">
+            <input type="hidden" name="xref" value="<?= e($individual->xref()) ?>">
+            <input type="hidden" name="filter" value="<?= e($filterOption) ?>">
+            <input type="hidden" name="return_url" value="<?= e($individual->url() . '#tab-' . $module) ?>">
+        <?php endif ?>
+        <button type="submit" class="btn btn-primary">
+            <?= view('icons/copy') ?>
+            <?= I18N::translate("copy to clippings cart") ?>
+        </button>
+    </form>
+</label>

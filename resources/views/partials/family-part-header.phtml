@@ -1,0 +1,34 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+
+/**
+ * @var object $extfam_obj contains all the information which has to be shown
+ * @var object $filterObj
+ * @var string $propName
+ */
+?>
+
+<h2><?= ExtendedFamilySupport::translateFamilyPart($filterObj->efp->$propName->partName) ?></h2>
+<?php if ($extfam_obj->config->showParameters): ?>
+    <span class="hh_extended_family_parameter">
+        <?php if ($extfam_obj->config->familyPartParameters[$propName]['generation'] > 0): ?>
+            <?= I18N::translate('generation +%s', $extfam_obj->config->familyPartParameters[$propName]['generation']) ?>
+        <?php elseif ($extfam_obj->config->familyPartParameters[$propName]['generation'] == 0): ?>
+            <?= I18N::translate('same generation') ?>
+        <?php else: ?>
+            <?= I18N::translate('generation %s', $extfam_obj->config->familyPartParameters[$propName]['generation']) ?>
+        <?php endif ?>
+    </span>
+    <span class="hh_extended_family_parameter">
+        <?php if ($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficient'] > 0): ?>
+            <?= I18N::translate('relationship coefficient: %.1f', 100 * $extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficient']) ?>%
+            <?php if (isset($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficientComment'])): ?>
+                (<?= I18N::translate($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficientComment']) ?>)
+            <?php endif ?>
+        <?php else: ?>
+            <?= I18N::translate('no blood relationship') ?>
+        <?php endif ?>
+    </span>
+<?php endif ?>

@@ -12,11 +12,6 @@ msgstr ""
 msgid "Rada"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:333
-#, fuzzy
-msgid "linkage "
-msgstr "链接已被证明"
-
 #: src/Factory/Objects/ExtendedFamilySupport.php:383
 msgid "stillborn"
 msgstr "死胎"
@@ -1820,6 +1815,540 @@ msgstr "显示按钮"
 msgid "save"
 msgstr ""
 
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Extended family"
+msgstr "大家庭"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "A tab showing the extended family of an individual."
+msgstr "显示本人大家庭的选项卡。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Move"
+msgstr "移动"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Show options to filter the results (gender and alive/dead)?"
+msgstr "显示过滤结果的选项（性别和活/死）？"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "no, but collect messages about empty blocks at the end"
+msgstr "没有，但是在最后收集关于空块的消息"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "don\\t use this filter"
+msgstr "不要使用此筛选器"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a dead person"
+msgstr "一位逝者"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "a living person"
+msgstr "一位生者"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a male person"
+msgstr "不是男性"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a female person"
+msgstr "不是女性"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "not a person of unknown gender"
+msgstr "不是一位性别不明的人"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "twin"
+msgstr "双胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "triplet"
+msgstr "三胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quadruplet"
+msgstr "四胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "quintuplet"
+msgstr "五胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "sextuplet"
+msgstr "六胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "septuplet"
+msgstr "七胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "octuplet"
+msgstr "八胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "nonuplet"
+msgstr "九胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "decuplet"
+msgstr "十胞胎"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage challenged"
+msgstr "联系受到挑战"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage disproven"
+msgstr "连锁反证"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "linkage proven"
+msgstr "链接已被证明"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Marriage"
+msgstr "结婚"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Ex-marriage"
+msgstr "前任"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Fiancée"
+msgstr "未婚妻"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of father"
+msgstr "父亲的亲生父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of mother"
+msgstr "母亲的亲生父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of father"
+msgstr "父亲的亲生祖父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents of mother"
+msgstr "母亲的亲生祖父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents of parent"
+msgstr "亲生父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological great-grandparents"
+msgstr "亲生曾祖父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of father"
+msgstr "继父"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of mother"
+msgstr "继母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents of parent"
+msgstr "父母的继父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents of stepparent"
+msgstr "继父或继母的父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of father"
+msgstr "父亲的兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of mother"
+msgstr "母亲的兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of father"
+msgstr "父亲兄弟姐妹的配偶"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law of mother"
+msgstr "母亲兄弟姐妹的配偶"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological parents"
+msgstr "亲生父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepparents"
+msgstr "继父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of biological children"
+msgstr "亲生子女的岳父母\\公婆"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law of stepchildren"
+msgstr "继子女的岳父母\\公婆"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings"
+msgstr "兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Half siblings"
+msgstr "同父异母的兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepsiblings"
+msgstr "继兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of father"
+msgstr "父亲的兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of mother"
+msgstr "母亲兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of parent"
+msgstr "父母的兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of father"
+msgstr "同父异母兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of mother"
+msgstr "母亲同父异母兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of half siblings of parent"
+msgstr "同父异母兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of partners"
+msgstr "配偶的兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings"
+msgstr "兄弟姐妹的配偶"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings of siblings-in-law"
+msgstr "姐妹夫\\姨子的兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of siblings-in-law"
+msgstr "姊夫\\叔子\\姨子的配偶"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings"
+msgstr "兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings"
+msgstr "兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings' stepchildren"
+msgstr "兄弟姐妹的继子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of siblings of partners"
+msgstr "配偶兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of full siblings of biological parents"
+msgstr "亲生父母的亲兄弟姐妹的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological children"
+msgstr "亲生子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren"
+msgstr "继子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological children"
+msgstr "亲生子女的配偶"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of biological grandchildren"
+msgstr "亲生孙辈的配偶"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners of stepchildren"
+msgstr "继子女的配偶"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandchildren"
+msgstr "亲生孙辈"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of children"
+msgstr "孩子的继子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children of stepchildren"
+msgstr "继子女的子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Stepchildren of stepchildren"
+msgstr "继子女的继子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father\\s family (%d)"
+msgstr "父亲的家庭（%d）"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Mother\\s family (%d)"
+msgstr "母亲的家庭（%d）"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Father\\s and Mother's family (%d)"
+msgstr "父亲和母亲的家庭（%d）"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Great-grandparents"
+msgstr "曾祖父辈"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no great-grandparents recorded."
+msgstr "%s没有曾祖父辈的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d great-grandfather,"
+msgid_plural "%2$s has %1$d great-grandfathers,"
+msgstr[0] "%2$s有%1$d位曾祖父"
+msgstr[1] "%2$s有%1$d位曾祖父"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandparents"
+msgstr "祖父辈"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Biological grandparents"
+msgstr "亲生祖父母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandparents recorded."
+msgstr "%s没有祖父母的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandparent recorded."
+msgstr "%s有一位祖父母的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d grandmother recorded. "
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] "%2$s有%1$d位祖母"
+msgstr[1] "%2$s有%1$d位祖母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d grandfather recorded. "
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] "%2$s有%1$d位祖父"
+msgstr[1] "%2$s有%1$d位祖父"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Full siblings of biological parents"
+msgstr "亲生父母的兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one uncle or aunt recorded."
+msgstr "%s有一位叔(舅)父或姑妈(姨妈)的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one uncle or aunt by marriage recorded."
+msgstr "%s有一位姑父、姨父、婶婶或舅娘。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents recorded."
+msgstr "%s没有父母的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one parent recorded."
+msgstr "%s有单亲记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Parents-in-law"
+msgstr "岳父母（公婆）"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no parents-in-law recorded."
+msgstr "%s没有岳父母（公婆）的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one parent-in-law recorded."
+msgstr "%s有一位岳父母（公婆）。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d mother-in-law recorded. "
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] "%2$s有%1$d位岳母（婆婆）"
+msgstr[1] "%2$s有%1$d位岳母（婆婆）"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d father-in-law recorded. "
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] "%2$s有%1$d位岳父（公公）"
+msgstr[1] "%2$s有%1$d位岳父（公公）"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-parents-in-law"
+msgstr "儿女亲家"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-parents-in-law recorded."
+msgstr "%s没有儿女亲家记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one co-parent-in-law recorded."
+msgstr "%s有一位儿女亲家记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d co-mother-in-law recorded. "
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] "%2$s有%1$d位亲家母"
+msgstr[1] "%2$s有%1$d位亲家母"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d co-father-in-law recorded. "
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] "%2$s有%1$d位亲家公"
+msgstr[1] "%2$s有%1$d位亲家公"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings"
+msgstr "兄弟姐妹"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings recorded."
+msgstr "%s没有兄弟姐妹的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one brother or sister recorded."
+msgstr "%s有一个兄弟姐妹的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Siblings-in-law"
+msgstr "姐(妹)夫\\叔子\\嫂子\\弟媳\\舅子\\姨子"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no siblings-in-law recorded."
+msgstr "%s没有嫂子(姑姐妹\\弟媳\\姨子)。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one sibling-in-law recorded."
+msgstr "%s有一个子妹配偶的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Co-siblings-in-law"
+msgstr "姻亲：舅母子\\妯娌\\连襟\\姊夫"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no co-siblings-in-law recorded."
+msgstr "%s没有妯娌、连襟、姊夫记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one co-sibling-in-law recorded."
+msgstr "%s有一位舅母子\\妯娌\\连襟\\姊夫记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Partners"
+msgstr "配偶"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no partners recorded."
+msgstr "%s没有配偶的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one partner recorded."
+msgstr "%s有一位配偶。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%d male partner recorded (%d in total)."
+msgid_plural "%d male partners recorded (%d in total)."
+msgstr[0] "%d位配偶（共%d位）"
+msgstr[1] "%d位配偶（共%d位）"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%d female partner in this partner chain recorded (%d in total). "
+msgid_plural "%d female partners in this partner chain recorded (%d in total)."
+msgstr[0] "%此配偶系列中有d名女性配偶（%d总计）"
+msgstr[1] "%此配偶系列中有d名女性配偶（%d总计）"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Cousins"
+msgstr "堂表亲"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one first cousin recorded."
+msgstr "%s有一位堂表亲的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one nephew or niece recorded."
+msgstr "%s有一位侄子或侄女的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d niece recorded. "
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] "%2$s有%1$d位侄女"
+msgstr[1] "%2$s有%1$d位侄女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%2$s has %1$d nephew recorded. "
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] "%2$s有%1$d位侄子"
+msgstr[1] "%2$s有%1$d位侄子"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children"
+msgstr "子女"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children recorded."
+msgstr "%s没有子女的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child recorded."
+msgstr "%s有一个子女。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Children-in-law"
+msgstr "儿媳和女婿"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no children-in-law recorded."
+msgstr "%s没有儿媳和女婿记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one child-in-law recorded."
+msgstr "%s有一个儿媳或女婿的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren"
+msgstr "孙辈"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren recorded."
+msgstr "%s没有孙辈的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has one grandchild recorded."
+msgstr "%s有一位孙辈的记录。"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "Grandchildren-in-law"
+msgstr "孙媳妇和孙女婿"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+msgid "%s has no grandchildren-in-law recorded."
+msgstr "%s没有孙媳妇和孙女婿的记录。"
+
 #~ msgid "Extended family"
 #~ msgstr "大家庭"
 
@@ -2147,3 +2676,32 @@ msgstr ""
 
 #~ msgid "%s has no grandchildren-in-law recorded."
 #~ msgstr "%s没有孙媳妇和孙女婿的记录。"
+#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
+msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:756
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:788
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+#: resources/views/settings.phtml:247
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:250
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+

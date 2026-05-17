@@ -3,6 +3,7 @@
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
 
 /**
  * @var array<string,object>    $efps           family parts which can be selected and eventually be sorted
@@ -15,10 +16,19 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
  * @var boolean                 $show_labels
  * @var boolean                 $show_parameters
  * @var boolean                 $use_compact_design
+ * @var string                  $place_format
+ * @var array<int,string>       $place_format_options
  * @var boolean                 $show_summary
  * @var boolean                 $count_partner_chains
  * @var boolean                 $use_clippings_cart
+ * @var boolean                 $cce_available
+ * @var string                  $clippings_cart_action
  */
+
+$place_format ??= PlaceAbbreviation::OPTION_FULL_PLACE_NAME;
+$place_format_options ??= PlaceAbbreviation::abbrPlacesOptions();
+$cce_available ??= false;
+$clippings_cart_action ??= 'cce';
 
 ?>
 
@@ -141,34 +151,6 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Show name of proband as short name or as full name?') ?></h3>
-        <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
-        <!-- nice_name -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Show short name') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'show_short_name', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_short_name]) ?>
-                </div>
-            </div>
-        </fieldset>
-        
-        <h3><?= I18N::translate('Show labels in special situations?') ?></h3>
-        <p><?= I18N::translate('Labels (or stickers) are used for example for adopted persons or foster children.') ?></p>
-        <!-- show labels -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Show labels') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'show_labels', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_labels]) ?>
-                </div>
-            </div>
-        </fieldset>
-
         <h3><?= I18N::translate('Show parameters of extended family part?') ?></h3>
         <p><?= I18N::translate('Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.') ?></p>
         <!-- show parameters of family parts -->
@@ -197,8 +179,55 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
             </div>
         </fieldset>
 
+        <h3><?= I18N::translate('Show name of proband as short name or as full name?') ?></h3>
+        <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
+        <!-- nice_name -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show short name') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_short_name', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_short_name]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('How should place names be shown in event boxes?') ?></h3>
+        <p><?= I18N::translate('This setting controls whether event places are shown as full place names or as abbreviated place names.') ?></p>
+        <!-- place name format in event boxes -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Place name format') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/select', ['name' => 'place_format', 'options' => $place_format_options, 'selected' => (int)$place_format]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('Show labels in special situations?') ?></h3>
+        <p><?= I18N::translate('Labels (or stickers) are used for example for adopted persons or foster children.') ?></p>
+        <!-- show labels -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show labels') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_labels', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_labels]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Show a button "copy to clippings cart"?') ?></h3>
         <p><?= I18N::translate('This allows a user to copy all members of the extended family to the clippings cart.') ?></p>
+        <?php if ((int) $use_clippings_cart === 0 && !$cce_available) : ?>
+            <div class="alert alert-warning" role="alert">
+                <?= I18N::translate('The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action.') ?>
+            </div>
+        <?php endif ?>
         <!-- use button clippings cart -->
         <fieldset class="form-group">
             <div class="row">
@@ -210,6 +239,21 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                 </div>
             </div>
         </fieldset>
+        <?php if ($cce_available) : ?>
+            <!-- action used by the clippings cart button -->
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-3">
+                        <?= I18N::translate('Clippings cart action') ?>
+                    </legend>
+                    <div class="col-sm-9">
+                        <?= view('components/radios-inline', ['name' => 'clippings_cart_action', 'options' => ['cce' => I18N::translate('huhwt-cce (recommended)'), 'internal' => I18N::translate('Extended Family')], 'selected' => $clippings_cart_action]) ?>
+                    </div>
+                </div>
+            </fieldset>
+        <?php else : ?>
+            <input type="hidden" name="clippings_cart_action" value="internal">
+        <?php endif ?>
 
         <button type="submit" class="btn btn-primary">
             <?= view('icons/save') ?>

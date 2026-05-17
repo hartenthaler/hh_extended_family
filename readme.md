@@ -67,10 +67,10 @@ The module supports
 * optional labels for special GEDCOM situations, such as adopted child, foster child, triplet, stillborn, infant death, and challenged linkage
 * optional summary counts
 * optional handling of partner chains
-* optional "copy to clippings cart" action
+* optional "copy to clippings cart" action with support for huhwt-cce or the module's internal fallback action
 * configurable handling of empty family parts
 * full or shortened display name of the proband
-* full or shortened display name of the location names
+* configurable place-name format in event boxes, including full place names, city-only display, and city plus ISO country code
 
 Special labels are derived from GEDCOM patterns such as
 
@@ -120,7 +120,14 @@ The most important settings are
 * whether partner chains count toward totals
 * whether the compact or enriched design is used
 * whether labels and relationship parameters are displayed
+* how place names are displayed in event boxes
 * whether the clippings cart action is available
+* whether the clippings cart button uses huhwt-cce or the internal Extended Family action
+
+If the clippings cart button is enabled and
+[huhwt-cce](https://github.com/huhwt/huhwt-cce) is available, administrators can choose between the recommended huhwt-cce action and the internal Extended Family action.
+If huhwt-cce is not available, the module uses its internal action and shows a warning in the control panel.
+The internal action copies the currently selected filter variant to the standard webtrees clippings cart.
 
 <a name="Architecture"></a>
 ## 🧭 Architecture
@@ -157,7 +164,7 @@ It has the same system requirements as [webtrees](https://github.com/fisharebest
 
 To use the functions related to the clippings cart,
 it is recommended to install the custom module
-[clippings cart extended](https://github.com/huhwt/huhwt-cce).
+[clippings cart enhanced](https://github.com/huhwt/huhwt-cce).
 
 The current module version is tested with **webtrees** 2.2.6,
 all available themes, and all other custom modules.
@@ -190,8 +197,10 @@ To update the module, replace the `hh_extended_family` files with the files from
 ## 🌍 Translation
 
 You can help translate this module.
-The translation strings are stored in `resources/lang/ExtendedFamilyTranslations.php`.
-The German translation is usually the most complete version and can be used as the reference for new translations.
+The translation strings are stored as gettext files in `resources/lang/*.po`.
+The German translation in `resources/lang/de.po` is usually the most complete version and can be used as the reference for new translations.
+
+In version 3.9 of poedit.com the automatic recognition of strings in the source files does not work correctly.
 
 Updated translations can be contributed by pull request or by e-mail.
 They will be included in a future release of the module.
@@ -199,18 +208,21 @@ They will be included in a future release of the module.
 There are currently translations for
 
 * Catalan by [@bernatbanyuls](https://github.com/bernatbanyuls)
-* Chinese by [@olor](https://github.com/olor) (=iyoua)
+* Chinese Simplified and Chinese Traditional by [@olor](https://github.com/olor) (=iyoua)
 * Czech by [@jpretired](https://github.com/jpretired)
 * Dutch by [@TheDutchJewel](https://github.com/TheDutchJewel)
 * French by [@PalmyreSG1](https://github.com/PalmyreSG1), [@fa10175](https://github.com/fa10175), and [@geugeu1](https://github.com/geugeu1)
+* German by [@Hartenthaler](https://github.com/Hartenthaler)
 * Hindi by [@mrqd9](https://github.com/mrqd9)
-* Italian by [@tonio](https://github.com/tonio)
 * Norwegian Bokmål by [@eyolf](https://github.com/eyolf)
 * Russian by [@aurbo](https://github.com/aurbo)
 * Slovak by [@ro-la](https://github.com/ro-la)
 * Spanish by [@yako1984](https://github.com/yako1984) and [@bernatbanyuls](https://github.com/bernatbanyuls)
+* Swedish
 * Ukrainian by [@z-yurets](https://github.com/z-yurets)
 * Vietnamese by [@ngohuuthuan](https://github.com/ngohuuthuan)
+
+An Italian PO file exists, but it does not yet contain active translations.
 
 <a name="Support"></a>
 ## ❓ Support

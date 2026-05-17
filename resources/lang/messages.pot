@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "POT-Creation-Date: 2026-04-10 21:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -17,13 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:315
 msgid "Rada"
-msgstr ""
-
-#: src/Factory/Objects/ExtendedFamilySupport.php:333
-msgid "linkage "
 msgstr ""
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:383
@@ -1957,6 +1955,18 @@ msgstr ""
 msgid "Use the compact design"
 msgstr ""
 
+#: resources/views/settings.phtml
+msgid "How should place names be shown in event boxes?"
+msgstr ""
+
+#: resources/views/settings.phtml
+msgid "This setting controls whether event places are shown as full place names or as abbreviated place names."
+msgstr ""
+
+#: resources/views/settings.phtml
+msgid "Place name format"
+msgstr ""
+
 #: resources/views/settings.phtml:200
 msgid "Show a button \"copy to clippings cart\"?"
 msgstr ""
@@ -1974,3 +1984,32 @@ msgstr ""
 #: resources/views/settings.phtml:216
 msgid "save"
 msgstr ""
+#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
+msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:756
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:788
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+#: resources/views/settings.phtml:247
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:250
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+

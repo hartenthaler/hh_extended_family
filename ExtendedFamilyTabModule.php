@@ -67,9 +67,13 @@ declare(strict_types=1);
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Hartenthaler\Webtrees\Helpers\Functions;
+use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
 use Fisharebest\Localization\Translation;
 use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\Session;
+use Fisharebest\Webtrees\Validator;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\FlashMessages;
@@ -77,9 +81,12 @@ use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleTabTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
 use Fisharebest\Webtrees\Module\ModuleConfigTrait;
+use Fisharebest\Webtrees\Module\ModuleMenuInterface;
 use Fisharebest\Webtrees\Module\ModuleTabInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
+use Fisharebest\Webtrees\Services\ModuleService;
+use Fisharebest\Webtrees\Services\TreeService;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -118,7 +125,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     // Author of custom module
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
 
-    // User in GitHub
+    // User at GitHub
     public const CUSTOM_GITHUB_USER = 'hartenthaler';
 
     // GitHub repository
@@ -128,9 +135,15 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.5.0';
+    public const CUSTOM_VERSION     = '2.2.6.0';
+
+    // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
                                                               self::CUSTOM_MODULE . '/raw/main/latest-version.txt';
+
+    private const CLIPPINGS_CART_ACTION_CCE      = 'cce';
+    private const CLIPPINGS_CART_ACTION_INTERNAL = 'internal';
+    private const CLIPPINGS_CART_ENHANCED_MODULE = '_huhwt-cce_';
 
     /**
      * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
@@ -192,6 +205,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         $configObj->shownFamilyParts            = $this->getShownFamilyParts();
         $configObj->showParameters              = $this->showParameters();
         $configObj->familyPartParameters        = ExtendedFamilySupport::getFamilyPartParameters();
+        $configObj->placeFormat                 = $this->placeFormat();
         $configObj->showThumbnail               = $this->showThumbnail($proband->tree());
         $configObj->sizeThumbnailW              = $this->getSizeThumbnailW();
         $configObj->sizeThumbnailH              = $this->getSizeThumbnailH();
@@ -250,9 +264,11 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_labels',
             'show_parameters',
             'use_compact_design',
+            'place_format',
             'show_summary',
             'count_partner_chains',
             'use_clippings_cart',
+            'clippings_cart_action',
         ];
     }
 
@@ -276,6 +292,9 @@ class ExtendedFamilyTabModule extends AbstractModule
         $response['title']          = $this->title();
         $response['description']    = $this->description();
         $response['uses_sorting']   = true;
+        $response['place_format_options'] = PlaceAbbreviation::abbrPlacesOptions();
+        $response['cce_available']  = $this->isClippingsCartEnhancedAvailable();
+        $response['clippings_cart_action'] = $this->clippingsCartAction();
 
         return $this->viewResponse($this->name() . '::' . 'settings', $response);
     }
@@ -293,10 +312,22 @@ class ExtendedFamilyTabModule extends AbstractModule
 
         // save the received settings to the user preferences
         if ($params['save'] === '1') {
+            if (($params['clippings_cart_action'] ?? '') !== self::CLIPPINGS_CART_ACTION_INTERNAL) {
+                $params['clippings_cart_action'] = self::CLIPPINGS_CART_ACTION_CCE;
+            }
+
+            if (!$this->isClippingsCartEnhancedAvailable()) {
+                $params['clippings_cart_action'] = self::CLIPPINGS_CART_ACTION_INTERNAL;
+            }
+
             $this->postAdminActionOther($params);
             $this->postAdminActionEfp($params);
             FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.',
                 $this->title()), 'success');
+
+            if (($params['use_clippings_cart'] ?? '1') === '0' && !$this->isClippingsCartEnhancedAvailable()) {
+                FlashMessages::addMessage($this->clippingsCartEnhancedFallbackMessage(), 'warning');
+            }
         }
         return redirect($this->getConfigLink());
     }
@@ -311,7 +342,9 @@ class ExtendedFamilyTabModule extends AbstractModule
     {
         $preferences = $this->listOfOtherPreferences();
         foreach ($preferences as $preference) {
-            $this->setPreference($preference, $params[$preference]);
+            if (array_key_exists($preference, $params)) {
+                $this->setPreference($preference, $params[$preference]);
+            }
         }
     }
 
@@ -471,6 +504,17 @@ class ExtendedFamilyTabModule extends AbstractModule
     }
 
     /**
+     * selected format for place names in event boxes
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return int
+     */
+    private function placeFormat(): int
+    {
+        return (int) $this->getPreference('place_format', (string) PlaceAbbreviation::OPTION_FULL_PLACE_NAME);
+    }
+
+    /**
      * get preference in this tree to show thumbnails
      * @param object $tree
      *
@@ -501,6 +545,48 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function useClippingsCart(): bool
     {
         return ($this->getPreference('use_clippings_cart', '0') == '0');
+    }
+
+    /**
+     * Which clippings-cart action should be used when huhwt-cce is available?
+     *
+     * @return string
+     */
+    private function clippingsCartAction(): string
+    {
+        $action = $this->getPreference('clippings_cart_action', self::CLIPPINGS_CART_ACTION_CCE);
+
+        if ($action === self::CLIPPINGS_CART_ACTION_INTERNAL) {
+            return self::CLIPPINGS_CART_ACTION_INTERNAL;
+        }
+
+        return self::CLIPPINGS_CART_ACTION_CCE;
+    }
+
+    /**
+     * Is the enhanced clippings cart module installed and enabled?
+     *
+     * @return bool
+     */
+    private function isClippingsCartEnhancedAvailable(): bool
+    {
+        try {
+            $module = (new ModuleService())->findByName(self::CLIPPINGS_CART_ENHANCED_MODULE);
+
+            return $module !== null && class_exists(ClippingsCartEnhancedModule::class, true);
+        } catch (\Throwable) {
+            return false;
+        }
+    }
+
+    /**
+     * Warning shown when the CCE-dependent clippings-cart option cannot work.
+     *
+     * @return string
+     */
+    private function clippingsCartEnhancedFallbackMessage(): string
+    {
+        return I18N::translate('The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action.');
     }
 
     /**
@@ -627,6 +713,16 @@ class ExtendedFamilyTabModule extends AbstractModule
         /*return view($this->name() . '::test.blade', ['title'=>'Laravel Blade Example']);*/
 
         // use helper function to check if huhwt-cce is accessible in the current user context
+        $cce_ok                = $this->canAccessClippingsCartEnhanced($individual);
+        $clippings_cart_action = $this->clippingsCartAction();
+
+        if ($clippings_cart_action === self::CLIPPINGS_CART_ACTION_CCE && !$cce_ok) {
+            $clippings_cart_action = self::CLIPPINGS_CART_ACTION_INTERNAL;
+        }
+
+        if ($clippings_cart_action === self::CLIPPINGS_CART_ACTION_CCE) {
+            $this->rememberExtendedFamilyRoute($individual);
+        }
 
         return view($this->name() . '::' . 'tab',
             [
@@ -634,9 +730,144 @@ class ExtendedFamilyTabModule extends AbstractModule
             'individual'            => $individual,
             'extfam_obj'            => $this->getExtendedFamily($individual),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
-            'cce_ok'                => Functions::test_CCE_ ( $individual->tree(), Auth::user()),
+            'cce_ok'                => $cce_ok,
+            'clippings_cart_action' => $clippings_cart_action,
             ]);
         }
+
+    /**
+     * Copy the currently selected extended-family filter to the standard webtrees clippings cart.
+     *
+     * @param ServerRequestInterface $request
+     * @return ResponseInterface
+     */
+    public function postClippingsCartAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $params     = (array) $request->getParsedBody();
+        $return_url = Validator::parsedBody($request)->isLocalUrl()->string('return_url', '');
+        $tree_name  = (string) ($params['tree'] ?? '');
+        $xref       = (string) ($params['xref'] ?? '');
+        $filter     = (string) ($params['filter'] ?? 'all');
+
+        $tree_service = Functions::getFromContainer(TreeService::class);
+        $tree         = $tree_service->all()->get($tree_name);
+
+        if ($tree === null) {
+            FlashMessages::addMessage(I18N::translate('The selected tree could not be found.'), 'danger');
+            return redirect($return_url === '' ? '/' : $return_url);
+        }
+
+        $individual = Registry::individualFactory()->make($xref, $tree);
+
+        if (!$individual instanceof Individual) {
+            FlashMessages::addMessage(I18N::translate('The selected individual could not be found.'), 'danger');
+            return redirect($return_url === '' ? '/' : $return_url);
+        }
+
+        if ($return_url === '') {
+            $return_url = $individual->url() . '#tab-' . $this->name();
+        }
+
+        $extended_family = $this->getExtendedFamily($individual);
+
+        if (!isset($extended_family->filters[$filter])) {
+            $filter = 'all';
+        }
+
+        $filter_object = $extended_family->filters[$filter];
+        $old_count     = $this->countClippingsCartEntries($tree_name);
+
+        $extended_family->addExtendedFamilyToClippingsCart(
+            $extended_family->collectAllIndividuals($filter_object),
+            $extended_family->collectAllFamilies($filter_object)
+        );
+
+        $new_entries = max(0, $this->countClippingsCartEntries($tree_name) - $old_count);
+
+        FlashMessages::addMessage(
+            $this->title() . ': ' . I18N::translate('The extended family has been copied to the clippings cart. New entries: %s', (string) $new_entries),
+            'success'
+        );
+
+        return redirect($return_url);
+    }
+
+    /**
+     * Count the current clippings-cart entries for a tree.
+     *
+     * @param string $tree_name
+     * @return int
+     */
+    private function countClippingsCartEntries(string $tree_name): int
+    {
+        $cart = Session::get('cart');
+
+        if (!is_array($cart) || !isset($cart[$tree_name]) || !is_array($cart[$tree_name])) {
+            return 0;
+        }
+
+        return count($cart[$tree_name]);
+    }
+
+    /**
+     * Remember the current individual route so huhwt-cce can redirect back to this tab.
+     *
+     * @param Individual $individual
+     * @return void
+     */
+    private function rememberExtendedFamilyRoute(Individual $individual): void
+    {
+        $url   = $individual->url();
+        $query = parse_url($url, PHP_URL_QUERY);
+
+        if (is_string($query)) {
+            parse_str($query, $query_params);
+
+            if (is_string($query_params['route'] ?? null)) {
+                Session::put('hhEF-act-route', $query_params['route']);
+                return;
+            }
+        }
+
+        $path = parse_url($url, PHP_URL_PATH);
+
+        if (!is_string($path) || $path === '') {
+            return;
+        }
+
+        try {
+            $request   = Functions::getFromContainer(ServerRequestInterface::class);
+            $base_url  = (string) $request->getAttribute('base_url', '');
+            $base_path = parse_url($base_url, PHP_URL_PATH);
+
+            if (is_string($base_path) && $base_path !== '' && str_starts_with($path, $base_path)) {
+                $path = substr($path, strlen($base_path));
+            }
+        } catch (\Throwable) {
+            // Use the route path as generated if the current request cannot be read.
+        }
+
+        Session::put('hhEF-act-route', $path);
+    }
+
+    /**
+     * Check if _huhwt-cce_ is installed and accessible in the current user context.
+     *
+     * @param Individual $individual
+     * @return bool
+     */
+    private function canAccessClippingsCartEnhanced(Individual $individual): bool
+    {
+        try {
+            $module = (new ModuleService())->findByName(self::CLIPPINGS_CART_ENHANCED_MODULE);
+
+            return $module !== null
+                && class_exists(ClippingsCartEnhancedModule::class, true)
+                && $module->accessLevel($individual->tree(), ModuleMenuInterface::class) >= Auth::accessLevel($individual->tree(), Auth::user());
+        } catch (\Throwable) {
+            return false;
+        }
+    }
 
     /** {@inheritdoc} */
     public function canLoadAjax(): bool
@@ -665,9 +896,42 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     public function customTranslations(string $language): array
     {
-        $file_base = $this->resourcesFolder() . 'lang' . DIRECTORY_SEPARATOR . $language;
-        $file = file_exists($file_base . '.php') ? $file_base . '.php' : $file_base . '.po';
-        return file_exists($file) ? (new Translation($file))->asArray() : [];
+        $languageFile = match ($language) {
+            'ca', 'ca-ES' => 'ca',
+            'cs'          => 'cs',
+            'de'          => 'de',
+            'es'          => 'es',
+            'fr', 'fr-CA' => 'fr',
+            'hi'          => 'hi',
+            'it'          => 'it',
+            'nb'          => 'nb',
+            'nl'          => 'nl',
+            'ru'          => 'ru',
+            'sk'          => 'sk',
+            'sv'          => 'sv',
+            'uk'          => 'uk',
+            'vi'          => 'vi',
+            'zh-Hans'     => 'zh-Hans',
+            'zh-Hant'     => 'zh-Hant',
+            default       => '',
+        };
+
+        if ($languageFile === '') {
+            return [];
+        }
+
+        $poFile = __DIR__ . '/resources/lang/' . $languageFile . '.po';
+        $moFile = __DIR__ . '/resources/lang/' . $languageFile . '.mo';
+
+        if (is_file($poFile)) {
+            return (new Translation($poFile))->asArray();
+        }
+
+        if (is_file($moFile)) {
+            return (new Translation($moFile))->asArray();
+        }
+
+        return [];
     }
 }
 return new ExtendedFamilyTabModule;
