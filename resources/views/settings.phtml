@@ -19,6 +19,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var string                  $place_format
  * @var array<int,string>       $place_format_options
  * @var boolean                 $show_summary
+ * @var boolean                 $show_summary_statistics
  * @var boolean                 $count_partner_chains
  * @var boolean                 $use_clippings_cart
  * @var boolean                 $cce_available
@@ -115,6 +116,20 @@ $clippings_cart_action ??= 'cce';
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/radios-inline', ['name' => 'show_summary', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_summary]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('Should summary statistics be shown?') ?></h3>
+        <p><?= I18N::translate('The summary statistics contain additional information about living and deceased members, gender distribution, and the known date range.') ?></p>
+        <!-- show summary statistics -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show summary statistics') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_summary_statistics', 'options' => [I18N::translate('yes'), I18N::translate('no')], 'selected' => (int)$show_summary_statistics]) ?>
                 </div>
             </div>
         </fieldset>
@@ -247,7 +262,7 @@ $clippings_cart_action ??= 'cce';
                         <?= I18N::translate('Clippings cart action') ?>
                     </legend>
                     <div class="col-sm-9">
-                        <?= view('components/radios-inline', ['name' => 'clippings_cart_action', 'options' => ['cce' => I18N::translate('huhwt-cce (recommended)'), 'internal' => I18N::translate('Extended Family')], 'selected' => $clippings_cart_action]) ?>
+                        <?= view('components/radios-inline', ['name' => 'clippings_cart_action', 'options' => ['cce' => I18N::translate('huhwt-cce (recommended)'), 'internal' => I18N::translate('Extended family')], 'selected' => $clippings_cart_action]) ?>
                     </div>
                 </div>
             </fieldset>

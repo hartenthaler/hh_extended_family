@@ -71,10 +71,12 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\Registry;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
 use Illuminate\Support\Collection;
 
 use function ucfirst;
+use function strip_tags;
 
 
 /**
@@ -113,6 +115,7 @@ class ExtendedFamily
      * @var $proband                                object
      *         ->indi                               Individual
      *         ->niceName                           string
+     *         ->niceNamePlain                      string
      *         ->labels                             array<int,string>
      */
     public object $proband;
@@ -164,6 +167,7 @@ class ExtendedFamily
         $this->proband = (object)[];
         $this->proband->indi     = $proband;
         $this->proband->niceName = ProbandName::findNiceName($proband, $this->config->showShortName);
+        $this->proband->niceNamePlain = strip_tags($this->proband->niceName);
         $this->proband->labels   = ExtendedFamilySupport::generateChildLabels($proband);
     }
 
@@ -190,8 +194,7 @@ class ExtendedFamily
                             $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
                         }
                     }
-                    $extfamObj->efp->summary->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
-                    $extfamObj->efp->summary->allCountUnique = $this->collectAllIndividuals($extfamObj)->count();
+                    $this->addSummaryData($extfamObj);
                     $this->filters[$filterOption] = $extfamObj;
                 //}
             }
@@ -208,8 +211,7 @@ class ExtendedFamily
                     $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
                 }
             }
-            $extfamObj->efp->summary->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extfamObj);
-            $extfamObj->efp->summary->allCountUnique = $this->collectAllIndividuals($extfamObj)->count();
+            $this->addSummaryData($extfamObj);
             $this->filters['all'] = $extfamObj;
             // clone and reduce/filter this filtered object
             foreach ($this->config->filterOptions as $filterOption) {
@@ -225,6 +227,100 @@ class ExtendedFamily
         if ($this->config->useClippingsCart) {
             //$this->addExtendedFamilyToClippingsCart($this->collectAllIndividuals($this->filters['all']), $this->collectAllFamilies($this->filters['all']));
         }
+    }
+
+    /**
+     * Add all precomputed summary data used by the summary partial.
+     *
+     * @param object $extendedFamily
+     * @return void
+     */
+    private function addSummaryData(object $extendedFamily): void
+    {
+        $individuals = $this->collectAllIndividuals($extendedFamily);
+
+        $extendedFamily->efp->summary->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extendedFamily);
+        $extendedFamily->efp->summary->allCountUnique = $individuals->count();
+        $extendedFamily->efp->summary->statistics = $this->summaryStatistics($individuals);
+    }
+
+    /**
+     * Calculate optional summary statistics for the unique individuals currently shown.
+     *
+     * @param Collection<int,Individual> $individuals
+     * @return object
+     */
+    private function summaryStatistics(Collection $individuals): object
+    {
+        $statistics = (object)[];
+        $total = $individuals->count();
+
+        $livingCount = 0;
+        $deceasedCount = 0;
+        $maleCount = 0;
+        $femaleCount = 0;
+        $otherSexCount = 0;
+        $earliestBirthDate = null;
+        $earliestBirthJulianDay = PHP_INT_MAX;
+        $latestDeathDate = null;
+        $latestDeathJulianDay = 0;
+
+        foreach ($individuals as $individual) {
+            if ($individual->isDead()) {
+                $deceasedCount++;
+            } else {
+                $livingCount++;
+            }
+
+            if ($individual->sex() === 'M') {
+                $maleCount++;
+            } elseif ($individual->sex() === 'F') {
+                $femaleCount++;
+            } else {
+                $otherSexCount++;
+            }
+
+            $birthDate = $individual->getBirthDate();
+            if ($birthDate->isOK() && $birthDate->minimumJulianDay() < $earliestBirthJulianDay) {
+                $earliestBirthDate = $birthDate;
+                $earliestBirthJulianDay = $birthDate->minimumJulianDay();
+            }
+
+            $deathDate = $individual->getDeathDate();
+            if ($deathDate->isOK() && $deathDate->maximumJulianDay() > $latestDeathJulianDay) {
+                $latestDeathDate = $deathDate;
+                $latestDeathJulianDay = $deathDate->maximumJulianDay();
+            }
+        }
+
+        $statistics->living = (object)[
+            'show' => $livingCount > 0 && $deceasedCount > 0,
+            'livingCount' => $livingCount,
+            'deceasedCount' => $deceasedCount,
+            'livingPercent' => $total > 0 ? $livingCount / $total : 0,
+            'deceasedPercent' => $total > 0 ? $deceasedCount / $total : 0,
+        ];
+
+        $sexCategoriesShown = count(array_filter([$maleCount, $femaleCount, $otherSexCount], static fn (int $count): bool => $count > 0));
+        $statistics->sex = (object)[
+            'show' => $sexCategoriesShown > 1,
+            'maleCount' => $maleCount,
+            'femaleCount' => $femaleCount,
+            'otherSexCount' => $otherSexCount,
+            'malePercent' => $total > 0 ? $maleCount / $total : 0,
+            'femalePercent' => $total > 0 ? $femaleCount / $total : 0,
+            'otherSexPercent' => $total > 0 ? $otherSexCount / $total : 0,
+        ];
+
+        $dateRangeEndJulianDay = $livingCount > 0 ? Registry::timestampFactory()->now()->julianDay() : $latestDeathJulianDay;
+        $statistics->dateRange = (object)[
+            'show' => $earliestBirthDate !== null && $dateRangeEndJulianDay > 0 && $earliestBirthJulianDay < $dateRangeEndJulianDay,
+            'startDate' => $earliestBirthDate?->display(),
+            'endDate' => $livingCount > 0 ? null : $latestDeathDate?->display(),
+            'endIsToday' => $livingCount > 0,
+        ];
+
+        return $statistics;
     }
 
     /**

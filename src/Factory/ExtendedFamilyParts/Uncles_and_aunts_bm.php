@@ -89,7 +89,7 @@ class Uncles_and_aunts_bm extends ExtendedFamilyPart
                             foreach ($uncleaunt->spouseFamilies() as $family3) {        // Gen 1 F
                                 foreach ($family3->spouses() as $uncleaunt2) {          // Gen 1 P
                                     if($uncleaunt2->xref() !== $uncleaunt->xref()) {
-                                        $this->addIndividualToFamily(new IndividualFamily($uncleaunt2, $family3, $uncleaunt), $side);
+                                        $this->addIndividualToFamily(new IndividualFamily($uncleaunt2, $family3, $uncleaunt, $parent), $side);
                                     }
                                 }
                             }

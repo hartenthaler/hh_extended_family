@@ -61,6 +61,7 @@ The result is an object model consumed by the tab view.
 
 `src/Factory/ExtendedFamilyPart.php` is the abstract base class for all family-part calculators.
 It provides common helpers for traversing webtrees families and individuals, adding people to groups, applying filters, collecting counters, and deriving labels.
+The shared helpers also evaluate `FAMC/PEDI` links, so concrete family parts can distinguish biological, social (adoptive, foster, or Rada), and step relationships without duplicating that logic.
 
 Concrete family-part classes implement the relationship-specific logic.
 
@@ -139,10 +140,12 @@ The module currently contains calculators for:
 * children
 * children-in-law
 * grandchildren
+* great-grandchildren
 * grandchildren-in-law
 
 The family-part base class stores results as grouped individuals and counters.
-Depending on the relationship type, a group may represent a family branch, a couple, an in-law relation, or a partner-chain segment.
+Depending on the relationship type, a group may represent a family branch, a couple, an in-law relation, a descendant branch, or a partner-chain segment.
+Groups may also carry reference people and families that are used only to explain the relationship in the rendered heading.
 
 ## 🔎 Filtering and summaries
 
@@ -189,6 +192,9 @@ The control-panel settings page is rendered by `resources/views/settings.phtml`.
 
 The settings page contains a sortable family-part table.
 The ordering is persisted through module preferences and later used when the tab creates family parts.
+
+Family-part boxes are rendered in a responsive grid.
+The number of columns is derived from the maximum number of subgroups that need to be shown, instead of assuming a fixed three-column layout.
 
 The settings page also controls whether users see the clippings-cart button.
 When huhwt-cce is available, administrators can choose between huhwt-cce and the internal Extended Family action.

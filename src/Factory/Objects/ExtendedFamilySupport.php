@@ -55,6 +55,14 @@ class ExtendedFamilySupport
     public const FAM_STATUS_MARRIAGE    = 'Marriage';
     public const FAM_STATUS_FIANCEE     = 'Fiancée';
     public const FAM_STATUS_PARTNERSHIP = 'Partnership';
+    public const FAM_STATUS_DIVORCED    = 'divorced';
+    public const FAM_STATUS_MARRIED     = 'married';
+    public const FAM_STATUS_ENGAGED     = 'engaged';
+    public const FAM_STATUS_PARTNERS    = 'partners';
+    public const FAM_STATUS_DIVORCED_PARTNER = 'divorced partner';
+    public const FAM_STATUS_MARRIED_PARTNER  = 'married partner';
+    public const FAM_STATUS_ENGAGED_PARTNER  = 'engaged partner';
+    public const FAM_STATUS_PARTNER          = 'partner';
 
     /**
      * get parameters for the used extended family parts like relationship coefficients and generation shift
@@ -83,6 +91,7 @@ class ExtendedFamilySupport
             'children'               => ['generation' => -1, 'relationshipCoefficient' => 0.5,   'relationshipCoefficientComment' => Children::GROUP_CHILDREN_BIO],
             'children_in_law'        => ['generation' => -1, 'relationshipCoefficient' => 0],
             'grandchildren'          => ['generation' => -2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandchildren::GROUP_GRANDCHILDREN_BIO],
+            'great_grandchildren'    => ['generation' => -3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIOLOGICAL],
             'grandchildren_in_law'   => ['generation' => -2, 'relationshipCoefficient' => 0],
        ];
     }
@@ -177,6 +186,33 @@ class ExtendedFamilySupport
             }
         }
         return 'all';
+    }
+
+    /**
+     * Check whether an individual sex value matches the configured sex filter.
+     *
+     * GEDCOM 7 supports sex "X" for people who do not fit the typical male/female definition.
+     * The module keeps the existing filter value "U" as the combined "other or unknown" category.
+     *
+     * @param string $sex          GEDCOM sex value [M, F, X, U, ...]
+     * @param string $filterOption [all, only_M, only_F, only_U]
+     * @return bool
+     */
+    public static function sexMatchesFilter(string $sex, string $filterOption): bool
+    {
+        switch ($filterOption) {
+            case 'only_M':
+                return $sex === 'M';
+
+            case 'only_F':
+                return $sex === 'F';
+
+            case 'only_U':
+                return $sex !== 'M' && $sex !== 'F';
+
+            default:
+                return true;
+        }
     }
 
     /**
@@ -437,6 +473,149 @@ class ExtendedFamilySupport
             }
         }
         return self::FAM_STATUS_PARTNERSHIP;                       // default if there is no family status tag
+    }
+
+    /**
+     * Translate family status for parenthetical use.
+     *
+     * @param string $familyStatus
+     * @return string
+     */
+    public static function translateFamilyStatusForParentheses(string $familyStatus): string
+    {
+        return match ($familyStatus) {
+            self::FAM_STATUS_EX          => I18N::translate(self::FAM_STATUS_DIVORCED),
+            self::FAM_STATUS_MARRIAGE    => I18N::translate(self::FAM_STATUS_MARRIED),
+            self::FAM_STATUS_FIANCEE     => I18N::translate(self::FAM_STATUS_ENGAGED),
+            self::FAM_STATUS_PARTNERSHIP => I18N::translate(self::FAM_STATUS_PARTNERS),
+            default                      => I18N::translate($familyStatus),
+        };
+    }
+
+    /**
+     * Translate family status as a modifier for a partner.
+     *
+     * @param string $familyStatus
+     * @return string
+     */
+    public static function translateFamilyStatusAsPartner(string $familyStatus): string
+    {
+        return match ($familyStatus) {
+            self::FAM_STATUS_EX          => I18N::translate(self::FAM_STATUS_DIVORCED_PARTNER),
+            self::FAM_STATUS_MARRIAGE    => I18N::translate(self::FAM_STATUS_MARRIED_PARTNER),
+            self::FAM_STATUS_FIANCEE     => I18N::translate(self::FAM_STATUS_ENGAGED_PARTNER),
+            self::FAM_STATUS_PARTNERSHIP => I18N::translate(self::FAM_STATUS_PARTNER),
+            default                      => I18N::translate($familyStatus),
+        };
+    }
+
+    /**
+     * Check whether two individuals share the same parent-family record.
+     *
+     * @param Individual $individual1
+     * @param Individual $individual2
+     * @return bool
+     */
+    public static function areFullSiblings(Individual $individual1, Individual $individual2): bool
+    {
+        foreach ($individual1->childFamilies() as $family1) {
+            foreach ($individual2->childFamilies() as $family2) {
+                if ($family1->xref() === $family2->xref() && self::isBiologicalChildInFamily($individual1, $family1) && self::isBiologicalChildInFamily($individual2, $family2)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check whether two individuals share at least one, but not the same pair of, parents.
+     *
+     * @param Individual $individual1
+     * @param Individual $individual2
+     * @return bool
+     */
+    public static function areHalfSiblings(Individual $individual1, Individual $individual2): bool
+    {
+        if (self::areFullSiblings($individual1, $individual2)) {
+            return false;
+        }
+
+        return array_intersect_key(
+            self::parentXrefsFromChildFamilies($individual1),
+            self::parentXrefsFromChildFamilies($individual2)
+        ) !== [];
+    }
+
+    /**
+     * Translate a sibling label, optionally relative to another sibling.
+     *
+     * @param Individual $sibling
+     * @param Individual|null $referenceSibling
+     * @return string
+     */
+    public static function translateSiblingLabel(Individual $sibling, ?Individual $referenceSibling = null): string
+    {
+        $isHalfSibling = $referenceSibling instanceof Individual && self::areHalfSiblings($sibling, $referenceSibling);
+
+        return match ($sibling->sex()) {
+            'M'     => I18N::translate($isHalfSibling ? 'Half-brother' : 'Brother'),
+            'F'     => I18N::translate($isHalfSibling ? 'Half-sister' : 'Sister'),
+            default => I18N::translate($isHalfSibling ? 'Half-sibling' : 'Sibling'),
+        };
+    }
+
+    /**
+     * Get the xrefs of all parents in all child-family records.
+     *
+     * @param Individual $individual
+     * @return array<string,bool>
+     */
+    private static function parentXrefsFromChildFamilies(Individual $individual): array
+    {
+        $parentXrefs = [];
+
+        foreach ($individual->childFamilies() as $family) {
+            if (!self::isBiologicalChildInFamily($individual, $family)) {
+                continue;
+            }
+            foreach ($family->spouses() as $parent) {
+                $parentXrefs[$parent->xref()] = true;
+            }
+        }
+
+        return $parentXrefs;
+    }
+
+    /**
+     * Is this a biological child-family link?
+     *
+     * @param Individual $individual
+     * @param Family $family
+     * @return bool
+     */
+    private static function isBiologicalChildInFamily(Individual $individual, Family $family): bool
+    {
+        return self::childFamilyPedigreeType($individual, $family) === PedigreeLinkageType::VALUE_BIRTH;
+    }
+
+    /**
+     * get PEDI value for a child-family link; missing PEDI is treated as birth
+     *
+     * @param Individual $individual
+     * @param Family $family
+     * @return string
+     */
+    private static function childFamilyPedigreeType(Individual $individual, Family $family): string
+    {
+        $fact = $individual->facts(['FAMC'])->first(static fn (Fact $fact): bool => $fact->value() === '@' . $family->xref() . '@');
+
+        if ($fact instanceof Fact) {
+            return $fact->attribute('PEDI') ?: PedigreeLinkageType::VALUE_BIRTH;
+        }
+
+        return PedigreeLinkageType::VALUE_BIRTH;
     }
 
    /**

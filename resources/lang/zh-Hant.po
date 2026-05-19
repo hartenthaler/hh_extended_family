@@ -722,7 +722,7 @@ msgstr[0] "%d位丈夫的配偶(共%d位)"
 #, fuzzy, php-format
 msgid "%d female partner in this partner chain recorded"
 msgid_plural "%d female partners in this partner chain recorded"
-msgstr[0] "%此配偶系列中有d名女性配偶（%d總計）"
+msgstr[0] "此配偶系列中有%d名女性配偶"
 
 #: resources/views/tab.phtml:408 resources/views/tab.phtml:412
 #: resources/views/tab.phtml:416 resources/views/tab.phtml:421
@@ -735,20 +735,20 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d male partner in this partner chain recorded"
 msgid_plural "%d male partners in this partner chain recorded"
-msgstr[0] "%此配偶系列中有d名女性配偶（%d總計）"
+msgstr[0] "此配偶系列中有%d名男性配偶"
 
 #: resources/views/tab.phtml:415
 #, fuzzy, php-format
 msgid "%d partner of unknown sex in this partner chain recorded"
 msgid_plural "%d partners of unknown sex in this partner chain recorded"
-msgstr[0] "%此配偶系列中有d名女性配偶（%d總計）"
+msgstr[0] "此配偶系列中有%d名性別未知的配偶"
 
 #: resources/views/tab.phtml:420
 #, fuzzy, php-format
 msgid "%1$d female partner in this partner chain recorded (%2$d in total"
 msgid_plural ""
 "%1$d female partners in this partner chain recorded (%2$d in total"
-msgstr[0] "%此配偶系列中有d名女性配偶（%d總計）"
+msgstr[0] "此配偶系列中有%1$d名女性配偶（共%2$d名"
 
 #: resources/views/tab.phtml:425 resources/views/tab.phtml:430
 #, fuzzy, php-format
@@ -756,7 +756,7 @@ msgid ""
 "%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
 msgid_plural ""
 "%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
-msgstr[0] "%此配偶系列中有d名女性配偶（%d總計）"
+msgstr[0] "此配偶系列中有%1$d名性別未知的配偶（共%2$d名"
 
 #: resources/views/tab.phtml:436
 #, fuzzy, php-format
@@ -766,7 +766,7 @@ msgid ""
 msgid_plural ""
 "%1$d partners of unknown sex in this partner chain recorded (%2$d in total, "
 "including %3$s)."
-msgstr[0] "%此配偶系列中有d名女性配偶（%d總計）"
+msgstr[0] "此配偶系列中有%1$d名性別未知的配偶（共%2$d名，包括%3$s）。"
 
 #: resources/views/tab.phtml:440
 #, php-format
@@ -1576,7 +1576,7 @@ msgstr "%s沒有侄子或侄女的記錄。"
 #: resources/views/tab.phtml:1109
 #, fuzzy, php-format
 msgid "%s has no "
-msgstr "%沒有記錄%s。"
+msgstr "%s沒有"
 
 #: resources/views/tab.phtml:1118
 msgid "Summary for the shown extended family"
@@ -1599,7 +1599,7 @@ msgstr "他們中的一些人是大家庭中不止一個部分的成員。"
 #: resources/views/tab.phtml:1129
 #, fuzzy, php-format
 msgid "%s has no %s recorded."
-msgstr "%沒有記錄%s。"
+msgstr "%s沒有%s記錄。"
 
 #: resources/views/tab.phtml:1135
 #, php-format
@@ -2278,8 +2278,8 @@ msgstr[1] "%d位配偶（共%d位）"
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%d female partner in this partner chain recorded (%d in total). "
 msgid_plural "%d female partners in this partner chain recorded (%d in total)."
-msgstr[0] "%此配偶系列中有d名女性配偶（%d總計）"
-msgstr[1] "%此配偶系列中有d名女性配偶（%d總計）"
+msgstr[0] "此配偶系列中有%d名女性配偶（共%d名）。"
+msgstr[1] "此配偶系列中有%d名女性配偶（共%d名）。"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Cousins"

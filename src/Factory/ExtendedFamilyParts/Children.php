@@ -29,8 +29,9 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
  */
 class Children extends ExtendedFamilyPart
 {
-    public const GROUP_CHILDREN_BIO  = 'Biological children';
-    public const GROUP_CHILDREN_STEP = 'Stepchildren';
+    public const GROUP_CHILDREN_BIO    = 'Biological children';
+    public const GROUP_CHILDREN_SOCIAL = 'Social children';
+    public const GROUP_CHILDREN_STEP   = 'Stepchildren';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -59,7 +60,11 @@ class Children extends ExtendedFamilyPart
     {
         foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
             foreach ($family1->children() as $child) {                                          // Gen -1 P
-                $this->addIndividualToFamily(new IndividualFamily($child, $family1), self::GROUP_CHILDREN_BIO);
+                if ($this->isSocialChildInFamily($child, $family1)) {
+                    $this->addIndividualToFamily(new IndividualFamily($child, $family1), self::GROUP_CHILDREN_SOCIAL);
+                } else {
+                    $this->addIndividualToFamily(new IndividualFamily($child, $family1), self::GROUP_CHILDREN_BIO);
+                }
             }
         }
         foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F

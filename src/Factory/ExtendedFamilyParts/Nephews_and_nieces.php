@@ -71,7 +71,7 @@ class Nephews_and_nieces extends ExtendedFamilyPart
                         if ($sibling->xref() !== $this->getProband()->xref()) {
                             foreach ($sibling->spouseFamilies() as $family3) {                  // Gen  0 F
                                 foreach ($family3->children() as $nephewniece) {                // Gen -1 P
-                                    $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family1, $sibling), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING);
+                                    $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family3, $sibling), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING);
                                 }
                             }
                         }
@@ -88,7 +88,7 @@ class Nephews_and_nieces extends ExtendedFamilyPart
                                 foreach ($family3->spouses() as $parent) {                      // Gen  0 P
                                     foreach ($parent->spouseFamilies() as $family4) {           // Gen  0 F
                                         foreach ($family4->children() as $nephewniece) {        // Gen -1 P
-                                            $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family1, $sibling), self::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING);
+                                            $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family3, $sibling), self::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING);
                                         }
                                     }
                                 }
@@ -108,7 +108,7 @@ class Nephews_and_nieces extends ExtendedFamilyPart
                                     if ($sibling_in_law->xref() !== $spouse0->xref()) {
                                         foreach ($sibling_in_law->spouseFamilies() as $family3) {           // Gen  0 F
                                             foreach ($family3->children() as $nephewniece) {                // Gen -1 P
-                                                $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family0, $spouse0, $sibling_in_law), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER);
+                                                $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family3, $spouse0, $sibling_in_law), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER);
                                             }
                                         }
                                     }

@@ -1510,6 +1510,100 @@ msgid_plural "%d granddaughters, and "
 msgstr[0] ""
 msgstr[1] ""
 
+#: resources/views/tab.phtml
+#, php-format
+msgid "%s has one great-granddaughter recorded."
+msgstr ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%s has one great-grandson recorded."
+msgstr ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%s has one great-grandchild of unknown sex recorded."
+msgstr ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%2$s has %1$d great-granddaughter recorded."
+msgid_plural "%2$s has %1$d great-granddaughters recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%2$s has %1$d great-grandson recorded."
+msgid_plural "%2$s has %1$d great-grandsons recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%2$s has %1$d great-grandchild of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandchildren of unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%2$s has %1$d great-grandson and "
+msgid_plural "%2$s has %1$d great-grandsons and "
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%d great-granddaughter recorded (%d in total)."
+msgid_plural "%d great-granddaughters recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%d great-grandchild of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandchildren of unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%2$s has %1$d great-granddaughter and "
+msgid_plural "%2$s has %1$d great-granddaughters and "
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%2$s has %1$d great-grandson, "
+msgid_plural "%2$s has %1$d great-grandsons, "
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/tab.phtml
+#, php-format
+msgid "%d great-granddaughter, and "
+msgid_plural "%d great-granddaughters, and "
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Children of grandchildren"
+msgstr ""
+
+msgid "Children of biological grandchildren"
+msgstr ""
+
+msgid "Stepchildren of grandchildren"
+msgstr ""
+
+msgid "Great-grandchildren"
+msgstr ""
+
+#, php-format
+msgid "%s has no great-grandchildren recorded."
+msgstr ""
+
 #: resources/views/tab.phtml:714
 #, php-format
 msgid "%s has one granddaughter-in-law recorded."
@@ -1616,6 +1710,15 @@ msgstr ""
 msgid "Sibling"
 msgstr ""
 
+msgid "Half-brother"
+msgstr ""
+
+msgid "Half-sister"
+msgstr ""
+
+msgid "Half-sibling"
+msgstr ""
+
 #: resources/views/tab.phtml:891 resources/views/tab.phtml:929
 #, php-format
 msgid "Brother %1$s of partner %2$s"
@@ -1703,6 +1806,9 @@ msgstr ""
 #: resources/views/tab.phtml:1011 resources/views/tab.phtml:1048
 #: resources/views/tab.phtml:1050
 msgid "Parents"
+msgstr ""
+
+msgid ", connected with %s"
 msgstr ""
 
 #: resources/views/tab.phtml:1017 resources/views/tab.phtml:1037
@@ -2012,4 +2118,137 @@ msgstr ""
 msgid "This allows a user to copy all members of the extended family to the clippings cart."
 msgstr ""
 
+msgid "Social parents"
+msgstr ""
 
+msgid "Social parents of father"
+msgstr ""
+
+msgid "Social parents of mother"
+msgstr ""
+
+msgid "Social parents of parent"
+msgstr ""
+
+msgid "Parents of social father"
+msgstr ""
+
+msgid "Parents of social mother"
+msgstr ""
+
+msgid "Parents of social parent"
+msgstr ""
+
+msgid "Social parents of biological parent of father"
+msgstr ""
+
+msgid "Social parents of biological parent of mother"
+msgstr ""
+
+msgid "Social parents of biological grandparent"
+msgstr ""
+
+msgid "Parents of social parent of father"
+msgstr ""
+
+msgid "Parents of social parent of mother"
+msgstr ""
+
+msgid "Parents of social parent of parent"
+msgstr ""
+
+msgid "Grandparents of social parent"
+msgstr ""
+
+msgid "Social children"
+msgstr ""
+
+msgid "Social children of children"
+msgstr ""
+
+msgid "Children of social children"
+msgstr ""
+
+msgid "Social children of grandchildren"
+msgstr ""
+
+msgid "Children of social grandchildren"
+msgstr ""
+
+msgid "Children of stepgrandchildren"
+msgstr ""
+
+msgid "Stepchildren of social grandchildren"
+msgstr ""
+
+msgid "Stepchildren of stepgrandchildren"
+msgstr ""
+
+msgid "Biological great-grandchildren"
+msgstr ""
+
+msgid "Partners of social children of children"
+msgstr ""
+
+msgid "Partners of children of social children"
+msgstr ""
+
+msgid "married"
+msgstr ""
+
+msgid "divorced"
+msgstr ""
+
+msgid "partners"
+msgstr ""
+
+msgid "engaged"
+msgstr ""
+
+msgid "married partner"
+msgstr ""
+
+msgid "divorced partner"
+msgstr ""
+
+msgid "partner"
+msgstr ""
+
+msgid "engaged partner"
+msgstr ""
+
+msgid "Sibling of %1$s %2$s"
+msgstr ""
+
+msgid "Partner of %1$s sibling-in-law %2$s"
+msgstr ""
+
+msgid "%1$s %2$s of %3$s"
+msgstr ""
+
+msgid "%1$s %2$s as parents of %3$s"
+msgstr ""
+
+msgid "%1$s %2$s as stepparents of %3$s"
+msgstr ""
+
+msgid "%1$s %2$s as grandparents of %3$s"
+msgstr ""
+
+msgid "Siblings and half siblings of father"
+msgstr ""
+
+msgid "Siblings and half siblings of mother"
+msgstr ""
+
+msgid "Social siblings"
+msgstr ""
+
+msgid "Parents-in-law of social children"
+msgstr ""
+
+msgid "%1$s %2$s, %3$s with %4$s"
+msgstr ""
+
+msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
+msgstr ""

@@ -22,16 +22,21 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Individual;
+
 /**
  * class Grandchildren_in_law
  *
- * data and methods for extended family part "grandchildren_in_law" with
- * partners of biological, step- and step-step-grandchildren
+ * Data and methods for extended family part "grandchildren_in_law".
+ * The grandchildren family part is used as the basis; direct partners of the
+ * individuals shown there are shown as grandchildren-in-law of the proband.
  */
 class Grandchildren_in_law extends ExtendedFamilyPart
 {
     public const GROUP_GRANDCHILDRENINLAW_BIO = 'Partners of biological grandchildren';
+    public const GROUP_GRANDCHILDRENINLAW_SOCIAL_CHILD = 'Partners of social children of children';
     public const GROUP_GRANDCHILDRENINLAW_STEP_CHILD = 'Partners of stepchildren of children';
+    public const GROUP_GRANDCHILDRENINLAW_CHILD_SOCIAL = 'Partners of children of social children';
     public const GROUP_GRANDCHILDRENINLAW_CHILD_STEP = 'Partners of children of stepchildren';
     public const GROUP_GRANDCHILDRENINLAW_STEP_STEP = 'Partners of stepchildren of stepchildren';
 
@@ -60,77 +65,44 @@ class Grandchildren_in_law extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
-            foreach ($family1->children() as $biochild) {                                       // Gen -1 P
-                foreach ($biochild->spouseFamilies() as $family2) {                             // Gen -1 F
-                    $this->addPartnerBio($family1, $family2, self::GROUP_GRANDCHILDRENINLAW_BIO);
-                    $this->addPartnerStep($family1, $family2, self::GROUP_GRANDCHILDRENINLAW_STEP_CHILD);
-                }
-            }
-        }
-        $this->addPartnerStepStep();
-    }
+        $grandchildren = new Grandchildren($this->getProband(), 'all', $this->placeFormat);
 
-    /**
-     * add biological grandchildren
-     *
-     * @param object $family1
-     * @param object $family2
-     * @param string $groupName
-     */
-    private function addPartnerBio(object $family1, object $family2, string $groupName)
-    {
-        foreach ($family2->children() as $biograndchild) {                          // Gen -2 P
-            foreach ($biograndchild->spouseFamilies() as $family3) {                // Gen -2 F
-                foreach ($family3->spouses() as $spouse) {                          // Gen -2 P
-                    if ($spouse->xref() !== $biograndchild->xref()) {
-                        $this->addIndividualToFamily(new IndividualFamily($spouse, $family1), $groupName);
-                    }
+        foreach ($grandchildren->getEfpObject()->groups as $group) {
+            foreach ($group->members as $grandchild) {
+                if ($grandchild instanceof Individual) {
+                    $this->addPartnersOfGrandchild($grandchild, $this->partnerGroupName($group->groupName));
                 }
             }
         }
     }
 
     /**
-     * add stepchildren of children
-     *
-     * @param object $family1
-     * @param object $family2
-     * @param string $groupName
+     * Add direct partners of one grandchild.
      */
-    private function addPartnerStep(object $family1, object $family2, string $groupName)
+    private function addPartnersOfGrandchild(Individual $grandchild, string $groupName): void
     {
-        foreach ($family2->spouses() as $spouse) {                                  // Gen -1 P
-            foreach ($spouse->spouseFamilies() as $family3) {                       // Gen -1 F
-                foreach ($family3->children() as $stepchild) {                      // Gen -2 P
-                    foreach ($stepchild->spouseFamilies() as $family4) {            // Gen -2 F
-                        foreach ($family4->spouses() as $spouse) {                  // Gen -2 P
-                            if ($spouse->xref() !== $stepchild->xref()) {
-                                $this->addIndividualToFamily(new IndividualFamily($spouse, $family1), $groupName);
-                            }
-                        }
-                    }
+        foreach ($grandchild->spouseFamilies() as $family) {
+            foreach ($family->spouses() as $spouse) {
+                if ($spouse->xref() !== $grandchild->xref()) {
+                    $this->addIndividualToFamily(new IndividualFamily($spouse, $family, $grandchild), $groupName);
                 }
             }
         }
     }
 
     /**
-     * add children and stepchildren of stepchildren
+     * Get the corresponding grandchildren-in-law group name for a grandchildren group.
      */
-    private function addPartnerStepStep()
+    private function partnerGroupName(string $grandchildGroupName): string
     {
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
-                    foreach ($family2->children() as $stepchild) {                              // Gen -1 P
-                        foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
-                            $this->addPartnerBio($family1, $family3, self::GROUP_GRANDCHILDRENINLAW_CHILD_STEP);
-                            $this->addPartnerStep($family1, $family3, self::GROUP_GRANDCHILDRENINLAW_STEP_STEP);
-                        }
-                    }
-                }
-            }
-        }
+        return match ($grandchildGroupName) {
+            Grandchildren::GROUP_GRANDCHILDREN_BIO          => self::GROUP_GRANDCHILDRENINLAW_BIO,
+            Grandchildren::GROUP_GRANDCHILDREN_SOCIAL_CHILD => self::GROUP_GRANDCHILDRENINLAW_SOCIAL_CHILD,
+            Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD   => self::GROUP_GRANDCHILDRENINLAW_STEP_CHILD,
+            Grandchildren::GROUP_GRANDCHILDREN_CHILD_SOCIAL => self::GROUP_GRANDCHILDRENINLAW_CHILD_SOCIAL,
+            Grandchildren::GROUP_GRANDCHILDREN_CHILD_STEP   => self::GROUP_GRANDCHILDRENINLAW_CHILD_STEP,
+            Grandchildren::GROUP_GRANDCHILDREN_STEP_STEP    => self::GROUP_GRANDCHILDRENINLAW_STEP_STEP,
+            default                                         => self::GROUP_GRANDCHILDRENINLAW_BIO,
+        };
     }
 }

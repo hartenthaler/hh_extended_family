@@ -26,8 +26,6 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
-use Fisharebest\Webtrees\Individual;
-
 /**
  * class Co_parents_in_law
  *
@@ -35,8 +33,9 @@ use Fisharebest\Webtrees\Individual;
  */
 class Co_parents_in_law extends ExtendedFamilyPart
 {
-    public const GROUP_COPARENTSINLAW_BIO  = 'Parents-in-law of biological children';
-    public const GROUP_COPARENTSINLAW_STEP = 'Parents-in-law of stepchildren';
+    public const GROUP_COPARENTSINLAW_BIO    = 'Parents-in-law of biological children';
+    public const GROUP_COPARENTSINLAW_SOCIAL = 'Parents-in-law of social children';
+    public const GROUP_COPARENTSINLAW_STEP   = 'Parents-in-law of stepchildren';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -63,41 +62,39 @@ class Co_parents_in_law extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
-            foreach ($family1->children() as $child) {                                          // Gen -1 P
-                foreach ($child->spouseFamilies() as $family2) {                                // Gen -1 F
-                    foreach ($family2->spouses() as $child_in_law) {                            // Gen -1 P
-                        if ($child_in_law->xref() !== $child->xref()) {
-                            if (($child_in_law->childFamilies()->first()) && ($child_in_law->childFamilies()->first()->husband() instanceof Individual)) {        // husband() or wife() may not exist
-                                $this->addIndividualToFamily(new IndividualFamily($child_in_law->childFamilies()->first()->husband(), $family2), self::GROUP_COPARENTSINLAW_BIO);
-                            }
-                            if (($child_in_law->childFamilies()->first()) && ($child_in_law->childFamilies()->first()->wife() instanceof Individual)) {
-                                $this->addIndividualToFamily(new IndividualFamily($child_in_law->childFamilies()->first()->wife(), $family2), self::GROUP_COPARENTSINLAW_BIO);
-                            }
+        $children = new Children($this->getProband(), 'all', $this->placeFormat);
+
+        foreach ($children->getEfpObject()->groups as $group) {
+            $groupName = $this->coParentsInLawGroupName($group->groupName);
+
+            foreach ($group->members as $child) {
+                foreach ($child->spouseFamilies() as $family) {
+                    foreach ($family->spouses() as $childInLaw) {
+                        if ($childInLaw->xref() === $child->xref()) {
+                            continue;
+                        }
+
+                        foreach ($this->findParentsIndividuals($childInLaw) as $parent) {
+                            $this->addIndividualToFamily(new IndividualFamily($parent->getIndividual(), $family, $child, $childInLaw), $groupName);
                         }
                     }
                 }
             }
         }
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                               // Gen  0 F
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
-                    foreach ($family2->children() as $stepchild) {                              // Gen -1 P
-                        foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
-                            foreach ($family3->spouses() as $stepchild_in_law) {                // Gen -1 P
-                                if ($stepchild_in_law->xref() !== $stepchild->xref()) {
-                                    if (($stepchild_in_law->childFamilies()->first()) && ($stepchild_in_law->childFamilies()->first()->husband() instanceof Individual)) {        // husband() or wife() may not exist
-                                        $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law->childFamilies()->first()->husband(), $family3, $stepchild), self::GROUP_COPARENTSINLAW_STEP);
-                                    }
-                                    if (($stepchild_in_law->childFamilies()->first()) && ($stepchild_in_law->childFamilies()->first()->wife() instanceof Individual)) {
-                                        $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law->childFamilies()->first()->wife(), $family3, $stepchild), self::GROUP_COPARENTSINLAW_STEP);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    }
+
+    /**
+     * Map child groups to their corresponding co-parents-in-law groups.
+     *
+     * @param string $childGroupName
+     * @return string
+     */
+    private function coParentsInLawGroupName(string $childGroupName): string
+    {
+        return match ($childGroupName) {
+            Children::GROUP_CHILDREN_SOCIAL => self::GROUP_COPARENTSINLAW_SOCIAL,
+            Children::GROUP_CHILDREN_STEP   => self::GROUP_COPARENTSINLAW_STEP,
+            default                         => self::GROUP_COPARENTSINLAW_BIO,
+        };
     }
 }

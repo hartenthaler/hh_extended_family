@@ -37,7 +37,9 @@
 
 #hh_extended_family_content_compact {
     border-spacing: 10px;
-    display: inline-table;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(var(--hh-extended-family-columns, 3), minmax(0, 1fr));
     margin: 0 10px;
     overflow: hidden;
     padding: 0;
@@ -60,7 +62,9 @@
 
 #hh_extended_family_content {
     border-spacing: 10px;
-    display: inline-table;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(var(--hh-extended-family-columns, 3), minmax(0, 1fr));
     margin: 0 10px;
     overflow: hidden;
     padding: 0;
@@ -79,21 +83,44 @@
     width: 99%;
 }
 
-#hh_extended_family_box {
+/* Namen und XREF-Badges in den Summary-Überschriften in der Textzeile halten */
+#hh-extended-family-summary h3 .wt-icon-help,
+#hh-extended-family-summary h3 [class*="wt-icon"] {
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    display: inline !important;  /* verhindert Zeilenumbruch durch block/inline-block */
+}
+
+#hh-extended-family-summary h3 .hh-extended-family-summary-name,
+#hh-extended-family-summary h3 .hh-extended-family-summary-name * {
+    display: inline !important;
+}
+
+#hh-extended-family-summary h3 span.NAME,
+#hh-extended-family-summary h3 span.SURN,
+#hh-extended-family-summary h3 span.wt-icon-help {
+    display: inline !important;
+}
+
+.hh_extended_family_box {
     border: 1px solid grey;
     border-radius: 5px;
-    display: table-cell;
+    min-width: 0;
     padding: 5px 5px 5px 10px;
-    width: 31%;
 }
 
 /* Mobile low resolution viewport */
 @media (max-width: 600px) {
-    #hh_extended_family_box {
+    #hh_extended_family_content,
+    #hh_extended_family_content_compact {
+        grid-template-columns: 1fr;
+    }
+
+    .hh_extended_family_box {
         border: 1px solid grey;
         border-radius: 5px;
-        display: table-caption;
-        width: 90%;
         padding: 10px;
         margin-bottom: 10px;
     }

@@ -23,7 +23,9 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Elements\PedigreeLinkageType;
 use Fisharebest\Webtrees\Fact;
+use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
 
 use function array_key_exists;
@@ -146,23 +148,113 @@ abstract class ExtendedFamilyPart
     }
 
     /**
-     * find individuals: biological parents (in first family)
+     * find individuals: biological parents
      *
      * @param Individual $individual
      * @return array of IndividualFamily
      */
     protected function findBioparentsIndividuals(Individual $individual): array
     {
+        return $this->findParentsIndividualsByPedigreeTypes($individual, [PedigreeLinkageType::VALUE_BIRTH, '']);
+    }
+
+    /**
+     * find individuals: social parents (adoptive, foster, or rada parents)
+     *
+     * @param Individual $individual
+     * @return array of IndividualFamily
+     */
+    protected function findSocialparentsIndividuals(Individual $individual): array
+    {
+        return $this->findParentsIndividualsByPedigreeTypes($individual, [
+            PedigreeLinkageType::VALUE_ADOPTED,
+            PedigreeLinkageType::VALUE_FOSTER,
+            PedigreeLinkageType::VALUE_RADA,
+        ]);
+    }
+
+    /**
+     * find individuals: biological and social parents
+     *
+     * @param Individual $individual
+     * @return array of IndividualFamily
+     */
+    protected function findParentsIndividuals(Individual $individual): array
+    {
+        return array_merge(
+            $this->findBioparentsIndividuals($individual),
+            $this->findSocialparentsIndividuals($individual)
+        );
+    }
+
+    /**
+     * find parent individuals for child-family links with selected PEDI values
+     *
+     * @param Individual $individual
+     * @param array $pedigreeTypes
+     * @return array of IndividualFamily
+     */
+    private function findParentsIndividualsByPedigreeTypes(Individual $individual, array $pedigreeTypes): array
+    {
         $parents = [];
-        if ($individual->childFamilies()->first()) {
-            if ($individual->childFamilies()->first()->husband() instanceof Individual) {
-                $parents[] = new IndividualFamily($individual->childFamilies()->first()->husband(), $individual->childFamilies()->first());
+        foreach ($individual->childFamilies() as $family) {
+            if (!in_array($this->childFamilyPedigreeType($individual, $family), $pedigreeTypes, true)) {
+                continue;
             }
-            if ($individual->childFamilies()->first()->wife() instanceof Individual) {
-                $parents[] = new IndividualFamily($individual->childFamilies()->first()->wife(), $individual->childFamilies()->first());
+            if ($family->husband() instanceof Individual) {
+                $parents[] = new IndividualFamily($family->husband(), $family);
+            }
+            if ($family->wife() instanceof Individual) {
+                $parents[] = new IndividualFamily($family->wife(), $family);
             }
         }
         return $parents;
+    }
+
+    /**
+     * get PEDI value for a child-family link; missing PEDI is treated as birth
+     *
+     * @param Individual $individual
+     * @param Family $family
+     * @return string
+     */
+    protected function childFamilyPedigreeType(Individual $individual, Family $family): string
+    {
+        $fact = $individual->facts(['FAMC'])->first(static fn (Fact $fact): bool => $fact->value() === '@' . $family->xref() . '@');
+
+        if ($fact instanceof Fact) {
+            return $fact->attribute('PEDI') ?: PedigreeLinkageType::VALUE_BIRTH;
+        }
+
+        return PedigreeLinkageType::VALUE_BIRTH;
+    }
+
+    /**
+     * Is this a biological child-family link?
+     *
+     * @param Individual $individual
+     * @param Family $family
+     * @return bool
+     */
+    protected function isBiologicalChildInFamily(Individual $individual, Family $family): bool
+    {
+        return $this->childFamilyPedigreeType($individual, $family) === PedigreeLinkageType::VALUE_BIRTH;
+    }
+
+    /**
+     * Is this a social child-family link (adopted, foster, or rada)?
+     *
+     * @param Individual $individual
+     * @param Family $family
+     * @return bool
+     */
+    protected function isSocialChildInFamily(Individual $individual, Family $family): bool
+    {
+        return in_array($this->childFamilyPedigreeType($individual, $family), [
+            PedigreeLinkageType::VALUE_ADOPTED,
+            PedigreeLinkageType::VALUE_FOSTER,
+            PedigreeLinkageType::VALUE_RADA,
+        ], true);
     }
 
     /**
@@ -220,10 +312,13 @@ abstract class ExtendedFamilyPart
     protected function findFullsiblingsIndividuals(Individual $individual): array
     {
         $siblings = [];
-        if ($individual->childFamilies()->first()) {
-            foreach ($individual->childFamilies()->first()->children() as $sibling) {
-                if ($sibling->xref() !== $individual->xref()) {
-                    $siblings[] = new IndividualFamily($sibling, $individual->childFamilies()->first());
+        foreach ($individual->childFamilies() as $family) {
+            if (!$this->isBiologicalChildInFamily($individual, $family)) {
+                continue;
+            }
+            foreach ($family->children() as $sibling) {
+                if ($sibling->xref() !== $individual->xref() && $this->isBiologicalChildInFamily($sibling, $family)) {
+                    $siblings[] = new IndividualFamily($sibling, $family);
                 }
             }
         }
@@ -239,13 +334,16 @@ abstract class ExtendedFamilyPart
     protected function findHalfsiblingsIndividuals(Individual $individual): array
     {
         $siblings = [];
-        if ($individual->childFamilies()->first()) {
-            foreach ($individual->childFamilies()->first()->spouses() as $parent) {
+        foreach ($individual->childFamilies() as $childFamily) {
+            if (!$this->isBiologicalChildInFamily($individual, $childFamily)) {
+                continue;
+            }
+            foreach ($childFamily->spouses() as $parent) {
                 foreach ($parent->spouseFamilies() as $family) {
-                    if ($family->xref() !== $individual->childFamilies()->first()->xref()) {
+                    if ($family->xref() !== $childFamily->xref()) {
                         foreach ($family->children() as $sibling) {
-                            if ($sibling->xref() !== $individual->xref()) {
-                                $siblings[] = new IndividualFamily($sibling, $individual->childFamilies()->first());
+                            if ($sibling->xref() !== $individual->xref() && $this->isBiologicalChildInFamily($sibling, $family)) {
+                                $siblings[] = new IndividualFamily($sibling, $childFamily);
                             }
                         }
                     }
@@ -260,7 +358,7 @@ abstract class ExtendedFamilyPart
      * this function is called via "callFunction"
      *
      * @param Individual $parent
-     * @param string $branch ['bio', 'stepbio', 'step']
+     * @param string $branch ['bio', 'stepbio', 'biosocial', 'step', 'social']
      * @return array of IndividualFamily
      */
     private function findGreat_grandparentsBranchIndividuals(Individual $parent, string $branch): array
@@ -280,6 +378,13 @@ abstract class ExtendedFamilyPart
                     $greatGrandparents[] = $greatGrandparent;
                 }
             }
+        } elseif ($branch == 'biosocial') {
+            foreach ($this->findBioparentsIndividuals($parent) as $grandparent) {
+                foreach ($this->findSocialparentsIndividuals($grandparent->getIndividual()) as $greatGrandparent) {
+                    $greatGrandparent->setReferencePerson(1, $grandparent->getIndividual());
+                    $greatGrandparents[] = $greatGrandparent;
+                }
+            }
         } elseif ($branch == 'step') {
             foreach ($this->findStepparentsIndividuals($parent) as $stepgrandparent) {
                 foreach ($this->findBioparentsIndividuals($stepgrandparent->getIndividual()) as $greatGrandparent) {
@@ -288,6 +393,13 @@ abstract class ExtendedFamilyPart
                 }
                 foreach ($this->findStepparentsIndividuals($stepgrandparent->getIndividual()) as $greatGrandparent) {
                     $greatGrandparent->setReferencePerson(1, $stepgrandparent->getIndividual());
+                    $greatGrandparents[] = $greatGrandparent;
+                }
+            }
+        } elseif ($branch == 'social') {
+            foreach ($this->findSocialparentsIndividuals($parent) as $socialGrandparent) {
+                foreach ($this->findParentsIndividuals($socialGrandparent->getIndividual()) as $greatGrandparent) {
+                    $greatGrandparent->setReferencePerson(1, $socialGrandparent->getIndividual());
                     $greatGrandparents[] = $greatGrandparent;
                 }
             }
@@ -307,6 +419,8 @@ abstract class ExtendedFamilyPart
     {
         if ($branch == 'bio') {
             return $this->findBioparentsIndividuals($parent);
+        } elseif ($branch == 'social') {
+            return $this->findSocialparentsIndividuals($parent);
         } elseif ($branch == 'step') {
             return $this->findStepparentsIndividuals($parent);
         }
@@ -499,7 +613,7 @@ abstract class ExtendedFamilyPart
             foreach ($this->efpObject->groups as $group) {
                 foreach ($group->members as $key => $member) {
                     if ( ($filterOptions['alive'] == 'only_alive' && $member->isDead()) || ($filterOptions['alive'] == 'only_dead' && !$member->isDead()) ||
-                        ($filterOptions['sex'] == 'only_M' && $member->sex() !== 'M') || ($filterOptions['sex'] == 'only_F' && $member->sex() !== 'F') || ($filterOptions['sex'] == 'only_U' && $member->sex() !== 'U') ) {
+                        !ExtendedFamilySupport::sexMatchesFilter($member->sex(), $filterOptions['sex']) ) {
                         unset($group->members[$key]);
                     }
                 }

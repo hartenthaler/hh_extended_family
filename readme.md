@@ -48,6 +48,7 @@ It does not create new GEDCOM records and it does not store relationship data in
 Instead, it derives the shown family groups from the existing webtrees data.
 
 The tab can show direct relatives, in-laws, relatives by marriage, partner chains, and descendant groups.
+For parent-child links, GEDCOM `FAMC/PEDI` values are used where available, so biological, adoptive, foster, Rada, and step relationships can be kept separate in the affected family parts.
 Users can optionally filter the visible relatives by
 
 * sex or gender category
@@ -65,6 +66,7 @@ The module supports
 * optional thumbnail, birth, and death information
 * optional labels with generation shift and coefficient of relationship
 * optional labels for special GEDCOM situations, such as adopted child, foster child, triplet, stillborn, infant death, and challenged linkage
+* relationship grouping that distinguishes biological, social, and step relationships where the underlying GEDCOM data provides this information
 * optional summary counts
 * optional handling of partner chains
 * optional "copy to clippings cart" action with support for huhwt-cce or the module's internal fallback action
@@ -101,6 +103,7 @@ The default presentation order is based on the generation shift relative to the 
 * children: generation -1
 * children-in-law: generation -1
 * grandchildren: generation -2
+* great-grandchildren: generation -3
 * grandchildren-in-law: generation -2
 
 Every family part can be enabled, disabled, and reordered in the webtrees control panel.
@@ -218,7 +221,7 @@ There are currently translations for
 * Russian by [@aurbo](https://github.com/aurbo)
 * Slovak by [@ro-la](https://github.com/ro-la)
 * Spanish by [@yako1984](https://github.com/yako1984) and [@bernatbanyuls](https://github.com/bernatbanyuls)
-* Swedish
+* Swedish by Simon W
 * Ukrainian by [@z-yurets](https://github.com/z-yurets)
 * Vietnamese by [@ngohuuthuan](https://github.com/ngohuuthuan)
 

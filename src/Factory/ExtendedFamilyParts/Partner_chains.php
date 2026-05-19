@@ -77,7 +77,7 @@ class Partner_chains extends ExtendedFamilyPart
     public const FILTER_LIVING  = 'a living person';
     public const FILTER_MALE    = 'not a male person';
     public const FILTER_FEMALE  = 'not a female person';
-    public const FILTER_UNKNOWN = 'not a person of unknown gender';
+    public const FILTER_UNKNOWN = 'not a person of other or unknown gender';
 
     /**
      * add members for this specific extended family part and modify $this->efpObject
@@ -177,11 +177,11 @@ class Partner_chains extends ExtendedFamilyPart
         } elseif ($filterOptions['alive'] == 'only_dead' && !$individual->isDead()) {
             $comment = self::FILTER_LIVING;
         } else {                                    // comment for dead/alive is more important than for sex
-            if ($filterOptions['sex'] == 'only_M' && $individual->sex() !== 'M') {
+            if ($filterOptions['sex'] == 'only_M' && !ExtendedFamilySupport::sexMatchesFilter($individual->sex(), $filterOptions['sex'])) {
                 $comment = self::FILTER_MALE;
-            } elseif ($filterOptions['sex'] == 'only_F' && $individual->sex() !== 'F') {
+            } elseif ($filterOptions['sex'] == 'only_F' && !ExtendedFamilySupport::sexMatchesFilter($individual->sex(), $filterOptions['sex'])) {
                 $comment = self::FILTER_FEMALE;
-            } elseif ($filterOptions['sex'] == 'only_U' && $individual->sex() !== 'U') {
+            } elseif ($filterOptions['sex'] == 'only_U' && !ExtendedFamilySupport::sexMatchesFilter($individual->sex(), $filterOptions['sex'])) {
                 $comment = self::FILTER_UNKNOWN;
             }
         }
@@ -209,11 +209,9 @@ class Partner_chains extends ExtendedFamilyPart
      */
     private function addCountersPartnerChains()
     {
-        $counter = $this->efpObject->collectionIndividuals->countBy(function ($individual) {
-            return $individual->sex();
-        });
+        $counter = $this->countMaleFemale($this->efpObject->collectionIndividuals->all());
         list ($this->efpObject->maleCount, $this->efpObject->femaleCount, $this->efpObject->otherSexCount, $this->efpObject->allCount) =
-            [$counter['M']??0, $counter['F']??0, $counter['U']??0, ($counter['M']??0) + ($counter['F']??0) + ($counter['U']??0)];
+            [$counter->male, $counter->female, $counter->unknown_others, $counter->male + $counter->female + $counter->unknown_others];
         if ($this->efpObject->allCount > 0) {
             $this->addCountersToFamilyPartObjectPartnerChains();
         }

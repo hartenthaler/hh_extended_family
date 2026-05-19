@@ -41,6 +41,12 @@ class Great_grandparents extends ExtendedFamilyPart
     public const GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEPBIO = 'Stepparents of biological parent of mother';
     public const GROUP_GREATGRANDPARENTS_USIDE_STEPBIO = 'Stepparents of biological grandparent';
 
+    // 2s (2sa, 2sb, 2sc): social parents of biological grandparents
+    // refPerson = biological grandparent
+    public const GROUP_GREATGRANDPARENTS_FATHERSIDE_BIOSOCIAL = 'Social parents of biological parent of father';
+    public const GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIOSOCIAL = 'Social parents of biological parent of mother';
+    public const GROUP_GREATGRANDPARENTS_USIDE_BIOSOCIAL = 'Social parents of biological grandparent';
+
     // 3 (3a, 3b, 3c): biological parents of stepparents of biological parents and
     //                stepparents of stepparents of biological parents
     // refPerson = stepparent of parent
@@ -48,9 +54,19 @@ class Great_grandparents extends ExtendedFamilyPart
     public const GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP = 'Parents of stepparent of mother';
     public const GROUP_GREATGRANDPARENTS_USIDE_STEP = 'Parents of stepparent of parent';
 
+    // 3s (3sa, 3sb, 3sc): parents of social parents of biological parents
+    // refPerson = social parent of parent
+    public const GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL = 'Parents of social parent of father';
+    public const GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL = 'Parents of social parent of mother';
+    public const GROUP_GREATGRANDPARENTS_USIDE_SOCIAL = 'Parents of social parent of parent';
+
     // 4 biological grandparents and stepgrandparents of stepparent
     // refPerson = stepparent
     public const GROUP_GREATGRANDPARENTS_STEP_PARENTS = 'Grandparents of stepparent';
+
+    // 5 biological and social grandparents of social parent
+    // refPerson = social parent
+    public const GROUP_GREATGRANDPARENTS_SOCIAL_PARENTS = 'Grandparents of social parent';
 
     // used for relationshipCoefficientComment
     public const GROUP_GREATGRANDPARENTS_BIO = 'Biological great-grandparents';
@@ -96,11 +112,23 @@ class Great_grandparents extends ExtendedFamilyPart
                     'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO,
                     'X' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO
                 ],
+                'biosocial' => [
+                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIOSOCIAL,
+                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIOSOCIAL,
+                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_BIOSOCIAL,
+                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_BIOSOCIAL
+                ],
                 'step' => [
                     'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP,
                     'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP,
                     'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP,
                     'X' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP
+                ],
+                'social' => [
+                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL,
+                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL,
+                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL,
+                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL
                 ]
             ]
         );
@@ -108,6 +136,9 @@ class Great_grandparents extends ExtendedFamilyPart
 
         // 4: add biological grandparents and stepgrandparents of stepparent
         $this->addGrandparentsOfStepparent();
+
+        // 5: add biological and social grandparents of social parent
+        $this->addGrandparentsOfSocialParent();
     }
 
     /**
@@ -151,6 +182,21 @@ class Great_grandparents extends ExtendedFamilyPart
             foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
                 $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
                 $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
+            }
+        }
+    }
+
+    /**
+     * find and add biological and social grandparents of social parents (modify $this->efpObject)
+     */
+    private function addGrandparentsOfSocialParent()
+    {
+        foreach ($this->findSocialparentsIndividuals($this->getProband()) as $socialParent) {
+            foreach ($this->findParentsIndividuals($socialParent->getIndividual()) as $grandparent) {
+                foreach ($this->findParentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
+                    $greatgrandparent->setReferencePerson(1, $socialParent->getIndividual());
+                    $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_SOCIAL_PARENTS);
+                }
             }
         }
     }

@@ -25,29 +25,23 @@
 
 /*
  * tbd
- * --------------------------  ab hier für das Release 2.2.5.1    ------------------------------------------------*
+ * --------------------------  ab hier für das Release 2.2.6.2    ------------------------------------------------*
  * issues "bug": see GitHub
  *
  * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
- * Code: collection für Familien ausprogrammieren in ExtendedFamily.php
- * Code: neuer Familienteil "great grandchildren" erstellen
  * Code: Fehler in Grandchildren suchen
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Code: prüfen ob allCountUnique immer richtig berechnet wird
  * Code: siehe 2x tbd in tab.phtml #1077
- * Code: Formulierung der Zusammenfassung konsistent machen
  * Übersetzung: Satz umformulieren, da Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
  * READme: alle Screenshots aktualisieren
  *
- * --------------------------  ab hier für ein Release nach 2.2.5.1    ------------------------------------------------
+ * --------------------------  ab hier für ein Release nach 2.2.6.2    ------------------------------------------------
  * all issues: see GitHub
  *
  * Code: neuen webtrees Validator zur Prüfung reinkommender Parameter verwenden (siehe Beispiele Magicsunday Fanchart)
- * Code: Grandchildren.php: statt großem Block wieder Unterfunktionen nutzen
  * Code: Ist die Funktion "getPedigreeValue" in ExtendedFamilySupport.php wirklich überflüssig? Dann löschen.
- * Code: weitere find... Funktionen programmieren und damit den alten Code ersetzen (in ExtendedFamilyPart.php)
- * Code: In der Zusammenfassung per countBy weitere Informationen anzeigen
- *         (Anzahl der Familien, Generationen von/bis, früheste/späteste Geburt, Anzahl m/w/u, Anzahl lebend/tod, ...) * Code: alle Family Objekte explizit als Family deklarieren
+ * Code: alle Family Objekte explizit als Family deklarieren
  * Code: alle array-Deklarationen mit <index,value> deklarieren
  * Code: statt array besser Collection verwenden!
  * Code: alle noch verwendeten object als Klassen definieren
@@ -135,7 +129,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.0';
+    public const CUSTOM_VERSION     = '2.2.6.1';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
@@ -196,6 +190,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         $configObj->showFilterOptions           = $this->showFilterOptions();
         $configObj->filterOptions               = $this->showFilterOptions() ? ExtendedFamilySupport::getFilterOptions(): ['all'];
         $configObj->showSummary                 = $this->showSummary();
+        $configObj->showSummaryStatistics       = $this->showSummaryStatistics();
         $configObj->showEmptyBlock              = $this->showEmptyBlock();
         $configObj->countPartnerChainsToTotal   = $this->countPartnerChainsToTotal();
         $configObj->showShortName               = $this->showShortName();
@@ -266,6 +261,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'use_compact_design',
             'place_format',
             'show_summary',
+            'show_summary_statistics',
             'count_partner_chains',
             'use_clippings_cart',
             'clippings_cart_action',
@@ -431,6 +427,17 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function showSummary(): bool
     {
         return ($this->getPreference('show_summary', '0') == '0');
+    }
+
+    /**
+     * should statistical details be shown in the summary block
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool
+     */
+    private function showSummaryStatistics(): bool
+    {
+        return ($this->getPreference('show_summary_statistics', '0') == '0');
     }
 
     /**

@@ -33,8 +33,9 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
  */
 class Parents extends ExtendedFamilyPart
 {
-    public const GROUP_PARENTS_BIO  = 'Biological parents';
-    public const GROUP_PARENTS_STEP = 'Stepparents';
+    public const GROUP_PARENTS_BIO    = 'Biological parents';
+    public const GROUP_PARENTS_SOCIAL = 'Social parents';
+    public const GROUP_PARENTS_STEP   = 'Stepparents';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -62,6 +63,9 @@ class Parents extends ExtendedFamilyPart
     {
         foreach ($this->findBioparentsIndividuals($this->getProband()) as $parent) {
             $this->addIndividualToFamily($parent, self::GROUP_PARENTS_BIO);
+        }
+        foreach ($this->findSocialparentsIndividuals($this->getProband()) as $parent) {
+            $this->addIndividualToFamily($parent, self::GROUP_PARENTS_SOCIAL);
         }
         foreach ($this->findStepparentsIndividuals($this->getProband()) as $stepparent) {
             $this->addIndividualToFamily($stepparent, self::GROUP_PARENTS_STEP);

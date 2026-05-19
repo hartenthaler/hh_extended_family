@@ -35,8 +35,8 @@ use Fisharebest\Webtrees\Individual;
  */
 class Uncles_and_aunts extends ExtendedFamilyPart
 {
-    public const GROUP_UNCLEAUNT_FATHER  = 'Siblings of father';
-    public const GROUP_UNCLEAUNT_MOTHER  = 'Siblings of mother';
+    public const GROUP_UNCLEAUNT_FATHER  = 'Siblings and half siblings of father';
+    public const GROUP_UNCLEAUNT_MOTHER  = 'Siblings and half siblings of mother';
 
     public const GROUP_UNCLEAUNT_FULL_BIO  = 'Full siblings of biological parents';
 

@@ -36,6 +36,12 @@ class Grandparents extends ExtendedFamilyPart
     public const GROUP_GRANDPARENTS_MOTHER_STEP  = 'Stepparents of mother';
     public const GROUP_GRANDPARENTS_U_STEP       = 'Stepparents of parent';
     public const GROUP_GRANDPARENTS_STEP_PARENTS = 'Parents of stepparent';
+    public const GROUP_GRANDPARENTS_FATHER_SOCIAL = 'Social parents of father';
+    public const GROUP_GRANDPARENTS_MOTHER_SOCIAL = 'Social parents of mother';
+    public const GROUP_GRANDPARENTS_U_SOCIAL      = 'Social parents of parent';
+    public const GROUP_GRANDPARENTS_SOCIAL_FATHER = 'Parents of social father';
+    public const GROUP_GRANDPARENTS_SOCIAL_MOTHER = 'Parents of social mother';
+    public const GROUP_GRANDPARENTS_SOCIAL_PARENT = 'Parents of social parent';
 
     // used for relationshipCoefficientComment
     public const GROUP_GRANDPARENTS_BIO          = 'Biological grandparents';
@@ -78,10 +84,17 @@ class Grandparents extends ExtendedFamilyPart
                         'F' => self::GROUP_GRANDPARENTS_MOTHER_STEP,
                         'U' => self::GROUP_GRANDPARENTS_U_STEP,
                         'X' => self::GROUP_GRANDPARENTS_U_STEP
+                      ],
+            'social' => [
+                        'M' => self::GROUP_GRANDPARENTS_FATHER_SOCIAL,
+                        'F' => self::GROUP_GRANDPARENTS_MOTHER_SOCIAL,
+                        'U' => self::GROUP_GRANDPARENTS_U_SOCIAL,
+                        'X' => self::GROUP_GRANDPARENTS_U_SOCIAL
                       ]
             ]
         );
         $this->addFamilyBranches($config);
+        $this->addParentsOfSocialParents();
 
         // add biological parents and stepparents of stepparents
         foreach ($this->findStepparentsIndividuals($this->getProband()) as $stepparent) {
@@ -94,5 +107,32 @@ class Grandparents extends ExtendedFamilyPart
                 $this->addIndividualToFamily($grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS);
             }
         }
+    }
+
+    /**
+     * Add parents of social parents without treating them as biological grandparents.
+     */
+    private function addParentsOfSocialParents(): void
+    {
+        foreach ($this->findSocialparentsIndividuals($this->getProband()) as $socialParent) {
+            foreach ($this->findParentsIndividuals($socialParent->getIndividual()) as $parent) {
+                $parent->setReferencePerson(1, $socialParent->getIndividual());
+                $this->addIndividualToFamily($parent, $this->socialParentGroupName($socialParent->getIndividual()));
+            }
+        }
+    }
+
+    /**
+     * Get group name for parents of social parents.
+     */
+    private function socialParentGroupName($socialParent): string
+    {
+        if ($socialParent->sex() === 'M') {
+            return self::GROUP_GRANDPARENTS_SOCIAL_FATHER;
+        }
+        if ($socialParent->sex() === 'F') {
+            return self::GROUP_GRANDPARENTS_SOCIAL_MOTHER;
+        }
+        return self::GROUP_GRANDPARENTS_SOCIAL_PARENT;
     }
 }

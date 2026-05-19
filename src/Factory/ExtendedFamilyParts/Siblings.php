@@ -37,6 +37,7 @@ class Siblings extends ExtendedFamilyPart
 {
     public const GROUP_SIBLINGS_FULL = 'Full siblings';
     public const GROUP_SIBLINGS_HALF = 'Half siblings';                         // including more than half siblings (if parents are related to each other)
+    public const GROUP_SIBLINGS_SOCIAL = 'Social siblings';
     public const GROUP_SIBLINGS_STEP = 'Stepsiblings';
 
     /**
@@ -65,17 +66,26 @@ class Siblings extends ExtendedFamilyPart
     protected function addEfpMembers()
     {
         foreach ($this->getProband()->childFamilies() as $family) {                                 // Gen  1 F
-            foreach ($family->children() as $sibling_full) {                                    // Gen  0 P
-                if ($sibling_full->xref() !== $this->getProband()->xref()) {
-                    $this->addIndividualToFamily(new IndividualFamily($sibling_full, $family), self::GROUP_SIBLINGS_FULL);
+            foreach ($family->children() as $sibling) {                                             // Gen  0 P
+                if ($sibling->xref() === $this->getProband()->xref()) {
+                    continue;
+                }
+
+                if ($this->isBiologicalChildInFamily($this->getProband(), $family) && $this->isBiologicalChildInFamily($sibling, $family)) {
+                    $this->addIndividualToFamily(new IndividualFamily($sibling, $family), self::GROUP_SIBLINGS_FULL);
+                } elseif ($this->isSocialChildInFamily($this->getProband(), $family) || $this->isSocialChildInFamily($sibling, $family)) {
+                    $this->addIndividualToFamily(new IndividualFamily($sibling, $family), self::GROUP_SIBLINGS_SOCIAL);
                 }
             }
         }
         foreach ($this->getProband()->childFamilies() as $family1) {                                // Gen  1 F
+            if (!$this->isBiologicalChildInFamily($this->getProband(), $family1)) {
+                continue;
+            }
             foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
                 foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
                     foreach ($family2->children() as $sibling_half) {                           // Gen  0 P
-                        if ($sibling_half->xref() !== $this->getProband()->xref()) {
+                        if ($sibling_half->xref() !== $this->getProband()->xref() && $family2->xref() !== $family1->xref() && $this->isBiologicalChildInFamily($sibling_half, $family2)) {
                             $this->addIndividualToFamily(new IndividualFamily($sibling_half, $family1), self::GROUP_SIBLINGS_HALF);
                         }
                     }
