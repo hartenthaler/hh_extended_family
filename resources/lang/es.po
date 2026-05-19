@@ -1,12 +1,17 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 21:44+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
+"Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:315
 msgid "Rada"
@@ -155,8 +160,7 @@ msgstr "%s tiene un bisabuelo registrado."
 msgid "%s has one great-grandparent of unknown sex recorded."
 msgstr "%s tiene un bisabuelo/a registrado."
 
-#: resources/views/tab.phtml:151
-#, fuzzy, php-format
+# Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d great-grandmother recorded."
 msgid_plural "%2$s has %1$d great-grandmothers recorded."
 msgstr[0] "%2$s tiene %1$d bisabuela."
@@ -681,8 +685,7 @@ msgid_plural "%2$s has %1$d co-mothers-in-law and "
 msgstr[0] "%2$s tiene %1$d consuegra y "
 msgstr[1] "%2$s tiene %1$d consuegras y "
 
-#: resources/views/tab.phtml:357
-#, fuzzy, php-format
+# Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d co-father-in-law, "
 msgid_plural "%2$s has %1$d co-fathers-in-law, "
 msgstr[0] "%2$s tiene %1$d consuegro, "
@@ -1778,9 +1781,10 @@ msgstr[0] "The extended family has only %1$s as a member."
 msgstr[1] "The extended family of %1$s has %2$d members (including %1$s)."
 
 #: resources/views/tab.phtml:1120
-#, fuzzy
 msgid "(additional members of the partner chains are not counted)"
-msgstr "%s no tiene registrados miembros en la cadena familiar."
+msgstr ""
+"\"(no son contados miembros adicionales de las ramas familiares de las "
+"parejas)\""
 
 #: resources/views/tab.phtml:1122
 msgid "Some of them are member in more than one part of the extended family."
@@ -1998,102 +2002,120 @@ msgid "Use the compact design"
 msgstr "Usar el diseño compacto"
 
 #: resources/views/settings.phtml:200
-#, fuzzy
 msgid "Show a button \"copy to clippings cart\"?"
-msgstr "copy to clippings cart"
+msgstr ""
 
-#: resources/views/settings.phtml:201
-#, fuzzy
+#: resources/views/settings.phtml:201 resources/views/settings.phtml:225
 msgid ""
 "This allows a user to copy all members of the extended family to the "
 "clippings cart."
-msgstr "copy all members of the extended family to the clippings cart"
+msgstr ""
 
 #: resources/views/settings.phtml:206
-#, fuzzy
 msgid "Show button"
-msgstr "Mostrar los filtros"
+msgstr ""
 
 #: resources/views/settings.phtml:216
 msgid "save"
 msgstr ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Extended family"
 msgstr "Familia extendida"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "A tab showing the extended family of an individual."
 msgstr "Esta pestaña muestra todos los vinculos familiares de una persona"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "no, but collect messages about empty blocks at the end"
-msgstr "No mostrar bloques sin información, pero poner una descripcción de los bloques que faltan al final"
+msgstr ""
+"No mostrar bloques sin información, pero poner una descripcción de los "
+"bloques que faltan al final"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "don't use this filter"
 msgstr "No usar este filtro"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a dead person"
 msgstr "eine verstorbende Person"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a living person"
 msgstr "eine lebende Person"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a male person"
 msgstr "No es un hombre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a female person"
 msgstr "No es una mujer"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a person of unknown gender"
 msgstr "No es una persona de género desconocido"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "twin"
 msgstr "Mellizo"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "triplet"
 msgstr "Trillizo"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quadruplet"
 msgstr "cuatrillizo"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quintuplet"
 msgstr "Quintillizo"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "sextuplet"
 msgstr "Sextillizo"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "septuplet"
 msgstr "Septillizo"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "octuplet"
 msgstr "Octillizo"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "nonuplet"
 msgstr "Nonallizos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "decuplet"
 msgstr "Decillizos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage challenged"
 msgstr "Disputa para ser reconocido"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage disproven"
 msgstr "No reconocido"
@@ -2102,314 +2124,376 @@ msgstr "No reconocido"
 msgid "linkage proven"
 msgstr "Reconocido"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Marriage"
 msgstr "Matrimonio"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Ex-marriage"
 msgstr "Ex-matrimonio"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Fiancée"
 msgstr "Novia"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of father"
 msgstr "Abuelos biol&oacute;gicos del padre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of mother"
 msgstr "Abuelos biol&oacute;gicos de la madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of parent"
 msgstr "Abuelos biol&oacute;gicos de los padres"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological parent of father"
 msgstr "Padrastos del padre biol&oacute;gico"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological parent of mother"
 msgstr "Padrastros del padre biol&oacute;gico de la madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological grandparent"
 msgstr "Padrastros del abuelo biol&oacute;gico"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of father"
 msgstr "Padres del padrasto o de la madrasta"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of mother"
 msgstr "Padres del padrastro de la madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of parent"
 msgstr "Padres del padrastro de la madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandparents of stepparent"
 msgstr "Abuelos de los padrastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological great-grandparents"
 msgstr "Bisabuelos biolbiol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of father"
 msgstr "Abuelos biol&oacute;gicos por parte de padre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of mother"
 msgstr "Abuelos biol&oacute;gicos por parte de madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of parent"
 msgstr "Padres biol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of father"
 msgstr "Padrastros del padre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of mother"
 msgstr "Padrastros de la madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of parent"
 msgstr "Padrastros de los padres"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent"
 msgstr "Padres de padrastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of father"
 msgstr "Hermanos del padre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of mother"
 msgstr "Hermanos de la madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Full siblings of biological parents"
 msgstr "Relaci&oacute; completa de hermanos de los padres biol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law of father"
 msgstr "Hermanos políticos del padre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law of mother"
 msgstr "Hermanos políticos de la madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents"
 msgstr "Padres biolbiol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents"
 msgstr "Padrastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law of biological children"
 msgstr "Suegros de sus hijos/as biol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law of stepchildren"
 msgstr "Consuegros/as de hijastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Full siblings"
 msgstr "Todos los hermanos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Half siblings"
 msgstr "Cuñados y cuñadas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepsiblings"
 msgstr "Hermanastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of father"
 msgstr "Primos y primas por parte de padre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of mother"
 msgstr "Primos y primas por parte de madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of parent"
 msgstr "Primos y primas por parte de padres"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of father"
 msgstr "Hijos de medio hermanos del padre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of mother"
 msgstr "Hijos de medio hermanos de la madre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of parent"
 msgstr "Hijos de medio hermanos de los padres"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of partners"
 msgstr "Hermanos/as del cónyuge"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of siblings"
 msgstr "Cónyugues de sus hermanos/as"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of siblings-in-law"
 msgstr "Concuñados/as"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of siblings-in-law"
 msgstr "Cónyuges de sus cuñados y cuñadas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of biological parents"
 msgstr "Relaci&oacute; de hijos de hermanos de los padres biol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of siblings"
 msgstr "Hijos de hermanos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings"
 msgstr "Hijos de los hermanos mayores"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings' stepchildren"
 msgstr "Hijastros de hermanos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of siblings of partners"
 msgstr "Hijos de los hermanos del cónyuge"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological children"
 msgstr "Hijos biol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren"
 msgstr "Hijastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of biological children"
 msgstr "Cónyuges de los hijos biol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren"
 msgstr "Cónyuge de hijastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandchildren"
 msgstr "Nietos biol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren of children"
 msgstr "Hijastros/as"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of stepchildren"
 msgstr "Hijos de hijastros/as"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren of stepchildren"
 msgstr "Hijastro/a de hijastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of biological grandchildren"
 msgstr "Parejas de los nietos biol&oacute;gicos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren of children"
 msgstr "Parejas de los hijos de los nietos"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of children of stepchildren"
 msgstr "Parejas de los hijos de hijastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren of stepchildren"
 msgstr "Parejas de los hijastros"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Father's family (%d)"
 msgstr "Familia del padre (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Mother's family (%d)"
 msgstr "Familia de la madre (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Father's and Mother's family (%d)"
 msgstr "Familia del padre y de la Madre (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Great-grandparents"
 msgstr "Bisabuelos y Bisabuelas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no great-grandparents recorded."
 msgstr "%s no tiene bisabuelos registrados."
 
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%2$s has %1$d great-grandmother recorded."
-msgid_plural "%2$s tiene %1$d bisabuelas registradas."
-msgstr[0] "%2$s tiene %1$d bisabuela."
-msgstr[1] "%2$s tiene %1$d bisabuelas registradas."
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandparents"
 msgstr "Abuelos y Abuelas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandparents recorded."
 msgstr "%s no tiene abuelos registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no parents recorded."
 msgstr "%s no tiene padres registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law"
 msgstr "Suegros y Suegras"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no parents-in-law recorded."
 msgstr "%s no tiene suegros registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Co-parents-in-law"
 msgstr "Consuegros y Consuegras"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no co-parents-in-law recorded."
 msgstr "%s no tiene consuegros registrados."
 
 # Migrated from ExtendedFamilyTranslations.php.old
-msgid "%2$s has %1$d co-father-in-law, "
-msgid_plural "%2$ has %1$d co-fathers-in-law, "
-msgstr[0] "%2$s tiene %1$d consuegro, "
-msgstr[1] "%2$s tiene %1$d consuegros, "
-
-# Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners"
 msgstr "Cónyuge"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no partners recorded."
 msgstr "%s no tiene cónyuge registrado."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d partner and "
 msgid_plural "%2$s has %1$d partners and "
@@ -2417,11 +2501,20 @@ msgstr[0] "%2$s tiene %1$d cónyuge y "
 msgstr[1] "%2$s tiene %1$d cónyuges y "
 
 # Migrated from ExtendedFamilyTranslations.php.old
-msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
-msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
-msgstr[0] "%1$d es pareja femenina en esta cadena de pareja registrada (%2$d en total, including %3$s)."
-msgstr[1] "%1$d parejas femeninas en esta cadena de parejas registradas (%2$d en total, including %3$s)."
+msgid ""
+"%1$d female partner in this partner chain recorded (%2$d in total, including "
+"%3$s)."
+msgid_plural ""
+"%1$d female partners in this partner chain recorded (%2$d in total, "
+"including %3$s)."
+msgstr[0] ""
+"%1$d es pareja femenina en esta cadena de pareja registrada (%2$d en total, "
+"including %3$s)."
+msgstr[1] ""
+"%1$d parejas femeninas en esta cadena de parejas registradas (%2$d en total, "
+"including %3$s)."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%d female partner and "
 msgid_plural "%d female partners and "
@@ -2432,26 +2525,32 @@ msgstr[1] "%d female partner and"
 msgid "Siblings"
 msgstr "Hermanos y Hermanas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no siblings recorded."
 msgstr "%s no tiene hermanos/as registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law"
 msgstr "Cuñados y Cuñadas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no siblings-in-law recorded."
 msgstr "%s no tiene cuñados/as registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Co-siblings-in-law"
 msgstr "Concuñados y Concuñadas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no co-siblings-in-law recorded."
 msgstr "%s no tiene concuñados/as registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Cousins"
 msgstr "Primos y Primas"
@@ -2460,371 +2559,52 @@ msgstr "Primos y Primas"
 msgid "Children"
 msgstr "Hijos e Hijas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no children recorded."
 msgstr "%s no tiene hijos registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children-in-law"
 msgstr "Hijos/as políticos/as (Yerno/Nuera)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no children-in-law recorded."
 msgstr "%s no tienes hijos políticos (yernos) registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d child-in-law recorded."
 msgid_plural "%2$s has %1$d children-in-law recorded."
 msgstr[0] "%2$s tiene %1$d yerno/nuera registrado/a."
 msgstr[1] "%2$s tiene %1$d yernos/nueras registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandchildren"
 msgstr "Nietos y Nietas"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandchildren recorded."
 msgstr "%s no tiene nietos registrados."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandchildren-in-law"
 msgstr "Nietos/as políticos/as"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandchildren-in-law recorded."
 msgstr "%s no aparecen nietos politicos."
 
-#~ msgid "Extended family"
-#~ msgstr "Familia extendida"
-
-#~ msgid "A tab showing the extended family of an individual."
-#~ msgstr "Esta pestaña muestra todos los vinculos familiares de una persona"
-
-#~ msgid "don't use this filter"
-#~ msgstr "No usar este filtro"
-
-#~ msgid "a dead person"
-#~ msgstr "eine verstorbende Person"
-
-#~ msgid "a living person"
-#~ msgstr "eine lebende Person"
-
-#~ msgid "not a male person"
-#~ msgstr "No es un hombre"
-
-#~ msgid "not a female person"
-#~ msgstr "No es una mujer"
-
-#~ msgid "not a person of unknown gender"
-#~ msgstr "No es una persona de género desconocido"
-
-#~ msgid "twin"
-#~ msgstr "Mellizo"
-
-#~ msgid "triplet"
-#~ msgstr "Trillizo"
-
-#~ msgid "quadruplet"
-#~ msgstr "cuatrillizo"
-
-#~ msgid "quintuplet"
-#~ msgstr "Quintillizo"
-
-#~ msgid "sextuplet"
-#~ msgstr "Sextillizo"
-
-#~ msgid "septuplet"
-#~ msgstr "Septillizo"
-
-#~ msgid "octuplet"
-#~ msgstr "Octillizo"
-
-#~ msgid "nonuplet"
-#~ msgstr "Nonallizos"
-
-#~ msgid "decuplet"
-#~ msgstr "Decillizos"
-
-#~ msgid "linkage challenged"
-#~ msgstr "Disputa para ser reconocido"
-
-#~ msgid "linkage disproven"
-#~ msgstr "No reconocido"
-
-#~ msgid "Marriage"
-#~ msgstr "Matrimonio"
-
-#~ msgid "Ex-marriage"
-#~ msgstr "Ex-matrimonio"
-
-#~ msgid "Fiancée"
-#~ msgstr "Novia"
-
-#~ msgid "Biological grandparents of father"
-#~ msgstr "Abuelos biol&oacute;gicos del padre"
-
-#~ msgid "Biological grandparents of mother"
-#~ msgstr "Abuelos biol&oacute;gicos de la madre"
-
-#~ msgid "Biological grandparents of parent"
-#~ msgstr "Abuelos biol&oacute;gicos de los padres"
-
-#~ msgid "Stepparents of biological parent of father"
-#~ msgstr "Padrastos del padre biol&oacute;gico"
-
-#~ msgid "Stepparents of biological parent of mother"
-#~ msgstr "Padrastros del padre biol&oacute;gico de la madre"
-
-#~ msgid "Stepparents of biological grandparent"
-#~ msgstr "Padrastros del abuelo biol&oacute;gico"
-
-#~ msgid "Parents of stepparent of father"
-#~ msgstr "Padres del padrasto o de la madrasta"
-
-#~ msgid "Parents of stepparent of mother"
-#~ msgstr "Padres del padrastro de la madre"
-
-#~ msgid "Parents of stepparent of parent"
-#~ msgstr "Padres del padrastro de la madre"
-
-#~ msgid "Grandparents of stepparent"
-#~ msgstr "Abuelos de los padrastros"
-
-#~ msgid "Biological great-grandparents"
-#~ msgstr "Bisabuelos biolbiol&oacute;gicos"
-
-#~ msgid "Biological parents of father"
-#~ msgstr "Abuelos biol&oacute;gicos por parte de padre"
-
-#~ msgid "Biological parents of mother"
-#~ msgstr "Abuelos biol&oacute;gicos por parte de madre"
-
-#~ msgid "Biological parents of parent"
-#~ msgstr "Padres biol&oacute;gicos"
-
-#~ msgid "Stepparents of father"
-#~ msgstr "Padrastros del padre"
-
-#~ msgid "Stepparents of mother"
-#~ msgstr "Padrastros de la madre"
-
-#~ msgid "Stepparents of parent"
-#~ msgstr "Padrastros de los padres"
-
-#~ msgid "Parents of stepparent"
-#~ msgstr "Padres de padrastros"
-
-#~ msgid "Siblings of father"
-#~ msgstr "Hermanos del padre"
-
-#~ msgid "Siblings of mother"
-#~ msgstr "Hermanos de la madre"
-
-#~ msgid "Full siblings of biological parents"
-#~ msgstr "Relaci&oacute; completa de hermanos de los padres biol&oacute;gicos"
-
-#~ msgid "Siblings-in-law of father"
-#~ msgstr "Hermanos políticos del padre"
-
-#~ msgid "Siblings-in-law of mother"
-#~ msgstr "Hermanos políticos de la madre"
-
-#~ msgid "Biological parents"
-#~ msgstr "Padres biolbiol&oacute;gicos"
-
-#~ msgid "Stepparents"
-#~ msgstr "Padrastros"
-
-#~ msgid "Parents-in-law of biological children"
-#~ msgstr "Suegros de sus hijos/as biol&oacute;gicos"
-
-#~ msgid "Parents-in-law of stepchildren"
-#~ msgstr "Consuegros/as de hijastros"
-
-#~ msgid "Full siblings"
-#~ msgstr "Todos los hermanos"
-
-#~ msgid "Half siblings"
-#~ msgstr "Cuñados y cuñadas"
-
-#~ msgid "Stepsiblings"
-#~ msgstr "Hermanastros"
-
-#~ msgid "Children of full siblings of father"
-#~ msgstr "Primos y primas por parte de padre"
-
-#~ msgid "Children of full siblings of mother"
-#~ msgstr "Primos y primas por parte de madre"
-
-#~ msgid "Children of full siblings of parent"
-#~ msgstr "Primos y primas por parte de padres"
-
-#~ msgid "Children of half siblings of father"
-#~ msgstr "Hijos de medio hermanos del padre"
-
-#~ msgid "Children of half siblings of mother"
-#~ msgstr "Hijos de medio hermanos de la madre"
-
-#~ msgid "Children of half siblings of parent"
-#~ msgstr "Hijos de medio hermanos de los padres"
-
-#~ msgid "Siblings of partners"
-#~ msgstr "Hermanos/as del cónyuge"
-
-#~ msgid "Partners of siblings"
-#~ msgstr "Cónyugues de sus hermanos/as"
-
-#~ msgid "Siblings of siblings-in-law"
-#~ msgstr "Concuñados/as"
-
-#~ msgid "Partners of siblings-in-law"
-#~ msgstr "Cónyuges de sus cuñados y cuñadas"
-
-#~ msgid "Children of full siblings of biological parents"
-#~ msgstr "Relaci&oacute; de hijos de hermanos de los padres biol&oacute;gicos"
-
-#~ msgid "Children of siblings"
-#~ msgstr "Hijos de hermanos"
-
-#~ msgid "Children of full siblings"
-#~ msgstr "Hijos de los hermanos mayores"
-
-#~ msgid "Siblings' stepchildren"
-#~ msgstr "Hijastros de hermanos"
-
-#~ msgid "Children of siblings of partners"
-#~ msgstr "Hijos de los hermanos del cónyuge"
-
-#~ msgid "Biological children"
-#~ msgstr "Hijos biol&oacute;gicos"
-
-#~ msgid "Stepchildren"
-#~ msgstr "Hijastros"
-
-#~ msgid "Partners of biological children"
-#~ msgstr "Cónyuges de los hijos biol&oacute;gicos"
-
-#~ msgid "Partners of stepchildren"
-#~ msgstr "Cónyuge de hijastros"
-
-#~ msgid "Biological grandchildren"
-#~ msgstr "Nietos biol&oacute;gicos"
-
-#~ msgid "Stepchildren of children"
-#~ msgstr "Hijastros/as"
-
-#~ msgid "Children of stepchildren"
-#~ msgstr "Hijos de hijastros/as"
-
-#~ msgid "Stepchildren of stepchildren"
-#~ msgstr "Hijastro/a de hijastros"
-
-#~ msgid "Partners of biological grandchildren"
-#~ msgstr "Parejas de los nietos biol&oacute;gicos"
-
-#~ msgid "Partners of stepchildren of children"
-#~ msgstr "Parejas de los hijos de los nietos"
-
-#~ msgid "Partners of children of stepchildren"
-#~ msgstr "Parejas de los hijos de hijastros"
-
-#~ msgid "Partners of stepchildren of stepchildren"
-#~ msgstr "Parejas de los hijastros"
-
-#~ msgid "Father's family (%d)"
-#~ msgstr "Familia del padre (%d)"
-
-#~ msgid "Mother's family (%d)"
-#~ msgstr "Familia de la madre (%d)"
-
-#~ msgid "Father's and Mother's family (%d)"
-#~ msgstr "Familia del padre y de la Madre (%d)"
-
-#~ msgid "Great-grandparents"
-#~ msgstr "Bisabuelos y Bisabuelas"
-
-#~ msgid "%s has no great-grandparents recorded."
-#~ msgstr "%s no tiene bisabuelos registrados."
-
-#~ msgid "Grandparents"
-#~ msgstr "Abuelos y Abuelas"
-
-#~ msgid "%s has no grandparents recorded."
-#~ msgstr "%s no tiene abuelos registrados."
-
-#~ msgid "%s has no parents recorded."
-#~ msgstr "%s no tiene padres registrados."
-
-#~ msgid "Parents-in-law"
-#~ msgstr "Suegros y Suegras"
-
-#~ msgid "%s has no parents-in-law recorded."
-#~ msgstr "%s no tiene suegros registrados."
-
-#~ msgid "Co-parents-in-law"
-#~ msgstr "Consuegros y Consuegras"
-
-#~ msgid "%s has no co-parents-in-law recorded."
-#~ msgstr "%s no tiene consuegros registrados."
-
-#~ msgid "%s has no partners recorded."
-#~ msgstr "%s no tiene cónyuge registrado."
-
-#~ msgid "%2$s has %1$d partner and "
-#~ msgid_plural "%2$s has %1$d partners and "
-#~ msgstr[0] "%2$s tiene %1$d cónyuge y "
-#~ msgstr[1] "%2$s tiene %1$d cónyuges y "
-
-#~ msgid "%d female partner and "
-#~ msgid_plural "%d female partners and "
-#~ msgstr[0] "%d pareja femenina y "
-#~ msgstr[1] "%d female partner and"
-
-#~ msgid "%s has no siblings recorded."
-#~ msgstr "%s no tiene hermanos/as registrados."
-
-#~ msgid "Siblings-in-law"
-#~ msgstr "Cuñados y Cuñadas"
-
-#~ msgid "%s has no siblings-in-law recorded."
-#~ msgstr "%s no tiene cuñados/as registrados."
-
-#~ msgid "Co-siblings-in-law"
-#~ msgstr "Concuñados y Concuñadas"
-
-#~ msgid "%s has no co-siblings-in-law recorded."
-#~ msgstr "%s no tiene concuñados/as registrados."
-
-#~ msgid "Cousins"
-#~ msgstr "Primos y Primas"
-
-#~ msgid "%s has no children recorded."
-#~ msgstr "%s no tiene hijos registrados."
-
-#~ msgid "Children-in-law"
-#~ msgstr "Hijos/as políticos/as (Yerno/Nuera)"
-
-#~ msgid "%s has no children-in-law recorded."
-#~ msgstr "%s no tienes hijos políticos (yernos) registrados."
-
-#~ msgid "%2$s has %1$d child-in-law recorded."
-#~ msgid_plural "%2$s has %1$d children-in-law recorded."
-#~ msgstr[0] "%2$s tiene %1$d yerno/nuera registrado/a."
-#~ msgstr[1] "%2$s tiene %1$d yernos/nueras registrados."
-
-#~ msgid "Grandchildren"
-#~ msgstr "Nietos y Nietas"
-
-#~ msgid "%s has no grandchildren recorded."
-#~ msgstr "%s no tiene nietos registrados."
-
-#~ msgid "Grandchildren-in-law"
-#~ msgstr "Nietos/as políticos/as"
-
-#~ msgid "%s has no grandchildren-in-law recorded."
-#~ msgstr "%s no aparecen nietos politicos."
 #: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
-msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgid ""
+"The custom module “huhwt-cce” is not available. The button “copy to "
+"clippings cart” will use the internal Extended Family action."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:756
@@ -2836,7 +2616,8 @@ msgid "The selected individual could not be found."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:788
-msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgid ""
+"The extended family has been copied to the clippings cart. New entries: %s"
 msgstr ""
 
 #: resources/views/settings.phtml:247
@@ -2846,9 +2627,3 @@ msgstr ""
 #: resources/views/settings.phtml:250
 msgid "huhwt-cce (recommended)"
 msgstr ""
-
-#: resources/views/settings.phtml:225
-msgid "This allows a user to copy all members of the extended family to the clippings cart."
-msgstr ""
-
-
