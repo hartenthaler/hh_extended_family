@@ -35,7 +35,7 @@ msgstr "Tíos y tías políticos/as"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:428
 msgid "Partner chains"
-msgstr "cadena de miembros familiares"
+msgstr "Cadena de miembros familiares"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:430
 msgid "Nephews and Nieces"
@@ -148,7 +148,7 @@ msgstr "sin relaci&oacute;n de consanguinidad"
 #: resources/views/tab.phtml:143
 #, php-format
 msgid "%s has one great-grandmother recorded."
-msgstr "%s tiene una bisabuela registrada"
+msgstr "%s tiene una bisabuela registrada."
 
 #: resources/views/tab.phtml:145
 #, php-format
@@ -371,8 +371,8 @@ msgstr[1] "%2$s tiene %1$d tías y "
 #, php-format
 msgid "%2$s has %1$d uncle, "
 msgid_plural "%2$s has %1$d uncles, "
-msgstr[0] "%2$s tiene %1$d tío"
-msgstr[1] "%2$s tiene %1$d tíos "
+msgstr[0] "%2$s tiene %1$d tío, "
+msgstr[1] ",%2$s tiene %1$d tíos, "
 
 #: resources/views/tab.phtml:229
 #, php-format
@@ -473,9 +473,9 @@ msgid "%s has one father recorded."
 msgstr "%s tiene un padre registrado."
 
 #: resources/views/tab.phtml:271
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one parent of unknown sex recorded."
-msgstr "tiene registrado un progenitor/a."
+msgstr "%s tiene registrado un progenitor/a."
 
 #: resources/views/tab.phtml:275
 #, php-format
@@ -611,7 +611,7 @@ msgstr[1] "%2$s tiene %1$d suegras y "
 msgid "%2$s has %1$d father-in-law, "
 msgid_plural "%2$s has %1$d fathers-in-law, "
 msgstr[0] "%2$s tiene %1$d suegro registrado, "
-msgstr[1] "Para %2$s tiene %1$d suegros registrados,"
+msgstr[1] "Para %2$s tiene %1$d suegros registrados, "
 
 #: resources/views/tab.phtml:327
 #, php-format
@@ -631,9 +631,9 @@ msgid "%s has one co-father-in-law recorded."
 msgstr "%s tiene un consuegro registrado."
 
 #: resources/views/tab.phtml:338
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one co-parent-in-law of unknown sex recorded."
-msgstr "tiene registrado un consuegro/a."
+msgstr "%s tiene registrado un consuegro/a."
 
 #: resources/views/tab.phtml:342
 #, php-format
@@ -798,12 +798,8 @@ msgstr[1] "%d cónyuges registrados (%d en total)."
 #, fuzzy, php-format
 msgid "%d female partner in this partner chain recorded"
 msgid_plural "%d female partners in this partner chain recorded"
-msgstr[0] ""
-"%1$d es pareja femenina en esta cadena de pareja registrada (%2$d en total, "
-"including %3$s)."
-msgstr[1] ""
-"%1$d parejas femeninas en esta cadena de parejas registradas (%2$d en total, "
-"including %3$s)."
+msgstr[0] "%1$d es pareja femenina en esta cadena de pareja registrada"
+msgstr[1] "%1$d parejas femeninas en esta cadena de parejas registradas"
 
 #: resources/views/tab.phtml:408 resources/views/tab.phtml:412
 #: resources/views/tab.phtml:416 resources/views/tab.phtml:421
@@ -816,23 +812,17 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d male partner in this partner chain recorded"
 msgid_plural "%d male partners in this partner chain recorded"
-msgstr[0] ""
-"%1$d es pareja femenina en esta cadena de pareja registrada (%2$d en total, "
-"including %3$s)."
-msgstr[1] ""
-"%1$d parejas femeninas en esta cadena de parejas registradas (%2$d en total, "
-"including %3$s)."
+msgstr[0] "%1$d es pareja femenina en esta cadena de pareja registrada"
+msgstr[1] "%1$d parejas femeninas en esta cadena de parejas registradas"
 
 #: resources/views/tab.phtml:415
 #, fuzzy, php-format
 msgid "%d partner of unknown sex in this partner chain recorded"
 msgid_plural "%d partners of unknown sex in this partner chain recorded"
 msgstr[0] ""
-"%1$dpareja de sexo no identificado en esta cadena de pareja registrada (%2$d "
-"en total, including %3$s)."
+"%d pareja de sexo no identificado en esta cadena de pareja registrada"
 msgstr[1] ""
-"%1$d parejas de sexo no identificado en esta cadena de parejas registradas "
-"(%2$d en total, including %3$s)."
+"%d parejas de sexo no identificado en esta cadena de parejas registradas"
 
 #: resources/views/tab.phtml:420
 #, fuzzy, php-format
@@ -840,11 +830,9 @@ msgid "%1$d female partner in this partner chain recorded (%2$d in total"
 msgid_plural ""
 "%1$d female partners in this partner chain recorded (%2$d in total"
 msgstr[0] ""
-"%1$d es pareja femenina en esta cadena de pareja registrada (%2$d en total, "
-"including %3$s)."
+"%1$d es pareja femenina en esta cadena de pareja registrada (%2$d en total"
 msgstr[1] ""
-"%1$d parejas femeninas en esta cadena de parejas registradas (%2$d en total, "
-"including %3$s)."
+"%1$d parejas femeninas en esta cadena de parejas registradas (%2$d en total"
 
 #: resources/views/tab.phtml:425 resources/views/tab.phtml:430
 #, fuzzy, php-format
@@ -854,10 +842,10 @@ msgid_plural ""
 "%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
 msgstr[0] ""
 "%1$dpareja de sexo no identificado en esta cadena de pareja registrada (%2$d "
-"en total, including %3$s)."
+"en total"
 msgstr[1] ""
 "%1$d parejas de sexo no identificado en esta cadena de parejas registradas "
-"(%2$d en total, including %3$s)."
+"(%2$d en total"
 
 #: resources/views/tab.phtml:436
 #, php-format
@@ -877,7 +865,7 @@ msgstr[1] ""
 #: resources/views/tab.phtml:440
 #, fuzzy, php-format
 msgid "There are %d branches in the partner chain. "
-msgstr "Hay ramificaciones en la cadena de miembros."
+msgstr "There are %d branches in the partner chain. "
 
 #: resources/views/tab.phtml:442
 #, php-format
@@ -885,7 +873,7 @@ msgid ""
 "The longest branch in the partner chain to %2$s consists of %1$d partners "
 "(including %3$s)."
 msgstr ""
-"La rama m᳠larga de la cadena de miembros de %2$s consta de %1$d individuos "
+"La rama m larga de la cadena de miembros de %2$s consta de %1$d individuos "
 "(incluyendo %3$s)."
 
 #: resources/views/tab.phtml:444
@@ -894,7 +882,7 @@ msgid ""
 "The longest branch in the partner chain consists of %1$d partners (including "
 "%2$s)."
 msgstr ""
-"La rama m᳠larga de la cadena de miembros estᠦormada por %1$d individuos "
+"La rama m larga de la cadena de miembros est ormada por %1$d individuos "
 "(incluyendo %2$s)."
 
 #: resources/views/tab.phtml:451
@@ -910,7 +898,7 @@ msgstr "%s tiene un  hermano registrado."
 #: resources/views/tab.phtml:455
 #, php-format
 msgid "%s has one sibling of unknown sex recorded."
-msgstr "%s tiene un hermano/a registrados"
+msgstr ""
 
 #: resources/views/tab.phtml:459
 #, php-format
@@ -930,8 +918,8 @@ msgstr[1] "%2$s tiene %1$d hermanos registrados."
 #, php-format
 msgid "%2$s has %1$d sibling of unknown sex recorded."
 msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
-msgstr[0] "%2$s tiene a %1$d de hermano/a."
-msgstr[1] "%2$s tiene %1$d hermanos/as registrados."
+msgstr[0] ""
+msgstr[1] ""
 
 #: resources/views/tab.phtml:465 resources/views/tab.phtml:468
 #, php-format
@@ -952,8 +940,8 @@ msgstr[1] "%d hermanas registrados/as (%d en total)."
 #, php-format
 msgid "%d sibling of unknown sex recorded (%d in total)."
 msgid_plural "%d siblings of unknown sex recorded (%d in total)."
-msgstr[0] "%d hermano/a registrado (%d en total)."
-msgstr[1] "%d hermanos/as registrados %d en total)."
+msgstr[0] ""
+msgstr[1] ""
 
 #: resources/views/tab.phtml:471
 #, php-format
@@ -989,7 +977,7 @@ msgstr "%s un cuñado registrado."
 #: resources/views/tab.phtml:491
 #, php-format
 msgid "%s has one sibling-in-law of unknown sex recorded."
-msgstr "%s tiene un cuñado/a registrado."
+msgstr ""
 
 #: resources/views/tab.phtml:495
 #, php-format
@@ -1010,7 +998,7 @@ msgstr[1] "%2$s tiene %1$d cuñados registrados."
 msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
 msgstr[0] "%2$s tiene registrado %1$d cuñado/a."
-msgstr[1] "%2$s tiene %1$d suegos/asregistrados."
+msgstr[1] "%2$s tiene %1$d suegos/as registrados."
 
 #: resources/views/tab.phtml:501 resources/views/tab.phtml:504
 #, php-format
@@ -1154,7 +1142,7 @@ msgstr "%s tiene un primo/a registrado/a."
 msgid "%2$s has %1$d female first cousin recorded."
 msgid_plural "%2$s has %1$d female first cousins recorded."
 msgstr[0] "%2$s tiene %1$d prima registrada."
-msgstr[1] "%2$s tiene %1$d pºrimas registrados/as."
+msgstr[1] "%2$s tiene %1$d primas registrados/as."
 
 #: resources/views/tab.phtml:569
 #, php-format
@@ -1168,7 +1156,7 @@ msgstr[1] "%2$s tiene %1$d primos registrados."
 msgid "%2$s has %1$d first cousin of unknown sex recorded."
 msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
 msgstr[0] "%2$s tiene registrado %1$d primo/a hermano/a."
-msgstr[1] "%2$s tiene registrados %1$d primos/as hermanos/as"
+msgstr[1] "%2$s tiene registrados %1$d primos/as hermanos/as."
 
 #: resources/views/tab.phtml:573 resources/views/tab.phtml:576
 #, php-format
@@ -1523,11 +1511,11 @@ msgstr[0] "%2$s tiene %1$d nieto, "
 msgstr[1] "%2$s tiene %1$d nietos, "
 
 #: resources/views/tab.phtml:707
-#, fuzzy, php-format
+#, php-format
 msgid "%d granddaughter, and "
 msgid_plural "%d granddaughters, and "
 msgstr[0] "%d nieta y "
-msgstr[1] "d nietas y "
+msgstr[1] "%d nietas y "
 
 #: resources/views/tab.phtml:714
 #, php-format
@@ -1602,11 +1590,11 @@ msgstr[0] "%2$s tiene %1$d yerno político, "
 msgstr[1] "%2$s tiened %1$d yernos políticos, "
 
 #: resources/views/tab.phtml:738
-#, fuzzy, php-format
+#, php-format
 msgid "%d granddaughter-in-law, and "
 msgid_plural "%d granddaughters-in-law, and "
 msgstr[0] "%d nuera política y "
-msgstr[1] "d nueras políticas y "
+msgstr[1] "%d nueras políticas y "
 
 #: resources/views/tab.phtml:752
 msgid "Partner of "
@@ -1765,9 +1753,9 @@ msgid "%s has no nephews or nieces recorded."
 msgstr "%s no tiene sobrinos ni sobrinas registrados."
 
 #: resources/views/tab.phtml:1109
-#, fuzzy, php-format
+#, php-format
 msgid "%s has no "
-msgstr "%s no tiene %s registrados."
+msgstr "%s no tiene "
 
 #: resources/views/tab.phtml:1118
 msgid "Summary for the shown extended family"
@@ -1958,7 +1946,7 @@ msgid ""
 "children."
 msgstr ""
 "Las etiquetas se utilizan, por ejemplo, para personas adoptadas o niños de "
-"acogida. "
+"acogida."
 
 #: resources/views/settings.phtml:164
 msgid "Show labels"
@@ -2027,7 +2015,7 @@ msgstr "Familia extendida"
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "A tab showing the extended family of an individual."
-msgstr "Esta pestaña muestra todos los vinculos familiares de una persona"
+msgstr "Esta pestaña muestra todos los vinculos familiares de una persona."
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "no, but collect messages about empty blocks at the end"
@@ -2519,7 +2507,7 @@ msgstr[1] ""
 msgid "%d female partner and "
 msgid_plural "%d female partners and "
 msgstr[0] "%d pareja femenina y "
-msgstr[1] "%d female partner and"
+msgstr[1] ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings"
