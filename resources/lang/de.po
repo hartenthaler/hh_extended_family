@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Extended Family\n"
 "Report-Msgid-Bugs-To: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
-"POT-Creation-Date: 2026-05-20 00:32+0200\n"
+"POT-Creation-Date: 2026-05-20 16:44+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -2457,16 +2457,16 @@ msgstr "Es wurde keine Familie gefunden"
 #~ msgid "not a person of other or unknown gender"
 #~ msgstr "keine Person diversen oder unbekannten Geschlechts"
 
-#~ msgid "twin"
-#~ msgstr "Zwilling"
+msgid "twin"
+msgstr "Zwilling"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "triplet"
-#~ msgstr "Drilling"
+msgid "triplet"
+msgstr "Drilling"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "quadruplet"
-#~ msgstr "Vierling"
+msgid "quadruplet"
+msgstr "Vierling"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "quintuplet"

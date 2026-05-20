@@ -1,13 +1,18 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 21:44+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
+"Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:315
 msgid "Rada"
@@ -867,18 +872,12 @@ msgstr[1] "%d супруги супругов записанными (всего
 msgstr[2] "%d супруг супругов записанными (всего %d)."
 
 #: resources/views/tab.phtml:407
-#, fuzzy, php-format
+#, php-format
 msgid "%d female partner in this partner chain recorded"
 msgid_plural "%d female partners in this partner chain recorded"
 msgstr[0] ""
-"%1$d супругу записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
 msgstr[1] ""
-"%1$d супруги записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
 msgstr[2] ""
-"%1$d супруг записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
 
 #: resources/views/tab.phtml:408 resources/views/tab.phtml:412
 #: resources/views/tab.phtml:416 resources/views/tab.phtml:421
@@ -888,63 +887,42 @@ msgid "including %s"
 msgstr ""
 
 #: resources/views/tab.phtml:411
-#, fuzzy, php-format
+#, php-format
 msgid "%d male partner in this partner chain recorded"
 msgid_plural "%d male partners in this partner chain recorded"
 msgstr[0] ""
-"%1$d супругу записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
 msgstr[1] ""
-"%1$d супруги записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
 msgstr[2] ""
-"%1$d супруг записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
 
 #: resources/views/tab.phtml:415
-#, fuzzy, php-format
+#, php-format
 msgid "%d partner of unknown sex in this partner chain recorded"
 msgid_plural "%d partners of unknown sex in this partner chain recorded"
 msgstr[0] ""
-"%1$d супруга или супругу записанными в этой супружеской связи (всего %2$d, "
-"including %3$s)."
 msgstr[1] ""
-"%1$d супругов или супруги записанными в этой супружеской связи (всего %2$d, "
-"including %3$s)."
 msgstr[2] ""
-"%1$d супругов или супруг записанными в этой супружеской связи (всего %2$d, "
-"including %3$s)."
 
 #: resources/views/tab.phtml:420
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d female partner in this partner chain recorded (%2$d in total"
 msgid_plural ""
 "%1$d female partners in this partner chain recorded (%2$d in total"
-msgstr[0] ""
-"%1$d супругу записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
-msgstr[1] ""
-"%1$d супруги записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
-msgstr[2] ""
-"%1$d супруг записанными в этой супружеской связи (всего %2$d, including "
-"%3$s)."
+msgstr[0] "%1$d супругу записанными в этой супружеской связи (всего %2$d"
+msgstr[1] "%1$d супруги записанными в этой супружеской связи (всего %2$d"
+msgstr[2] "%1$d супруг записанными в этой супружеской связи (всего %2$d"
 
 #: resources/views/tab.phtml:425 resources/views/tab.phtml:430
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
 msgid_plural ""
 "%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
 msgstr[0] ""
-"%1$d супруга или супругу записанными в этой супружеской связи (всего %2$d, "
-"including %3$s)."
+"%1$d супруга или супругу записанными в этой супружеской связи (всего %2$d"
 msgstr[1] ""
-"%1$d супругов или супруги записанными в этой супружеской связи (всего %2$d, "
-"including %3$s)."
+"%1$d супругов или супруги записанными в этой супружеской связи (всего %2$d"
 msgstr[2] ""
-"%1$d супругов или супруг записанными в этой супружеской связи (всего %2$d, "
-"including %3$s)."
+"%1$d супругов или супруг записанными в этой супружеской связи (всего %2$d"
 
 #: resources/views/tab.phtml:436
 #, php-format
@@ -1936,9 +1914,9 @@ msgid "%s has no nephews or nieces recorded."
 msgstr "%s не имеет записанных племянников и племянниц."
 
 #: resources/views/tab.phtml:1109
-#, fuzzy, php-format
+#, php-format
 msgid "%s has no "
-msgstr "%s не имеет %s записей."
+msgstr ""
 
 #: resources/views/tab.phtml:1118
 msgid "Summary for the shown extended family"
@@ -2192,82 +2170,101 @@ msgstr "Показать кнопку"
 msgid "save"
 msgstr ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Extended family"
 msgstr "Родственники"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "A tab showing the extended family of an individual."
-msgstr "Вкладка с родственниками человека"
+msgstr "Вкладка с родственниками человека."
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "no, but collect messages about empty blocks at the end"
 msgstr "нет, но собирать сообщения о пустых блоках в конце"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "don't use this filter"
 msgstr "не использовать этот фильтр"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a dead person"
 msgstr "умерший человек"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a living person"
 msgstr "живой человек"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a male person"
 msgstr "не мужчина"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a female person"
 msgstr "не женщина"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a person of unknown gender"
 msgstr "не с неизвестным полом"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "twin"
 msgstr "двойняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "triplet"
 msgstr "тройняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quadruplet"
 msgstr "четверняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quintuplet"
 msgstr "пятерняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "sextuplet"
 msgstr "шестерняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "septuplet"
 msgstr "семерняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "octuplet"
 msgstr "восьмерняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "nonuplet"
 msgstr "девятерняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "decuplet"
 msgstr "десятерняшка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage challenged"
 msgstr "связь оспоренная"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage disproven"
 msgstr "связь опровергнутая"
@@ -2276,294 +2273,367 @@ msgstr "связь опровергнутая"
 msgid "linkage proven"
 msgstr "связь подтверждённая"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Marriage"
 msgstr "В браке"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Ex-marriage"
 msgstr "В разводе"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Fianc?e"
 msgstr "Помолвка"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of father"
 msgstr "Прадедушки и прабабушки по отцу"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of mother"
 msgstr "Прадедушки и прабабушки по матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of parent"
 msgstr "Прадедушки и прабабушки"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological parent of father"
 msgstr "Приёмные родители родителя отца"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological parent of mother"
 msgstr "Приёмные родители родителя матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological grandparent"
 msgstr "Приёмные родители дедушки или бабушки"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of father"
 msgstr "Родители приёмного родителя отца"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of mother"
 msgstr "Родители приёмного родителя матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of parent"
 msgstr "Родители приёмного родителя отца или матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandparents of stepparent"
 msgstr "Дедушки и бабаушки приёмных родителей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological great-grandparents"
 msgstr "Прадедушки и прабабушки"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of father"
 msgstr "Дедушка и бабушка по отцу"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of mother"
 msgstr "Дедушка и бабушка по матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of parent"
 msgstr "Дедушка и бабушка по родителю"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of father"
 msgstr "Приёмные родители отца"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of mother"
 msgstr "Приёмные родители матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of parent"
 msgstr "Приёмные родители отца или матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent"
 msgstr "Родители приёмного отца или матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents"
 msgstr "Дедушки и бабушки"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of father"
 msgstr "Дяди и тёти по отцу"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of mother"
 msgstr "Дяди и тёти по матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Full siblings of biological parents"
 msgstr "Кровные братья и сестры"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law of father"
 msgstr "Супруги дядь и тёть по отцу"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law of mother"
 msgstr "Супруги дядь и тёть по матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents"
 msgstr "Родители"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents"
 msgstr "Приёмные родители"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law of biological children"
 msgstr "Сваты через родных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law of stepchildren"
 msgstr "Сваты через приёмных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Full siblings"
 msgstr "Родные братья и сёстры"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Half siblings"
 msgstr "Сводные братья и сёстры"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepsiblings"
 msgstr "Приёмные братья и сёстры"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of father"
 msgstr "Дети родных братьев и сестёр отца"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of mother"
 msgstr "Дети родных братьев и сестёр матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of parent"
 msgstr "Дети родных братьев и сестёр родителей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of father"
 msgstr "Дети сводных братьев и сестёр отца"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of mother"
 msgstr "Дети сводных братьев и сестёр матери"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of parent"
 msgstr "Дети сводных братьев и сестёр родителей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of partners"
 msgstr "Братья и сёстры супругов"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of siblings"
 msgstr "Супруги братьев и сестёр"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of siblings-in-law"
 msgstr "Братья и сёстры братьев и сестёр"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of siblings-in-law"
 msgstr "Супруги братьев и сестёр супруга(и)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of biological parents"
 msgstr "Дети родных братьев и сестёр родителей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of siblings"
 msgstr "Дети братьев и сестёр"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings"
 msgstr "Дети родных братьев и сестёр"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings' stepchildren"
 msgstr "Приёмные дети братьев и сестёр"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of siblings of partners"
 msgstr "Дети братьев и сестёр супруга(и)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological children"
 msgstr "Дети"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren"
 msgstr "Приёмные дети"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of biological children"
 msgstr "Супруги родных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren"
 msgstr "Супруги приёмных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandchildren"
 msgstr "Родные внуки и внучки"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren of children"
 msgstr "Приёмные внуки и внучки от родных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of stepchildren"
 msgstr "Дети от приёмных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren of stepchildren"
 msgstr "Приёмные внуки и внучки от приёмных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of biological grandchildren"
 msgstr "Супруги внуков и внучек"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren of children"
 msgstr "Супруги приёмных детей детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of children of stepchildren"
 msgstr "Супруги детей приёмных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren of stepchildren"
 msgstr "Супруги приёмных детей приёмных детей"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Father's family (%d)"
 msgstr "Родственников по отцу (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Mother's family (%d)"
 msgstr "Родственников по матери (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Father's and Mother's family (%d)"
 msgstr "Родственников по отцу и по матери (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Great-grandparents"
 msgstr "Прадедушки и прабабушки"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no great-grandparents recorded."
 msgstr "%s не имеет записанных прадедушек или прабабушек."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandparents"
 msgstr "Дедушки и бабушки"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandparents recorded."
 msgstr "%s не имеет записанных дедушек или бабушек."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no parents recorded."
 msgstr "%s не имеет записанных отца и матери."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law"
 msgstr "Родители супругов (тесть, тёща, свёкр, свекровь)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no parents-in-law recorded."
 msgstr "%s не имеет записанных родителей супругов."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Co-parents-in-law"
 msgstr "Сваты"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no co-parents-in-law recorded."
 msgstr "%s не имеет записанных сватов."
@@ -2572,52 +2642,72 @@ msgstr "%s не имеет записанных сватов."
 msgid "Partners"
 msgstr "Супруги"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no partners recorded."
 msgstr "%s не имеет записанных супругов."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d partner and "
 msgid_plural "%2$s has %1$d partners and "
-msgstr[0] "%2$s имеет %1$d супруга и "
-msgstr[1] "%2$s имеет %1$d супругов и "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
-msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
-msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
-msgstr[0] "%1$d супругу записанными в этой супружеской связи (всего %2$d, including %3$s)."
-msgstr[1] "%1$d супруги записанными в этой супружеской связи (всего %2$d, including %3$s)."
+msgid ""
+"%1$d female partner in this partner chain recorded (%2$d in total, including "
+"%3$s)."
+msgid_plural ""
+"%1$d female partners in this partner chain recorded (%2$d in total, "
+"including %3$s)."
+msgstr[0] ""
+"%1$d супругу записанными в этой супружеской связи (всего %2$d, including "
+"%3$s)."
+msgstr[1] ""
+"%1$d супруги записанными в этой супружеской связи (всего %2$d, including "
+"%3$s)."
+msgstr[2] ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%d female partner and "
 msgid_plural "%d female partners and "
-msgstr[0] "%d супругу и "
-msgstr[1] "%d супруги и "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings"
 msgstr "Братья и сёстры"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no siblings recorded."
 msgstr "%s не имеет записанных братьев и сестёр."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law"
 msgstr "Братья и сёстры супругов (деверь, золовка, шурин, свояченица)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no siblings-in-law recorded."
 msgstr "%s не имеет записанных братьев и сестёр."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Co-siblings-in-law"
 msgstr "Братья и сёстры супругов (по отношению друг к другу)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no co-siblings-in-law recorded."
 msgstr "%s не имеет записанных братьев и сестёр."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Cousins"
 msgstr "Двоюродные братья и сёстры"
@@ -2626,377 +2716,53 @@ msgstr "Двоюродные братья и сёстры"
 msgid "Children"
 msgstr "Дети"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no children recorded."
 msgstr "%s не имеет записанных детей."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children-in-law"
 msgstr "Супруги детей (зять, невестка)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no children-in-law recorded."
 msgstr "%s не имеет записанных супругов детей."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d child-in-law recorded."
 msgid_plural "%2$s has %1$d children-in-law recorded."
-msgstr[0] "%2$s имеет %1$d зятя или невестку записанным."
-msgstr[1] "%2$s имеет %1$d зятьёв или невесток записанными."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandchildren"
 msgstr "Внуки и внучки"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandchildren recorded."
 msgstr "%s не имеет записанных внуков и внучек."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandchildren-in-law"
 msgstr "Супруги внуков и внучек"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandchildren-in-law recorded."
 msgstr "%s не имеет записанных супругов внуков и внучек."
 
-#~ msgid "Extended family"
-#~ msgstr "Родственники"
-
-#~ msgid "A tab showing the extended family of an individual."
-#~ msgstr "Вкладка с родственниками человека"
-
-#~ msgid "don't use this filter"
-#~ msgstr "не использовать этот фильтр"
-
-#~ msgid "a dead person"
-#~ msgstr "умерший человек"
-
-#~ msgid "a living person"
-#~ msgstr "живой человек"
-
-#~ msgid "not a male person"
-#~ msgstr "не мужчина"
-
-#~ msgid "not a female person"
-#~ msgstr "не женщина"
-
-#~ msgid "not a person of unknown gender"
-#~ msgstr "не с неизвестным полом"
-
-#~ msgid "twin"
-#~ msgstr "двойняшка"
-
-#~ msgid "triplet"
-#~ msgstr "тройняшка"
-
-#~ msgid "quadruplet"
-#~ msgstr "четверняшка"
-
-#~ msgid "quintuplet"
-#~ msgstr "пятерняшка"
-
-#~ msgid "sextuplet"
-#~ msgstr "шестерняшка"
-
-#~ msgid "septuplet"
-#~ msgstr "семерняшка"
-
-#~ msgid "octuplet"
-#~ msgstr "восьмерняшка"
-
-#~ msgid "nonuplet"
-#~ msgstr "девятерняшка"
-
-#~ msgid "decuplet"
-#~ msgstr "десятерняшка"
-
-#~ msgid "linkage challenged"
-#~ msgstr "связь оспоренная"
-
-#~ msgid "linkage disproven"
-#~ msgstr "связь опровергнутая"
-
-#~ msgid "Marriage"
-#~ msgstr "В браке"
-
-#~ msgid "Ex-marriage"
-#~ msgstr "В разводе"
-
-#~ msgid "Fianc?e"
-#~ msgstr "Помолвка"
-
-#~ msgid "Biological grandparents of father"
-#~ msgstr "Прадедушки и прабабушки по отцу"
-
-#~ msgid "Biological grandparents of mother"
-#~ msgstr "Прадедушки и прабабушки по матери"
-
-#~ msgid "Biological grandparents of parent"
-#~ msgstr "Прадедушки и прабабушки"
-
-#~ msgid "Stepparents of biological parent of father"
-#~ msgstr "Приёмные родители родителя отца"
-
-#~ msgid "Stepparents of biological parent of mother"
-#~ msgstr "Приёмные родители родителя матери"
-
-#~ msgid "Stepparents of biological grandparent"
-#~ msgstr "Приёмные родители дедушки или бабушки"
-
-#~ msgid "Parents of stepparent of father"
-#~ msgstr "Родители приёмного родителя отца"
-
-#~ msgid "Parents of stepparent of mother"
-#~ msgstr "Родители приёмного родителя матери"
-
-#~ msgid "Parents of stepparent of parent"
-#~ msgstr "Родители приёмного родителя отца или матери"
-
-#~ msgid "Grandparents of stepparent"
-#~ msgstr "Дедушки и бабаушки приёмных родителей"
-
-#~ msgid "Biological great-grandparents"
-#~ msgstr "Прадедушки и прабабушки"
-
-#~ msgid "Biological parents of father"
-#~ msgstr "Дедушка и бабушка по отцу"
-
-#~ msgid "Biological parents of mother"
-#~ msgstr "Дедушка и бабушка по матери"
-
-#~ msgid "Biological parents of parent"
-#~ msgstr "Дедушка и бабушка по родителю"
-
-#~ msgid "Stepparents of father"
-#~ msgstr "Приёмные родители отца"
-
-#~ msgid "Stepparents of mother"
-#~ msgstr "Приёмные родители матери"
-
-#~ msgid "Stepparents of parent"
-#~ msgstr "Приёмные родители отца или матери"
-
-#~ msgid "Parents of stepparent"
-#~ msgstr "Родители приёмного отца или матери"
-
-#~ msgid "Biological grandparents"
-#~ msgstr "Дедушки и бабушки"
-
-#~ msgid "Siblings of father"
-#~ msgstr "Дяди и тёти по отцу"
-
-#~ msgid "Siblings of mother"
-#~ msgstr "Дяди и тёти по матери"
-
-#~ msgid "Full siblings of biological parents"
-#~ msgstr "Кровные братья и сестры"
-
-#~ msgid "Siblings-in-law of father"
-#~ msgstr "Супруги дядь и тёть по отцу"
-
-#~ msgid "Siblings-in-law of mother"
-#~ msgstr "Супруги дядь и тёть по матери"
-
-#~ msgid "Biological parents"
-#~ msgstr "Родители"
-
-#~ msgid "Stepparents"
-#~ msgstr "Приёмные родители"
-
-#~ msgid "Parents-in-law of biological children"
-#~ msgstr "Сваты через родных детей"
-
-#~ msgid "Parents-in-law of stepchildren"
-#~ msgstr "Сваты через приёмных детей"
-
-#~ msgid "Full siblings"
-#~ msgstr "Родные братья и сёстры"
-
-#~ msgid "Half siblings"
-#~ msgstr "Сводные братья и сёстры"
-
-#~ msgid "Stepsiblings"
-#~ msgstr "Приёмные братья и сёстры"
-
-#~ msgid "Children of full siblings of father"
-#~ msgstr "Дети родных братьев и сестёр отца"
-
-#~ msgid "Children of full siblings of mother"
-#~ msgstr "Дети родных братьев и сестёр матери"
-
-#~ msgid "Children of full siblings of parent"
-#~ msgstr "Дети родных братьев и сестёр родителей"
-
-#~ msgid "Children of half siblings of father"
-#~ msgstr "Дети сводных братьев и сестёр отца"
-
-#~ msgid "Children of half siblings of mother"
-#~ msgstr "Дети сводных братьев и сестёр матери"
-
-#~ msgid "Children of half siblings of parent"
-#~ msgstr "Дети сводных братьев и сестёр родителей"
-
-#~ msgid "Siblings of partners"
-#~ msgstr "Братья и сёстры супругов"
-
-#~ msgid "Partners of siblings"
-#~ msgstr "Супруги братьев и сестёр"
-
-#~ msgid "Siblings of siblings-in-law"
-#~ msgstr "Братья и сёстры братьев и сестёр"
-
-#~ msgid "Partners of siblings-in-law"
-#~ msgstr "Супруги братьев и сестёр супруга(и)"
-
-#~ msgid "Children of full siblings of biological parents"
-#~ msgstr "Дети родных братьев и сестёр родителей"
-
-#~ msgid "Children of siblings"
-#~ msgstr "Дети братьев и сестёр"
-
-#~ msgid "Children of full siblings"
-#~ msgstr "Дети родных братьев и сестёр"
-
-#~ msgid "Siblings' stepchildren"
-#~ msgstr "Приёмные дети братьев и сестёр"
-
-#~ msgid "Children of siblings of partners"
-#~ msgstr "Дети братьев и сестёр супруга(и)"
-
-#~ msgid "Biological children"
-#~ msgstr "Дети"
-
-#~ msgid "Stepchildren"
-#~ msgstr "Приёмные дети"
-
-#~ msgid "Partners of biological children"
-#~ msgstr "Супруги родных детей"
-
-#~ msgid "Partners of stepchildren"
-#~ msgstr "Супруги приёмных детей"
-
-#~ msgid "Biological grandchildren"
-#~ msgstr "Родные внуки и внучки"
-
-#~ msgid "Stepchildren of children"
-#~ msgstr "Приёмные внуки и внучки от родных детей"
-
-#~ msgid "Children of stepchildren"
-#~ msgstr "Дети от приёмных детей"
-
-#~ msgid "Stepchildren of stepchildren"
-#~ msgstr "Приёмные внуки и внучки от приёмных детей"
-
-#~ msgid "Partners of biological grandchildren"
-#~ msgstr "Супруги внуков и внучек"
-
-#~ msgid "Partners of stepchildren of children"
-#~ msgstr "Супруги приёмных детей детей"
-
-#~ msgid "Partners of children of stepchildren"
-#~ msgstr "Супруги детей приёмных детей"
-
-#~ msgid "Partners of stepchildren of stepchildren"
-#~ msgstr "Супруги приёмных детей приёмных детей"
-
-#~ msgid "Father's family (%d)"
-#~ msgstr "Родственников по отцу (%d)"
-
-#~ msgid "Mother's family (%d)"
-#~ msgstr "Родственников по матери (%d)"
-
-#~ msgid "Father's and Mother's family (%d)"
-#~ msgstr "Родственников по отцу и по матери (%d)"
-
-#~ msgid "Great-grandparents"
-#~ msgstr "Прадедушки и прабабушки"
-
-#~ msgid "%s has no great-grandparents recorded."
-#~ msgstr "%s не имеет записанных прадедушек или прабабушек."
-
-#~ msgid "Grandparents"
-#~ msgstr "Дедушки и бабушки"
-
-#~ msgid "%s has no grandparents recorded."
-#~ msgstr "%s не имеет записанных дедушек или бабушек."
-
-#~ msgid "%s has no parents recorded."
-#~ msgstr "%s не имеет записанных отца и матери."
-
-#~ msgid "Parents-in-law"
-#~ msgstr "Родители супругов (тесть, тёща, свёкр, свекровь)"
-
-#~ msgid "%s has no parents-in-law recorded."
-#~ msgstr "%s не имеет записанных родителей супругов."
-
-#~ msgid "Co-parents-in-law"
-#~ msgstr "Сваты"
-
-#~ msgid "%s has no co-parents-in-law recorded."
-#~ msgstr "%s не имеет записанных сватов."
-
-#~ msgid "%s has no partners recorded."
-#~ msgstr "%s не имеет записанных супругов."
-
-#~ msgid "%2$s has %1$d partner and "
-#~ msgid_plural "%2$s has %1$d partners and "
-#~ msgstr[0] "%2$s имеет %1$d супруга и "
-#~ msgstr[1] "%2$s имеет %1$d супругов и "
-#~ msgstr[2] "%2$s имеет %1$d супругов и "
-
-#~ msgid "%d female partner and "
-#~ msgid_plural "%d female partners and "
-#~ msgstr[0] "%d супругу и "
-#~ msgstr[1] "%d супруги и "
-#~ msgstr[2] "%d супруг и "
-
-#~ msgid "%s has no siblings recorded."
-#~ msgstr "%s не имеет записанных братьев и сестёр."
-
-#~ msgid "Siblings-in-law"
-#~ msgstr "Братья и сёстры супругов (деверь, золовка, шурин, свояченица)"
-
-#~ msgid "%s has no siblings-in-law recorded."
-#~ msgstr "%s не имеет записанных братьев и сестёр."
-
-#~ msgid "Co-siblings-in-law"
-#~ msgstr "Братья и сёстры супругов (по отношению друг к другу)"
-
-#~ msgid "%s has no co-siblings-in-law recorded."
-#~ msgstr "%s не имеет записанных братьев и сестёр."
-
-#~ msgid "Cousins"
-#~ msgstr "Двоюродные братья и сёстры"
-
-#~ msgid "%s has no children recorded."
-#~ msgstr "%s не имеет записанных детей."
-
-#~ msgid "Children-in-law"
-#~ msgstr "Супруги детей (зять, невестка)"
-
-#~ msgid "%s has no children-in-law recorded."
-#~ msgstr "%s не имеет записанных супругов детей."
-
-#~ msgid "%2$s has %1$d child-in-law recorded."
-#~ msgid_plural "%2$s has %1$d children-in-law recorded."
-#~ msgstr[0] "%2$s имеет %1$d зятя или невестку записанным."
-#~ msgstr[1] "%2$s имеет %1$d зятьёв или невесток записанными."
-#~ msgstr[2] "%2$s имеет %1$d зятьёв или невесток записанными."
-
-#~ msgid "Grandchildren"
-#~ msgstr "Внуки и внучки"
-
-#~ msgid "%s has no grandchildren recorded."
-#~ msgstr "%s не имеет записанных внуков и внучек."
-
-#~ msgid "Grandchildren-in-law"
-#~ msgstr "Супруги внуков и внучек"
-
-#~ msgid "%s has no grandchildren-in-law recorded."
-#~ msgstr "%s не имеет записанных супругов внуков и внучек."
 #: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
-msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgid ""
+"The custom module “huhwt-cce” is not available. The button “copy to "
+"clippings cart” will use the internal Extended Family action."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:756
@@ -3008,7 +2774,8 @@ msgid "The selected individual could not be found."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:788
-msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgid ""
+"The extended family has been copied to the clippings cart. New entries: %s"
 msgstr ""
 
 #: resources/views/settings.phtml:247
@@ -3018,9 +2785,3 @@ msgstr ""
 #: resources/views/settings.phtml:250
 msgid "huhwt-cce (recommended)"
 msgstr ""
-
-#: resources/views/settings.phtml:225
-msgid "This allows a user to copy all members of the extended family to the clippings cart."
-msgstr ""
-
-

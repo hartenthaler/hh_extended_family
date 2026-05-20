@@ -1,12 +1,18 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: hh_extended_family\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 21:44+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
+"Language-Team: \n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 3.9\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:315
 msgid "Rada"
@@ -111,11 +117,11 @@ msgstr "मृत"
 
 #: resources/views/tab.phtml:97
 msgid "copy all members of the extended family to the clippings cart"
-msgstr "copy all members of the extended family to the clippings cart"
+msgstr ""
 
 #: resources/views/tab.phtml:107
 msgid "copy to clippings cart"
-msgstr "copy to clippings cart"
+msgstr ""
 
 #: resources/views/tab.phtml:119
 #, php-format
@@ -190,8 +196,7 @@ msgid_plural "%d great-grandmothers recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:161 resources/views/tab.phtml:164
-#: resources/views/tab.phtml:168
+#: resources/views/tab.phtml:161 resources/views/tab.phtml:164 resources/views/tab.phtml:168
 #, php-format
 msgid "%d great-grandparent of unknown sex recorded (%d in total)."
 msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
@@ -269,8 +274,7 @@ msgid_plural "%d grandmothers recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:192 resources/views/tab.phtml:195
-#: resources/views/tab.phtml:199
+#: resources/views/tab.phtml:192 resources/views/tab.phtml:195 resources/views/tab.phtml:199
 #, php-format
 msgid "%d grandparent of unknown sex recorded (%d in total)."
 msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
@@ -348,8 +352,7 @@ msgid_plural "%d aunts recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:223 resources/views/tab.phtml:226
-#: resources/views/tab.phtml:230
+#: resources/views/tab.phtml:223 resources/views/tab.phtml:226 resources/views/tab.phtml:230
 #, php-format
 msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
 msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
@@ -409,8 +412,7 @@ msgstr[1] ""
 #: resources/views/tab.phtml:248
 #, php-format
 msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -428,12 +430,10 @@ msgid_plural "%d aunts by marriage recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:254 resources/views/tab.phtml:257
-#: resources/views/tab.phtml:261
+#: resources/views/tab.phtml:254 resources/views/tab.phtml:257 resources/views/tab.phtml:261
 #, php-format
 msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -508,8 +508,7 @@ msgid_plural "%d mothers recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:285 resources/views/tab.phtml:288
-#: resources/views/tab.phtml:292
+#: resources/views/tab.phtml:285 resources/views/tab.phtml:288 resources/views/tab.phtml:292
 #, php-format
 msgid "%d parent of unknown sex recorded (%d in total)."
 msgid_plural "%d parents of unknown sex recorded (%d in total)."
@@ -587,8 +586,7 @@ msgid_plural "%d mothers-in-law recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:321 resources/views/tab.phtml:324
-#: resources/views/tab.phtml:328
+#: resources/views/tab.phtml:321 resources/views/tab.phtml:324 resources/views/tab.phtml:328
 #, php-format
 msgid "%d parent-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
@@ -666,8 +664,7 @@ msgid_plural "%d co-mothers-in-law recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:352 resources/views/tab.phtml:355
-#: resources/views/tab.phtml:359
+#: resources/views/tab.phtml:352 resources/views/tab.phtml:355 resources/views/tab.phtml:359
 #, php-format
 msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
@@ -731,9 +728,8 @@ msgid_plural "%2$s has %1$d partners of unknown sex recorded."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:380 resources/views/tab.phtml:383
-#: resources/views/tab.phtml:399 resources/views/tab.phtml:419
-#: resources/views/tab.phtml:424 resources/views/tab.phtml:434
+#: resources/views/tab.phtml:380 resources/views/tab.phtml:383 resources/views/tab.phtml:399
+#: resources/views/tab.phtml:419 resources/views/tab.phtml:424 resources/views/tab.phtml:434
 #, php-format
 msgid "%2$s has %1$d male partner and "
 msgid_plural "%2$s has %1$d male partners and "
@@ -747,16 +743,14 @@ msgid_plural "%d female partners recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:384 resources/views/tab.phtml:387
-#: resources/views/tab.phtml:391
+#: resources/views/tab.phtml:384 resources/views/tab.phtml:387 resources/views/tab.phtml:391
 #, php-format
 msgid "%d partner of unknown sex recorded (%d in total)."
 msgid_plural "%d partners of unknown sex recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:386 resources/views/tab.phtml:395
-#: resources/views/tab.phtml:429
+#: resources/views/tab.phtml:386 resources/views/tab.phtml:395 resources/views/tab.phtml:429
 #, php-format
 msgid "%2$s has %1$d female partner and "
 msgid_plural "%2$s has %1$d female partners and "
@@ -798,9 +792,8 @@ msgid_plural "%d female partners in this partner chain recorded"
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:408 resources/views/tab.phtml:412
-#: resources/views/tab.phtml:416 resources/views/tab.phtml:421
-#: resources/views/tab.phtml:426 resources/views/tab.phtml:431
+#: resources/views/tab.phtml:408 resources/views/tab.phtml:412 resources/views/tab.phtml:416
+#: resources/views/tab.phtml:421 resources/views/tab.phtml:426 resources/views/tab.phtml:431
 #, php-format
 msgid "including %s"
 msgstr ""
@@ -822,28 +815,21 @@ msgstr[1] ""
 #: resources/views/tab.phtml:420
 #, php-format
 msgid "%1$d female partner in this partner chain recorded (%2$d in total"
-msgid_plural ""
-"%1$d female partners in this partner chain recorded (%2$d in total"
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total"
 msgstr[0] ""
 msgstr[1] ""
 
 #: resources/views/tab.phtml:425 resources/views/tab.phtml:430
 #, php-format
-msgid ""
-"%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
-msgid_plural ""
-"%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
+msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
+msgid_plural "%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
 msgstr[0] ""
 msgstr[1] ""
 
 #: resources/views/tab.phtml:436
 #, php-format
-msgid ""
-"%1$d partner of unknown sex in this partner chain recorded (%2$d in total, "
-"including %3$s)."
-msgid_plural ""
-"%1$d partners of unknown sex in this partner chain recorded (%2$d in total, "
-"including %3$s)."
+msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -854,16 +840,12 @@ msgstr ""
 
 #: resources/views/tab.phtml:442
 #, php-format
-msgid ""
-"The longest branch in the partner chain to %2$s consists of %1$d partners "
-"(including %3$s)."
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
 msgstr ""
 
 #: resources/views/tab.phtml:444
 #, php-format
-msgid ""
-"The longest branch in the partner chain consists of %1$d partners (including "
-"%2$s)."
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
 msgstr ""
 
 #: resources/views/tab.phtml:451
@@ -916,8 +898,7 @@ msgid_plural "%d sisters recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:469 resources/views/tab.phtml:472
-#: resources/views/tab.phtml:476
+#: resources/views/tab.phtml:469 resources/views/tab.phtml:472 resources/views/tab.phtml:476
 #, php-format
 msgid "%d sibling of unknown sex recorded (%d in total)."
 msgid_plural "%d siblings of unknown sex recorded (%d in total)."
@@ -995,8 +976,7 @@ msgid_plural "%d sisters-in-law recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:505 resources/views/tab.phtml:508
-#: resources/views/tab.phtml:512
+#: resources/views/tab.phtml:505 resources/views/tab.phtml:508 resources/views/tab.phtml:512
 #, php-format
 msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
@@ -1074,8 +1054,7 @@ msgid_plural "%d co-sisters-in-law recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:541 resources/views/tab.phtml:544
-#: resources/views/tab.phtml:548
+#: resources/views/tab.phtml:541 resources/views/tab.phtml:544 resources/views/tab.phtml:548
 #, php-format
 msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
@@ -1153,8 +1132,7 @@ msgid_plural "%d female first cousins recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:577 resources/views/tab.phtml:580
-#: resources/views/tab.phtml:584
+#: resources/views/tab.phtml:577 resources/views/tab.phtml:580 resources/views/tab.phtml:584
 #, php-format
 msgid "%d first cousin of unknown sex recorded (%d in total)."
 msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
@@ -1232,8 +1210,7 @@ msgid_plural "%d nieces recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:608 resources/views/tab.phtml:611
-#: resources/views/tab.phtml:615
+#: resources/views/tab.phtml:608 resources/views/tab.phtml:611 resources/views/tab.phtml:615
 #, php-format
 msgid "%d nephew or niece of unknown sex recorded (%d in total)."
 msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
@@ -1311,8 +1288,7 @@ msgid_plural "%d daughters recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:639 resources/views/tab.phtml:642
-#: resources/views/tab.phtml:646
+#: resources/views/tab.phtml:639 resources/views/tab.phtml:642 resources/views/tab.phtml:646
 #, php-format
 msgid "%d child of unknown sex recorded (%d in total)."
 msgid_plural "%d children of unknown sex recorded (%d in total)."
@@ -1390,8 +1366,7 @@ msgid_plural "%d daughters-in-law recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:670 resources/views/tab.phtml:673
-#: resources/views/tab.phtml:677
+#: resources/views/tab.phtml:670 resources/views/tab.phtml:673 resources/views/tab.phtml:677
 #, php-format
 msgid "%d child-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
@@ -1469,8 +1444,7 @@ msgid_plural "%d granddaughters recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:701 resources/views/tab.phtml:704
-#: resources/views/tab.phtml:708
+#: resources/views/tab.phtml:701 resources/views/tab.phtml:704 resources/views/tab.phtml:708
 #, php-format
 msgid "%d grandchild of unknown sex recorded (%d in total)."
 msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
@@ -1548,8 +1522,7 @@ msgid_plural "%d granddaughters-in-law recorded (%d in total)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: resources/views/tab.phtml:732 resources/views/tab.phtml:735
-#: resources/views/tab.phtml:739
+#: resources/views/tab.phtml:732 resources/views/tab.phtml:735 resources/views/tab.phtml:739
 #, php-format
 msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
@@ -1581,13 +1554,11 @@ msgstr[1] ""
 msgid "Partner of "
 msgstr ""
 
-#: resources/views/tab.phtml:821 resources/views/tab.phtml:823
-#: resources/views/tab.phtml:898
+#: resources/views/tab.phtml:821 resources/views/tab.phtml:823 resources/views/tab.phtml:898
 msgid " with "
 msgstr ""
 
-#: resources/views/tab.phtml:823 resources/views/tab.phtml:833
-#: resources/views/tab.phtml:1019
+#: resources/views/tab.phtml:823 resources/views/tab.phtml:833 resources/views/tab.phtml:1019
 msgid "Partnership"
 msgstr ""
 
@@ -1599,8 +1570,8 @@ msgstr ""
 msgid "Sister"
 msgstr ""
 
-#: resources/views/tab.phtml:881 resources/views/tab.phtml:902
-#: resources/views/tab.phtml:918 resources/views/tab.phtml:938
+#: resources/views/tab.phtml:881 resources/views/tab.phtml:902 resources/views/tab.phtml:918
+#: resources/views/tab.phtml:938
 msgid "Sibling"
 msgstr ""
 
@@ -1614,8 +1585,7 @@ msgstr ""
 msgid "Sister %1$s of partner %2$s"
 msgstr ""
 
-#: resources/views/tab.phtml:895 resources/views/tab.phtml:933
-#: resources/views/tab.phtml:945
+#: resources/views/tab.phtml:895 resources/views/tab.phtml:933 resources/views/tab.phtml:945
 #, php-format
 msgid "Sibling %1$s of partner %2$s"
 msgstr ""
@@ -1688,8 +1658,7 @@ msgstr ""
 msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
 msgstr ""
 
-#: resources/views/tab.phtml:1011 resources/views/tab.phtml:1048
-#: resources/views/tab.phtml:1050
+#: resources/views/tab.phtml:1011 resources/views/tab.phtml:1048 resources/views/tab.phtml:1050
 msgid "Parents"
 msgstr ""
 
@@ -1796,24 +1765,21 @@ msgstr "परिणामों को फ़िल्टर करने क�
 
 #: resources/views/settings.phtml:85
 msgid ""
-"This allows a user to filter the members of the extended family by gender "
-"and if they are alive or dead."
+"This allows a user to filter the members of the extended family by gender and if they are alive or dead."
 msgstr ""
 
 #: resources/views/settings.phtml:90
 msgid "Show filter options"
 msgstr "फ़िल्टर विकल्प दिखाएं"
 
-#: resources/views/settings.phtml:93 resources/views/settings.phtml:107
-#: resources/views/settings.phtml:139 resources/views/settings.phtml:153
-#: resources/views/settings.phtml:167 resources/views/settings.phtml:181
+#: resources/views/settings.phtml:93 resources/views/settings.phtml:107 resources/views/settings.phtml:139
+#: resources/views/settings.phtml:153 resources/views/settings.phtml:167 resources/views/settings.phtml:181
 #: resources/views/settings.phtml:195 resources/views/settings.phtml:209
 msgid "yes"
 msgstr ""
 
-#: resources/views/settings.phtml:93 resources/views/settings.phtml:107
-#: resources/views/settings.phtml:139 resources/views/settings.phtml:153
-#: resources/views/settings.phtml:167 resources/views/settings.phtml:181
+#: resources/views/settings.phtml:93 resources/views/settings.phtml:107 resources/views/settings.phtml:139
+#: resources/views/settings.phtml:153 resources/views/settings.phtml:167 resources/views/settings.phtml:181
 #: resources/views/settings.phtml:195 resources/views/settings.phtml:209
 msgid "no"
 msgstr ""
@@ -1852,33 +1818,31 @@ msgid "never"
 msgstr "कभी नहीं"
 
 #: resources/views/settings.phtml:125
-msgid ""
-"Count the members of the partner chains as members of the extended family?"
+msgid "Count the members of the partner chains as members of the extended family?"
 msgstr ""
 
 #: resources/views/settings.phtml:127
 msgid ""
-"If you select \"no\", then the additional members in the partner chains will "
-"not be counted to the total number of individuals in the extended family."
+"If you select \"no\", then the additional members in the partner chains will not be counted to the total "
+"number of individuals in the extended family."
 msgstr ""
 
 #: resources/views/settings.phtml:128
 msgid ""
-"And these persons and families will be not selected when a user decides to "
-"copy the extended family to the clippings cart."
+"And these persons and families will be not selected when a user decides to copy the extended family to "
+"the clippings cart."
 msgstr ""
 
 #: resources/views/settings.phtml:129
 msgid ""
-"But even in this case, you can copy these persons and families to the "
-"clippings cart by using a special menu topic of the custom module \"enhanced "
-"clippings cart\": \"add partner chains for an individual\"."
+"But even in this case, you can copy these persons and families to the clippings cart by using a special "
+"menu topic of the custom module \"enhanced clippings cart\": \"add partner chains for an individual\"."
 msgstr ""
 
 #: resources/views/settings.phtml:130
 msgid ""
-"This is only relevant if you have chosen in the above table, that the "
-"partner chains should be shown as a part of the extended family."
+"This is only relevant if you have chosen in the above table, that the partner chains should be shown as "
+"a part of the extended family."
 msgstr ""
 
 #: resources/views/settings.phtml:136
@@ -1891,13 +1855,11 @@ msgstr "विषय का नाम संक्षिप्त नाम क�
 
 #: resources/views/settings.phtml:145
 msgid ""
-"The short name is based on the probands Rufname or nickname. If these are "
-"not available, the first of the given names is used, if one is given. "
-"Otherwise the last name is used."
+"The short name is based on the probands Rufname or nickname. If these are not available, the first of "
+"the given names is used, if one is given. Otherwise the last name is used."
 msgstr ""
-"संक्षिप्त नाम रूफनाम या उपनाम की जांच पर आधारित है।  यदि ये उपलब्ध नहीं हैं, तो दिए गए "
-"नामों में से पहले का प्रयोग किया जाता है, यदि कोई दिया गया हो।  अन्यथा अंतिम नाम का "
-"उपयोग किया जाता है।"
+"संक्षिप्त नाम रूफनाम या उपनाम की जांच पर आधारित है।  यदि ये उपलब्ध नहीं हैं, तो दिए गए नामों में से पहले का प्रयोग किया "
+"जाता है, यदि कोई दिया गया हो।  अन्यथा अंतिम नाम का उपयोग किया जाता है।"
 
 #: resources/views/settings.phtml:150
 msgid "Show short name"
@@ -1908,12 +1870,8 @@ msgid "Show labels in special situations?"
 msgstr "विशेष परिस्थितियों में लेबल दिखाएं?"
 
 #: resources/views/settings.phtml:159
-msgid ""
-"Labels (or stickers) are used for example for adopted persons or foster "
-"children."
-msgstr ""
-"उदाहरण के लिए गोद लिए गए व्यक्तियों या पालक बच्चों के लिए लेबल (या स्टिकर) का उपयोग "
-"किया जाता है।"
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "उदाहरण के लिए गोद लिए गए व्यक्तियों या पालक बच्चों के लिए लेबल (या स्टिकर) का उपयोग किया जाता है।"
 
 #: resources/views/settings.phtml:164
 msgid "Show labels"
@@ -1925,12 +1883,11 @@ msgstr "विस्तारित पारिवारिक भाग के
 
 #: resources/views/settings.phtml:173
 msgid ""
-"Display of additional information for each part of the extended family, such "
-"as the generation shift and the coefficient of relationship, which is a "
-"measure of the degree of consanguinity."
+"Display of additional information for each part of the extended family, such as the generation shift and "
+"the coefficient of relationship, which is a measure of the degree of consanguinity."
 msgstr ""
-"विस्तारित परिवार के प्रत्येक भाग के लिए अतिरिक्त जानकारी का प्रदर्शन, जैसे कि पीढ़ी का "
-"बदलाव और रिश्ते का गुणांक, जो कि समानता की डिग्री का एक उपाय है।"
+"विस्तारित परिवार के प्रत्येक भाग के लिए अतिरिक्त जानकारी का प्रदर्शन, जैसे कि पीढ़ी का बदलाव और रिश्ते का गुणांक, जो कि "
+"समानता की डिग्री का एक उपाय है।"
 
 #: resources/views/settings.phtml:178
 msgid "Show parameters"
@@ -1942,29 +1899,23 @@ msgstr "कॉम्पैक्ट डिज़ाइन का उपयोग
 
 #: resources/views/settings.phtml:187
 msgid ""
-"The compact design only shows the name and life span for each person. The "
-"enriched design also shows a photo (if this is activated for this tree) as "
-"well as birth and death information."
+"The compact design only shows the name and life span for each person. The enriched design also shows a "
+"photo (if this is activated for this tree) as well as birth and death information."
 msgstr ""
-"कॉम्पैक्ट डिज़ाइन प्रत्येक व्यक्ति के लिए केवल नाम और जीवन काल दिखाता है।  समृद्ध डिज़ाइन "
-"एक तस्वीर (यदि यह इस वंशवृक्ष के लिए सक्रिय है) के साथ-साथ जन्म और मृत्यु की जानकारी भी "
-"दिखाता है।"
+"कॉम्पैक्ट डिज़ाइन प्रत्येक व्यक्ति के लिए केवल नाम और जीवन काल दिखाता है।  समृद्ध डिज़ाइन एक तस्वीर (यदि यह इस वंशवृक्ष के "
+"लिए सक्रिय है) के साथ-साथ जन्म और मृत्यु की जानकारी भी दिखाता है।"
 
 #: resources/views/settings.phtml:192
 msgid "Use the compact design"
 msgstr "कॉम्पैक्ट डिज़ाइन का उपयोग करें"
 
 #: resources/views/settings.phtml:200
-#, fuzzy
 msgid "Show a button \"copy to clippings cart\"?"
-msgstr "copy to clippings cart"
+msgstr ""
 
-#: resources/views/settings.phtml:201
-#, fuzzy
-msgid ""
-"This allows a user to copy all members of the extended family to the "
-"clippings cart."
-msgstr "copy all members of the extended family to the clippings cart"
+#: resources/views/settings.phtml:201 resources/views/settings.phtml:225
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
 
 #: resources/views/settings.phtml:206
 #, fuzzy
@@ -1975,10 +1926,12 @@ msgstr "फ़िल्टर विकल्प दिखाएं"
 msgid "save"
 msgstr ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Extended family"
 msgstr "विस्तृत परिवार"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "A tab showing the extended family of an individual."
 msgstr "किसी व्यक्ति के विस्तृत परिवार को दर्शाने वाला टैब।"
@@ -1987,70 +1940,87 @@ msgstr "किसी व्यक्ति के विस्तृत पर�
 msgid "no, but collect messages about empty blocks at the end"
 msgstr "नहीं, लेकिन अंत में खाली ब्लॉकों के बारे में संदेश एकत्र करें"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "don't use this filter"
 msgstr "इस फ़िल्टर का उपयोग न करें"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a dead person"
 msgstr "एक मृत व्यक्ति"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a living person"
 msgstr "एक जीवित व्यक्ति"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a male person"
 msgstr "पुरुष व्यक्ति नहीं"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a female person"
 msgstr "महिला व्यक्ति नहीं"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a person of unknown gender"
 msgstr "अज्ञात लिंग का व्यक्ति नहीं"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "twin"
 msgstr "जुड़वां"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "triplet"
 msgstr "त्रिक"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quadruplet"
 msgstr "चतुष्क"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quintuplet"
 msgstr "पंचक"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "sextuplet"
 msgstr "षटक"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "septuplet"
 msgstr "सप्तक"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "octuplet"
 msgstr "अष्टक"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "nonuplet"
 msgstr "नवक"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "decuplet"
 msgstr "दशक"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage challenged"
 msgstr "संबंध संदिग्ध"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage disproven"
 msgstr "संबंध अस्वीकृत"
@@ -2059,64 +2029,10 @@ msgstr "संबंध अस्वीकृत"
 msgid "linkage proven"
 msgstr "संबंध स्वीकृत"
 
-#~ msgid "Extended family"
-#~ msgstr "विस्तृत परिवार"
-
-#~ msgid "A tab showing the extended family of an individual."
-#~ msgstr "किसी व्यक्ति के विस्तृत परिवार को दर्शाने वाला टैब।"
-
-#~ msgid "don't use this filter"
-#~ msgstr "इस फ़िल्टर का उपयोग न करें"
-
-#~ msgid "a dead person"
-#~ msgstr "एक मृत व्यक्ति"
-
-#~ msgid "a living person"
-#~ msgstr "एक जीवित व्यक्ति"
-
-#~ msgid "not a male person"
-#~ msgstr "पुरुष व्यक्ति नहीं"
-
-#~ msgid "not a female person"
-#~ msgstr "महिला व्यक्ति नहीं"
-
-#~ msgid "not a person of unknown gender"
-#~ msgstr "अज्ञात लिंग का व्यक्ति नहीं"
-
-#~ msgid "twin"
-#~ msgstr "जुड़वां"
-
-#~ msgid "triplet"
-#~ msgstr "त्रिक"
-
-#~ msgid "quadruplet"
-#~ msgstr "चतुष्क"
-
-#~ msgid "quintuplet"
-#~ msgstr "पंचक"
-
-#~ msgid "sextuplet"
-#~ msgstr "षटक"
-
-#~ msgid "septuplet"
-#~ msgstr "सप्तक"
-
-#~ msgid "octuplet"
-#~ msgstr "अष्टक"
-
-#~ msgid "nonuplet"
-#~ msgstr "नवक"
-
-#~ msgid "decuplet"
-#~ msgstr "दशक"
-
-#~ msgid "linkage challenged"
-#~ msgstr "संबंध संदिग्ध"
-
-#~ msgid "linkage disproven"
-#~ msgstr "संबंध अस्वीकृत"
 #: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
-msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgid ""
+"The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the "
+"internal Extended Family action."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:756
@@ -2138,9 +2054,3 @@ msgstr ""
 #: resources/views/settings.phtml:250
 msgid "huhwt-cce (recommended)"
 msgstr ""
-
-#: resources/views/settings.phtml:225
-msgid "This allows a user to copy all members of the extended family to the clippings cart."
-msgstr ""
-
-

@@ -1,12 +1,17 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 21:44+0200\n"
-"Language: zh-Hans\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:315
 msgid "Rada"
@@ -110,9 +115,8 @@ msgid "dead"
 msgstr "去世的"
 
 #: resources/views/tab.phtml:97
-#, fuzzy
 msgid "copy all members of the extended family to the clippings cart"
-msgstr "这允许用户将扩展族的所有成员复制到剪报购物车。"
+msgstr "这允许用户将扩展族的所有成员复制到剪报购物车"
 
 #: resources/views/tab.phtml:107
 msgid "copy to clippings cart"
@@ -328,10 +332,10 @@ msgstr[0] "%d位姑妈(姨妈)（共%d位）。"
 
 #: resources/views/tab.phtml:223 resources/views/tab.phtml:226
 #: resources/views/tab.phtml:230
-#, fuzzy, php-format
+#, php-format
 msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
 msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
-msgstr[0] "%d位曾祖辈 (共%d位)"
+msgstr[0] "%d位曾祖辈 (共%d位)."
 
 #: resources/views/tab.phtml:225
 #, fuzzy, php-format
@@ -340,7 +344,7 @@ msgid_plural "%2$s has %1$d aunts and "
 msgstr[0] "%2$s有%1$d位叔(舅)父和"
 
 #: resources/views/tab.phtml:228
-#, fuzzy, php-format
+#, php-format
 msgid "%2$s has %1$d uncle, "
 msgid_plural "%2$s has %1$d uncles, "
 msgstr[0] "%2$s有%1$d位叔(舅)父和"
@@ -362,9 +366,9 @@ msgid "%s has one uncle by marriage recorded."
 msgstr "%s有一位姑父或姨父记录。"
 
 #: resources/views/tab.phtml:240
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
-msgstr "%s有一位姑父、姨父、婶婶或舅娘。"
+msgstr "%s有一位姑父、姨父、婶婶或舅娘."
 
 #: resources/views/tab.phtml:244
 #, php-format
@@ -399,11 +403,11 @@ msgstr[0] "%d位婶婶(舅娘)（共%d位）。"
 
 #: resources/views/tab.phtml:254 resources/views/tab.phtml:257
 #: resources/views/tab.phtml:261
-#, fuzzy, php-format
+#, php-format
 msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
-msgstr[0] "%d位婶婶(舅娘)（共%d位）。"
+msgstr[0] "%d位婶婶(舅娘)（共%d位)."
 
 #: resources/views/tab.phtml:256
 #, fuzzy, php-format
@@ -418,10 +422,10 @@ msgid_plural "%2$s has %1$d uncles by marriage, "
 msgstr[0] "%2$s有%1$d位姑父(姨父)和"
 
 #: resources/views/tab.phtml:260
-#, fuzzy, php-format
+#, php-format
 msgid "%d aunt by marriage, and "
 msgid_plural "%d aunts by marriage, and "
-msgstr[0] "%2$s有%1$d位姑父(姨父)和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:267
 #, php-format
@@ -442,13 +446,13 @@ msgstr "%s有一个曾祖辈的记录。"
 #, php-format
 msgid "%2$s has %1$d mother recorded."
 msgid_plural "%2$s has %1$d mothers recorded."
-msgstr[0] "%2$s有%1$d位母亲"
+msgstr[0] "%2$s有%1$d位母亲."
 
 #: resources/views/tab.phtml:277
 #, php-format
 msgid "%2$s has %1$d father recorded."
 msgid_plural "%2$s has %1$d fathers recorded."
-msgstr[0] "%2$s有%1$d位父亲"
+msgstr[0] "%2$s有%1$d位父亲."
 
 #: resources/views/tab.phtml:279
 #, fuzzy, php-format
@@ -504,9 +508,9 @@ msgid "%s has one father-in-law recorded."
 msgstr "%s有一位岳父（公公）的记录。"
 
 #: resources/views/tab.phtml:307
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one parent-in-law of unknown sex recorded."
-msgstr "%s有一位孙辈的配偶"
+msgstr "%s有一位孙辈的配偶."
 
 #: resources/views/tab.phtml:311
 #, fuzzy, php-format
@@ -558,10 +562,10 @@ msgid_plural "%2$s has %1$d fathers-in-law, "
 msgstr[0] "%2$s有%1$d位岳父（公公）和"
 
 #: resources/views/tab.phtml:327
-#, fuzzy, php-format
+#, php-format
 msgid "%d mother-in-law, and "
 msgid_plural "%d mothers-in-law, and "
-msgstr[0] "%2$s有%1$d位姐夫(妹夫\\叔子\\舅子)和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:334
 #, php-format
@@ -574,9 +578,9 @@ msgid "%s has one co-father-in-law recorded."
 msgstr "%s有一位亲家公的记录。"
 
 #: resources/views/tab.phtml:338
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one co-parent-in-law of unknown sex recorded."
-msgstr "%s有一位孙辈的配偶"
+msgstr "%s有一位孙辈的配偶."
 
 #: resources/views/tab.phtml:342
 #, fuzzy, php-format
@@ -628,10 +632,10 @@ msgid_plural "%2$s has %1$d co-fathers-in-law, "
 msgstr[0] "%2$s有%1$d位亲家公和"
 
 #: resources/views/tab.phtml:358
-#, fuzzy, php-format
+#, php-format
 msgid "%d co-mother-in-law, and "
 msgid_plural "%d co-mothers-in-law, and "
-msgstr[0] "%2$s有%1$d位连襟\\姊夫和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:365
 #, php-format
@@ -652,13 +656,13 @@ msgstr "%s有一个曾祖辈的记录。"
 #, php-format
 msgid "%2$s has %1$d female partner recorded."
 msgid_plural "%2$s has %1$d female partners recorded."
-msgstr[0] "%2$s有%1$d位配偶"
+msgstr[0] "%2$s有%1$d位配偶."
 
 #: resources/views/tab.phtml:376
 #, php-format
 msgid "%2$s has %1$d male partner recorded."
 msgid_plural "%2$s has %1$d male partners recorded."
-msgstr[0] "%2$s有%1$d位配偶"
+msgstr[0] "%2$s有%1$d位配偶."
 
 #: resources/views/tab.phtml:378
 #, fuzzy, php-format
@@ -701,10 +705,10 @@ msgid_plural "%2$s has %1$d male partners, "
 msgstr[0] "%2$s有%1$d名丈夫和"
 
 #: resources/views/tab.phtml:390 resources/views/tab.phtml:435
-#, fuzzy, php-format
+#, php-format
 msgid "%d female partner, and "
 msgid_plural "%d female partners, and "
-msgstr[0] "%2$s有%1$d名妻子和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:396
 #, php-format
@@ -738,7 +742,7 @@ msgid_plural "%d male partners in this partner chain recorded"
 msgstr[0] "此配偶系列中有%d名男性配偶"
 
 #: resources/views/tab.phtml:415
-#, fuzzy, php-format
+#, php-format
 msgid "%d partner of unknown sex in this partner chain recorded"
 msgid_plural "%d partners of unknown sex in this partner chain recorded"
 msgstr[0] "此配偶系列中有%d名性别未知的配偶"
@@ -798,21 +802,21 @@ msgid "%s has one brother recorded."
 msgstr "%s有一位兄弟的记录。"
 
 #: resources/views/tab.phtml:455
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one sibling of unknown sex recorded."
-msgstr "%s有一位孙辈的配偶"
+msgstr "%s有一位孙辈的配偶."
 
 #: resources/views/tab.phtml:459
 #, php-format
 msgid "%2$s has %1$d sister recorded."
 msgid_plural "%2$s has %1$d sisters recorded."
-msgstr[0] "%2$s有%1$d位姐妹"
+msgstr[0] "%2$s有%1$d位姐妹."
 
 #: resources/views/tab.phtml:461
 #, php-format
 msgid "%2$s has %1$d brother recorded."
 msgid_plural "%2$s has %1$d brothers recorded."
-msgstr[0] "%2$s有%1$d位兄弟"
+msgstr[0] "%2$s有%1$d位兄弟."
 
 #: resources/views/tab.phtml:463
 #, fuzzy, php-format
@@ -868,9 +872,9 @@ msgid "%s has one brother-in-law recorded."
 msgstr "%s有一位姐(妹)夫或舅子的记录。"
 
 #: resources/views/tab.phtml:491
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one sibling-in-law of unknown sex recorded."
-msgstr "%s有一位孙辈的配偶"
+msgstr "%s有一位孙辈的配偶."
 
 #: resources/views/tab.phtml:495
 #, php-format
@@ -904,10 +908,10 @@ msgstr[0] "%d位嫂子(姑姐妹\\弟媳\\姨子)（共%d位）"
 
 #: resources/views/tab.phtml:505 resources/views/tab.phtml:508
 #: resources/views/tab.phtml:512
-#, fuzzy, php-format
+#, php-format
 msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
-msgstr[0] "%d位孙辈的配偶（共%d位）。"
+msgstr[0] "%d位孙辈的配偶（共%d位)."
 
 #: resources/views/tab.phtml:507
 #, fuzzy, php-format
@@ -922,10 +926,10 @@ msgid_plural "%2$s has %1$d brothers-in-law, "
 msgstr[0] "%2$s有%1$d位姐夫(妹夫\\叔子\\舅子)和"
 
 #: resources/views/tab.phtml:511
-#, fuzzy, php-format
+#, php-format
 msgid "%d sister-in-law, and "
 msgid_plural "%d sisters-in-law, and "
-msgstr[0] "%2$s有%1$d位岳父（公公）和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:523
 #, php-format
@@ -938,21 +942,21 @@ msgid "%s has one co-brother-in-law recorded."
 msgstr "%s有一位连襟\\姊兄弟记录。"
 
 #: resources/views/tab.phtml:527
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one co-sibling-in-law of unknown sex recorded."
-msgstr "%s有一位孙辈的配偶"
+msgstr "%s有一位孙辈的配偶."
 
 #: resources/views/tab.phtml:531
 #, php-format
 msgid "%2$s has %1$d co-sister-in-law recorded."
 msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
-msgstr[0] "%2$s有%1$d位舅母子\\妯娌"
+msgstr[0] "%2$s有%1$d位舅母子\\妯娌."
 
 #: resources/views/tab.phtml:533
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law recorded."
 msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
-msgstr[0] "%2$s有%1$d位连襟\\姊夫"
+msgstr[0] "%2$s有%1$d位连襟\\姊夫."
 
 #: resources/views/tab.phtml:535
 #, fuzzy, php-format
@@ -992,10 +996,10 @@ msgid_plural "%2$s has %1$d co-brothers-in-law, "
 msgstr[0] "%2$s有%1$d位连襟\\姊夫和"
 
 #: resources/views/tab.phtml:547
-#, fuzzy, php-format
+#, php-format
 msgid "%d co-sister-in-law, and "
 msgid_plural "%d co-sisters-in-law, and "
-msgstr[0] "%2$s有%1$d位亲家公和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:559
 #, php-format
@@ -1022,7 +1026,7 @@ msgstr[0] "%2$s有%1$d位堂表姐妹。"
 #, php-format
 msgid "%2$s has %1$d male first cousin recorded."
 msgid_plural "%2$s has %1$d male first cousins recorded."
-msgstr[0] "%2$s有%1$d位堂表兄弟"
+msgstr[0] "%2$s有%1$d位堂表兄弟."
 
 #: resources/views/tab.phtml:571
 #, fuzzy, php-format
@@ -1062,10 +1066,10 @@ msgid_plural "%2$s has %1$d male first cousins, "
 msgstr[0] "%2$s有%1$d位堂表兄弟和"
 
 #: resources/views/tab.phtml:583
-#, fuzzy, php-format
+#, php-format
 msgid "%d female first cousin, and "
 msgid_plural "%d female first cousins, and "
-msgstr[0] "%2$s有%1$d位堂表兄弟和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:590
 #, php-format
@@ -1078,9 +1082,9 @@ msgid "%s has one nephew recorded."
 msgstr "%s有一位侄子的记录。"
 
 #: resources/views/tab.phtml:594
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one nephew or niece of unknown sex recorded."
-msgstr "%s有一位侄子或侄女的记录。"
+msgstr "%s有一位侄子或侄女的记录."
 
 #: resources/views/tab.phtml:598
 #, fuzzy, php-format
@@ -1148,21 +1152,21 @@ msgid "%s has one son recorded."
 msgstr "%s有一个儿子的记录。"
 
 #: resources/views/tab.phtml:625
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one child of unknown sex recorded."
-msgstr "%s有一位孙辈的配偶"
+msgstr "%s有一位孙辈的配偶."
 
 #: resources/views/tab.phtml:629
 #, php-format
 msgid "%2$s has %1$d daughter recorded."
 msgid_plural "%2$s has %1$d daughters recorded."
-msgstr[0] "%2$s有%1$d个女儿"
+msgstr[0] "%2$s有%1$d个女儿."
 
 #: resources/views/tab.phtml:631
 #, php-format
 msgid "%2$s has %1$d son recorded."
 msgid_plural "%2$s has %1$d sons recorded."
-msgstr[0] "%2$s有%1$d个儿子"
+msgstr[0] "%2$s有%1$d个儿子."
 
 #: resources/views/tab.phtml:633
 #, fuzzy, php-format
@@ -1218,21 +1222,21 @@ msgid "%s has one son-in-law recorded."
 msgstr "%s有一个女婿的记录。"
 
 #: resources/views/tab.phtml:656
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one child-in-law of unknown sex recorded."
-msgstr "%s有一位孙辈的配偶"
+msgstr "%s有一位孙辈的配偶."
 
 #: resources/views/tab.phtml:660
 #, php-format
 msgid "%2$s has %1$d daughter-in-law recorded."
 msgid_plural "%2$s has %1$d daughters-in-law recorded."
-msgstr[0] "%2$s有%1$d位儿媳"
+msgstr[0] "%2$s有%1$d位儿媳."
 
 #: resources/views/tab.phtml:662
 #, php-format
 msgid "%2$s has %1$d son-in-law recorded."
 msgid_plural "%2$s has %1$d sons-in-law recorded."
-msgstr[0] "%2$s有%1$d位女婿记录"
+msgstr[0] "%2$s有%1$d位女婿记录."
 
 #: resources/views/tab.phtml:664
 #, fuzzy, php-format
@@ -1272,10 +1276,10 @@ msgid_plural "%2$s has %1$d sons-in-law, "
 msgstr[0] "%2$s有%1$d位女婿和"
 
 #: resources/views/tab.phtml:676
-#, fuzzy, php-format
+#, php-format
 msgid "%d daughter-in-law, and "
 msgid_plural "%d daughters-in-law, and "
-msgstr[0] "%2$s有%1$d位孙媳妇和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:683
 #, php-format
@@ -1288,21 +1292,21 @@ msgid "%s has one grandson recorded."
 msgstr "%s有一个孙子。"
 
 #: resources/views/tab.phtml:687
-#, fuzzy, php-format
+#, php-format
 msgid "%s has one grandchild of unknown sex recorded."
-msgstr "%s有一位孙辈的配偶"
+msgstr "%s有一位孙辈的配偶."
 
 #: resources/views/tab.phtml:691
 #, php-format
 msgid "%2$s has %1$d granddaughter recorded."
 msgid_plural "%2$s has %1$d granddaughters recorded."
-msgstr[0] "%2$s有%1$d位孙女"
+msgstr[0] "%2$s有%1$d位孙女."
 
 #: resources/views/tab.phtml:693
 #, php-format
 msgid "%2$s has %1$d grandson recorded."
 msgid_plural "%2$s has %1$d grandsons recorded."
-msgstr[0] "%2$s有%1$d位孙子"
+msgstr[0] "%2$s有%1$d位孙子."
 
 #: resources/views/tab.phtml:695
 #, fuzzy, php-format
@@ -1366,13 +1370,13 @@ msgstr "%s有一位孙辈的配偶"
 #, php-format
 msgid "%2$s has %1$d granddaughter-in-law recorded."
 msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
-msgstr[0] "%2$s有%1$d位孙媳妇"
+msgstr[0] "%2$s有%1$d位孙媳妇."
 
 #: resources/views/tab.phtml:724
 #, php-format
 msgid "%2$s has %1$d grandson-in-law recorded."
 msgid_plural "%2$s has %1$d grandsons-in-law recorded."
-msgstr[0] "%2$s有%1$d位孙女婿"
+msgstr[0] "%2$s有%1$d位孙女婿."
 
 #: resources/views/tab.phtml:726
 #, fuzzy, php-format
@@ -1412,10 +1416,10 @@ msgid_plural "%2$s has %1$d grandsons-in-law, "
 msgstr[0] "%2$s有%1$d位孙女婿和"
 
 #: resources/views/tab.phtml:738
-#, fuzzy, php-format
+#, php-format
 msgid "%d granddaughter-in-law, and "
 msgid_plural "%d granddaughters-in-law, and "
-msgstr[0] "%2$s有%1$d位孙媳妇和"
+msgstr[0] ""
 
 #: resources/views/tab.phtml:752
 msgid "Partner of "
@@ -1815,10 +1819,12 @@ msgstr "显示按钮"
 msgid "save"
 msgstr ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Extended family"
 msgstr "大家庭"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "A tab showing the extended family of an individual."
 msgstr "显示本人大家庭的选项卡。"
@@ -1827,78 +1833,97 @@ msgstr "显示本人大家庭的选项卡。"
 msgid "Move"
 msgstr "移动"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Show options to filter the results (gender and alive/dead)?"
 msgstr "显示过滤结果的选项（性别和活/死）？"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "no, but collect messages about empty blocks at the end"
 msgstr "没有，但是在最后收集关于空块的消息"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "don\\t use this filter"
 msgstr "不要使用此筛选器"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a dead person"
 msgstr "一位逝者"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a living person"
 msgstr "一位生者"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a male person"
 msgstr "不是男性"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a female person"
 msgstr "不是女性"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a person of unknown gender"
 msgstr "不是一位性别不明的人"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "twin"
 msgstr "双胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "triplet"
 msgstr "三胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quadruplet"
 msgstr "四胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quintuplet"
 msgstr "五胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "sextuplet"
 msgstr "六胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "septuplet"
 msgstr "七胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "octuplet"
 msgstr "八胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "nonuplet"
 msgstr "九胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "decuplet"
 msgstr "十胞胎"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage challenged"
 msgstr "联系受到挑战"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage disproven"
 msgstr "连锁反证"
@@ -1907,214 +1932,267 @@ msgstr "连锁反证"
 msgid "linkage proven"
 msgstr "链接已被证明"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Marriage"
 msgstr "结婚"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Ex-marriage"
 msgstr "前任"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Fiancée"
 msgstr "未婚妻"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of father"
 msgstr "父亲的亲生父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of mother"
 msgstr "母亲的亲生父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of father"
 msgstr "父亲的亲生祖父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of mother"
 msgstr "母亲的亲生祖父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of parent"
 msgstr "亲生父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological great-grandparents"
 msgstr "亲生曾祖父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of father"
 msgstr "继父"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of mother"
 msgstr "继母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of parent"
 msgstr "父母的继父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent"
 msgstr "继父或继母的父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of father"
 msgstr "父亲的兄弟姐妹"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of mother"
 msgstr "母亲的兄弟姐妹"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law of father"
 msgstr "父亲兄弟姐妹的配偶"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law of mother"
 msgstr "母亲兄弟姐妹的配偶"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents"
 msgstr "亲生父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents"
 msgstr "继父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law of biological children"
 msgstr "亲生子女的岳父母\\公婆"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law of stepchildren"
 msgstr "继子女的岳父母\\公婆"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Full siblings"
 msgstr "兄弟姐妹"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Half siblings"
 msgstr "同父异母的兄弟姐妹"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepsiblings"
 msgstr "继兄弟姐妹"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of father"
 msgstr "父亲的兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of mother"
 msgstr "母亲兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of parent"
 msgstr "父母的兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of father"
 msgstr "同父异母兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of mother"
 msgstr "母亲同父异母兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of parent"
 msgstr "同父异母兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of partners"
 msgstr "配偶的兄弟姐妹"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of siblings"
 msgstr "兄弟姐妹的配偶"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of siblings-in-law"
 msgstr "姐妹夫\\姨子的兄弟姐妹"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of siblings-in-law"
 msgstr "姊夫\\叔子\\姨子的配偶"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of siblings"
 msgstr "兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings"
 msgstr "兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings' stepchildren"
 msgstr "兄弟姐妹的继子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of siblings of partners"
 msgstr "配偶兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of biological parents"
 msgstr "亲生父母的亲兄弟姐妹的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological children"
 msgstr "亲生子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren"
 msgstr "继子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of biological children"
 msgstr "亲生子女的配偶"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of biological grandchildren"
 msgstr "亲生孙辈的配偶"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren"
 msgstr "继子女的配偶"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandchildren"
 msgstr "亲生孙辈"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren of children"
 msgstr "孩子的继子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of stepchildren"
 msgstr "继子女的子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren of stepchildren"
 msgstr "继子女的继子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Father\\s family (%d)"
 msgstr "父亲的家庭（%d）"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Mother\\s family (%d)"
 msgstr "母亲的家庭（%d）"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Father\\s and Mother's family (%d)"
 msgstr "父亲和母亲的家庭（%d）"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Great-grandparents"
 msgstr "曾祖父辈"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no great-grandparents recorded."
 msgstr "%s没有曾祖父辈的记录。"
@@ -2122,21 +2200,24 @@ msgstr "%s没有曾祖父辈的记录。"
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d great-grandfather,"
 msgid_plural "%2$s has %1$d great-grandfathers,"
-msgstr[0] "%2$s有%1$d位曾祖父"
-msgstr[1] "%2$s有%1$d位曾祖父"
+msgstr[0] "%2$s有%1$d位曾祖父."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandparents"
 msgstr "祖父辈"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents"
 msgstr "亲生祖父母"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandparents recorded."
 msgstr "%s没有祖父母的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one grandparent recorded."
 msgstr "%s有一位祖父母的记录。"
@@ -2144,15 +2225,14 @@ msgstr "%s有一位祖父母的记录。"
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d grandmother recorded. "
 msgid_plural "%2$s has %1$d grandmothers recorded."
-msgstr[0] "%2$s有%1$d位祖母"
-msgstr[1] "%2$s有%1$d位祖母"
+msgstr[0] "%2$s有%1$d位祖母."
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d grandfather recorded. "
 msgid_plural "%2$s has %1$d grandfathers recorded."
-msgstr[0] "%2$s有%1$d位祖父"
-msgstr[1] "%2$s有%1$d位祖父"
+msgstr[0] "%2$s有%1$d位祖父."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Full siblings of biological parents"
 msgstr "亲生父母的兄弟姐妹"
@@ -2165,22 +2245,27 @@ msgstr "%s有一位叔(舅)父或姑妈(姨妈)的记录。"
 msgid "%s has one uncle or aunt by marriage recorded."
 msgstr "%s有一位姑父、姨父、婶婶或舅娘。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no parents recorded."
 msgstr "%s没有父母的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one parent recorded."
 msgstr "%s有单亲记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law"
 msgstr "岳父母（公婆）"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no parents-in-law recorded."
 msgstr "%s没有岳父母（公婆）的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one parent-in-law recorded."
 msgstr "%s有一位岳父母（公婆）。"
@@ -2189,22 +2274,23 @@ msgstr "%s有一位岳父母（公婆）。"
 msgid "%2$s has %1$d mother-in-law recorded. "
 msgid_plural "%2$s has %1$d mothers-in-law recorded."
 msgstr[0] "%2$s有%1$d位岳母（婆婆）"
-msgstr[1] "%2$s有%1$d位岳母（婆婆）"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d father-in-law recorded. "
 msgid_plural "%2$s has %1$d fathers-in-law recorded."
 msgstr[0] "%2$s有%1$d位岳父（公公）"
-msgstr[1] "%2$s有%1$d位岳父（公公）"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Co-parents-in-law"
 msgstr "儿女亲家"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no co-parents-in-law recorded."
 msgstr "%s没有儿女亲家记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one co-parent-in-law recorded."
 msgstr "%s有一位儿女亲家记录。"
@@ -2212,47 +2298,53 @@ msgstr "%s有一位儿女亲家记录。"
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d co-mother-in-law recorded. "
 msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
-msgstr[0] "%2$s有%1$d位亲家母"
-msgstr[1] "%2$s有%1$d位亲家母"
+msgstr[0] "%2$s有%1$d位亲家母."
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d co-father-in-law recorded. "
 msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
-msgstr[0] "%2$s有%1$d位亲家公"
-msgstr[1] "%2$s有%1$d位亲家公"
+msgstr[0] "%2$s有%1$d位亲家公."
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings"
 msgstr "兄弟姐妹"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no siblings recorded."
 msgstr "%s没有兄弟姐妹的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one brother or sister recorded."
 msgstr "%s有一个兄弟姐妹的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law"
 msgstr "姐(妹)夫\\叔子\\嫂子\\弟媳\\舅子\\姨子"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no siblings-in-law recorded."
 msgstr "%s没有嫂子(姑姐妹\\弟媳\\姨子)。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one sibling-in-law recorded."
 msgstr "%s有一个子妹配偶的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Co-siblings-in-law"
 msgstr "姻亲：舅母子\\妯娌\\连襟\\姊夫"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no co-siblings-in-law recorded."
 msgstr "%s没有妯娌、连襟、姊夫记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one co-sibling-in-law recorded."
 msgstr "%s有一位舅母子\\妯娌\\连襟\\姊夫记录。"
@@ -2261,26 +2353,28 @@ msgstr "%s有一位舅母子\\妯娌\\连襟\\姊夫记录。"
 msgid "Partners"
 msgstr "配偶"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no partners recorded."
 msgstr "%s没有配偶的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one partner recorded."
 msgstr "%s有一位配偶。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%d male partner recorded (%d in total)."
 msgid_plural "%d male partners recorded (%d in total)."
 msgstr[0] "%d位配偶（共%d位）"
-msgstr[1] "%d位配偶（共%d位）"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%d female partner in this partner chain recorded (%d in total). "
 msgid_plural "%d female partners in this partner chain recorded (%d in total)."
 msgstr[0] "此配偶系列中有%d名女性配偶（共%d名）。"
-msgstr[1] "此配偶系列中有%d名女性配偶（共%d名）。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Cousins"
 msgstr "堂表亲"
@@ -2296,388 +2390,71 @@ msgstr "%s有一位侄子或侄女的记录。"
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d niece recorded. "
 msgid_plural "%2$s has %1$d nieces recorded."
-msgstr[0] "%2$s有%1$d位侄女"
-msgstr[1] "%2$s有%1$d位侄女"
+msgstr[0] "%2$s有%1$d位侄女."
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d nephew recorded. "
 msgid_plural "%2$s has %1$d nephews recorded."
-msgstr[0] "%2$s有%1$d位侄子"
-msgstr[1] "%2$s有%1$d位侄子"
+msgstr[0] "%2$s有%1$d位侄子."
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children"
 msgstr "子女"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no children recorded."
 msgstr "%s没有子女的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one child recorded."
 msgstr "%s有一个子女。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children-in-law"
 msgstr "儿媳和女婿"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no children-in-law recorded."
 msgstr "%s没有儿媳和女婿记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one child-in-law recorded."
 msgstr "%s有一个儿媳或女婿的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandchildren"
 msgstr "孙辈"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandchildren recorded."
 msgstr "%s没有孙辈的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has one grandchild recorded."
 msgstr "%s有一位孙辈的记录。"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandchildren-in-law"
 msgstr "孙媳妇和孙女婿"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandchildren-in-law recorded."
 msgstr "%s没有孙媳妇和孙女婿的记录。"
 
-#~ msgid "Extended family"
-#~ msgstr "大家庭"
-
-#~ msgid "A tab showing the extended family of an individual."
-#~ msgstr "显示本人大家庭的选项卡。"
-
-#~ msgid "Show options to filter the results (gender and alive/dead)?"
-#~ msgstr "显示过滤结果的选项（性别和活/死）？"
-
-#~ msgid "no, but collect messages about empty blocks at the end"
-#~ msgstr "没有，但是在最后收集关于空块的消息"
-
-#~ msgid "don\\t use this filter"
-#~ msgstr "不要使用此筛选器"
-
-#~ msgid "a dead person"
-#~ msgstr "一位逝者"
-
-#~ msgid "a living person"
-#~ msgstr "一位生者"
-
-#~ msgid "not a male person"
-#~ msgstr "不是男性"
-
-#~ msgid "not a female person"
-#~ msgstr "不是女性"
-
-#~ msgid "not a person of unknown gender"
-#~ msgstr "不是一位性别不明的人"
-
-#~ msgid "twin"
-#~ msgstr "双胞胎"
-
-#~ msgid "triplet"
-#~ msgstr "三胞胎"
-
-#~ msgid "quadruplet"
-#~ msgstr "四胞胎"
-
-#~ msgid "quintuplet"
-#~ msgstr "五胞胎"
-
-#~ msgid "sextuplet"
-#~ msgstr "六胞胎"
-
-#~ msgid "septuplet"
-#~ msgstr "七胞胎"
-
-#~ msgid "octuplet"
-#~ msgstr "八胞胎"
-
-#~ msgid "nonuplet"
-#~ msgstr "九胞胎"
-
-#~ msgid "decuplet"
-#~ msgstr "十胞胎"
-
-#~ msgid "linkage challenged"
-#~ msgstr "联系受到挑战"
-
-#~ msgid "linkage disproven"
-#~ msgstr "连锁反证"
-
-#~ msgid "Marriage"
-#~ msgstr "结婚"
-
-#~ msgid "Ex-marriage"
-#~ msgstr "前任"
-
-#~ msgid "Fiancée"
-#~ msgstr "未婚妻"
-
-#~ msgid "Biological parents of father"
-#~ msgstr "父亲的亲生父母"
-
-#~ msgid "Biological parents of mother"
-#~ msgstr "母亲的亲生父母"
-
-#~ msgid "Biological grandparents of father"
-#~ msgstr "父亲的亲生祖父母"
-
-#~ msgid "Biological grandparents of mother"
-#~ msgstr "母亲的亲生祖父母"
-
-#~ msgid "Biological parents of parent"
-#~ msgstr "亲生父母"
-
-#~ msgid "Biological great-grandparents"
-#~ msgstr "亲生曾祖父母"
-
-#~ msgid "Stepparents of father"
-#~ msgstr "继父"
-
-#~ msgid "Stepparents of mother"
-#~ msgstr "继母"
-
-#~ msgid "Stepparents of parent"
-#~ msgstr "父母的继父母"
-
-#~ msgid "Parents of stepparent"
-#~ msgstr "继父或继母的父母"
-
-#~ msgid "Siblings of father"
-#~ msgstr "父亲的兄弟姐妹"
-
-#~ msgid "Siblings of mother"
-#~ msgstr "母亲的兄弟姐妹"
-
-#~ msgid "Siblings-in-law of father"
-#~ msgstr "父亲兄弟姐妹的配偶"
-
-#~ msgid "Siblings-in-law of mother"
-#~ msgstr "母亲兄弟姐妹的配偶"
-
-#~ msgid "Biological parents"
-#~ msgstr "亲生父母"
-
-#~ msgid "Stepparents"
-#~ msgstr "继父母"
-
-#~ msgid "Parents-in-law of biological children"
-#~ msgstr "亲生子女的岳父母\\公婆"
-
-#~ msgid "Parents-in-law of stepchildren"
-#~ msgstr "继子女的岳父母\\公婆"
-
-#~ msgid "Full siblings"
-#~ msgstr "兄弟姐妹"
-
-#~ msgid "Half siblings"
-#~ msgstr "同父异母的兄弟姐妹"
-
-#~ msgid "Stepsiblings"
-#~ msgstr "继兄弟姐妹"
-
-#~ msgid "Children of full siblings of father"
-#~ msgstr "父亲的兄弟姐妹的子女"
-
-#~ msgid "Children of full siblings of mother"
-#~ msgstr "母亲兄弟姐妹的子女"
-
-#~ msgid "Children of full siblings of parent"
-#~ msgstr "父母的兄弟姐妹的子女"
-
-#~ msgid "Children of half siblings of father"
-#~ msgstr "同父异母兄弟姐妹的子女"
-
-#~ msgid "Children of half siblings of mother"
-#~ msgstr "母亲同父异母兄弟姐妹的子女"
-
-#~ msgid "Children of half siblings of parent"
-#~ msgstr "同父异母兄弟姐妹的子女"
-
-#~ msgid "Siblings of partners"
-#~ msgstr "配偶的兄弟姐妹"
-
-#~ msgid "Partners of siblings"
-#~ msgstr "兄弟姐妹的配偶"
-
-#~ msgid "Siblings of siblings-in-law"
-#~ msgstr "姐妹夫\\姨子的兄弟姐妹"
-
-#~ msgid "Partners of siblings-in-law"
-#~ msgstr "姊夫\\叔子\\姨子的配偶"
-
-#~ msgid "Children of siblings"
-#~ msgstr "兄弟姐妹的子女"
-
-#~ msgid "Children of full siblings"
-#~ msgstr "兄弟姐妹的子女"
-
-#~ msgid "Siblings' stepchildren"
-#~ msgstr "兄弟姐妹的继子女"
-
-#~ msgid "Children of siblings of partners"
-#~ msgstr "配偶兄弟姐妹的子女"
-
-#~ msgid "Children of full siblings of biological parents"
-#~ msgstr "亲生父母的亲兄弟姐妹的子女"
-
-#~ msgid "Biological children"
-#~ msgstr "亲生子女"
-
-#~ msgid "Stepchildren"
-#~ msgstr "继子女"
-
-#~ msgid "Partners of biological children"
-#~ msgstr "亲生子女的配偶"
-
-#~ msgid "Partners of biological grandchildren"
-#~ msgstr "亲生孙辈的配偶"
-
-#~ msgid "Partners of stepchildren"
-#~ msgstr "继子女的配偶"
-
-#~ msgid "Biological grandchildren"
-#~ msgstr "亲生孙辈"
-
-#~ msgid "Stepchildren of children"
-#~ msgstr "孩子的继子女"
-
-#~ msgid "Children of stepchildren"
-#~ msgstr "继子女的子女"
-
-#~ msgid "Stepchildren of stepchildren"
-#~ msgstr "继子女的继子女"
-
-#~ msgid "Father\\s family (%d)"
-#~ msgstr "父亲的家庭（%d）"
-
-#~ msgid "Mother\\s family (%d)"
-#~ msgstr "母亲的家庭（%d）"
-
-#~ msgid "Father\\s and Mother's family (%d)"
-#~ msgstr "父亲和母亲的家庭（%d）"
-
-#~ msgid "Great-grandparents"
-#~ msgstr "曾祖父辈"
-
-#~ msgid "%s has no great-grandparents recorded."
-#~ msgstr "%s没有曾祖父辈的记录。"
-
-#~ msgid "Grandparents"
-#~ msgstr "祖父辈"
-
-#~ msgid "Biological grandparents"
-#~ msgstr "亲生祖父母"
-
-#~ msgid "%s has no grandparents recorded."
-#~ msgstr "%s没有祖父母的记录。"
-
-#~ msgid "%s has one grandparent recorded."
-#~ msgstr "%s有一位祖父母的记录。"
-
-#~ msgid "Full siblings of biological parents"
-#~ msgstr "亲生父母的兄弟姐妹"
-
-#~ msgid "%s has no parents recorded."
-#~ msgstr "%s没有父母的记录。"
-
-#~ msgid "%s has one parent recorded."
-#~ msgstr "%s有单亲记录。"
-
-#~ msgid "Parents-in-law"
-#~ msgstr "岳父母（公婆）"
-
-#~ msgid "%s has no parents-in-law recorded."
-#~ msgstr "%s没有岳父母（公婆）的记录。"
-
-#~ msgid "%s has one parent-in-law recorded."
-#~ msgstr "%s有一位岳父母（公婆）。"
-
-#~ msgid "Co-parents-in-law"
-#~ msgstr "儿女亲家"
-
-#~ msgid "%s has no co-parents-in-law recorded."
-#~ msgstr "%s没有儿女亲家记录。"
-
-#~ msgid "%s has one co-parent-in-law recorded."
-#~ msgstr "%s有一位儿女亲家记录。"
-
-#~ msgid "%s has no siblings recorded."
-#~ msgstr "%s没有兄弟姐妹的记录。"
-
-#~ msgid "%s has one brother or sister recorded."
-#~ msgstr "%s有一个兄弟姐妹的记录。"
-
-#~ msgid "Siblings-in-law"
-#~ msgstr "姐(妹)夫\\叔子\\嫂子\\弟媳\\舅子\\姨子"
-
-#~ msgid "%s has no siblings-in-law recorded."
-#~ msgstr "%s没有嫂子(姑姐妹\\弟媳\\姨子)。"
-
-#~ msgid "%s has one sibling-in-law recorded."
-#~ msgstr "%s有一个子妹配偶的记录。"
-
-#~ msgid "Co-siblings-in-law"
-#~ msgstr "姻亲：舅母子\\妯娌\\连襟\\姊夫"
-
-#~ msgid "%s has no co-siblings-in-law recorded."
-#~ msgstr "%s没有妯娌、连襟、姊夫记录。"
-
-#~ msgid "%s has one co-sibling-in-law recorded."
-#~ msgstr "%s有一位舅母子\\妯娌\\连襟\\姊夫记录。"
-
-#~ msgid "%s has no partners recorded."
-#~ msgstr "%s没有配偶的记录。"
-
-#~ msgid "%s has one partner recorded."
-#~ msgstr "%s有一位配偶。"
-
-#~ msgid "%d male partner recorded (%d in total)."
-#~ msgid_plural "%d male partners recorded (%d in total)."
-#~ msgstr[0] "%d位配偶（共%d位）"
-
-#~ msgid "Cousins"
-#~ msgstr "堂表亲"
-
-#~ msgid "%s has no children recorded."
-#~ msgstr "%s没有子女的记录。"
-
-#~ msgid "%s has one child recorded."
-#~ msgstr "%s有一个子女。"
-
-#~ msgid "Children-in-law"
-#~ msgstr "儿媳和女婿"
-
-#~ msgid "%s has no children-in-law recorded."
-#~ msgstr "%s没有儿媳和女婿记录。"
-
-#~ msgid "%s has one child-in-law recorded."
-#~ msgstr "%s有一个儿媳或女婿的记录。"
-
-#~ msgid "Grandchildren"
-#~ msgstr "孙辈"
-
-#~ msgid "%s has no grandchildren recorded."
-#~ msgstr "%s没有孙辈的记录。"
-
-#~ msgid "%s has one grandchild recorded."
-#~ msgstr "%s有一位孙辈的记录。"
-
-#~ msgid "Grandchildren-in-law"
-#~ msgstr "孙媳妇和孙女婿"
-
-#~ msgid "%s has no grandchildren-in-law recorded."
-#~ msgstr "%s没有孙媳妇和孙女婿的记录。"
 #: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
-msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgid ""
+"The custom module “huhwt-cce” is not available. The button “copy to "
+"clippings cart” will use the internal Extended Family action."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:756
@@ -2689,7 +2466,8 @@ msgid "The selected individual could not be found."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:788
-msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgid ""
+"The extended family has been copied to the clippings cart. New entries: %s"
 msgstr ""
 
 #: resources/views/settings.phtml:247
@@ -2699,9 +2477,3 @@ msgstr ""
 #: resources/views/settings.phtml:250
 msgid "huhwt-cce (recommended)"
 msgstr ""
-
-#: resources/views/settings.phtml:225
-msgid "This allows a user to copy all members of the extended family to the clippings cart."
-msgstr ""
-
-

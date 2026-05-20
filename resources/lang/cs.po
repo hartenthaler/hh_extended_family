@@ -1,12 +1,17 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 21:44+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
+"Language-Team: \n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:315
 msgid "Rada"
@@ -880,12 +885,12 @@ msgstr[1] "%d partnerky partnerů (celkem %d)."
 msgstr[2] "%d partnerek partnerů (celkem %d)."
 
 #: resources/views/tab.phtml:407
-#, fuzzy, php-format
+#, php-format
 msgid "%d female partner in this partner chain recorded"
 msgid_plural "%d female partners in this partner chain recorded"
-msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
-msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
-msgstr[2] "%d partnerek v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[0] "%1$d partnerku v tomto řetězci"
+msgstr[1] "%d partnerky v tomto řetězci"
+msgstr[2] "%d partnerek v tomto řetězci"
 
 #: resources/views/tab.phtml:408 resources/views/tab.phtml:412
 #: resources/views/tab.phtml:416 resources/views/tab.phtml:421
@@ -895,54 +900,41 @@ msgid "including %s"
 msgstr ""
 
 #: resources/views/tab.phtml:411
-#, fuzzy, php-format
+#, php-format
 msgid "%d male partner in this partner chain recorded"
 msgid_plural "%d male partners in this partner chain recorded"
-msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
-msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
-msgstr[2] "%d partnerek v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[0] "%1$d partnerku v tomto řetězci"
+msgstr[1] "%d partnerky v tomto řetězci"
+msgstr[2] "%d partnerek v tomto řetězci"
 
 #: resources/views/tab.phtml:415
-#, fuzzy, php-format
+#, php-format
 msgid "%d partner of unknown sex in this partner chain recorded"
 msgid_plural "%d partners of unknown sex in this partner chain recorded"
-msgstr[0] ""
-"%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
-"%3$s')."
-msgstr[1] ""
-"%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
-"%3$s')."
-msgstr[2] ""
-"%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
-"%3$s')."
+msgstr[0] "%1$d partnera neznámého pohlaví v tomto řetězci"
+msgstr[1] "%d partnery neznámého pohlaví v tomto řetězci"
+msgstr[2] "%d partnerů neznámého pohlaví v tomto řetězci"
 
 #: resources/views/tab.phtml:420
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d female partner in this partner chain recorded (%2$d in total"
 msgid_plural ""
 "%1$d female partners in this partner chain recorded (%2$d in total"
-msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
-msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
-msgstr[2] "%d partnerek v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d"
+msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d"
+msgstr[2] "%d partnerek v tomto řetězci (celkem %2$d"
 
 #: resources/views/tab.phtml:425 resources/views/tab.phtml:430
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
 msgid_plural ""
 "%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
-msgstr[0] ""
-"%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
-"%3$s')."
-msgstr[1] ""
-"%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
-"%3$s')."
-msgstr[2] ""
-"%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
-"%3$s')."
+msgstr[0] "%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d"
+msgstr[1] "%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d"
+msgstr[2] "%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d"
 
-#: resources/views/tab.phtml:436
-#, fuzzy, php-format
+# Migrated from ExtendedFamilyTranslations.php.old
 msgid ""
 "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, "
 "including %3$s)."
@@ -956,13 +948,11 @@ msgstr[1] ""
 "%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
 "%3$s')."
 msgstr[2] ""
-"%d partnerů neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' "
-"%3$s')."
 
 #: resources/views/tab.phtml:440
 #, php-format
 msgid "There are %d branches in the partner chain. "
-msgstr "V řetězci partnerů jsou %d linie."
+msgstr "V řetězci partnerů jsou %d linie. "
 
 #: resources/views/tab.phtml:442
 #, php-format
@@ -1936,9 +1926,9 @@ msgid "%s has no nephews or nieces recorded."
 msgstr "%s nemá zaznamenané žádné synovce ani neteře."
 
 #: resources/views/tab.phtml:1109
-#, fuzzy, php-format
+#, php-format
 msgid "%s has no "
-msgstr "%s nemá zaznamenanou skupinu %s."
+msgstr ""
 
 #: resources/views/tab.phtml:1118
 msgid "Summary for the shown extended family"
@@ -2131,7 +2121,7 @@ msgid ""
 "Labels (or stickers) are used for example for adopted persons or foster "
 "children."
 msgstr ""
-"Štítky se zobrazí např. pro adoptované osoby nebo děti v pěstounské péči. "
+"Štítky se zobrazí např. pro adoptované osoby nebo děti v pěstounské péči."
 
 #: resources/views/settings.phtml:164
 msgid "Show labels"
@@ -2191,78 +2181,97 @@ msgstr "Zobrazovat tlačítko"
 msgid "save"
 msgstr ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Extended family"
 msgstr "Širší rodina"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "A tab showing the extended family of an individual."
 msgstr "Panel širší rodiny dané osoby (probanda)."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "don't use this filter"
 msgstr "tento filtr nepoužívat"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a dead person"
 msgstr "zemřelá osoba"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "a living person"
 msgstr "žijící osoba"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a male person"
 msgstr "osoba nikoliv mužského pohlaví"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a female person"
 msgstr "osoba nikoliv ženského pohlaví"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "not a person of unknown gender"
 msgstr "osoba nikoliv neznámého pohlaví"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "twin"
 msgstr "dvojče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "triplet"
 msgstr "trojče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quadruplet"
 msgstr "čtyřče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "quintuplet"
 msgstr "paterče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "sextuplet"
 msgstr "šesterče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "septuplet"
 msgstr "sedmerče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "octuplet"
 msgstr "osmerče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "nonuplet"
 msgstr "devaterče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "decuplet"
 msgstr "desaterče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage challenged"
 msgstr "vztah sporný"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "linkage disproven"
 msgstr "vztah vyvrácený"
@@ -2271,294 +2280,367 @@ msgstr "vztah vyvrácený"
 msgid "linkage proven"
 msgstr "vztah prokázaný"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Marriage"
 msgstr "Manželství"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Ex-marriage"
 msgstr "Rozvedené manželství"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Fiancée"
 msgstr "Zasnoubení"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of father"
 msgstr "Vlastní prarodiče otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of mother"
 msgstr "Vlastní prarodiče matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents of parent"
 msgstr "Vlastní prarodiče rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological parent of father"
 msgstr "Nevlastní rodiče vlastního rodiče otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological parent of mother"
 msgstr "Nevlastní rodiče vlastního rodiče matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of biological grandparent"
 msgstr "Nevlastní rodiče vlastního prarodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of father"
 msgstr "Rodiče nevlastního rodiče otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of mother"
 msgstr "Rodiče nevlastního rodiče matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent of parent"
 msgstr "Rodiče nevlastního rodiče rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandparents of stepparent"
 msgstr "Prarodiče nevlastního rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological great-grandparents"
 msgstr "Vlastní praprarodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of father"
 msgstr "Vlastní rodiče otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of mother"
 msgstr "Vlastní rodiče matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents of parent"
 msgstr "Vlastní rodiče jednoho z rodičů"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of father"
 msgstr "Nevlastní rodiče otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of mother"
 msgstr "Nevlastní rodiče matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents of parent"
 msgstr "Nevlastní rodiče rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents of stepparent"
 msgstr "Rodiče nevlastního rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandparents"
 msgstr "Vlastní prarodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of father"
 msgstr "Sourozenci otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of mother"
 msgstr "Sourozenci matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Full siblings of biological parents"
 msgstr "Vlastní sourozenci vlastních rodičů"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law of father"
 msgstr "Švagři a švagrové otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law of mother"
 msgstr "Švagři a švagrové matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological parents"
 msgstr "Vlastní rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepparents"
 msgstr "Nevlastní rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law of biological children"
 msgstr "Tcháni a tchyně vlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law of stepchildren"
 msgstr "Tcháni a tchyně nevlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Full siblings"
 msgstr "Plnorodí sourozenci"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Half siblings"
 msgstr "Polorodí sourozenci"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepsiblings"
 msgstr "Nevlastní sourozenci"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of father"
 msgstr "Děti plnorodých sourozenců otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of mother"
 msgstr "Děti plnorodých sourozenců matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of parent"
 msgstr "Děti plnorodých sourozenců jednoho rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of father"
 msgstr "Děti polorodých sourozenců otce"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of mother"
 msgstr "Děti polorodých sourozenců matky"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of half siblings of parent"
 msgstr "Děti polorodých sourozenců jednoho rodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of partners"
 msgstr "Sourozenci partnerů"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of siblings"
 msgstr "Partneři sourozenců"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings of siblings-in-law"
 msgstr "Sourozenci švagrů a švagrových"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of siblings-in-law"
 msgstr "Partneři švagrů a švagrových"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings of biological parents"
 msgstr "Děti plnorodých sourozenců vlastních rodičů"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of siblings"
 msgstr "Děti sourozenců"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of full siblings"
 msgstr "Děti plnorodých sourozenců"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings' stepchildren"
 msgstr "Nevlastní děti sourozenců"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of siblings of partners"
 msgstr "Děti sourozenců partnerů"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological children"
 msgstr "Vlastní děti"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren"
 msgstr "Nevlastní děti"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of biological children"
 msgstr "Partneři vlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren"
 msgstr "Partneři nevlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Biological grandchildren"
 msgstr "Vlastní vnoučata"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren of children"
 msgstr "Nevlastní děti dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children of stepchildren"
 msgstr "Děti nevlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Stepchildren of stepchildren"
 msgstr "Nevlastní děti nevlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of biological grandchildren"
 msgstr "Partneři vlastních vnoučat"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren of children"
 msgstr "Partneři nevlastních dětí vlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of children of stepchildren"
 msgstr "Partneři dětí nevlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Partners of stepchildren of stepchildren"
 msgstr "Partneři nevlastních dětí nevlastních dětí"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Father's family (%d)"
 msgstr "Otcova rodina (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Mother's family (%d)"
 msgstr "Matčina rodina (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Father's and Mother's family (%d)"
 msgstr "Otcova a matčina rodina (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Great-grandparents"
 msgstr "Praprarodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no great-grandparents recorded."
 msgstr "%s nemá zaznamenané žádné praprarodiče."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandparents"
 msgstr "Prarodiče"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandparents recorded."
 msgstr "%s nemá zaznamenané žádné prarodiče."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no parents recorded."
 msgstr "%s nemá zaznamenané žádné rodiče."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Parents-in-law"
 msgstr "Tcháni a tchyně"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no parents-in-law recorded."
 msgstr "%s zde nemá zaznamenaného žádného tchána ani tchyni."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Co-parents-in-law"
 msgstr "Tcháni a tchyně dětí (spolutcháni a spolutchyně)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no co-parents-in-law recorded."
 msgstr "%s nemá zaznamenané žádné spolutchány ani spolutchyně."
@@ -2567,58 +2649,68 @@ msgstr "%s nemá zaznamenané žádné spolutchány ani spolutchyně."
 msgid "Partners"
 msgstr "Partneři"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no partners recorded."
 msgstr "%s zde nemá zaznamenaného žádného partnera."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%2$s has %1$d partner and "
 msgid_plural "%2$s has %1$d partners and "
-msgstr[0] "%2$s má zaznamenaného %1$d partnera a "
-msgstr[1] "%2$s má zaznamenané %1$d partnery a "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
-msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
-msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
+msgid ""
+"%1$d female partner in this partner chain recorded (%2$d in total, including "
+"%3$s)."
+msgid_plural ""
+"%1$d female partners in this partner chain recorded (%2$d in total, "
+"including %3$s)."
 msgstr[0] "%1$d partnerku v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
 msgstr[1] "%d partnerky v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[2] ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%d female partner and "
 msgid_plural "%d female partners and "
-msgstr[0] "%d partnerku, a "
-msgstr[1] "%d partnerky, a "
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
-msgid_plural "%d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
-msgstr[0] "%1$d partnera neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
-msgstr[1] "%d partnery neznámého pohlaví v tomto řetězci (celkem %2$d, vč. osoby ' %3$s')."
+msgstr[0] ""
+msgstr[1] " "
+msgstr[2] ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings"
 msgstr "Sourozenci"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no siblings recorded."
 msgstr "%s zde nemá zaznamenané žádné sourozence."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Siblings-in-law"
 msgstr "Švagři a švagrové"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no siblings-in-law recorded."
 msgstr "%s nemá zaznamenané žádné švagry ani švagrové."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Co-siblings-in-law"
-msgstr "Partneři a sourozenci švagrů a švagrových (spolušvagři a spolušvagrové)"
+msgstr ""
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no co-siblings-in-law recorded."
 msgstr "%s nemá zaznamenané žádné spolušvagry ani spolušvagrové."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Cousins"
 msgstr "Bratranci a sestřenice"
@@ -2627,366 +2719,45 @@ msgstr "Bratranci a sestřenice"
 msgid "Children"
 msgstr "Děti"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no children recorded."
 msgstr "%s nemá zaznamenané žádné děti."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Children-in-law"
 msgstr "Zeťové a snachy"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no children-in-law recorded."
 msgstr "%s nemá zaznamenané žádné zetě ani snachy."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandchildren"
 msgstr "Vnoučata"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandchildren recorded."
 msgstr "%s nemá zaznamenaná žádná vnoučata."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "Grandchildren-in-law"
 msgstr "Partneři vnoučat"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
 msgid "%s has no grandchildren-in-law recorded."
 msgstr "%s nemá zaznamenané žádné partnery vnoučat."
 
-#~ msgid "Extended family"
-#~ msgstr "Širší rodina"
-
-#~ msgid "A tab showing the extended family of an individual."
-#~ msgstr "Panel širší rodiny dané osoby (probanda)."
-
-#~ msgid "don't use this filter"
-#~ msgstr "tento filtr nepoužívat"
-
-#~ msgid "a dead person"
-#~ msgstr "zemřelá osoba"
-
-#~ msgid "a living person"
-#~ msgstr "žijící osoba"
-
-#~ msgid "not a male person"
-#~ msgstr "osoba nikoliv mužského pohlaví"
-
-#~ msgid "not a female person"
-#~ msgstr "osoba nikoliv ženského pohlaví"
-
-#~ msgid "not a person of unknown gender"
-#~ msgstr "osoba nikoliv neznámého pohlaví"
-
-#~ msgid "twin"
-#~ msgstr "dvojče"
-
-#~ msgid "triplet"
-#~ msgstr "trojče"
-
-#~ msgid "quadruplet"
-#~ msgstr "čtyřče"
-
-#~ msgid "quintuplet"
-#~ msgstr "paterče"
-
-#~ msgid "sextuplet"
-#~ msgstr "šesterče"
-
-#~ msgid "septuplet"
-#~ msgstr "sedmerče"
-
-#~ msgid "octuplet"
-#~ msgstr "osmerče"
-
-#~ msgid "nonuplet"
-#~ msgstr "devaterče"
-
-#~ msgid "decuplet"
-#~ msgstr "desaterče"
-
-#~ msgid "linkage challenged"
-#~ msgstr "vztah sporný"
-
-#~ msgid "linkage disproven"
-#~ msgstr "vztah vyvrácený"
-
-#~ msgid "Marriage"
-#~ msgstr "Manželství"
-
-#~ msgid "Ex-marriage"
-#~ msgstr "Rozvedené manželství"
-
-#~ msgid "Fiancée"
-#~ msgstr "Zasnoubení"
-
-#~ msgid "Biological grandparents of father"
-#~ msgstr "Vlastní prarodiče otce"
-
-#~ msgid "Biological grandparents of mother"
-#~ msgstr "Vlastní prarodiče matky"
-
-#~ msgid "Biological grandparents of parent"
-#~ msgstr "Vlastní prarodiče rodiče"
-
-#~ msgid "Stepparents of biological parent of father"
-#~ msgstr "Nevlastní rodiče vlastního rodiče otce"
-
-#~ msgid "Stepparents of biological parent of mother"
-#~ msgstr "Nevlastní rodiče vlastního rodiče matky"
-
-#~ msgid "Stepparents of biological grandparent"
-#~ msgstr "Nevlastní rodiče vlastního prarodiče"
-
-#~ msgid "Parents of stepparent of father"
-#~ msgstr "Rodiče nevlastního rodiče otce"
-
-#~ msgid "Parents of stepparent of mother"
-#~ msgstr "Rodiče nevlastního rodiče matky"
-
-#~ msgid "Parents of stepparent of parent"
-#~ msgstr "Rodiče nevlastního rodiče rodiče"
-
-#~ msgid "Grandparents of stepparent"
-#~ msgstr "Prarodiče nevlastního rodiče"
-
-#~ msgid "Biological great-grandparents"
-#~ msgstr "Vlastní praprarodiče"
-
-#~ msgid "Biological parents of father"
-#~ msgstr "Vlastní rodiče otce"
-
-#~ msgid "Biological parents of mother"
-#~ msgstr "Vlastní rodiče matky"
-
-#~ msgid "Biological parents of parent"
-#~ msgstr "Vlastní rodiče jednoho z rodičů"
-
-#~ msgid "Stepparents of father"
-#~ msgstr "Nevlastní rodiče otce"
-
-#~ msgid "Stepparents of mother"
-#~ msgstr "Nevlastní rodiče matky"
-
-#~ msgid "Stepparents of parent"
-#~ msgstr "Nevlastní rodiče rodiče"
-
-#~ msgid "Parents of stepparent"
-#~ msgstr "Rodiče nevlastního rodiče"
-
-#~ msgid "Biological grandparents"
-#~ msgstr "Vlastní prarodiče"
-
-#~ msgid "Siblings of father"
-#~ msgstr "Sourozenci otce"
-
-#~ msgid "Siblings of mother"
-#~ msgstr "Sourozenci matky"
-
-#~ msgid "Full siblings of biological parents"
-#~ msgstr "Vlastní sourozenci vlastních rodičů"
-
-#~ msgid "Siblings-in-law of father"
-#~ msgstr "Švagři a švagrové otce"
-
-#~ msgid "Siblings-in-law of mother"
-#~ msgstr "Švagři a švagrové matky"
-
-#~ msgid "Biological parents"
-#~ msgstr "Vlastní rodiče"
-
-#~ msgid "Stepparents"
-#~ msgstr "Nevlastní rodiče"
-
-#~ msgid "Parents-in-law of biological children"
-#~ msgstr "Tcháni a tchyně vlastních dětí"
-
-#~ msgid "Parents-in-law of stepchildren"
-#~ msgstr "Tcháni a tchyně nevlastních dětí"
-
-#~ msgid "Full siblings"
-#~ msgstr "Plnorodí sourozenci"
-
-#~ msgid "Half siblings"
-#~ msgstr "Polorodí sourozenci"
-
-#~ msgid "Stepsiblings"
-#~ msgstr "Nevlastní sourozenci"
-
-#~ msgid "Children of full siblings of father"
-#~ msgstr "Děti plnorodých sourozenců otce"
-
-#~ msgid "Children of full siblings of mother"
-#~ msgstr "Děti plnorodých sourozenců matky"
-
-#~ msgid "Children of full siblings of parent"
-#~ msgstr "Děti plnorodých sourozenců jednoho rodiče"
-
-#~ msgid "Children of half siblings of father"
-#~ msgstr "Děti polorodých sourozenců otce"
-
-#~ msgid "Children of half siblings of mother"
-#~ msgstr "Děti polorodých sourozenců matky"
-
-#~ msgid "Children of half siblings of parent"
-#~ msgstr "Děti polorodých sourozenců jednoho rodiče"
-
-#~ msgid "Siblings of partners"
-#~ msgstr "Sourozenci partnerů"
-
-#~ msgid "Partners of siblings"
-#~ msgstr "Partneři sourozenců"
-
-#~ msgid "Siblings of siblings-in-law"
-#~ msgstr "Sourozenci švagrů a švagrových"
-
-#~ msgid "Partners of siblings-in-law"
-#~ msgstr "Partneři švagrů a švagrových"
-
-#~ msgid "Children of full siblings of biological parents"
-#~ msgstr "Děti plnorodých sourozenců vlastních rodičů"
-
-#~ msgid "Children of siblings"
-#~ msgstr "Děti sourozenců"
-
-#~ msgid "Children of full siblings"
-#~ msgstr "Děti plnorodých sourozenců"
-
-#~ msgid "Siblings' stepchildren"
-#~ msgstr "Nevlastní děti sourozenců"
-
-#~ msgid "Children of siblings of partners"
-#~ msgstr "Děti sourozenců partnerů"
-
-#~ msgid "Biological children"
-#~ msgstr "Vlastní děti"
-
-#~ msgid "Stepchildren"
-#~ msgstr "Nevlastní děti"
-
-#~ msgid "Partners of biological children"
-#~ msgstr "Partneři vlastních dětí"
-
-#~ msgid "Partners of stepchildren"
-#~ msgstr "Partneři nevlastních dětí"
-
-#~ msgid "Biological grandchildren"
-#~ msgstr "Vlastní vnoučata"
-
-#~ msgid "Stepchildren of children"
-#~ msgstr "Nevlastní děti dětí"
-
-#~ msgid "Children of stepchildren"
-#~ msgstr "Děti nevlastních dětí"
-
-#~ msgid "Stepchildren of stepchildren"
-#~ msgstr "Nevlastní děti nevlastních dětí"
-
-#~ msgid "Partners of biological grandchildren"
-#~ msgstr "Partneři vlastních vnoučat"
-
-#~ msgid "Partners of stepchildren of children"
-#~ msgstr "Partneři nevlastních dětí vlastních dětí"
-
-#~ msgid "Partners of children of stepchildren"
-#~ msgstr "Partneři dětí nevlastních dětí"
-
-#~ msgid "Partners of stepchildren of stepchildren"
-#~ msgstr "Partneři nevlastních dětí nevlastních dětí"
-
-#~ msgid "Father's family (%d)"
-#~ msgstr "Otcova rodina (%d)"
-
-#~ msgid "Mother's family (%d)"
-#~ msgstr "Matčina rodina (%d)"
-
-#~ msgid "Father's and Mother's family (%d)"
-#~ msgstr "Otcova a matčina rodina (%d)"
-
-#~ msgid "Great-grandparents"
-#~ msgstr "Praprarodiče"
-
-#~ msgid "%s has no great-grandparents recorded."
-#~ msgstr "%s nemá zaznamenané žádné praprarodiče."
-
-#~ msgid "Grandparents"
-#~ msgstr "Prarodiče"
-
-#~ msgid "%s has no grandparents recorded."
-#~ msgstr "%s nemá zaznamenané žádné prarodiče."
-
-#~ msgid "%s has no parents recorded."
-#~ msgstr "%s nemá zaznamenané žádné rodiče."
-
-#~ msgid "Parents-in-law"
-#~ msgstr "Tcháni a tchyně"
-
-#~ msgid "%s has no parents-in-law recorded."
-#~ msgstr "%s zde nemá zaznamenaného žádného tchána ani tchyni."
-
-#~ msgid "Co-parents-in-law"
-#~ msgstr "Tcháni a tchyně dětí (spolutcháni a spolutchyně)"
-
-#~ msgid "%s has no co-parents-in-law recorded."
-#~ msgstr "%s nemá zaznamenané žádné spolutchány ani spolutchyně."
-
-#~ msgid "%s has no partners recorded."
-#~ msgstr "%s zde nemá zaznamenaného žádného partnera."
-
-#~ msgid "%2$s has %1$d partner and "
-#~ msgid_plural "%2$s has %1$d partners and "
-#~ msgstr[0] "%2$s má zaznamenaného %1$d partnera a "
-#~ msgstr[1] "%2$s má zaznamenané %1$d partnery a "
-#~ msgstr[2] "%2$s má zaznamenaných %1$d partnerů a "
-
-#~ msgid "%d female partner and "
-#~ msgid_plural "%d female partners and "
-#~ msgstr[0] "%d partnerku, a "
-#~ msgstr[1] "%d partnerky, a "
-#~ msgstr[2] "%d partnerek, a "
-
-#~ msgid "%s has no siblings recorded."
-#~ msgstr "%s zde nemá zaznamenané žádné sourozence."
-
-#~ msgid "Siblings-in-law"
-#~ msgstr "Švagři a švagrové"
-
-#~ msgid "%s has no siblings-in-law recorded."
-#~ msgstr "%s nemá zaznamenané žádné švagry ani švagrové."
-
-#~ msgid "Co-siblings-in-law"
-#~ msgstr ""
-#~ "Partneři a sourozenci švagrů a švagrových (spolušvagři a spolušvagrové)"
-
-#~ msgid "%s has no co-siblings-in-law recorded."
-#~ msgstr "%s nemá zaznamenané žádné spolušvagry ani spolušvagrové."
-
-#~ msgid "Cousins"
-#~ msgstr "Bratranci a sestřenice"
-
-#~ msgid "%s has no children recorded."
-#~ msgstr "%s nemá zaznamenané žádné děti."
-
-#~ msgid "Children-in-law"
-#~ msgstr "Zeťové a snachy"
-
-#~ msgid "%s has no children-in-law recorded."
-#~ msgstr "%s nemá zaznamenané žádné zetě ani snachy."
-
-#~ msgid "Grandchildren"
-#~ msgstr "Vnoučata"
-
-#~ msgid "%s has no grandchildren recorded."
-#~ msgstr "%s nemá zaznamenaná žádná vnoučata."
-
-#~ msgid "Grandchildren-in-law"
-#~ msgstr "Partneři vnoučat"
-
-#~ msgid "%s has no grandchildren-in-law recorded."
-#~ msgstr "%s nemá zaznamenané žádné partnery vnoučat."
 #: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
-msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
+msgid ""
+"The custom module “huhwt-cce” is not available. The button “copy to "
+"clippings cart” will use the internal Extended Family action."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:756
@@ -2998,7 +2769,8 @@ msgid "The selected individual could not be found."
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:788
-msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgid ""
+"The extended family has been copied to the clippings cart. New entries: %s"
 msgstr ""
 
 #: resources/views/settings.phtml:247
@@ -3008,9 +2780,3 @@ msgstr ""
 #: resources/views/settings.phtml:250
 msgid "huhwt-cce (recommended)"
 msgstr ""
-
-#: resources/views/settings.phtml:225
-msgid "This allows a user to copy all members of the extended family to the clippings cart."
-msgstr ""
-
-
