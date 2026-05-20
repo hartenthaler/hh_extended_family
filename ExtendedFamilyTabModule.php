@@ -25,7 +25,7 @@
 
 /*
  * tbd
- * --------------------------  ab hier für das Release 2.2.6.2    ------------------------------------------------*
+ * --------------------------  ab hier für das Release 2.2.6.3    ------------------------------------------------*
  * issues "bug": see GitHub
  *
  * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
@@ -36,7 +36,7 @@
  * Übersetzung: Satz umformulieren, da Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
  * READme: alle Screenshots aktualisieren
  *
- * --------------------------  ab hier für ein Release nach 2.2.6.2    ------------------------------------------------
+ * --------------------------  ab hier für ein Release nach 2.2.6.3    ------------------------------------------------
  * all issues: see GitHub
  *
  * Code: neuen webtrees Validator zur Prüfung reinkommender Parameter verwenden (siehe Beispiele Magicsunday Fanchart)
@@ -129,7 +129,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.1';
+    public const CUSTOM_VERSION     = '2.2.6.2';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
