@@ -103,8 +103,9 @@ The default presentation order is based on the generation shift relative to the 
 * children: generation -1
 * children-in-law: generation -1
 * grandchildren: generation -2
-* great-grandchildren: generation -3
 * grandchildren-in-law: generation -2
+* great-grandchildren: generation -3
+* great-grandchildren-in-law: generation -3
 
 Every family part can be enabled, disabled, and reordered in the webtrees control panel.
 
@@ -202,8 +203,6 @@ To update the module, replace the `hh_extended_family` files with the files from
 You can help translate this module.
 The translation strings are stored as gettext files in `resources/lang/*.po`.
 The German translation in `resources/lang/de.po` is usually the most complete version and can be used as the reference for new translations.
-
-In version 3.9 of poedit.com the automatic recognition of strings in the source files does not work correctly.
 
 Updated translations can be contributed by pull request or by e-mail.
 They will be included in a future release of the module.

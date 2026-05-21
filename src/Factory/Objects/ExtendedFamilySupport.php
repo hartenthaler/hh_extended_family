@@ -93,6 +93,7 @@ class ExtendedFamilySupport
             'grandchildren'          => ['generation' => -2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandchildren::GROUP_GRANDCHILDREN_BIO],
             'great_grandchildren'    => ['generation' => -3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIOLOGICAL],
             'grandchildren_in_law'   => ['generation' => -2, 'relationshipCoefficient' => 0],
+            'great_grandchild_in_law' => ['generation' => -3, 'relationshipCoefficient' => 0],
        ];
     }
 
@@ -104,6 +105,40 @@ class ExtendedFamilySupport
     public static function listFamilyParts(): array
     {
         return array_keys(self::getFamilyPartParameters());
+    }
+
+    /**
+     * Coarse administrative degree per family part.
+     *
+     * This value is used only as a selection aid in the control panel. It is not
+     * the exact person-level distance that may later be stored per individual.
+     *
+     * @return array<string,int>
+     */
+    public static function getFamilyPartDegrees(): array
+    {
+        return [
+            'parents'                => 1,
+            'children'               => 1,
+            'siblings'               => 1,
+            'partners'               => 1,
+            'grandparents'           => 2,
+            'grandchildren'          => 2,
+            'uncles_and_aunts'       => 2,
+            'nephews_and_nieces'     => 2,
+            'parents_in_law'         => 2,
+            'children_in_law'        => 2,
+            'siblings_in_law'        => 2,
+            'partner_chains'         => 2,
+            'great_grandparents'     => 3,
+            'great_grandchildren'    => 3,
+            'cousins'                => 3,
+            'uncles_and_aunts_bm'    => 3,
+            'co_parents_in_law'      => 3,
+            'co_siblings_in_law'     => 3,
+            'grandchildren_in_law'   => 3,
+            'great_grandchild_in_law' => 4,
+        ];
     }
 
     /**
@@ -125,7 +160,7 @@ class ExtendedFamilySupport
     /**
      * get list of options to filter by gender
      *
-     * @return array of string
+     * @return array<int,string>
      */
     private static function getFilterOptionsSex(): array
     {
@@ -139,7 +174,7 @@ class ExtendedFamilySupport
     /**
      * get list of options to filter by alive/dead
      *
-     * @return array of string
+     * @return array<int,string>
      */
     private static function getFilterOptionsAlive(): array
     {
@@ -152,7 +187,7 @@ class ExtendedFamilySupport
     /**
      * get list of all combinations of filter options ['all', 'M', 'F', 'U', 'Y', 'N', 'MY', 'FN', ...]
      *
-     * @return array of string
+     * @return array<int,string>
      */
     public static function getFilterOptions(): array
     {
@@ -239,7 +274,7 @@ class ExtendedFamilySupport
      * convert combined filterOption to a pair of filter options
      *
      * @param string $filterOption  [M, F, U, Y, N, MY, ...]
-     * @return array of string [sex, alive]
+     * @return array<string,string> [sex, alive]
      */
     public static function convertFilterOptions(string $filterOption): array
     {
@@ -253,7 +288,7 @@ class ExtendedFamilySupport
      * generate an array of labels for a child
      *
      * @param Individual $child
-     * @return array of string with child labels
+     * @return array<int,string> with child labels
      */
     public static function generateChildLabels(Individual $child): array
     {
@@ -305,72 +340,8 @@ class ExtendedFamilySupport
             } else {
                 $label  = Registry::elementFactory()->make('INDI:FAMC:PEDI')->value('', $child->tree());
             }
-            // $label = ExtendedFamilySupport::getPedigreeValue($match[1], $individual); // aus dem alten Code - Funktion getPedigreeValue kann wohl weg
         }
         return $label;
-    }
-
-    /**
-     * Translate a pedigree code, for a record
-     * This is a copy of a webtrees 1 function
-     *
-     * @param string $type
-     * @param Individual $individual
-     * @return string
-     */
-    private static function getPedigreeValue(string $type, Individual $individual): string
-    {
-        $sex = $individual->sex();
-
-        switch (strtoupper($type)) {
-            case 'BIRTH':
-                if ($sex === 'M') {
-                    return I18N::translateContext('Male pedigree', 'Birth');
-                } elseif ($sex === 'F') {
-                    return I18N::translateContext('Female pedigree', 'Birth');
-                } else {
-                    return I18N::translateContext('Pedigree', 'Birth');
-                }
-
-            case 'ADOPTED':
-                if ($sex === 'M') {
-                    return I18N::translateContext('Male pedigree', 'Adopted');
-                } elseif ($sex === 'F') {
-                    return I18N::translateContext('Female pedigree', 'Adopted');
-                } else {
-                    return I18N::translateContext('Pedigree', 'Adopted');
-                }
-
-            case 'FOSTER':
-                if ($sex === 'M') {
-                    return I18N::translateContext('Male pedigree', 'Foster');
-                } elseif ($sex === 'F') {
-                    return I18N::translateContext('Female pedigree', 'Foster');
-                } else {
-                    return I18N::translateContext('Pedigree', 'Foster');
-                }
-
-            case 'SEALING':
-                if ($sex === 'M') {
-                    /* I18N: “sealing” is a ceremony in the Mormon church. */
-                    return I18N::translateContext('Male pedigree', 'Sealing');
-                } elseif ($sex === 'F') {
-                    /* I18N: “sealing” is a ceremony in the Mormon church. */
-                    return I18N::translateContext('Female pedigree', 'Sealing');
-                } else {
-                    /* I18N: “sealing” is a ceremony in the Mormon church. */
-                    return I18N::translateContext('Pedigree', 'Sealing');
-                }
-
-            case 'RADA':
-                // Not standard GEDCOM - a webtrees extension
-                // This is an arabic word which does not exist in other languages.
-                // So, it will not have any inflected forms.
-                /* I18N: This is an Arabic word, pronounced “ra DAH”. It is child-to-parent pedigree, established by wet-nursing. */
-                return I18N::translate('Rada');
-            default:
-                return $type;
-        }
     }
 
     /**
@@ -423,11 +394,34 @@ class ExtendedFamilySupport
         $childGedcom = $child->gedcom();
         if (preg_match('/\n1 ASSO @(?:.+)@\n2 RELA (.+)/', $childGedcom, $match) ||
              preg_match('/\n2 _ASSO @(?:.+)@\n3 RELA (.+)/', $childGedcom, $match)) {
-            if (in_array(strtolower($match[1]), $multipleBirth)) {
-                return I18N::translate(strtolower($match[1]));
+            $rela = strtolower($match[1]);
+            if (in_array($rela, $multipleBirth)) {
+                return self::translateMultipleBirthLabel($rela);
             }
         }
         return '';
+    }
+
+    /**
+     * Translate multiple-birth labels explicitly so gettext extractors can find them.
+     *
+     * @param string $rela
+     * @return string
+     */
+    private static function translateMultipleBirthLabel(string $rela): string
+    {
+        return match ($rela) {
+            'twin'      => I18N::translate('twin'),
+            'triplet'   => I18N::translate('triplet'),
+            'quadruplet' => I18N::translate('quadruplet'),
+            'quintuplet' => I18N::translate('quintuplet'),
+            'sextuplet' => I18N::translate('sextuplet'),
+            'septuplet' => I18N::translate('septuplet'),
+            'octuplet'  => I18N::translate('octuplet'),
+            'nonuplet'  => I18N::translate('nonuplet'),
+            'decuplet'  => I18N::translate('decuplet'),
+            default     => I18N::translate($rela),
+        };
     }
 
     /**
@@ -484,10 +478,27 @@ class ExtendedFamilySupport
     public static function translateFamilyStatusForParentheses(string $familyStatus): string
     {
         return match ($familyStatus) {
-            self::FAM_STATUS_EX          => I18N::translate(self::FAM_STATUS_DIVORCED),
-            self::FAM_STATUS_MARRIAGE    => I18N::translate(self::FAM_STATUS_MARRIED),
-            self::FAM_STATUS_FIANCEE     => I18N::translate(self::FAM_STATUS_ENGAGED),
-            self::FAM_STATUS_PARTNERSHIP => I18N::translate(self::FAM_STATUS_PARTNERS),
+            self::FAM_STATUS_EX          => I18N::translate('divorced'),
+            self::FAM_STATUS_MARRIAGE    => I18N::translate('married'),
+            self::FAM_STATUS_FIANCEE     => I18N::translate('engaged'),
+            self::FAM_STATUS_PARTNERSHIP => I18N::translate('partners'),
+            default                      => self::translateFamilyStatus($familyStatus),
+        };
+    }
+
+    /**
+     * Translate family status for standalone use.
+     *
+     * @param string $familyStatus
+     * @return string
+     */
+    public static function translateFamilyStatus(string $familyStatus): string
+    {
+        return match ($familyStatus) {
+            self::FAM_STATUS_EX          => I18N::translate('Ex-marriage'),
+            self::FAM_STATUS_MARRIAGE    => I18N::translate('Marriage'),
+            self::FAM_STATUS_FIANCEE     => I18N::translate('Fiancée'),
+            self::FAM_STATUS_PARTNERSHIP => I18N::translate('Partnership'),
             default                      => I18N::translate($familyStatus),
         };
     }
@@ -501,10 +512,10 @@ class ExtendedFamilySupport
     public static function translateFamilyStatusAsPartner(string $familyStatus): string
     {
         return match ($familyStatus) {
-            self::FAM_STATUS_EX          => I18N::translate(self::FAM_STATUS_DIVORCED_PARTNER),
-            self::FAM_STATUS_MARRIAGE    => I18N::translate(self::FAM_STATUS_MARRIED_PARTNER),
-            self::FAM_STATUS_FIANCEE     => I18N::translate(self::FAM_STATUS_ENGAGED_PARTNER),
-            self::FAM_STATUS_PARTNERSHIP => I18N::translate(self::FAM_STATUS_PARTNER),
+            self::FAM_STATUS_EX          => I18N::translate('divorced partner'),
+            self::FAM_STATUS_MARRIAGE    => I18N::translate('married partner'),
+            self::FAM_STATUS_FIANCEE     => I18N::translate('engaged partner'),
+            self::FAM_STATUS_PARTNERSHIP => I18N::translate('partner'),
             default                      => I18N::translate($familyStatus),
         };
     }
@@ -626,17 +637,168 @@ class ExtendedFamilySupport
     */
     public static function translateFamilyPart(string $type): string
     {
-        switch ($type) {
-            case 'uncles_and_aunts':
-                return I18N::translate('Uncles and Aunts');
-            case 'uncles_and_aunts_bm':
-                return I18N::translate('Uncles and Aunts by marriage');
-            case 'partner_chains':
-                return I18N::translate('Partner chains');
-            case 'nephews_and_nieces':
-                return I18N::translate('Nephews and Nieces');
-            default:
-                return I18N::translate(ucfirst(str_replace('_', '-', $type)));
-        }
+        return match ($type) {
+            'great_grandparents'      => I18N::translate('Great-grandparents'),
+            'grandparents'            => I18N::translate('Grandparents'),
+            'uncles_and_aunts'        => I18N::translate('Uncles and Aunts'),
+            'uncles_and_aunts_bm'     => I18N::translate('Uncles and Aunts by marriage'),
+            'parents'                 => I18N::translate('Parents'),
+            'parents_in_law'          => I18N::translate('Parents-in-law'),
+            'co_parents_in_law'       => I18N::translate('Co-parents-in-law'),
+            'partners'                => I18N::translate('Partners'),
+            'partner_chains'          => I18N::translate('Partner chains'),
+            'siblings'                => I18N::translate('Siblings'),
+            'siblings_in_law'         => I18N::translate('Siblings-in-law'),
+            'co_siblings_in_law'      => I18N::translate('Co-siblings-in-law'),
+            'cousins'                 => I18N::translate('Cousins'),
+            'nephews_and_nieces'      => I18N::translate('Nephews and Nieces'),
+            'children'                => I18N::translate('Children'),
+            'children_in_law'         => I18N::translate('Children-in-law'),
+            'grandchildren'           => I18N::translate('Grandchildren'),
+            'great_grandchildren'     => I18N::translate('Great-grandchildren'),
+            'grandchildren_in_law'    => I18N::translate('Grandchildren-in-law'),
+            'great_grandchild_in_law' => I18N::translate('Great-grandchildren-in-law'),
+            default                   => I18N::translate($type),
+        };
+    }
+
+    /**
+     * Translate comments used for the relationship coefficient badge.
+     *
+     * @param string $comment
+     * @return string
+     */
+    public static function translateRelationshipCoefficientComment(string $comment): string
+    {
+        return match ($comment) {
+            Great_grandparents::GROUP_GREATGRANDPARENTS_BIO                    => I18N::translate('Biological great-grandparents'),
+            Grandparents::GROUP_GRANDPARENTS_BIO                              => I18N::translate('Biological grandparents'),
+            Uncles_and_aunts::GROUP_UNCLEAUNT_FULL_BIO                        => I18N::translate('Full siblings of biological parents'),
+            Parents::GROUP_PARENTS_BIO                                        => I18N::translate('Biological parents'),
+            Siblings::GROUP_SIBLINGS_FULL                                     => I18N::translate('Full siblings'),
+            Cousins::GROUP_COUSINS_FULL_BIO                                   => I18N::translate('Children of full siblings of biological parents'),
+            Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING         => I18N::translate('Children of full siblings'),
+            Children::GROUP_CHILDREN_BIO                                      => I18N::translate('Biological children'),
+            Grandchildren::GROUP_GRANDCHILDREN_BIO                            => I18N::translate('Biological grandchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIOLOGICAL          => I18N::translate('Biological great-grandchildren'),
+            default                                                           => I18N::translate($comment),
+        };
+    }
+
+    /**
+     * Translate group names that may otherwise only occur as dynamic values.
+     *
+     * @param string $groupName
+     * @return string
+     */
+    public static function translateGroupName(string $groupName): string
+    {
+        return match ($groupName) {
+            Great_grandparents::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIO         => I18N::translate('Biological grandparents of father'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIO         => I18N::translate('Biological grandparents of mother'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_USIDE_BIO              => I18N::translate('Biological grandparents of parent'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEPBIO     => I18N::translate('Stepparents of biological parent of father'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEPBIO     => I18N::translate('Stepparents of biological parent of mother'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO          => I18N::translate('Stepparents of biological grandparent'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIOSOCIAL   => I18N::translate('Social parents of biological parent of father'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIOSOCIAL   => I18N::translate('Social parents of biological parent of mother'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_USIDE_BIOSOCIAL        => I18N::translate('Social parents of biological grandparent'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP        => I18N::translate('Parents of stepparent of father'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP        => I18N::translate('Parents of stepparent of mother'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_USIDE_STEP             => I18N::translate('Parents of stepparent of parent'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP_STEP   => I18N::translate('Stepparents of stepparent of father'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP_STEP   => I18N::translate('Stepparents of stepparent of mother'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_USIDE_STEP_STEP        => I18N::translate('Stepparents of stepparent of parent'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL      => I18N::translate('Parents of social parent of father'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL      => I18N::translate('Parents of social parent of mother'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL           => I18N::translate('Parents of social parent of parent'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL_STEP => I18N::translate('Stepparents of social parent of father'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL_STEP => I18N::translate('Stepparents of social parent of mother'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL_STEP      => I18N::translate('Stepparents of social parent of parent'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_STEP_PARENTS           => I18N::translate('Grandparents of stepparent'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_SOCIAL_PARENTS         => I18N::translate('Grandparents of social parent'),
+            Grandparents::GROUP_GRANDPARENTS_FATHER_BIO         => I18N::translate('Biological parents of father'),
+            Grandparents::GROUP_GRANDPARENTS_MOTHER_BIO         => I18N::translate('Biological parents of mother'),
+            Grandparents::GROUP_GRANDPARENTS_U_BIO              => I18N::translate('Biological parents of parent'),
+            Grandparents::GROUP_GRANDPARENTS_FATHER_STEP        => I18N::translate('Stepparents of father'),
+            Grandparents::GROUP_GRANDPARENTS_MOTHER_STEP        => I18N::translate('Stepparents of mother'),
+            Grandparents::GROUP_GRANDPARENTS_U_STEP             => I18N::translate('Stepparents of parent'),
+            Grandparents::GROUP_GRANDPARENTS_STEP_PARENTS       => I18N::translate('Parents of stepparent'),
+            Grandparents::GROUP_GRANDPARENTS_FATHER_SOCIAL      => I18N::translate('Social parents of father'),
+            Grandparents::GROUP_GRANDPARENTS_MOTHER_SOCIAL      => I18N::translate('Social parents of mother'),
+            Grandparents::GROUP_GRANDPARENTS_U_SOCIAL           => I18N::translate('Social parents of parent'),
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_FATHER      => I18N::translate('Parents of social father'),
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_MOTHER      => I18N::translate('Parents of social mother'),
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_PARENT      => I18N::translate('Parents of social parent'),
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_FATHER_STEP => I18N::translate('Stepparents of social father'),
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_MOTHER_STEP => I18N::translate('Stepparents of social mother'),
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_PARENT_STEP => I18N::translate('Stepparents of social parent'),
+            Grandparents::GROUP_GRANDPARENTS_STEP_PARENT_STEP   => I18N::translate('Stepparents of stepparent'),
+            Parents::GROUP_PARENTS_SOCIAL                       => I18N::translate('Social parents'),
+            Parents::GROUP_PARENTS_STEP                         => I18N::translate('Stepparents'),
+            Uncles_and_aunts::GROUP_UNCLEAUNT_BIO_PARENT        => I18N::translate('Siblings and half siblings of biological parents'),
+            Uncles_and_aunts::GROUP_UNCLEAUNT_SOCIAL_PARENT     => I18N::translate('Siblings and half siblings of social parents'),
+            Uncles_and_aunts::GROUP_UNCLEAUNT_STEP_PARENT       => I18N::translate('Siblings and half siblings of stepparents'),
+            Uncles_and_aunts_bm::GROUP_UNCLEAUNTBM_BIO_PARENT    => I18N::translate('Partners of siblings and half siblings of biological parents'),
+            Uncles_and_aunts_bm::GROUP_UNCLEAUNTBM_SOCIAL_PARENT => I18N::translate('Partners of siblings and half siblings of social parents'),
+            Uncles_and_aunts_bm::GROUP_UNCLEAUNTBM_STEP_PARENT   => I18N::translate('Partners of siblings and half siblings of stepparents'),
+            Cousins::GROUP_COUSINS_FULL_FATHER                  => I18N::translate('Children of full siblings of father'),
+            Cousins::GROUP_COUSINS_FULL_MOTHER                  => I18N::translate('Children of full siblings of mother'),
+            Cousins::GROUP_COUSINS_FULL_U                       => I18N::translate('Children of full siblings of parent'),
+            Cousins::GROUP_COUSINS_HALF_FATHER                  => I18N::translate('Children of half siblings of father'),
+            Cousins::GROUP_COUSINS_HALF_MOTHER                  => I18N::translate('Children of half siblings of mother'),
+            Cousins::GROUP_COUSINS_HALF_U                       => I18N::translate('Children of half siblings of parent'),
+            Siblings::GROUP_SIBLINGS_HALF                       => I18N::translate('Half siblings'),
+            Siblings::GROUP_SIBLINGS_SOCIAL                     => I18N::translate('Social siblings'),
+            Siblings::GROUP_SIBLINGS_STEP                       => I18N::translate('Stepsiblings'),
+            Siblings_in_law::GROUP_SIBLINGSINLAW_SIBOFP         => I18N::translate('Siblings of partners'),
+            Siblings_in_law::GROUP_SIBLINGSINLAW_POFSIB         => I18N::translate('Partners of siblings'),
+            Co_siblings_in_law::GROUP_COSIBLINGSINLAW_SIBPARSIB => I18N::translate('Siblings of siblings-in-law'),
+            Co_siblings_in_law::GROUP_COSIBLINGSINLAW_PARSIBPAR => I18N::translate('Partners of siblings-in-law'),
+            Children::GROUP_CHILDREN_SOCIAL                     => I18N::translate('Social children'),
+            Children::GROUP_CHILDREN_STEP                       => I18N::translate('Stepchildren'),
+            Children_in_law::GROUP_CHILDRENINLAW_BIO            => I18N::translate('Partners of biological children'),
+            Children_in_law::GROUP_CHILDRENINLAW_STEP           => I18N::translate('Partners of stepchildren'),
+            Co_parents_in_law::GROUP_COPARENTSINLAW_BIO         => I18N::translate('Parents-in-law of biological children'),
+            Co_parents_in_law::GROUP_COPARENTSINLAW_STEP        => I18N::translate('Parents-in-law of stepchildren'),
+            Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING => I18N::translate('Children of siblings'),
+            Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER => I18N::translate('Children of siblings of partners'),
+            Grandchildren::GROUP_GRANDCHILDREN_CHILD_SOCIAL      => I18N::translate('Children of social children'),
+            Grandchildren::GROUP_GRANDCHILDREN_SOCIAL_CHILD      => I18N::translate('Social children of children'),
+            Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD        => I18N::translate('Stepchildren of children'),
+            Grandchildren::GROUP_GRANDCHILDREN_STEP_STEP         => I18N::translate('Stepchildren of stepchildren'),
+            Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_BIO   => I18N::translate('Partners of biological grandchildren'),
+            Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_SOCIAL_CHILD => I18N::translate('Partners of social children of children'),
+            Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_STEP_CHILD => I18N::translate('Partners of stepchildren of children'),
+            Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_CHILD_STEP => I18N::translate('Partners of children of stepchildren'),
+            Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_STEP_STEP => I18N::translate('Partners of stepchildren of stepchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIO    => I18N::translate('Children of biological grandchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_CHILD_SOCIAL => I18N::translate('Children of social grandchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_CHILD_STEP => I18N::translate('Children of stepgrandchildren'),
+            default                                             => I18N::translate($groupName),
+        };
+    }
+
+    /**
+     * Translate the known date range with enough context for languages that
+     * need different prepositions for years, full dates, and today.
+     *
+     * @param string      $startDate
+     * @param string|null $startDateType year|date
+     * @param string|null $endDate
+     * @param string|null $endDateType year|date|today
+     * @return string
+     */
+    public static function translateKnownDateRange(string $startDate, ?string $startDateType, ?string $endDate, ?string $endDateType): string
+    {
+        return match ($startDateType . '-' . $endDateType) {
+            'year-today' => I18N::translateContext('Date range: year to today', 'The known dates range from %1$s to today.', $startDate),
+            'date-today' => I18N::translateContext('Date range: date to today', 'The known dates range from %1$s to today.', $startDate),
+            'year-year'  => I18N::translateContext('Date range: year to year', 'The known dates range from %1$s to %2$s.', $startDate, $endDate),
+            'year-date'  => I18N::translateContext('Date range: year to date', 'The known dates range from %1$s to %2$s.', $startDate, $endDate),
+            'date-year'  => I18N::translateContext('Date range: date to year', 'The known dates range from %1$s to %2$s.', $startDate, $endDate),
+            'date-date'  => I18N::translateContext('Date range: date to date', 'The known dates range from %1$s to %2$s.', $startDate, $endDate),
+            default      => I18N::translateContext('Date range: date to date', 'The known dates range from %1$s to %2$s.', $startDate, $endDate ?? /* I18N: This is a webtrees core date string; no module-specific translation is needed. */ I18N::translate('today')),
+        };
     }
 }

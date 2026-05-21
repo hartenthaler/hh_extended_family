@@ -36,7 +36,7 @@ use Fisharebest\Webtrees\Individual;
  */
 class Parents_in_law extends ExtendedFamilyPart
 {
-    // named groups ar not used for parents in law (instead the marriages are used for grouping)
+    // named groups are not used for parents in law (instead the marriages are used for grouping)
     // public const GROUP_PARENTSINLAW_BIO  = 'Biological parents of partner';
     // public const GROUP_PARENTSINLAW_STEP = 'Stepparents of partner';
 
@@ -61,22 +61,46 @@ class Parents_in_law extends ExtendedFamilyPart
      */
 
     /**
-     * Find members for this specific extended family part and modify $this->efpObject
+     * Find members for this specific extended family part and modify $this->efpObject.
+     *
+     * This part is derived from the proband's direct partners. The parents
+     * of each partner are found through the same biological, social, and
+     * stepparent helper methods as the parents family part.
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->spouseFamilies() as $family) {                            // Gen  0 F
-            foreach ($family->spouses() as $spouse) {                                           // Gen  0 P
-                if ($spouse->xref() !== $this->getProband()->xref()) {
-                    if (($spouse->childFamilies()->first()) && ($spouse->childFamilies()->first()->husband() instanceof Individual)) {
-                        $this->addIndividualToFamily(new IndividualFamily($spouse->childFamilies()->first()->husband(), $spouse->childFamilies()->first(), $spouse));
-                    }
-                    if (($spouse->childFamilies()->first()) && ($spouse->childFamilies()->first()->wife() instanceof Individual)) {
-                        $this->addIndividualToFamily(new IndividualFamily($spouse->childFamilies()->first()->wife(), $spouse->childFamilies()->first(), $spouse));
-                    }
-                }
-            }
+        foreach ($this->findPartnersIndividuals($this->getProband()) as $partner) {
+            $this->addParentsOfPartner($partner->getIndividual());
         }
+    }
+
+    /**
+     * Add all known biological, social, and stepparents of one direct partner.
+     *
+     * @param Individual $partner
+     * @return void
+     */
+    private function addParentsOfPartner(Individual $partner): void
+    {
+        foreach ($this->findAllParentTypesOfPartner($partner) as $parent) {
+            $parent->setReferencePerson(1, $partner);
+            $this->addIndividualToFamily($parent);
+        }
+    }
+
+    /**
+     * Find all biological, social, and stepparents of one direct partner.
+     *
+     * @param Individual $partner
+     * @return array<int,IndividualFamily>
+     */
+    private function findAllParentTypesOfPartner(Individual $partner): array
+    {
+        return array_merge(
+            $this->findBioparentsIndividuals($partner),
+            $this->findSocialparentsIndividuals($partner),
+            $this->findStepparentsIndividuals($partner)
+        );
     }
 
     /**

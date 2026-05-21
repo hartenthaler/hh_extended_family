@@ -46,6 +46,7 @@ require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandchildren.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandchild_in_law.php');
 
 /**
  * class ExtendedFamilyPersonExists

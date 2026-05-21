@@ -22,6 +22,8 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Family;
+
 /**
  * class Grandchildren
  *
@@ -159,11 +161,11 @@ class Grandchildren extends ExtendedFamilyPart
     /**
      * add biological grandchildren
      *
-     * @param object $family1
-     * @param object $family2
+     * @param Family $family1
+     * @param Family $family2
      * @param string $groupName
      */
-    private function addGrandchildrenBio(object $family1, object $family2, string $groupName)
+    private function addGrandchildrenBio(Family $family1, Family $family2, string $groupName)
     {
         foreach ($family2->children() as $biograndchild) {                          // Gen -2 P
             //echo "<br>bio ".$groupName.": ".$biograndchild->fullName()." with family ".$family2->fullName().". ";
@@ -177,11 +179,11 @@ class Grandchildren extends ExtendedFamilyPart
     /**
      * add stepchildren of children
      *
-     * @param object $family1
-     * @param object $family2
+     * @param Family $family1
+     * @param Family $family2
      * @param string $groupName
      */
-    private function addStepchildrenOfChildren(object $family1, object $family2, string $groupName)
+    private function addStepchildrenOfChildren(Family $family1, Family $family2, string $groupName)
     {
         foreach ($family2->spouses() as $spouse) {                                  // Gen -1 P
             foreach ($spouse->spouseFamilies() as $family3) {                       // Gen -1 F

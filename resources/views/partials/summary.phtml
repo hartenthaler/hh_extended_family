@@ -36,7 +36,7 @@ $statistics = $filterObj->efp->summary->statistics ?? null;
             <?php endif ?>
         <?php endif ?>
         <?php if ($statistics->dateRange->show) : ?>
-            <p><?= I18N::translate('The known dates range from %1$s to %2$s.', $statistics->dateRange->startDate, $statistics->dateRange->endIsToday ? I18N::translate('today') : $statistics->dateRange->endDate) ?></p>
+            <p><?= ExtendedFamilySupport::translateKnownDateRange($statistics->dateRange->startDate, $statistics->dateRange->startDateType, $statistics->dateRange->endDate, $statistics->dateRange->endDateType) ?></p>
         <?php endif ?>
     <?php endif ?>
     <?php if ($extfam_obj->config->showEmptyBlock == 1) : ?>

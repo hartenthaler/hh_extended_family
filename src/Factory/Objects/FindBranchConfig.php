@@ -41,11 +41,11 @@ class FindBranchConfig
 
     /** @var object $config
      *  ->callFamilyPart                string (e.g. 'parents')
-     *  ->const                         array of array of string
+     *  ->const                         array<string,array<string,string>>
      */
     private $config;
 
-    /** @var array $branches            array of string e.g. ['bio','step'] or ['full', 'half']
+    /** @var array<int,string> $branches e.g. ['bio','step'] or ['full', 'half']
      */
     private $branches;
 
@@ -55,7 +55,7 @@ class FindBranchConfig
      * construct object
      *
      * @param string $callFamilyPart
-     * @param array $const
+     * @param array<string,array<string,string>> $const
      */
     public function __construct(string $callFamilyPart, array $const)
     {
@@ -93,7 +93,7 @@ class FindBranchConfig
     /**
      * get list of branches of this object
      *
-     * @return array
+     * @return array<int,string>
      */
     public function getBranches(): array
     {
@@ -103,7 +103,7 @@ class FindBranchConfig
     /**
      * get list of constants for the branches of this object
      *
-     * @return array
+     * @return array<string,array<string,string>>
      */
     public function getConst(): array
     {
@@ -113,8 +113,8 @@ class FindBranchConfig
     /**
      * get list of branches based on index of const
      *
-     * @param array $const
-     * @return array of string
+     * @param array<string,array<string,string>> $const
+     * @return array<int,string>
      */
     private function findBranches(array $const): array
     {

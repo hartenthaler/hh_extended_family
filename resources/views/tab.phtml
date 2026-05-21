@@ -43,6 +43,12 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
     $cce_class = '';
     $tree_name = $individual->tree()->name();
     $summaryName = '<span class="hh-extended-family-summary-name">' . $extfam_obj->proband->niceName . '</span>';
+    $coreBrother = /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Brother');
+    $coreChild = /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Child');
+    $coreDaughter = /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Daughter');
+    $coreSibling = /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Sibling');
+    $coreSister = /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Sister');
+    $coreSon = /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Son');
     $individualLink = static function (Individual $person): string {
         if ($person->canShow()) {
             return '<a href="' . e($person->url()) . '">' . $person->fullName() . '</a>';
@@ -107,17 +113,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d great-grandparent of unknown sex recorded.', '%2$s has %1$d great-grandparents of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather and ', '%2$s has %1$d great-grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather and', '%2$s has %1$d great-grandfathers and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d great-grandmother recorded (%d in total).', '%d great-grandmothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather and ', '%2$s has %1$d great-grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather and', '%2$s has %1$d great-grandfathers and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d great-grandparent of unknown sex recorded (%d in total).', '%d great-grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d great-grandmother and ', '%2$s has %1$d great-grandmothers and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandmother and', '%2$s has %1$d great-grandmothers and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d great-grandparent of unknown sex recorded (%d in total).', '%d great-grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather, ', '%2$s has %1$d great-grandfathers, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d great-grandmother, and ', '%d great-grandmothers, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandfather,', '%2$s has %1$d great-grandfathers,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d great-grandmother, and', '%d great-grandmothers, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d great-grandparent of unknown sex recorded (%d in total).', '%d great-grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -138,17 +144,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d grandparent of unknown sex recorded.', '%2$s has %1$d grandparents of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandfather and ', '%2$s has %1$d grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandfather and', '%2$s has %1$d grandfathers and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d grandmother recorded (%d in total).', '%d grandmothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandfather and ', '%2$s has %1$d grandfathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandfather and', '%2$s has %1$d grandfathers and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d grandparent of unknown sex recorded (%d in total).', '%d grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandmother and ', '%2$s has %1$d grandmothers and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandmother and', '%2$s has %1$d grandmothers and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d grandparent of unknown sex recorded (%d in total).', '%d grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandfather, ', '%2$s has %1$d grandfathers, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d grandmother, and ', '%d grandmothers, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandfather,', '%2$s has %1$d grandfathers,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandmother, and', '%d grandmothers, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d grandparent of unknown sex recorded (%d in total).', '%d grandparents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -169,17 +175,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d uncle or aunt of unknown sex recorded.', '%2$s has %1$d uncles or aunts of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d uncle and ', '%2$s has %1$d uncles and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d uncle and', '%2$s has %1$d uncles and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d aunt recorded (%d in total).', '%d aunts recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d uncle and ', '%2$s has %1$d uncles and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d uncle and', '%2$s has %1$d uncles and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d uncle or aunt of unknown sex recorded (%d in total).', '%d uncles or aunts of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d aunt and ', '%2$s has %1$d aunts and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d aunt and', '%2$s has %1$d aunts and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d uncle or aunt of unknown sex recorded (%d in total).', '%d uncles or aunts of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d uncle, ', '%2$s has %1$d uncles, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d aunt, and ', '%d aunts, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d uncle,', '%2$s has %1$d uncles,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d aunt, and', '%d aunts, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d uncle or aunt of unknown sex recorded (%d in total).', '%d uncles or aunts of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -200,17 +206,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d uncle or aunt by marriage of unknown sex recorded.', '%2$s has %1$d uncles or aunts by marriage of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d uncle by marriage and ', '%2$s has %1$d uncles by marriage and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d uncle by marriage and', '%2$s has %1$d uncles by marriage and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d aunt by marriage recorded (%d in total).', '%d aunts by marriage recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d uncle by marriage and ', '%2$s has %1$d uncles by marriage and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d uncle by marriage and', '%2$s has %1$d uncles by marriage and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d uncle or aunt by marriage of unknown sex recorded (%d in total).', '%d uncles or aunts by marriage of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d aunt by marriage and ', '%2$s has %1$d aunts by marriage and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d aunt by marriage and', '%2$s has %1$d aunts by marriage and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d uncle or aunt by marriage of unknown sex recorded (%d in total).', '%d uncles or aunts by marriage of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d uncle by marriage, ', '%2$s has %1$d uncles by marriage, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d aunt by marriage, and ', '%d aunts by marriage, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d uncle by marriage,', '%2$s has %1$d uncles by marriage,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d aunt by marriage, and', '%d aunts by marriage, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d uncle or aunt by marriage of unknown sex recorded (%d in total).', '%d uncles or aunts by marriage of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -231,17 +237,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d parent of unknown sex recorded.', '%2$s has %1$d parents of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d father and ', '%2$s has %1$d fathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d father and', '%2$s has %1$d fathers and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d mother recorded (%d in total).', '%d mothers recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d father and ', '%2$s has %1$d fathers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d father and', '%2$s has %1$d fathers and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d parent of unknown sex recorded (%d in total).', '%d parents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d mother and ', '%2$s has %1$d mothers and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d mother and', '%2$s has %1$d mothers and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d parent of unknown sex recorded (%d in total).', '%d parents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d father, ', '%2$s has %1$d fathers, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d mother, and ', '%d mothers, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d father,', '%2$s has %1$d fathers,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d mother, and', '%d mothers, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d parent of unknown sex recorded (%d in total).', '%d parents of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -267,17 +273,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d parent-in-law of unknown sex recorded.', '%2$s has %1$d parents-in-law of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d father-in-law and ', '%2$s has %1$d fathers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d father-in-law and', '%2$s has %1$d fathers-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d mother-in-law recorded (%d in total).', '%d mothers-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d father-in-law and ', '%2$s has %1$d fathers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d father-in-law and', '%2$s has %1$d fathers-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d parent-in-law of unknown sex recorded (%d in total).', '%d parents-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d mother-in-law and ', '%2$s has %1$d mothers-in-law and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d mother-in-law and', '%2$s has %1$d mothers-in-law and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d parent-in-law of unknown sex recorded (%d in total).', '%d parents-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d father-in-law, ', '%2$s has %1$d fathers-in-law, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d mother-in-law, and ', '%d mothers-in-law, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d father-in-law,', '%2$s has %1$d fathers-in-law,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d mother-in-law, and', '%d mothers-in-law, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d parent-in-law of unknown sex recorded (%d in total).', '%d parents-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -298,17 +304,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d co-parent-in-law of unknown sex recorded.', '%2$s has %1$d co-parents-in-law of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d co-father-in-law and ', '%2$s has %1$d co-fathers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-father-in-law and', '%2$s has %1$d co-fathers-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d co-mother-in-law recorded (%d in total).', '%d co-mothers-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d co-father-in-law and ', '%2$s has %1$d co-fathers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-father-in-law and', '%2$s has %1$d co-fathers-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d co-parent-in-law of unknown sex recorded (%d in total).', '%d co-parents-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d co-mother-in-law and ', '%2$s has %1$d co-mothers-in-law and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-mother-in-law and', '%2$s has %1$d co-mothers-in-law and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d co-parent-in-law of unknown sex recorded (%d in total).', '%d co-parents-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d co-father-in-law, ', '%2$s has %1$d co-fathers-in-law, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d co-mother-in-law, and ', '%d co-mothers-in-law, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-father-in-law,', '%2$s has %1$d co-fathers-in-law,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d co-mother-in-law, and', '%d co-mothers-in-law, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d co-parent-in-law of unknown sex recorded (%d in total).', '%d co-parents-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -330,27 +336,31 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                             <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                                 <h3><?= I18N::plural('%2$s has %1$d partner of unknown sex recorded.', '%2$s has %1$d partners of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                             <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                                <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male partner and', '%2$s has %1$d male partners and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                     <?= I18N::plural('%d female partner recorded (%d in total).', '%d female partners recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                             <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                                <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male partner and', '%2$s has %1$d male partners and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                     <?= I18N::plural('%d partner of unknown sex recorded (%d in total).', '%d partners of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                             <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                                <h3><?= I18N::plural('%2$s has %1$d female partner and ', '%2$s has %1$d female partners and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d female partner and', '%2$s has %1$d female partners and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                     <?= I18N::plural('%d partner of unknown sex recorded (%d in total).', '%d partners of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                             <?php else: ?>
-                                                <h3><?= I18N::plural('%2$s has %1$d male partner, ', '%2$s has %1$d male partners, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                    <?= I18N::plural('%d female partner, and ', '%d female partners, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male partner,', '%2$s has %1$d male partners,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                    <?= I18N::plural('%d female partner, and', '%d female partners, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                     <?= I18N::plural('%d partner of unknown sex recorded (%d in total).', '%d partners of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                             <?php endif ?>
                                         <?php else: ?>
                                             <?php if ($extfam_obj->proband->indi->sex() == 'M'): ?>
-                                                <h3><?= I18N::plural('%2$s has %1$d female partner and ', '%2$s has %1$d female partners and ', $filterObj->efp->$propName->pfemaleCount, $filterObj->efp->$propName->pfemaleCount, $summaryName) ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d female partner and', '%2$s has %1$d female partners and', $filterObj->efp->$propName->pfemaleCount, $filterObj->efp->$propName->pfemaleCount, $summaryName) . ' ' ?>
                                                     <?= I18N::plural('%d male partner of female partners recorded (%d in total).', '%d male partners of female partners recorded (%d in total).', $filterObj->efp->$propName->popmaleCount, $filterObj->efp->$propName->popmaleCount, $filterObj->efp->$propName->allCount) ?>
                                                 </h3>
                                             <?php elseif ($extfam_obj->proband->indi->sex() == 'F'): ?>
-                                                <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->pmaleCount, $filterObj->efp->$propName->pmaleCount, $summaryName) ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d male partner and', '%2$s has %1$d male partners and', $filterObj->efp->$propName->pmaleCount, $filterObj->efp->$propName->pmaleCount, $summaryName) . ' ' ?>
                                                     <?= I18N::plural('%d female partner of male partners recorded (%d in total).', '%d female partners of male partners recorded (%d in total).', $filterObj->efp->$propName->popfemaleCount, $filterObj->efp->$propName->popfemaleCount, $filterObj->efp->$propName->allCount) ?>
+                                                </h3>
+                                            <?php else: ?>
+                                                <h3><?= I18N::plural('%2$s has %1$d partner and', '%2$s has %1$d partners and', $filterObj->efp->$propName->pCount, $filterObj->efp->$propName->pCount, $summaryName) . ' ' ?>
+                                                    <?= I18N::plural('%1$d partner of partners recorded (%2$d in total).', '%1$d partners of partners recorded (%2$d in total).', $filterObj->efp->$propName->popCount, $filterObj->efp->$propName->popCount, $filterObj->efp->$propName->allCount) ?>
                                                 </h3>
                                             <?php endif ?>
                                         <?php endif ?>
@@ -369,28 +379,28 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                 (($extfam_obj->proband->indi->sex() !== 'M' && $extfam_obj->proband->indi->sex() !== 'F')? ' ('.I18N::translate('including %s', $summaryName).')':'') . '.');
                                         ?></h3>
                                     <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                        <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                        <h3><?= I18N::plural('%2$s has %1$d male partner and', '%2$s has %1$d male partners and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                             <?php echo(I18N::plural('%1$d female partner in this partner chain recorded (%2$d in total', '%1$d female partners in this partner chain recorded (%2$d in total', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) .
                                                 (($extfam_obj->proband->indi->sex() === 'M' || $extfam_obj->proband->indi->sex() === 'F')? ', '.I18N::translate('including %s', $summaryName).')':')') . '.');
                                         ?></h3>
                                     <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                        <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                        <h3><?= I18N::plural('%2$s has %1$d male partner and', '%2$s has %1$d male partners and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                             <?php echo(I18N::plural('%1$d partner of unknown sex in this partner chain recorded (%2$d in total', '%1$d partners of unknown sex in this partner chain recorded (%2$d in total', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) .
                                                 (($extfam_obj->proband->indi->sex() !== 'F')? ', '.I18N::translate('including %s', $summaryName).')':')') . '.');
                                         ?></h3>
                                     <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                        <h3><?= I18N::plural('%2$s has %1$d female partner and ', '%2$s has %1$d female partners and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                        <h3><?= I18N::plural('%2$s has %1$d female partner and', '%2$s has %1$d female partners and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                             <?php echo(I18N::plural('%1$d partner of unknown sex in this partner chain recorded (%2$d in total', '%1$d partners of unknown sex in this partner chain recorded (%2$d in total', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) .
                                                 (($extfam_obj->proband->indi->sex() !== 'M')? ', '.I18N::translate('including %s', $summaryName).')':')') . '.');
                                         ?></h3>
                                     <?php else: ?>
-                                        <h3><?= I18N::plural('%2$s has %1$d male partner and ', '%2$s has %1$d male partners and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                            <?= I18N::plural('%d female partner, and ', '%d female partners, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                        <h3><?= I18N::plural('%2$s has %1$d male partner and', '%2$s has %1$d male partners and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                            <?= I18N::plural('%d female partner, and', '%d female partners, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                             <?= I18N::plural('%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including %3$s).', '%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including %3$s).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount, $summaryName) ?>
                                         </h3>
                                     <?php endif ?>
                                     <?php if ($filterObj->efp->$propName->chains->chainsCount > 1): ?>
-                                        <h3><?= I18N::translate('There are %d branches in the partner chain. ', $filterObj->efp->$propName->chains->chainsCount, $filterObj->efp->$propName->chains->chainsCount) ?>
+                                        <h3><?= I18N::translate('There are %d branches in the partner chain.', $filterObj->efp->$propName->chains->chainsCount, $filterObj->efp->$propName->chains->chainsCount) . ' ' ?>
                                             <?php if ($filterOption == 'all'): ?>
                                                 <?= I18N::translate('The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s).', $filterObj->efp->$propName->chains->longestChainCount, $filterObj->efp->$propName->chains->mostDistantPartner->fullname(), $summaryName) ?>
                                             <?php else: ?>
@@ -415,17 +425,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d sibling of unknown sex recorded.', '%2$s has %1$d siblings of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d brother and ', '%2$s has %1$d brothers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d brother and', '%2$s has %1$d brothers and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d sister recorded (%d in total).', '%d sisters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d brother and ', '%2$s has %1$d brothers and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d brother and', '%2$s has %1$d brothers and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d sibling of unknown sex recorded (%d in total).', '%d siblings of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d sister and ', '%2$s has %1$d sisters and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d sister and', '%2$s has %1$d sisters and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d sibling of unknown sex recorded (%d in total).', '%d siblings of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d brother, ', '%2$s has %1$d brothers, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d sister, and ', '%d sisters, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d brother,', '%2$s has %1$d brothers,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d sister, and', '%d sisters, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d sibling of unknown sex recorded (%d in total).', '%d siblings of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -451,17 +461,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d sibling-in-law of unknown sex recorded.', '%2$s has %1$d siblings-in-law of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d brother-in-law and ', '%2$s has %1$d brothers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d brother-in-law and', '%2$s has %1$d brothers-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d sister-in-law recorded (%d in total).', '%d sisters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d brother-in-law and ', '%2$s has %1$d brothers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d brother-in-law and', '%2$s has %1$d brothers-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d sibling-in-law of unknown sex recorded (%d in total).', '%d siblings-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d sister-in-law and ', '%2$s has %1$d sisters-in-law and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d sister-in-law and', '%2$s has %1$d sisters-in-law and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d sibling-in-law of unknown sex recorded (%d in total).', '%d siblings-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d brother-in-law, ', '%2$s has %1$d brothers-in-law, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d sister-in-law, and ', '%d sisters-in-law, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d brother-in-law,', '%2$s has %1$d brothers-in-law,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d sister-in-law, and', '%d sisters-in-law, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d sibling-in-law of unknown sex recorded (%d in total).', '%d siblings-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -487,17 +497,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d co-sibling-in-law of unknown sex recorded.', '%2$s has %1$d co-siblings-in-law of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d co-brother-in-law and ', '%2$s has %1$d co-brothers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-brother-in-law and', '%2$s has %1$d co-brothers-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d co-sister-in-law recorded (%d in total).', '%d co-sisters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d co-brother-in-law and ', '%2$s has %1$d co-brothers-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-brother-in-law and', '%2$s has %1$d co-brothers-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d co-sibling-in-law of unknown sex recorded (%d in total).', '%d co-siblings-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d co-sister-in-law and ', '%2$s has %1$d co-sisters-in-law and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-sister-in-law and', '%2$s has %1$d co-sisters-in-law and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d co-sibling-in-law of unknown sex recorded (%d in total).', '%d co-siblings-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d co-brother-in-law, ', '%2$s has %1$d co-brothers-in-law, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d co-sister-in-law, and ', '%d co-sisters-in-law, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d co-brother-in-law,', '%2$s has %1$d co-brothers-in-law,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d co-sister-in-law, and', '%d co-sisters-in-law, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d co-sibling-in-law of unknown sex recorded (%d in total).', '%d co-siblings-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -523,17 +533,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d first cousin of unknown sex recorded.', '%2$s has %1$d first cousins of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d male first cousin and ', '%2$s has %1$d male first cousins and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d male first cousin and', '%2$s has %1$d male first cousins and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d female first cousin recorded (%d in total).', '%d female first cousins recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d male first cousin and ', '%2$s has %1$d male first cousins and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d male first cousin and', '%2$s has %1$d male first cousins and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d first cousin of unknown sex recorded (%d in total).', '%d first cousins of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d female first cousin and ', '%2$s has %1$d female first cousins and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d female first cousin and', '%2$s has %1$d female first cousins and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d first cousin of unknown sex recorded (%d in total).', '%d first cousins of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d male first cousin, ', '%2$s has %1$d male first cousins, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d female first cousin, and ', '%d female first cousins, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d male first cousin,', '%2$s has %1$d male first cousins,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d female first cousin, and', '%d female first cousins, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d first cousin of unknown sex recorded (%d in total).', '%d first cousins of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -554,17 +564,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d nephew or niece of unknown sex recorded.', '%2$s has %1$d nephews or nieces of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d nephew and ', '%2$s has %1$d nephews and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d nephew and', '%2$s has %1$d nephews and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d niece recorded (%d in total).', '%d nieces recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d nephew and ', '%2$s has %1$d nephews and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d nephew and', '%2$s has %1$d nephews and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d nephew or niece of unknown sex recorded (%d in total).', '%d nephews or nieces of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d niece and ', '%2$s has %1$d nieces and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d niece and', '%2$s has %1$d nieces and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d nephew or niece of unknown sex recorded (%d in total).', '%d nephews or nieces of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d nephew, ', '%2$s has %1$d nephews, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d niece, and ', '%d nieces, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d nephew,', '%2$s has %1$d nephews,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d niece, and', '%d nieces, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d nephew or niece of unknown sex recorded (%d in total).', '%d nephews or nieces of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -585,17 +595,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d child of unknown sex recorded.', '%2$s has %1$d children of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d son and', '%2$s has %1$d sons and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d daughter recorded (%d in total).', '%d daughters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d son and ', '%2$s has %1$d sons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d son and', '%2$s has %1$d sons and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d child of unknown sex recorded (%d in total).', '%d children of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d daughter and ', '%2$s has %1$d daughters and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d daughter and', '%2$s has %1$d daughters and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d child of unknown sex recorded (%d in total).', '%d children of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d son, ', '%2$s has %1$d sons, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d daughter, and ', '%d daughters, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d son,', '%2$s has %1$d sons,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d daughter, and', '%d daughters, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d child of unknown sex recorded (%d in total).', '%d children of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -616,17 +626,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d child-in-law of unknown sex recorded.', '%2$s has %1$d children-in-law of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d son-in-law and ', '%2$s has %1$d sons-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d son-in-law and', '%2$s has %1$d sons-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d daughter-in-law recorded (%d in total).', '%d daughters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d son-in-law and ', '%2$s has %1$d sons-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d son-in-law and', '%2$s has %1$d sons-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d child-in-law of unknown sex recorded (%d in total).', '%d children-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d daughter-in-law and ', '%2$s has %1$d daughters-in-law and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d daughter-in-law and', '%2$s has %1$d daughters-in-law and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d child-in-law of unknown sex recorded (%d in total).', '%d children-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d son-in-law, ', '%2$s has %1$d sons-in-law, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d daughter-in-law, and ', '%d daughters-in-law, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d son-in-law,', '%2$s has %1$d sons-in-law,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d daughter-in-law, and', '%d daughters-in-law, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d child-in-law of unknown sex recorded (%d in total).', '%d children-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -647,17 +657,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d grandchild of unknown sex recorded.', '%2$s has %1$d grandchildren of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandson and ', '%2$s has %1$d grandsons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandson and', '%2$s has %1$d grandsons and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d granddaughter recorded (%d in total).', '%d granddaughters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandson and ', '%2$s has %1$d grandsons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandson and', '%2$s has %1$d grandsons and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d grandchild of unknown sex recorded (%d in total).', '%d grandchildren of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d granddaughter and ', '%2$s has %1$d granddaughters and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d granddaughter and', '%2$s has %1$d granddaughters and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d grandchild of unknown sex recorded (%d in total).', '%d grandchildren of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandson, ', '%2$s has %1$d grandsons, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d granddaughter, and ', '%d granddaughters, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandson,', '%2$s has %1$d grandsons,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d granddaughter, and', '%d granddaughters, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d grandchild of unknown sex recorded (%d in total).', '%d grandchildren of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -678,17 +688,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d great-grandchild of unknown sex recorded.', '%2$s has %1$d great-grandchildren of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson and ', '%2$s has %1$d great-grandsons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson and', '%2$s has %1$d great-grandsons and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d great-granddaughter recorded (%d in total).', '%d great-granddaughters recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson and ', '%2$s has %1$d great-grandsons and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson and', '%2$s has %1$d great-grandsons and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d great-grandchild of unknown sex recorded (%d in total).', '%d great-grandchildren of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d great-granddaughter and ', '%2$s has %1$d great-granddaughters and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-granddaughter and', '%2$s has %1$d great-granddaughters and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d great-grandchild of unknown sex recorded (%d in total).', '%d great-grandchildren of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson, ', '%2$s has %1$d great-grandsons, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d great-granddaughter, and ', '%d great-granddaughters, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson,', '%2$s has %1$d great-grandsons,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d great-granddaughter, and', '%d great-granddaughters, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d great-grandchild of unknown sex recorded (%d in total).', '%d great-grandchildren of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
@@ -709,18 +719,49 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
                                             <h3><?= I18N::plural('%2$s has %1$d grandchild-in-law of unknown sex recorded.', '%2$s has %1$d grandchildren-in-law of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandson-in-law and ', '%2$s has %1$d grandsons-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandson-in-law and', '%2$s has %1$d grandsons-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d granddaughter-in-law recorded (%d in total).', '%d granddaughters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandson-in-law and ', '%2$s has %1$d grandsons-in-law and ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandson-in-law and', '%2$s has %1$d grandsons-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d grandchild-in-law of unknown sex recorded (%d in total).', '%d grandchildren-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d granddaughter-in-law and ', '%2$s has %1$d granddaughters-in-law and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d granddaughter-in-law and', '%2$s has %1$d granddaughters-in-law and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d grandchild-in-law of unknown sex recorded (%d in total).', '%d grandchildren-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php else: ?>
-                                            <h3><?= I18N::plural('%2$s has %1$d grandson-in-law, ', '%2$s has %1$d grandsons-in-law, ', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?>
-                                                <?= I18N::plural('%d granddaughter-in-law, and ', '%d granddaughters-in-law, and ', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) ?>
-                                                <?= I18N::plural('%d grandchild-in-law of unknown sex recorded (%d in total).', '%d grandchildren-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandson-in-law,', '%2$s has %1$d grandsons-in-law,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d granddaughter-in-law, and', '%d granddaughters-in-law, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
+                                            <?= I18N::plural('%d grandchild-in-law of unknown sex recorded (%d in total).', '%d grandchildren-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'great_grandchild_in_law'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one great-granddaughter-in-law recorded.', $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one great-grandson-in-law recorded.', $summaryName) ?></h3>
+                                        <?php else: ?>
+                                            <h3><?= I18N::translate('%s has one great-grandchild-in-law of unknown sex recorded.', $summaryName) ?></h3>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-granddaughter-in-law recorded.',  '%2$s has %1$d great-granddaughters-in-law recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson-in-law recorded.', '%2$s has %1$d great-grandsons-in-law recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandchild-in-law of unknown sex recorded.', '%2$s has %1$d great-grandchildren-in-law of unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson-in-law and', '%2$s has %1$d great-grandsons-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d great-granddaughter-in-law recorded (%d in total).', '%d great-granddaughters-in-law recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson-in-law and', '%2$s has %1$d great-grandsons-in-law and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d great-grandchild-in-law of unknown sex recorded (%d in total).', '%d great-grandchildren-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-granddaughter-in-law and', '%2$s has %1$d great-granddaughters-in-law and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d great-grandchild-in-law of unknown sex recorded (%d in total).', '%d great-grandchildren-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php else: ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d great-grandson-in-law,', '%2$s has %1$d great-grandsons-in-law,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d great-granddaughter-in-law, and', '%d great-granddaughters-in-law, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
+                                                <?= I18N::plural('%d great-grandchild-in-law of unknown sex recorded (%d in total).', '%d great-grandchildren-in-law of unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
                                 <?php endif ?>
@@ -734,7 +775,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                 <?php if ($propName == 'partners'): ?>
                                     <?php foreach ($filterObj->efp->$propName->groups as $key => $group): ?>
                                         <div class="hh_extended_family_box">
-                                            <h4><?= I18N::translate('Partner of ') ?>
+                                            <h4><?= I18N::translate('Partner of') . ' ' ?>
                                                 <?php if ($group->partner->xref() == $extfam_obj->proband->indi->xref()): ?>
                                                     <?= $extfam_obj->proband->niceNamePlain ?>
                                                 <?php else: ?>
@@ -796,9 +837,9 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                         <div class="hh_extended_family_box">
                                             <h4>
                                                 <?php if ($group->partner->canShow()): ?>
-                                                    <span class="hh_extended_family_name"><?= I18N::translate($group->partnerFamilyStatus) ?><?= I18N::translate(' with ') ?><a href="<?= e($group->partner->url()) ?>"><?= $group->partner->fullName() ?></a></span>
+                                                    <span class="hh_extended_family_name"><?= I18N::translate($group->partnerFamilyStatus) ?> <?= I18N::translate('with') ?> <a href="<?= e($group->partner->url()) ?>"><?= $group->partner->fullName() ?></a></span>
                                                 <?php else: ?>
-                                                    <span class="hh_extended_family_name"><?= I18N::translate('Partnership') . I18N::translate(' with ') . $group->partner->fullName() ?></span>
+                                                    <span class="hh_extended_family_name"><?= I18N::translate('Partnership') . ' ' . I18N::translate('with') . ' ' . $group->partner->fullName() ?></span>
                                                 <?php endif ?>
                                                 &nbsp;(<?= count($group->members) ?>)
                                             </h4>
@@ -836,22 +877,22 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                 <?php else: ?>
                                     <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
                                         <div class="hh_extended_family_box">
-                                            <h4><?= I18N::translate($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
+                                            <h4><?= ExtendedFamilySupport::translateGroupName($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
                                             <?php $prev_id = -1; $prev_id1 = -1; $prev_id2 = -1; ?>
                                             <?php  foreach ($group->members as $key => $indi) : ?>
                                                 <?php if ($propName == 'siblings_in_law' || $propName == 'uncles_and_aunts_bm') : ?>
                                                     <?php if ($group->referencePersons[$key][1]->xref() != $prev_id): ?>
                                                         <?php $prev_id = $group->referencePersons[$key][1]->xref(); $i = 1; ?>
                                                         <?php if ($group->referencePersons[$key][1]->canShow()): ?>
-                                                            <?php if ($group->groupName == 'Siblings-in-law of father' || $group->groupName == 'Siblings-in-law of mother'): ?>
+                                                            <?php if ($group->groupName == 'Siblings-in-law of father' || $group->groupName == 'Siblings-in-law of mother' || str_starts_with($group->groupName, 'Partners of siblings and half siblings of')): ?>
                                                                 <h5><?= ExtendedFamilySupport::translateSiblingLabel($group->referencePersons[$key][1], $group->referencePersons[$key][2] ?? null) ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                             <?php elseif ($group->groupName == 'Partners of siblings' || $group->groupName == 'Siblings of siblings-in-law' || $group->groupName == 'Children of siblings' || $group->groupName == 'Siblings\' stepchildren'): ?>
                                                                 <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
-                                                                    <h5><?= I18N::translate('Brother') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                    <h5><?= $coreBrother ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
-                                                                    <h5><?= I18N::translate('Sister') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                    <h5><?= $coreSister ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php else: ?>
-                                                                    <h5><?= I18N::translate('Sibling') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                    <h5><?= $coreSibling ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php endif ?>
                                                             <?php elseif ($group->groupName == 'Children of siblings of partners'): ?>
                                                                 <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
@@ -877,10 +918,10 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                                 <h5><?= I18N::translate('Partner of %1$s sibling-in-law %2$s', $partnerStatus, $linkReferencePerson) ?></h5>
                                                             <?php endif ?>
                                                         <?php else: ?>
-                                                            <?php if ($group->groupName == 'Siblings-in-law of father' || $group->groupName == 'Siblings-in-law of mother') : ?>
+                                                            <?php if ($group->groupName == 'Siblings-in-law of father' || $group->groupName == 'Siblings-in-law of mother' || str_starts_with($group->groupName, 'Partners of siblings and half siblings of')) : ?>
                                                                 <h5><?= ExtendedFamilySupport::translateSiblingLabel($group->referencePersons[$key][1], $group->referencePersons[$key][2] ?? null) ?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php elseif ($group->groupName == 'Partners of siblings'  || $group->groupName == 'Siblings of siblings-in-law') : ?>
-                                                                <h5><?= I18N::translate('Sibling')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
+                                                                <h5><?= $coreSibling ?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php elseif ($group->groupName == 'Siblings of partners'): ?>
                                                                 <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key]) ?>
                                                                 <h5><?= I18N::translate('Sibling of %1$s %2$s', $partnerStatus, $group->referencePersons[$key][1]->fullName()) ?></h5>
@@ -896,7 +937,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                         <?php if ($group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING || $group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING): ?>
                                                             <?php $siblingLabel = ExtendedFamilySupport::translateSiblingLabel($group->referencePersons[$key][1], $individual) ?>
                                                             <?php $linkReferencePerson = $individualLink($group->referencePersons[$key][1]) ?>
-                                                            <?php $familyStatus = I18N::translate($group->familiesStatus[$key]) ?>
+                                                            <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]) ?>
                                                             <?php $linkPartner = $partnerInFamilyLink($group->families[$key], $group->referencePersons[$key][1]) ?>
                                                             <h5><?= I18N::translate('%1$s %2$s, %3$s with %4$s', $siblingLabel, $linkReferencePerson, $familyStatus, $linkPartner) ?></h5>
                                                         <?php elseif ($group->groupName == Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER): ?>
@@ -904,7 +945,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                             <?php $siblingLabel = ExtendedFamilySupport::translateSiblingLabel($group->referencePersons[$key][2], $group->referencePersons[$key][1]) ?>
                                                             <?php $linkReferencePerson = $individualLink($group->referencePersons[$key][1]) ?>
                                                             <?php $linkReferencePerson2 = $individualLink($group->referencePersons[$key][2]) ?>
-                                                            <?php $familyStatus = I18N::translate($group->familiesStatus[$key]) ?>
+                                                            <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]) ?>
                                                             <?php $linkPartner = $partnerInFamilyLink($group->families[$key], $group->referencePersons[$key][2]) ?>
                                                             <h5><?= I18N::translate('%1$s %2$s of partner %3$s, %4$s with %5$s', $siblingLabel, $linkReferencePerson2, $linkReferencePerson, $familyStatus, $linkPartner) ?></h5>
                                                         <?php endif ?>
@@ -915,11 +956,11 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                         <?php if ($group->referencePersons[$key][1]->canShow()): ?>
                                                             <?php if ($group->groupName == 'Partners of biological children'): ?>
                                                                 <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
-                                                                    <h5><?= I18N::translate('Son') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                    <h5><?= $coreSon ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
-                                                                    <h5><?= I18N::translate('Daughter') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                    <h5><?= $coreDaughter ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php else: ?>
-                                                                    <h5><?= I18N::translate('Child') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                                                    <h5><?= $coreChild ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
                                                                 <?php endif ?>
                                                             <?php elseif ($group->groupName == 'Partners of stepchildren'): ?>
                                                                 <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
@@ -932,13 +973,13 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                             <?php endif ?>
                                                         <?php else: ?>
                                                             <?php if ($group->groupName == 'Partners of biological children'): ?>
-                                                                <h5><?= I18N::translate('Child')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
+                                                                <h5><?= $coreChild ?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php elseif ($group->groupName == 'Partners of stepchildren'): ?>
                                                                 <h5><?= I18N::translate('Stepchild')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
                                                             <?php endif ?>
                                                         <?php endif ?>
                                                     <?php endif ?>
-                                                <?php elseif ($propName == 'great_grandparents' || $propName == 'grandparents' || $propName == 'uncles_and_aunts' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'grandchildren_in_law'): ?>
+                                                <?php elseif ($propName == 'great_grandparents' || $propName == 'grandparents' || $propName == 'uncles_and_aunts' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'grandchildren_in_law' || $propName == 'great_grandchild_in_law'): ?>
                                                     <?php if ($group->families[$key]->xref() != $prev_id): ?>
                                                         <?php $prev_id = $group->families[$key]->xref(); $i = 1; ?>
                                                         <?php if ($group->families[$key]->canShow()): ?>
@@ -947,23 +988,31 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                                 <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
                                                                 <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
                                                                 <?php if ($propName == 'great_grandparents'): ?>
-                                                                    <h5><?= I18N::translate('%1$s %2$s as parents of %3$s', I18N::translate($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
+                                                                    <h5><?= I18N::translate('%1$s %2$s as parents of %3$s', ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
                                                                 <?php else: ?>
                                                                     <h5><?= I18N::translate('Parents %1$s (%2$s) of %3$s', $linkParents, $familyStatusInParentheses, $linkReferencePerson) ?></h5>
                                                                 <?php endif ?>
-                                                            <?php elseif (str_starts_with($group->groupName, 'Stepparents of biological')): ?>
+                                                            <?php elseif (str_starts_with($group->groupName, 'Social parents of biological')): ?>
                                                                 <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
                                                                 <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
                                                                 <?php if ($propName == 'great_grandparents'): ?>
-                                                                    <h5><?= I18N::translate('%1$s %2$s as stepparents of %3$s', I18N::translate($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
+                                                                    <h5><?= I18N::translate('%1$s %2$s as social parents of %3$s', ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
+                                                                <?php else: ?>
+                                                                    <h5><?= I18N::translate('Social parents %1$s (%2$s) of %3$s', $linkParents, $familyStatusInParentheses, $linkReferencePerson) ?></h5>
+                                                                <?php endif ?>
+                                                            <?php elseif (str_starts_with($group->groupName, 'Stepparents of biological') || str_starts_with($group->groupName, 'Stepparents of social parent of') || str_starts_with($group->groupName, 'Stepparents of stepparent of')): ?>
+                                                                <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
+                                                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                                                                <?php if ($propName == 'great_grandparents'): ?>
+                                                                    <h5><?= I18N::translate('%1$s %2$s as stepparents of %3$s', ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
                                                                 <?php else: ?>
                                                                     <h5><?= I18N::translate('Stepparents %1$s (%2$s) of %3$s', $linkParents, $familyStatusInParentheses, $linkReferencePerson) ?></h5>
                                                                 <?php endif ?>
-                                                            <?php elseif (str_starts_with($group->groupName, 'Parents of stepparent of')): ?>
+                                                            <?php elseif (str_starts_with($group->groupName, 'Parents of stepparent of') || str_starts_with($group->groupName, 'Parents of social parent of')): ?>
                                                                 <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
                                                                 <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
                                                                 <?php if ($propName == 'great_grandparents'): ?>
-                                                                    <h5><?= I18N::translate('%1$s %2$s as parents of %3$s', I18N::translate($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
+                                                                    <h5><?= I18N::translate('%1$s %2$s as parents of %3$s', ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
                                                                 <?php elseif ($group->referencePersons[$key][1]->sex() == 'M'): ?>
                                                                     <h5><?= I18N::translate('Parents %1$s (%2$s) of stepfather %3$s', $linkParents, $familyStatusInParentheses, $linkReferencePerson) ?></h5>
                                                                 <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
@@ -971,11 +1020,11 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                                 <?php else: ?>
                                                                     <h5><?= I18N::translate('Parents %1$s (%2$s) of stepparent %3$s', $linkParents, $familyStatusInParentheses, $linkReferencePerson) ?></h5>
                                                                 <?php endif ?>
-                                                            <?php elseif ($group->groupName == 'Grandparents of stepparent'): ?>
+                                                            <?php elseif ($group->groupName == 'Grandparents of stepparent' || $group->groupName == 'Grandparents of social parent'): ?>
                                                                 <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
                                                                 <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
                                                                 <?php if ($propName == 'great_grandparents'): ?>
-                                                                    <h5><?= I18N::translate('%1$s %2$s as grandparents of %3$s', I18N::translate($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
+                                                                    <h5><?= I18N::translate('%1$s %2$s as grandparents of %3$s', ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]), $linkParents, $linkReferencePerson) ?></h5>
                                                                 <?php elseif ($group->referencePersons[$key][1]->sex() == 'M'): ?>
                                                                     <h5><?= I18N::translate('Grandparents %1$s (%2$s) of stepfather %3$s', $linkParents, $familyStatusInParentheses, $linkReferencePerson) ?></h5>
                                                                 <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
@@ -983,10 +1032,10 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                                 <?php else: ?>
                                                                     <h5><?= I18N::translate('Grandparents %1$s (%2$s) of stepparent %3$s', $linkParents, $familyStatusInParentheses, $linkReferencePerson) ?></h5>
                                                                 <?php endif ?>
-                                                            <?php elseif ($group->groupName == 'Siblings and half siblings of father' || $group->groupName == 'Siblings and half siblings of mother'): ?>
+                                                            <?php elseif (str_starts_with($group->groupName, 'Siblings and half siblings of')): ?>
                                                                 <h5><?= I18N::translate('Parents')?>&nbsp;<a href="<?= e($group->families[$key]->url()); ?>">&nbsp;<?= $group->families[$key]->fullName() ?></a></h5>
                                                             <?php else: ?>
-                                                                <h5><?= I18N::translate($group->familiesStatus[$key]) ?>&nbsp;<a href="<?= e($group->families[$key]->url()); ?>">&nbsp;<?= $group->families[$key]->fullName() ?></a></h5>
+                                                                <h5><?= ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]) ?>&nbsp;<a href="<?= e($group->families[$key]->url()); ?>">&nbsp;<?= $group->families[$key]->fullName() ?></a></h5>
                                                             <?php endif ?>
                                                         <?php else: ?>
                                                             <?php if ($group->groupName == 'Parents of stepparents' || $group->groupName == 'Partners of siblings'): ?>
@@ -1026,13 +1075,13 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                                             <?php if ($displayFamily->canShow()): ?>
                                                                 <?php $linkParents = '<a href="' . e($displayFamily->url()) . '">&nbsp;' . $displayFamily->fullName() . '</a>' ?>
                                                                 <?php if ($group->groupName == Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD && $connectedChild instanceof Individual): ?>
-                                                                    <h5><?= I18N::translate('Parents') ?><?= $linkParents ?><?= I18N::translate(', connected with %s', $individualLink($connectedChild)) ?></h5>
+                                                                    <h5><?= I18N::translate('Parents') ?><?= $linkParents ?><?= ', ' . I18N::translate('connected with %s', $individualLink($connectedChild)) ?></h5>
                                                                 <?php else: ?>
                                                                     <h5><?= I18N::translate('Parents') ?><?= $linkParents ?></h5>
                                                                 <?php endif ?>
                                                             <?php else: ?>
                                                                 <?php if ($group->groupName == Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD && $connectedChild instanceof Individual): ?>
-                                                                    <h5><?= I18N::translate('Parents') ?>&nbsp;<?= $displayFamily->fullName(); ?><?= I18N::translate(', connected with %s', $individualLink($connectedChild)) ?></h5>
+                                                                    <h5><?= I18N::translate('Parents') ?>&nbsp;<?= $displayFamily->fullName(); ?><?= ', ' . I18N::translate('connected with %s', $individualLink($connectedChild)) ?></h5>
                                                                 <?php else: ?>
                                                                     <h5><?= I18N::translate('Parents') ?>&nbsp;<?= $displayFamily->fullName(); ?></h5>
                                                                 <?php endif ?>
@@ -1087,7 +1136,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;         // u
                                     <?php elseif ($propName == 'nephews_and_nieces'): ?>
                                         <h3><?= I18N::translate('%s has no nephews or nieces recorded.', $summaryName) ?></h3>
                                     <?php else: ?>
-                                        <h3><?= I18N::translate('%s has no ' . str_replace('_', '-', $propName) . ' recorded.', $summaryName) ?></h3>
+                                        <h3><?= I18N::translate('%1$s has no %2$s recorded.', $summaryName, str_replace('_', '-', $propName)) ?></h3>
                                     <?php endif ?>
                                 <?php endif ?>
                             </div>

@@ -166,7 +166,7 @@ class Partner_chains extends ExtendedFamilyPart
      * check individual to be filtered
      *
      * @param Individual $individual
-     * @param array $filterOptions
+     * @param array<string,string> $filterOptions
      * @return string
      */
     private function filterPartnerChainsIndividual(Individual $individual, array $filterOptions): string
@@ -191,7 +191,7 @@ class Partner_chains extends ExtendedFamilyPart
     /**
      * filter individuals in collection
      *
-     * @param array $filterOptions
+     * @param array<string,string> $filterOptions
      */
     protected function filterCollectionIndividuals(array $filterOptions)
     {
@@ -268,7 +268,7 @@ class Partner_chains extends ExtendedFamilyPart
     /**
      * build array to display all partner chains
      *
-     * @return array of array of PartnerChainPerson
+     * @return array<int,array<int,PartnerChainPerson>>
      */
     private function buildDisplayObjectPartnerChains(): array
     {
@@ -283,7 +283,7 @@ class Partner_chains extends ExtendedFamilyPart
      * prepare chains of chains of partners
      *
      * @param string $chainAllString string containing '|' to separate chains; '∞' and '§' are used to separate individuals and their parameters
-     * @return array of array of PartnerChainPerson
+     * @return array<int,array<int,PartnerChainPerson>>
      */
     private function prepareChains(string $chainAllString): array
     {
@@ -304,7 +304,7 @@ class Partner_chains extends ExtendedFamilyPart
      * example: 1§1§Max Mustermann§<URL>∞2§not a male person∞...
      *
      * @param string $chainString string containing '∞' and '§' to separate individuals and their parameters in one chain
-     * @return array of PartnerChainPerson
+     * @return array<int,PartnerChainPerson>
      */
     private function prepareOneChain(string $chainString): array
     {

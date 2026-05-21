@@ -107,11 +107,22 @@ class ClippingsCartWriter
         return true;
     }
 
+    /**
+     * Leave the current record recursion path.
+     *
+     * @return void
+     */
     private function endRecord(): void
     {
         array_pop($this->record_stack);
     }
 
+    /**
+     * Build a stable recursion key for a GEDCOM record.
+     *
+     * @param GedcomRecord $record
+     * @return string
+     */
     private function recordKey(GedcomRecord $record): string
     {
         return $record->tree()->name() . ':' . $record->xref();

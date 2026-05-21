@@ -22,6 +22,7 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
 
 /**
@@ -116,10 +117,10 @@ class Great_grandchildren extends ExtendedFamilyPart
      *
      * @param string $grandchildGroupName
      * @param Individual $greatGrandchild
-     * @param object $family
+     * @param Family $family
      * @return string
      */
-    private function childrenOfGrandchildGroupName(string $grandchildGroupName, Individual $greatGrandchild, object $family): string
+    private function childrenOfGrandchildGroupName(string $grandchildGroupName, Individual $greatGrandchild, Family $family): string
     {
         if ($grandchildGroupName === Grandchildren::GROUP_GRANDCHILDREN_BIO) {
             return $this->isSocialChildInFamily($greatGrandchild, $family)

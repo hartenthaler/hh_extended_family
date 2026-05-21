@@ -22,6 +22,8 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Individual;
+
 /**
  * class Great_grandparents
  *
@@ -53,12 +55,18 @@ class Great_grandparents extends ExtendedFamilyPart
     public const GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP = 'Parents of stepparent of father';
     public const GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP = 'Parents of stepparent of mother';
     public const GROUP_GREATGRANDPARENTS_USIDE_STEP = 'Parents of stepparent of parent';
+    public const GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP_STEP = 'Stepparents of stepparent of father';
+    public const GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP_STEP = 'Stepparents of stepparent of mother';
+    public const GROUP_GREATGRANDPARENTS_USIDE_STEP_STEP = 'Stepparents of stepparent of parent';
 
     // 3s (3sa, 3sb, 3sc): parents of social parents of biological parents
     // refPerson = social parent of parent
     public const GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL = 'Parents of social parent of father';
     public const GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL = 'Parents of social parent of mother';
     public const GROUP_GREATGRANDPARENTS_USIDE_SOCIAL = 'Parents of social parent of parent';
+    public const GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL_STEP = 'Stepparents of social parent of father';
+    public const GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL_STEP = 'Stepparents of social parent of mother';
+    public const GROUP_GREATGRANDPARENTS_USIDE_SOCIAL_STEP = 'Stepparents of social parent of parent';
 
     // 4 biological grandparents and stepgrandparents of stepparent
     // refPerson = stepparent
@@ -92,112 +100,164 @@ class Great_grandparents extends ExtendedFamilyPart
      */
 
     /**
-     * Find members for this specific extended family part and modify $this->efpObject
+     * Find members for this specific extended family part and modify $this->efpObject.
+     *
+     * This part is derived from the grandparents family part, so biological,
+     * social, and step distinctions from all parent branches are preserved.
      */
     protected function addEfpMembers()
     {
-        // 1, 2 and 3: add grandparents of biological parent (father, mother, unknown sex)
-        $config = new FindBranchConfig(
-            'great_grandparents',
-            [
-                'bio' => [
-                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIO,
-                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIO,
-                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_BIO,
-                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_BIO
-                ],
-                'stepbio' => [
-                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEPBIO,
-                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEPBIO,
-                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO,
-                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO
-                ],
-                'biosocial' => [
-                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIOSOCIAL,
-                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIOSOCIAL,
-                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_BIOSOCIAL,
-                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_BIOSOCIAL
-                ],
-                'step' => [
-                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP,
-                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP,
-                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP,
-                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP
-                ],
-                'social' => [
-                    'M' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL,
-                    'F' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL,
-                    'U' => self::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL,
-                    'X' => self::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL
-                ]
-            ]
-        );
-        $this->addFamilyBranches($config);
+        $grandparents = new Grandparents($this->getProband(), 'all', $this->placeFormat);
 
-        // 4: add biological grandparents and stepgrandparents of stepparent
-        $this->addGrandparentsOfStepparent();
+        foreach ($grandparents->getEfpObject()->groups as $group) {
+            $groupNames = $this->greatGrandparentGroupNames($group->groupName);
 
-        // 5: add biological and social grandparents of social parent
-        $this->addGrandparentsOfSocialParent();
-    }
-
-    /**
-     * find and add biological grandparents and stepgrandparents of stepparents (modify $this->efpObject)
-     */
-    private function addGrandparentsOfStepparent()
-    {
-        foreach ($this->findStepparentsIndividuals($this->getProband()) as $stepparent) {
-            $this->addBioGrandparentsOfStepparent($stepparent);
-            $this->addStepGrandparentsOfStepparent($stepparent);
-        }
-    }
-
-    /**
-     * find and add biological grandparents of stepparent (modify $this->efpObject)
-     */
-    private function addBioGrandparentsOfStepparent(IndividualFamily $stepparent)
-    {
-        foreach ($this->findBioparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-            foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
-                $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
-            }
-            foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
-                $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
-            }
-        }
-    }
-
-    /**
-     * find and add stepgrandparents of stepparent (modify $this->efpObject)
-     */
-    private function addStepGrandparentsOfStepparent(IndividualFamily $stepparent)
-    {
-        foreach ($this->findStepparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-            foreach ($this->findBioparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
-                $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
-            }
-            foreach ($this->findStepparentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                $greatgrandparent->setReferencePerson(1, $stepparent->getIndividual());
-                $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_STEP_PARENTS);
-            }
-        }
-    }
-
-    /**
-     * find and add biological and social grandparents of social parents (modify $this->efpObject)
-     */
-    private function addGrandparentsOfSocialParent()
-    {
-        foreach ($this->findSocialparentsIndividuals($this->getProband()) as $socialParent) {
-            foreach ($this->findParentsIndividuals($socialParent->getIndividual()) as $grandparent) {
-                foreach ($this->findParentsIndividuals($grandparent->getIndividual()) as $greatgrandparent) {
-                    $greatgrandparent->setReferencePerson(1, $socialParent->getIndividual());
-                    $this->addIndividualToFamily($greatgrandparent, self::GROUP_GREATGRANDPARENTS_SOCIAL_PARENTS);
+            foreach ($group->members as $key => $grandparent) {
+                if ($grandparent instanceof Individual) {
+                    $referencePerson = $this->greatGrandparentReferencePerson(
+                        $group->groupName,
+                        $grandparent,
+                        $group->referencePersons[$key][1] ?? null
+                    );
+                    $this->addGreatGrandparentsForGrandparent($grandparent, $referencePerson, $groupNames);
                 }
             }
         }
+    }
+
+    /**
+     * Add parents and stepparents of one grandparent-like person.
+     *
+     * @param Individual $grandparent
+     * @param Individual $referencePerson
+     * @param array{bio:string,social:string,step:string} $groupNames
+     * @return void
+     */
+    private function addGreatGrandparentsForGrandparent(Individual $grandparent, Individual $referencePerson, array $groupNames): void
+    {
+        foreach ($this->findBioparentsIndividuals($grandparent) as $greatGrandParent) {
+            $this->addGreatGrandparent($greatGrandParent, $referencePerson, $groupNames['bio']);
+        }
+
+        foreach ($this->findSocialparentsIndividuals($grandparent) as $greatGrandParent) {
+            $this->addGreatGrandparent($greatGrandParent, $referencePerson, $groupNames['social']);
+        }
+
+        foreach ($this->findStepparentsIndividuals($grandparent) as $greatGrandParent) {
+            $this->addGreatGrandparent($greatGrandParent, $referencePerson, $groupNames['step']);
+        }
+    }
+
+    /**
+     * Add one great-grandparent-like person with a reference person for display.
+     *
+     * @param IndividualFamily $greatGrandParent
+     * @param Individual $referencePerson
+     * @param string $groupName
+     * @return void
+     */
+    private function addGreatGrandparent(IndividualFamily $greatGrandParent, Individual $referencePerson, string $groupName): void
+    {
+        $greatGrandParent->setReferencePerson(1, $referencePerson);
+        $this->addIndividualToFamily($greatGrandParent, $groupName);
+    }
+
+    /**
+     * Get group names for parents of one grandparent group.
+     *
+     * @param string $grandparentGroupName
+     * @return array{bio:string,social:string,step:string}
+     */
+    private function greatGrandparentGroupNames(string $grandparentGroupName): array
+    {
+        return match ($grandparentGroupName) {
+            Grandparents::GROUP_GRANDPARENTS_FATHER_BIO => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIO,
+                'social' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIOSOCIAL,
+                'step'   => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEPBIO,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_MOTHER_BIO => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIO,
+                'social' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIOSOCIAL,
+                'step'   => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEPBIO,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_FATHER_STEP => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP,
+                'social' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP,
+                'step'   => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_STEP_STEP,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_MOTHER_STEP => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP,
+                'social' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP,
+                'step'   => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_STEP_STEP,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_U_STEP => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_USIDE_STEP,
+                'social' => self::GROUP_GREATGRANDPARENTS_USIDE_STEP,
+                'step'   => self::GROUP_GREATGRANDPARENTS_USIDE_STEP_STEP,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_FATHER_SOCIAL => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL,
+                'social' => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL,
+                'step'   => self::GROUP_GREATGRANDPARENTS_FATHERSIDE_SOCIAL_STEP,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_MOTHER_SOCIAL => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL,
+                'social' => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL,
+                'step'   => self::GROUP_GREATGRANDPARENTS_MOTHERSIDE_SOCIAL_STEP,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_U_SOCIAL => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL,
+                'social' => self::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL,
+                'step'   => self::GROUP_GREATGRANDPARENTS_USIDE_SOCIAL_STEP,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_FATHER,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_MOTHER,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_PARENT,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_FATHER_STEP,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_MOTHER_STEP,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_PARENT_STEP => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_SOCIAL_PARENTS,
+                'social' => self::GROUP_GREATGRANDPARENTS_SOCIAL_PARENTS,
+                'step'   => self::GROUP_GREATGRANDPARENTS_SOCIAL_PARENTS,
+            ],
+            Grandparents::GROUP_GRANDPARENTS_STEP_PARENTS,
+            Grandparents::GROUP_GRANDPARENTS_STEP_PARENT_STEP => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_STEP_PARENTS,
+                'social' => self::GROUP_GREATGRANDPARENTS_STEP_PARENTS,
+                'step'   => self::GROUP_GREATGRANDPARENTS_STEP_PARENTS,
+            ],
+            default => [
+                'bio'    => self::GROUP_GREATGRANDPARENTS_USIDE_BIO,
+                'social' => self::GROUP_GREATGRANDPARENTS_USIDE_BIOSOCIAL,
+                'step'   => self::GROUP_GREATGRANDPARENTS_USIDE_STEPBIO,
+            ],
+        };
+    }
+
+    /**
+     * Get the display reference person for one derived great-grandparent group.
+     *
+     * @param string $grandparentGroupName
+     * @param Individual $grandparent
+     * @param Individual|null $grandparentReferencePerson
+     * @return Individual
+     */
+    private function greatGrandparentReferencePerson(string $grandparentGroupName, Individual $grandparent, ?Individual $grandparentReferencePerson): Individual
+    {
+        if ($grandparentReferencePerson instanceof Individual && in_array($grandparentGroupName, [
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_FATHER,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_MOTHER,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_PARENT,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_FATHER_STEP,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_MOTHER_STEP,
+            Grandparents::GROUP_GRANDPARENTS_SOCIAL_PARENT_STEP,
+            Grandparents::GROUP_GRANDPARENTS_STEP_PARENTS,
+            Grandparents::GROUP_GRANDPARENTS_STEP_PARENT_STEP,
+        ], true)) {
+            return $grandparentReferencePerson;
+        }
+
+        return $grandparent;
     }
 }

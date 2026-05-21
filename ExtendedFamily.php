@@ -70,6 +70,7 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\Date;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Registry;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
@@ -316,11 +317,26 @@ class ExtendedFamily
         $statistics->dateRange = (object)[
             'show' => $earliestBirthDate !== null && $dateRangeEndJulianDay > 0 && $earliestBirthJulianDay < $dateRangeEndJulianDay,
             'startDate' => $earliestBirthDate?->display(),
+            'startDateType' => $earliestBirthDate instanceof Date ? $this->summaryDateType($earliestBirthDate) : null,
             'endDate' => $livingCount > 0 ? null : $latestDeathDate?->display(),
+            'endDateType' => $livingCount > 0 ? 'today' : ($latestDeathDate instanceof Date ? $this->summaryDateType($latestDeathDate) : null),
             'endIsToday' => $livingCount > 0,
         ];
 
         return $statistics;
+    }
+
+    /**
+     * Distinguish year-only dates from fuller dates for grammatical date ranges.
+     *
+     * @param Date $date
+     * @return string
+     */
+    private function summaryDateType(Date $date): string
+    {
+        $minimumDate = $date->minimumDate();
+
+        return $minimumDate->month === 0 && $minimumDate->day === 0 ? 'year' : 'date';
     }
 
     /**

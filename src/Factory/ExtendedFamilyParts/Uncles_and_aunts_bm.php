@@ -35,8 +35,9 @@ use Fisharebest\Webtrees\Individual;
  */
 class Uncles_and_aunts_bm extends ExtendedFamilyPart
 {
-    public const GROUP_UNCLEAUNTBM_FATHER = 'Siblings-in-law of father';
-    public const GROUP_UNCLEAUNTBM_MOTHER = 'Siblings-in-law of mother';
+    public const GROUP_UNCLEAUNTBM_BIO_PARENT    = 'Partners of siblings and half siblings of biological parents';
+    public const GROUP_UNCLEAUNTBM_SOCIAL_PARENT = 'Partners of siblings and half siblings of social parents';
+    public const GROUP_UNCLEAUNTBM_STEP_PARENT   = 'Partners of siblings and half siblings of stepparents';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -59,41 +60,62 @@ class Uncles_and_aunts_bm extends ExtendedFamilyPart
      */
 
     /**
-     * Find members for this specific extended family part and modify $this->>efpObject
+     * Find members for this specific extended family part and modify $this->>efpObject.
+     *
+     * This part is derived from uncles_and_aunts, so biological, social,
+     * and step-parent distinctions are preserved.
      */
     protected function addEfpMembers()
     {
-        if ($this->getProband()->childFamilies()->first()) {
-            if ($this->getProband()->childFamilies()->first()->husband() instanceof Individual) {
-                $this->addUnclesAndAuntsBmOneSide($this->getProband()->childFamilies()->first()->husband(), self::GROUP_UNCLEAUNTBM_FATHER);
-            }
-            if ($this->getProband()->childFamilies()->first()->wife() instanceof Individual) {
-                $this->addUnclesAndAuntsBmOneSide($this->getProband()->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNTBM_MOTHER);
+        $unclesAndAunts = new Uncles_and_aunts($this->getProband(), 'all', $this->placeFormat);
+
+        foreach ($unclesAndAunts->getEfpObject()->groups as $group) {
+            $groupName = $this->unclesAndAuntsByMarriageGroupName($group->groupName);
+
+            foreach ($group->members as $key => $uncleAunt) {
+                if ($uncleAunt instanceof Individual) {
+                    $this->addPartnersOfUncleOrAunt(
+                        $uncleAunt,
+                        $group->referencePersons[$key][1] ?? null,
+                        $groupName
+                    );
+                }
             }
         }
     }
 
     /**
-     * Find uncles and aunts by marriage for one side
+     * Get the group name for partners of one uncle/aunt group.
      *
-     * @param Individual $parent
-     * @param string $side family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father side is default
+     * @param string $unclesAndAuntsGroupName
+     * @return string
      */
-    private function addUnclesAndAuntsBmOneSide(Individual $parent, string $side)
+    private function unclesAndAuntsByMarriageGroupName(string $unclesAndAuntsGroupName): string
     {
-        foreach ($parent->childFamilies() as $family1) {                                // Gen 2 F
-            foreach ($family1->spouses() as $grandparent) {                             // Gen 2 P
-                foreach ($grandparent->spouseFamilies() as $family2) {                  // Gen 2 F
-                    foreach ($family2->children() as $uncleaunt) {                      // Gen 1 P
-                        if($uncleaunt->xref() !== $parent->xref()) {
-                            foreach ($uncleaunt->spouseFamilies() as $family3) {        // Gen 1 F
-                                foreach ($family3->spouses() as $uncleaunt2) {          // Gen 1 P
-                                    if($uncleaunt2->xref() !== $uncleaunt->xref()) {
-                                        $this->addIndividualToFamily(new IndividualFamily($uncleaunt2, $family3, $uncleaunt, $parent), $side);
-                                    }
-                                }
-                            }
-                        }
+        return match ($unclesAndAuntsGroupName) {
+            Uncles_and_aunts::GROUP_UNCLEAUNT_SOCIAL_PARENT => self::GROUP_UNCLEAUNTBM_SOCIAL_PARENT,
+            Uncles_and_aunts::GROUP_UNCLEAUNT_STEP_PARENT   => self::GROUP_UNCLEAUNTBM_STEP_PARENT,
+            default                                         => self::GROUP_UNCLEAUNTBM_BIO_PARENT,
+        };
+    }
+
+    /**
+     * Add partners of one uncle or aunt.
+     *
+     * @param Individual $uncleAunt
+     * @param Individual|null $referenceParent
+     * @param string $groupName
+     * @return void
+     */
+    private function addPartnersOfUncleOrAunt(Individual $uncleAunt, ?Individual $referenceParent, string $groupName): void
+    {
+        foreach ($uncleAunt->spouseFamilies() as $family) {
+            foreach ($family->spouses() as $partner) {
+                if ($partner->xref() !== $uncleAunt->xref()) {
+                    if ($referenceParent instanceof Individual) {
+                        $this->addIndividualToFamily(new IndividualFamily($partner, $family, $uncleAunt, $referenceParent), $groupName);
+                    } else {
+                        $this->addIndividualToFamily(new IndividualFamily($partner, $family, $uncleAunt), $groupName);
                     }
                 }
             }

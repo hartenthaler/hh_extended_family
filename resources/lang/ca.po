@@ -1,40 +1,958 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 21:44+0200\n"
+"POT-Creation-Date: 2026-05-22 01:18+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
+"Language-Team: \n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:315
-msgid "Rada"
+#: ExtendedFamilyTabModule.php:321
+#, php-format
+msgid "The preferences for the module “%s” have been updated."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:383
+#: ExtendedFamilyTabModule.php:596
+msgid ""
+"The custom module “huhwt-cce” is not available. The button “copy to "
+"clippings cart” will use the internal Extended Family action."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:763
+msgid "The selected tree could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:770
+msgid "The selected individual could not be found."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:795
+#, php-format
+msgid ""
+"The extended family has been copied to the clippings cart. New entries: %s"
+msgstr ""
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:361
+msgid "linkage challenged"
+msgstr "Disputa per a ser reconegut"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:364
+msgid "linkage disproven"
+msgstr "No reconegut"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:367
+msgid "linkage proven"
+msgstr "Reconegut"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:414
+msgid "twin"
+msgstr "Bess&oacute;"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:415
+msgid "triplet"
+msgstr "Trigemin"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:416
+msgid "quadruplet"
+msgstr "quadrigemin"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:417
+msgid "quintuplet"
+msgstr "Quintigemin"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:418
+msgid "sextuplet"
+msgstr "Sextigemin"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:419
+msgid "septuplet"
+msgstr "Septigemin"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:420
+msgid "octuplet"
+msgstr "Octigemin"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:421
+msgid "nonuplet"
+msgstr "Nonagemin"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:422
+msgid "decuplet"
+msgstr "Decigemin"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:441
 msgid "stillborn"
 msgstr "nascut mort"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:386
+#: src/Factory/Objects/ExtendedFamilySupport.php:444
 msgid "died as infant"
 msgstr "Va morir quan era nen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:424
+#: src/Factory/Objects/ExtendedFamilySupport.php:481
+msgid "divorced"
+msgstr "divorced"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:482
+msgid "married"
+msgstr "married"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:483
+msgid "engaged"
+msgstr "engaged"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:484
+msgid "partners"
+msgstr "partners"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:498
+msgid "Ex-marriage"
+msgstr "Ex-matrimoni"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:499
+msgid "Marriage"
+msgstr "Matrimoni"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:500
+msgid "Fiancée"
+msgstr "Núvia"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:501
+msgid "Partnership"
+msgstr "c&ograve;njuge"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:515
+msgid "divorced partner"
+msgstr "divorced partner"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:516
+msgid "married partner"
+msgstr "married partner"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:517
+msgid "engaged partner"
+msgstr "engaged partner"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:518
+msgid "partner"
+msgstr "partner"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:574
+msgid "Half-brother"
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:575
+msgid "Half-sister"
+msgstr ""
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:576
+#, fuzzy
+#| msgid "Half siblings"
+msgid "Half-sibling"
+msgstr "Cunyats i cunyades"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:641
+msgid "Great-grandparents"
+msgstr "Besavis"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:642
+msgid "Grandparents"
+msgstr "Avis"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:643
 msgid "Uncles and Aunts"
 msgstr "Oncles i Ties"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:426
+#: src/Factory/Objects/ExtendedFamilySupport.php:644
 msgid "Uncles and Aunts by marriage"
 msgstr "Oncles i Ties pol&iacute;tics/ques"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:428
+#: src/Factory/Objects/ExtendedFamilySupport.php:645
+msgid "Parents"
+msgstr "Pares i Mares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:646
+msgid "Parents-in-law"
+msgstr "Sogres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:647
+msgid "Co-parents-in-law"
+msgstr "Consogres"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:648
+msgid "Partners"
+msgstr "C&ograve;njuge"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:649
 msgid "Partner chains"
 msgstr "Xarxa de membres familiars"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:430
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:650
+msgid "Siblings"
+msgstr "Germans i Germanes"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:651
+msgid "Siblings-in-law"
+msgstr "Cunyats i Cunyades"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:652
+msgid "Co-siblings-in-law"
+msgstr "Concunyats i Concunyades"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:653
+msgid "Cousins"
+msgstr "Cosins i Cosines"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:654
 msgid "Nephews and Nieces"
 msgstr "Nebots i Nebodes"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:655
+msgid "Children"
+msgstr "Fills i Filles"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:656
+msgid "Children-in-law"
+msgstr "fills pol&iacute;tics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:657
+msgid "Grandchildren"
+msgstr "Nets i Netes"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:658
+msgid "Great-grandchildren"
+msgstr "Great-grandchildren"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:659
+msgid "Grandchildren-in-law"
+msgstr "nets/es pol&iacute;tics/ques"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:660
+msgid "Great-grandchildren-in-law"
+msgstr "Great-grandchildren-in-law"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:674
+msgid "Biological great-grandparents"
+msgstr "Besavis biol&ograve;gics"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:675
+msgid "Biological grandparents"
+msgstr "Biological grandparents"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:676
+msgid "Full siblings of biological parents"
+msgstr "Relaci&oacute; completa de germans dels pares biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:677
+msgid "Biological parents"
+msgstr "Pares biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:678
+msgid "Full siblings"
+msgstr "Tots els germans"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:679
+msgid "Children of full siblings of biological parents"
+msgstr ""
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:680
+msgid "Children of full siblings"
+msgstr "Fills de germans majors"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:681
+msgid "Biological children"
+msgstr "Fills biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:682
+msgid "Biological grandchildren"
+msgstr "Nets biol&ograve;gics"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:683
+msgid "Biological great-grandchildren"
+msgstr "Biological great-grandchildren"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:697
+msgid "Biological grandparents of father"
+msgstr "Avis biol&ograve;gics del pare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:698
+msgid "Biological grandparents of mother"
+msgstr "Avis biol&ograve;gics de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:699
+msgid "Biological grandparents of parent"
+msgstr "Avis biol&ograve;gics dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:700
+msgid "Stepparents of biological parent of father"
+msgstr "Padrastre del pare biol&ograve;gic"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:701
+msgid "Stepparents of biological parent of mother"
+msgstr "Padrastres del pare biol&ograve;gic de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:702
+msgid "Stepparents of biological grandparent"
+msgstr "Padrastres de l'avi biol&ograve;gic"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:703
+#, fuzzy
+#| msgid "Stepparents of biological parent of father"
+msgid "Social parents of biological parent of father"
+msgstr "Padrastre del pare biol&ograve;gic"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:704
+#, fuzzy
+#| msgid "Stepparents of biological parent of mother"
+msgid "Social parents of biological parent of mother"
+msgstr "Padrastres del pare biol&ograve;gic de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:705
+#, fuzzy
+#| msgid "Stepparents of biological grandparent"
+msgid "Social parents of biological grandparent"
+msgstr "Padrastres de l'avi biol&ograve;gic"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:706
+msgid "Parents of stepparent of father"
+msgstr "Pares del padrastre o de la madrastra"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:707
+msgid "Parents of stepparent of mother"
+msgstr "Pares del padrastre de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:708
+msgid "Parents of stepparent of parent"
+msgstr "Pares del padrastre de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:709
+#, fuzzy
+#| msgid "Parents of stepparent of father"
+msgid "Stepparents of stepparent of father"
+msgstr "Pares del padrastre o de la madrastra"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:710
+#, fuzzy
+#| msgid "Parents of stepparent of mother"
+msgid "Stepparents of stepparent of mother"
+msgstr "Pares del padrastre de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:711
+#, fuzzy
+#| msgid "Parents of stepparent of parent"
+msgid "Stepparents of stepparent of parent"
+msgstr "Pares del padrastre de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:712
+#, fuzzy
+#| msgid "Parents of stepparent of father"
+msgid "Parents of social parent of father"
+msgstr "Pares del padrastre o de la madrastra"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:713
+#, fuzzy
+#| msgid "Parents of stepparent of mother"
+msgid "Parents of social parent of mother"
+msgstr "Pares del padrastre de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:714
+#, fuzzy
+#| msgid "Parents of stepparent of parent"
+msgid "Parents of social parent of parent"
+msgstr "Pares del padrastre de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:715
+#, fuzzy
+#| msgid "Stepparents of biological parent of father"
+msgid "Stepparents of social parent of father"
+msgstr "Padrastre del pare biol&ograve;gic"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:716
+#, fuzzy
+#| msgid "Stepparents of biological parent of mother"
+msgid "Stepparents of social parent of mother"
+msgstr "Padrastres del pare biol&ograve;gic de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:717
+#, fuzzy
+#| msgid "Stepparents of biological parent of father"
+msgid "Stepparents of social parent of parent"
+msgstr "Padrastre del pare biol&ograve;gic"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:718
+msgid "Grandparents of stepparent"
+msgstr "Avis dels padrastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:719
+#, fuzzy
+#| msgid "Grandparents of stepparent"
+msgid "Grandparents of social parent"
+msgstr "Avis dels padrastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:720
+msgid "Biological parents of father"
+msgstr "Avis biol&ograve;gics per part del pare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:721
+msgid "Biological parents of mother"
+msgstr "Avis biol&ograve;gics per part de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:722
+msgid "Biological parents of parent"
+msgstr "Pares biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:723
+msgid "Stepparents of father"
+msgstr "Padrastres del pare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:724
+msgid "Stepparents of mother"
+msgstr "Padrastres de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:725
+msgid "Stepparents of parent"
+msgstr "Padrastres dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:726
+msgid "Parents of stepparent"
+msgstr "Pares de padrastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:727
+#, fuzzy
+#| msgid "Biological parents of father"
+msgid "Social parents of father"
+msgstr "Avis biol&ograve;gics per part del pare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:728
+#, fuzzy
+#| msgid "Biological parents of mother"
+msgid "Social parents of mother"
+msgstr "Avis biol&ograve;gics per part de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:729
+#, fuzzy
+#| msgid "Biological parents of parent"
+msgid "Social parents of parent"
+msgstr "Pares biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:730
+#, fuzzy
+#| msgid "Parents of stepparent of father"
+msgid "Parents of social father"
+msgstr "Pares del padrastre o de la madrastra"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:731
+#, fuzzy
+#| msgid "Parents of stepparent of mother"
+msgid "Parents of social mother"
+msgstr "Pares del padrastre de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:732
+#, fuzzy
+#| msgid "Parents of stepparent"
+msgid "Parents of social parent"
+msgstr "Pares de padrastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:733
+#, fuzzy
+#| msgid "Stepparents of father"
+msgid "Stepparents of social father"
+msgstr "Padrastres del pare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:734
+#, fuzzy
+#| msgid "Stepparents of mother"
+msgid "Stepparents of social mother"
+msgstr "Padrastres de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:735
+#, fuzzy
+#| msgid "Stepparents of parent"
+msgid "Stepparents of social parent"
+msgstr "Padrastres dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:736
+#, fuzzy
+#| msgid "Stepparents of parent"
+msgid "Stepparents of stepparent"
+msgstr "Padrastres dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:737
+#, fuzzy
+#| msgid "Biological parents"
+msgid "Social parents"
+msgstr "Pares biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:738
+msgid "Stepparents"
+msgstr "Padrastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:739
+#, fuzzy
+#| msgid "Full siblings of biological parents"
+msgid "Siblings and half siblings of biological parents"
+msgstr "Relaci&oacute; completa de germans dels pares biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:740
+#, fuzzy
+#| msgid "Children of half siblings of parent"
+msgid "Siblings and half siblings of social parents"
+msgstr "Fills de germanastres dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:741
+#, fuzzy
+#| msgid "Children of half siblings of parent"
+msgid "Siblings and half siblings of stepparents"
+msgstr "Fills de germanastres dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:742
+#, fuzzy
+#| msgid "Full siblings of biological parents"
+msgid "Partners of siblings and half siblings of biological parents"
+msgstr "Relaci&oacute; completa de germans dels pares biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:743
+#, fuzzy
+#| msgid "Children of half siblings of parent"
+msgid "Partners of siblings and half siblings of social parents"
+msgstr "Fills de germanastres dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:744
+#, fuzzy
+#| msgid "Children of half siblings of parent"
+msgid "Partners of siblings and half siblings of stepparents"
+msgstr "Fills de germanastres dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:745
+msgid "Children of full siblings of father"
+msgstr "Cosins i cosines per part del pare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:746
+msgid "Children of full siblings of mother"
+msgstr "Cosins i cosines per part de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:747
+msgid "Children of full siblings of parent"
+msgstr "Cosins i cosines per part dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:748
+msgid "Children of half siblings of father"
+msgstr "Fills de germanastres del pare del padre"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:749
+msgid "Children of half siblings of mother"
+msgstr "Fills de germanastres de la mare"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:750
+msgid "Children of half siblings of parent"
+msgstr "Fills de germanastres dels pares"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:751
+msgid "Half siblings"
+msgstr "Cunyats i cunyades"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:752
+#, fuzzy
+#| msgid "Half siblings"
+msgid "Social siblings"
+msgstr "Cunyats i cunyades"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:753
+msgid "Stepsiblings"
+msgstr "Germanastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:754
+msgid "Siblings of partners"
+msgstr "Cunyat/cunyades del c&ograve;njuge"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:755
+msgid "Partners of siblings"
+msgstr ""
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:756
+msgid "Siblings of siblings-in-law"
+msgstr "Concunyats/concunyades"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:757
+msgid "Partners of siblings-in-law"
+msgstr "Concunyats de cunyats i cunyades"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:758
+#, fuzzy
+#| msgid "Biological children"
+msgid "Social children"
+msgstr "Fills biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:759
+msgid "Stepchildren"
+msgstr "Fillastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:760
+msgid "Partners of biological children"
+msgstr "c&ograve;njuge dels fills biol&ograve;gics (Gendre/Nora)"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:761
+msgid "Partners of stepchildren"
+msgstr "c&ograve;njuge de fillastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:762
+msgid "Parents-in-law of biological children"
+msgstr "Sogres de fills/filles biol&ograve;gics"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:763
+msgid "Parents-in-law of stepchildren"
+msgstr "Consogres de fillastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:764
+msgid "Children of siblings"
+msgstr "Fills de germans"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:765
+msgid "Children of siblings of partners"
+msgstr "Fills dels germans del c&ograve;njuge (Nebots)"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:766
+#, fuzzy
+#| msgid "Children of social grandchildren"
+msgid "Children of social children"
+msgstr "Children of social grandchildren"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:767
+#, fuzzy
+#| msgid "Stepchildren of children"
+msgid "Social children of children"
+msgstr "Fillastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:768
+msgid "Stepchildren of children"
+msgstr "Fillastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:769
+msgid "Stepchildren of stepchildren"
+msgstr "Fillastre/a de fillastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:770
+msgid "Partners of biological grandchildren"
+msgstr "Parelles dels nets biol&ograve;gics"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:771
+msgid "Partners of social children of children"
+msgstr "Partners of social children of children"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:772
+msgid "Partners of stepchildren of children"
+msgstr "Parelles dels fills dels nets"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:773
+msgid "Partners of children of stepchildren"
+msgstr "Parelles dels fills dels fillastres"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:774
+msgid "Partners of stepchildren of stepchildren"
+msgstr "Parelles dels fillastres"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:775
+msgid "Children of biological grandchildren"
+msgstr "Children of biological grandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:776
+msgid "Children of social grandchildren"
+msgstr "Children of social grandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:777
+msgid "Children of stepgrandchildren"
+msgstr "Children of stepgrandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:795
+#, php-format
+msgctxt "Date range: year to today"
+msgid "The known dates range from %1$s to today."
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:796
+#, php-format
+msgctxt "Date range: date to today"
+msgid "The known dates range from %1$s to today."
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:797
+#, php-format
+msgctxt "Date range: year to year"
+msgid "The known dates range from %1$s to %2$s."
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:798
+#, php-format
+msgctxt "Date range: year to date"
+msgid "The known dates range from %1$s to %2$s."
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:799
+#, php-format
+msgctxt "Date range: date to year"
+msgid "The known dates range from %1$s to %2$s."
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:800
+#: src/Factory/Objects/ExtendedFamilySupport.php:801
+#, php-format
+msgctxt "Date range: date to date"
+msgid "The known dates range from %1$s to %2$s."
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:801
+msgid "today"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:289
+msgid "Full place name"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:290
+msgid "City only"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:291
+msgid "City and country"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:292
+msgid "City and 2 letter ISO country code"
+msgstr ""
+
+#: src/Factory/Objects/PlaceAbbreviation.php:293
+msgid "City and 3 letter ISO country code"
+msgstr ""
 
 #: src/Factory/Objects/ProbandName.php:131
 msgid "He"
@@ -56,357 +974,722 @@ msgstr "Sr."
 msgid "Mrs."
 msgstr "Sra."
 
-#: src/Factory/Objects/PlaceAbbreviation.php:200
-msgid "Full place name"
-msgstr ""
-
-#: src/Factory/Objects/PlaceAbbreviation.php:201
-msgid "City only"
-msgstr ""
-
-#: src/Factory/Objects/PlaceAbbreviation.php:202
-msgid "City and country"
-msgstr ""
-
-#: src/Factory/Objects/PlaceAbbreviation.php:203
-msgid "City and 2 letter ISO country code"
-msgstr ""
-
-#: src/Factory/Objects/PlaceAbbreviation.php:204
-msgid "City and 3 letter ISO country code"
-msgstr ""
-
-#: ExtendedFamilyTabModule.php:298
-#, php-format
-msgid "The preferences for the module “%s” have been updated."
-msgstr ""
-
-#: resources/views/tab.phtml:61
-msgid "show only male persons"
-msgstr "Mostrar nom&eacute;s homes"
-
-#: resources/views/tab.phtml:65
-msgid "show only female persons"
-msgstr "Mostrar nom&eacute;s dones"
-
-#: resources/views/tab.phtml:69
-msgid "show only persons of other or unknown gender"
-msgstr "Mostrar nom&eacute;s persones de g&egrave;nere desconegut"
-
-#: resources/views/tab.phtml:78
-msgid "show only alive persons"
-msgstr "Mostrar nom&eacute;s persones vives"
-
-#: resources/views/tab.phtml:80
-msgid "alive"
-msgstr "Viu"
-
-#: resources/views/tab.phtml:82
-msgid "show only dead persons"
-msgstr "Mostrar nom&eacute;s persones difuntes"
-
-#: resources/views/tab.phtml:84
-msgid "dead"
-msgstr "Difunt"
-
-#: resources/views/tab.phtml:97
+#: resources/views/partials/clippings-cart-button.phtml:39
 msgid "copy all members of the extended family to the clippings cart"
 msgstr "copy all members of the extended family to the clippings cart"
 
-#: resources/views/tab.phtml:107
+#: resources/views/partials/clippings-cart-button.phtml:50
 msgid "copy to clippings cart"
 msgstr "copy to clippings cart"
 
-#: resources/views/tab.phtml:119
+#: resources/views/partials/family-part-header.phtml:17
 #, php-format
 msgid "generation +%s"
 msgstr "Generació +%s"
 
-#: resources/views/tab.phtml:121
+#: resources/views/partials/family-part-header.phtml:19
 msgid "same generation"
 msgstr "Mateixa Generació"
 
-#: resources/views/tab.phtml:123
+#: resources/views/partials/family-part-header.phtml:21
 #, php-format
 msgid "generation %s"
 msgstr "Generació +%s"
 
-#: resources/views/tab.phtml:128
+#: resources/views/partials/family-part-header.phtml:26
 #, php-format
 msgid "relationship coefficient: %.1f"
 msgstr "Coeficient %.1f"
 
-#: resources/views/tab.phtml:133
+#: resources/views/partials/family-part-header.phtml:31
 msgid "no blood relationship"
 msgstr "sense relaci&oacute; de consanguinitat"
 
-#: resources/views/tab.phtml:143
+#: resources/views/partials/filter-controls.phtml:17
+msgid "show only male persons"
+msgstr "Mostrar nom&eacute;s homes"
+
+#: resources/views/partials/filter-controls.phtml:21
+msgid "show only female persons"
+msgstr "Mostrar nom&eacute;s dones"
+
+#: resources/views/partials/filter-controls.phtml:25
+msgid "show only persons of other or unknown gender"
+msgstr "Mostrar nom&eacute;s persones de g&egrave;nere desconegut"
+
+#: resources/views/partials/filter-controls.phtml:34
+msgid "show only alive persons"
+msgstr "Mostrar nom&eacute;s persones vives"
+
+#: resources/views/partials/filter-controls.phtml:36
+msgid "alive"
+msgstr "Viu"
+
+#: resources/views/partials/filter-controls.phtml:38
+msgid "show only dead persons"
+msgstr "Mostrar nom&eacute;s persones difuntes"
+
+#: resources/views/partials/filter-controls.phtml:40
+msgid "dead"
+msgstr "Difunt"
+
+#: resources/views/partials/summary.phtml:21
+msgid "Summary for the shown extended family"
+msgstr "Resum per a la familia extensa que es mostra"
+
+#: resources/views/partials/summary.phtml:22
+#, fuzzy, php-format
+msgid "The extended family has only %1$s as a member."
+msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgstr[0] "La familia extensa de %1$s té 2$d membre."
+msgstr[1] "La familia extensa de %1$s t&eacute; 2$d membres."
+
+#: resources/views/partials/summary.phtml:22
+#, fuzzy
+msgid "(additional members of the partner chains are not counted)"
+msgstr "%s no t&eacute; registrats membres en la xarxa familiar."
+
+#: resources/views/partials/summary.phtml:24
+msgid "Some of them are member in more than one part of the extended family."
+msgstr ""
+
+#: resources/views/partials/summary.phtml:29
+#, php-format
+msgid "Living members: %1$s (%2$s); deceased members: %3$s (%4$s)."
+msgstr ""
+
+#: resources/views/partials/summary.phtml:33
+#, php-format
+msgid ""
+"Gender distribution: %1$s male (%2$s), %3$s female (%4$s), %5$s other or "
+"unknown (%6$s)."
+msgstr ""
+
+#: resources/views/partials/summary.phtml:35
+#, php-format
+msgid "Gender distribution: %1$s male (%2$s), %3$s female (%4$s)."
+msgstr ""
+
+#: resources/views/partials/summary.phtml:45
+#, fuzzy, php-format
+msgid "%s has no %s recorded."
+msgstr "%s no t&eacute; registrats."
+
+#: resources/views/partials/summary.phtml:53
+#, php-format
+msgid "%s has no %s, and no %s recorded."
+msgstr "%s no t&eacute;cap %s ni cap %s registrats."
+
+#: resources/views/settings.phtml:35
+msgid "Control panel"
+msgstr ""
+
+#: resources/views/settings.phtml:36
+msgid "Enabled"
+msgstr ""
+
+#: resources/views/settings.phtml:37
+msgid "Move down"
+msgstr ""
+
+#: resources/views/settings.phtml:38
+msgid "Move up"
+msgstr ""
+
+#: resources/views/settings.phtml:39
+msgid "no"
+msgstr ""
+
+#: resources/views/settings.phtml:40
+msgid "save"
+msgstr ""
+
+#: resources/views/settings.phtml:41
+msgid "yes"
+msgstr ""
+
+#: resources/views/settings.phtml:55
+msgid "In which sequence should the parts of the extended family be shown?"
+msgstr "En quin ordre s'han de mostrar les parts de la Fam&iacute;lia Extensa?"
+
+#: resources/views/settings.phtml:57 resources/views/settings.phtml:58
+msgid "Quick selection for family parts"
+msgstr ""
+
+#: resources/views/settings.phtml:61
+msgid "Enable all"
+msgstr ""
+
+#: resources/views/settings.phtml:64
+msgid "Disable all"
+msgstr ""
+
+#: resources/views/settings.phtml:69
+msgid "Enable all in-law family parts"
+msgstr ""
+
+#: resources/views/settings.phtml:72
+msgid "Disable all in-law family parts"
+msgstr ""
+
+#: resources/views/settings.phtml:76 resources/views/settings.phtml:77
+msgid "Degree"
+msgstr ""
+
+#: resources/views/settings.phtml:77
+msgid "unlimited"
+msgstr ""
+
+#: resources/views/settings.phtml:79
+msgid "Enable up to this degree"
+msgstr ""
+
+#: resources/views/settings.phtml:84
+msgid ""
+"The quick selection changes only the checkboxes below. The configuration is "
+"saved when you click \"save\"."
+msgstr ""
+
+#: resources/views/settings.phtml:90
+msgid "Family part (generation relative to proband)"
+msgstr "Blocs de la fam&iacute;lia"
+
+#: resources/views/settings.phtml:145
+msgid "Show options to filter the results?"
+msgstr "Mostrar opcions per a filtrar els resultats?"
+
+#: resources/views/settings.phtml:146
+msgid ""
+"This allows a user to filter the members of the extended family by gender "
+"and if they are alive or dead."
+msgstr ""
+
+#: resources/views/settings.phtml:151
+msgid "Show filter options"
+msgstr "Mostrar els filtres"
+
+#: resources/views/settings.phtml:159
+msgid "Should a summary block be shown?"
+msgstr ""
+
+#: resources/views/settings.phtml:160
+msgid "The summary contains information about the extended family in total."
+msgstr ""
+
+#: resources/views/settings.phtml:165
+msgid "Show summary"
+msgstr ""
+
+#: resources/views/settings.phtml:173
+msgid "Should summary statistics be shown?"
+msgstr ""
+
+#: resources/views/settings.phtml:174
+msgid ""
+"The summary statistics contain additional information about living and "
+"deceased members, gender distribution, and the known date range."
+msgstr ""
+
+#: resources/views/settings.phtml:179
+msgid "Show summary statistics"
+msgstr ""
+
+#: resources/views/settings.phtml:187
+msgid "How should empty parts of extended family be presented?"
+msgstr ""
+"Com vols que es mostren els blocs buits en la pestanya fam&iacute;lia "
+"extensa?"
+
+#: resources/views/settings.phtml:192
+msgid "Show empty block"
+msgstr "Vols que es mostren els blocs sense informaci&oacute;"
+
+#: resources/views/settings.phtml:195
+msgid "yes, always at standard location"
+msgstr ""
+"S&iacute;.  Mostra blocs sense informaci&oacute; en la seva posici&oacute; "
+"ordin&agrave;ria"
+
+#: resources/views/settings.phtml:195
+#, fuzzy
+msgid "no, but collect messages about empty blocks at the summary block"
+msgstr ""
+"No mostrar blocs sense informaci&oacute;,per&ograve; recopila una "
+"descripci&oacute; dels blocs que falten al final"
+
+#: resources/views/settings.phtml:195
+msgid "never"
+msgstr "No mostrar els blocs sense informaci&oacute;"
+
+#: resources/views/settings.phtml:200
+msgid ""
+"Count the members of the partner chains as members of the extended family?"
+msgstr ""
+
+#: resources/views/settings.phtml:202
+msgid ""
+"If you select \"no\", then the additional members in the partner chains will "
+"not be counted to the total number of individuals in the extended family."
+msgstr ""
+
+#: resources/views/settings.phtml:203
+msgid ""
+"And these persons and families will be not selected when a user decides to "
+"copy the extended family to the clippings cart."
+msgstr ""
+
+#: resources/views/settings.phtml:204
+msgid ""
+"But even in this case, you can copy these persons and families to the "
+"clippings cart by using a special menu topic of the custom module \"enhanced "
+"clippings cart\": \"add partner chains for an individual\"."
+msgstr ""
+
+#: resources/views/settings.phtml:205
+msgid ""
+"This is only relevant if you have chosen in the above table, that the "
+"partner chains should be shown as a part of the extended family."
+msgstr ""
+
+#: resources/views/settings.phtml:211
+msgid "Include them"
+msgstr ""
+
+#: resources/views/settings.phtml:219
+msgid "Show parameters of extended family part?"
+msgstr "Mostrar par&agrave;metres de la familia extensa?"
+
+#: resources/views/settings.phtml:220
+msgid ""
+"Display of additional information for each part of the extended family, such "
+"as the generation shift and the coefficient of relationship, which is a "
+"measure of the degree of consanguinity."
+msgstr ""
+"Visualitzaci&oacute; informaci&oacute; addicional per a cada membre de la "
+"familia extensa, aix&iacute; com el moviment generacional i el coeficient de "
+"parentiu mesurat amb grau de consanguinitat."
+
+#: resources/views/settings.phtml:225
+msgid "Show parameters"
+msgstr "Mostrar par&agrave;metres"
+
+#: resources/views/settings.phtml:233
+msgid "Use the compact design?"
+msgstr "Usar el disseny compacte?"
+
+#: resources/views/settings.phtml:234
+msgid ""
+"The compact design only shows the name and life span for each person. The "
+"enriched design also shows a photo (if this is activated for this tree) as "
+"well as birth and death information."
+msgstr ""
+"El disseny compacte sol mostra el nom, data de naixement i data de la mort "
+"de cada persona. El disseny enriquit tamb&eacute; mostra una foto (si tens "
+"fotos en el perfil dels familiars en l'arbre) aix&iacute; com "
+"informaci&oacute; sobre el naixement i la mort."
+
+#: resources/views/settings.phtml:239
+msgid "Use the compact design"
+msgstr "Usar el disseny compacte"
+
+#: resources/views/settings.phtml:247
+msgid "Show name of proband as short name or as full name?"
+msgstr "Ha de mostrar-se una forma abreujada o el nom complet de la persona?"
+
+#: resources/views/settings.phtml:248
+msgid ""
+"The short name is based on the probands Rufname or nickname. If these are "
+"not available, the first of the given names is used, if one is given. "
+"Otherwise the last name is used."
+msgstr ""
+"El nom curt es basa en els malnoms. Si aquests no estan disponibles, "
+"s'utilitza el primer dels noms de pila, si es d&oacute;na algun. En cas "
+"contrari, s'utilitza el cognom."
+
+#: resources/views/settings.phtml:253
+msgid "Show short name"
+msgstr "Mostrar nom curt"
+
+#: resources/views/settings.phtml:261
+msgid "How should place names be shown in event boxes?"
+msgstr ""
+
+#: resources/views/settings.phtml:262
+msgid ""
+"This setting controls whether event places are shown as full place names or "
+"as abbreviated place names."
+msgstr ""
+
+#: resources/views/settings.phtml:267
+msgid "Place name format"
+msgstr ""
+
+#: resources/views/settings.phtml:275
+msgid "Show labels in special situations?"
+msgstr "Mostrar etiquetes en situacions especials?"
+
+#: resources/views/settings.phtml:276
+msgid ""
+"Labels (or stickers) are used for example for adopted persons or foster "
+"children."
+msgstr ""
+"Les etiquetes s'utilitzen, per exemple, per a persones adoptades o nens "
+"d'acolliment. "
+
+#: resources/views/settings.phtml:281
+msgid "Show labels"
+msgstr "Mostrar etiquetes"
+
+#: resources/views/settings.phtml:289
+#, fuzzy
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr "copy to clippings cart"
+
+#: resources/views/settings.phtml:290
+msgid ""
+"This allows a user to copy all members of the extended family to the "
+"clippings cart."
+msgstr ""
+
+#: resources/views/settings.phtml:300
+#, fuzzy
+msgid "Show button"
+msgstr "Mostrar els filtres"
+
+#: resources/views/settings.phtml:312
+msgid "Clippings cart action"
+msgstr ""
+
+#: resources/views/settings.phtml:315
+msgid "huhwt-cce (recommended)"
+msgstr ""
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: resources/views/settings.phtml:315
+msgid "Extended family"
+msgstr "Fam&iacute;lia extensa"
+
+#: resources/views/tab.phtml:46
+msgid "Brother"
+msgstr ""
+
+#: resources/views/tab.phtml:47
+#, fuzzy
+msgid "Child"
+msgstr "Fills i Filles"
+
+#: resources/views/tab.phtml:48
+#, fuzzy
+msgid "Daughter"
+msgstr "Fillastra"
+
+#: resources/views/tab.phtml:49
+#, fuzzy
+msgid "Sibling"
+msgstr "Germans i Germanes"
+
+#: resources/views/tab.phtml:50
+msgid "Sister"
+msgstr ""
+
+#: resources/views/tab.phtml:51
+#, fuzzy
+msgid "Son"
+msgstr "Fillastre"
+
+#: resources/views/tab.phtml:102
 #, php-format
 msgid "%s has one great-grandmother recorded."
 msgstr "%s t&eacute; una bes&agrave;via registrada"
 
-#: resources/views/tab.phtml:145
+#: resources/views/tab.phtml:104
 #, php-format
 msgid "%s has one great-grandfather recorded."
 msgstr "%s t&eacute; un besavi registrat."
 
-#: resources/views/tab.phtml:147
+#: resources/views/tab.phtml:106
 #, php-format
 msgid "%s has one great-grandparent of unknown sex recorded."
 msgstr "%s t&eacute; un/a besavi/bes&agrave;via registrat/registrada."
 
-#: resources/views/tab.phtml:151
-#, fuzzy, php-format
+# Migrated from ExtendedFamilyTranslations.php.old
+#: resources/views/tab.phtml:110
+#, php-format
 msgid "%2$s has %1$d great-grandmother recorded."
 msgid_plural "%2$s has %1$d great-grandmothers recorded."
 msgstr[0] "%2$s t&eacute; %1$d bes&agrave;via."
 msgstr[1] "%2$s t&eacute; %1$d bes&agrave;vies registrades."
 
-#: resources/views/tab.phtml:153
+#: resources/views/tab.phtml:112
 #, php-format
 msgid "%2$s has %1$d great-grandfather recorded."
 msgid_plural "%2$s has %1$d great-grandfathers recorded."
 msgstr[0] "%2$s t&eacute; %1$d besavi registrat."
 msgstr[1] "%2$s t&eacute; %1$d besavis registrats."
 
-#: resources/views/tab.phtml:155
+#: resources/views/tab.phtml:114
 #, php-format
 msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
 msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d besavi/bes&agrave;via registrat/da."
 msgstr[1] "%2$s t&eacute; %1$d besavis/es registrats/des."
 
-#: resources/views/tab.phtml:157 resources/views/tab.phtml:160
-#, php-format
-msgid "%2$s has %1$d great-grandfather and "
-msgid_plural "%2$s has %1$d great-grandfathers and "
+#: resources/views/tab.phtml:116 resources/views/tab.phtml:119
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d great-grandfather and "
+#| msgid_plural "%2$s has %1$d great-grandfathers and "
+msgid "%2$s has %1$d great-grandfather and"
+msgid_plural "%2$s has %1$d great-grandfathers and"
 msgstr[0] "%2$s t&eacute; %1$d besavi i "
-msgstr[1] "%2$s t&eacute; %1$d besavis i "
+msgstr[1] "%2$s t&eacute; %1$d besavis i"
 
-#: resources/views/tab.phtml:158
+#: resources/views/tab.phtml:117
 #, php-format
 msgid "%d great-grandmother recorded (%d in total)."
 msgid_plural "%d great-grandmothers recorded (%d in total)."
 msgstr[0] "%d bes&agrave;via resgistrat/da (%d del total)."
 msgstr[1] "%d bes&agrave;vies registrades (%d del total)."
 
-#: resources/views/tab.phtml:161 resources/views/tab.phtml:164
-#: resources/views/tab.phtml:168
+#: resources/views/tab.phtml:120 resources/views/tab.phtml:123
+#: resources/views/tab.phtml:127
 #, php-format
 msgid "%d great-grandparent of unknown sex recorded (%d in total)."
 msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
 msgstr[0] "%d t&eacute; besavi/bes&agrave;via (%d en total)."
 msgstr[1] "%d son besavis/es registrats(%d en total)."
 
-#: resources/views/tab.phtml:163
-#, php-format
-msgid "%2$s has %1$d great-grandmother and "
-msgid_plural "%2$s has %1$d great-grandmothers and "
+#: resources/views/tab.phtml:122
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d great-grandmother and "
+#| msgid_plural "%2$s has %1$d great-grandmothers and "
+msgid "%2$s has %1$d great-grandmother and"
+msgid_plural "%2$s has %1$d great-grandmothers and"
 msgstr[0] "%2$s t&eacute; %1$d bes&agrave;via i "
-msgstr[1] "%2$s t&eacute; %1$d bes&agrave;vies i "
+msgstr[1] "%2$s t&eacute; %1$d bes&agrave;vies i"
 
-#: resources/views/tab.phtml:166
-#, php-format
-msgid "%2$s has %1$d great-grandfather, "
-msgid_plural "%2$s has %1$d great-grandfathers, "
+#: resources/views/tab.phtml:125
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d great-grandfather, "
+#| msgid_plural "%2$s has %1$d great-grandfathers, "
+msgid "%2$s has %1$d great-grandfather,"
+msgid_plural "%2$s has %1$d great-grandfathers,"
 msgstr[0] "%2$s t&eacute; %1$d besavi, "
-msgstr[1] "%2$s t&eacute; %1$d besavis, "
+msgstr[1] "%2$s t&eacute; %1$d besavis,"
 
-#: resources/views/tab.phtml:167
-#, php-format
-msgid "%d great-grandmother, and "
-msgid_plural "%d great-grandmothers, and "
+#: resources/views/tab.phtml:126
+#, fuzzy, php-format
+#| msgid "%d great-grandmother, and "
+#| msgid_plural "%d great-grandmothers, and "
+msgid "%d great-grandmother, and"
+msgid_plural "%d great-grandmothers, and"
 msgstr[0] "%d t&eacute;bes&agrave;via i "
-msgstr[1] "%d son los besavis i "
+msgstr[1] "%d son los besavis i"
 
-#: resources/views/tab.phtml:174
+#: resources/views/tab.phtml:133
 #, php-format
 msgid "%s has one grandmother recorded."
 msgstr "%s t&eacute; uºna &agrave;via registrada."
 
-#: resources/views/tab.phtml:176
+#: resources/views/tab.phtml:135
 #, php-format
 msgid "%s has one grandfather recorded."
 msgstr "%s t&eacute; un avi registrat."
 
-#: resources/views/tab.phtml:178
+#: resources/views/tab.phtml:137
 #, php-format
 msgid "%s has one grandparent of unknown sex recorded."
 msgstr "%s t&eacute; registrat un avi/a."
 
-#: resources/views/tab.phtml:182
+#: resources/views/tab.phtml:141
 #, php-format
 msgid "%2$s has %1$d grandmother recorded."
 msgid_plural "%2$s has %1$d grandmothers recorded."
 msgstr[0] "%2$s t&eacute; %1$d  &agrave;via registrada."
 msgstr[1] "%2$s t&eacute; %1$d &agrave;vies registrades."
 
-#: resources/views/tab.phtml:184
+#: resources/views/tab.phtml:143
 #, php-format
 msgid "%2$s has %1$d grandfather recorded."
 msgid_plural "%2$s has %1$d grandfathers recorded."
 msgstr[0] "%2$s t&eacute; %1$d avi registrat."
 msgstr[1] "%2$s t&eacute; %1$d avis registrats."
 
-#: resources/views/tab.phtml:186
+#: resources/views/tab.phtml:145
 #, php-format
 msgid "%2$s has %1$d grandparent of unknown sex recorded."
 msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d avi/a."
 msgstr[1] "%2$s t&eacute; %1$d avis/&agrave;vies registrats/registrades."
 
-#: resources/views/tab.phtml:188 resources/views/tab.phtml:191
-#, php-format
-msgid "%2$s has %1$d grandfather and "
-msgid_plural "%2$s has %1$d grandfathers and "
+#: resources/views/tab.phtml:147 resources/views/tab.phtml:150
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandfather and "
+#| msgid_plural "%2$s has %1$d grandfathers and "
+msgid "%2$s has %1$d grandfather and"
+msgid_plural "%2$s has %1$d grandfathers and"
 msgstr[0] "%2$s t&eacute; %1$d avi i "
-msgstr[1] "%2$s t&eacute; %1$d avis i "
+msgstr[1] "%2$s t&eacute; %1$d avis i"
 
-#: resources/views/tab.phtml:189
+#: resources/views/tab.phtml:148
 #, php-format
 msgid "%d grandmother recorded (%d in total)."
 msgid_plural "%d grandmothers recorded (%d in total)."
 msgstr[0] "%d  &agrave;via registrada (%d en total)."
 msgstr[1] "%d &agrave;vies registrades (%d en total)."
 
-#: resources/views/tab.phtml:192 resources/views/tab.phtml:195
-#: resources/views/tab.phtml:199
+#: resources/views/tab.phtml:151 resources/views/tab.phtml:154
+#: resources/views/tab.phtml:158
 #, php-format
 msgid "%d grandparent of unknown sex recorded (%d in total)."
 msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
 msgstr[0] "%d avi/a registrats (%d en total)."
 msgstr[1] "%d avis/&agrave;vies registrats/registrades (%d en total)."
 
-#: resources/views/tab.phtml:194
-#, php-format
-msgid "%2$s has %1$d grandmother and "
-msgid_plural "%2$s has %1$d grandmothers and "
+#: resources/views/tab.phtml:153
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandmother and "
+#| msgid_plural "%2$s has %1$d grandmothers and "
+msgid "%2$s has %1$d grandmother and"
+msgid_plural "%2$s has %1$d grandmothers and"
 msgstr[0] "%2$s t&eacute; %1$d  &agrave;via i "
-msgstr[1] "%2$s son %1$d &agrave;vies i "
+msgstr[1] "%2$s son %1$d &agrave;vies i"
 
-#: resources/views/tab.phtml:197
-#, php-format
-msgid "%2$s has %1$d grandfather, "
-msgid_plural "%2$s has %1$d grandfathers, "
+#: resources/views/tab.phtml:156
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandfather, "
+#| msgid_plural "%2$s has %1$d grandfathers, "
+msgid "%2$s has %1$d grandfather,"
+msgid_plural "%2$s has %1$d grandfathers,"
 msgstr[0] "%2$s t&eacute; %1$d avi, "
-msgstr[1] "%2$s t&eacute; %1$d avis, "
+msgstr[1] "%2$s t&eacute; %1$d avis,"
 
-#: resources/views/tab.phtml:198
-#, php-format
-msgid "%d grandmother, and "
-msgid_plural "%d grandmothers, and "
+#: resources/views/tab.phtml:157
+#, fuzzy, php-format
+#| msgid "%d grandmother, and "
+#| msgid_plural "%d grandmothers, and "
+msgid "%d grandmother, and"
+msgid_plural "%d grandmothers, and"
 msgstr[0] "%d  &agrave;via i "
-msgstr[1] "%d &agrave;vies i "
+msgstr[1] "%d &agrave;vies i"
 
-#: resources/views/tab.phtml:205
+#: resources/views/tab.phtml:164
 #, php-format
 msgid "%s has one aunt recorded."
 msgstr "%s t&eacute; una tia registrada."
 
-#: resources/views/tab.phtml:207
+#: resources/views/tab.phtml:166
 #, php-format
 msgid "%s has one uncle recorded."
 msgstr "%s t&eacute; un oncle registrat."
 
-#: resources/views/tab.phtml:209
+#: resources/views/tab.phtml:168
 #, php-format
 msgid "%s has one uncle or aunt of unknown sex recorded."
 msgstr "%s t&eacute; un oncle o tia registrat/da."
 
-#: resources/views/tab.phtml:213
+#: resources/views/tab.phtml:172
 #, php-format
 msgid "%2$s has %1$d aunt recorded."
 msgid_plural "%2$s has %1$d aunts recorded."
 msgstr[0] "%2$s t&eacute; %1$d tia registrada."
 msgstr[1] "%2$s t&eacute; %1$d ties registrades."
 
-#: resources/views/tab.phtml:215
+#: resources/views/tab.phtml:174
 #, php-format
 msgid "%2$s has %1$d uncle recorded."
 msgid_plural "%2$s has %1$d uncles recorded."
 msgstr[0] "%2$s t&eacute; %1$d oncle registrat."
 msgstr[1] "%2$s t&eacute; %1$d oncles registrats."
 
-#: resources/views/tab.phtml:217
+#: resources/views/tab.phtml:176
 #, php-format
 msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
 msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
 msgstr[0] "%2$s t&eacute;%1$d  tia registrat/a."
 msgstr[1] "%2$s t&eacute; %1$d oncles/ties registrats/registrades."
 
-#: resources/views/tab.phtml:219 resources/views/tab.phtml:222
-#, php-format
-msgid "%2$s has %1$d uncle and "
-msgid_plural "%2$s has %1$d uncles and "
+#: resources/views/tab.phtml:178 resources/views/tab.phtml:181
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d uncle and "
+#| msgid_plural "%2$s has %1$d uncles and "
+msgid "%2$s has %1$d uncle and"
+msgid_plural "%2$s has %1$d uncles and"
 msgstr[0] "%2$s t&eacute; %1$d oncle i "
-msgstr[1] "%2$s t&eacute; %1$d oncles i "
+msgstr[1] "%2$s t&eacute; %1$d oncles i"
 
-#: resources/views/tab.phtml:220
+#: resources/views/tab.phtml:179
 #, php-format
 msgid "%d aunt recorded (%d in total)."
 msgid_plural "%d aunts recorded (%d in total)."
 msgstr[0] "%d tia registrada (%d en total)."
 msgstr[1] "%d ties registrades (%d en total)."
 
-#: resources/views/tab.phtml:223 resources/views/tab.phtml:226
-#: resources/views/tab.phtml:230
+#: resources/views/tab.phtml:182 resources/views/tab.phtml:185
+#: resources/views/tab.phtml:189
 #, php-format
 msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
 msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
 msgstr[0] "%d oncle/tia registrat/registrada (%d en total)."
 msgstr[1] "%d oncles/ties registrats/registrades(%d en total)."
 
-#: resources/views/tab.phtml:225
-#, php-format
-msgid "%2$s has %1$d aunt and "
-msgid_plural "%2$s has %1$d aunts and "
+#: resources/views/tab.phtml:184
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d aunt and "
+#| msgid_plural "%2$s has %1$d aunts and "
+msgid "%2$s has %1$d aunt and"
+msgid_plural "%2$s has %1$d aunts and"
 msgstr[0] "%2$s t&eacute; %1$d tia i "
-msgstr[1] "%2$s t&eacute; %1$d ties i "
+msgstr[1] "%2$s t&eacute; %1$d ties i"
 
-#: resources/views/tab.phtml:228
-#, php-format
-msgid "%2$s has %1$d uncle, "
-msgid_plural "%2$s has %1$d uncles, "
+#: resources/views/tab.phtml:187
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d uncle, "
+#| msgid_plural "%2$s has %1$d uncles, "
+msgid "%2$s has %1$d uncle,"
+msgid_plural "%2$s has %1$d uncles,"
 msgstr[0] "%2$s t&eacute; %1$d oncle"
-msgstr[1] "%2$s t&eacute; %1$d oncles "
+msgstr[1] "%2$s t&eacute; %1$d oncles"
 
-#: resources/views/tab.phtml:229
-#, php-format
-msgid "%d aunt, and "
-msgid_plural "%d aunts, and "
+#: resources/views/tab.phtml:188
+#, fuzzy, php-format
+#| msgid "%d aunt, and "
+#| msgid_plural "%d aunts, and "
+msgid "%d aunt, and"
+msgid_plural "%d aunts, and"
 msgstr[0] "%d tia i "
 msgstr[1] "%d ties i"
 
-#: resources/views/tab.phtml:236
+#: resources/views/tab.phtml:195
 #, php-format
 msgid "%s has one aunt by marriage recorded."
 msgstr "%s t&eacute; una tia pol&iacute;tica registrada."
 
-#: resources/views/tab.phtml:238
+#: resources/views/tab.phtml:197
 #, php-format
 msgid "%s has one uncle by marriage recorded."
 msgstr "%s t&eacute; un oncle pol&iacute;tic registrat."
 
-#: resources/views/tab.phtml:240
+#: resources/views/tab.phtml:199
 #, php-format
 msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
 msgstr "%s t&eacute; un oncle o tia pol&iacute;ticc/a registrat/da."
 
-#: resources/views/tab.phtml:244
+#: resources/views/tab.phtml:203
 #, php-format
 msgid "%2$s has %1$d aunt by marriage recorded."
 msgid_plural "%2$s has %1$d aunts by marriage recorded."
 msgstr[0] "%2$s t&eacute; %1$d tia pol&iacute;tica registrada."
 msgstr[1] "%2$s t&eacute; %1$d ties pol&iacute;tiques registrades."
 
-#: resources/views/tab.phtml:246
+#: resources/views/tab.phtml:205
 #, php-format
 msgid "%2$s has %1$d uncle by marriage recorded."
 msgid_plural "%2$s has %1$d uncles by marriage recorded."
 msgstr[0] "%2$s t&eacute; %1$d oncle pol&iacute;tic registrat."
 msgstr[1] "%2$s t&eacute; %1$d oncles pol&iacute;tics registrats."
 
-#: resources/views/tab.phtml:248
+#: resources/views/tab.phtml:207
 #, php-format
 msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
 msgid_plural ""
@@ -414,22 +1697,24 @@ msgid_plural ""
 msgstr[0] "%2$s t&eacute; %1$d oncle o tia pol&iacute;tica."
 msgstr[1] "%2$s t&eacute; %1$d oncles o ties pol&iacute;tics/ques registrats."
 
-#: resources/views/tab.phtml:250 resources/views/tab.phtml:253
-#, php-format
-msgid "%2$s has %1$d uncle by marriage and "
-msgid_plural "%2$s has %1$d uncles by marriage and "
+#: resources/views/tab.phtml:209 resources/views/tab.phtml:212
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d uncle by marriage and "
+#| msgid_plural "%2$s has %1$d uncles by marriage and "
+msgid "%2$s has %1$d uncle by marriage and"
+msgid_plural "%2$s has %1$d uncles by marriage and"
 msgstr[0] "%2$s t&eacute; %1$d oncle pol&iacute;tic i "
-msgstr[1] "%2$s t&eacute; %1$d oncles pol&iacute;tics i "
+msgstr[1] "%2$s t&eacute; %1$d oncles pol&iacute;tics i"
 
-#: resources/views/tab.phtml:251
+#: resources/views/tab.phtml:210
 #, php-format
 msgid "%d aunt by marriage recorded (%d in total)."
 msgid_plural "%d aunts by marriage recorded (%d in total)."
 msgstr[0] "%d tia pol&iacute;tica registrada (%d en total)."
 msgstr[1] "%d ties pol&iacute;tiques registrades (%d en total)."
 
-#: resources/views/tab.phtml:254 resources/views/tab.phtml:257
-#: resources/views/tab.phtml:261
+#: resources/views/tab.phtml:213 resources/views/tab.phtml:216
+#: resources/views/tab.phtml:220
 #, php-format
 msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
 msgid_plural ""
@@ -437,347 +1722,386 @@ msgid_plural ""
 msgstr[0] "%d oncle o tia pol&iacute;tica registrats (%d en total)."
 msgstr[1] "%d oncles o ties pol&iacute;tiques resgistrades (%d en total)."
 
-#: resources/views/tab.phtml:256
-#, php-format
-msgid "%2$s has %1$d aunt by marriage and "
-msgid_plural "%2$s has %1$d aunts by marriage and "
+#: resources/views/tab.phtml:215
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d aunt by marriage and "
+#| msgid_plural "%2$s has %1$d aunts by marriage and "
+msgid "%2$s has %1$d aunt by marriage and"
+msgid_plural "%2$s has %1$d aunts by marriage and"
 msgstr[0] "%2$s t&eacute; %1$d tia pol&iacute;tica i "
-msgstr[1] "%2$s t&eacute; %1$d ties pol&iacute;tiques i "
+msgstr[1] "%2$s t&eacute; %1$d ties pol&iacute;tiques i"
 
-#: resources/views/tab.phtml:259
-#, php-format
-msgid "%2$s has %1$d uncle by marriage, "
-msgid_plural "%2$s has %1$d uncles by marriage, "
+#: resources/views/tab.phtml:218
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d uncle by marriage, "
+#| msgid_plural "%2$s has %1$d uncles by marriage, "
+msgid "%2$s has %1$d uncle by marriage,"
+msgid_plural "%2$s has %1$d uncles by marriage,"
 msgstr[0] "%2$s t&eacute; %1$d oncle pol&iacute;tic, "
-msgstr[1] "%2$s t&eacute; %1$d oncles pol&iacute;tics "
+msgstr[1] "%2$s t&eacute; %1$d oncles pol&iacute;tics"
 
-#: resources/views/tab.phtml:260
-#, php-format
-msgid "%d aunt by marriage, and "
-msgid_plural "%d aunts by marriage, and "
+#: resources/views/tab.phtml:219
+#, fuzzy, php-format
+#| msgid "%d aunt by marriage, and "
+#| msgid_plural "%d aunts by marriage, and "
+msgid "%d aunt by marriage, and"
+msgid_plural "%d aunts by marriage, and"
 msgstr[0] "%d tia pol&iacute;tica i "
-msgstr[1] "%d ties pol&iacute;tiques i  "
+msgstr[1] "%d ties pol&iacute;tiques i"
 
-#: resources/views/tab.phtml:267
+#: resources/views/tab.phtml:226
 #, php-format
 msgid "%s has one mother recorded."
 msgstr "%s t&eacute; una mare registrada."
 
-#: resources/views/tab.phtml:269
+#: resources/views/tab.phtml:228
 #, php-format
 msgid "%s has one father recorded."
 msgstr "%s t&eacute; un pare registrat."
 
-#: resources/views/tab.phtml:271
+#: resources/views/tab.phtml:230
 #, fuzzy, php-format
 msgid "%s has one parent of unknown sex recorded."
 msgstr "t&eacute; registrat un progenitor/a."
 
-#: resources/views/tab.phtml:275
+#: resources/views/tab.phtml:234
 #, php-format
 msgid "%2$s has %1$d mother recorded."
 msgid_plural "%2$s has %1$d mothers recorded."
 msgstr[0] "%2$s t&eacute; %1$d mare registrada."
 msgstr[1] "%2$s t&eacute; %1$d mares registradas."
 
-#: resources/views/tab.phtml:277
+#: resources/views/tab.phtml:236
 #, php-format
 msgid "%2$s has %1$d father recorded."
 msgid_plural "%2$s has %1$d fathers recorded."
 msgstr[0] "%2$s t&eacute; %1$d pare registrat."
 msgstr[1] "%2$s t&eacute; %1$d pares registrats."
 
-#: resources/views/tab.phtml:279
+#: resources/views/tab.phtml:238
 #, php-format
 msgid "%2$s has %1$d parent of unknown sex recorded."
 msgid_plural "%2$s has %1$d parents of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d pare/mare registrat/da."
 msgstr[1] "%2$s t&eacute; %1$d pares/mares registrats/registrades."
 
-#: resources/views/tab.phtml:281 resources/views/tab.phtml:284
-#, php-format
-msgid "%2$s has %1$d father and "
-msgid_plural "%2$s has %1$d fathers and "
+#: resources/views/tab.phtml:240 resources/views/tab.phtml:243
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d father and "
+#| msgid_plural "%2$s has %1$d fathers and "
+msgid "%2$s has %1$d father and"
+msgid_plural "%2$s has %1$d fathers and"
 msgstr[0] "%2$s t&eacute; %1$d pare i "
-msgstr[1] "%2$s t&eacute; %1$d pares i "
+msgstr[1] "%2$s t&eacute; %1$d pares i"
 
-#: resources/views/tab.phtml:282
+#: resources/views/tab.phtml:241
 #, php-format
 msgid "%d mother recorded (%d in total)."
 msgid_plural "%d mothers recorded (%d in total)."
 msgstr[0] "%d mare registrats (%d en total)."
 msgstr[1] "%d mares registrades (%d en total)."
 
-#: resources/views/tab.phtml:285 resources/views/tab.phtml:288
-#: resources/views/tab.phtml:292
+#: resources/views/tab.phtml:244 resources/views/tab.phtml:247
+#: resources/views/tab.phtml:251
 #, php-format
 msgid "%d parent of unknown sex recorded (%d in total)."
 msgid_plural "%d parents of unknown sex recorded (%d in total)."
 msgstr[0] "%d pare/mare registrat/da (%d en total)."
 msgstr[1] "%d pares/mares registrats/registrades (%d en total)."
 
-#: resources/views/tab.phtml:287
-#, php-format
-msgid "%2$s has %1$d mother and "
-msgid_plural "%2$s has %1$d mothers and "
+#: resources/views/tab.phtml:246
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d mother and "
+#| msgid_plural "%2$s has %1$d mothers and "
+msgid "%2$s has %1$d mother and"
+msgid_plural "%2$s has %1$d mothers and"
 msgstr[0] "%2$s t&eacute; %1$d mare i "
-msgstr[1] "%2$s t&eacute; %1$d mares i "
+msgstr[1] "%2$s t&eacute; %1$d mares i"
 
-#: resources/views/tab.phtml:290
-#, php-format
-msgid "%2$s has %1$d father, "
-msgid_plural "%2$s has %1$d fathers, "
+#: resources/views/tab.phtml:249
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d father, "
+#| msgid_plural "%2$s has %1$d fathers, "
+msgid "%2$s has %1$d father,"
+msgid_plural "%2$s has %1$d fathers,"
 msgstr[0] "%2$s t&eacute; %1$d pare, "
-msgstr[1] "%2$s t&eacute; %1$d pares, "
+msgstr[1] "%2$s t&eacute; %1$d pares,"
 
-#: resources/views/tab.phtml:291
-#, php-format
-msgid "%d mother, and "
-msgid_plural "%d mothers, and "
+#: resources/views/tab.phtml:250
+#, fuzzy, php-format
+#| msgid "%d mother, and "
+#| msgid_plural "%d mothers, and "
+msgid "%d mother, and"
+msgid_plural "%d mothers, and"
 msgstr[0] "%d la mare i "
-msgstr[1] "%d las mares i "
+msgstr[1] "%d las mares i"
 
-#: resources/views/tab.phtml:303
+#: resources/views/tab.phtml:262
 #, php-format
 msgid "%s has one mother-in-law recorded."
 msgstr "%s t&eacute; una sogra registrada."
 
-#: resources/views/tab.phtml:305
+#: resources/views/tab.phtml:264
 #, php-format
 msgid "%s has one father-in-law recorded."
 msgstr "%s t&eacute; un sogre registrat."
 
-#: resources/views/tab.phtml:307
+#: resources/views/tab.phtml:266
 #, php-format
 msgid "%s has one parent-in-law of unknown sex recorded."
 msgstr "%s t&eacute; un sogre/a registrat/da."
 
-#: resources/views/tab.phtml:311
+#: resources/views/tab.phtml:270
 #, php-format
 msgid "%2$s has %1$d mother-in-law recorded."
 msgid_plural "%2$s has %1$d mothers-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d sogra registrada."
 msgstr[1] "%2$s t&eacute; %1$d sogres registrades."
 
-#: resources/views/tab.phtml:313
+#: resources/views/tab.phtml:272
 #, php-format
 msgid "%2$s has %1$d father-in-law recorded."
 msgid_plural "%2$s has %1$d fathers-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d sogre registrat."
 msgstr[1] "%2$s t&eacute; %1$d sogres registrats."
 
-#: resources/views/tab.phtml:315
+#: resources/views/tab.phtml:274
 #, php-format
 msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d sogre/a registrat/da."
 msgstr[1] "%2$s t&eacute; %1$d sogres registrats/registrades."
 
-#: resources/views/tab.phtml:317 resources/views/tab.phtml:320
-#, php-format
-msgid "%2$s has %1$d father-in-law and "
-msgid_plural "%2$s has %1$d fathers-in-law and "
+#: resources/views/tab.phtml:276 resources/views/tab.phtml:279
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d father-in-law and "
+#| msgid_plural "%2$s has %1$d fathers-in-law and "
+msgid "%2$s has %1$d father-in-law and"
+msgid_plural "%2$s has %1$d fathers-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d sogre i "
-msgstr[1] "%2$s t&eacute; %1$d sogres i "
+msgstr[1] "%2$s t&eacute; %1$d sogres i"
 
-#: resources/views/tab.phtml:318
+#: resources/views/tab.phtml:277
 #, php-format
 msgid "%d mother-in-law recorded (%d in total)."
 msgid_plural "%d mothers-in-law recorded (%d in total)."
 msgstr[0] "%d sogra registrats (%d en total)."
 msgstr[1] "%d sogres registrades (%d en total)."
 
-#: resources/views/tab.phtml:321 resources/views/tab.phtml:324
-#: resources/views/tab.phtml:328
+#: resources/views/tab.phtml:280 resources/views/tab.phtml:283
+#: resources/views/tab.phtml:287
 #, php-format
 msgid "%d parent-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d sogre/a registrat/da (%d en total)."
 msgstr[1] "%d sogres registrats/registrades (%d en total)."
 
-#: resources/views/tab.phtml:323
-#, php-format
-msgid "%2$s has %1$d mother-in-law and "
-msgid_plural "%2$s has %1$d mothers-in-law and "
+#: resources/views/tab.phtml:282
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d mother-in-law and "
+#| msgid_plural "%2$s has %1$d mothers-in-law and "
+msgid "%2$s has %1$d mother-in-law and"
+msgid_plural "%2$s has %1$d mothers-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d sogra registrada i "
-msgstr[1] "%2$s t&eacute; %1$d sogres i "
+msgstr[1] "%2$s t&eacute; %1$d sogres i"
 
-#: resources/views/tab.phtml:326
-#, php-format
-msgid "%2$s has %1$d father-in-law, "
-msgid_plural "%2$s has %1$d fathers-in-law, "
+#: resources/views/tab.phtml:285
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d father-in-law, "
+#| msgid_plural "%2$s has %1$d fathers-in-law, "
+msgid "%2$s has %1$d father-in-law,"
+msgid_plural "%2$s has %1$d fathers-in-law,"
 msgstr[0] "%2$s t&eacute; %1$d sogre registrat, "
 msgstr[1] "%2$s t&eacute; %1$d sogres registrats,"
 
-#: resources/views/tab.phtml:327
-#, php-format
-msgid "%d mother-in-law, and "
-msgid_plural "%d mothers-in-law, and "
+#: resources/views/tab.phtml:286
+#, fuzzy, php-format
+#| msgid "%d mother-in-law, and "
+#| msgid_plural "%d mothers-in-law, and "
+msgid "%d mother-in-law, and"
+msgid_plural "%d mothers-in-law, and"
 msgstr[0] "%d es sogra i "
-msgstr[1] "%d t&eacute; %1$d sogres i "
+msgstr[1] "%d t&eacute; %1$d sogres i"
 
-#: resources/views/tab.phtml:334
+#: resources/views/tab.phtml:293
 #, php-format
 msgid "%s has one co-mother-in-law recorded."
 msgstr "%s t&eacute; una consogra registrada."
 
-#: resources/views/tab.phtml:336
+#: resources/views/tab.phtml:295
 #, php-format
 msgid "%s has one co-father-in-law recorded."
 msgstr "%s t&eacute; un consogre registrat."
 
-#: resources/views/tab.phtml:338
+#: resources/views/tab.phtml:297
 #, fuzzy, php-format
 msgid "%s has one co-parent-in-law of unknown sex recorded."
 msgstr "t&eacute; registrat un consogre/a."
 
-#: resources/views/tab.phtml:342
+#: resources/views/tab.phtml:301
 #, php-format
 msgid "%2$s has %1$d co-mother-in-law recorded."
 msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d consogra registrada."
 msgstr[1] "%2$s t&eacute; %1$d consogres registrats/des."
 
-#: resources/views/tab.phtml:344
+#: resources/views/tab.phtml:303
 #, php-format
 msgid "%2$s has %1$d co-father-in-law recorded."
 msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d consogre registrat."
 msgstr[1] "%2$s t&eacute; %1$d consogres registrats."
 
-#: resources/views/tab.phtml:346
+#: resources/views/tab.phtml:305
 #, php-format
 msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; registrat %1$d consogre/a."
 msgstr[1] "%2$s t&eacute; registrats %1$d consogres."
 
-#: resources/views/tab.phtml:348 resources/views/tab.phtml:351
-#, php-format
-msgid "%2$s has %1$d co-father-in-law and "
-msgid_plural "%2$s has %1$d co-fathers-in-law and "
+#: resources/views/tab.phtml:307 resources/views/tab.phtml:310
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d co-father-in-law and "
+#| msgid_plural "%2$s has %1$d co-fathers-in-law and "
+msgid "%2$s has %1$d co-father-in-law and"
+msgid_plural "%2$s has %1$d co-fathers-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d consogre i "
-msgstr[1] "%2$s t&eacute; %1$d consogres i "
+msgstr[1] "%2$s t&eacute; %1$d consogres i"
 
-#: resources/views/tab.phtml:349
+#: resources/views/tab.phtml:308
 #, php-format
 msgid "%d co-mother-in-law recorded (%d in total)."
 msgid_plural "%d co-mothers-in-law recorded (%d in total)."
 msgstr[0] "%d consogra registrats (%d en total)."
 msgstr[1] "%d consogres registrades (%d en total)."
 
-#: resources/views/tab.phtml:352 resources/views/tab.phtml:355
-#: resources/views/tab.phtml:359
+#: resources/views/tab.phtml:311 resources/views/tab.phtml:314
+#: resources/views/tab.phtml:318
 #, php-format
 msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d consogre/a registrat/da (%d en total)."
 msgstr[1] "%d consogres registrats(%d en total)."
 
-#: resources/views/tab.phtml:354
-#, php-format
-msgid "%2$s has %1$d co-mother-in-law and "
-msgid_plural "%2$s has %1$d co-mothers-in-law and "
-msgstr[0] "%2$s t&eacute; %1$d consogra i "
-msgstr[1] "%2$s t&eacute; %1$d consogres i "
-
-#: resources/views/tab.phtml:357
+#: resources/views/tab.phtml:313
 #, fuzzy, php-format
-msgid "%2$s has %1$d co-father-in-law, "
-msgid_plural "%2$s has %1$d co-fathers-in-law, "
-msgstr[0] "%2$s t&eacute; %1$d consogre, "
-msgstr[1] "%2$s t&eacute; %1$d consogres, "
+#| msgid "%2$s has %1$d co-mother-in-law and "
+#| msgid_plural "%2$s has %1$d co-mothers-in-law and "
+msgid "%2$s has %1$d co-mother-in-law and"
+msgid_plural "%2$s has %1$d co-mothers-in-law and"
+msgstr[0] "%2$s t&eacute; %1$d consogra i "
+msgstr[1] "%2$s t&eacute; %1$d consogres i"
 
-#: resources/views/tab.phtml:358
-#, php-format
-msgid "%d co-mother-in-law, and "
-msgid_plural "%d co-mothers-in-law, and "
+# Migrated from ExtendedFamilyTranslations.php.old
+#: resources/views/tab.phtml:316
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d co-father-in-law,"
+#| msgid_plural "%2$ has %1$d co-fathers-in-law,"
+msgid "%2$s has %1$d co-father-in-law,"
+msgid_plural "%2$s has %1$d co-fathers-in-law,"
+msgstr[0] "%2$s t&eacute; %1$d consogre,"
+msgstr[1] "%2$s t&eacute; %1$d consogres,"
+
+#: resources/views/tab.phtml:317
+#, fuzzy, php-format
+#| msgid "%d co-mother-in-law, and "
+#| msgid_plural "%d co-mothers-in-law, and "
+msgid "%d co-mother-in-law, and"
+msgid_plural "%d co-mothers-in-law, and"
 msgstr[0] "%d consogra i "
-msgstr[1] "%d consogres i "
+msgstr[1] "%d consogres i"
 
-#: resources/views/tab.phtml:365
+#: resources/views/tab.phtml:324
 #, php-format
 msgid "%s has one female partner recorded."
 msgstr "%s t&eacute; una c&ograve;njuge registrada."
 
-#: resources/views/tab.phtml:367
+#: resources/views/tab.phtml:326
 #, php-format
 msgid "%s has one male partner recorded."
 msgstr "%s t&eacute; una c&ograve;njuge registrada."
 
-#: resources/views/tab.phtml:369
+#: resources/views/tab.phtml:328
 #, php-format
 msgid "%s has one partner of unknown sex recorded."
 msgstr "%s t&eacute; registrada un c&ograve;njuge de sexe no identificat."
 
-#: resources/views/tab.phtml:374
+#: resources/views/tab.phtml:333
 #, php-format
 msgid "%2$s has %1$d female partner recorded."
 msgid_plural "%2$s has %1$d female partners recorded."
 msgstr[0] "%2$s t&eacute; %1$d c&ograve;njuge registrat."
 msgstr[1] "%2$s t&eacute; %1$d conjugues registrats."
 
-#: resources/views/tab.phtml:376
+#: resources/views/tab.phtml:335
 #, php-format
 msgid "%2$s has %1$d male partner recorded."
 msgid_plural "%2$s has %1$d male partners recorded."
 msgstr[0] "%2$s t&eacute; %1$d c&ograve;njuge registrada."
 msgstr[1] "%2$s t&eacute; %1$d conjugues registrades."
 
-#: resources/views/tab.phtml:378
+#: resources/views/tab.phtml:337
 #, php-format
 msgid "%2$s has %1$d partner of unknown sex recorded."
 msgid_plural "%2$s has %1$d partners of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; registrada a %1$d com a parella."
 msgstr[1] "%2$s t&eacute; registradrs %1$d com a parelles."
 
-#: resources/views/tab.phtml:380 resources/views/tab.phtml:383
-#: resources/views/tab.phtml:399 resources/views/tab.phtml:419
-#: resources/views/tab.phtml:424 resources/views/tab.phtml:434
-#, php-format
-msgid "%2$s has %1$d male partner and "
-msgid_plural "%2$s has %1$d male partners and "
+#: resources/views/tab.phtml:339 resources/views/tab.phtml:342
+#: resources/views/tab.phtml:358 resources/views/tab.phtml:382
+#: resources/views/tab.phtml:387 resources/views/tab.phtml:397
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d male partner and "
+#| msgid_plural "%2$s has %1$d male partners and "
+msgid "%2$s has %1$d male partner and"
+msgid_plural "%2$s has %1$d male partners and"
 msgstr[0] "%2$s t&eacute; %1$d com a parella masculina i "
-msgstr[1] "%2$s t&eacute; %1$d com a parelles masculines i "
+msgstr[1] "%2$s t&eacute; %1$d com a parelles masculines i"
 
-#: resources/views/tab.phtml:381
+#: resources/views/tab.phtml:340
 #, php-format
 msgid "%d female partner recorded (%d in total)."
 msgid_plural "%d female partners recorded (%d in total)."
 msgstr[0] "%d C&ograve;njuge registrada (%d en total)."
 msgstr[1] "%d conjugues registrades (%d en total)."
 
-#: resources/views/tab.phtml:384 resources/views/tab.phtml:387
-#: resources/views/tab.phtml:391
+#: resources/views/tab.phtml:343 resources/views/tab.phtml:346
+#: resources/views/tab.phtml:350
 #, fuzzy, php-format
 msgid "%d partner of unknown sex recorded (%d in total)."
 msgid_plural "%d partners of unknown sex recorded (%d in total)."
 msgstr[0] "%d pare/mare registrat/da (%d en total)."
 msgstr[1] "%d pares/mares registrats/registrades (%d en total)."
 
-#: resources/views/tab.phtml:386 resources/views/tab.phtml:395
-#: resources/views/tab.phtml:429
-#, php-format
-msgid "%2$s has %1$d female partner and "
-msgid_plural "%2$s has %1$d female partners and "
+#: resources/views/tab.phtml:345 resources/views/tab.phtml:354
+#: resources/views/tab.phtml:392
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d female partner and "
+#| msgid_plural "%2$s has %1$d female partners and "
+msgid "%2$s has %1$d female partner and"
+msgid_plural "%2$s has %1$d female partners and"
 msgstr[0] "%2$s t&eacute; %1$d parella femenina i "
-msgstr[1] "%2$s t&eacute; %1$d parelles femenines i "
+msgstr[1] "%2$s t&eacute; %1$d parelles femenines i"
 
-#: resources/views/tab.phtml:389
-#, php-format
-msgid "%2$s has %1$d male partner, "
-msgid_plural "%2$s has %1$d male partners, "
+#: resources/views/tab.phtml:348
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d male partner, "
+#| msgid_plural "%2$s has %1$d male partners, "
+msgid "%2$s has %1$d male partner,"
+msgid_plural "%2$s has %1$d male partners,"
 msgstr[0] "%2$s t&eacute; %1$d parella masculina, "
-msgstr[1] "%2$s t&eacute; %1$d parelles masculines, "
+msgstr[1] "%2$s t&eacute; %1$d parelles masculines,"
 
-#: resources/views/tab.phtml:390 resources/views/tab.phtml:435
-#, php-format
-msgid "%d female partner, and "
-msgid_plural "%d female partners, and "
+#: resources/views/tab.phtml:349 resources/views/tab.phtml:398
+#, fuzzy, php-format
+#| msgid "%d female partner, and "
+#| msgid_plural "%d female partners, and "
+msgid "%d female partner, and"
+msgid_plural "%d female partners, and"
 msgstr[0] "%d parella femenina i "
-msgstr[1] "%d parelles femenines i "
+msgstr[1] "%d parelles femenines i"
 
-#: resources/views/tab.phtml:396
+#: resources/views/tab.phtml:355
 #, php-format
 msgid "%d male partner of female partners recorded (%d in total)."
 msgid_plural "%d male partners of female partners recorded (%d in total)."
@@ -785,7 +2109,7 @@ msgstr[0] ""
 "%d c&ograve;njuge (amb sexe no identificat) registrat/da (%d en total)."
 msgstr[1] "%d conjugues registrats/registrades (%d en total)."
 
-#: resources/views/tab.phtml:400
+#: resources/views/tab.phtml:359
 #, php-format
 msgid "%d female partner of male partners recorded (%d in total)."
 msgid_plural "%d female partners of male partners recorded (%d in total)."
@@ -793,7 +2117,25 @@ msgstr[0] ""
 "%d c&ograve;njuge (amb sexe no identificat) registrat (%d en total)."
 msgstr[1] "%d conjugues (amb sexes no identificats) registrats (%d en total)."
 
-#: resources/views/tab.phtml:407
+# Migrated from ExtendedFamilyTranslations.php.old
+#: resources/views/tab.phtml:362
+#, php-format
+msgid "%2$s has %1$d partner and"
+msgid_plural "%2$s has %1$d partners and"
+msgstr[0] "%2$s t&eacute; %1$d c&ograve;njuge i"
+msgstr[1] "%2$s t&eacute; %1$d conjugues i"
+
+#: resources/views/tab.phtml:363
+#, fuzzy, php-format
+#| msgid "%d male partner of female partners recorded (%d in total)."
+#| msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgid "%1$d partner of partners recorded (%2$d in total)."
+msgid_plural "%1$d partners of partners recorded (%2$d in total)."
+msgstr[0] ""
+"%d c&ograve;njuge (amb sexe no identificat) registrat/da (%d en total)."
+msgstr[1] "%d conjugues registrats/registrades (%d en total)."
+
+#: resources/views/tab.phtml:370
 #, fuzzy, php-format
 msgid "%d female partner in this partner chain recorded"
 msgid_plural "%d female partners in this partner chain recorded"
@@ -803,14 +2145,14 @@ msgstr[1] ""
 "%1$d parelles femenines de parelles registrades (%2$d en total, including "
 "%3$s)."
 
-#: resources/views/tab.phtml:408 resources/views/tab.phtml:412
-#: resources/views/tab.phtml:416 resources/views/tab.phtml:421
-#: resources/views/tab.phtml:426 resources/views/tab.phtml:431
+#: resources/views/tab.phtml:371 resources/views/tab.phtml:375
+#: resources/views/tab.phtml:379 resources/views/tab.phtml:384
+#: resources/views/tab.phtml:389 resources/views/tab.phtml:394
 #, php-format
 msgid "including %s"
 msgstr ""
 
-#: resources/views/tab.phtml:411
+#: resources/views/tab.phtml:374
 #, fuzzy, php-format
 msgid "%d male partner in this partner chain recorded"
 msgid_plural "%d male partners in this partner chain recorded"
@@ -820,7 +2162,7 @@ msgstr[1] ""
 "%1$d parelles femenines de parelles registrades (%2$d en total, including "
 "%3$s)."
 
-#: resources/views/tab.phtml:415
+#: resources/views/tab.phtml:378
 #, fuzzy, php-format
 msgid "%d partner of unknown sex in this partner chain recorded"
 msgid_plural "%d partners of unknown sex in this partner chain recorded"
@@ -831,7 +2173,7 @@ msgstr[1] ""
 "%1$d parelles en aquesta xarxa de parelles registrades (%2$d in total, "
 "including %3$s)."
 
-#: resources/views/tab.phtml:420
+#: resources/views/tab.phtml:383
 #, fuzzy, php-format
 msgid "%1$d female partner in this partner chain recorded (%2$d in total"
 msgid_plural ""
@@ -842,7 +2184,7 @@ msgstr[1] ""
 "%1$d parelles femenines de parelles registrades (%2$d en total, including "
 "%3$s)."
 
-#: resources/views/tab.phtml:425 resources/views/tab.phtml:430
+#: resources/views/tab.phtml:388 resources/views/tab.phtml:393
 #, fuzzy, php-format
 msgid ""
 "%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
@@ -855,7 +2197,7 @@ msgstr[1] ""
 "%1$d parelles en aquesta xarxa de parelles registrades (%2$d in total, "
 "including %3$s)."
 
-#: resources/views/tab.phtml:436
+#: resources/views/tab.phtml:399
 #, php-format
 msgid ""
 "%1$d partner of unknown sex in this partner chain recorded (%2$d in total, "
@@ -870,19 +2212,19 @@ msgstr[1] ""
 "%1$d parelles en aquesta xarxa de parelles registrades (%2$d in total, "
 "including %3$s)."
 
-#: resources/views/tab.phtml:440
+#: resources/views/tab.phtml:403
 #, fuzzy, php-format
-msgid "There are %d branches in the partner chain. "
+msgid "There are %d branches in the partner chain."
 msgstr "Hi ha branques a la cadena de membres."
 
-#: resources/views/tab.phtml:442
+#: resources/views/tab.phtml:405
 #, fuzzy, php-format
 msgid ""
 "The longest branch in the partner chain to %2$s consists of %1$d partners "
 "(including %3$s)."
 msgstr "Hi ha branques a la cadena de membres"
 
-#: resources/views/tab.phtml:444
+#: resources/views/tab.phtml:407
 #, php-format
 msgid ""
 "The longest branch in the partner chain consists of %1$d partners (including "
@@ -891,1886 +2233,1372 @@ msgstr ""
 "La branca m&eacute;s llarga de la cadena de membres estࠦormada per %1$d "
 "individus (incloent %2$s))."
 
-#: resources/views/tab.phtml:451
+#: resources/views/tab.phtml:414
 #, php-format
 msgid "%s has one sister recorded."
 msgstr "%s t&eacute; una germana registrada."
 
-#: resources/views/tab.phtml:453
+#: resources/views/tab.phtml:416
 #, php-format
 msgid "%s has one brother recorded."
 msgstr "%s t&eacute; un  germ&agrave; registrat."
 
-#: resources/views/tab.phtml:455
+#: resources/views/tab.phtml:418
 #, php-format
 msgid "%s has one sibling of unknown sex recorded."
 msgstr "%s t&eacute; un/a germ&agrave;/na registrats/des"
 
-#: resources/views/tab.phtml:459
+#: resources/views/tab.phtml:422
 #, php-format
 msgid "%2$s has %1$d sister recorded."
 msgid_plural "%2$s has %1$d sisters recorded."
 msgstr[0] "%2$s t&eacute; %1$d germana registrada."
 msgstr[1] "%2$s t&eacute; %1$d germanes registrades."
 
-#: resources/views/tab.phtml:461
+#: resources/views/tab.phtml:424
 #, php-format
 msgid "%2$s has %1$d brother recorded."
 msgid_plural "%2$s has %1$d brothers recorded."
 msgstr[0] "%2$s t&eacute; %1$d germ&agrave; registrat."
 msgstr[1] "%2$s t&eacute; %1$d germans registrats."
 
-#: resources/views/tab.phtml:463
+#: resources/views/tab.phtml:426
 #, php-format
 msgid "%2$s has %1$d sibling of unknown sex recorded."
 msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d de germ&agrave;/na."
 msgstr[1] "%2$s t&eacute; %1$d germans/es registrats/des."
 
-#: resources/views/tab.phtml:465 resources/views/tab.phtml:468
-#, php-format
-msgid "%2$s has %1$d brother and "
-msgid_plural "%2$s has %1$d brothers and "
+#: resources/views/tab.phtml:428 resources/views/tab.phtml:431
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d brother and "
+#| msgid_plural "%2$s has %1$d brothers and "
+msgid "%2$s has %1$d brother and"
+msgid_plural "%2$s has %1$d brothers and"
 msgstr[0] "%2$s t&eacute; %1$d germgerm&agrave; i "
-msgstr[1] "%2$s t&eacute; %1$d germans i "
+msgstr[1] "%2$s t&eacute; %1$d germans i"
 
-#: resources/views/tab.phtml:466
+#: resources/views/tab.phtml:429
 #, php-format
 msgid "%d sister recorded (%d in total)."
 msgid_plural "%d sisters recorded (%d in total)."
 msgstr[0] "%d germana registrada (%d en total)."
 msgstr[1] "%d germanes registrades (%d en total)."
 
-#: resources/views/tab.phtml:469 resources/views/tab.phtml:472
-#: resources/views/tab.phtml:476
+#: resources/views/tab.phtml:432 resources/views/tab.phtml:435
+#: resources/views/tab.phtml:439
 #, php-format
 msgid "%d sibling of unknown sex recorded (%d in total)."
 msgid_plural "%d siblings of unknown sex recorded (%d in total)."
 msgstr[0] "%d germ&agrave;/na registrat/registrada (%d en total)."
 msgstr[1] "%d germans/nes registrats/des (%d en total)."
 
-#: resources/views/tab.phtml:471
-#, php-format
-msgid "%2$s has %1$d sister and "
-msgid_plural "%2$s has %1$d sisters and "
+#: resources/views/tab.phtml:434
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d sister and "
+#| msgid_plural "%2$s has %1$d sisters and "
+msgid "%2$s has %1$d sister and"
+msgid_plural "%2$s has %1$d sisters and"
 msgstr[0] "%2$s t&eacute; %1$d germana i "
-msgstr[1] "%2$s t&eacute; %1$d germanes i "
+msgstr[1] "%2$s t&eacute; %1$d germanes i"
 
-#: resources/views/tab.phtml:474
-#, php-format
-msgid "%2$s has %1$d brother, "
-msgid_plural "%2$s has %1$d brothers, "
+#: resources/views/tab.phtml:437
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d brother, "
+#| msgid_plural "%2$s has %1$d brothers, "
+msgid "%2$s has %1$d brother,"
+msgid_plural "%2$s has %1$d brothers,"
 msgstr[0] "%2$s t&eacute; %1$d de germ&agrave;"
-msgstr[1] "%2$s t&eacute; %1$d germans, "
+msgstr[1] "%2$s t&eacute; %1$d germans,"
 
-#: resources/views/tab.phtml:475
-#, php-format
-msgid "%d sister, and "
-msgid_plural "%d sisters, and "
+#: resources/views/tab.phtml:438
+#, fuzzy, php-format
+#| msgid "%d sister, and "
+#| msgid_plural "%d sisters, and "
+msgid "%d sister, and"
+msgid_plural "%d sisters, and"
 msgstr[0] "%d germana i "
-msgstr[1] "%d germanes i "
+msgstr[1] "%d germanes i"
 
-#: resources/views/tab.phtml:487
+#: resources/views/tab.phtml:450
 #, php-format
 msgid "%s has one sister-in-law recorded."
 msgstr "%s t&eacute; una cunyada registrada."
 
-#: resources/views/tab.phtml:489
+#: resources/views/tab.phtml:452
 #, php-format
 msgid "%s has one brother-in-law recorded."
 msgstr "%s un cunyat registrat."
 
-#: resources/views/tab.phtml:491
+#: resources/views/tab.phtml:454
 #, php-format
 msgid "%s has one sibling-in-law of unknown sex recorded."
 msgstr "%s t&eacute; un cunyat/da registrat/da."
 
-#: resources/views/tab.phtml:495
+#: resources/views/tab.phtml:458
 #, php-format
 msgid "%2$s has %1$d sister-in-law recorded."
 msgid_plural "%2$s has %1$d sisters-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d cunyada registrada."
 msgstr[1] "%2$s t&eacute; %1$d cumyades registrats."
 
-#: resources/views/tab.phtml:497
+#: resources/views/tab.phtml:460
 #, php-format
 msgid "%2$s has %1$d brother-in-law recorded."
 msgid_plural "%2$s has %1$d brothers-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d cunyat registrat."
 msgstr[1] "%2$s t&eacute; %1$d cunyats registrats."
 
-#: resources/views/tab.phtml:499
+#: resources/views/tab.phtml:462
 #, php-format
 msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d cunyat/da registrats."
 msgstr[1] "%2$s t&eacute; %1$d cunyats/des registrats/des."
 
-#: resources/views/tab.phtml:501 resources/views/tab.phtml:504
-#, php-format
-msgid "%2$s has %1$d brother-in-law and "
-msgid_plural "%2$s has %1$d brothers-in-law and "
+#: resources/views/tab.phtml:464 resources/views/tab.phtml:467
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d brother-in-law and "
+#| msgid_plural "%2$s has %1$d brothers-in-law and "
+msgid "%2$s has %1$d brother-in-law and"
+msgid_plural "%2$s has %1$d brothers-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d cunyat i "
-msgstr[1] "%2$s t&eacute; %1$d cunyats i "
+msgstr[1] "%2$s t&eacute; %1$d cunyats i"
 
-#: resources/views/tab.phtml:502
+#: resources/views/tab.phtml:465
 #, php-format
 msgid "%d sister-in-law recorded (%d in total)."
 msgid_plural "%d sisters-in-law recorded (%d in total)."
 msgstr[0] "%d cunyada registrats (%d en total)."
 msgstr[1] "%d cunyades registrades (%d en total)."
 
-#: resources/views/tab.phtml:505 resources/views/tab.phtml:508
-#: resources/views/tab.phtml:512
+#: resources/views/tab.phtml:468 resources/views/tab.phtml:471
+#: resources/views/tab.phtml:475
 #, php-format
 msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d cunyat/da registratats (%d en total)."
 msgstr[1] "%d cunyats/des registrats/des (%d en total)."
 
-#: resources/views/tab.phtml:507
-#, php-format
-msgid "%2$s has %1$d sister-in-law and "
-msgid_plural "%2$s has %1$d sisters-in-law and "
+#: resources/views/tab.phtml:470
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d sister-in-law and "
+#| msgid_plural "%2$s has %1$d sisters-in-law and "
+msgid "%2$s has %1$d sister-in-law and"
+msgid_plural "%2$s has %1$d sisters-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d cunyada i "
-msgstr[1] "%2$s t&eacute; %1$d cunyades i "
+msgstr[1] "%2$s t&eacute; %1$d cunyades i"
 
-#: resources/views/tab.phtml:510
-#, php-format
-msgid "%2$s has %1$d brother-in-law, "
-msgid_plural "%2$s has %1$d brothers-in-law, "
+#: resources/views/tab.phtml:473
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d brother-in-law, "
+#| msgid_plural "%2$s has %1$d brothers-in-law, "
+msgid "%2$s has %1$d brother-in-law,"
+msgid_plural "%2$s has %1$d brothers-in-law,"
 msgstr[0] "%2$s t&eacute; %1$d cunyat, "
-msgstr[1] "%2$s t&eacute; %1$d cunyats, "
+msgstr[1] "%2$s t&eacute; %1$d cunyats,"
 
-#: resources/views/tab.phtml:511
-#, php-format
-msgid "%d sister-in-law, and "
-msgid_plural "%d sisters-in-law, and "
+#: resources/views/tab.phtml:474
+#, fuzzy, php-format
+#| msgid "%d sister-in-law, and "
+#| msgid_plural "%d sisters-in-law, and "
+msgid "%d sister-in-law, and"
+msgid_plural "%d sisters-in-law, and"
 msgstr[0] "%d cunyada, i "
-msgstr[1] "%d cunyades, i "
+msgstr[1] "%d cunyades, i"
 
-#: resources/views/tab.phtml:523
+#: resources/views/tab.phtml:486
 #, php-format
 msgid "%s has one co-sister-in-law recorded."
 msgstr "%s t&eacute; una concunyada registrada."
 
-#: resources/views/tab.phtml:525
+#: resources/views/tab.phtml:488
 #, php-format
 msgid "%s has one co-brother-in-law recorded."
 msgstr "%s un concunyat registrat."
 
-#: resources/views/tab.phtml:527
+#: resources/views/tab.phtml:490
 #, php-format
 msgid "%s has one co-sibling-in-law of unknown sex recorded."
 msgstr "%s t&eacute; un concunyat/ada registrat/da."
 
-#: resources/views/tab.phtml:531
+#: resources/views/tab.phtml:494
 #, php-format
 msgid "%2$s has %1$d co-sister-in-law recorded."
 msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d concunyada registrada."
 msgstr[1] "%2$s t&eacute; %1$d concunyades registrades."
 
-#: resources/views/tab.phtml:533
+#: resources/views/tab.phtml:496
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law recorded."
 msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d concunyat registrat."
 msgstr[1] "%2$s t&eacute; %1$d concunyats registrats."
 
-#: resources/views/tab.phtml:535
+#: resources/views/tab.phtml:498
 #, php-format
 msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d concunyat/ada registrat."
 msgstr[1] "%2$s t&eacute; %1$d concunyats/des registrats."
 
-#: resources/views/tab.phtml:537 resources/views/tab.phtml:540
-#, php-format
-msgid "%2$s has %1$d co-brother-in-law and "
-msgid_plural "%2$s has %1$d co-brothers-in-law and "
+#: resources/views/tab.phtml:500 resources/views/tab.phtml:503
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d co-brother-in-law and "
+#| msgid_plural "%2$s has %1$d co-brothers-in-law and "
+msgid "%2$s has %1$d co-brother-in-law and"
+msgid_plural "%2$s has %1$d co-brothers-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d concunyat i "
-msgstr[1] "%2$s t&eacute; %1$d concunyats i "
+msgstr[1] "%2$s t&eacute; %1$d concunyats i"
 
-#: resources/views/tab.phtml:538
+#: resources/views/tab.phtml:501
 #, php-format
 msgid "%d co-sister-in-law recorded (%d in total)."
 msgid_plural "%d co-sisters-in-law recorded (%d in total)."
 msgstr[0] "%d concunyada registrats (%d en total)."
 msgstr[1] "%d concunyades registrades (%d en total)."
 
-#: resources/views/tab.phtml:541 resources/views/tab.phtml:544
-#: resources/views/tab.phtml:548
+#: resources/views/tab.phtml:504 resources/views/tab.phtml:507
+#: resources/views/tab.phtml:511
 #, php-format
 msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d concunyat/ada registrat/ada (%d en total)."
 msgstr[1] "%d concunyats/des registrats/des (%d en total)."
 
-#: resources/views/tab.phtml:543
-#, php-format
-msgid "%2$s has %1$d co-sister-in-law and "
-msgid_plural "%2$s has %1$d co-sisters-in-law and "
+#: resources/views/tab.phtml:506
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d co-sister-in-law and "
+#| msgid_plural "%2$s has %1$d co-sisters-in-law and "
+msgid "%2$s has %1$d co-sister-in-law and"
+msgid_plural "%2$s has %1$d co-sisters-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d concunyada i "
-msgstr[1] "%2$s t&eacute; %1$d concunyades i "
+msgstr[1] "%2$s t&eacute; %1$d concunyades i"
 
-#: resources/views/tab.phtml:546
-#, php-format
-msgid "%2$s has %1$d co-brother-in-law, "
-msgid_plural "%2$s has %1$d co-brothers-in-law, "
+#: resources/views/tab.phtml:509
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d co-brother-in-law, "
+#| msgid_plural "%2$s has %1$d co-brothers-in-law, "
+msgid "%2$s has %1$d co-brother-in-law,"
+msgid_plural "%2$s has %1$d co-brothers-in-law,"
 msgstr[0] "%2$s t&eacute; %1$d concunyat, "
-msgstr[1] "%2$s t&eacute; %1$d concunyats, "
+msgstr[1] "%2$s t&eacute; %1$d concunyats,"
 
-#: resources/views/tab.phtml:547
-#, php-format
-msgid "%d co-sister-in-law, and "
-msgid_plural "%d co-sisters-in-law, and "
+#: resources/views/tab.phtml:510
+#, fuzzy, php-format
+#| msgid "%d co-sister-in-law, and "
+#| msgid_plural "%d co-sisters-in-law, and "
+msgid "%d co-sister-in-law, and"
+msgid_plural "%d co-sisters-in-law, and"
 msgstr[0] "%d concunyada, i "
-msgstr[1] "%d concunyades, i "
+msgstr[1] "%d concunyades, i"
 
-#: resources/views/tab.phtml:559
+#: resources/views/tab.phtml:522
 #, php-format
 msgid "%s has one female first cousin recorded."
 msgstr "%s t&eacute; una cosina registrada."
 
-#: resources/views/tab.phtml:561
+#: resources/views/tab.phtml:524
 #, php-format
 msgid "%s has one male first cousin recorded."
 msgstr "%s t&eacute; un cos&iacute; registrat."
 
-#: resources/views/tab.phtml:563
+#: resources/views/tab.phtml:526
 #, php-format
 msgid "%s has one first cousin of unknown sex recorded."
 msgstr "%s t&eacute; un cos&iacute;/na registrat/ada."
 
-#: resources/views/tab.phtml:567
+#: resources/views/tab.phtml:530
 #, php-format
 msgid "%2$s has %1$d female first cousin recorded."
 msgid_plural "%2$s has %1$d female first cousins recorded."
 msgstr[0] "%2$s t&eacute; %1$d cosina registrada."
 msgstr[1] "%2$s t&eacute; %1$d cosines registrades."
 
-#: resources/views/tab.phtml:569
+#: resources/views/tab.phtml:532
 #, php-format
 msgid "%2$s has %1$d male first cousin recorded."
 msgid_plural "%2$s has %1$d male first cousins recorded."
 msgstr[0] "%2$s t&eacute; %1$d cos&iacute; registrat."
 msgstr[1] "%2$s t&eacute; %1$d cosins registrats."
 
-#: resources/views/tab.phtml:571
+#: resources/views/tab.phtml:534
 #, php-format
 msgid "%2$s has %1$d first cousin of unknown sex recorded."
 msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; registrat %1$d com cosina germ&agrave;/na."
 msgstr[1] "%2$s t&eacute; registrats %1$d cosins/es germans/es"
 
-#: resources/views/tab.phtml:573 resources/views/tab.phtml:576
-#, php-format
-msgid "%2$s has %1$d male first cousin and "
-msgid_plural "%2$s has %1$d male first cousins and "
+#: resources/views/tab.phtml:536 resources/views/tab.phtml:539
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d male first cousin and "
+#| msgid_plural "%2$s has %1$d male first cousins and "
+msgid "%2$s has %1$d male first cousin and"
+msgid_plural "%2$s has %1$d male first cousins and"
 msgstr[0] "%2$s t&eacute; %1$d coscos&iacute;"
-msgstr[1] "%2$s t&eacute; %1$d cosins i "
+msgstr[1] "%2$s t&eacute; %1$d cosins i"
 
-#: resources/views/tab.phtml:574
+#: resources/views/tab.phtml:537
 #, php-format
 msgid "%d female first cousin recorded (%d in total)."
 msgid_plural "%d female first cousins recorded (%d in total)."
 msgstr[0] "%d cosina registrats (%d en total)."
 msgstr[1] "%d cosines registrades (%d en total)."
 
-#: resources/views/tab.phtml:577 resources/views/tab.phtml:580
-#: resources/views/tab.phtml:584
+#: resources/views/tab.phtml:540 resources/views/tab.phtml:543
+#: resources/views/tab.phtml:547
 #, php-format
 msgid "%d first cousin of unknown sex recorded (%d in total)."
 msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
 msgstr[0] "%d cos&iacute;/na germ&agrave;/na registrat/rada(%d en total)."
 msgstr[1] "%d cosins/cosines germans/es registrats/des (%d en total)."
 
-#: resources/views/tab.phtml:579
-#, php-format
-msgid "%2$s has %1$d female first cousin and "
-msgid_plural "%2$s has %1$d female first cousins and "
+#: resources/views/tab.phtml:542
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d female first cousin and "
+#| msgid_plural "%2$s has %1$d female first cousins and "
+msgid "%2$s has %1$d female first cousin and"
+msgid_plural "%2$s has %1$d female first cousins and"
 msgstr[0] "%2$s t&eacute; %1$d cosina germana i "
-msgstr[1] "%2$s t&eacute; %1$d cosines germanes i "
+msgstr[1] "%2$s t&eacute; %1$d cosines germanes i"
 
-#: resources/views/tab.phtml:582
-#, php-format
-msgid "%2$s has %1$d male first cousin, "
-msgid_plural "%2$s has %1$d male first cousins, "
+#: resources/views/tab.phtml:545
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d male first cousin, "
+#| msgid_plural "%2$s has %1$d male first cousins, "
+msgid "%2$s has %1$d male first cousin,"
+msgid_plural "%2$s has %1$d male first cousins,"
 msgstr[0] "%2$s t&eacute; %1$d coscos&iacute; germà "
-msgstr[1] "%2$s t&eacute; %1$d cosins germans, "
+msgstr[1] "%2$s t&eacute; %1$d cosins germans,"
 
-#: resources/views/tab.phtml:583
-#, php-format
-msgid "%d female first cousin, and "
-msgid_plural "%d female first cousins, and "
+#: resources/views/tab.phtml:546
+#, fuzzy, php-format
+#| msgid "%d female first cousin, and "
+#| msgid_plural "%d female first cousins, and "
+msgid "%d female first cousin, and"
+msgid_plural "%d female first cousins, and"
 msgstr[0] "%d cosina germana, i "
-msgstr[1] "%d cosines germanes, i "
+msgstr[1] "%d cosines germanes, i"
 
-#: resources/views/tab.phtml:590
+#: resources/views/tab.phtml:553
 #, php-format
 msgid "%s has one niece recorded."
 msgstr "%s t&eacute; una neboda registrada."
 
-#: resources/views/tab.phtml:592
+#: resources/views/tab.phtml:555
 #, php-format
 msgid "%s has one nephew recorded."
 msgstr "%s t&eacute;un nebot registrat."
 
-#: resources/views/tab.phtml:594
+#: resources/views/tab.phtml:557
 #, php-format
 msgid "%s has one nephew or niece of unknown sex recorded."
 msgstr "%s t&eacute; una nebot/da registrat/da."
 
-#: resources/views/tab.phtml:598
+#: resources/views/tab.phtml:561
 #, php-format
 msgid "%2$s has %1$d niece recorded."
 msgid_plural "%2$s has %1$d nieces recorded."
 msgstr[0] "%2$s t&eacute; %1$d neboda registrada."
 msgstr[1] "%2$s t&eacute; %1$d nebodes registradas."
 
-#: resources/views/tab.phtml:600
+#: resources/views/tab.phtml:563
 #, php-format
 msgid "%2$s has %1$d nephew recorded."
 msgid_plural "%2$s has %1$d nephews recorded."
 msgstr[0] "%2$s t&eacute; %1$d nebot registrat."
 msgstr[1] "%2$s t&eacute; %1$d nebots registrats."
 
-#: resources/views/tab.phtml:602
+#: resources/views/tab.phtml:565
 #, php-format
 msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
 msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d nebot/da."
 msgstr[1] "%2$s t&eacute; %1$d nebots/des registrats."
 
-#: resources/views/tab.phtml:604 resources/views/tab.phtml:607
-#, php-format
-msgid "%2$s has %1$d nephew and "
-msgid_plural "%2$s has %1$d nephews and "
+#: resources/views/tab.phtml:567 resources/views/tab.phtml:570
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d nephew and "
+#| msgid_plural "%2$s has %1$d nephews and "
+msgid "%2$s has %1$d nephew and"
+msgid_plural "%2$s has %1$d nephews and"
 msgstr[0] "%2$s t&eacute; %1$d nebot i "
-msgstr[1] "%2$s t&eacute; %1$d nebots i "
+msgstr[1] "%2$s t&eacute; %1$d nebots i"
 
-#: resources/views/tab.phtml:605
+#: resources/views/tab.phtml:568
 #, php-format
 msgid "%d niece recorded (%d in total)."
 msgid_plural "%d nieces recorded (%d in total)."
 msgstr[0] "%d neboda registrats (%d en total)."
 msgstr[1] "%d nebodes registrades (%d en total)."
 
-#: resources/views/tab.phtml:608 resources/views/tab.phtml:611
-#: resources/views/tab.phtml:615
+#: resources/views/tab.phtml:571 resources/views/tab.phtml:574
+#: resources/views/tab.phtml:578
 #, php-format
 msgid "%d nephew or niece of unknown sex recorded (%d in total)."
 msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
 msgstr[0] "%d nebot/da registrats (%d en total)."
 msgstr[1] "%d nebots/des registrades (%d en total)."
 
-#: resources/views/tab.phtml:610
-#, php-format
-msgid "%2$s has %1$d niece and "
-msgid_plural "%2$s has %1$d nieces and "
+#: resources/views/tab.phtml:573
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d niece and "
+#| msgid_plural "%2$s has %1$d nieces and "
+msgid "%2$s has %1$d niece and"
+msgid_plural "%2$s has %1$d nieces and"
 msgstr[0] "%2$s t&eacute; %1$d neboda i "
-msgstr[1] "%2$s t&eacute; %1$d nebodes i "
+msgstr[1] "%2$s t&eacute; %1$d nebodes i"
 
-#: resources/views/tab.phtml:613
-#, php-format
-msgid "%2$s has %1$d nephew, "
-msgid_plural "%2$s has %1$d nephews, "
+#: resources/views/tab.phtml:576
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d nephew, "
+#| msgid_plural "%2$s has %1$d nephews, "
+msgid "%2$s has %1$d nephew,"
+msgid_plural "%2$s has %1$d nephews,"
 msgstr[0] "%2$s t&eacute; %1$d nebot, "
-msgstr[1] "%2$s t&eacute; %1$d nebots, "
+msgstr[1] "%2$s t&eacute; %1$d nebots,"
 
-#: resources/views/tab.phtml:614
-#, php-format
-msgid "%d niece, and "
-msgid_plural "%d nieces, and "
+#: resources/views/tab.phtml:577
+#, fuzzy, php-format
+#| msgid "%d niece, and "
+#| msgid_plural "%d nieces, and "
+msgid "%d niece, and"
+msgid_plural "%d nieces, and"
 msgstr[0] "%d neboda, i "
-msgstr[1] "%d nebodes, i "
+msgstr[1] "%d nebodes, i"
 
-#: resources/views/tab.phtml:621
+#: resources/views/tab.phtml:584
 #, php-format
 msgid "%s has one daughter recorded."
 msgstr "%s t&eacute; una filla registrada."
 
-#: resources/views/tab.phtml:623
+#: resources/views/tab.phtml:586
 #, php-format
 msgid "%s has one son recorded."
 msgstr "%s t&eacute; un fill registrat."
 
-#: resources/views/tab.phtml:625
+#: resources/views/tab.phtml:588
 #, php-format
 msgid "%s has one child of unknown sex recorded."
 msgstr "%s t&eacute; un fill/a registrat/ada."
 
-#: resources/views/tab.phtml:629
+#: resources/views/tab.phtml:592
 #, php-format
 msgid "%2$s has %1$d daughter recorded."
 msgid_plural "%2$s has %1$d daughters recorded."
 msgstr[0] "%2$s t&eacute; %1$d filla registrada."
 msgstr[1] "%2$s t&eacute; %1$d filles registrades."
 
-#: resources/views/tab.phtml:631
+#: resources/views/tab.phtml:594
 #, php-format
 msgid "%2$s has %1$d son recorded."
 msgid_plural "%2$s has %1$d sons recorded."
 msgstr[0] "%2$s t&eacute; %1$d fill registrat."
 msgstr[1] "%2$s t&eacute; %1$d fills registrats."
 
-#: resources/views/tab.phtml:633
+#: resources/views/tab.phtml:596
 #, php-format
 msgid "%2$s has %1$d child of unknown sex recorded."
 msgid_plural "%2$s has %1$d children of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d fill/a."
 msgstr[1] "%2$s t&eacute; %1$d fills/es registrats/registrades."
 
-#: resources/views/tab.phtml:635 resources/views/tab.phtml:638
-#, php-format
-msgid "%2$s has %1$d son and "
-msgid_plural "%2$s has %1$d sons and "
+#: resources/views/tab.phtml:598 resources/views/tab.phtml:601
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d son and "
+#| msgid_plural "%2$s has %1$d sons and "
+msgid "%2$s has %1$d son and"
+msgid_plural "%2$s has %1$d sons and"
 msgstr[0] "%2$s t&eacute; %1$d fill i "
-msgstr[1] "%2$s t&eacute; %1$d fills i "
+msgstr[1] "%2$s t&eacute; %1$d fills i"
 
-#: resources/views/tab.phtml:636
+#: resources/views/tab.phtml:599
 #, php-format
 msgid "%d daughter recorded (%d in total)."
 msgid_plural "%d daughters recorded (%d in total)."
 msgstr[0] "%d filla registrats (%d en total)."
 msgstr[1] "%d filles registrades (%d en total)."
 
-#: resources/views/tab.phtml:639 resources/views/tab.phtml:642
-#: resources/views/tab.phtml:646
+#: resources/views/tab.phtml:602 resources/views/tab.phtml:605
+#: resources/views/tab.phtml:609
 #, php-format
 msgid "%d child of unknown sex recorded (%d in total)."
 msgid_plural "%d children of unknown sex recorded (%d in total)."
 msgstr[0] "%d xiquet/a registrat/ada (%d en total)."
 msgstr[1] "%d xiquets/tes registrats/des (%d en total)."
 
-#: resources/views/tab.phtml:641
-#, php-format
-msgid "%2$s has %1$d daughter and "
-msgid_plural "%2$s has %1$d daughters and "
+#: resources/views/tab.phtml:604
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d daughter and "
+#| msgid_plural "%2$s has %1$d daughters and "
+msgid "%2$s has %1$d daughter and"
+msgid_plural "%2$s has %1$d daughters and"
 msgstr[0] "%2$s tine %1$d filla i "
-msgstr[1] "%2$s t&eacute; %1$d filles i "
+msgstr[1] "%2$s t&eacute; %1$d filles i"
 
-#: resources/views/tab.phtml:644
-#, php-format
-msgid "%2$s has %1$d son, "
-msgid_plural "%2$s has %1$d sons, "
+#: resources/views/tab.phtml:607
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d son, "
+#| msgid_plural "%2$s has %1$d sons, "
+msgid "%2$s has %1$d son,"
+msgid_plural "%2$s has %1$d sons,"
 msgstr[0] "%2$s t&eacute; %1$d fill, "
-msgstr[1] "%2$s t&eacute; %1$d fills, "
+msgstr[1] "%2$s t&eacute; %1$d fills,"
 
-#: resources/views/tab.phtml:645
-#, php-format
-msgid "%d daughter, and "
-msgid_plural "%d daughters, and "
+#: resources/views/tab.phtml:608
+#, fuzzy, php-format
+#| msgid "%d daughter, and "
+#| msgid_plural "%d daughters, and "
+msgid "%d daughter, and"
+msgid_plural "%d daughters, and"
 msgstr[0] "%d filla, i "
-msgstr[1] "%d filles, i "
+msgstr[1] "%d filles, i"
 
-#: resources/views/tab.phtml:652
+#: resources/views/tab.phtml:615
 #, php-format
 msgid "%s has one daughter-in-law recorded."
 msgstr "%s t&eacute; una filla pol&iacute;tica registrada."
 
-#: resources/views/tab.phtml:654
+#: resources/views/tab.phtml:617
 #, php-format
 msgid "%s has one son-in-law recorded."
 msgstr "%s t&eacute; un fill pol&iacute;tic registrat."
 
-#: resources/views/tab.phtml:656
+#: resources/views/tab.phtml:619
 #, php-format
 msgid "%s has one child-in-law of unknown sex recorded."
 msgstr "%s t&eacute; un fill/a pol&iacute;tic/a registrat/da."
 
-#: resources/views/tab.phtml:660
+#: resources/views/tab.phtml:623
 #, php-format
 msgid "%2$s has %1$d daughter-in-law recorded."
 msgid_plural "%2$s has %1$d daughters-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d filla pol&iacute;tica registrada."
 msgstr[1] "%2$s t&eacute; %1$d filles pol&iacute;tiques registrades."
 
-#: resources/views/tab.phtml:662
+#: resources/views/tab.phtml:625
 #, php-format
 msgid "%2$s has %1$d son-in-law recorded."
 msgid_plural "%2$s has %1$d sons-in-law recorded."
 msgstr[0] "%2$s tine %1$d fill pol&iacute;tic registrat."
 msgstr[1] "%2$s tine %1$d fills pol&iacute;tics registrats."
 
-#: resources/views/tab.phtml:664
+#: resources/views/tab.phtml:627
 #, fuzzy, php-format
 msgid "%2$s has %1$d child-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d children-in-law of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d net/a pol&iacute;tic/a registrat/registrada."
 msgstr[1] "%2$s t&eacute; %1$d nets/es pol&iacute;tics/ques registrats/des."
 
-#: resources/views/tab.phtml:666 resources/views/tab.phtml:669
-#, php-format
-msgid "%2$s has %1$d son-in-law and "
-msgid_plural "%2$s has %1$d sons-in-law and "
+#: resources/views/tab.phtml:629 resources/views/tab.phtml:632
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d son-in-law and "
+#| msgid_plural "%2$s has %1$d sons-in-law and "
+msgid "%2$s has %1$d son-in-law and"
+msgid_plural "%2$s has %1$d sons-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d fill pol&iacute;tic i "
-msgstr[1] "%2$s t&eacute; %1$d fills pol&iacute;tics i "
+msgstr[1] "%2$s t&eacute; %1$d fills pol&iacute;tics i"
 
-#: resources/views/tab.phtml:667
+#: resources/views/tab.phtml:630
 #, php-format
 msgid "%d daughter-in-law recorded (%d in total)."
 msgid_plural "%d daughters-in-law recorded (%d in total)."
 msgstr[0] "%d filla pol&iacute;tica registrada (%d en total)."
 msgstr[1] "%d filles pol&iacute;tiques registrades (%d en total)."
 
-#: resources/views/tab.phtml:670 resources/views/tab.phtml:673
-#: resources/views/tab.phtml:677
+#: resources/views/tab.phtml:633 resources/views/tab.phtml:636
+#: resources/views/tab.phtml:640
 #, php-format
 msgid "%d child-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d gendre/nora registrat/da (%d en total)."
 msgstr[1] "%d gendres/nores registrats/des (%d en total)."
 
-#: resources/views/tab.phtml:672
-#, php-format
-msgid "%2$s has %1$d daughter-in-law and "
-msgid_plural "%2$s has %1$d daughters-in-law and "
+#: resources/views/tab.phtml:635
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d daughter-in-law and "
+#| msgid_plural "%2$s has %1$d daughters-in-law and "
+msgid "%2$s has %1$d daughter-in-law and"
+msgid_plural "%2$s has %1$d daughters-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d nora i "
-msgstr[1] "%2$s t&eacute; %1$d nores i "
+msgstr[1] "%2$s t&eacute; %1$d nores i"
 
-#: resources/views/tab.phtml:675
-#, php-format
-msgid "%2$s has %1$d son-in-law, "
-msgid_plural "%2$s has %1$d sons-in-law, "
+#: resources/views/tab.phtml:638
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d son-in-law, "
+#| msgid_plural "%2$s has %1$d sons-in-law, "
+msgid "%2$s has %1$d son-in-law,"
+msgid_plural "%2$s has %1$d sons-in-law,"
 msgstr[0] "%2$s es %1$d gendre, "
-msgstr[1] "%2$s son %1$d gendres, "
+msgstr[1] "%2$s son %1$d gendres,"
 
-#: resources/views/tab.phtml:676
-#, php-format
-msgid "%d daughter-in-law, and "
-msgid_plural "%d daughters-in-law, and "
+#: resources/views/tab.phtml:639
+#, fuzzy, php-format
+#| msgid "%d daughter-in-law, and "
+#| msgid_plural "%d daughters-in-law, and "
+msgid "%d daughter-in-law, and"
+msgid_plural "%d daughters-in-law, and"
 msgstr[0] "%d n nora i "
-msgstr[1] "%d nores i "
+msgstr[1] "%d nores i"
 
-#: resources/views/tab.phtml:683
+#: resources/views/tab.phtml:646
 #, php-format
 msgid "%s has one granddaughter recorded."
 msgstr "%s t&eacute; una neta registrada."
 
-#: resources/views/tab.phtml:685
+#: resources/views/tab.phtml:648
 #, php-format
 msgid "%s has one grandson recorded."
 msgstr "%s t&eacute; un net registrat."
 
-#: resources/views/tab.phtml:687
+#: resources/views/tab.phtml:650
 #, php-format
 msgid "%s has one grandchild of unknown sex recorded."
 msgstr "%s t&eacute; un net o neta registrat/registrada."
 
-#: resources/views/tab.phtml:691
+#: resources/views/tab.phtml:654
 #, php-format
 msgid "%2$s has %1$d granddaughter recorded."
 msgid_plural "%2$s has %1$d granddaughters recorded."
 msgstr[0] "%2$s ist %1$d neta registrada."
 msgstr[1] "%2$s t&eacute; %1$d netes registrades."
 
-#: resources/views/tab.phtml:693
+#: resources/views/tab.phtml:656
 #, php-format
 msgid "%2$s has %1$d grandson recorded."
 msgid_plural "%2$s has %1$d grandsons recorded."
 msgstr[0] "%2$s ist %1$d net registrat."
 msgstr[1] "%2$s t&eacute; %1$d nets registrats."
 
-#: resources/views/tab.phtml:695
+#: resources/views/tab.phtml:658
 #, php-format
 msgid "%2$s has %1$d grandchild of unknown sex recorded."
 msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d net/a registratregistrada."
 msgstr[1] "%2$s t&eacute; %1$d nets/netes registrats/registrades."
 
-#: resources/views/tab.phtml:697 resources/views/tab.phtml:700
-#, php-format
-msgid "%2$s has %1$d grandson and "
-msgid_plural "%2$s has %1$d grandsons and "
+#: resources/views/tab.phtml:660 resources/views/tab.phtml:663
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson and "
+#| msgid_plural "%2$s has %1$d grandsons and "
+msgid "%2$s has %1$d grandson and"
+msgid_plural "%2$s has %1$d grandsons and"
 msgstr[0] "%2$s t&eacute; %1$d net i "
-msgstr[1] "%2$s t&eacute; %1$d nets i "
+msgstr[1] "%2$s t&eacute; %1$d nets i"
 
-#: resources/views/tab.phtml:698
+#: resources/views/tab.phtml:661
 #, php-format
 msgid "%d granddaughter recorded (%d in total)."
 msgid_plural "%d granddaughters recorded (%d in total)."
 msgstr[0] "%d neta registrada (%d en total)."
 msgstr[1] "%d netes registrades (%d en total)."
 
-#: resources/views/tab.phtml:701 resources/views/tab.phtml:704
-#: resources/views/tab.phtml:708
+#: resources/views/tab.phtml:664 resources/views/tab.phtml:667
+#: resources/views/tab.phtml:671
 #, php-format
 msgid "%d grandchild of unknown sex recorded (%d in total)."
 msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
 msgstr[0] "%d net/a registrat/registrada (%d en total)."
 msgstr[1] "%d nets/netes registrats/registrades (%d en total)."
 
-#: resources/views/tab.phtml:703
-#, php-format
-msgid "%2$s has %1$d granddaughter and "
-msgid_plural "%2$s has %1$d granddaughters and "
+#: resources/views/tab.phtml:666
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d granddaughter and "
+#| msgid_plural "%2$s has %1$d granddaughters and "
+msgid "%2$s has %1$d granddaughter and"
+msgid_plural "%2$s has %1$d granddaughters and"
 msgstr[0] "%2$s t&eacute; %1$d neta i "
-msgstr[1] "%2$s t&eacute; %1$d netes i "
+msgstr[1] "%2$s t&eacute; %1$d netes i"
 
-#: resources/views/tab.phtml:706
-#, php-format
-msgid "%2$s has %1$d grandson, "
-msgid_plural "%2$s has %1$d grandsons, "
+#: resources/views/tab.phtml:669
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson, "
+#| msgid_plural "%2$s has %1$d grandsons, "
+msgid "%2$s has %1$d grandson,"
+msgid_plural "%2$s has %1$d grandsons,"
 msgstr[0] "%2$s t&eacute; %1$d net, "
-msgstr[1] "%2$s t&eacute; %1$d nets, "
+msgstr[1] "%2$s t&eacute; %1$d nets,"
 
-#: resources/views/tab.phtml:707
-#, php-format
-msgid "%d granddaughter, and "
-msgid_plural "%d granddaughters, and "
+#: resources/views/tab.phtml:670
+#, fuzzy, php-format
+#| msgid "%d granddaughter, and "
+#| msgid_plural "%d granddaughters, and "
+msgid "%d granddaughter, and"
+msgid_plural "%d granddaughters, and"
 msgstr[0] "%d neta i "
-msgstr[1] "%d netes i "
+msgstr[1] "%d netes i"
 
-#: resources/views/tab.phtml:714
+#: resources/views/tab.phtml:677
+#, fuzzy, php-format
+#| msgid "%s has one great-grandfather recorded."
+msgid "%s has one great-granddaughter recorded."
+msgstr "%s t&eacute; un besavi registrat."
+
+#: resources/views/tab.phtml:679
+#, fuzzy, php-format
+#| msgid "%s has one grandson recorded."
+msgid "%s has one great-grandson recorded."
+msgstr "%s t&eacute; un net registrat."
+
+#: resources/views/tab.phtml:681
+#, fuzzy, php-format
+#| msgid "%s has one grandchild of unknown sex recorded."
+msgid "%s has one great-grandchild of unknown sex recorded."
+msgstr "%s t&eacute; un net o neta registrat/registrada."
+
+#: resources/views/tab.phtml:685
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d great-grandfather recorded."
+#| msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgid "%2$s has %1$d great-granddaughter recorded."
+msgid_plural "%2$s has %1$d great-granddaughters recorded."
+msgstr[0] "%2$s t&eacute; %1$d besavi registrat."
+msgstr[1] "%2$s t&eacute; %1$d besavis registrats."
+
+#: resources/views/tab.phtml:687
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson recorded."
+#| msgid_plural "%2$s has %1$d grandsons recorded."
+msgid "%2$s has %1$d great-grandson recorded."
+msgid_plural "%2$s has %1$d great-grandsons recorded."
+msgstr[0] "%2$s ist %1$d net registrat."
+msgstr[1] "%2$s t&eacute; %1$d nets registrats."
+
+#: resources/views/tab.phtml:689
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandchild of unknown sex recorded."
+#| msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
+msgid "%2$s has %1$d great-grandchild of unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandchildren of unknown sex recorded."
+msgstr[0] "%2$s t&eacute; %1$d net/a registratregistrada."
+msgstr[1] "%2$s t&eacute; %1$d nets/netes registrats/registrades."
+
+#: resources/views/tab.phtml:691 resources/views/tab.phtml:694
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d great-grandmother and "
+#| msgid_plural "%2$s has %1$d great-grandmothers and "
+msgid "%2$s has %1$d great-grandson and"
+msgid_plural "%2$s has %1$d great-grandsons and"
+msgstr[0] "%2$s t&eacute; %1$d bes&agrave;via i "
+msgstr[1] "%2$s t&eacute; %1$d bes&agrave;vies i"
+
+#: resources/views/tab.phtml:692
+#, fuzzy, php-format
+#| msgid "%d granddaughter recorded (%d in total)."
+#| msgid_plural "%d granddaughters recorded (%d in total)."
+msgid "%d great-granddaughter recorded (%d in total)."
+msgid_plural "%d great-granddaughters recorded (%d in total)."
+msgstr[0] "%d neta registrada (%d en total)."
+msgstr[1] "%d netes registrades (%d en total)."
+
+#: resources/views/tab.phtml:695 resources/views/tab.phtml:698
+#: resources/views/tab.phtml:702
+#, fuzzy, php-format
+#| msgid "%d grandchild of unknown sex recorded (%d in total)."
+#| msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
+msgid "%d great-grandchild of unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandchildren of unknown sex recorded (%d in total)."
+msgstr[0] "%d net/a registrat/registrada (%d en total)."
+msgstr[1] "%d nets/netes registrats/registrades (%d en total)."
+
+#: resources/views/tab.phtml:697
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d great-grandfather and "
+#| msgid_plural "%2$s has %1$d great-grandfathers and "
+msgid "%2$s has %1$d great-granddaughter and"
+msgid_plural "%2$s has %1$d great-granddaughters and"
+msgstr[0] "%2$s t&eacute; %1$d besavi i "
+msgstr[1] "%2$s t&eacute; %1$d besavis i"
+
+#: resources/views/tab.phtml:700
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson, "
+#| msgid_plural "%2$s has %1$d grandsons, "
+msgid "%2$s has %1$d great-grandson,"
+msgid_plural "%2$s has %1$d great-grandsons,"
+msgstr[0] "%2$s t&eacute; %1$d net, "
+msgstr[1] "%2$s t&eacute; %1$d nets,"
+
+#: resources/views/tab.phtml:701
+#, fuzzy, php-format
+#| msgid "%d granddaughter, and "
+#| msgid_plural "%d granddaughters, and "
+msgid "%d great-granddaughter, and"
+msgid_plural "%d great-granddaughters, and"
+msgstr[0] "%d neta i "
+msgstr[1] "%d netes i"
+
+#: resources/views/tab.phtml:708
 #, php-format
 msgid "%s has one granddaughter-in-law recorded."
 msgstr "%s neta política registrada."
 
-#: resources/views/tab.phtml:716
+#: resources/views/tab.phtml:710
 #, php-format
 msgid "%s has one grandson-in-law recorded."
 msgstr "%s t&eacute; registrat un net polític."
 
-#: resources/views/tab.phtml:718
+#: resources/views/tab.phtml:712
 #, php-format
 msgid "%s has one grandchild-in-law of unknown sex recorded."
 msgstr "%s net/a polític/a registrat/da."
 
-#: resources/views/tab.phtml:722
+#: resources/views/tab.phtml:716
 #, php-format
 msgid "%2$s has %1$d granddaughter-in-law recorded."
 msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d neta política registrada."
 msgstr[1] "%2$s t&eacute; %1$d netes pol&iacute;tiques registrats."
 
-#: resources/views/tab.phtml:724
+#: resources/views/tab.phtml:718
 #, php-format
 msgid "%2$s has %1$d grandson-in-law recorded."
 msgid_plural "%2$s has %1$d grandsons-in-law recorded."
 msgstr[0] "%2$s t&eacute; %1$d net pol&iacute;tic registrat."
 msgstr[1] "%2$s t&eacute; %1$d nets pol&iacute;tics registrats."
 
-#: resources/views/tab.phtml:726
+#: resources/views/tab.phtml:720
 #, php-format
 msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
 msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
 msgstr[0] "%2$s t&eacute; %1$d net/a pol&iacute;tic/a registrat/registrada."
 msgstr[1] "%2$s t&eacute; %1$d nets/es pol&iacute;tics/ques registrats/des."
 
-#: resources/views/tab.phtml:728 resources/views/tab.phtml:731
-#, php-format
-msgid "%2$s has %1$d grandson-in-law and "
-msgid_plural "%2$s has %1$d grandsons-in-law and "
+#: resources/views/tab.phtml:722 resources/views/tab.phtml:725
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson-in-law and "
+#| msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgid "%2$s has %1$d grandson-in-law and"
+msgid_plural "%2$s has %1$d grandsons-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d net pol&iacute;tic i "
-msgstr[1] "%2$s t&eacute; %1$d nets pol&iacute;tics i "
+msgstr[1] "%2$s t&eacute; %1$d nets pol&iacute;tics i"
 
-#: resources/views/tab.phtml:729
+#: resources/views/tab.phtml:723
 #, php-format
 msgid "%d granddaughter-in-law recorded (%d in total)."
 msgid_plural "%d granddaughters-in-law recorded (%d in total)."
 msgstr[0] "%d neta pol&iacute;tica registrada (%d en total)."
 msgstr[1] "%d netes polítiques registrades (%d en total)."
 
-#: resources/views/tab.phtml:732 resources/views/tab.phtml:735
-#: resources/views/tab.phtml:739
+#: resources/views/tab.phtml:726 resources/views/tab.phtml:729
+#: resources/views/tab.phtml:733
 #, php-format
 msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
 msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
 msgstr[0] "%d net/neta pol&iacute;tic/a registrat/da (%d en total)."
 msgstr[1] "%d nets/es pol&iacute;cs/ques registrats/des (%d en total)."
 
-#: resources/views/tab.phtml:734
-#, php-format
-msgid "%2$s has %1$d granddaughter-in-law and "
-msgid_plural "%2$s has %1$d granddaughters-in-law and "
+#: resources/views/tab.phtml:728
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d granddaughter-in-law and "
+#| msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgid "%2$s has %1$d granddaughter-in-law and"
+msgid_plural "%2$s has %1$d granddaughters-in-law and"
 msgstr[0] "%2$s t&eacute; %1$d neta pol&iacute;tica i "
-msgstr[1] "%2$s t&eacute; %1$d netes pol&iacute;tiques i "
+msgstr[1] "%2$s t&eacute; %1$d netes pol&iacute;tiques i"
 
-#: resources/views/tab.phtml:737
-#, php-format
-msgid "%2$s has %1$d grandson-in-law, "
-msgid_plural "%2$s has %1$d grandsons-in-law, "
+#: resources/views/tab.phtml:731
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson-in-law, "
+#| msgid_plural "%2$s has %1$d grandsons-in-law, "
+msgid "%2$s has %1$d grandson-in-law,"
+msgid_plural "%2$s has %1$d grandsons-in-law,"
 msgstr[0] "%2$s t&eacute; %1$d net pol&iacute;tic, "
-msgstr[1] "%2$s t&eacute; %1$d nets pol&iacute;cs, "
+msgstr[1] "%2$s t&eacute; %1$d nets pol&iacute;cs,"
 
-#: resources/views/tab.phtml:738
-#, php-format
-msgid "%d granddaughter-in-law, and "
-msgid_plural "%d granddaughters-in-law, and "
+#: resources/views/tab.phtml:732
+#, fuzzy, php-format
+#| msgid "%d granddaughter-in-law, and "
+#| msgid_plural "%d granddaughters-in-law, and "
+msgid "%d granddaughter-in-law, and"
+msgid_plural "%d granddaughters-in-law, and"
 msgstr[0] "%d neta pol&iacute;tica i "
-msgstr[1] "%d netes pol&iacute;tiques i "
+msgstr[1] "%d netes pol&iacute;tiques i"
 
-#: resources/views/tab.phtml:752
-msgid "Partner of "
-msgstr "C&ograve;njuge "
+#: resources/views/tab.phtml:739
+#, fuzzy, php-format
+#| msgid "%s has one granddaughter-in-law recorded."
+msgid "%s has one great-granddaughter-in-law recorded."
+msgstr "%s neta política registrada."
 
-#: resources/views/tab.phtml:821 resources/views/tab.phtml:823
-#: resources/views/tab.phtml:898
-msgid " with "
-msgstr " amb "
+#: resources/views/tab.phtml:741
+#, fuzzy, php-format
+#| msgid "%s has one grandson-in-law recorded."
+msgid "%s has one great-grandson-in-law recorded."
+msgstr "%s t&eacute; registrat un net polític."
 
-#: resources/views/tab.phtml:823 resources/views/tab.phtml:833
-#: resources/views/tab.phtml:1019
-msgid "Partnership"
-msgstr "c&ograve;njuge"
+#: resources/views/tab.phtml:743
+#, fuzzy, php-format
+#| msgid "%s has one grandchild-in-law of unknown sex recorded."
+msgid "%s has one great-grandchild-in-law of unknown sex recorded."
+msgstr "%s net/a polític/a registrat/da."
 
-#: resources/views/tab.phtml:877 resources/views/tab.phtml:914
-msgid "Brother"
-msgstr ""
+#: resources/views/tab.phtml:747
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d granddaughter-in-law recorded."
+#| msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgid "%2$s has %1$d great-granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d great-granddaughters-in-law recorded."
+msgstr[0] "%2$s t&eacute; %1$d neta política registrada."
+msgstr[1] "%2$s t&eacute; %1$d netes pol&iacute;tiques registrats."
 
-#: resources/views/tab.phtml:879 resources/views/tab.phtml:916
-msgid "Sister"
-msgstr ""
+#: resources/views/tab.phtml:749
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson-in-law recorded."
+#| msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgid "%2$s has %1$d great-grandson-in-law recorded."
+msgid_plural "%2$s has %1$d great-grandsons-in-law recorded."
+msgstr[0] "%2$s t&eacute; %1$d net pol&iacute;tic registrat."
+msgstr[1] "%2$s t&eacute; %1$d nets pol&iacute;tics registrats."
 
-#: resources/views/tab.phtml:881 resources/views/tab.phtml:902
-#: resources/views/tab.phtml:918 resources/views/tab.phtml:938
+#: resources/views/tab.phtml:751
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
+#| msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+msgid "%2$s has %1$d great-grandchild-in-law of unknown sex recorded."
+msgid_plural ""
+"%2$s has %1$d great-grandchildren-in-law of unknown sex recorded."
+msgstr[0] "%2$s t&eacute; %1$d net/a pol&iacute;tic/a registrat/registrada."
+msgstr[1] "%2$s t&eacute; %1$d nets/es pol&iacute;tics/ques registrats/des."
+
+#: resources/views/tab.phtml:753 resources/views/tab.phtml:756
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson-in-law and "
+#| msgid_plural "%2$s has %1$d grandsons-in-law and "
+msgid "%2$s has %1$d great-grandson-in-law and"
+msgid_plural "%2$s has %1$d great-grandsons-in-law and"
+msgstr[0] "%2$s t&eacute; %1$d net pol&iacute;tic i "
+msgstr[1] "%2$s t&eacute; %1$d nets pol&iacute;tics i"
+
+#: resources/views/tab.phtml:754
+#, fuzzy, php-format
+#| msgid "%d granddaughter-in-law recorded (%d in total)."
+#| msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgid "%d great-granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d great-granddaughters-in-law recorded (%d in total)."
+msgstr[0] "%d neta pol&iacute;tica registrada (%d en total)."
+msgstr[1] "%d netes polítiques registrades (%d en total)."
+
+#: resources/views/tab.phtml:757 resources/views/tab.phtml:760
+#: resources/views/tab.phtml:764
+#, fuzzy, php-format
+#| msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+#| msgid_plural ""
+#| "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+msgid "%d great-grandchild-in-law of unknown sex recorded (%d in total)."
+msgid_plural ""
+"%d great-grandchildren-in-law of unknown sex recorded (%d in total)."
+msgstr[0] "%d net/neta pol&iacute;tic/a registrat/da (%d en total)."
+msgstr[1] "%d nets/es pol&iacute;cs/ques registrats/des (%d en total)."
+
+#: resources/views/tab.phtml:759
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d granddaughter-in-law and "
+#| msgid_plural "%2$s has %1$d granddaughters-in-law and "
+msgid "%2$s has %1$d great-granddaughter-in-law and"
+msgid_plural "%2$s has %1$d great-granddaughters-in-law and"
+msgstr[0] "%2$s t&eacute; %1$d neta pol&iacute;tica i "
+msgstr[1] "%2$s t&eacute; %1$d netes pol&iacute;tiques i"
+
+#: resources/views/tab.phtml:762
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d grandson-in-law, "
+#| msgid_plural "%2$s has %1$d grandsons-in-law, "
+msgid "%2$s has %1$d great-grandson-in-law,"
+msgid_plural "%2$s has %1$d great-grandsons-in-law,"
+msgstr[0] "%2$s t&eacute; %1$d net pol&iacute;tic, "
+msgstr[1] "%2$s t&eacute; %1$d nets pol&iacute;cs,"
+
+#: resources/views/tab.phtml:763
+#, fuzzy, php-format
+#| msgid "%d granddaughter-in-law, and "
+#| msgid_plural "%d granddaughters-in-law, and "
+msgid "%d great-granddaughter-in-law, and"
+msgid_plural "%d great-granddaughters-in-law, and"
+msgstr[0] "%d neta pol&iacute;tica i "
+msgstr[1] "%d netes pol&iacute;tiques i"
+
+#: resources/views/tab.phtml:778
 #, fuzzy
-msgid "Sibling"
-msgstr "Germans i Germanes"
+#| msgid "Partner of "
+msgid "Partner of"
+msgstr "C&ograve;njuge"
 
-#: resources/views/tab.phtml:891 resources/views/tab.phtml:929
+#: resources/views/tab.phtml:840 resources/views/tab.phtml:842
+#, fuzzy
+#| msgid " with "
+msgid "with"
+msgstr " amb"
+
+#: resources/views/tab.phtml:905
 #, fuzzy, php-format
 msgid "Brother %1$s of partner %2$s"
 msgstr "Germ&agrave; 1$s de c&ograve;njuge %2$s"
 
-#: resources/views/tab.phtml:893 resources/views/tab.phtml:931
+#: resources/views/tab.phtml:907
 #, php-format
 msgid "Sister %1$s of partner %2$s"
 msgstr "Germana %1$s de c&ograve;njuge %2$s"
 
-#: resources/views/tab.phtml:895 resources/views/tab.phtml:933
-#: resources/views/tab.phtml:945
+#: resources/views/tab.phtml:909
 #, php-format
 msgid "Sibling %1$s of partner %2$s"
 msgstr "Germans %1$s de c&ograve;njuge %2$s"
 
-#: resources/views/tab.phtml:904
-#, fuzzy
-msgid "Partner"
-msgstr "C&ograve;njuge"
+#: resources/views/tab.phtml:914 resources/views/tab.phtml:927
+#, fuzzy, php-format
+#| msgid "Sibling %1$s of partner %2$s"
+msgid "Sibling of %1$s %2$s"
+msgstr "Germans %1$s de c&ograve;njuge %2$s"
 
-#: resources/views/tab.phtml:955
-#, fuzzy
-msgid "Son"
-msgstr "Fillastre"
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: resources/views/tab.phtml:918 resources/views/tab.phtml:930
+#, fuzzy, php-format
+#| msgid "Partners of siblings-in-law"
+msgid "Partner of %1$s sibling-in-law %2$s"
+msgstr "Concunyats de cunyats i cunyades"
 
-#: resources/views/tab.phtml:957
-#, fuzzy
-msgid "Daughter"
-msgstr "Fillastra"
+#: resources/views/tab.phtml:942
+#, php-format
+msgid "%1$s %2$s, %3$s with %4$s"
+msgstr ""
 
-#: resources/views/tab.phtml:959 resources/views/tab.phtml:972
-#, fuzzy
-msgid "Child"
-msgstr "Fills i Filles"
+#: resources/views/tab.phtml:950
+#, php-format
+msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
+msgstr ""
 
-#: resources/views/tab.phtml:963
+#: resources/views/tab.phtml:967
 msgid "Stepson"
 msgstr "Fillastre"
 
-#: resources/views/tab.phtml:965
+#: resources/views/tab.phtml:969
 msgid "Stepdaughter"
 msgstr "Fillastra"
 
-#: resources/views/tab.phtml:967 resources/views/tab.phtml:974
+#: resources/views/tab.phtml:971 resources/views/tab.phtml:978
 msgid "Stepchild"
 msgstr "Fillastres"
 
-#: resources/views/tab.phtml:985 resources/views/tab.phtml:1031
+#: resources/views/tab.phtml:991 resources/views/tab.phtml:1015
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s as parents of %3$s"
+msgstr "Pares %1$s (%2$s) del padrastre %3$s"
+
+#: resources/views/tab.phtml:993 resources/views/tab.phtml:1056
 #, php-format
 msgid "Parents %1$s (%2$s) of %3$s"
 msgstr "Pares %1$s (%2$s) de %3$s"
 
-#: resources/views/tab.phtml:989
+#: resources/views/tab.phtml:999
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s as social parents of %3$s"
+msgstr "Pares %1$s (%2$s) del padrastre %3$s"
+
+#: resources/views/tab.phtml:1001
+#, fuzzy, php-format
+#| msgid "Stepparents %1$s (%2$s) of %3$s"
+msgid "Social parents %1$s (%2$s) of %3$s"
+msgstr "Padrastres %1$s (%2$s) de %3$s"
+
+#: resources/views/tab.phtml:1007
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s as stepparents of %3$s"
+msgstr "Pares %1$s (%2$s) del padrastre %3$s"
+
+#: resources/views/tab.phtml:1009
 #, php-format
 msgid "Stepparents %1$s (%2$s) of %3$s"
 msgstr "Padrastres %1$s (%2$s) de %3$s"
 
-#: resources/views/tab.phtml:994
+#: resources/views/tab.phtml:1017
 #, php-format
 msgid "Parents %1$s (%2$s) of stepfather %3$s"
 msgstr "Pares %1$s (%2$s) del padrastre %3$s"
 
-#: resources/views/tab.phtml:996
+#: resources/views/tab.phtml:1019
 #, php-format
 msgid "Parents %1$s (%2$s) of stepmother %3$s"
 msgstr "Pares %1$s (%2$s) de la madrastra %3$s"
 
-#: resources/views/tab.phtml:998
+#: resources/views/tab.phtml:1021
 #, php-format
 msgid "Parents %1$s (%2$s) of stepparent %3$s"
 msgstr "Pares %1$s (%2$s) del padrastre %3$s"
 
-#: resources/views/tab.phtml:1004
+#: resources/views/tab.phtml:1027
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s as grandparents of %3$s"
+msgstr "Pares %1$s (%2$s) del padrastre %3$s"
+
+#: resources/views/tab.phtml:1029
 #, php-format
 msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
 msgstr "Avis %1$s (%2$s) del padrastre %3$s"
 
-#: resources/views/tab.phtml:1006
+#: resources/views/tab.phtml:1031
 #, php-format
 msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
 msgstr "Avis %1$s (%2$s) de la madrastra %3$s"
 
-#: resources/views/tab.phtml:1008
+#: resources/views/tab.phtml:1033
 #, php-format
 msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
 msgstr "Avis %1$s (%2$s) del padrastre %3$s"
 
-#: resources/views/tab.phtml:1011 resources/views/tab.phtml:1048
-#: resources/views/tab.phtml:1050
-msgid "Parents"
-msgstr "Pares i Mares"
-
-#: resources/views/tab.phtml:1017 resources/views/tab.phtml:1037
+#: resources/views/tab.phtml:1042 resources/views/tab.phtml:1062
 #, php-format
 msgid "Parents %1$s of %2$s"
 msgstr "Pares %1$s de %2$s"
 
-#: resources/views/tab.phtml:1033 resources/views/tab.phtml:1039
+#: resources/views/tab.phtml:1058 resources/views/tab.phtml:1064
 #, php-format
 msgid "Partners of %s"
 msgstr "C򮹵ge de %s"
 
-#: resources/views/tab.phtml:1099
+#: resources/views/tab.phtml:1078 resources/views/tab.phtml:1084
+#, php-format
+msgid "connected with %s"
+msgstr ""
+
+#: resources/views/tab.phtml:1129
 #, php-format
 msgid "%s has no uncles or aunts recorded."
 msgstr "%s no t&eacute; oncles registrats."
 
-#: resources/views/tab.phtml:1101
+#: resources/views/tab.phtml:1131
 #, php-format
 msgid "%s has no uncles or aunts by marriage recorded."
 msgstr "%s no t&eacute; oncles ni ties pol&iacute;tics/ques registrats/des."
 
-#: resources/views/tab.phtml:1103
+#: resources/views/tab.phtml:1133
 #, php-format
 msgid "%s has no members of a partner chain recorded."
 msgstr "%s no t&eacute; registrats membres en la xarxa familiar."
 
-#: resources/views/tab.phtml:1105
+#: resources/views/tab.phtml:1135
 #, php-format
 msgid "%s has no first cousins recorded."
 msgstr "%s no t&eacute; cosins ni cosines registrats/des."
 
-#: resources/views/tab.phtml:1107
+#: resources/views/tab.phtml:1137
 #, php-format
 msgid "%s has no nephews or nieces recorded."
 msgstr "%s no t&eacute;nebots ni nebodes registrats/des."
 
-#: resources/views/tab.phtml:1109
+#: resources/views/tab.phtml:1139
 #, fuzzy, php-format
-msgid "%s has no "
+msgid "%1$s has no %2$s recorded."
 msgstr "%s no t&eacute; registrats."
 
-#: resources/views/tab.phtml:1118
-msgid "Summary for the shown extended family"
-msgstr "Resum per a la familia extensa que es mostra"
-
-#: resources/views/tab.phtml:1119
-#, fuzzy, php-format
-msgid "The extended family has only %1$s as a member."
-msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
-msgstr[0] "La familia extensa de %1$s té 2$d membre."
-msgstr[1] "La familia extensa de %1$s t&eacute; 2$d membres."
-
-#: resources/views/tab.phtml:1120
-#, fuzzy
-msgid "(additional members of the partner chains are not counted)"
-msgstr "%s no t&eacute; registrats membres en la xarxa familiar."
-
-#: resources/views/tab.phtml:1122
-msgid "Some of them are member in more than one part of the extended family."
-msgstr ""
-
-#: resources/views/tab.phtml:1129
-#, fuzzy, php-format
-msgid "%s has no %s recorded."
-msgstr "%s no t&eacute; registrats."
-
-#: resources/views/tab.phtml:1135
-#, php-format
-msgid "%s has no %s, and no %s recorded."
-msgstr "%s no t&eacute;cap %s ni cap %s registrats."
-
-#: resources/views/tab.phtml:1142
+#: resources/views/tab.phtml:1153
 msgid "No family available"
 msgstr "No hi ha familia disponible"
 
-#: resources/views/settings.phtml:25
-msgid "Control panel"
-msgstr ""
+#, fuzzy, php-format
+#~ msgid "%2$s has %1$d co-father-in-law, "
+#~ msgid_plural "%2$s has %1$d co-fathers-in-law, "
+#~ msgstr[0] "%2$s t&eacute; %1$d consogre, "
+#~ msgstr[1] "%2$s t&eacute; %1$d consogres,"
 
-#: resources/views/settings.phtml:35
-msgid "In which sequence should the parts of the extended family be shown?"
-msgstr "En quin ordre s'han de mostrar les parts de la Fam&iacute;lia Extensa?"
-
-#: resources/views/settings.phtml:39
-msgid "Family part (generation relative to proband)"
-msgstr "Blocs de la fam&iacute;lia"
-
-#: resources/views/settings.phtml:40 resources/views/settings.phtml:62
-msgid "Enabled"
-msgstr ""
-
-#: resources/views/settings.phtml:42 resources/views/settings.phtml:69
-msgid "Move up"
-msgstr ""
-
-#: resources/views/settings.phtml:43 resources/views/settings.phtml:74
-msgid "Move down"
-msgstr ""
-
-#: resources/views/settings.phtml:84
-msgid "Show options to filter the results?"
-msgstr "Mostrar opcions per a filtrar els resultats?"
-
-#: resources/views/settings.phtml:85
-msgid ""
-"This allows a user to filter the members of the extended family by gender "
-"and if they are alive or dead."
-msgstr ""
-
-#: resources/views/settings.phtml:90
-msgid "Show filter options"
-msgstr "Mostrar els filtres"
-
-#: resources/views/settings.phtml:93 resources/views/settings.phtml:107
-#: resources/views/settings.phtml:139 resources/views/settings.phtml:153
-#: resources/views/settings.phtml:167 resources/views/settings.phtml:181
-#: resources/views/settings.phtml:195 resources/views/settings.phtml:209
-msgid "yes"
-msgstr ""
-
-#: resources/views/settings.phtml:93 resources/views/settings.phtml:107
-#: resources/views/settings.phtml:139 resources/views/settings.phtml:153
-#: resources/views/settings.phtml:167 resources/views/settings.phtml:181
-#: resources/views/settings.phtml:195 resources/views/settings.phtml:209
-msgid "no"
-msgstr ""
-
-#: resources/views/settings.phtml:98
-msgid "Should a summary block be shown?"
-msgstr ""
-
-#: resources/views/settings.phtml:99
-msgid "The summary contains information about the extended family in total."
-msgstr ""
-
-#: resources/views/settings.phtml:104
-msgid "Show summary"
-msgstr ""
-
-#: resources/views/settings.phtml:112
-msgid "How should empty parts of extended family be presented?"
-msgstr ""
-"Com vols que es mostren els blocs buits en la pestanya fam&iacute;lia "
-"extensa?"
-
-#: resources/views/settings.phtml:117
-msgid "Show empty block"
-msgstr "Vols que es mostren els blocs sense informaci&oacute;"
-
-#: resources/views/settings.phtml:120
-msgid "yes, always at standard location"
-msgstr ""
-"S&iacute;.  Mostra blocs sense informaci&oacute; en la seva posici&oacute; "
-"ordin&agrave;ria"
-
-#: resources/views/settings.phtml:120
 #, fuzzy
-msgid "no, but collect messages about empty blocks at the summary block"
-msgstr ""
-"No mostrar blocs sense informaci&oacute;,per&ograve; recopila una "
-"descripci&oacute; dels blocs que falten al final"
+#~ msgid "Partner"
+#~ msgstr "C&ograve;njuge"
 
-#: resources/views/settings.phtml:120
-msgid "never"
-msgstr "No mostrar els blocs sense informaci&oacute;"
+#, fuzzy, php-format
+#~ msgid "%s has no "
+#~ msgstr "%s no t&eacute; registrats."
 
-#: resources/views/settings.phtml:125
-msgid ""
-"Count the members of the partner chains as members of the extended family?"
-msgstr ""
-
-#: resources/views/settings.phtml:127
-msgid ""
-"If you select \"no\", then the additional members in the partner chains will "
-"not be counted to the total number of individuals in the extended family."
-msgstr ""
-
-#: resources/views/settings.phtml:128
-msgid ""
-"And these persons and families will be not selected when a user decides to "
-"copy the extended family to the clippings cart."
-msgstr ""
-
-#: resources/views/settings.phtml:129
-msgid ""
-"But even in this case, you can copy these persons and families to the "
-"clippings cart by using a special menu topic of the custom module \"enhanced "
-"clippings cart\": \"add partner chains for an individual\"."
-msgstr ""
-
-#: resources/views/settings.phtml:130
-msgid ""
-"This is only relevant if you have chosen in the above table, that the "
-"partner chains should be shown as a part of the extended family."
-msgstr ""
-
-#: resources/views/settings.phtml:136
-msgid "Include them"
-msgstr ""
-
-#: resources/views/settings.phtml:144
-msgid "Show name of proband as short name or as full name?"
-msgstr "Ha de mostrar-se una forma abreujada o el nom complet de la persona?"
-
-#: resources/views/settings.phtml:145
-msgid ""
-"The short name is based on the probands Rufname or nickname. If these are "
-"not available, the first of the given names is used, if one is given. "
-"Otherwise the last name is used."
-msgstr ""
-"El nom curt es basa en els malnoms. Si aquests no estan disponibles, "
-"s'utilitza el primer dels noms de pila, si es d&oacute;na algun. En cas "
-"contrari, s'utilitza el cognom."
-
-#: resources/views/settings.phtml:150
-msgid "Show short name"
-msgstr "Mostrar nom curt"
-
-#: resources/views/settings.phtml:158
-msgid "Show labels in special situations?"
-msgstr "Mostrar etiquetes en situacions especials?"
-
-#: resources/views/settings.phtml:159
-msgid ""
-"Labels (or stickers) are used for example for adopted persons or foster "
-"children."
-msgstr ""
-"Les etiquetes s'utilitzen, per exemple, per a persones adoptades o nens "
-"d'acolliment. "
-
-#: resources/views/settings.phtml:164
-msgid "Show labels"
-msgstr "Mostrar etiquetes"
-
-#: resources/views/settings.phtml:172
-msgid "Show parameters of extended family part?"
-msgstr "Mostrar par&agrave;metres de la familia extensa?"
-
-#: resources/views/settings.phtml:173
-msgid ""
-"Display of additional information for each part of the extended family, such "
-"as the generation shift and the coefficient of relationship, which is a "
-"measure of the degree of consanguinity."
-msgstr ""
-"Visualitzaci&oacute; informaci&oacute; addicional per a cada membre de la "
-"familia extensa, aix&iacute; com el moviment generacional i el coeficient de "
-"parentiu mesurat amb grau de consanguinitat."
-
-#: resources/views/settings.phtml:178
-msgid "Show parameters"
-msgstr "Mostrar par&agrave;metres"
-
-#: resources/views/settings.phtml:186
-msgid "Use the compact design?"
-msgstr "Usar el disseny compacte?"
-
-#: resources/views/settings.phtml:187
-msgid ""
-"The compact design only shows the name and life span for each person. The "
-"enriched design also shows a photo (if this is activated for this tree) as "
-"well as birth and death information."
-msgstr ""
-"El disseny compacte sol mostra el nom, data de naixement i data de la mort "
-"de cada persona. El disseny enriquit tamb&eacute; mostra una foto (si tens "
-"fotos en el perfil dels familiars en l'arbre) aix&iacute; com "
-"informaci&oacute; sobre el naixement i la mort."
-
-#: resources/views/settings.phtml:192
-msgid "Use the compact design"
-msgstr "Usar el disseny compacte"
-
-#: resources/views/settings.phtml:200
-#, fuzzy
-msgid "Show a button \"copy to clippings cart\"?"
-msgstr "copy to clippings cart"
-
-#: resources/views/settings.phtml:201
-#, fuzzy
-msgid ""
-"This allows a user to copy all members of the extended family to the "
-"clippings cart."
-msgstr "copy all members of the extended family to the clippings cart"
-
-#: resources/views/settings.phtml:206
-#, fuzzy
-msgid "Show button"
-msgstr "Mostrar els filtres"
-
-#: resources/views/settings.phtml:216
-msgid "save"
-msgstr ""
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Extended family"
-msgstr "Fam&iacute;lia extensa"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "A tab showing the extended family of an individual."
-msgstr "Aquesta pestanya mostra tots els vincles familiars d'una persona"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "no, but collect messages about empty blocks at the end"
-msgstr "No mostrar blocs sense informaci&oacute;,per&ograve; recopila una descripci&oacute; dels blocs que falten al final"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "don't use this filter"
-msgstr "No utilitzar aquest filtre"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "a dead person"
-msgstr "una persona difunta"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "a living person"
-msgstr "una persona viva"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "not a male person"
-msgstr "No t&eacute; un home"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "not a female person"
-msgstr "No t&eacute; una dona"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "not a person of unknown gender"
-msgstr "No t&eacute; una persona de g&egrave;nere desconegut"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "twin"
-msgstr "Bess&oacute;"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "triplet"
-msgstr "Trigemin"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "quadruplet"
-msgstr "quadrigemin"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "quintuplet"
-msgstr "Quintigemin"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "sextuplet"
-msgstr "Sextigemin"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "septuplet"
-msgstr "Septigemin"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "octuplet"
-msgstr "Octigemin"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "nonuplet"
-msgstr "Nonagemin"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "decuplet"
-msgstr "Decigemin"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "linkage challenged"
-msgstr "Disputa per a ser reconegut"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "linkage disproven"
-msgstr "No reconegut"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "linkage proven"
-msgstr "Reconegut"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Marriage"
-msgstr "Matrimoni"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Ex-marriage"
-msgstr "Ex-matrimoni"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Fiancée"
-msgstr "Núvia"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological grandparents of father"
-msgstr "Avis biol&ograve;gics del pare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological grandparents of mother"
-msgstr "Avis biol&ograve;gics de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological grandparents of parent"
-msgstr "Avis biol&ograve;gics dels pares"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepparents of biological parent of father"
-msgstr "Padrastre del pare biol&ograve;gic"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepparents of biological parent of mother"
-msgstr "Padrastres del pare biol&ograve;gic de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepparents of biological grandparent"
-msgstr "Padrastres de l'avi biol&ograve;gic"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Parents of stepparent of father"
-msgstr "Pares del padrastre o de la madrastra"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Parents of stepparent of mother"
-msgstr "Pares del padrastre de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Parents of stepparent of parent"
-msgstr "Pares del padrastre de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Grandparents of stepparent"
-msgstr "Avis dels padrastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological great-grandparents"
-msgstr "Besavis biol&ograve;gics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological parents of father"
-msgstr "Avis biol&ograve;gics per part del pare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological parents of mother"
-msgstr "Avis biol&ograve;gics per part de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological parents of parent"
-msgstr "Pares biol&ograve;gics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepparents of father"
-msgstr "Padrastres del pare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepparents of mother"
-msgstr "Padrastres de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepparents of parent"
-msgstr "Padrastres dels pares"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Parents of stepparent"
-msgstr "Pares de padrastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings of father"
-msgstr "Germans del pare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings of mother"
-msgstr "Germans de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Full siblings of biological parents"
-msgstr "Relaci&oacute; completa de germans dels pares biol&ograve;gics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings-in-law of father"
-msgstr "Germans pol&iacute;tics (cunyats pol&iacute;tics) del pare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings-in-law of mother"
-msgstr "Germans pol&iacute;tics (cunyats pol&iacute;tics) de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological parents"
-msgstr "Pares biol&ograve;gics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepparents"
-msgstr "Padrastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Parents-in-law of biological children"
-msgstr "Sogres de fills/filles biol&ograve;gics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Parents-in-law of stepchildren"
-msgstr "Consogres de fillastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Full siblings"
-msgstr "Tots els germans"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Half siblings"
-msgstr "Cunyats i cunyades"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepsiblings"
-msgstr "Germanastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of full siblings of father"
-msgstr "Cosins i cosines per part del pare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of full siblings of mother"
-msgstr "Cosins i cosines per part de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of full siblings of parent"
-msgstr "Cosins i cosines per part dels pares"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of half siblings of father"
-msgstr "Fills de germanastres del pare del padre"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of half siblings of mother"
-msgstr "Fills de germanastres de la mare"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of half siblings of parent"
-msgstr "Fills de germanastres dels pares"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings of partners"
-msgstr "Cunyat/cunyades del c&ograve;njuge"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners of siblings"
-msgstr "c&ograve;njuges dels germans/es "
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings of siblings-in-law"
-msgstr "Concunyats/concunyades"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners of siblings-in-law"
-msgstr "Concunyats de cunyats i cunyades"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of full siblings of biological parents"
-msgstr "Relaci&oacute; de fills de germans de pares biol&ograve;gics "
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of siblings"
-msgstr "Fills de germans"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of full siblings"
-msgstr "Fills de germans majors"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings' stepchildren"
-msgstr "Fillastres de germans"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of siblings of partners"
-msgstr "Fills dels germans del c&ograve;njuge (Nebots)"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological children"
-msgstr "Fills biol&ograve;gics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepchildren"
-msgstr "Fillastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners of biological children"
-msgstr "c&ograve;njuge dels fills biol&ograve;gics (Gendre/Nora)"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners of stepchildren"
-msgstr "c&ograve;njuge de fillastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Biological grandchildren"
-msgstr "Nets biol&ograve;gics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepchildren of children"
-msgstr "Fillastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children of stepchildren"
-msgstr "Fills de fillastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Stepchildren of stepchildren"
-msgstr "Fillastre/a de fillastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners of biological grandchildren"
-msgstr "Parelles dels nets biol&ograve;gics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners of stepchildren of children"
-msgstr "Parelles dels fills dels nets"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners of children of stepchildren"
-msgstr "Parelles dels fills dels fillastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners of stepchildren of stepchildren"
-msgstr "Parelles dels fillastres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "The extended family of %1$s has one member."
-msgid_plural "La familia extensa de %1$s té 2$d membres."
-msgstr[0] "La familia extensa de %1$s té 2$d membre."
-msgstr[1] "La familia extensa de %1$s t&eacute; 2$d membres."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Father's family (%d)"
-msgstr "familia del pare (%d)"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Mother's family (%d)"
-msgstr "familia de la mare (%d)"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Father's and Mother's family (%d)"
-msgstr "familia del pare y de la mare (%d)"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Great-grandparents"
-msgstr "Besavis"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no great-grandparents recorded."
-msgstr "%s no té besavis registrats."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%2$s has %1$d great-grandmother recorded."
-msgid_plural "%2$s t&eacute; %1$d bes&agrave;vies registrades."
-msgstr[0] "%2$s t&eacute; %1$d bes&agrave;via."
-msgstr[1] "%2$s t&eacute; %1$d bes&agrave;vies registrades."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Grandparents"
-msgstr "Avis"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no grandparents recorded."
-msgstr "%s no té avis registrats."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no parents recorded."
-msgstr "%s no t&eacute; pares registrats."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Parents-in-law"
-msgstr "Sogres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no parents-in-law recorded."
-msgstr "%s no t&eacute; sogres registrats."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Co-parents-in-law"
-msgstr "Consogres"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no co-parents-in-law recorded."
-msgstr "%s no t&eacute; consogres registrats."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%2$s has %1$d co-father-in-law, "
-msgid_plural "%2$ has %1$d co-fathers-in-law, "
-msgstr[0] "%2$s t&eacute; %1$d consogre, "
-msgstr[1] "%2$s t&eacute; %1$d consogres, "
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Partners"
-msgstr "C&ograve;njuge"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no partners recorded."
-msgstr "%s no t&eacute; c&ograve;njuge registrat."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%2$s has %1$d partner and "
-msgid_plural "%2$s has %1$d partners and "
-msgstr[0] "%2$s t&eacute; %1$d c&ograve;njuge i "
-msgstr[1] "%2$s t&eacute; %1$d conjugues i "
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%1$d female partner in this partner chain recorded (%2$d in total, including %3$s)."
-msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total, including %3$s)."
-msgstr[0] "%1$d t&eacute; parella femenina registrada (%2$d en total, including %3$s)."
-msgstr[1] "%1$d parelles femenines de parelles registrades (%2$d en total, including %3$s)."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%d female partner and "
-msgid_plural "%d female partners and "
-msgstr[0] "%d parella femenina i "
-msgstr[1] "%d parelles femenines i "
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings"
-msgstr "Germans i Germanes"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no siblings recorded."
-msgstr "%s no t&eacute; germans/es registrats/des."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Siblings-in-law"
-msgstr "Cunyats i Cunyades"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no siblings-in-law recorded."
-msgstr "%s no t&eacute; cunyats/des registrats/des."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Co-siblings-in-law"
-msgstr "Concunyats i Concunyades"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no co-siblings-in-law recorded."
-msgstr "%s no t&eacute; concunyats/des registrats/des."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Cousins"
-msgstr "Cosins i Cosines"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children"
-msgstr "Fills i Filles"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no children recorded."
-msgstr "%s no t&eacute; fills registrats."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Children-in-law"
-msgstr "fills pol&iacute;tics"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no children-in-law recorded."
-msgstr "%s no t&eacute; fills pol&iacute;tics registrats."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%2$s has %1$d child-in-law recorded."
-msgid_plural "%2$s has %1$d children-in-law recorded."
-msgstr[0] "%2$s t&eacute; %1$d fill/a pol&iacute;tic/a registrat/da."
-msgstr[1] "%2$s t&eacute; %1$d fills/es pol&iacute;tics/ques registrats/des."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Grandchildren"
-msgstr "Nets i Netes"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no grandchildren recorded."
-msgstr "%s no t&eacute; nets registrats."
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "Grandchildren-in-law"
-msgstr "nets/es pol&iacute;tics/ques"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-msgid "%s has no grandchildren-in-law recorded."
-msgstr "%s no apareixen nets pol&iacute;tics."
-
-#~ msgid "Extended family"
-#~ msgstr "Fam&iacute;lia extensa"
-
 #~ msgid "A tab showing the extended family of an individual."
 #~ msgstr "Aquesta pestanya mostra tots els vincles familiars d'una persona"
 
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "no, but collect messages about empty blocks at the end"
+#~ msgstr ""
+#~ "No mostrar blocs sense informaci&oacute;,per&ograve; recopila una "
+#~ "descripci&oacute; dels blocs que falten al final"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "don't use this filter"
 #~ msgstr "No utilitzar aquest filtre"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "a dead person"
 #~ msgstr "una persona difunta"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "a living person"
 #~ msgstr "una persona viva"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "not a male person"
 #~ msgstr "No t&eacute; un home"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "not a female person"
 #~ msgstr "No t&eacute; una dona"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "not a person of unknown gender"
 #~ msgstr "No t&eacute; una persona de g&egrave;nere desconegut"
 
-#~ msgid "twin"
-#~ msgstr "Bess&oacute;"
-
-#~ msgid "triplet"
-#~ msgstr "Trigemin"
-
-#~ msgid "quadruplet"
-#~ msgstr "quadrigemin"
-
-#~ msgid "quintuplet"
-#~ msgstr "Quintigemin"
-
-#~ msgid "sextuplet"
-#~ msgstr "Sextigemin"
-
-#~ msgid "septuplet"
-#~ msgstr "Septigemin"
-
-#~ msgid "octuplet"
-#~ msgstr "Octigemin"
-
-#~ msgid "nonuplet"
-#~ msgstr "Nonagemin"
-
-#~ msgid "decuplet"
-#~ msgstr "Decigemin"
-
-#~ msgid "linkage challenged"
-#~ msgstr "Disputa per a ser reconegut"
-
-#~ msgid "linkage disproven"
-#~ msgstr "No reconegut"
-
-#~ msgid "Marriage"
-#~ msgstr "Matrimoni"
-
-#~ msgid "Ex-marriage"
-#~ msgstr "Ex-matrimoni"
-
-#~ msgid "Fiancée"
-#~ msgstr "Núvia"
-
-#~ msgid "Biological grandparents of father"
-#~ msgstr "Avis biol&ograve;gics del pare"
-
-#~ msgid "Biological grandparents of mother"
-#~ msgstr "Avis biol&ograve;gics de la mare"
-
-#~ msgid "Biological grandparents of parent"
-#~ msgstr "Avis biol&ograve;gics dels pares"
-
-#~ msgid "Stepparents of biological parent of father"
-#~ msgstr "Padrastre del pare biol&ograve;gic"
-
-#~ msgid "Stepparents of biological parent of mother"
-#~ msgstr "Padrastres del pare biol&ograve;gic de la mare"
-
-#~ msgid "Stepparents of biological grandparent"
-#~ msgstr "Padrastres de l'avi biol&ograve;gic"
-
-#~ msgid "Parents of stepparent of father"
-#~ msgstr "Pares del padrastre o de la madrastra"
-
-#~ msgid "Parents of stepparent of mother"
-#~ msgstr "Pares del padrastre de la mare"
-
-#~ msgid "Parents of stepparent of parent"
-#~ msgstr "Pares del padrastre de la mare"
-
-#~ msgid "Grandparents of stepparent"
-#~ msgstr "Avis dels padrastres"
-
-#~ msgid "Biological great-grandparents"
-#~ msgstr "Besavis biol&ograve;gics"
-
-#~ msgid "Biological parents of father"
-#~ msgstr "Avis biol&ograve;gics per part del pare"
-
-#~ msgid "Biological parents of mother"
-#~ msgstr "Avis biol&ograve;gics per part de la mare"
-
-#~ msgid "Biological parents of parent"
-#~ msgstr "Pares biol&ograve;gics"
-
-#~ msgid "Stepparents of father"
-#~ msgstr "Padrastres del pare"
-
-#~ msgid "Stepparents of mother"
-#~ msgstr "Padrastres de la mare"
-
-#~ msgid "Stepparents of parent"
-#~ msgstr "Padrastres dels pares"
-
-#~ msgid "Parents of stepparent"
-#~ msgstr "Pares de padrastres"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Siblings of father"
 #~ msgstr "Germans del pare"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Siblings of mother"
 #~ msgstr "Germans de la mare"
 
-#~ msgid "Full siblings of biological parents"
-#~ msgstr "Relaci&oacute; completa de germans dels pares biol&ograve;gics"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Siblings-in-law of father"
 #~ msgstr "Germans pol&iacute;tics (cunyats pol&iacute;tics) del pare"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Siblings-in-law of mother"
 #~ msgstr "Germans pol&iacute;tics (cunyats pol&iacute;tics) de la mare"
 
-#~ msgid "Biological parents"
-#~ msgstr "Pares biol&ograve;gics"
-
-#~ msgid "Stepparents"
-#~ msgstr "Padrastres"
-
-#~ msgid "Parents-in-law of biological children"
-#~ msgstr "Sogres de fills/filles biol&ograve;gics"
-
-#~ msgid "Parents-in-law of stepchildren"
-#~ msgstr "Consogres de fillastres"
-
-#~ msgid "Full siblings"
-#~ msgstr "Tots els germans"
-
-#~ msgid "Half siblings"
-#~ msgstr "Cunyats i cunyades"
-
-#~ msgid "Stepsiblings"
-#~ msgstr "Germanastres"
-
-#~ msgid "Children of full siblings of father"
-#~ msgstr "Cosins i cosines per part del pare"
-
-#~ msgid "Children of full siblings of mother"
-#~ msgstr "Cosins i cosines per part de la mare"
-
-#~ msgid "Children of full siblings of parent"
-#~ msgstr "Cosins i cosines per part dels pares"
-
-#~ msgid "Children of half siblings of father"
-#~ msgstr "Fills de germanastres del pare del padre"
-
-#~ msgid "Children of half siblings of mother"
-#~ msgstr "Fills de germanastres de la mare"
-
-#~ msgid "Children of half siblings of parent"
-#~ msgstr "Fills de germanastres dels pares"
-
-#~ msgid "Siblings of partners"
-#~ msgstr "Cunyat/cunyades del c&ograve;njuge"
-
-#~ msgid "Partners of siblings"
-#~ msgstr "c&ograve;njuges dels germans/es "
-
-#~ msgid "Siblings of siblings-in-law"
-#~ msgstr "Concunyats/concunyades"
-
-#~ msgid "Partners of siblings-in-law"
-#~ msgstr "Concunyats de cunyats i cunyades"
-
-#~ msgid "Children of full siblings of biological parents"
-#~ msgstr "Relaci&oacute; de fills de germans de pares biol&ograve;gics "
-
-#~ msgid "Children of siblings"
-#~ msgstr "Fills de germans"
-
-#~ msgid "Children of full siblings"
-#~ msgstr "Fills de germans majors"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Siblings' stepchildren"
 #~ msgstr "Fillastres de germans"
 
-#~ msgid "Children of siblings of partners"
-#~ msgstr "Fills dels germans del c&ograve;njuge (Nebots)"
-
-#~ msgid "Biological children"
-#~ msgstr "Fills biol&ograve;gics"
-
-#~ msgid "Stepchildren"
-#~ msgstr "Fillastres"
-
-#~ msgid "Partners of biological children"
-#~ msgstr "c&ograve;njuge dels fills biol&ograve;gics (Gendre/Nora)"
-
-#~ msgid "Partners of stepchildren"
-#~ msgstr "c&ograve;njuge de fillastres"
-
-#~ msgid "Biological grandchildren"
-#~ msgstr "Nets biol&ograve;gics"
-
-#~ msgid "Stepchildren of children"
-#~ msgstr "Fillastres"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Children of stepchildren"
 #~ msgstr "Fills de fillastres"
 
-#~ msgid "Stepchildren of stepchildren"
-#~ msgstr "Fillastre/a de fillastres"
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "The extended family of %1$s has one member."
+#~ msgid_plural "La familia extensa de %1$s té 2$d membres."
+#~ msgstr[0] "La familia extensa de %1$s té 2$d membre."
+#~ msgstr[1] "La familia extensa de %1$s t&eacute; 2$d membres."
 
-#~ msgid "Partners of biological grandchildren"
-#~ msgstr "Parelles dels nets biol&ograve;gics"
-
-#~ msgid "Partners of stepchildren of children"
-#~ msgstr "Parelles dels fills dels nets"
-
-#~ msgid "Partners of children of stepchildren"
-#~ msgstr "Parelles dels fills dels fillastres"
-
-#~ msgid "Partners of stepchildren of stepchildren"
-#~ msgstr "Parelles dels fillastres"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Father's family (%d)"
 #~ msgstr "familia del pare (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Mother's family (%d)"
 #~ msgstr "familia de la mare (%d)"
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Father's and Mother's family (%d)"
 #~ msgstr "familia del pare y de la mare (%d)"
 
-#~ msgid "Great-grandparents"
-#~ msgstr "Besavis"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "%s has no great-grandparents recorded."
 #~ msgstr "%s no té besavis registrats."
 
-#~ msgid "Grandparents"
-#~ msgstr "Avis"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "%s has no grandparents recorded."
 #~ msgstr "%s no té avis registrats."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "%s has no parents recorded."
 #~ msgstr "%s no t&eacute; pares registrats."
 
-#~ msgid "Parents-in-law"
-#~ msgstr "Sogres"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "%s has no parents-in-law recorded."
 #~ msgstr "%s no t&eacute; sogres registrats."
 
-#~ msgid "Co-parents-in-law"
-#~ msgstr "Consogres"
-
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "%s has no co-parents-in-law recorded."
 #~ msgstr "%s no t&eacute; consogres registrats."
 
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "%s has no partners recorded."
 #~ msgstr "%s no t&eacute; c&ograve;njuge registrat."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid ""
+#~ "%1$d female partner in this partner chain recorded (%2$d in total, "
+#~ "including %3$s)."
+#~ msgid_plural ""
+#~ "%1$d female partners in this partner chain recorded (%2$d in total, "
+#~ "including %3$s)."
+#~ msgstr[0] ""
+#~ "%1$d t&eacute; parella femenina registrada (%2$d en total, including "
+#~ "%3$s)."
+#~ msgstr[1] ""
+#~ "%1$d parelles femenines de parelles registrades (%2$d en total, including "
+#~ "%3$s)."
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%d female partner and"
+#~ msgid_plural "%d female partners and"
+#~ msgstr[0] "%d parella femenina i"
+#~ msgstr[1] "%d parelles femenines i"
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%s has no siblings recorded."
+#~ msgstr "%s no t&eacute; germans/es registrats/des."
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%s has no siblings-in-law recorded."
+#~ msgstr "%s no t&eacute; cunyats/des registrats/des."
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%s has no co-siblings-in-law recorded."
+#~ msgstr "%s no t&eacute; concunyats/des registrats/des."
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%s has no children recorded."
+#~ msgstr "%s no t&eacute; fills registrats."
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%s has no children-in-law recorded."
+#~ msgstr "%s no t&eacute; fills pol&iacute;tics registrats."
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%2$s has %1$d child-in-law recorded."
+#~ msgid_plural "%2$s has %1$d children-in-law recorded."
+#~ msgstr[0] "%2$s t&eacute; %1$d fill/a pol&iacute;tic/a registrat/da."
+#~ msgstr[1] ""
+#~ "%2$s t&eacute; %1$d fills/es pol&iacute;tics/ques registrats/des."
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%s has no grandchildren recorded."
+#~ msgstr "%s no t&eacute; nets registrats."
+
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#~ msgid "%s has no grandchildren-in-law recorded."
+#~ msgstr "%s no apareixen nets pol&iacute;tics."
 
 #~ msgid "%2$s has %1$d partner and "
 #~ msgid_plural "%2$s has %1$d partners and "
@@ -2781,77 +3609,3 @@ msgstr "%s no apareixen nets pol&iacute;tics."
 #~ msgid_plural "%d female partners and "
 #~ msgstr[0] "%d parella femenina i "
 #~ msgstr[1] "%d parelles femenines i "
-
-#~ msgid "%s has no siblings recorded."
-#~ msgstr "%s no t&eacute; germans/es registrats/des."
-
-#~ msgid "Siblings-in-law"
-#~ msgstr "Cunyats i Cunyades"
-
-#~ msgid "%s has no siblings-in-law recorded."
-#~ msgstr "%s no t&eacute; cunyats/des registrats/des."
-
-#~ msgid "Co-siblings-in-law"
-#~ msgstr "Concunyats i Concunyades"
-
-#~ msgid "%s has no co-siblings-in-law recorded."
-#~ msgstr "%s no t&eacute; concunyats/des registrats/des."
-
-#~ msgid "Cousins"
-#~ msgstr "Cosins i Cosines"
-
-#~ msgid "%s has no children recorded."
-#~ msgstr "%s no t&eacute; fills registrats."
-
-#~ msgid "Children-in-law"
-#~ msgstr "fills pol&iacute;tics"
-
-#~ msgid "%s has no children-in-law recorded."
-#~ msgstr "%s no t&eacute; fills pol&iacute;tics registrats."
-
-#~ msgid "%2$s has %1$d child-in-law recorded."
-#~ msgid_plural "%2$s has %1$d children-in-law recorded."
-#~ msgstr[0] "%2$s t&eacute; %1$d fill/a pol&iacute;tic/a registrat/da."
-#~ msgstr[1] ""
-#~ "%2$s t&eacute; %1$d fills/es pol&iacute;tics/ques registrats/des."
-
-#~ msgid "Grandchildren"
-#~ msgstr "Nets i Netes"
-
-#~ msgid "%s has no grandchildren recorded."
-#~ msgstr "%s no t&eacute; nets registrats."
-
-#~ msgid "Grandchildren-in-law"
-#~ msgstr "nets/es pol&iacute;tics/ques"
-
-#~ msgid "%s has no grandchildren-in-law recorded."
-#~ msgstr "%s no apareixen nets pol&iacute;tics."
-#: ExtendedFamilyTabModule.php:589 resources/views/settings.phtml:228
-msgid "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
-msgstr ""
-
-#: ExtendedFamilyTabModule.php:756
-msgid "The selected tree could not be found."
-msgstr ""
-
-#: ExtendedFamilyTabModule.php:763
-msgid "The selected individual could not be found."
-msgstr ""
-
-#: ExtendedFamilyTabModule.php:788
-msgid "The extended family has been copied to the clippings cart. New entries: %s"
-msgstr ""
-
-#: resources/views/settings.phtml:247
-msgid "Clippings cart action"
-msgstr ""
-
-#: resources/views/settings.phtml:250
-msgid "huhwt-cce (recommended)"
-msgstr ""
-
-#: resources/views/settings.phtml:225
-msgid "This allows a user to copy all members of the extended family to the clippings cart."
-msgstr ""
-
-

@@ -140,12 +140,93 @@ The module currently contains calculators for:
 * children
 * children-in-law
 * grandchildren
-* great-grandchildren
 * grandchildren-in-law
+* great-grandchildren
+* great-grandchildren-in-law
 
 The family-part base class stores results as grouped individuals and counters.
 Depending on the relationship type, a group may represent a family branch, a couple, an in-law relation, a descendant branch, or a partner-chain segment.
 Groups may also carry reference people and families that are used only to explain the relationship in the rendered heading.
+
+### Relationship basis map
+
+Every family part should be defined from a clear relationship basis.
+Primitive parts may read directly from the proband's webtrees families.
+Derived parts should preferably build on the already calculated primitive or lower-distance family part, so that biological, social, step, and in-law relationship distinctions are propagated consistently.
+
+| Family part | Definition | Intended basis | Current implementation note |
+| --- | --- | --- | --- |
+| `parents` | Biological, social, and step parents of the proband | Proband plus shared parent helper methods | OK: source-level family part. |
+| `grandparents` | Parents and stepparents of the proband's biological, social, and step parents | `parents` | OK: already uses `Parents` as basis and preserves biological, social, and step-parent distinctions. |
+| `great_grandparents` | Parents and stepparents of the relevant grandparent groups | `grandparents` | OK: already uses `Grandparents` as basis and preserves its group distinctions. |
+| `partners` | Direct partners of the proband and partners of those partners | Proband spouse families | OK: source-level family part. |
+| `partner_chains` | Recursive partner graph starting at the proband | Proband spouse families | OK: special source-level graph calculation. |
+| `children` | Biological, social, and step children of the proband | Proband spouse families plus `FAMC/PEDI` helper methods | OK: source-level descendant family part. |
+| `grandchildren` | Children, social children, and stepchildren of the `children` groups | `children` | Direct: currently repeats child and stepchild traversal from the proband's spouse families. Candidate for refactoring to the `children` basis. |
+| `great_grandchildren` | Children and stepchildren of the `grandchildren` groups | `grandchildren` | OK: already uses `Grandchildren` as basis. |
+| `parents_in_law` | Parents of the proband's direct partners | `partners` | OK: uses direct partner helper results plus the shared biological, social, and stepparent helper methods. |
+| `co_parents_in_law` | Parents of the partners of the proband's children | `children` | OK: already uses `Children` as basis. |
+| `children_in_law` | Partners of the proband's biological, social, and step children | `children` | Direct: currently rebuilds child and stepchild traversal itself. Candidate for refactoring to the `children` basis. |
+| `grandchildren_in_law` | Partners of the persons in the `grandchildren` groups | `grandchildren` | OK: already uses `Grandchildren` as basis. |
+| `great_grandchild_in_law` | Partners of the persons in the `great_grandchildren` groups | `great_grandchildren` | OK: already uses `Great_grandchildren` as basis. |
+| `siblings` | Full, half, social, and step siblings of the proband | `parents` | Direct: currently reads the proband's child families and related parent families itself. Candidate for refactoring to the `parents` basis. |
+| `siblings_in_law` | Partners of siblings and siblings of partners | `siblings` and `partners` | Direct: currently rebuilds sibling and partner-side traversal itself. Candidate for refactoring. |
+| `co_siblings_in_law` | Siblings of siblings' partners and partners of partners' siblings | `siblings_in_law` / `siblings` and `partners` | Direct: currently performs its own multi-step traversal. Candidate for refactoring after `siblings_in_law`. |
+| `uncles_and_aunts` | Siblings and half siblings of the proband's parent groups | `parents` | OK: already uses `Parents` as basis and preserves biological, social, and step-parent distinctions. |
+| `uncles_and_aunts_bm` | Partners of the persons in `uncles_and_aunts` | `uncles_and_aunts` | OK: already uses `Uncles_and_aunts` as basis and preserves its group distinctions. |
+| `cousins` | Children of the persons in `uncles_and_aunts` | `uncles_and_aunts` | Partly direct: currently uses branch helpers based on biological parents. Candidate for refactoring to preserve social and step-side labels. |
+| `nephews_and_nieces` | Children of siblings and children of siblings-in-law | `siblings` and `siblings_in_law` | Direct: currently performs its own parent/sibling/partner traversal. Candidate for refactoring so source sibling partnerships are reused consistently. |
+
+The former highest-risk direct builders that started from `$this->getProband()->childFamilies()->first()` have been consolidated:
+`uncles_and_aunts`, `uncles_and_aunts_bm`, and `parents_in_law`.
+
+### Consolidation next steps
+
+The next consolidation work should keep derived family parts on top of already calculated lower-distance parts.
+This avoids repeating traversal logic and helps biological, social, step, and in-law distinctions propagate consistently.
+
+Recommended order:
+
+1. `children_in_law`: derive partners from the `children` groups instead of rebuilding child and stepchild traversal.
+2. `grandchildren`: derive children, social children, and stepchildren from the `children` groups.
+3. `cousins`: derive children from the `uncles_and_aunts` groups so social and step-side labels are preserved.
+4. `siblings`: derive sibling groups from the `parents` groups, using the same full/half/social/step sibling rules.
+5. `siblings_in_law`: derive partners of siblings from `siblings` and siblings of partners from `partners`.
+6. `co_siblings_in_law`: derive from the consolidated `siblings_in_law`, `siblings`, and `partners` results.
+7. Review the remaining shared branch helpers after the direct builders above have been consolidated; remove obsolete branch-only code when no family part uses it anymore.
+
+### Administrative degree map
+
+The admin UI can use a coarse family-part degree to help administrators select which family parts should be enabled.
+This degree is not the exact person-level graph distance.
+It is a local selection aid for family parts.
+
+The core family has degree 1:
+parents, children, siblings, and partners.
+The partner-chain family part is a special case and has administrative degree 2, although individual members of a partner chain may later receive their exact person-level degree.
+
+| Family part | Administrative degree | Rationale |
+| --- | ---: | --- |
+| `parents` | 1 | Parents are part of the proband's core family. |
+| `children` | 1 | Children are part of the proband's core family. |
+| `siblings` | 1 | Siblings are part of the proband's core family. |
+| `partners` | 1 | Partners are part of the proband's core family. |
+| `grandparents` | 2 | Parents of parents. |
+| `grandchildren` | 2 | Children of children. |
+| `uncles_and_aunts` | 2 | Siblings of parents. |
+| `nephews_and_nieces` | 2 | Children of siblings. |
+| `parents_in_law` | 2 | Parents of partners. |
+| `children_in_law` | 2 | Partners of children. |
+| `siblings_in_law` | 2 | Partners of siblings or siblings of partners. |
+| `partner_chains` | 2 | Special administrative value for partner chains. |
+| `great_grandparents` | 3 | Parents of grandparents. |
+| `great_grandchildren` | 3 | Children of grandchildren. |
+| `cousins` | 3 | Children of uncles and aunts. |
+| `uncles_and_aunts_bm` | 3 | Partners of uncles and aunts. |
+| `co_parents_in_law` | 3 | Parents of partners of children. |
+| `co_siblings_in_law` | 3 | Siblings or partners reached through siblings-in-law. |
+| `grandchildren_in_law` | 3 | Partners of grandchildren. |
+| `great_grandchild_in_law` | 4 | Partners of great-grandchildren. |
 
 ## 🔎 Filtering and summaries
 
@@ -219,7 +300,6 @@ hh_extended_family/
 ├── module.php
 ├── resources/
 │   ├── lang/
-│   │   ├── messages.pot
 │   │   └── *.po
 │   └── views/
 │       ├── settings.phtml

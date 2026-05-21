@@ -36,7 +36,7 @@ class PartnerChainNode
     /**
      * @var object $node
      *  ->individual                    Individual
-     *  ->chains                        array<int,node>
+     *  ->chains                        array<int,PartnerChainNode>
      *  ->filterComment                 string
      */
     private object $node;
@@ -47,7 +47,7 @@ class PartnerChainNode
      * construct partner chain node object
      *
      * @param Individual $individual
-     * @param array $chains
+     * @param array<int,PartnerChainNode> $chains
      * @param string $filterComment
      */
     public function __construct(Individual $individual, array $chains = [], string $filterComment = '')
@@ -99,7 +99,7 @@ class PartnerChainNode
     }
 
     /**
-     * @return array
+     * @return array<int,PartnerChainNode>
      */
     public function getChains(): array
     {
@@ -107,7 +107,7 @@ class PartnerChainNode
     }
 
     /**
-     * @param array $chains
+     * @param array<int,PartnerChainNode> $chains
      */
     public function setChains(array $chains): void
     {

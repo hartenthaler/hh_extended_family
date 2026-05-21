@@ -25,7 +25,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
         <?php if ($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficient'] > 0): ?>
             <?= I18N::translate('relationship coefficient: %.1f', 100 * $extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficient']) ?>%
             <?php if (isset($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficientComment'])): ?>
-                (<?= I18N::translate($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficientComment']) ?>)
+                (<?= ExtendedFamilySupport::translateRelationshipCoefficientComment($extfam_obj->config->familyPartParameters[$propName]['relationshipCoefficientComment']) ?>)
             <?php endif ?>
         <?php else: ?>
             <?= I18N::translate('no blood relationship') ?>

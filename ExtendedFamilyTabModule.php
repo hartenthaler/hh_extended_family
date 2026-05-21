@@ -25,35 +25,35 @@
 
 /*
  * tbd
- * --------------------------  ab hier für das Release 2.2.6.3    ------------------------------------------------*
+ * --------------------------  ab hier für das Release 2.2.6.4    ------------------------------------------------*
  * issues "bug": see GitHub
  *
  * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
- * Code: Fehler in Grandchildren suchen
+ * Test: in Testdatei "komplexe Familie" erscheinen keine Personenbadges (adoptiert, etc)
+ * Test: Wenn man ahnen3/W.Bergemanns Großfamilie in den Sammelbehälter legt, werden 4 nicht verbundene Personen in GVExport angezeigt. Warum?
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
- * Code: prüfen ob allCountUnique immer richtig berechnet wird
+ * Test: prüfen ob allCountUnique immer richtig berechnet wird
  * Code: siehe 2x tbd in tab.phtml #1077
  * Übersetzung: Satz umformulieren, da Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
- * READme: alle Screenshots aktualisieren
+ * README: alle Screenshots aktualisieren
+ * Test: Rada testen, gibt es ein Badge?
+ * Test: was passiert wenn der webtrees-Sammelbehälter deaktiviert ist?
+ * Test und Code-Review: Behandlung von sex = U und sex = X
+ * alle tbd im Code aufsammeln und als issue hinterlegen
+ * alle auskommentierten Code-Stücke prüfen und ggf. löschen
+ * Code: Qualität überprüfen und wichtigste Dinge als issue formulieren
  *
- * --------------------------  ab hier für ein Release nach 2.2.6.3    ------------------------------------------------
- * all issues: see GitHub
- *
+ * --------------------------  ab hier für ein Release nach 2.2.6.4    ------------------------------------------------
  * Code: neuen webtrees Validator zur Prüfung reinkommender Parameter verwenden (siehe Beispiele Magicsunday Fanchart)
- * Code: Ist die Funktion "getPedigreeValue" in ExtendedFamilySupport.php wirklich überflüssig? Dann löschen.
- * Code: alle Family Objekte explizit als Family deklarieren
- * Code: alle array-Deklarationen mit <index,value> deklarieren
- * Code: statt array besser Collection verwenden!
  * Code: alle noch verwendeten object als Klassen definieren
  * Code: Beziehungsbezeichnungen als Label aus Vesta-Relationship oder durch eigene Funktion ergänzen?
  * Code: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern (siehe issue #46 von Sir Peter)
  *         Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus?
  *         Testen, wenn im CSS-Modul nichts eingetragen ist.
  *         Option für thumbnail size? css für silhouette anpassen?
- * Code: neues Management für Updates und Information der Anwender über Neuigkeiten zu diesem Modul
+ * Code: Information der Anwender über Neuigkeiten zu diesem Modul?
  * Code: Datenbank-Schema mit Updates einführen, damit man Familienteile auch ändern und löschen kann
  * Code: restliche, verstreut vorkommenden Übersetzungen mit I18N alle nach tab.html verschieben
- * Code: Iterate-Pattern für Umgang mit groups implementieren?
  */
 
 declare(strict_types=1);
@@ -129,7 +129,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.2';
+    public const CUSTOM_VERSION     = '2.2.6.3';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
@@ -318,7 +318,7 @@ class ExtendedFamilyTabModule extends AbstractModule
 
             $this->postAdminActionOther($params);
             $this->postAdminActionEfp($params);
-            FlashMessages::addMessage(I18N::translate('The preferences for the module “%s” have been updated.',
+            FlashMessages::addMessage(/* I18N: This is a webtrees core flash message; no module-specific translation is needed. */ I18N::translate('The preferences for the module “%s” have been updated.',
                 $this->title()), 'success');
 
             if (($params['use_clippings_cart'] ?? '1') === '0' && !$this->isClippingsCartEnhancedAvailable()) {
@@ -332,7 +332,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      * save the user preferences for all parameters
      * that are not explicitly related to the extended family parts in the database
      *
-     * @param array $params configuration parameters
+     * @param array<string,mixed> $params configuration parameters
      */
     private function postAdminActionOther(array $params)
     {
@@ -347,7 +347,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     /**
      * save the user preferences for all parameters related to the extended family parts in the database
      *
-     * @param array $params configuration parameters
+     * @param array<string,mixed> $params configuration parameters
      */
     private function postAdminActionEfp(array $params)
     {
@@ -394,8 +394,8 @@ class ExtendedFamilyTabModule extends AbstractModule
      * add parts of extended family, which are newly defined
      * tbd: it is not possible to delete family parts, only add new ones
      *
-     * @param array $listFamilyParts list of extended family parts defined by this module
-     * @param array $order list of ordered family parts out of parameters
+     * @param array<int,string> $listFamilyParts list of extended family parts defined by this module
+     * @param array<int,string> $order list of ordered family parts out of parameters
      */
     private function addFamilyParts(array $listFamilyParts, array &$order)
     {

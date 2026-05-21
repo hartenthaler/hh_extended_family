@@ -45,12 +45,12 @@ class FamilyPart
     /**
      * @var object $familyPart
      *  ->groupName                 string
-     *  ->members                   array of Individual
-     *  ->labels                    array of array of string
-     *  ->families                  array of object
-     *  ->familiesStatus            array of string
-     *  ->referencePersons          array of array of Individual
-     *  ->vitalEventsSummaries      array of string
+     *  ->members                   array<int,Individual>
+     *  ->labels                    array<int,array<int,string>>
+     *  ->families                  array<int,Family>
+     *  ->familiesStatus            array<int,string>
+     *  ->referencePersons          array<int,array<int,Individual>>
+     *  ->vitalEventsSummaries      array<int,string>
      */
     private object $familyPart;
 
@@ -61,10 +61,10 @@ class FamilyPart
      *
      * @param string $groupName
      * @param Individual $member
-     * @param array $labels
+     * @param array<int,string> $labels
      * @param Family $family
      * @param string $familyStatus
-     * @param array $referencePersons
+     * @param array<int,Individual> $referencePersons
      * @param string $vitalEventsSummary
      */
     public function __construct

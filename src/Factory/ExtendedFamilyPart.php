@@ -151,7 +151,7 @@ abstract class ExtendedFamilyPart
      * find individuals: biological parents
      *
      * @param Individual $individual
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     protected function findBioparentsIndividuals(Individual $individual): array
     {
@@ -162,7 +162,7 @@ abstract class ExtendedFamilyPart
      * find individuals: social parents (adoptive, foster, or rada parents)
      *
      * @param Individual $individual
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     protected function findSocialparentsIndividuals(Individual $individual): array
     {
@@ -177,7 +177,7 @@ abstract class ExtendedFamilyPart
      * find individuals: biological and social parents
      *
      * @param Individual $individual
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     protected function findParentsIndividuals(Individual $individual): array
     {
@@ -191,8 +191,8 @@ abstract class ExtendedFamilyPart
      * find parent individuals for child-family links with selected PEDI values
      *
      * @param Individual $individual
-     * @param array $pedigreeTypes
-     * @return array of IndividualFamily
+     * @param array<int,string> $pedigreeTypes
+     * @return array<int,IndividualFamily>
      */
     private function findParentsIndividualsByPedigreeTypes(Individual $individual, array $pedigreeTypes): array
     {
@@ -261,7 +261,7 @@ abstract class ExtendedFamilyPart
      * find individuals: stepparents
      *
      * @param Individual $individual
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     protected function findStepparentsIndividuals(Individual $individual): array
     {
@@ -288,7 +288,7 @@ abstract class ExtendedFamilyPart
      * find individuals: partners
      *
      * @param Individual $individual
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     protected function findPartnersIndividuals(Individual $individual): array
     {
@@ -307,7 +307,7 @@ abstract class ExtendedFamilyPart
      * find individuals: fullsiblings
      *
      * @param Individual $individual
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     protected function findFullsiblingsIndividuals(Individual $individual): array
     {
@@ -329,7 +329,7 @@ abstract class ExtendedFamilyPart
      * find individuals: halfsiblings
      *
      * @param Individual $individual
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     protected function findHalfsiblingsIndividuals(Individual $individual): array
     {
@@ -359,7 +359,7 @@ abstract class ExtendedFamilyPart
      *
      * @param Individual $parent
      * @param string $branch ['bio', 'stepbio', 'biosocial', 'step', 'social']
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     private function findGreat_grandparentsBranchIndividuals(Individual $parent, string $branch): array
     {
@@ -413,7 +413,7 @@ abstract class ExtendedFamilyPart
      *
      * @param Individual $parent
      * @param string $branch ['bio', 'step']
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     private function findGrandparentsBranchIndividuals(Individual $parent, string $branch): array
     {
@@ -433,7 +433,7 @@ abstract class ExtendedFamilyPart
      *
      * @param Individual $parent
      * @param string $branch ['full', 'half']
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     private function findCousinsBranchIndividuals(Individual $parent, string $branch): array
     {
@@ -485,7 +485,7 @@ abstract class ExtendedFamilyPart
      * @param string $name                  name of function to be called ['great_grandparents', 'grandparents', 'cousins']
      * @param Individual $individual        Individual
      * @param string $branch                e.g. ['bio', 'step', 'full', half']
-     * @return array of IndividualFamily
+     * @return array<int,IndividualFamily>
      */
     private function callFunction(string $name, Individual $individual, string $branch): array
     {
@@ -605,7 +605,7 @@ abstract class ExtendedFamilyPart
     /**
      * filter individuals in extended family part
      *
-     * @param array $filterOptions of string $filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
+     * @param array<string,string> $filterOptions (all|only_M|only_F|only_U, all|only_alive|only_dead]
      */
     protected function filter(array $filterOptions)
     {
@@ -644,7 +644,7 @@ abstract class ExtendedFamilyPart
     /**
      * count male and female individuals
      *
-     * @param array $indilist of Individuals
+     * @param array<int,Individual> $indilist
      * @return object with three elements: male, female and unknown_others (int >= 0)
      */
     protected function countMaleFemale(array $indilist): object

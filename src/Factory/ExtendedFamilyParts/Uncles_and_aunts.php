@@ -26,6 +26,7 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
 
 /**
@@ -35,10 +36,11 @@ use Fisharebest\Webtrees\Individual;
  */
 class Uncles_and_aunts extends ExtendedFamilyPart
 {
-    public const GROUP_UNCLEAUNT_FATHER  = 'Siblings and half siblings of father';
-    public const GROUP_UNCLEAUNT_MOTHER  = 'Siblings and half siblings of mother';
+    public const GROUP_UNCLEAUNT_BIO_PARENT    = 'Siblings and half siblings of biological parents';
+    public const GROUP_UNCLEAUNT_SOCIAL_PARENT = 'Siblings and half siblings of social parents';
+    public const GROUP_UNCLEAUNT_STEP_PARENT   = 'Siblings and half siblings of stepparents';
 
-    public const GROUP_UNCLEAUNT_FULL_BIO  = 'Full siblings of biological parents';
+    public const GROUP_UNCLEAUNT_FULL_BIO      = 'Full siblings of biological parents';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -61,35 +63,96 @@ class Uncles_and_aunts extends ExtendedFamilyPart
      */
 
     /**
-     * Find members for this specific extended family part and modify $this->>efpObject
+     * Find members for this specific extended family part and modify $this->>efpObject.
+     *
+     * This part is derived from the parents family part, so biological, social,
+     * and step-parent distinctions are preserved.
      */
     protected function addEfpMembers()
     {
-        if ($this->getProband()->childFamilies()->first()) {
-            if ($this->getProband()->childFamilies()->first()->husband() instanceof Individual) {
-                $this->addUnclesAndAuntsOneSide( $this->getProband()->childFamilies()->first()->husband(), self::GROUP_UNCLEAUNT_FATHER);
-            }
-            if ($this->getProband()->childFamilies()->first()->wife() instanceof Individual) {
-                $this->addUnclesAndAuntsOneSide($this->getProband()->childFamilies()->first()->wife(), self::GROUP_UNCLEAUNT_MOTHER);
+        $parents = new Parents($this->getProband(), 'all', $this->placeFormat);
+
+        foreach ($parents->getEfpObject()->groups as $group) {
+            $groupName = $this->unclesAndAuntsGroupName($group->groupName);
+
+            foreach ($group->members as $parent) {
+                if ($parent instanceof Individual) {
+                    $this->addUnclesAndAuntsForParent($parent, $groupName);
+                }
             }
         }
     }
 
     /**
-     * Find uncles and aunts for one side (husband/wife) (only full siblings and not including uncles and aunts by marriage)
+     * Get the group name for siblings and half siblings of one parent group.
+     *
+     * @param string $parentGroupName
+     * @return string
+     */
+    private function unclesAndAuntsGroupName(string $parentGroupName): string
+    {
+        return match ($parentGroupName) {
+            Parents::GROUP_PARENTS_SOCIAL => self::GROUP_UNCLEAUNT_SOCIAL_PARENT,
+            Parents::GROUP_PARENTS_STEP   => self::GROUP_UNCLEAUNT_STEP_PARENT,
+            default                       => self::GROUP_UNCLEAUNT_BIO_PARENT,
+        };
+    }
+
+    /**
+     * Find siblings and half siblings of one parent.
      *
      * @param Individual $parent
-     * @param string $side  family side (FAM_SIDE_FATHER, FAM_SIDE_MOTHER); father is default
+     * @param string $groupName
+     * @return void
      */
-    private function addUnclesAndAuntsOneSide(Individual $parent, string $side)
+    private function addUnclesAndAuntsForParent(Individual $parent, string $groupName): void
     {
-        foreach ($parent->childFamilies() as $family1) {                             // Gen 2 F
-            foreach ($family1->spouses() as $grandparent) {                          // Gen 2 P
-                foreach ($grandparent->spouseFamilies() as $family2) {               // Gen 2 F
-                    foreach ($family2->children() as $uncleaunt) {                   // Gen 1 P
-                        if($uncleaunt->xref() !== $parent->xref()) {
-                            $this->addIndividualToFamily(new IndividualFamily($uncleaunt, $family2, $parent), $side);
-                        }
+        foreach ($parent->childFamilies() as $parentFamily) {
+            if (!$this->isBiologicalChildInFamily($parent, $parentFamily)) {
+                continue;
+            }
+
+            $this->addFullSiblingsOfParent($parent, $parentFamily, $groupName);
+            $this->addHalfSiblingsOfParent($parent, $parentFamily, $groupName);
+        }
+    }
+
+    /**
+     * Add full siblings of a parent from the same parent-family.
+     *
+     * @param Individual $parent
+     * @param Family $parentFamily
+     * @param string $groupName
+     * @return void
+     */
+    private function addFullSiblingsOfParent(Individual $parent, Family $parentFamily, string $groupName): void
+    {
+        foreach ($parentFamily->children() as $uncleAunt) {
+            if ($uncleAunt->xref() !== $parent->xref() && $this->isBiologicalChildInFamily($uncleAunt, $parentFamily)) {
+                $this->addIndividualToFamily(new IndividualFamily($uncleAunt, $parentFamily, $parent), $groupName);
+            }
+        }
+    }
+
+    /**
+     * Add half siblings of a parent from other families of either grandparent.
+     *
+     * @param Individual $parent
+     * @param Family $parentFamily
+     * @param string $groupName
+     * @return void
+     */
+    private function addHalfSiblingsOfParent(Individual $parent, Family $parentFamily, string $groupName): void
+    {
+        foreach ($parentFamily->spouses() as $grandparent) {
+            foreach ($grandparent->spouseFamilies() as $halfSiblingFamily) {
+                if ($halfSiblingFamily->xref() === $parentFamily->xref()) {
+                    continue;
+                }
+
+                foreach ($halfSiblingFamily->children() as $uncleAunt) {
+                    if ($uncleAunt->xref() !== $parent->xref() && $this->isBiologicalChildInFamily($uncleAunt, $halfSiblingFamily)) {
+                        $this->addIndividualToFamily(new IndividualFamily($uncleAunt, $halfSiblingFamily, $parent), $groupName);
                     }
                 }
             }

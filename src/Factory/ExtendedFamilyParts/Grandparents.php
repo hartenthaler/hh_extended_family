@@ -22,6 +22,8 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Individual;
+
 /**
  * class Grandparents
  *
@@ -42,6 +44,10 @@ class Grandparents extends ExtendedFamilyPart
     public const GROUP_GRANDPARENTS_SOCIAL_FATHER = 'Parents of social father';
     public const GROUP_GRANDPARENTS_SOCIAL_MOTHER = 'Parents of social mother';
     public const GROUP_GRANDPARENTS_SOCIAL_PARENT = 'Parents of social parent';
+    public const GROUP_GRANDPARENTS_SOCIAL_FATHER_STEP = 'Stepparents of social father';
+    public const GROUP_GRANDPARENTS_SOCIAL_MOTHER_STEP = 'Stepparents of social mother';
+    public const GROUP_GRANDPARENTS_SOCIAL_PARENT_STEP = 'Stepparents of social parent';
+    public const GROUP_GRANDPARENTS_STEP_PARENT_STEP   = 'Stepparents of stepparent';
 
     // used for relationshipCoefficientComment
     public const GROUP_GRANDPARENTS_BIO          = 'Biological grandparents';
@@ -66,73 +72,140 @@ class Grandparents extends ExtendedFamilyPart
      */
 
     /**
-     * Find members for this specific extended family part and modify $this->>efpObject
+     * Find members for this specific extended family part and modify $this->>efpObject.
+     *
+     * This part is derived from the parents family part, so biological,
+     * social, and step-parent distinctions are preserved.
      */
     protected function addEfpMembers()
     {
-        $config = new FindBranchConfig(
-            'grandparents',
-            [
-            'bio'  => [
-                        'M' => self::GROUP_GRANDPARENTS_FATHER_BIO,
-                        'F' => self::GROUP_GRANDPARENTS_MOTHER_BIO,
-                        'U' => self::GROUP_GRANDPARENTS_U_BIO,
-                        'X' => self::GROUP_GRANDPARENTS_U_BIO
-                      ],
-            'step' => [
-                        'M' => self::GROUP_GRANDPARENTS_FATHER_STEP,
-                        'F' => self::GROUP_GRANDPARENTS_MOTHER_STEP,
-                        'U' => self::GROUP_GRANDPARENTS_U_STEP,
-                        'X' => self::GROUP_GRANDPARENTS_U_STEP
-                      ],
-            'social' => [
-                        'M' => self::GROUP_GRANDPARENTS_FATHER_SOCIAL,
-                        'F' => self::GROUP_GRANDPARENTS_MOTHER_SOCIAL,
-                        'U' => self::GROUP_GRANDPARENTS_U_SOCIAL,
-                        'X' => self::GROUP_GRANDPARENTS_U_SOCIAL
-                      ]
-            ]
-        );
-        $this->addFamilyBranches($config);
-        $this->addParentsOfSocialParents();
+        $parents = new Parents($this->getProband(), 'all', $this->placeFormat);
 
-        // add biological parents and stepparents of stepparents
-        foreach ($this->findStepparentsIndividuals($this->getProband()) as $stepparent) {
-            foreach ($this->findBioparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-                $grandparent->setReferencePerson(1, $stepparent->getIndividual());
-                $this->addIndividualToFamily($grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS);
-            }
-            foreach ($this->findStepparentsIndividuals($stepparent->getIndividual()) as $grandparent) {
-                $grandparent->setReferencePerson(1, $stepparent->getIndividual());
-                $this->addIndividualToFamily($grandparent, self::GROUP_GRANDPARENTS_STEP_PARENTS);
+        foreach ($parents->getEfpObject()->groups as $group) {
+            foreach ($group->members as $parent) {
+                if ($parent instanceof Individual) {
+                    $this->addGrandparentsForParent($parent, $group->groupName);
+                }
             }
         }
     }
 
     /**
-     * Add parents of social parents without treating them as biological grandparents.
+     * Add parents and stepparents of one parent.
+     *
+     * @param Individual $parent
+     * @param string $parentGroupName
+     * @return void
      */
-    private function addParentsOfSocialParents(): void
+    private function addGrandparentsForParent(Individual $parent, string $parentGroupName): void
     {
-        foreach ($this->findSocialparentsIndividuals($this->getProband()) as $socialParent) {
-            foreach ($this->findParentsIndividuals($socialParent->getIndividual()) as $parent) {
-                $parent->setReferencePerson(1, $socialParent->getIndividual());
-                $this->addIndividualToFamily($parent, $this->socialParentGroupName($socialParent->getIndividual()));
+        if ($parentGroupName === Parents::GROUP_PARENTS_BIO) {
+            foreach ($this->findBioparentsIndividuals($parent) as $grandparent) {
+                $this->addGrandparent($grandparent, $parent, $this->biologicalParentGroupName($parent));
             }
+            foreach ($this->findSocialparentsIndividuals($parent) as $grandparent) {
+                $this->addGrandparent($grandparent, $parent, $this->socialParentOfBiologicalParentGroupName($parent));
+            }
+        } else {
+            foreach ($this->findParentsIndividuals($parent) as $grandparent) {
+                $this->addGrandparent($grandparent, $parent, $this->parentsOfParentGroupName($parent, $parentGroupName));
+            }
+        }
+
+        foreach ($this->findStepparentsIndividuals($parent) as $grandparent) {
+            $this->addGrandparent($grandparent, $parent, $this->stepparentsOfParentGroupName($parent, $parentGroupName));
         }
     }
 
     /**
-     * Get group name for parents of social parents.
+     * Add one grandparent-like person with the parent as reference person.
+     *
+     * @param IndividualFamily $grandparent
+     * @param Individual $parent
+     * @param string $groupName
+     * @return void
      */
-    private function socialParentGroupName($socialParent): string
+    private function addGrandparent(IndividualFamily $grandparent, Individual $parent, string $groupName): void
     {
-        if ($socialParent->sex() === 'M') {
-            return self::GROUP_GRANDPARENTS_SOCIAL_FATHER;
+        $grandparent->setReferencePerson(1, $parent);
+        $this->addIndividualToFamily($grandparent, $groupName);
+    }
+
+    /**
+     * Get the group name for biological parents of one biological parent.
+     *
+     * @param Individual $parent
+     * @return string
+     */
+    private function biologicalParentGroupName(Individual $parent): string
+    {
+        return match ($parent->sex()) {
+            'M'     => self::GROUP_GRANDPARENTS_FATHER_BIO,
+            'F'     => self::GROUP_GRANDPARENTS_MOTHER_BIO,
+            default => self::GROUP_GRANDPARENTS_U_BIO,
+        };
+    }
+
+    /**
+     * Get the group name for social parents of one biological parent.
+     *
+     * @param Individual $parent
+     * @return string
+     */
+    private function socialParentOfBiologicalParentGroupName(Individual $parent): string
+    {
+        return match ($parent->sex()) {
+            'M'     => self::GROUP_GRANDPARENTS_FATHER_SOCIAL,
+            'F'     => self::GROUP_GRANDPARENTS_MOTHER_SOCIAL,
+            default => self::GROUP_GRANDPARENTS_U_SOCIAL,
+        };
+    }
+
+    /**
+     * Get the group name for parents of one social or step parent.
+     *
+     * @param Individual $parent
+     * @param string $parentGroupName
+     * @return string
+     */
+    private function parentsOfParentGroupName(Individual $parent, string $parentGroupName): string
+    {
+        if ($parentGroupName === Parents::GROUP_PARENTS_SOCIAL) {
+            return match ($parent->sex()) {
+                'M'     => self::GROUP_GRANDPARENTS_SOCIAL_FATHER,
+                'F'     => self::GROUP_GRANDPARENTS_SOCIAL_MOTHER,
+                default => self::GROUP_GRANDPARENTS_SOCIAL_PARENT,
+            };
         }
-        if ($socialParent->sex() === 'F') {
-            return self::GROUP_GRANDPARENTS_SOCIAL_MOTHER;
+
+        return self::GROUP_GRANDPARENTS_STEP_PARENTS;
+    }
+
+    /**
+     * Get the group name for stepparents of one parent.
+     *
+     * @param Individual $parent
+     * @param string $parentGroupName
+     * @return string
+     */
+    private function stepparentsOfParentGroupName(Individual $parent, string $parentGroupName): string
+    {
+        if ($parentGroupName === Parents::GROUP_PARENTS_BIO) {
+            return match ($parent->sex()) {
+                'M'     => self::GROUP_GRANDPARENTS_FATHER_STEP,
+                'F'     => self::GROUP_GRANDPARENTS_MOTHER_STEP,
+                default => self::GROUP_GRANDPARENTS_U_STEP,
+            };
         }
-        return self::GROUP_GRANDPARENTS_SOCIAL_PARENT;
+
+        if ($parentGroupName === Parents::GROUP_PARENTS_SOCIAL) {
+            return match ($parent->sex()) {
+                'M'     => self::GROUP_GRANDPARENTS_SOCIAL_FATHER_STEP,
+                'F'     => self::GROUP_GRANDPARENTS_SOCIAL_MOTHER_STEP,
+                default => self::GROUP_GRANDPARENTS_SOCIAL_PARENT_STEP,
+            };
+        }
+
+        return self::GROUP_GRANDPARENTS_STEP_PARENT_STEP;
     }
 }
