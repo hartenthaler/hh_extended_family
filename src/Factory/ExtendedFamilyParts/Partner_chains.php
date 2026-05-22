@@ -22,7 +22,6 @@
 
 /* tbd
  * replace text representation of partner chains by a graphical representation (png/svg)
- * move I18N::translate to tab.phtml
  */
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
@@ -77,7 +76,7 @@ class Partner_chains extends ExtendedFamilyPart
     public const FILTER_LIVING  = 'a living person';
     public const FILTER_MALE    = 'not a male person';
     public const FILTER_FEMALE  = 'not a female person';
-    public const FILTER_UNKNOWN = 'not a person of other or unknown gender';
+    public const FILTER_UNKNOWN = 'not a person of diverse or unknown gender';
 
     /**
      * add members for this specific extended family part and modify $this->efpObject

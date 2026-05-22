@@ -209,3 +209,137 @@
     opacity: 0.6;
     pointer-events: none;    /* verhindert, dass der Button geklickt werden kann */
 }
+
+.hh-extended-family-actions {
+    margin: 0 10px 10px;
+}
+
+.hh-extended-family-print h1 {
+    font-size: 24px;
+    margin: 0 10px 20px;
+}
+
+.hh-extended-family-print-actions {
+    margin: 0 10px 20px;
+}
+
+.hh-extended-family-print-part {
+    clear: both;
+}
+
+@page {
+    size: A4 portrait;
+    margin: 12mm;
+}
+
+@media print {
+    .wt-header-wrapper,
+    .wt-footer,
+    .wt-page-options,
+    .hh-extended-family-print-actions,
+    .hh-extended-family-actions,
+    .d-print-none {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    a,
+    a:visited {
+        color: #000000 !important;
+        text-decoration: none !important;
+    }
+
+    .hh-extended-family-print {
+        font-size: 10pt;
+        padding: 0 !important;
+    }
+
+    .hh-extended-family-print h1 {
+        font-size: 16pt;
+        margin: 0 0 8mm;
+    }
+
+    #_hh_extended_family_ h2,
+    .hh-extended-family-print h2 {
+        break-after: avoid;
+        font-size: 12pt;
+        margin: 5mm 0 1.5mm;
+        padding: 0;
+    }
+
+    #_hh_extended_family_ h3,
+    .hh-extended-family-print h3 {
+        break-after: avoid;
+        font-size: 8.5pt;
+        line-height: 1.25;
+        margin: 1.2mm 0 2mm;
+    }
+
+    #_hh_extended_family_ h4,
+    .hh-extended-family-print h4 {
+        font-size: 9pt;
+        line-height: 1.2;
+        margin: 0 0 1mm;
+        padding: 1mm 0;
+    }
+
+    #_hh_extended_family_ h5,
+    .hh-extended-family-print h5 {
+        break-after: avoid;
+        font-size: 8pt;
+        line-height: 1.2;
+        padding: 1.5mm 0 0.5mm;
+    }
+
+    #hh-extended-family-summary {
+        break-after: avoid;
+        break-inside: avoid;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    #hh_extended_family_content,
+    #hh_extended_family_content_compact {
+        gap: 3mm;
+        grid-template-columns: 1fr !important;
+        margin: 0;
+        overflow: visible;
+        width: 100%;
+    }
+
+    .hh_extended_family_box,
+    .wt-chart-box-m,
+    .wt-chart-box-f,
+    .wt-chart-box-u {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .hh_extended_family_box {
+        padding: 2mm;
+    }
+
+    .hh_extended_family_name,
+    .hh_extended_family_birth_death {
+        line-height: 1.2;
+    }
+
+    .hh_extended_family_parameter,
+    .hh_extended_family_label,
+    .hh_extended_family_label_box {
+        background-color: #eeeeee !important;
+        color: #000000 !important;
+    }
+
+    .hh_extended_family_birth_death {
+        font-size: 8pt;
+    }
+
+    .hh_extended_family_lifespan {
+        font-size: 7pt;
+    }
+}

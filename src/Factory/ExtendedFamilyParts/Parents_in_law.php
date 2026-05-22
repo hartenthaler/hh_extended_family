@@ -20,11 +20,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- * maybe use find...Individuals() instead of foreach-structures
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;

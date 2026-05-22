@@ -20,10 +20,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 /**
@@ -75,7 +71,7 @@ class Co_parents_in_law extends ExtendedFamilyPart
                         }
 
                         foreach ($this->findParentsIndividuals($childInLaw) as $parent) {
-                            $this->addIndividualToFamily(new IndividualFamily($parent->getIndividual(), $family, $child, $childInLaw), $groupName);
+                            $this->addIndividualToFamily(new IndividualFamily($parent->getIndividual(), $parent->getFamily(), $child, $childInLaw), $groupName);
                         }
                     }
                 }

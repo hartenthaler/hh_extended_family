@@ -25,26 +25,24 @@
 
 /*
  * tbd
- * --------------------------  ab hier für das Release 2.2.6.4    ------------------------------------------------*
- * issues "bug": see GitHub
- *
- * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
+ * -------------------------- ab hier für das Release 2.2.6.5 ------------------------------------------------*
  * Test: in Testdatei "komplexe Familie" erscheinen keine Personenbadges (adoptiert, etc)
- * Test: Wenn man ahnen3/W.Bergemanns Großfamilie in den Sammelbehälter legt, werden 4 nicht verbundene Personen in GVExport angezeigt. Warum?
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
- * Test: prüfen ob allCountUnique immer richtig berechnet wird
- * Code: siehe 2x tbd in tab.phtml #1077
- * Übersetzung: Satz umformulieren, da Proband=ohne Namen und ohne Geschlecht => Kurzname="ihn/sie"; Fehler: Die erweiterte von ihn/sie ... => Die erweiterte Familie von ihm/ihr ...
- * README: alle Screenshots aktualisieren
- * Test: Rada testen, gibt es ein Badge?
- * Test: was passiert wenn der webtrees-Sammelbehälter deaktiviert ist?
- * Test und Code-Review: Behandlung von sex = U und sex = X
- * alle tbd im Code aufsammeln und als issue hinterlegen
- * alle auskommentierten Code-Stücke prüfen und ggf. löschen
- * Code: Qualität überprüfen und wichtigste Dinge als issue formulieren
+ * Test: Prüfen, ob allCountUnique immer richtig berechnet wird
+ * Test: Rada testen inkl. Rada-Geschwistern, gibt es ein Badge?
+ * Test: was passiert, wenn der webtrees-Sammelbehälter deaktiviert ist?
+ * Test: Übersetzung bei den Partnern testen bei diversen Fällen mit gemischtem Geschlecht
+ * Test: Stiefcousins (siehe Onkel Walter)
+ * Test: Schwagerehe (etwa Levirat oder Sororat)
+ * Doku:README: alle Screenshots aktualisieren
  *
- * --------------------------  ab hier für ein Release nach 2.2.6.4    ------------------------------------------------
- * Code: neuen webtrees Validator zur Prüfung reinkommender Parameter verwenden (siehe Beispiele Magicsunday Fanchart)
+ * -------------------------- ab hier für ein Release nach 2.2.6.5 ------------------------------------------------
+ * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von
+ *                Partner gemischt sein sollte
+ * Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette
+ *                von Di. zu Ga., d.h. dies als zweite Information ergänzen
+ * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
+ * Code: Qualität überprüfen und wichtigste Dinge als issue formulieren
  * Code: alle noch verwendeten object als Klassen definieren
  * Code: Beziehungsbezeichnungen als Label aus Vesta-Relationship oder durch eigene Funktion ergänzen?
  * Code: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern (siehe issue #46 von Sir Peter)
@@ -52,8 +50,7 @@
  *         Testen, wenn im CSS-Modul nichts eingetragen ist.
  *         Option für thumbnail size? css für silhouette anpassen?
  * Code: Information der Anwender über Neuigkeiten zu diesem Modul?
- * Code: Datenbank-Schema mit Updates einführen, damit man Familienteile auch ändern und löschen kann
- * Code: restliche, verstreut vorkommenden Übersetzungen mit I18N alle nach tab.html verschieben
+ * Code: verstreut vorkommende restliche Übersetzungen mit I18N auf nur wenige Dateien verschieben
  */
 
 declare(strict_types=1);
@@ -64,6 +61,7 @@ use Hartenthaler\Webtrees\Helpers\Functions;
 use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
 use Fisharebest\Localization\Translation;
 use Fisharebest\Webtrees\Auth;
+use Fisharebest\Webtrees\Http\Exceptions\HttpAccessDeniedException;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Registry;
 use Fisharebest\Webtrees\Session;
@@ -129,7 +127,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.3';
+    public const CUSTOM_VERSION     = '2.2.6.4';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
@@ -193,6 +191,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         $configObj->showSummaryStatistics       = $this->showSummaryStatistics();
         $configObj->showEmptyBlock              = $this->showEmptyBlock();
         $configObj->countPartnerChainsToTotal   = $this->countPartnerChainsToTotal();
+        $configObj->showPrintButton             = $this->showPrintButton();
         $configObj->showShortName               = $this->showShortName();
         $configObj->showLabels                  = $this->showLabels();
         $configObj->useCompactDesign            = $this->useCompactDesign();
@@ -204,8 +203,6 @@ class ExtendedFamilyTabModule extends AbstractModule
         $configObj->showThumbnail               = $this->showThumbnail($proband->tree());
         $configObj->sizeThumbnailW              = $this->getSizeThumbnailW();
         $configObj->sizeThumbnailH              = $this->getSizeThumbnailH();
-        //$configObj->name = $this->name();     // nötig, falls Vesta-Module doch genutzt werden sollten
-        //(unklar wie diese Information ins Modul ExtendedFamilyPart.php transferiert werden soll)
         return $configObj;
     }
 
@@ -263,6 +260,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_summary',
             'show_summary_statistics',
             'count_partner_chains',
+            'show_print_button',
             'use_clippings_cart',
             'clippings_cart_action',
         ];
@@ -303,11 +301,12 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     public function postAdminAction(ServerRequestInterface $request): ResponseInterface
     {
-        // tbd: use Validator::parsedBody($request)->string|boolean|...('xxx', ''|true|...);
-        $params = (array) $request->getParsedBody();
+        $save = Validator::parsedBody($request)->string('save', '');
 
         // save the received settings to the user preferences
-        if ($params['save'] === '1') {
+        if ($save === '1') {
+            $params = $this->validatedAdminParameters($request);
+
             if (($params['clippings_cart_action'] ?? '') !== self::CLIPPINGS_CART_ACTION_INTERNAL) {
                 $params['clippings_cart_action'] = self::CLIPPINGS_CART_ACTION_CCE;
             }
@@ -326,6 +325,53 @@ class ExtendedFamilyTabModule extends AbstractModule
             }
         }
         return redirect($this->getConfigLink());
+    }
+
+    /**
+     * Read and validate all settings from the control-panel form.
+     *
+     * @param ServerRequestInterface $request
+     * @return array<string,mixed>
+     */
+    private function validatedAdminParameters(ServerRequestInterface $request): array
+    {
+        $family_parts         = ExtendedFamilySupport::listFamilyParts();
+        $place_format_options = array_map('strval', array_keys(PlaceAbbreviation::abbrPlacesOptions()));
+
+        $params = [
+            'show_filter_options'     => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_filter_options', '0'),
+            'show_empty_block'        => Validator::parsedBody($request)->isInArray(['0', '1', '2'])->string('show_empty_block', '0'),
+            'show_short_name'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_short_name', '0'),
+            'show_labels'             => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_labels', '0'),
+            'show_parameters'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_parameters', '0'),
+            'use_compact_design'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_compact_design', '0'),
+            'place_format'            => Validator::parsedBody($request)->isInArray($place_format_options)->string('place_format', (string) PlaceAbbreviation::OPTION_FULL_PLACE_NAME),
+            'show_summary'            => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary', '0'),
+            'show_summary_statistics' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary_statistics', '0'),
+            'count_partner_chains'    => Validator::parsedBody($request)->isInArray(['0', '1'])->string('count_partner_chains', '0'),
+            'show_print_button'       => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_print_button', '0'),
+            'use_clippings_cart'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_clippings_cart', '0'),
+            'clippings_cart_action'   => Validator::parsedBody($request)->isInArray([self::CLIPPINGS_CART_ACTION_CCE, self::CLIPPINGS_CART_ACTION_INTERNAL])->string('clippings_cart_action', self::CLIPPINGS_CART_ACTION_CCE),
+            'order'                   => [],
+        ];
+
+        foreach (Validator::parsedBody($request)->array('order') as $family_part) {
+            if (in_array($family_part, $family_parts, true)) {
+                $params['order'][] = $family_part;
+            }
+        }
+
+        if ($params['order'] === []) {
+            $params['order'] = $family_parts;
+        }
+
+        foreach ($family_parts as $family_part) {
+            if (Validator::parsedBody($request)->boolean('status-' . $family_part, false)) {
+                $params['status-' . $family_part] = 'on';
+            }
+        }
+
+        return $params;
     }
 
     /**
@@ -392,7 +438,7 @@ class ExtendedFamilyTabModule extends AbstractModule
 
     /**
      * add parts of extended family, which are newly defined
-     * tbd: it is not possible to delete family parts, only add new ones
+     * It is not yet possible to delete family parts, only add new ones. See issue #215.
      *
      * @param array<int,string> $listFamilyParts list of extended family parts defined by this module
      * @param array<int,string> $order list of ordered family parts out of parameters
@@ -460,6 +506,17 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function countPartnerChainsToTotal(): bool
     {
         return ($this->getPreference('count_partner_chains', '0') == '0');
+    }
+
+    /**
+     * should the print/PDF button be shown in the tab
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool
+     */
+    private function showPrintButton(): bool
+    {
+        return ($this->getPreference('show_print_button', '0') == '0');
     }
 
     /**
@@ -717,8 +774,6 @@ class ExtendedFamilyTabModule extends AbstractModule
     /** {@inheritdoc} */
     public function getTabContent(Individual $individual): string
     {
-        /*return view($this->name() . '::test.blade', ['title'=>'Laravel Blade Example']);*/
-
         // use helper function to check if huhwt-cce is accessible in the current user context
         $cce_ok                = $this->canAccessClippingsCartEnhanced($individual);
         $clippings_cart_action = $this->clippingsCartAction();
@@ -737,10 +792,47 @@ class ExtendedFamilyTabModule extends AbstractModule
             'individual'            => $individual,
             'extfam_obj'            => $this->getExtendedFamily($individual),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
-            'cce_ok'                => $cce_ok,
             'clippings_cart_action' => $clippings_cart_action,
             ]);
         }
+
+    /**
+     * Render a print-optimized view of the selected extended-family filter.
+     *
+     * @param ServerRequestInterface $request
+     * @return ResponseInterface
+     */
+    public function getPrintAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $tree = Validator::attributes($request)->tree();
+        $user = Validator::attributes($request)->user();
+        $xref = Validator::queryParams($request)->isXref()->string('xref');
+
+        $individual = Registry::individualFactory()->make($xref, $tree);
+        $individual = Auth::checkIndividualAccess($individual);
+
+        if ($this->accessLevel($tree, ModuleTabInterface::class) < Auth::accessLevel($tree, $user)) {
+            throw new HttpAccessDeniedException();
+        }
+
+        $extfam_obj   = $this->getExtendedFamily($individual);
+        $filterOption = Validator::queryParams($request)->string('filter', 'all');
+
+        if (!isset($extfam_obj->filters[$filterOption])) {
+            $filterOption = 'all';
+        }
+
+        return $this->viewResponse($this->name() . '::print', [
+            'extended_family_css' => route('module', ['module' => $this->name(), 'action' => 'Css']),
+            'extfam_obj'          => $extfam_obj,
+            'filterObj'           => $extfam_obj->filters[$filterOption],
+            'filterOption'        => $filterOption,
+            'individual'          => $individual,
+            'module'              => $this->name(),
+            'title'               => I18N::translate('Extended family') . ': ' . $individual->fullName(),
+            'tree'                => $tree,
+        ]);
+    }
 
     /**
      * Copy the currently selected extended-family filter to the standard webtrees clippings cart.
@@ -750,11 +842,10 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     public function postClippingsCartAction(ServerRequestInterface $request): ResponseInterface
     {
-        $params     = (array) $request->getParsedBody();
         $return_url = Validator::parsedBody($request)->isLocalUrl()->string('return_url', '');
-        $tree_name  = (string) ($params['tree'] ?? '');
-        $xref       = (string) ($params['xref'] ?? '');
-        $filter     = (string) ($params['filter'] ?? 'all');
+        $tree_name  = Validator::parsedBody($request)->string('tree', '');
+        $xref       = Validator::parsedBody($request)->isXref()->string('xref', '');
+        $filter     = Validator::parsedBody($request)->string('filter', 'all');
 
         $tree_service = Functions::getFromContainer(TreeService::class);
         $tree         = $tree_service->all()->get($tree_name);

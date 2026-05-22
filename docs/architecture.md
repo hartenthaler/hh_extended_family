@@ -162,38 +162,23 @@ Derived parts should preferably build on the already calculated primitive or low
 | `partners` | Direct partners of the proband and partners of those partners | Proband spouse families | OK: source-level family part. |
 | `partner_chains` | Recursive partner graph starting at the proband | Proband spouse families | OK: special source-level graph calculation. |
 | `children` | Biological, social, and step children of the proband | Proband spouse families plus `FAMC/PEDI` helper methods | OK: source-level descendant family part. |
-| `grandchildren` | Children, social children, and stepchildren of the `children` groups | `children` | Direct: currently repeats child and stepchild traversal from the proband's spouse families. Candidate for refactoring to the `children` basis. |
+| `grandchildren` | Children, social children, and stepchildren of the `children` groups | `children` | OK: already uses `Children` as basis and preserves biological, social, and step-child distinctions. |
 | `great_grandchildren` | Children and stepchildren of the `grandchildren` groups | `grandchildren` | OK: already uses `Grandchildren` as basis. |
 | `parents_in_law` | Parents of the proband's direct partners | `partners` | OK: uses direct partner helper results plus the shared biological, social, and stepparent helper methods. |
 | `co_parents_in_law` | Parents of the partners of the proband's children | `children` | OK: already uses `Children` as basis. |
-| `children_in_law` | Partners of the proband's biological, social, and step children | `children` | Direct: currently rebuilds child and stepchild traversal itself. Candidate for refactoring to the `children` basis. |
+| `children_in_law` | Partners of the proband's biological, social, and step children | `children` | OK: already uses `Children` as basis and preserves biological, social, and step-child distinctions. |
 | `grandchildren_in_law` | Partners of the persons in the `grandchildren` groups | `grandchildren` | OK: already uses `Grandchildren` as basis. |
 | `great_grandchild_in_law` | Partners of the persons in the `great_grandchildren` groups | `great_grandchildren` | OK: already uses `Great_grandchildren` as basis. |
-| `siblings` | Full, half, social, and step siblings of the proband | `parents` | Direct: currently reads the proband's child families and related parent families itself. Candidate for refactoring to the `parents` basis. |
-| `siblings_in_law` | Partners of siblings and siblings of partners | `siblings` and `partners` | Direct: currently rebuilds sibling and partner-side traversal itself. Candidate for refactoring. |
-| `co_siblings_in_law` | Siblings of siblings' partners and partners of partners' siblings | `siblings_in_law` / `siblings` and `partners` | Direct: currently performs its own multi-step traversal. Candidate for refactoring after `siblings_in_law`. |
+| `siblings` | Full, half, social, and step siblings of the proband | `parents` | OK: already uses `Parents` as basis and preserves biological, social, and step-parent distinctions. |
+| `siblings_in_law` | Partners of siblings and siblings of partners | `siblings` and direct partners | OK: already uses `Siblings` as basis for the proband side and for each direct partner, preserving full, half, social, and step-sibling distinctions as far as `Siblings` provides them. |
+| `co_siblings_in_law` | Siblings of siblings' partners and partners of partners' siblings | `siblings_in_law` and `siblings` | OK: already uses `Siblings_in_law` as basis, then derives siblings through `Siblings` and partners through direct spouse-family links. |
 | `uncles_and_aunts` | Siblings and half siblings of the proband's parent groups | `parents` | OK: already uses `Parents` as basis and preserves biological, social, and step-parent distinctions. |
 | `uncles_and_aunts_bm` | Partners of the persons in `uncles_and_aunts` | `uncles_and_aunts` | OK: already uses `Uncles_and_aunts` as basis and preserves its group distinctions. |
-| `cousins` | Children of the persons in `uncles_and_aunts` | `uncles_and_aunts` | Partly direct: currently uses branch helpers based on biological parents. Candidate for refactoring to preserve social and step-side labels. |
-| `nephews_and_nieces` | Children of siblings and children of siblings-in-law | `siblings` and `siblings_in_law` | Direct: currently performs its own parent/sibling/partner traversal. Candidate for refactoring so source sibling partnerships are reused consistently. |
+| `cousins` | Children of the persons in `uncles_and_aunts` | `uncles_and_aunts` | OK: already uses `Uncles_and_aunts` as basis and preserves biological, social, step-parent, full-sibling, and half-sibling distinctions. |
+| `nephews_and_nieces` | Children of siblings and children of siblings-in-law | `siblings` and `siblings_in_law` | OK: already uses `Siblings` for children and stepchildren of siblings, and `Siblings_in_law` for children of partners' siblings. |
 
 The former highest-risk direct builders that started from `$this->getProband()->childFamilies()->first()` have been consolidated:
 `uncles_and_aunts`, `uncles_and_aunts_bm`, and `parents_in_law`.
-
-### Consolidation next steps
-
-The next consolidation work should keep derived family parts on top of already calculated lower-distance parts.
-This avoids repeating traversal logic and helps biological, social, step, and in-law distinctions propagate consistently.
-
-Recommended order:
-
-1. `children_in_law`: derive partners from the `children` groups instead of rebuilding child and stepchild traversal.
-2. `grandchildren`: derive children, social children, and stepchildren from the `children` groups.
-3. `cousins`: derive children from the `uncles_and_aunts` groups so social and step-side labels are preserved.
-4. `siblings`: derive sibling groups from the `parents` groups, using the same full/half/social/step sibling rules.
-5. `siblings_in_law`: derive partners of siblings from `siblings` and siblings of partners from `partners`.
-6. `co_siblings_in_law`: derive from the consolidated `siblings_in_law`, `siblings`, and `partners` results.
-7. Review the remaining shared branch helpers after the direct builders above have been consolidated; remove obsolete branch-only code when no family part uses it anymore.
 
 ### Administrative degree map
 
@@ -203,7 +188,8 @@ It is a local selection aid for family parts.
 
 The core family has degree 1:
 parents, children, siblings, and partners.
-The partner-chain family part is a special case and has administrative degree 2, although individual members of a partner chain may later receive their exact person-level degree.
+The partner-chain family part is a special case and has administrative degree 2,
+although individual members of a partner chain may later receive their exact person-level degree.
 
 | Family part | Administrative degree | Rationale |
 | --- | ---: | --- |
@@ -271,11 +257,38 @@ The calculation and views use this object instead of reading preferences directl
 The user-facing tab is rendered by `resources/views/tab.phtml`.
 The control-panel settings page is rendered by `resources/views/settings.phtml`.
 
+### Tab view rendering map
+
+`resources/views/tab.phtml` renders each configured family part in two stages:
+first the summary text for the family part, then the grouped member list.
+The summary stage currently remains in `tab.phtml` and has a dedicated branch for every configured family-part key.
+The member-list stage is delegated to `resources/views/partials/family-part-members.phtml`, which selects a renderer partial.
+
+The table below was checked against `ExtendedFamilySupport::getFamilyPartParameters()`
+and the `family-part-members.phtml` renderer dispatch.
+
+| Rendering pattern | Renderer partial | Family parts | Grouping / heading basis |
+| --- | --- | --- | --- |
+| Dedicated partners branch | `partials/family-part-renderers/partners.phtml` | `partners` | Groups by partner / partner-of-partner reference person; heading is "Partner of ..." |
+| Dedicated partner-chains branch | `partials/family-part-renderers/partner-chains.phtml` | `partner_chains` | Renders partner chains as chain segments; this part does not use named groups. |
+| Dedicated parents-in-law branch | `partials/family-part-renderers/parents-in-law.phtml` | `parents_in_law` | Groups by the proband's partner partnership, then by the partner's parent family. |
+| Shared reference-person branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/reference-person.phtml` | `siblings_in_law`, `uncles_and_aunts_bm` | Groups by reference person; headings distinguish sibling, partner, and partnership context. |
+| Dedicated nephews-and-nieces reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/nephews-and-nieces.phtml` | `nephews_and_nieces` | Groups by sibling or sibling-in-law reference person; for partners' siblings it also uses a second reference person. |
+| Dedicated children-in-law reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/children-in-law.phtml` | `children_in_law` | Groups by child reference person and child relationship type; member labels show the partner status. |
+| Shared family / reference-family branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/family-reference.phtml` | `great_grandparents`, `grandparents`, `uncles_and_aunts`, `parents`, `co_parents_in_law`, `grandchildren_in_law`, `great_grandchild_in_law` | Groups by stored family and, where available, reference person; headings describe parent, grandparent, stepparent, in-law, or uncle/aunt context. |
+| Dedicated co-siblings-in-law reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/co-siblings-in-law.phtml` | `co_siblings_in_law` | Groups by sibling-in-law reference person; headings distinguish siblings of siblings-in-law from partners of siblings-in-law. |
+| Shared child-family branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/child-family.phtml` | `siblings`, `cousins`, `children`, `grandchildren`, `great_grandchildren` | Groups by each member's displayed parent family; step-grandchildren also show the connected child reference. |
+
+The summary branches were intentionally left in `tab.phtml` for this refactoring step.
+They are verbose, but they are a separate concern from member-list rendering and carry many translation strings.
+If they are extracted later, they should move into a dedicated `family-part-summary.phtml` dispatcher rather than into the member-list renderer partials.
+The empty-family-part message is already isolated in `partials/empty-family-part.phtml`.
+
 The settings page contains a sortable family-part table.
 The ordering is persisted through module preferences and later used when the tab creates family parts.
 
 Family-part boxes are rendered in a responsive grid.
-The number of columns is derived from the maximum number of subgroups that need to be shown, instead of assuming a fixed three-column layout.
+The number of columns is derived from the maximum number of subgroups that need to be shown.
 
 The settings page also controls whether users see the clippings-cart button.
 When huhwt-cce is available, administrators can choose between huhwt-cce and the internal Extended Family action.

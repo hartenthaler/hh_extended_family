@@ -20,10 +20,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;
@@ -35,8 +31,9 @@ use Fisharebest\Webtrees\Individual;
  */
 class Children_in_law extends ExtendedFamilyPart
 {
-    public const GROUP_CHILDRENINLAW_BIO  = 'Partners of biological children';
-    public const GROUP_CHILDRENINLAW_STEP = 'Partners of stepchildren';
+    public const GROUP_CHILDRENINLAW_BIO    = 'Partners of biological children';
+    public const GROUP_CHILDRENINLAW_SOCIAL = 'Partners of social children';
+    public const GROUP_CHILDRENINLAW_STEP   = 'Partners of stepchildren';
 
     /**
      * @var object $_efpObject data structure for this extended family part
@@ -63,31 +60,49 @@ class Children_in_law extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
-            foreach ($family1->children() as $child) {                                          // Gen -1 P
-                foreach ($child->spouseFamilies() as $family2) {                                // Gen -1 F
-                    foreach ($family2->spouses() as $child_in_law) {                            // Gen -1 P
-                        if ($child_in_law->xref() !== $child->xref()) {
-                            $this->addIndividualToFamily(new IndividualFamily($child_in_law, $family1, $child), self::GROUP_CHILDRENINLAW_BIO);
-                        }
-                    }
+        $children = new Children($this->getProband(), 'all', $this->placeFormat);
+
+        foreach ($children->getEfpObject()->groups as $group) {
+            $groupName = $this->childrenInLawGroupName($group->groupName);
+
+            foreach ($group->members as $child) {
+                if ($child instanceof Individual) {
+                    $this->addPartnersOfChild($child, $groupName);
                 }
             }
         }
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  0 F
-                    foreach ($family2->children() as $stepchild) {                              // Gen -1 P
-                        foreach ($stepchild->spouseFamilies() as $family3) {                    // Gen -1 F
-                            foreach ($family3->spouses() as $stepchild_in_law) {                // Gen -1 P
-                                if ($stepchild_in_law->xref() !== $stepchild->xref()) {
-                                    $this->addIndividualToFamily(new IndividualFamily($stepchild_in_law, $family1, $stepchild), self::GROUP_CHILDRENINLAW_STEP);
-                                }
-                            }
-                        }
-                    }
+    }
+
+    /**
+     * Add direct partners of one child.
+     *
+     * @param Individual $child
+     * @param string $groupName
+     * @return void
+     */
+    private function addPartnersOfChild(Individual $child, string $groupName): void
+    {
+        foreach ($child->spouseFamilies() as $family) {
+            foreach ($family->spouses() as $partner) {
+                if ($partner->xref() !== $child->xref()) {
+                    $this->addIndividualToFamily(new IndividualFamily($partner, $family, $child), $groupName);
                 }
             }
         }
+    }
+
+    /**
+     * Get the corresponding children-in-law group name for a children group.
+     *
+     * @param string $childGroupName
+     * @return string
+     */
+    private function childrenInLawGroupName(string $childGroupName): string
+    {
+        return match ($childGroupName) {
+            Children::GROUP_CHILDREN_SOCIAL => self::GROUP_CHILDRENINLAW_SOCIAL,
+            Children::GROUP_CHILDREN_STEP   => self::GROUP_CHILDRENINLAW_STEP,
+            default                         => self::GROUP_CHILDRENINLAW_BIO,
+        };
     }
 }

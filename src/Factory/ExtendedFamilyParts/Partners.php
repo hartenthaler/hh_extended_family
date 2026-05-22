@@ -47,6 +47,7 @@ class Partners extends ExtendedFamilyPart
      *
      * special for this extended family part:
      *   ->groups[]->members[]          array of object Individual   (index of groups is "spouse->xref()")
+     *             ->familiesStatus[]   string
      *             ->partner            object Individual
      *   ->pCount                       int
      *   ->pmaleCount                   int
@@ -66,12 +67,12 @@ class Partners extends ExtendedFamilyPart
         foreach ($this->getProband()->spouseFamilies() as $family1) {                                   // Gen  0 F
             foreach ($family1->spouses() as $spouse1) {                                                 // Gen  0 P
                 if ($spouse1->xref() !== $this->getProband()->xref()) {
-                    $this->addIndividualToFamily(new IndividualFamily($spouse1, null, $this->getProband()));
+                    $this->addIndividualToFamily(new IndividualFamily($spouse1, $family1, $this->getProband()));
                 }
                 foreach ($spouse1->spouseFamilies() as $family2) {                                      // Gen  0 F
                     foreach ($family2->spouses() as $spouse2) {                                         // Gen  0 P
                         if ($spouse2->xref() !== $spouse1->xref() && $spouse2->xref() !== $this->getProband()->xref()) {
-                            $this->addIndividualToFamily(new IndividualFamily($spouse2, null, $spouse1));
+                            $this->addIndividualToFamily(new IndividualFamily($spouse2, $family2, $spouse1));
                         }
                     }
                 }
@@ -98,7 +99,11 @@ class Partners extends ExtendedFamilyPart
      */
     protected function addIndividualToFamily(IndividualFamily $indifam, string $groupName = '')
     {
-         $this->addIndividualToFamilyAsPartner($indifam->getIndividual(), $indifam->getReferencePersons()[1]);
+         $familyStatus = $indifam->getFamily() === null
+             ? ExtendedFamilySupport::FAM_STATUS_PARTNERSHIP
+             : ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
+
+         $this->addIndividualToFamilyAsPartner($indifam->getIndividual(), $indifam->getReferencePersons()[1], $familyStatus);
     }
 
     /**
@@ -106,8 +111,9 @@ class Partners extends ExtendedFamilyPart
      *
      * @param Individual $individual
      * @param Individual $spouse to which these partners are belonging
+     * @param string $familyStatus
      */
-    private function addIndividualToFamilyAsPartner(Individual $individual, Individual $spouse)
+    private function addIndividualToFamilyAsPartner(Individual $individual, Individual $spouse, string $familyStatus)
     {
         if ( array_key_exists($spouse->xref(), $this->efpObject->groups)) {    // check if this spouse is already stored as group in this part of the extended family
             foreach ($this->efpObject->groups[$spouse->xref()]->members as $member) {                                // check if individual is already a partner of this partner
@@ -116,10 +122,12 @@ class Partners extends ExtendedFamilyPart
                 }
             }
             $this->efpObject->groups[$spouse->xref()]->members[] = $individual;
+            $this->efpObject->groups[$spouse->xref()]->familiesStatus[] = $familyStatus;
             $this->efpObject->groups[$spouse->xref()]->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
         } else {                                                                // generate new group of partners
             $newObj = (object)[];
             $newObj->members[] = $individual;
+            $newObj->familiesStatus[] = $familyStatus;
             $newObj->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
             $newObj->partner = $spouse;
             $this->efpObject->groups[$spouse->xref()] = $newObj;

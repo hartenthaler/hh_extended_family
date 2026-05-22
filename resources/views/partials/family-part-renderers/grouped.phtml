@@ -1,0 +1,68 @@
+<?php
+
+use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandchildren;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
+
+/**
+ * @var object     $coreLabels
+ * @var object     $extfam_obj
+ * @var object     $filterObj
+ * @var Individual $individual
+ * @var string     $propName
+ */
+
+?>
+
+        <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
+            <div class="hh_extended_family_box">
+                <h4><?= ExtendedFamilySupport::translateGroupName($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
+                <?php $prev_id = -1; $prev_id1 = -1; $prev_id2 = -1; ?>
+                <?php  foreach ($group->members as $key => $indi) : ?>
+                    <?php if ($propName == 'siblings_in_law' || $propName == 'uncles_and_aunts_bm') : ?>
+                        <?php include __DIR__ . '/grouped-headings/reference-person.phtml'; ?>
+                    <?php elseif ($propName == 'nephews_and_nieces') : ?>
+                        <?php include __DIR__ . '/grouped-headings/nephews-and-nieces.phtml'; ?>
+                    <?php elseif ($propName == 'children_in_law'): ?>
+                        <?php include __DIR__ . '/grouped-headings/children-in-law.phtml'; ?>
+                    <?php elseif ($propName == 'great_grandparents' || $propName == 'grandparents' || $propName == 'uncles_and_aunts' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'grandchildren_in_law' || $propName == 'great_grandchild_in_law'): ?>
+                        <?php include __DIR__ . '/grouped-headings/family-reference.phtml'; ?>
+                    <?php elseif ($propName == 'co_siblings_in_law'): ?>
+                        <?php include __DIR__ . '/grouped-headings/co-siblings-in-law.phtml'; ?>
+                    <?php elseif ($propName == 'siblings' || $propName == 'cousins' || $propName == 'children' || $propName == 'grandchildren' || $propName == 'great_grandchildren'): ?>
+                        <?php include __DIR__ . '/grouped-headings/child-family.phtml'; ?>
+                    <?php endif ?>
+                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                        <?php if ($indi->canShow()): ?>
+                            <?php if ($extfam_obj->config->showThumbnail): ?>
+                                <div class="wt-chart-box-thumbnail float-start mr-1"><?= $indi->displayImage($extfam_obj->config->sizeThumbnailW, $extfam_obj->config->sizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                            <?php endif ?>
+                            <span class="hh_extended_family_counter"><?= $i ?></span>
+                            <?php $relationshipName = ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) ?>
+                            <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $indi->fullName() ?></a></span>
+                            <?php if ($extfam_obj->config->useCompactDesign): ?>
+                                <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                            <?php else: ?>
+                                <span class="hh_extended_family_birth_death">
+                                    <?= $group->vitalEventsSummaries[$key] ?? '' ?>
+                                </span>
+                            <?php endif ?>
+                            <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
+                                <?php foreach ($group->labels[$key] as $label): ?>
+                                    <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        <?php else: ?>
+                            <span class="hh_extended_family_counter"><?= $i ?></span>
+                            <?php if ($propName == 'children_in_law'): ?>
+                                <span class="hh_extended_family_label_box"><?= ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key]) ?></span>&nbsp;
+                            <?php endif ?>
+                            <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
+                        <?php endif ?>
+                    </div>
+                <?php $i++; endforeach ?>
+            </div>
+        <?php endforeach ?>

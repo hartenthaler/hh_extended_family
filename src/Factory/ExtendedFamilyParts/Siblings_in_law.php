@@ -20,10 +20,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;
@@ -63,29 +59,55 @@ class Siblings_in_law extends ExtendedFamilyPart
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->childFamilies() as $family1) {                            // Gen  1 F
-            foreach ($family1->children() as $sibling_full) {                                   // Gen  0 P
-                if ($sibling_full->xref() !== $this->getProband()->xref()) {
-                    foreach ($sibling_full->spouseFamilies() as $family2) {                     // Gen  0 F
-                        foreach ($family2->spouses() as $spouse) {                              // Gen  0 P
-                            if ($spouse->xref() !== $sibling_full->xref()) {
-                                $this->addIndividualToFamily(new IndividualFamily($spouse, $family2, $sibling_full), self::GROUP_SIBLINGSINLAW_POFSIB);
-                            }
-                        }
-                    }
+        $siblings = new Siblings($this->getProband(), 'all', $this->placeFormat);
+
+        foreach ($siblings->getEfpObject()->groups as $group) {
+            foreach ($group->members as $sibling) {
+                if ($sibling instanceof Individual) {
+                    $this->addPartnersOfSibling($sibling);
                 }
             }
         }
-        foreach ($this->getProband()->spouseFamilies() as $family1) {                           // Gen  0 F
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  0 P
-                if ($spouse1->xref() !== $this->getProband()->xref()) {
-                    foreach ($spouse1->childFamilies() as $family2) {                           // Gen  1 F
-                        foreach ($family2->children() as $sibling) {                            // Gen  0 P
-                            if ($sibling->xref() !== $spouse1->xref()) {
-                                $this->addIndividualToFamily(new IndividualFamily($sibling, $family1, $spouse1), self::GROUP_SIBLINGSINLAW_SIBOFP);
-                            }
-                        }
-                    }
+
+        foreach ($this->findPartnersIndividuals($this->getProband()) as $partner) {
+            $this->addSiblingsOfPartner($partner);
+        }
+    }
+
+    /**
+     * Add direct partners of one sibling.
+     *
+     * @param Individual $sibling
+     * @return void
+     */
+    private function addPartnersOfSibling(Individual $sibling): void
+    {
+        foreach ($sibling->spouseFamilies() as $family) {
+            foreach ($family->spouses() as $partner) {
+                if ($partner->xref() !== $sibling->xref()) {
+                    $this->addIndividualToFamily(new IndividualFamily($partner, $family, $sibling), self::GROUP_SIBLINGSINLAW_POFSIB);
+                }
+            }
+        }
+    }
+
+    /**
+     * Add siblings of one direct partner.
+     *
+     * @param IndividualFamily $partner
+     * @return void
+     */
+    private function addSiblingsOfPartner(IndividualFamily $partner): void
+    {
+        $siblingsOfPartner = new Siblings($partner->getIndividual(), 'all', $this->placeFormat);
+
+        foreach ($siblingsOfPartner->getEfpObject()->groups as $group) {
+            foreach ($group->members as $sibling) {
+                if ($sibling instanceof Individual) {
+                    $this->addIndividualToFamily(
+                        new IndividualFamily($sibling, $partner->getFamily(), $partner->getIndividual()),
+                        self::GROUP_SIBLINGSINLAW_SIBOFP
+                    );
                 }
             }
         }

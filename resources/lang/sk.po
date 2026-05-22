@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
-"POT-Creation-Date: 2026-05-22 10:54+0200\n"
+"POT-Creation-Date: 2026-05-23 00:25+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -16,12 +16,12 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2,3;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:321
+#: ExtendedFamilyTabModule.php:320
 #, php-format
 msgid "The preferences for the module “%s” have been updated."
 msgstr "Predvoľby modulu \"%s\" boli uložené."
 
-#: ExtendedFamilyTabModule.php:596
+#: ExtendedFamilyTabModule.php:653
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “copy to "
 "clippings cart” will use the internal Extended Family action."
@@ -29,884 +29,1084 @@ msgstr ""
 "Užívateľský modul “huhwt-cce” nie je prístupný. Tlačidlo \"kopírovať do "
 "schránky výstrižkov\" použije internú akciu modulu širšia rodina."
 
-#: ExtendedFamilyTabModule.php:763
+# Migrated from ExtendedFamilyTranslations.php.old
+#: ExtendedFamilyTabModule.php:832
+msgid "Extended family"
+msgstr "Širšia rodina"
+
+#: ExtendedFamilyTabModule.php:854
 msgid "The selected tree could not be found."
 msgstr "Zvolený rodokmeň sa nenašiel."
 
-#: ExtendedFamilyTabModule.php:770
+#: ExtendedFamilyTabModule.php:861
 msgid "The selected individual could not be found."
 msgstr "Zvolená osoba sa nenašla."
 
-#: ExtendedFamilyTabModule.php:795
+#: ExtendedFamilyTabModule.php:886
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"
 msgstr "Širšia rodina sa skopírovala do schránky výstrižkov. Nové záznamy: %s"
 
+#: src/Factory/Objects/ExtendedFamilySupport.php:86
+msgid "Brother"
+msgstr "Brat"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:87
+msgid "Child"
+msgstr "Dieťa"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:88
+msgid "Daughter"
+msgstr "Dcéra"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:89
+msgid "Sibling"
+msgstr "Súrodenec"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:90
+msgid "Sister"
+msgstr "Sestra"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:91
+msgid "Son"
+msgstr "Syn"
+
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:361
-msgid "linkage challenged"
+#: src/Factory/Objects/ExtendedFamilySupport.php:446
+msgid "Linkage challenged"
 msgstr "vzťah spochybnené"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:364
-msgid "linkage disproven"
+#: src/Factory/Objects/ExtendedFamilySupport.php:449
+msgid "Linkage disproven"
 msgstr "vzťa vyvrátený"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:367
-msgid "linkage proven"
+#: src/Factory/Objects/ExtendedFamilySupport.php:452
+msgid "Linkage proven"
 msgstr "vzťah potvrdený"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:414
-msgid "twin"
+#: src/Factory/Objects/ExtendedFamilySupport.php:498
+msgid "Twin"
 msgstr "dvojča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:415
-msgid "triplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:499
+msgid "Triplet"
 msgstr "trojča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:416
-msgid "quadruplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:500
+msgid "Quadruplet"
 msgstr "štvorča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:417
-msgid "quintuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:501
+msgid "Quintuplet"
 msgstr "pätorča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:418
-msgid "sextuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:502
+msgid "Sextuplet"
 msgstr "šestorča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:419
-msgid "septuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:503
+msgid "Septuplet"
 msgstr "sedmorča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:420
-msgid "octuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:504
+msgid "Octuplet"
 msgstr "osmorča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:421
-msgid "nonuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:505
+msgid "Nonuplet"
 msgstr "devätorča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:422
-msgid "decuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:506
+msgid "Decuplet"
 msgstr "desatorča"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:441
-msgid "stillborn"
+#: src/Factory/Objects/ExtendedFamilySupport.php:524
+msgid "Stillborn"
 msgstr "mŕtvo narodené"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:444
-msgid "died as infant"
+#: src/Factory/Objects/ExtendedFamilySupport.php:527
+msgid "Died as infant"
 msgstr "zomrel/a ako dieťa"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:481
+#: src/Factory/Objects/ExtendedFamilySupport.php:564
 msgid "divorced"
 msgstr ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:482
+#: src/Factory/Objects/ExtendedFamilySupport.php:565
 #, fuzzy
 #| msgid "Ex-marriage"
 msgid "married"
 msgstr "Rozvedené manželstvo"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:483
+#: src/Factory/Objects/ExtendedFamilySupport.php:566
 msgid "engaged"
 msgstr ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:484
+#: src/Factory/Objects/ExtendedFamilySupport.php:567
 #, fuzzy
 #| msgid "Partners"
 msgid "partners"
 msgstr "Partneri"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:498
+#: src/Factory/Objects/ExtendedFamilySupport.php:581
 msgid "Ex-marriage"
 msgstr "Rozvedené manželstvo"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:499
+#: src/Factory/Objects/ExtendedFamilySupport.php:582
 msgid "Marriage"
 msgstr "Manželstvo"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:500
+#: src/Factory/Objects/ExtendedFamilySupport.php:583
 msgid "Fiancée"
 msgstr "Zasnúbenie"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:501
+#: src/Factory/Objects/ExtendedFamilySupport.php:584
 msgid "Partnership"
 msgstr "Partnerstvo"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:515
+#: src/Factory/Objects/ExtendedFamilySupport.php:598
 msgid "divorced partner"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:516
+#: src/Factory/Objects/ExtendedFamilySupport.php:599
 msgid "married partner"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:517
+#: src/Factory/Objects/ExtendedFamilySupport.php:600
 msgid "engaged partner"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:518
+#: src/Factory/Objects/ExtendedFamilySupport.php:601
 #, fuzzy
 #| msgid "Partner"
 msgid "partner"
 msgstr "Partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:574
+#: src/Factory/Objects/ExtendedFamilySupport.php:657
 #, fuzzy
 #| msgid "Brother"
 msgid "Half-brother"
 msgstr "Brat"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:575
+#: src/Factory/Objects/ExtendedFamilySupport.php:658
 msgid "Half-sister"
 msgstr ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:576
+#: src/Factory/Objects/ExtendedFamilySupport.php:659
 #, fuzzy
 #| msgid "Half siblings"
 msgid "Half-sibling"
 msgstr "Poloviční súrodenci"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:641
+#: src/Factory/Objects/ExtendedFamilySupport.php:724
 msgid "Great-grandparents"
 msgstr "Prastarí rodičia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:642
+#: src/Factory/Objects/ExtendedFamilySupport.php:725
 msgid "Grandparents"
 msgstr "Starí rodičia"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:643
+#: src/Factory/Objects/ExtendedFamilySupport.php:726
 msgid "Uncles and Aunts"
 msgstr "Strýkovia a tety"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:644
+#: src/Factory/Objects/ExtendedFamilySupport.php:727
 msgid "Uncles and Aunts by marriage"
 msgstr "Strýkovia a tety získané sobášom"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:645
+#: src/Factory/Objects/ExtendedFamilySupport.php:728
 msgid "Parents"
 msgstr "Rodičia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:646
+#: src/Factory/Objects/ExtendedFamilySupport.php:729
 msgid "Parents-in-law"
 msgstr "Svokrovci"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:647
+#: src/Factory/Objects/ExtendedFamilySupport.php:730
 msgid "Co-parents-in-law"
 msgstr "Svatovci"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:648
+#: src/Factory/Objects/ExtendedFamilySupport.php:731
 msgid "Partners"
 msgstr "Partneri"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:649
+#: src/Factory/Objects/ExtendedFamilySupport.php:732
 msgid "Partner chains"
 msgstr "Zreťazenie partnerov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:650
+#: src/Factory/Objects/ExtendedFamilySupport.php:733
 msgid "Siblings"
 msgstr "Súrodenci"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:651
+#: src/Factory/Objects/ExtendedFamilySupport.php:734
 msgid "Siblings-in-law"
 msgstr "Švagriné a švagrovia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:652
+#: src/Factory/Objects/ExtendedFamilySupport.php:735
 msgid "Co-siblings-in-law"
 msgstr "Súrodenci a manželia švagrov a švagrín"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:653
+#: src/Factory/Objects/ExtendedFamilySupport.php:736
 msgid "Cousins"
 msgstr "Bratranci a sesternice"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:654
+#: src/Factory/Objects/ExtendedFamilySupport.php:737
 msgid "Nephews and Nieces"
 msgstr "Synovci a netere"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:655
+#: src/Factory/Objects/ExtendedFamilySupport.php:738
 msgid "Children"
 msgstr "Deti"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:656
+#: src/Factory/Objects/ExtendedFamilySupport.php:739
 msgid "Children-in-law"
 msgstr "Nevesty a zaťovia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:657
+#: src/Factory/Objects/ExtendedFamilySupport.php:740
 msgid "Grandchildren"
 msgstr "Vnúčatá"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:658
+#: src/Factory/Objects/ExtendedFamilySupport.php:741
 #, fuzzy
 #| msgid "Grandchildren"
 msgid "Great-grandchildren"
 msgstr "Vnúčatá"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:659
+#: src/Factory/Objects/ExtendedFamilySupport.php:742
 msgid "Grandchildren-in-law"
 msgstr "Partneri vnúčat"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:660
+#: src/Factory/Objects/ExtendedFamilySupport.php:743
 #, fuzzy
 #| msgid "Grandchildren-in-law"
 msgid "Great-grandchildren-in-law"
 msgstr "Partneri vnúčat"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:674
+#: src/Factory/Objects/ExtendedFamilySupport.php:757
 msgid "Biological great-grandparents"
 msgstr "Biologickí prarodičia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:675
+#: src/Factory/Objects/ExtendedFamilySupport.php:758
 msgid "Biological grandparents"
 msgstr "Biologickí starí rodičia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:676
+#: src/Factory/Objects/ExtendedFamilySupport.php:759
 msgid "Full siblings of biological parents"
 msgstr "Pokrvní súrodenci biologických rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:677
+#: src/Factory/Objects/ExtendedFamilySupport.php:760
 msgid "Biological parents"
 msgstr "Biologickí rodičia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:678
+#: src/Factory/Objects/ExtendedFamilySupport.php:761
 msgid "Full siblings"
 msgstr "Súrodenci"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:679
+#: src/Factory/Objects/ExtendedFamilySupport.php:762
 msgid "Children of full siblings of biological parents"
 msgstr "Deti súrodencov biologických rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:680
+#: src/Factory/Objects/ExtendedFamilySupport.php:763
 msgid "Children of full siblings"
 msgstr "Deti vlastných súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:681
+#: src/Factory/Objects/ExtendedFamilySupport.php:764
 msgid "Biological children"
 msgstr "Biologické deti"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:682
+#: src/Factory/Objects/ExtendedFamilySupport.php:765
 msgid "Biological grandchildren"
 msgstr "Biologické vnúčatá"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:683
+#: src/Factory/Objects/ExtendedFamilySupport.php:766
+#: src/Factory/Objects/ExtendedFamilySupport.php:865
 #, fuzzy
 #| msgid "Biological grandchildren"
 msgid "Biological great-grandchildren"
 msgstr "Biologické vnúčatá"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:697
+#: src/Factory/Objects/ExtendedFamilySupport.php:780
 msgid "Biological grandparents of father"
 msgstr "Biologickí starí rodičia otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:698
+#: src/Factory/Objects/ExtendedFamilySupport.php:781
 msgid "Biological grandparents of mother"
 msgstr "Biologickí starí rodičia matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:699
+#: src/Factory/Objects/ExtendedFamilySupport.php:782
 msgid "Biological grandparents of parent"
 msgstr "Biologickí starí rodičia rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:700
+#: src/Factory/Objects/ExtendedFamilySupport.php:783
 msgid "Stepparents of biological parent of father"
 msgstr "Nevlastní rodičia biologického rodiča otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:701
+#: src/Factory/Objects/ExtendedFamilySupport.php:784
 msgid "Stepparents of biological parent of mother"
 msgstr "Nevlastní rodičia biologického rodiča matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:702
+#: src/Factory/Objects/ExtendedFamilySupport.php:785
 msgid "Stepparents of biological grandparent"
 msgstr "Nevlastní rodičia bilogického starého rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:703
+#: src/Factory/Objects/ExtendedFamilySupport.php:786
 #, fuzzy
 #| msgid "Stepparents of biological parent of father"
 msgid "Social parents of biological parent of father"
 msgstr "Nevlastní rodičia biologického rodiča otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:704
+#: src/Factory/Objects/ExtendedFamilySupport.php:787
 #, fuzzy
 #| msgid "Stepparents of biological parent of mother"
 msgid "Social parents of biological parent of mother"
 msgstr "Nevlastní rodičia biologického rodiča matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:705
+#: src/Factory/Objects/ExtendedFamilySupport.php:788
 #, fuzzy
 #| msgid "Stepparents of biological grandparent"
 msgid "Social parents of biological grandparent"
 msgstr "Nevlastní rodičia bilogického starého rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:706
+#: src/Factory/Objects/ExtendedFamilySupport.php:789
 msgid "Parents of stepparent of father"
 msgstr "Rodičia nevlastného rodiča otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:707
+#: src/Factory/Objects/ExtendedFamilySupport.php:790
 msgid "Parents of stepparent of mother"
 msgstr "Rodičia nevlastného rodiča matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:708
+#: src/Factory/Objects/ExtendedFamilySupport.php:791
 msgid "Parents of stepparent of parent"
 msgstr "Rodičia nevlastného rodiča rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:709
+#: src/Factory/Objects/ExtendedFamilySupport.php:792
 #, fuzzy
 #| msgid "Parents of stepparent of father"
 msgid "Stepparents of stepparent of father"
 msgstr "Rodičia nevlastného rodiča otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:710
+#: src/Factory/Objects/ExtendedFamilySupport.php:793
 #, fuzzy
 #| msgid "Parents of stepparent of mother"
 msgid "Stepparents of stepparent of mother"
 msgstr "Rodičia nevlastného rodiča matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:711
+#: src/Factory/Objects/ExtendedFamilySupport.php:794
 #, fuzzy
 #| msgid "Parents of stepparent of parent"
 msgid "Stepparents of stepparent of parent"
 msgstr "Rodičia nevlastného rodiča rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:712
+#: src/Factory/Objects/ExtendedFamilySupport.php:795
 #, fuzzy
 #| msgid "Parents of stepparent of father"
 msgid "Parents of social parent of father"
 msgstr "Rodičia nevlastného rodiča otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:713
+#: src/Factory/Objects/ExtendedFamilySupport.php:796
 #, fuzzy
 #| msgid "Parents of stepparent of mother"
 msgid "Parents of social parent of mother"
 msgstr "Rodičia nevlastného rodiča matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:714
+#: src/Factory/Objects/ExtendedFamilySupport.php:797
 #, fuzzy
 #| msgid "Parents of stepparent of parent"
 msgid "Parents of social parent of parent"
 msgstr "Rodičia nevlastného rodiča rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:715
+#: src/Factory/Objects/ExtendedFamilySupport.php:798
 #, fuzzy
 #| msgid "Stepparents of biological parent of father"
 msgid "Stepparents of social parent of father"
 msgstr "Nevlastní rodičia biologického rodiča otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:716
+#: src/Factory/Objects/ExtendedFamilySupport.php:799
 #, fuzzy
 #| msgid "Stepparents of biological parent of mother"
 msgid "Stepparents of social parent of mother"
 msgstr "Nevlastní rodičia biologického rodiča matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:717
+#: src/Factory/Objects/ExtendedFamilySupport.php:800
 #, fuzzy
 #| msgid "Stepparents of biological parent of father"
 msgid "Stepparents of social parent of parent"
 msgstr "Nevlastní rodičia biologického rodiča otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:718
+#: src/Factory/Objects/ExtendedFamilySupport.php:801
 msgid "Grandparents of stepparent"
 msgstr "Starí rodičia nevlastného rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:719
+#: src/Factory/Objects/ExtendedFamilySupport.php:802
 #, fuzzy
 #| msgid "Grandparents of stepparent"
 msgid "Grandparents of social parent"
 msgstr "Starí rodičia nevlastného rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:720
+#: src/Factory/Objects/ExtendedFamilySupport.php:803
 msgid "Biological parents of father"
 msgstr "Biologickí rodičia otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:721
+#: src/Factory/Objects/ExtendedFamilySupport.php:804
 msgid "Biological parents of mother"
 msgstr "Biologickí rodičia matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:722
+#: src/Factory/Objects/ExtendedFamilySupport.php:805
 msgid "Biological parents of parent"
 msgstr "Biologickí rodičia rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:723
+#: src/Factory/Objects/ExtendedFamilySupport.php:806
 msgid "Stepparents of father"
 msgstr "Nevlastní rodičia otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:724
+#: src/Factory/Objects/ExtendedFamilySupport.php:807
 msgid "Stepparents of mother"
 msgstr "Nevlastní rodičia matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:725
+#: src/Factory/Objects/ExtendedFamilySupport.php:808
 msgid "Stepparents of parent"
 msgstr "Nevlastní rodičia rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:726
+#: src/Factory/Objects/ExtendedFamilySupport.php:809
 msgid "Parents of stepparent"
 msgstr "Rodičia nevlastného rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:727
+#: src/Factory/Objects/ExtendedFamilySupport.php:810
 #, fuzzy
 #| msgid "Biological parents of father"
 msgid "Social parents of father"
 msgstr "Biologickí rodičia otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:728
+#: src/Factory/Objects/ExtendedFamilySupport.php:811
 #, fuzzy
 #| msgid "Biological parents of mother"
 msgid "Social parents of mother"
 msgstr "Biologickí rodičia matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:729
+#: src/Factory/Objects/ExtendedFamilySupport.php:812
 #, fuzzy
 #| msgid "Biological parents of parent"
 msgid "Social parents of parent"
 msgstr "Biologickí rodičia rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:730
+#: src/Factory/Objects/ExtendedFamilySupport.php:813
 #, fuzzy
 #| msgid "Parents of stepparent of father"
 msgid "Parents of social father"
 msgstr "Rodičia nevlastného rodiča otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:731
+#: src/Factory/Objects/ExtendedFamilySupport.php:814
 #, fuzzy
 #| msgid "Parents of stepparent of mother"
 msgid "Parents of social mother"
 msgstr "Rodičia nevlastného rodiča matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:732
+#: src/Factory/Objects/ExtendedFamilySupport.php:815
 #, fuzzy
 #| msgid "Parents of stepparent"
 msgid "Parents of social parent"
 msgstr "Rodičia nevlastného rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:733
+#: src/Factory/Objects/ExtendedFamilySupport.php:816
 #, fuzzy
 #| msgid "Stepparents of father"
 msgid "Stepparents of social father"
 msgstr "Nevlastní rodičia otca"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:734
+#: src/Factory/Objects/ExtendedFamilySupport.php:817
 #, fuzzy
 #| msgid "Stepparents of mother"
 msgid "Stepparents of social mother"
 msgstr "Nevlastní rodičia matky"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:735
+#: src/Factory/Objects/ExtendedFamilySupport.php:818
 #, fuzzy
 #| msgid "Stepparents of parent"
 msgid "Stepparents of social parent"
 msgstr "Nevlastní rodičia rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:736
+#: src/Factory/Objects/ExtendedFamilySupport.php:819
 #, fuzzy
 #| msgid "Stepparents of parent"
 msgid "Stepparents of stepparent"
 msgstr "Nevlastní rodičia rodiča"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:737
+#: src/Factory/Objects/ExtendedFamilySupport.php:820
 #, fuzzy
 #| msgid "Biological parents"
 msgid "Social parents"
 msgstr "Biologickí rodičia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:738
+#: src/Factory/Objects/ExtendedFamilySupport.php:821
 msgid "Stepparents"
 msgstr "Nevlastní rodičia"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:739
+#: src/Factory/Objects/ExtendedFamilySupport.php:822
 #, fuzzy
 #| msgid "Full siblings of biological parents"
 msgid "Siblings and half siblings of biological parents"
 msgstr "Pokrvní súrodenci biologických rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:740
+#: src/Factory/Objects/ExtendedFamilySupport.php:823
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Siblings and half siblings of social parents"
 msgstr "Deti polovičných súrodencov jedného z rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:741
+#: src/Factory/Objects/ExtendedFamilySupport.php:824
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Siblings and half siblings of stepparents"
 msgstr "Deti polovičných súrodencov jedného z rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:742
+#: src/Factory/Objects/ExtendedFamilySupport.php:825
 #, fuzzy
 #| msgid "Children of full siblings of biological parents"
 msgid "Partners of siblings and half siblings of biological parents"
 msgstr "Deti súrodencov biologických rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:743
+#: src/Factory/Objects/ExtendedFamilySupport.php:826
 #, fuzzy
 #| msgid "Children of full siblings of biological parents"
 msgid "Partners of siblings and half siblings of social parents"
 msgstr "Deti súrodencov biologických rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:744
+#: src/Factory/Objects/ExtendedFamilySupport.php:827
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Partners of siblings and half siblings of stepparents"
 msgstr "Deti polovičných súrodencov jedného z rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:745
+#: src/Factory/Objects/ExtendedFamilySupport.php:828
 msgid "Children of full siblings of father"
 msgstr "Deti otcových súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:746
+#: src/Factory/Objects/ExtendedFamilySupport.php:829
 msgid "Children of full siblings of mother"
 msgstr "Deti matkiných súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:747
+#: src/Factory/Objects/ExtendedFamilySupport.php:830
 msgid "Children of full siblings of parent"
 msgstr "Deti súrodencov jedného z rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:748
+#: src/Factory/Objects/ExtendedFamilySupport.php:831
 msgid "Children of half siblings of father"
 msgstr "Deti otcových polovičných súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:749
+#: src/Factory/Objects/ExtendedFamilySupport.php:832
 msgid "Children of half siblings of mother"
 msgstr "Deti matkiných polovičných súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:750
+#: src/Factory/Objects/ExtendedFamilySupport.php:833
 msgid "Children of half siblings of parent"
 msgstr "Deti polovičných súrodencov jedného z rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:751
+#: src/Factory/Objects/ExtendedFamilySupport.php:834
+#, fuzzy
+#| msgid "Children of full siblings of biological parents"
+msgid "Children of full siblings of social parents"
+msgstr "Deti súrodencov biologických rodičov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:835
+#, fuzzy
+#| msgid "Children of half siblings of parent"
+msgid "Children of half siblings of social parents"
+msgstr "Deti polovičných súrodencov jedného z rodičov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:836
+#, fuzzy
+#| msgid "Children of full siblings of parent"
+msgid "Children of full siblings of stepparents"
+msgstr "Deti súrodencov jedného z rodičov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:837
+#, fuzzy
+#| msgid "Children of half siblings of parent"
+msgid "Children of half siblings of stepparents"
+msgstr "Deti polovičných súrodencov jedného z rodičov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:838
 msgid "Half siblings"
 msgstr "Poloviční súrodenci"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:752
+#: src/Factory/Objects/ExtendedFamilySupport.php:839
 #, fuzzy
 #| msgid "Half siblings"
 msgid "Social siblings"
 msgstr "Poloviční súrodenci"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:753
+#: src/Factory/Objects/ExtendedFamilySupport.php:840
 msgid "Stepsiblings"
 msgstr "Nevlastní súrodenci"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:754
+#: src/Factory/Objects/ExtendedFamilySupport.php:841
 msgid "Siblings of partners"
 msgstr "Súrodenci partnera"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:755
+#: src/Factory/Objects/ExtendedFamilySupport.php:842
 msgid "Partners of siblings"
 msgstr "Partneri súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:756
+#: src/Factory/Objects/ExtendedFamilySupport.php:843
 msgid "Siblings of siblings-in-law"
 msgstr "Súrodenci švagrov a švagrín"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:757
+#: src/Factory/Objects/ExtendedFamilySupport.php:844
 msgid "Partners of siblings-in-law"
 msgstr "Partneri švagrov a švagrín"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:758
+#: src/Factory/Objects/ExtendedFamilySupport.php:845
 #, fuzzy
 #| msgid "Biological children"
 msgid "Social children"
 msgstr "Biologické deti"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:759
+#: src/Factory/Objects/ExtendedFamilySupport.php:846
 msgid "Stepchildren"
 msgstr "Nevlastné deti"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:760
+#: src/Factory/Objects/ExtendedFamilySupport.php:847
 msgid "Partners of biological children"
 msgstr "Partneri vlastných detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:761
+#: src/Factory/Objects/ExtendedFamilySupport.php:848
+#, fuzzy
+#| msgid "Partners of biological children"
+msgid "Partners of social children"
+msgstr "Partneri vlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:849
 msgid "Partners of stepchildren"
 msgstr "Partneri nevlastných detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:762
+#: src/Factory/Objects/ExtendedFamilySupport.php:850
 msgid "Parents-in-law of biological children"
 msgstr "Svokrovci biologických detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:763
+#: src/Factory/Objects/ExtendedFamilySupport.php:851
 msgid "Parents-in-law of stepchildren"
 msgstr "Svokrovci nevlastných detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:764
+#: src/Factory/Objects/ExtendedFamilySupport.php:852
 msgid "Children of siblings"
 msgstr "Deti súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:765
+#: src/Factory/Objects/ExtendedFamilySupport.php:853
+msgid "Siblings' stepchildren"
+msgstr "Nevlastné deti súrodencov"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:854
 msgid "Children of siblings of partners"
 msgstr "Deti súrodencov partnera"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:766
+#: src/Factory/Objects/ExtendedFamilySupport.php:855
 #, fuzzy
 #| msgid "Children of stepchildren"
 msgid "Children of social children"
 msgstr "Deti nevlastných detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:767
+#: src/Factory/Objects/ExtendedFamilySupport.php:856
 #, fuzzy
 #| msgid "Stepchildren of children"
 msgid "Social children of children"
 msgstr "Nevlastné deti detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:768
+#: src/Factory/Objects/ExtendedFamilySupport.php:857
 msgid "Stepchildren of children"
 msgstr "Nevlastné deti detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:769
+#: src/Factory/Objects/ExtendedFamilySupport.php:858
+#, fuzzy
+#| msgid "Children of stepchildren"
+msgid "Children of stepchildren"
+msgstr "Deti nevlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:859
 msgid "Stepchildren of stepchildren"
 msgstr "Nevlastné deti nevlastných detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:770
+#: src/Factory/Objects/ExtendedFamilySupport.php:860
 msgid "Partners of biological grandchildren"
 msgstr "Partner biologického vnúčaťa"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:771
+#: src/Factory/Objects/ExtendedFamilySupport.php:861
 #, fuzzy
 #| msgid "Partners of stepchildren of children"
 msgid "Partners of social children of children"
 msgstr "Partner nevlastného dieťaťa dieťaťa"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:772
+#: src/Factory/Objects/ExtendedFamilySupport.php:862
 msgid "Partners of stepchildren of children"
 msgstr "Partner nevlastného dieťaťa dieťaťa"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:773
+#: src/Factory/Objects/ExtendedFamilySupport.php:863
 msgid "Partners of children of stepchildren"
 msgstr "Partner dieťaťa nevlastného dieťaťa"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:774
+#: src/Factory/Objects/ExtendedFamilySupport.php:864
 msgid "Partners of stepchildren of stepchildren"
 msgstr "Partner nevlastného dieťaťa nevlastného dieťaťa"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:775
+#: src/Factory/Objects/ExtendedFamilySupport.php:866
 #, fuzzy
 #| msgid "Partners of biological grandchildren"
 msgid "Children of biological grandchildren"
 msgstr "Partner biologického vnúčaťa"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:776
+#: src/Factory/Objects/ExtendedFamilySupport.php:867
+#, fuzzy
+#| msgid "Stepchildren of children"
+msgid "Social children of grandchildren"
+msgstr "Nevlastné deti detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:868
 #, fuzzy
 #| msgid "Children of stepchildren"
 msgid "Children of social grandchildren"
 msgstr "Deti nevlastných detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:777
+#: src/Factory/Objects/ExtendedFamilySupport.php:869
 #, fuzzy
 #| msgid "Children of stepchildren"
 msgid "Children of stepgrandchildren"
 msgstr "Deti nevlastných detí"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:795
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:870
+#, fuzzy
+#| msgid "Stepchildren of children"
+msgid "Stepchildren of grandchildren"
+msgstr "Nevlastné deti detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:871
+#, fuzzy
+#| msgid "Children of stepchildren"
+msgid "Stepchildren of social grandchildren"
+msgstr "Deti nevlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:872
+#, fuzzy
+#| msgid "Stepchildren of stepchildren"
+msgid "Stepchildren of stepgrandchildren"
+msgstr "Nevlastné deti nevlastných detí"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:873
+#, fuzzy
+#| msgid "Partners of biological grandchildren"
+msgid "Partners of biological great-grandchildren"
+msgstr "Partner biologického vnúčaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:874
+#, fuzzy
+#| msgid "Partners of stepchildren of children"
+msgid "Partners of social children of grandchildren"
+msgstr "Partner nevlastného dieťaťa dieťaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:875
+#, fuzzy
+#| msgid "Partners of children of stepchildren"
+msgid "Partners of children of social grandchildren"
+msgstr "Partner dieťaťa nevlastného dieťaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:876
+#, fuzzy
+#| msgid "Partners of children of stepchildren"
+msgid "Partners of children of stepgrandchildren"
+msgstr "Partner dieťaťa nevlastného dieťaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:877
+#, fuzzy
+#| msgid "Partners of stepchildren of children"
+msgid "Partners of stepchildren of grandchildren"
+msgstr "Partner nevlastného dieťaťa dieťaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:878
+#, fuzzy
+#| msgid "Partners of stepchildren of children"
+msgid "Partners of stepchildren of social grandchildren"
+msgstr "Partner nevlastného dieťaťa dieťaťa"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:879
+#, fuzzy
+#| msgid "Partners of stepchildren of stepchildren"
+msgid "Partners of stepchildren of stepgrandchildren"
+msgstr "Partner nevlastného dieťaťa nevlastného dieťaťa"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:897
 #, php-format
 msgctxt "Date range: year to today"
 msgid "The known dates range from %1$s to today."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:796
+#: src/Factory/Objects/ExtendedFamilySupport.php:898
 #, php-format
 msgctxt "Date range: date to today"
 msgid "The known dates range from %1$s to today."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:797
+#: src/Factory/Objects/ExtendedFamilySupport.php:899
 #, php-format
 msgctxt "Date range: year to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:798
+#: src/Factory/Objects/ExtendedFamilySupport.php:900
 #, php-format
 msgctxt "Date range: year to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:799
+#: src/Factory/Objects/ExtendedFamilySupport.php:901
 #, php-format
 msgctxt "Date range: date to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:800
-#: src/Factory/Objects/ExtendedFamilySupport.php:801
+#: src/Factory/Objects/ExtendedFamilySupport.php:902
+#: src/Factory/Objects/ExtendedFamilySupport.php:903
 #, php-format
 msgctxt "Date range: date to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:801
+#: src/Factory/Objects/ExtendedFamilySupport.php:903
 msgid "today"
 msgstr ""
 
-#: src/Factory/Objects/PlaceAbbreviation.php:289
+#: src/Factory/Objects/PlaceAbbreviation.php:283
 msgid "Full place name"
 msgstr "Úplný názov miesta"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:290
+#: src/Factory/Objects/PlaceAbbreviation.php:284
 msgid "City only"
 msgstr "Iba mesto"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:291
+#: src/Factory/Objects/PlaceAbbreviation.php:285
 msgid "City and country"
 msgstr "Mesto a štát"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:292
+#: src/Factory/Objects/PlaceAbbreviation.php:286
 msgid "City and 2 letter ISO country code"
 msgstr "Mesto a 2 znakový ISO kód štátu"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:293
+#: src/Factory/Objects/PlaceAbbreviation.php:287
 msgid "City and 3 letter ISO country code"
 msgstr "Mesto a 3 znakový ISO kód štátu"
 
-#: src/Factory/Objects/ProbandName.php:131
+#: src/Factory/Objects/ProbandName.php:84
+msgid "Him"
+msgstr ""
+
+#: src/Factory/Objects/ProbandName.php:86
+#, fuzzy
+#| msgid "He"
+msgid "Her"
+msgstr "On"
+
+#: src/Factory/Objects/ProbandName.php:88
+msgid "Him/her"
+msgstr ""
+
+#: src/Factory/Objects/ProbandName.php:176
 msgid "He"
 msgstr "On"
 
-#: src/Factory/Objects/ProbandName.php:132
+#: src/Factory/Objects/ProbandName.php:178
 msgid "She"
 msgstr "Ona"
 
-#: src/Factory/Objects/ProbandName.php:133
+#: src/Factory/Objects/ProbandName.php:180
 msgid "He/she"
 msgstr "On/ona"
 
-#: src/Factory/Objects/ProbandName.php:150
+#: src/Factory/Objects/ProbandName.php:197
 msgid "Mr."
 msgstr "Pán"
 
-#: src/Factory/Objects/ProbandName.php:151
+#: src/Factory/Objects/ProbandName.php:198
 msgid "Mrs."
 msgstr "Pani"
 
-#: resources/views/partials/clippings-cart-button.phtml:39
+#: resources/views/partials/clippings-cart-button.phtml:38
 msgid "copy all members of the extended family to the clippings cart"
 msgstr "kopírovať všetkých členov širšej rodiny do schránky výstrižkov"
 
-#: resources/views/partials/clippings-cart-button.phtml:50
+#: resources/views/partials/clippings-cart-button.phtml:49
 msgid "copy to clippings cart"
 msgstr "kopírovať do schránky výstrižkov"
+
+#: resources/views/partials/empty-family-part.phtml:10
+#, php-format
+msgid "%s has no uncles or aunts recorded."
+msgstr "%s nemá zaznamenaného žiadneho strýka alebo tetu."
+
+#: resources/views/partials/empty-family-part.phtml:12
+#, php-format
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr "%s nemá zaznamenaných žiadnych strýkov a tety získaných sobášom."
+
+#: resources/views/partials/empty-family-part.phtml:14
+#, php-format
+msgid "%s has no members of a partner chain recorded."
+msgstr "%s nemá zaznamenaného žiadneho člena reťaze partnerov."
+
+#: resources/views/partials/empty-family-part.phtml:16
+#, php-format
+msgid "%s has no first cousins recorded."
+msgstr ""
+"%s nemá zaznamenaných žiadnych prvostupňových bratrancov alebo sesternice."
+
+#: resources/views/partials/empty-family-part.phtml:18
+#, php-format
+msgid "%s has no nephews or nieces recorded."
+msgstr "%s nemá zaznamenaných žiadnych synovcov alebo netere."
+
+#: resources/views/partials/empty-family-part.phtml:20
+#, fuzzy, php-format
+#| msgid "%s has no %s recorded."
+msgid "%1$s has no %2$s recorded."
+msgstr "%s nemá zaznamenané %s."
 
 #: resources/views/partials/family-part-header.phtml:17
 #, php-format
@@ -931,6 +1131,519 @@ msgstr "koeficient príbuznosti: %.1f"
 msgid "no blood relationship"
 msgstr "žiadna pokrvná príbuznosť"
 
+#: resources/views/partials/family-part-renderers/grouped-headings/child-family.phtml:30
+#: resources/views/partials/family-part-renderers/grouped-headings/child-family.phtml:36
+#, php-format
+msgid "connected with %s"
+msgstr ""
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:32
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:46
+#, fuzzy
+#| msgid "Biological children"
+msgid "Social child"
+msgstr "Biologické deti"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:35
+msgid "Stepson"
+msgstr "Nevlastný syn"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:37
+msgid "Stepdaughter"
+msgstr "Nevlastná dcéra"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:39
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:48
+msgid "Stepchild"
+msgstr "Nevlastné dieťa"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:26
+#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:33
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:31
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:33
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:55
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:92
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s connected with %3$s"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:28
+#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:35
+#, php-format
+msgid "Partners of %s"
+msgstr "Partneri osoby %s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:39
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:41
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s connected with %3$s as social parents"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:47
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:49
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s connected with %3$s as stepparents"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:57
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s, parents of stepfather %3$s"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:59
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s, parents of stepmother %3$s"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:61
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s, parents of stepparent %3$s"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:67
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s connected with %3$s as grandparents"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:69
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s, grandparents of stepfather %3$s"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:71
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s, grandparents of stepmother %3$s"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:73
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s %2$s, grandparents of stepparent %3$s"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:80
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:98
+#, fuzzy
+#| msgid "Brother"
+msgid "Father"
+msgstr "Brat"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:81
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:99
+#, fuzzy
+#| msgid "Brother"
+msgid "Mother"
+msgstr "Brat"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:82
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:84
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:100
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:102
+#, fuzzy
+#| msgid "Parents"
+msgid "Parent"
+msgstr "Rodičia"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:86
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:103
+#, fuzzy, php-format
+#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
+msgid "%1$s of %2$s %3$s, %4$s %5$s"
+msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/nephews-and-nieces.phtml:29
+#, php-format
+msgid "%1$s %2$s, %3$s with %4$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/nephews-and-nieces.phtml:37
+#, php-format
+msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:41
+#, php-format
+msgid "Brother %1$s of partner %2$s"
+msgstr "Brat %1$s partnera %2$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:43
+#, php-format
+msgid "Sister %1$s of partner %2$s"
+msgstr "Sestra %1$s partnera %2$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:45
+#, php-format
+msgid "Sibling %1$s of partner %2$s"
+msgstr "Súrodenec %1$s partnera %2$s"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:50
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:63
+#, fuzzy, php-format
+#| msgid "Sibling %1$s of partner %2$s"
+msgid "Sibling of %1$s %2$s"
+msgstr "Súrodenec %1$s partnera %2$s"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:54
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:66
+#, fuzzy, php-format
+#| msgid "Partners of siblings-in-law"
+msgid "Partner of %1$s sibling-in-law %2$s"
+msgstr "Partneri švagrov a švagrín"
+
+#: resources/views/partials/family-part-renderers/parents-in-law.phtml:23
+#: resources/views/partials/family-part-renderers/parents-in-law.phtml:25
+#, fuzzy
+#| msgid " with "
+msgid "with"
+msgstr " s "
+
+#: resources/views/partials/family-part-renderers/partners.phtml:20
+#, fuzzy
+#| msgid "Partner of "
+msgid "Partner of"
+msgstr "Partner osoby "
+
+#: resources/views/partials/family-part-summary.phtml:18
+#, php-format
+msgid "%s has one great-grandmother recorded."
+msgstr "%s má zaznamenanú jednu prastarú matku."
+
+#: resources/views/partials/family-part-summary.phtml:20
+#, php-format
+msgid "%s has one great-grandfather recorded."
+msgstr "%s má zaznamenaného jedného prastarého otca."
+
+#: resources/views/partials/family-part-summary.phtml:22
+#, php-format
+msgid "%s has one great-grandparent of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného prastarého rodiča s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:49
+#, php-format
+msgid "%s has one grandmother recorded."
+msgstr "%s má zaznamenanú jednu starú mamu."
+
+#: resources/views/partials/family-part-summary.phtml:51
+#, php-format
+msgid "%s has one grandfather recorded."
+msgstr "%s má zaznamenaného jedného starého otca."
+
+#: resources/views/partials/family-part-summary.phtml:53
+#, php-format
+msgid "%s has one grandparent of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného starého rodiča s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:80
+#, php-format
+msgid "%s has one aunt recorded."
+msgstr "%s má zaznamenanú jednu tetu."
+
+#: resources/views/partials/family-part-summary.phtml:82
+#, php-format
+msgid "%s has one uncle recorded."
+msgstr "%s má zaznamenaného jedného strýka."
+
+#: resources/views/partials/family-part-summary.phtml:84
+#, php-format
+msgid "%s has one uncle or aunt of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného strýka alebo tetu s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:111
+#, php-format
+msgid "%s has one aunt by marriage recorded."
+msgstr "%s má zaznamenanú jednu tetu získanú sobášom."
+
+#: resources/views/partials/family-part-summary.phtml:113
+#, php-format
+msgid "%s has one uncle by marriage recorded."
+msgstr "%s má zaznamenaného jedého strýka získaného sobášom."
+
+#: resources/views/partials/family-part-summary.phtml:115
+#, php-format
+msgid ""
+"%s has one uncle or aunt by marriage of diverse or unknown sex recorded."
+msgstr ""
+"%s má zaznamenaného jedného strýka alebo tetu získaných sobášom s neznámym "
+"pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:142
+#, php-format
+msgid "%s has one mother recorded."
+msgstr "%s má zaznamenanú jednu matku."
+
+#: resources/views/partials/family-part-summary.phtml:144
+#, php-format
+msgid "%s has one father recorded."
+msgstr "%s má zaznamenaného jedného otca."
+
+#: resources/views/partials/family-part-summary.phtml:146
+#, php-format
+msgid "%s has one parent of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného rodiča s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:178
+#, php-format
+msgid "%s has one mother-in-law recorded."
+msgstr "%s má zaznamenanú jednu svokru."
+
+#: resources/views/partials/family-part-summary.phtml:180
+#, php-format
+msgid "%s has one father-in-law recorded."
+msgstr "%s má zaznamenaného jedného svokra."
+
+#: resources/views/partials/family-part-summary.phtml:182
+#, php-format
+msgid "%s has one parent-in-law of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného svokra/svokru s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:209
+#, php-format
+msgid "%s has one co-mother-in-law recorded."
+msgstr "%s má zaznamenanú jednu svatku."
+
+#: resources/views/partials/family-part-summary.phtml:211
+#, php-format
+msgid "%s has one co-father-in-law recorded."
+msgstr "%s má zaznamenaného jedného svata."
+
+#: resources/views/partials/family-part-summary.phtml:213
+#, php-format
+msgid "%s has one co-parent-in-law of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného svata/svatku s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:240
+#, php-format
+msgid "%s has one female partner recorded."
+msgstr "%s má zaznamenanú jednu partnerku."
+
+#: resources/views/partials/family-part-summary.phtml:242
+#, php-format
+msgid "%s has one male partner recorded."
+msgstr "%s má zaznamenaného jedného partnera."
+
+#: resources/views/partials/family-part-summary.phtml:244
+#, php-format
+msgid "%s has one partner of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného partnera s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:287
+#: resources/views/partials/family-part-summary.phtml:291
+#: resources/views/partials/family-part-summary.phtml:295
+#: resources/views/partials/family-part-summary.phtml:300
+#: resources/views/partials/family-part-summary.phtml:305
+#: resources/views/partials/family-part-summary.phtml:310
+#, php-format
+msgid "including %s"
+msgstr "vrátane %s"
+
+#: resources/views/partials/family-part-summary.phtml:319
+#, fuzzy, php-format
+#| msgid "There are %d branches in the partner chain. "
+msgid "There are %d branches in the partner chain."
+msgstr "Počet vetiev v zreťazení partnerov je %d. "
+
+#: resources/views/partials/family-part-summary.phtml:321
+#, php-format
+msgid ""
+"The longest branch in the partner chain to %2$s consists of %1$d partners "
+"(including %3$s)."
+msgstr ""
+"Najdlhšia vetva v zreťazení partnerov k osobe %2$s pozostáva z %1$d partnera "
+"(partnerov) (vrátane %3$s)."
+
+#: resources/views/partials/family-part-summary.phtml:323
+#, php-format
+msgid ""
+"The longest branch in the partner chain consists of %1$d partners (including "
+"%2$s)."
+msgstr ""
+"Najdlhšia vetva v zreťazení partnerov pozostáva z %1$d partnera (partnerov) "
+"(vrátane %2$s)."
+
+#: resources/views/partials/family-part-summary.phtml:330
+#, php-format
+msgid "%s has one sister recorded."
+msgstr "%s má zaznamenanú jednu sestru."
+
+#: resources/views/partials/family-part-summary.phtml:332
+#, php-format
+msgid "%s has one brother recorded."
+msgstr "%s má zaznamenaného jedného brata."
+
+#: resources/views/partials/family-part-summary.phtml:334
+#, php-format
+msgid "%s has one sibling of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného súrodenca s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:366
+#, php-format
+msgid "%s has one sister-in-law recorded."
+msgstr "%s má zaznamenanú jednu švagrinú."
+
+#: resources/views/partials/family-part-summary.phtml:368
+#, php-format
+msgid "%s has one brother-in-law recorded."
+msgstr "%s má zaznamenaného jedného švagra."
+
+#: resources/views/partials/family-part-summary.phtml:370
+#, php-format
+msgid "%s has one sibling-in-law of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného švagra/švagrinú s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:402
+#, php-format
+msgid "%s has one co-sister-in-law recorded."
+msgstr "%s má zaznamenanú jednu švagrinú partnera/partnerky."
+
+#: resources/views/partials/family-part-summary.phtml:404
+#, php-format
+msgid "%s has one co-brother-in-law recorded."
+msgstr "%s má zaznamenaného jedného švagra partnera/partnerky."
+
+#: resources/views/partials/family-part-summary.phtml:406
+#, php-format
+msgid "%s has one co-sibling-in-law of diverse or unknown sex recorded."
+msgstr ""
+"%s má zaznamenaného jedného švagra/švagrinú partnera/partnerky, ktorého "
+"pohlavie je neznáme."
+
+#: resources/views/partials/family-part-summary.phtml:438
+#, php-format
+msgid "%s has one female first cousin recorded."
+msgstr "%s má zaznamenanú jednu prvostupňovú sesternicu."
+
+#: resources/views/partials/family-part-summary.phtml:440
+#, php-format
+msgid "%s has one male first cousin recorded."
+msgstr "%s má zaznamenaného jedného prvostupňového bratranca."
+
+#: resources/views/partials/family-part-summary.phtml:442
+#, php-format
+msgid "%s has one first cousin of diverse or unknown sex recorded."
+msgstr "%s má zaznamenanú jednu sesternicu/bratranca s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:469
+#, php-format
+msgid "%s has one niece recorded."
+msgstr "%s má zaznamenanú jednu neter."
+
+#: resources/views/partials/family-part-summary.phtml:471
+#, php-format
+msgid "%s has one nephew recorded."
+msgstr "%s má zaznamenaného jedného synovca."
+
+#: resources/views/partials/family-part-summary.phtml:473
+#, php-format
+msgid "%s has one nephew or niece of diverse or unknown sex recorded."
+msgstr "%s má zaznamenanú jednu neter alebo synovca s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:500
+#, php-format
+msgid "%s has one daughter recorded."
+msgstr "%s má zaznamenanú jednu dcéru."
+
+#: resources/views/partials/family-part-summary.phtml:502
+#, php-format
+msgid "%s has one son recorded."
+msgstr "%s má zaznamenaného jedného syna."
+
+#: resources/views/partials/family-part-summary.phtml:504
+#, php-format
+msgid "%s has one child of diverse or unknown sex recorded."
+msgstr "%s má zaznamenané jedno dieťa s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:531
+#, php-format
+msgid "%s has one daughter-in-law recorded."
+msgstr "%s má zaznamenanú jednu nevestu."
+
+#: resources/views/partials/family-part-summary.phtml:533
+#, php-format
+msgid "%s has one son-in-law recorded."
+msgstr "%s má zaznamenaného jedného zaťa."
+
+#: resources/views/partials/family-part-summary.phtml:535
+#, php-format
+msgid "%s has one child-in-law of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jednu nevestu/zaťa s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:562
+#, php-format
+msgid "%s has one granddaughter recorded."
+msgstr "%s má zaznamenanú jednu vnučku."
+
+#: resources/views/partials/family-part-summary.phtml:564
+#, php-format
+msgid "%s has one grandson recorded."
+msgstr "%s má zaznamenaného jedného vnuka."
+
+#: resources/views/partials/family-part-summary.phtml:566
+#, php-format
+msgid "%s has one grandchild of diverse or unknown sex recorded."
+msgstr "%s má zaznamenané jedno vnúča s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:593
+#, fuzzy, php-format
+#| msgid "%s has one great-grandfather recorded."
+msgid "%s has one great-granddaughter recorded."
+msgstr "%s má zaznamenaného jedného prastarého otca."
+
+#: resources/views/partials/family-part-summary.phtml:595
+#, fuzzy, php-format
+#| msgid "%s has one grandson recorded."
+msgid "%s has one great-grandson recorded."
+msgstr "%s má zaznamenaného jedného vnuka."
+
+#: resources/views/partials/family-part-summary.phtml:597
+#, fuzzy, php-format
+#| msgid "%s has one grandchild of diverse or unknown sex recorded."
+msgid "%s has one great-grandchild of diverse or unknown sex recorded."
+msgstr "%s má zaznamenané jedno vnúča s neznámym pohlavím."
+
+#: resources/views/partials/family-part-summary.phtml:624
+#, php-format
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "%s má zaznamenanú jednu partnerku vnuka."
+
+#: resources/views/partials/family-part-summary.phtml:626
+#, php-format
+msgid "%s has one grandson-in-law recorded."
+msgstr "%s má zaznamenaného jedného partnera vnučky."
+
+#: resources/views/partials/family-part-summary.phtml:628
+#, php-format
+msgid "%s has one grandchild-in-law of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného partnera vnuka, ktorý má neznáme pohlavie."
+
+#: resources/views/partials/family-part-summary.phtml:655
+#, fuzzy, php-format
+#| msgid "%s has one granddaughter-in-law recorded."
+msgid "%s has one great-granddaughter-in-law recorded."
+msgstr "%s má zaznamenanú jednu partnerku vnuka."
+
+#: resources/views/partials/family-part-summary.phtml:657
+#, fuzzy, php-format
+#| msgid "%s has one grandson-in-law recorded."
+msgid "%s has one great-grandson-in-law recorded."
+msgstr "%s má zaznamenaného jedného partnera vnučky."
+
+#: resources/views/partials/family-part-summary.phtml:659
+#, fuzzy, php-format
+#| msgid "%s has one grandchild-in-law of diverse or unknown sex recorded."
+msgid "%s has one great-grandchild-in-law of diverse or unknown sex recorded."
+msgstr "%s má zaznamenaného jedného partnera vnuka, ktorý má neznáme pohlavie."
+
 #: resources/views/partials/filter-controls.phtml:17
 msgid "show only male persons"
 msgstr "zobraziť len mužov"
@@ -940,7 +1653,7 @@ msgid "show only female persons"
 msgstr "zobraziť len ženy"
 
 #: resources/views/partials/filter-controls.phtml:25
-msgid "show only persons of other or unknown gender"
+msgid "show only persons of diverse or unknown gender"
 msgstr "zobraziť len osoby s neznámym pohlavím"
 
 #: resources/views/partials/filter-controls.phtml:34
@@ -998,87 +1711,99 @@ msgstr "%s nemá zaznamenané %s."
 msgid "%s has no %s, and no %s recorded."
 msgstr "%s nemá zaznamenané %s ani %s."
 
-#: resources/views/settings.phtml:35
+#: resources/views/print.phtml:28 resources/views/tab.phtml:35
+msgid "Print/PDF"
+msgstr ""
+
+#: resources/views/print.phtml:31
+msgid "Individual"
+msgstr ""
+
+#: resources/views/print.phtml:78 resources/views/tab.phtml:88
+msgid "No family available"
+msgstr "Nenašla sa žiadna rodina"
+
+#: resources/views/settings.phtml:36
 msgid "Control panel"
 msgstr "Riadiaci panel"
 
-#: resources/views/settings.phtml:36
+#: resources/views/settings.phtml:37
 msgid "Enabled"
 msgstr "Povolené"
 
-#: resources/views/settings.phtml:37
+#: resources/views/settings.phtml:38
 msgid "Move down"
 msgstr "Posunúť dole"
 
-#: resources/views/settings.phtml:38
+#: resources/views/settings.phtml:39
 msgid "Move up"
 msgstr "Posunúť hore"
 
-#: resources/views/settings.phtml:39
+#: resources/views/settings.phtml:40
 msgid "no"
 msgstr "nie"
 
-#: resources/views/settings.phtml:40
+#: resources/views/settings.phtml:41
 msgid "save"
 msgstr "uložiť"
 
-#: resources/views/settings.phtml:41
+#: resources/views/settings.phtml:42
 msgid "yes"
 msgstr "áno"
 
-#: resources/views/settings.phtml:55
+#: resources/views/settings.phtml:56
 msgid "In which sequence should the parts of the extended family be shown?"
 msgstr "V akom poradí sa majú zobraziť časti širšej rodiny?"
 
-#: resources/views/settings.phtml:57 resources/views/settings.phtml:58
+#: resources/views/settings.phtml:58 resources/views/settings.phtml:59
 msgid "Quick selection for family parts"
 msgstr ""
 
-#: resources/views/settings.phtml:61
+#: resources/views/settings.phtml:62
 #, fuzzy
 #| msgid "Enabled"
 msgid "Enable all"
 msgstr "Povolené"
 
-#: resources/views/settings.phtml:64
+#: resources/views/settings.phtml:65
 msgid "Disable all"
 msgstr ""
 
-#: resources/views/settings.phtml:69
+#: resources/views/settings.phtml:70
 msgid "Enable all in-law family parts"
 msgstr ""
 
-#: resources/views/settings.phtml:72
+#: resources/views/settings.phtml:73
 msgid "Disable all in-law family parts"
 msgstr ""
 
-#: resources/views/settings.phtml:76 resources/views/settings.phtml:77
+#: resources/views/settings.phtml:77 resources/views/settings.phtml:78
 msgid "Degree"
 msgstr ""
 
-#: resources/views/settings.phtml:77
+#: resources/views/settings.phtml:78
 msgid "unlimited"
 msgstr ""
 
-#: resources/views/settings.phtml:79
+#: resources/views/settings.phtml:80
 msgid "Enable up to this degree"
 msgstr ""
 
-#: resources/views/settings.phtml:84
+#: resources/views/settings.phtml:85
 msgid ""
 "The quick selection changes only the checkboxes below. The configuration is "
 "saved when you click \"save\"."
 msgstr ""
 
-#: resources/views/settings.phtml:90
+#: resources/views/settings.phtml:91
 msgid "Family part (generation relative to proband)"
 msgstr "Časť rodiny (generation relative to proband)"
 
-#: resources/views/settings.phtml:145
+#: resources/views/settings.phtml:146
 msgid "Show options to filter the results?"
 msgstr "Zobraziť možnosti na filtrovanie výsledkov?"
 
-#: resources/views/settings.phtml:146
+#: resources/views/settings.phtml:147
 msgid ""
 "This allows a user to filter the members of the extended family by gender "
 "and if they are alive or dead."
@@ -1086,66 +1811,66 @@ msgstr ""
 "Toto umožňuje filtrovať členov širšej rodiny podľa pohlavia a podľa toho či "
 "sú nažive, alebo mŕtvi."
 
-#: resources/views/settings.phtml:151
+#: resources/views/settings.phtml:152
 msgid "Show filter options"
 msgstr "Zobraziť voľby filtra"
 
-#: resources/views/settings.phtml:159
+#: resources/views/settings.phtml:160
 msgid "Should a summary block be shown?"
 msgstr "Má sa zobraziť sumárny blok?"
 
-#: resources/views/settings.phtml:160
+#: resources/views/settings.phtml:161
 msgid "The summary contains information about the extended family in total."
 msgstr "Sumár obsahuje celkové informácie o širšej rodine."
 
-#: resources/views/settings.phtml:165
+#: resources/views/settings.phtml:166
 msgid "Show summary"
 msgstr "Zobraziť sumár"
 
-#: resources/views/settings.phtml:173
+#: resources/views/settings.phtml:174
 #, fuzzy
 #| msgid "Should a summary block be shown?"
 msgid "Should summary statistics be shown?"
 msgstr "Má sa zobraziť sumárny blok?"
 
-#: resources/views/settings.phtml:174
+#: resources/views/settings.phtml:175
 msgid ""
 "The summary statistics contain additional information about living and "
 "deceased members, gender distribution, and the known date range."
 msgstr ""
 
-#: resources/views/settings.phtml:179
+#: resources/views/settings.phtml:180
 #, fuzzy
 #| msgid "Show summary"
 msgid "Show summary statistics"
 msgstr "Zobraziť sumár"
 
-#: resources/views/settings.phtml:187
+#: resources/views/settings.phtml:188
 msgid "How should empty parts of extended family be presented?"
 msgstr "Ako zobraziť prázdne bloky?"
 
-#: resources/views/settings.phtml:192
+#: resources/views/settings.phtml:193
 msgid "Show empty block"
 msgstr "Zobraziť prázdne bloky"
 
-#: resources/views/settings.phtml:195
+#: resources/views/settings.phtml:196
 msgid "yes, always at standard location"
 msgstr "áno, vždy na bežnom mieste"
 
-#: resources/views/settings.phtml:195
+#: resources/views/settings.phtml:196
 msgid "no, but collect messages about empty blocks at the summary block"
 msgstr "nie, ale zobraz správy o prázdnych blokoch v sumárnom bloku"
 
-#: resources/views/settings.phtml:195
+#: resources/views/settings.phtml:196
 msgid "never"
 msgstr "nikdy"
 
-#: resources/views/settings.phtml:200
+#: resources/views/settings.phtml:201
 msgid ""
 "Count the members of the partner chains as members of the extended family?"
 msgstr "Započítať členov zreťazenia partnerov medzi členov širšej rodiny?"
 
-#: resources/views/settings.phtml:202
+#: resources/views/settings.phtml:203
 msgid ""
 "If you select \"no\", then the additional members in the partner chains will "
 "not be counted to the total number of individuals in the extended family."
@@ -1153,7 +1878,7 @@ msgstr ""
 "Ak zvolíte \"nie\", tak dodatočný členovia v zreťazení partnerov nebudú "
 "započítaní do celkového počtu členov širšej rodiny."
 
-#: resources/views/settings.phtml:203
+#: resources/views/settings.phtml:204
 msgid ""
 "And these persons and families will be not selected when a user decides to "
 "copy the extended family to the clippings cart."
@@ -1161,28 +1886,28 @@ msgstr ""
 "Tieto osoby nebudú vybrané, keď sa užívateľ rozhodne kopírovať rširšiu "
 "rodinu do schránky výstrižkov."
 
-#: resources/views/settings.phtml:204
+#: resources/views/settings.phtml:205
 msgid ""
 "But even in this case, you can copy these persons and families to the "
 "clippings cart by using a special menu topic of the custom module \"enhanced "
 "clippings cart\": \"add partner chains for an individual\"."
 msgstr ""
 
-#: resources/views/settings.phtml:205
+#: resources/views/settings.phtml:206
 msgid ""
 "This is only relevant if you have chosen in the above table, that the "
 "partner chains should be shown as a part of the extended family."
 msgstr ""
 
-#: resources/views/settings.phtml:211
+#: resources/views/settings.phtml:212
 msgid "Include them"
 msgstr "Zahrnúť ich"
 
-#: resources/views/settings.phtml:219
+#: resources/views/settings.phtml:220
 msgid "Show parameters of extended family part?"
 msgstr "Zobraziť parametere pre časti širšej rodiny?"
 
-#: resources/views/settings.phtml:220
+#: resources/views/settings.phtml:221
 msgid ""
 "Display of additional information for each part of the extended family, such "
 "as the generation shift and the coefficient of relationship, which is a "
@@ -1191,15 +1916,15 @@ msgstr ""
 "Zobraziť dodatočné informácie pre každú časť širšej rodiny, napr. posun "
 "generácie a koeficient vzťahu, ktorý je meradlom stupňa pokrvnej príbuznosti."
 
-#: resources/views/settings.phtml:225
+#: resources/views/settings.phtml:226
 msgid "Show parameters"
 msgstr "Zobraziť parametre"
 
-#: resources/views/settings.phtml:233
+#: resources/views/settings.phtml:234
 msgid "Use the compact design?"
 msgstr "Použiť kompaktný dizajn?"
 
-#: resources/views/settings.phtml:234
+#: resources/views/settings.phtml:235
 msgid ""
 "The compact design only shows the name and life span for each person. The "
 "enriched design also shows a photo (if this is activated for this tree) as "
@@ -1209,15 +1934,15 @@ msgstr ""
 "úmrtia. Rozšírený dizajn zobrazuje fotku, ak je toto zobrazenie pre "
 "príslušný strom aktivivané, ako aj údaje o narodení a úmrtí."
 
-#: resources/views/settings.phtml:239
+#: resources/views/settings.phtml:240
 msgid "Use the compact design"
 msgstr "Použiť kompaktný dizajn"
 
-#: resources/views/settings.phtml:247
+#: resources/views/settings.phtml:248
 msgid "Show name of proband as short name or as full name?"
 msgstr "Zobraziť skrátené, alebo plné meno probanda?"
 
-#: resources/views/settings.phtml:248
+#: resources/views/settings.phtml:249
 msgid ""
 "The short name is based on the probands Rufname or nickname. If these are "
 "not available, the first of the given names is used, if one is given. "
@@ -1227,45 +1952,61 @@ msgstr ""
 "sa použije prvé krstné meno. Ak ani toto neexistuje, tak sa použije "
 "priezvisko."
 
-#: resources/views/settings.phtml:253
+#: resources/views/settings.phtml:254
 msgid "Show short name"
 msgstr "Zobraziť skrátené meno"
 
-#: resources/views/settings.phtml:261
+#: resources/views/settings.phtml:262
 msgid "How should place names be shown in event boxes?"
 msgstr "Ako sa majú zobraziť názvy miest v boxoch?"
 
-#: resources/views/settings.phtml:262
+#: resources/views/settings.phtml:263
 msgid ""
 "This setting controls whether event places are shown as full place names or "
 "as abbreviated place names."
 msgstr ""
 "Toto nastavenie určuje, či sa zobrazí úplný názov, alebo skrátený názov."
 
-#: resources/views/settings.phtml:267
+#: resources/views/settings.phtml:268
 msgid "Place name format"
 msgstr "Formát názvu miesta"
 
-#: resources/views/settings.phtml:275
+#: resources/views/settings.phtml:276
 msgid "Show labels in special situations?"
 msgstr "Zobraziť štítky pri špecifických situáciách?"
 
-#: resources/views/settings.phtml:276
+#: resources/views/settings.phtml:277
 msgid ""
 "Labels (or stickers) are used for example for adopted persons or foster "
 "children."
 msgstr ""
 "Štítky sa použijú napr. pre adoptívne deti alebo deti zverené do opatery."
 
-#: resources/views/settings.phtml:281
+#: resources/views/settings.phtml:282
 msgid "Show labels"
 msgstr "Zobraziť štítky"
 
-#: resources/views/settings.phtml:289
+#: resources/views/settings.phtml:290
+#, fuzzy
+#| msgid "Show a button \"copy to clippings cart\"?"
+msgid "Show a button \"Print/PDF\"?"
+msgstr "Zobraziť tlačidlo \"kopírovať do schránky výstrižkov\"?"
+
+#: resources/views/settings.phtml:291
+msgid ""
+"This allows a user to open a print-optimized view and save it as a PDF file "
+"from the browser print dialog."
+msgstr ""
+
+#: resources/views/settings.phtml:296 resources/views/settings.phtml:315
+msgid "Show button"
+msgstr "Zobraziť tlačidlo"
+
+#: resources/views/settings.phtml:304
 msgid "Show a button \"copy to clippings cart\"?"
 msgstr "Zobraziť tlačidlo \"kopírovať do schránky výstrižkov\"?"
 
-#: resources/views/settings.phtml:290
+#: resources/views/settings.phtml:305
 msgid ""
 "This allows a user to copy all members of the extended family to the "
 "clippings cart."
@@ -1273,555 +2014,54 @@ msgstr ""
 "Týmto sa umožňuje užívateľovi skopírovať všetkých členov širšej rodiny do "
 "schránky výstrižkov."
 
-#: resources/views/settings.phtml:300
-msgid "Show button"
-msgstr "Zobraziť tlačidlo"
-
-#: resources/views/settings.phtml:312
+#: resources/views/settings.phtml:327
 msgid "Clippings cart action"
 msgstr "Akcia schránky výstrižkov"
 
-#: resources/views/settings.phtml:315
+#: resources/views/settings.phtml:330
 msgid "huhwt-cce (recommended)"
 msgstr "huhwt-cce (doporučené)"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/settings.phtml:315
-msgid "Extended family"
-msgstr "Širšia rodina"
-
-#: resources/views/tab.phtml:46
-msgid "Brother"
-msgstr "Brat"
-
-#: resources/views/tab.phtml:47
-msgid "Child"
-msgstr "Dieťa"
-
-#: resources/views/tab.phtml:48
-msgid "Daughter"
-msgstr "Dcéra"
-
-#: resources/views/tab.phtml:49
-msgid "Sibling"
-msgstr "Súrodenec"
-
-#: resources/views/tab.phtml:50
-msgid "Sister"
-msgstr "Sestra"
-
-#: resources/views/tab.phtml:51
-msgid "Son"
-msgstr "Syn"
-
-#: resources/views/tab.phtml:102
 #, php-format
-msgid "%s has one great-grandmother recorded."
-msgstr "%s má zaznamenanú jednu prastarú matku."
+#~ msgid "Parents %1$s (%2$s) of %3$s"
+#~ msgstr "Rodičia %1$s (%2$s) osoby %3$s"
 
-#: resources/views/tab.phtml:104
-#, php-format
-msgid "%s has one great-grandfather recorded."
-msgstr "%s má zaznamenaného jedného prastarého otca."
-
-#: resources/views/tab.phtml:106
-#, php-format
-msgid "%s has one great-grandparent of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného prastarého rodiča s neznámym pohlavím."
-
-#: resources/views/tab.phtml:133
-#, php-format
-msgid "%s has one grandmother recorded."
-msgstr "%s má zaznamenanú jednu starú mamu."
-
-#: resources/views/tab.phtml:135
-#, php-format
-msgid "%s has one grandfather recorded."
-msgstr "%s má zaznamenaného jedného starého otca."
-
-#: resources/views/tab.phtml:137
-#, php-format
-msgid "%s has one grandparent of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného starého rodiča s neznámym pohlavím."
-
-#: resources/views/tab.phtml:164
-#, php-format
-msgid "%s has one aunt recorded."
-msgstr "%s má zaznamenanú jednu tetu."
-
-#: resources/views/tab.phtml:166
-#, php-format
-msgid "%s has one uncle recorded."
-msgstr "%s má zaznamenaného jedného strýka."
-
-#: resources/views/tab.phtml:168
-#, php-format
-msgid "%s has one uncle or aunt of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného strýka alebo tetu s neznámym pohlavím."
-
-#: resources/views/tab.phtml:195
-#, php-format
-msgid "%s has one aunt by marriage recorded."
-msgstr "%s má zaznamenanú jednu tetu získanú sobášom."
-
-#: resources/views/tab.phtml:197
-#, php-format
-msgid "%s has one uncle by marriage recorded."
-msgstr "%s má zaznamenaného jedého strýka získaného sobášom."
-
-#: resources/views/tab.phtml:199
-#, php-format
-msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
-msgstr ""
-"%s má zaznamenaného jedného strýka alebo tetu získaných sobášom s neznámym "
-"pohlavím."
-
-#: resources/views/tab.phtml:226
-#, php-format
-msgid "%s has one mother recorded."
-msgstr "%s má zaznamenanú jednu matku."
-
-#: resources/views/tab.phtml:228
-#, php-format
-msgid "%s has one father recorded."
-msgstr "%s má zaznamenaného jedného otca."
-
-#: resources/views/tab.phtml:230
-#, php-format
-msgid "%s has one parent of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného rodiča s neznámym pohlavím."
-
-#: resources/views/tab.phtml:262
-#, php-format
-msgid "%s has one mother-in-law recorded."
-msgstr "%s má zaznamenanú jednu svokru."
-
-#: resources/views/tab.phtml:264
-#, php-format
-msgid "%s has one father-in-law recorded."
-msgstr "%s má zaznamenaného jedného svokra."
-
-#: resources/views/tab.phtml:266
-#, php-format
-msgid "%s has one parent-in-law of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného svokra/svokru s neznámym pohlavím."
-
-#: resources/views/tab.phtml:293
-#, php-format
-msgid "%s has one co-mother-in-law recorded."
-msgstr "%s má zaznamenanú jednu svatku."
-
-#: resources/views/tab.phtml:295
-#, php-format
-msgid "%s has one co-father-in-law recorded."
-msgstr "%s má zaznamenaného jedného svata."
-
-#: resources/views/tab.phtml:297
-#, php-format
-msgid "%s has one co-parent-in-law of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného svata/svatku s neznámym pohlavím."
-
-#: resources/views/tab.phtml:324
-#, php-format
-msgid "%s has one female partner recorded."
-msgstr "%s má zaznamenanú jednu partnerku."
-
-#: resources/views/tab.phtml:326
-#, php-format
-msgid "%s has one male partner recorded."
-msgstr "%s má zaznamenaného jedného partnera."
-
-#: resources/views/tab.phtml:328
-#, php-format
-msgid "%s has one partner of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného partnera s neznámym pohlavím."
-
-#: resources/views/tab.phtml:371 resources/views/tab.phtml:375
-#: resources/views/tab.phtml:379 resources/views/tab.phtml:384
-#: resources/views/tab.phtml:389 resources/views/tab.phtml:394
-#, php-format
-msgid "including %s"
-msgstr "vrátane %s"
-
-#: resources/views/tab.phtml:403
 #, fuzzy, php-format
-#| msgid "There are %d branches in the partner chain. "
-msgid "There are %d branches in the partner chain."
-msgstr "Počet vetiev v zreťazení partnerov je %d. "
+#~| msgid "Stepparents %1$s (%2$s) of %3$s"
+#~ msgid "Social parents %1$s (%2$s) of %3$s"
+#~ msgstr "Nevlastní rodičia %1$s (%2$s) osoby %3$s"
 
-#: resources/views/tab.phtml:405
 #, php-format
-msgid ""
-"The longest branch in the partner chain to %2$s consists of %1$d partners "
-"(including %3$s)."
-msgstr ""
-"Najdlhšia vetva v zreťazení partnerov k osobe %2$s pozostáva z %1$d partnera "
-"(partnerov) (vrátane %3$s)."
+#~ msgid "Stepparents %1$s (%2$s) of %3$s"
+#~ msgstr "Nevlastní rodičia %1$s (%2$s) osoby %3$s"
 
-#: resources/views/tab.phtml:407
 #, php-format
-msgid ""
-"The longest branch in the partner chain consists of %1$d partners (including "
-"%2$s)."
-msgstr ""
-"Najdlhšia vetva v zreťazení partnerov pozostáva z %1$d partnera (partnerov) "
-"(vrátane %2$s)."
+#~ msgid "Parents %1$s (%2$s) of stepfather %3$s"
+#~ msgstr "Rodičia %1$s (%2$s) nevlastného otca %3$s"
 
-#: resources/views/tab.phtml:414
 #, php-format
-msgid "%s has one sister recorded."
-msgstr "%s má zaznamenanú jednu sestru."
+#~ msgid "Parents %1$s (%2$s) of stepmother %3$s"
+#~ msgstr "Rodičia %1$s (%2$s) nevlastnej matky %3$s"
 
-#: resources/views/tab.phtml:416
 #, php-format
-msgid "%s has one brother recorded."
-msgstr "%s má zaznamenaného jedného brata."
+#~ msgid "Parents %1$s (%2$s) of stepparent %3$s"
+#~ msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
 
-#: resources/views/tab.phtml:418
 #, php-format
-msgid "%s has one sibling of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného súrodenca s neznámym pohlavím."
+#~ msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
+#~ msgstr "Starí rodičia %1$s (%2$s) nevlastného otca %3$s"
 
-#: resources/views/tab.phtml:450
 #, php-format
-msgid "%s has one sister-in-law recorded."
-msgstr "%s má zaznamenanú jednu švagrinú."
+#~ msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
+#~ msgstr "Starí rodičia %1$s (%2$s) nevlastnej matky %3$s"
 
-#: resources/views/tab.phtml:452
 #, php-format
-msgid "%s has one brother-in-law recorded."
-msgstr "%s má zaznamenaného jedného švagra."
+#~ msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
+#~ msgstr "Starí rodičia %1$s (%2$s) nevlastného rodiča %3$s"
 
-#: resources/views/tab.phtml:454
 #, php-format
-msgid "%s has one sibling-in-law of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného švagra/švagrinú s neznámym pohlavím."
-
-#: resources/views/tab.phtml:486
-#, php-format
-msgid "%s has one co-sister-in-law recorded."
-msgstr "%s má zaznamenanú jednu švagrinú partnera/partnerky."
-
-#: resources/views/tab.phtml:488
-#, php-format
-msgid "%s has one co-brother-in-law recorded."
-msgstr "%s má zaznamenaného jedného švagra partnera/partnerky."
-
-#: resources/views/tab.phtml:490
-#, php-format
-msgid "%s has one co-sibling-in-law of unknown sex recorded."
-msgstr ""
-"%s má zaznamenaného jedného švagra/švagrinú partnera/partnerky, ktorého "
-"pohlavie je neznáme."
-
-#: resources/views/tab.phtml:522
-#, php-format
-msgid "%s has one female first cousin recorded."
-msgstr "%s má zaznamenanú jednu prvostupňovú sesternicu."
-
-#: resources/views/tab.phtml:524
-#, php-format
-msgid "%s has one male first cousin recorded."
-msgstr "%s má zaznamenaného jedného prvostupňového bratranca."
-
-#: resources/views/tab.phtml:526
-#, php-format
-msgid "%s has one first cousin of unknown sex recorded."
-msgstr "%s má zaznamenanú jednu sesternicu/bratranca s neznámym pohlavím."
-
-#: resources/views/tab.phtml:553
-#, php-format
-msgid "%s has one niece recorded."
-msgstr "%s má zaznamenanú jednu neter."
-
-#: resources/views/tab.phtml:555
-#, php-format
-msgid "%s has one nephew recorded."
-msgstr "%s má zaznamenaného jedného synovca."
-
-#: resources/views/tab.phtml:557
-#, php-format
-msgid "%s has one nephew or niece of unknown sex recorded."
-msgstr "%s má zaznamenanú jednu neter alebo synovca s neznámym pohlavím."
-
-#: resources/views/tab.phtml:584
-#, php-format
-msgid "%s has one daughter recorded."
-msgstr "%s má zaznamenanú jednu dcéru."
-
-#: resources/views/tab.phtml:586
-#, php-format
-msgid "%s has one son recorded."
-msgstr "%s má zaznamenaného jedného syna."
-
-#: resources/views/tab.phtml:588
-#, php-format
-msgid "%s has one child of unknown sex recorded."
-msgstr "%s má zaznamenané jedno dieťa s neznámym pohlavím."
-
-#: resources/views/tab.phtml:615
-#, php-format
-msgid "%s has one daughter-in-law recorded."
-msgstr "%s má zaznamenanú jednu nevestu."
-
-#: resources/views/tab.phtml:617
-#, php-format
-msgid "%s has one son-in-law recorded."
-msgstr "%s má zaznamenaného jedného zaťa."
-
-#: resources/views/tab.phtml:619
-#, php-format
-msgid "%s has one child-in-law of unknown sex recorded."
-msgstr "%s má zaznamenaného jednu nevestu/zaťa s neznámym pohlavím."
-
-#: resources/views/tab.phtml:646
-#, php-format
-msgid "%s has one granddaughter recorded."
-msgstr "%s má zaznamenanú jednu vnučku."
-
-#: resources/views/tab.phtml:648
-#, php-format
-msgid "%s has one grandson recorded."
-msgstr "%s má zaznamenaného jedného vnuka."
-
-#: resources/views/tab.phtml:650
-#, php-format
-msgid "%s has one grandchild of unknown sex recorded."
-msgstr "%s má zaznamenané jedno vnúča s neznámym pohlavím."
-
-#: resources/views/tab.phtml:677
-#, fuzzy, php-format
-#| msgid "%s has one great-grandfather recorded."
-msgid "%s has one great-granddaughter recorded."
-msgstr "%s má zaznamenaného jedného prastarého otca."
-
-#: resources/views/tab.phtml:679
-#, fuzzy, php-format
-#| msgid "%s has one grandson recorded."
-msgid "%s has one great-grandson recorded."
-msgstr "%s má zaznamenaného jedného vnuka."
-
-#: resources/views/tab.phtml:681
-#, fuzzy, php-format
-#| msgid "%s has one grandchild of unknown sex recorded."
-msgid "%s has one great-grandchild of unknown sex recorded."
-msgstr "%s má zaznamenané jedno vnúča s neznámym pohlavím."
-
-#: resources/views/tab.phtml:708
-#, php-format
-msgid "%s has one granddaughter-in-law recorded."
-msgstr "%s má zaznamenanú jednu partnerku vnuka."
-
-#: resources/views/tab.phtml:710
-#, php-format
-msgid "%s has one grandson-in-law recorded."
-msgstr "%s má zaznamenaného jedného partnera vnučky."
-
-#: resources/views/tab.phtml:712
-#, php-format
-msgid "%s has one grandchild-in-law of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného partnera vnuka, ktorý má neznáme pohlavie."
-
-#: resources/views/tab.phtml:739
-#, fuzzy, php-format
-#| msgid "%s has one granddaughter-in-law recorded."
-msgid "%s has one great-granddaughter-in-law recorded."
-msgstr "%s má zaznamenanú jednu partnerku vnuka."
-
-#: resources/views/tab.phtml:741
-#, fuzzy, php-format
-#| msgid "%s has one grandson-in-law recorded."
-msgid "%s has one great-grandson-in-law recorded."
-msgstr "%s má zaznamenaného jedného partnera vnučky."
-
-#: resources/views/tab.phtml:743
-#, fuzzy, php-format
-#| msgid "%s has one grandchild-in-law of unknown sex recorded."
-msgid "%s has one great-grandchild-in-law of unknown sex recorded."
-msgstr "%s má zaznamenaného jedného partnera vnuka, ktorý má neznáme pohlavie."
-
-#: resources/views/tab.phtml:778
-#, fuzzy
-#| msgid "Partner of "
-msgid "Partner of"
-msgstr "Partner osoby "
-
-#: resources/views/tab.phtml:840 resources/views/tab.phtml:842
-#, fuzzy
-#| msgid " with "
-msgid "with"
-msgstr " s "
-
-#: resources/views/tab.phtml:905
-#, php-format
-msgid "Brother %1$s of partner %2$s"
-msgstr "Brat %1$s partnera %2$s"
-
-#: resources/views/tab.phtml:907
-#, php-format
-msgid "Sister %1$s of partner %2$s"
-msgstr "Sestra %1$s partnera %2$s"
-
-#: resources/views/tab.phtml:909
-#, php-format
-msgid "Sibling %1$s of partner %2$s"
-msgstr "Súrodenec %1$s partnera %2$s"
-
-#: resources/views/tab.phtml:914 resources/views/tab.phtml:927
-#, fuzzy, php-format
-#| msgid "Sibling %1$s of partner %2$s"
-msgid "Sibling of %1$s %2$s"
-msgstr "Súrodenec %1$s partnera %2$s"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/tab.phtml:918 resources/views/tab.phtml:930
-#, fuzzy, php-format
-#| msgid "Partners of siblings-in-law"
-msgid "Partner of %1$s sibling-in-law %2$s"
-msgstr "Partneri švagrov a švagrín"
-
-#: resources/views/tab.phtml:942
-#, php-format
-msgid "%1$s %2$s, %3$s with %4$s"
-msgstr ""
-
-#: resources/views/tab.phtml:950
-#, php-format
-msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
-msgstr ""
-
-#: resources/views/tab.phtml:967
-msgid "Stepson"
-msgstr "Nevlastný syn"
-
-#: resources/views/tab.phtml:969
-msgid "Stepdaughter"
-msgstr "Nevlastná dcéra"
-
-#: resources/views/tab.phtml:971 resources/views/tab.phtml:978
-msgid "Stepchild"
-msgstr "Nevlastné dieťa"
-
-#: resources/views/tab.phtml:991 resources/views/tab.phtml:1015
-#, fuzzy, php-format
-#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
-msgid "%1$s %2$s as parents of %3$s"
-msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
-
-#: resources/views/tab.phtml:993 resources/views/tab.phtml:1056
-#, php-format
-msgid "Parents %1$s (%2$s) of %3$s"
-msgstr "Rodičia %1$s (%2$s) osoby %3$s"
-
-#: resources/views/tab.phtml:999
-#, fuzzy, php-format
-#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
-msgid "%1$s %2$s as social parents of %3$s"
-msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
-
-#: resources/views/tab.phtml:1001
-#, fuzzy, php-format
-#| msgid "Stepparents %1$s (%2$s) of %3$s"
-msgid "Social parents %1$s (%2$s) of %3$s"
-msgstr "Nevlastní rodičia %1$s (%2$s) osoby %3$s"
-
-#: resources/views/tab.phtml:1007
-#, fuzzy, php-format
-#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
-msgid "%1$s %2$s as stepparents of %3$s"
-msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
-
-#: resources/views/tab.phtml:1009
-#, php-format
-msgid "Stepparents %1$s (%2$s) of %3$s"
-msgstr "Nevlastní rodičia %1$s (%2$s) osoby %3$s"
-
-#: resources/views/tab.phtml:1017
-#, php-format
-msgid "Parents %1$s (%2$s) of stepfather %3$s"
-msgstr "Rodičia %1$s (%2$s) nevlastného otca %3$s"
-
-#: resources/views/tab.phtml:1019
-#, php-format
-msgid "Parents %1$s (%2$s) of stepmother %3$s"
-msgstr "Rodičia %1$s (%2$s) nevlastnej matky %3$s"
-
-#: resources/views/tab.phtml:1021
-#, php-format
-msgid "Parents %1$s (%2$s) of stepparent %3$s"
-msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
-
-#: resources/views/tab.phtml:1027
-#, fuzzy, php-format
-#| msgid "Parents %1$s (%2$s) of stepparent %3$s"
-msgid "%1$s %2$s as grandparents of %3$s"
-msgstr "Rodičia %1$s (%2$s) nevlastného rodiča %3$s"
-
-#: resources/views/tab.phtml:1029
-#, php-format
-msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
-msgstr "Starí rodičia %1$s (%2$s) nevlastného otca %3$s"
-
-#: resources/views/tab.phtml:1031
-#, php-format
-msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
-msgstr "Starí rodičia %1$s (%2$s) nevlastnej matky %3$s"
-
-#: resources/views/tab.phtml:1033
-#, php-format
-msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
-msgstr "Starí rodičia %1$s (%2$s) nevlastného rodiča %3$s"
-
-#: resources/views/tab.phtml:1042 resources/views/tab.phtml:1062
-#, php-format
-msgid "Parents %1$s of %2$s"
-msgstr "Rodičia %1$s osoby %2$s"
-
-#: resources/views/tab.phtml:1058 resources/views/tab.phtml:1064
-#, php-format
-msgid "Partners of %s"
-msgstr "Partneri osoby %s"
-
-#: resources/views/tab.phtml:1078 resources/views/tab.phtml:1084
-#, php-format
-msgid "connected with %s"
-msgstr ""
-
-#: resources/views/tab.phtml:1129
-#, php-format
-msgid "%s has no uncles or aunts recorded."
-msgstr "%s nemá zaznamenaného žiadneho strýka alebo tetu."
-
-#: resources/views/tab.phtml:1131
-#, php-format
-msgid "%s has no uncles or aunts by marriage recorded."
-msgstr "%s nemá zaznamenaných žiadnych strýkov a tety získaných sobášom."
-
-#: resources/views/tab.phtml:1133
-#, php-format
-msgid "%s has no members of a partner chain recorded."
-msgstr "%s nemá zaznamenaného žiadneho člena reťaze partnerov."
-
-#: resources/views/tab.phtml:1135
-#, php-format
-msgid "%s has no first cousins recorded."
-msgstr ""
-"%s nemá zaznamenaných žiadnych prvostupňových bratrancov alebo sesternice."
-
-#: resources/views/tab.phtml:1137
-#, php-format
-msgid "%s has no nephews or nieces recorded."
-msgstr "%s nemá zaznamenaných žiadnych synovcov alebo netere."
-
-#: resources/views/tab.phtml:1139
-#, fuzzy, php-format
-#| msgid "%s has no %s recorded."
-msgid "%1$s has no %2$s recorded."
-msgstr "%s nemá zaznamenané %s."
-
-#: resources/views/tab.phtml:1153
-msgid "No family available"
-msgstr "Nenašla sa žiadna rodina"
+#~ msgid "Parents %1$s of %2$s"
+#~ msgstr "Rodičia %1$s osoby %2$s"
 
 #, php-format
 #~ msgid "%2$s has %1$d great-grandmother recorded."
@@ -1838,8 +2078,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d prastarých otcov."
 
 #, php-format
-#~ msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
+#~ msgid "%2$s has %1$d great-grandparent of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d great-grandparents of diverse or unknown sex recorded."
 #~ msgstr[0] ""
 #~ "%2$s má zaznamenaného %1$d prastarého rodiča s neznámym pohlavím."
 #~ msgstr[1] ""
@@ -1862,8 +2103,10 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d prastarých matiek (spolu %d)."
 
 #, php-format
-#~ msgid "%d great-grandparent of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
+#~ msgid ""
+#~ "%d great-grandparent of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d great-grandparents of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d prastarého rodiča s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d prastarých rodičov s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d prastarých rodičov s neznámym pohlavím (spolu %d)."
@@ -1904,8 +2147,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d starých otcov."
 
 #, php-format
-#~ msgid "%2$s has %1$d grandparent of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
+#~ msgid "%2$s has %1$d grandparent of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d grandparents of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenaného %1$d starého rodiča s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenaných %1$d starých rodičov s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaných %1$d starých rodičov s neznámym pohlavím."
@@ -1925,8 +2169,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d starých matiek (spolu %d)."
 
 #, php-format
-#~ msgid "%d grandparent of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
+#~ msgid "%d grandparent of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d grandparents of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d starého rodiča s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d starých rodičov s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d starých rodičov s neznámym pohlavím (spolu %d)."
@@ -1967,8 +2212,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d strýkov."
 
 #, php-format
-#~ msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
+#~ msgid "%2$s has %1$d uncle or aunt of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d uncles or aunts of diverse or unknown sex recorded."
 #~ msgstr[0] ""
 #~ "%2$s má zaznamenaného %1$d strýka alebo tetu s neznámym pohlavím."
 #~ msgstr[1] ""
@@ -1991,8 +2237,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d tiet (spolu %d)."
 
 #, php-format
-#~ msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
+#~ msgid "%d uncle or aunt of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d uncles or aunts of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d strýka alebo tetu s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d strýkov alebo tiet s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d strýkov alebo tiet s neznámym pohlavím (spolu %d)."
@@ -2033,9 +2280,12 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d strýkov získaných sobášom."
 
 #, php-format
-#~ msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
+#~ msgid ""
+#~ "%2$s has %1$d uncle or aunt by marriage of diverse or unknown sex "
+#~ "recorded."
 #~ msgid_plural ""
-#~ "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
+#~ "%2$s has %1$d uncles or aunts by marriage of diverse or unknown sex "
+#~ "recorded."
 #~ msgstr[0] ""
 #~ "%2$s má zaznamenaného %1$d strýka alebo tetu získaných manželstvom s "
 #~ "neznámym pohlavím."
@@ -2061,9 +2311,12 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d tiet získaných manželstvom (spolu %d)."
 
 #, php-format
-#~ msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
+#~ msgid ""
+#~ "%d uncle or aunt by marriage of diverse or unknown sex recorded (%d in "
+#~ "total)."
 #~ msgid_plural ""
-#~ "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
+#~ "%d uncles or aunts by marriage of diverse or unknown sex recorded (%d in "
+#~ "total)."
 #~ msgstr[0] ""
 #~ "%d strýka alebo tetu získaných sobášom s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] ""
@@ -2107,8 +2360,8 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d otcov."
 
 #, php-format
-#~ msgid "%2$s has %1$d parent of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d parents of unknown sex recorded."
+#~ msgid "%2$s has %1$d parent of diverse or unknown sex recorded."
+#~ msgid_plural "%2$s has %1$d parents of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenaného %1$d rodiča s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenaného %1$d rodičov s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaného %1$d rodičov s neznámym pohlavím."
@@ -2128,8 +2381,8 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d matiek (spolu %d)."
 
 #, php-format
-#~ msgid "%d parent of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d parents of unknown sex recorded (%d in total)."
+#~ msgid "%d parent of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural "%d parents of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d rodiča s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d rodičov s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d rodičov s neznámym pohlavím (spolu %d)."
@@ -2170,8 +2423,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d svokrov."
 
 #, php-format
-#~ msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
+#~ msgid "%2$s has %1$d parent-in-law of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d parents-in-law of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenaného %1$d rodiča partnera s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenaného %1$d rodičov partnera s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaného %1$d rodičov partnera s neznámym pohlavím."
@@ -2191,8 +2445,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d svokier (spolu %d)."
 
 #, php-format
-#~ msgid "%d parent-in-law of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
+#~ msgid "%d parent-in-law of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d parents-in-law of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d rodiča partnera s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d rodičov partnera s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d rodičov partnera s neznámym pohlavím (spolu %d)."
@@ -2233,8 +2488,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d svatov."
 
 #, php-format
-#~ msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
+#~ msgid "%2$s has %1$d co-parent-in-law of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d co-parents-in-law of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenaného %1$d svatovca s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenaného %1$d svatovcov s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaného %1$d svatovcov s neznámym pohlavím."
@@ -2254,8 +2510,10 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d svatiek (spolu %d)."
 
 #, php-format
-#~ msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
+#~ msgid ""
+#~ "%d co-parent-in-law of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d co-parents-in-law of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d svatovca s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d svatovcov s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d svatovcov s neznámym pohlavím (spolu %d)."
@@ -2296,8 +2554,8 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d partnerov."
 
 #, php-format
-#~ msgid "%2$s has %1$d partner of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d partners of unknown sex recorded."
+#~ msgid "%2$s has %1$d partner of diverse or unknown sex recorded."
+#~ msgid_plural "%2$s has %1$d partners of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenaného %1$d partnera s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenaného %1$d partnerov s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaného %1$d partnerov s neznámym pohlavím."
@@ -2317,8 +2575,8 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d partneriek (spolu %d)."
 
 #, php-format
-#~ msgid "%d partner of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d partners of unknown sex recorded (%d in total)."
+#~ msgid "%d partner of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural "%d partners of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d partnera s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d partnerov s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d partnerov s neznámym pohlavím (spolu %d)."
@@ -2373,8 +2631,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "má v tejto reťazi partnerov zaznamenaných %d partnerov"
 
 #, php-format
-#~ msgid "%d partner of unknown sex in this partner chain recorded"
-#~ msgid_plural "%d partners of unknown sex in this partner chain recorded"
+#~ msgid "%d partner of diverse or unknown sex in this partner chain recorded"
+#~ msgid_plural ""
+#~ "%d partners of diverse or unknown sex in this partner chain recorded"
 #~ msgstr[0] ""
 #~ "má v tejto reťazi partnerov zaznamenaného %d partnera s neznámym pohlavím"
 #~ msgstr[1] ""
@@ -2392,20 +2651,22 @@ msgstr "Nenašla sa žiadna rodina"
 
 #, php-format
 #~ msgid ""
-#~ "%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
+#~ "%1$d partner of diverse or unknown sex in this partner chain recorded "
+#~ "(%2$d in total"
 #~ msgid_plural ""
-#~ "%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
+#~ "%1$d partners of diverse or unknown sex in this partner chain recorded "
+#~ "(%2$d in total"
 #~ msgstr[0] "%1$d partnera s neznámym pohlavím (spolu %2$d"
 #~ msgstr[1] "%1$d partnerov s neznámym pohlavím (spolu %2$d"
 #~ msgstr[2] "%1$d partnerov s neznámym pohlavím (spolu %2$d"
 
 #, php-format
 #~ msgid ""
-#~ "%1$d partner of unknown sex in this partner chain recorded (%2$d in "
-#~ "total, including %3$s)."
+#~ "%1$d partner of diverse or unknown sex in this partner chain recorded "
+#~ "(%2$d in total, including %3$s)."
 #~ msgid_plural ""
-#~ "%1$d partners of unknown sex in this partner chain recorded (%2$d in "
-#~ "total, including %3$s)."
+#~ "%1$d partners of diverse or unknown sex in this partner chain recorded "
+#~ "(%2$d in total, including %3$s)."
 #~ msgstr[0] "%1$d partnera neznámeho pohlavia (spolu %2$d, vrátane %3$s)."
 #~ msgstr[1] "%1$d partnerov neznámeho pohlavia (spolu %2$d, vrátane %3$s)."
 #~ msgstr[2] "%1$d partnerov neznámeho pohlavia (spolu %2$d, vrátane %3$s)."
@@ -2425,8 +2686,8 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d bratov."
 
 #, php-format
-#~ msgid "%2$s has %1$d sibling of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
+#~ msgid "%2$s has %1$d sibling of diverse or unknown sex recorded."
+#~ msgid_plural "%2$s has %1$d siblings of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenaného %1$d súrodenca s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenaného %1$d súrodencov s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaného %1$d súrodencov s neznámym pohlavím."
@@ -2446,8 +2707,8 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d sestier (spolu %d)."
 
 #, php-format
-#~ msgid "%d sibling of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d siblings of unknown sex recorded (%d in total)."
+#~ msgid "%d sibling of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural "%d siblings of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d súrodenca s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d súrodencov s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d súrodencov s neznámym pohlavím (spolu %d)."
@@ -2488,12 +2749,15 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d švagrov."
 
 #, php-format
-#~ msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
+#~ msgid "%2$s has %1$d sibling-in-law of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d siblings-in-law of diverse or unknown sex recorded."
 #~ msgstr[0] ""
 #~ "%2$s má zaznamenaného %1$d švagra alebo švagrinú s neznámym pohlavím."
-#~ msgstr[1] "%2$s has %1$d siblings-in-law of unknown sex recorded."
-#~ msgstr[2] "%2$s has %1$d siblings-in-law of unknown sex recorded."
+#~ msgstr[1] ""
+#~ "%2$s has %1$d siblings-in-law of diverse or unknown sex recorded."
+#~ msgstr[2] ""
+#~ "%2$s has %1$d siblings-in-law of diverse or unknown sex recorded."
 
 #, php-format
 #~ msgid "%2$s has %1$d brother-in-law and "
@@ -2510,8 +2774,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d švagrín (spolu %d)."
 
 #, php-format
-#~ msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
+#~ msgid "%d sibling-in-law of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d siblings-in-law of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d švagra/švagrinú s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d švagrov/švagriné s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d švagrov/švagrín s neznámym pohlavím (spolu %d)."
@@ -2552,8 +2817,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d švagrov partnera/partnerky."
 
 #, php-format
-#~ msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
+#~ msgid "%2$s has %1$d co-sibling-in-law of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d co-siblings-in-law of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenaného %1$d švagra partnera/partnerky ."
 #~ msgstr[1] "%2$s má zaznamenaných %1$d starých rodičov s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaných %1$d starých rodičov s neznámym pohlavím."
@@ -2576,8 +2842,10 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d sestier alebo manželiek švagrov a švagrín (spolu %d)."
 
 #, php-format
-#~ msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
+#~ msgid ""
+#~ "%d co-sibling-in-law of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d co-siblings-in-law of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] ""
 #~ "%d súrodenca alebo partnera švagrov a švagrín s neznámym pohlavím (spolu "
 #~ "%d)."
@@ -2630,8 +2898,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d prvostupňových bratrancov."
 
 #, php-format
-#~ msgid "%2$s has %1$d first cousin of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
+#~ msgid "%2$s has %1$d first cousin of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d first cousins of diverse or unknown sex recorded."
 #~ msgstr[0] ""
 #~ "%2$s má zaznamenanú %1$d sesternicu/bratranca s neznámym pohlavím."
 #~ msgstr[1] ""
@@ -2654,8 +2923,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d prvostupňových sesterníc (spolu %d)."
 
 #, php-format
-#~ msgid "%d first cousin of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
+#~ msgid "%d first cousin of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d first cousins of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] ""
 #~ "%d prvostupňovú sesternicu/bratranca s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] ""
@@ -2699,8 +2969,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s zaznamenaných %1$d synovcov."
 
 #, php-format
-#~ msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
+#~ msgid "%2$s has %1$d nephew or niece of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d nephews or nieces of diverse or unknown sex recorded."
 #~ msgstr[0] ""
 #~ "%2$s má zaznamenanú %1$d neter alebo synovca s neznámym pohlavím."
 #~ msgstr[1] ""
@@ -2723,8 +2994,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d neterí (spolu %d)."
 
 #, php-format
-#~ msgid "%d nephew or niece of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
+#~ msgid "%d nephew or niece of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d nephews or nieces of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d neter alebo synovca s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d netere alebo synovcov s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d neterí alebo synovcov s neznámym pohlavím (spolu %d)."
@@ -2765,8 +3037,8 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d synov."
 
 #, php-format
-#~ msgid "%2$s has %1$d child of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d children of unknown sex recorded."
+#~ msgid "%2$s has %1$d child of diverse or unknown sex recorded."
+#~ msgid_plural "%2$s has %1$d children of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenané %1$d dieťa s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenané %1$d deti s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaných %1$d detí s neznámym pohlavím."
@@ -2786,8 +3058,8 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d dcér (spolu %d)."
 
 #, php-format
-#~ msgid "%d child of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d children of unknown sex recorded (%d in total)."
+#~ msgid "%d child of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural "%d children of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d dieťa s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d deti s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d detí s neznámym pohlavím (spolu %d)."
@@ -2828,8 +3100,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d zaťov."
 
 #, php-format
-#~ msgid "%2$s has %1$d child-in-law of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d children-in-law of unknown sex recorded."
+#~ msgid "%2$s has %1$d child-in-law of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d children-in-law of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenanú %1$d nevestu/zaťa s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenané %1$d nevesty/zaťov s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenaných %1$d neviest/zaťov s neznámym pohlavím."
@@ -2849,8 +3122,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d neviest (spolu %d)."
 
 #, php-format
-#~ msgid "%d child-in-law of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
+#~ msgid "%d child-in-law of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d children-in-law of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d nevestu/zaťa s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d nevesty/zaťov s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d neviest/zaťov s neznámym pohlavím (spolu %d)."
@@ -2891,8 +3165,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d vnukov."
 
 #, php-format
-#~ msgid "%2$s has %1$d grandchild of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
+#~ msgid "%2$s has %1$d grandchild of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d grandchildren of diverse or unknown sex recorded."
 #~ msgstr[0] "%2$s má zaznamenané %1$d vnúča s neznámym pohlavím."
 #~ msgstr[1] "%2$s má zaznamenané %1$d vnúčatá s neznámym pohlavím."
 #~ msgstr[2] "%2$s má zaznamenané %1$d vnúčat s neznámym pohlavím."
@@ -2912,8 +3187,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d vnučiek (spolu %d)."
 
 #, php-format
-#~ msgid "%d grandchild of unknown sex recorded (%d in total)."
-#~ msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
+#~ msgid "%d grandchild of diverse or unknown sex recorded (%d in total)."
+#~ msgid_plural ""
+#~ "%d grandchildren of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d vnúča s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d vnúčatá s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d vnúčat s neznámym pohlavím (spolu %d)."
@@ -2954,8 +3230,9 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%2$s má zaznamenaných %1$d partnerov vnučiek."
 
 #, php-format
-#~ msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
-#~ msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
+#~ msgid "%2$s has %1$d grandchild-in-law of diverse or unknown sex recorded."
+#~ msgid_plural ""
+#~ "%2$s has %1$d grandchildren-in-law of diverse or unknown sex recorded."
 #~ msgstr[0] ""
 #~ "%2$s má zaznamenaného %1$d partnera vnúčaťa, ktorý má neznáme pohlavie."
 #~ msgstr[1] ""
@@ -2978,9 +3255,10 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr[2] "%d partneriek vnukov  (spolu %d)."
 
 #, php-format
-#~ msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
+#~ msgid ""
+#~ "%d grandchild-in-law of diverse or unknown sex recorded (%d in total)."
 #~ msgid_plural ""
-#~ "%d grandchildren-in-law of unknown sex recorded (%d in total)."
+#~ "%d grandchildren-in-law of diverse or unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d partnera vnúčaťa, ktorý má neznáme pohlavie (spolu %d)."
 #~ msgstr[1] "%d partnerov vnúčat, ktorí majú neznáme pohlavie (spolu %d)."
 #~ msgstr[2] "%d partnerov vnúčat, ktorí majú neznáme pohlavie (spolu %d)."
@@ -3013,7 +3291,7 @@ msgstr "Nenašla sa žiadna rodina"
 #, php-format
 #~ msgid "The extended family has only %1$s as a member."
 #~ msgid_plural ""
-#~ "The extended family of %1$s has %2$d members (including %1$s)."
+#~ "The extended family of %1$s has %2$d members (including %3$s)."
 #~ msgstr[0] "%1$s má v širšej rodine jedného člena."
 #~ msgstr[1] "%1$s má v širšej rodine %2$d členov."
 #~ msgstr[2] "%1$s má v širšej rodine %2$d členov."
@@ -3043,7 +3321,7 @@ msgstr "Nenašla sa žiadna rodina"
 #~ msgstr "žiadna ženská osoba"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "not a person of unknown gender"
+#~ msgid "not a person of diverse or unknown gender"
 #~ msgstr "žiadna osoba s neznámym pohlavím"
 
 # Migrated from ExtendedFamilyTranslations.php.old
@@ -3061,10 +3339,6 @@ msgstr "Nenašla sa žiadna rodina"
 # Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Siblings-in-law of mother"
 #~ msgstr "Matkini švagrovia a švagriné"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "Siblings' stepchildren"
-#~ msgstr "Nevlastné deti súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "Father's family (%d)"
@@ -3143,9 +3417,6 @@ msgstr "Nenašla sa žiadna rodina"
 # Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "%s has no grandchildren-in-law recorded."
 #~ msgstr "%s nemá zaznamenané žiadneho partnera vnúčat."
-
-#~ msgid "show only persons of unknown gender"
-#~ msgstr "zobraziť len osoby s neznámym pohlavím"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #~ msgid "no, but collect messages about empty blocks at the end"

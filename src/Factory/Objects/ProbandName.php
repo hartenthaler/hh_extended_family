@@ -29,6 +29,7 @@ use Fisharebest\Webtrees\Individual;
 use function count;
 use function explode;
 use function array_diff;
+use function strip_tags;
 
 /**
  * class ProbandName
@@ -37,6 +38,22 @@ use function array_diff;
  */
 class ProbandName
 {
+    /**
+     * Find the name variants used when referring to the proband.
+     *
+     * @return NiceName
+     */
+    public static function findNiceName(Individual $individual, bool $showShortName): NiceName
+    {
+        $name = ProbandName::findDefaultNiceName($individual, $showShortName);
+
+        return new NiceName(
+            $name,
+            ProbandName::findNiceNameForFamilyOf($individual, $showShortName),
+            strip_tags($name)
+        );
+    }
+
     /**
      * Find a short, nice name for a person (in this case: name of proband)
      * 1. use Rufname or nickname ("Sepp") or first of first names if one of these is available
@@ -49,10 +66,27 @@ class ProbandName
      * @param bool $showShortName
      * @return string
      */
-    public static function findNiceName(Individual $individual, bool $showShortName): string
+    private static function findDefaultNiceName(Individual $individual, bool $showShortName): string
     {
         if ($showShortName) {
             return ProbandName::findNiceNameFromRufnameOrNameParts($individual);
+        } else {
+            return $individual->fullname();
+        }
+    }
+
+    private static function findNiceNameForFamilyOf(Individual $individual, bool $showShortName): string
+    {
+        if ($showShortName) {
+            return ProbandName::findNiceNameFromRufnameOrNameParts(
+                $individual,
+                /* I18N: Short fallback name for an unnamed male person after "of"; for example "the extended family of him". Use the form required after "of"; for example German dative after "von": "von ihm". */
+                I18N::translate('Him'),
+                /* I18N: Short fallback name for an unnamed female person after "of"; for example "the extended family of her". Use the form required after "of"; for example German dative after "von": "von ihr". */
+                I18N::translate('Her'),
+                /* I18N: Short fallback name for an unnamed person of diverse or unknown sex after "of"; for example "the extended family of him/her". Use the form required after "of"; for example German dative after "von": "von ihm/ihr". */
+                I18N::translate('Him/her')
+            );
         } else {
             return $individual->fullname();
         }
@@ -64,13 +98,18 @@ class ProbandName
      * @param Individual $individual
      * @return string
      */
-    private static function findNiceNameFromRufnameOrNameParts(Individual $individual): string
+    private static function findNiceNameFromRufnameOrNameParts(
+        Individual $individual,
+        string $nMale = '',
+        string $nFemale = '',
+        string $nUnknown = ''
+    ): string
     {
         $rufname = ProbandName::findRufname($individual);
         if ($rufname !== '') {
             return $rufname;
         } else {
-            return ProbandName::findNiceNameFromNameParts($individual);
+            return ProbandName::findNiceNameFromNameParts($individual, $nMale, $nFemale, $nUnknown);
         }
     }
 
@@ -107,7 +146,12 @@ class ProbandName
      * @param Individual $individual
      * @return string
      */
-    private static function findNiceNameFromNameParts(Individual $individual): string
+    private static function findNiceNameFromNameParts(
+        Individual $individual,
+        string $nMale = '',
+        string $nFemale = '',
+        string $nUnknown = ''
+    ): string
     {
         $nameFacts = $individual->facts(['NAME']);
         if (count($nameFacts) > 0) {                // is there any NAME record?
@@ -128,9 +172,12 @@ class ProbandName
             }
         }
         return ProbandName::selectNameSex($individual,
-            I18N::translate('He'),
-            I18N::translate('She'),
-            I18N::translate('He/she'));
+            /* I18N: Short fallback name for an unnamed male person in sentences like "%s has no children recorded." For languages with grammatical case, use the form suitable for this sentence position; for example German accusative "ihn". */
+            $nMale !== '' ? $nMale : I18N::translate('He'),
+            /* I18N: Short fallback name for an unnamed female person in sentences like "%s has no children recorded." For languages with grammatical case, use the form suitable for this sentence position; for example German accusative "sie". */
+            $nFemale !== '' ? $nFemale : I18N::translate('She'),
+            /* I18N: Short fallback name for an unnamed person of diverse or unknown sex in sentences like "%s has no children recorded." For languages with grammatical case, use the form suitable for this sentence position; for example German accusative "ihn/sie". */
+            $nUnknown !== '' ? $nUnknown : I18N::translate('He/she'));
     }
 
     /**

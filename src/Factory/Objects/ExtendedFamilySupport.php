@@ -32,9 +32,13 @@ use Fisharebest\Webtrees\Registry;
 
 // string functions
 use function e;
+use function class_exists;
+use function method_exists;
+use function strip_tags;
 use function str_replace;
 use function strtolower;
 use function str_contains;  // will be added in PHP 8.0, at the moment part of the framework
+use function trim;
 use function preg_match;
 
 // array functions
@@ -63,6 +67,50 @@ class ExtendedFamilySupport
     public const FAM_STATUS_MARRIED_PARTNER  = 'married partner';
     public const FAM_STATUS_ENGAGED_PARTNER  = 'engaged partner';
     public const FAM_STATUS_PARTNER          = 'partner';
+
+    /**
+     * Core webtrees relationship labels used in group headings.
+     *
+     * @return object{
+     *     brother:string,
+     *     child:string,
+     *     daughter:string,
+     *     sibling:string,
+     *     sister:string,
+     *     son:string
+     * }
+     */
+    public static function coreRelationshipLabels(): object
+    {
+        return (object)[
+            'brother'  => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Brother'),
+            'child'    => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Child'),
+            'daughter' => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Daughter'),
+            'sibling'  => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Sibling'),
+            'sister'   => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Sister'),
+            'son'      => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Son'),
+        ];
+    }
+
+    public static function individualLink(Individual $person): string
+    {
+        if ($person->canShow()) {
+            return '<a href="' . e($person->url()) . '">' . $person->fullName() . '</a>';
+        }
+
+        return $person->fullName();
+    }
+
+    public static function partnerInFamilyLink(Family $family, Individual $person): string
+    {
+        foreach ($family->spouses() as $spouse) {
+            if ($spouse->xref() !== $person->xref()) {
+                return self::individualLink($spouse);
+            }
+        }
+
+        return $family->fullName();
+    }
 
     /**
      * get parameters for the used extended family parts like relationship coefficients and generation shift
@@ -301,6 +349,44 @@ class ExtendedFamilySupport
     }
 
     /**
+     * Get how an individual is related to the proband using Vesta, if available.
+     *
+     * @param Individual $individual
+     * @param Individual $proband
+     * @return string
+     */
+    public static function relationshipNameToProband(Individual $individual, Individual $proband): string
+    {
+        static $relationshipNames = [];
+
+        if ($individual->xref() === $proband->xref() || !class_exists('\Vesta\VestaUtils')) {
+            return '';
+        }
+
+        $cacheKey = $proband->tree()->name() . ':' . $proband->xref() . ':' . $individual->xref();
+
+        if (isset($relationshipNames[$cacheKey])) {
+            return $relationshipNames[$cacheKey];
+        }
+
+        try {
+            $relationshipService = \Vesta\VestaUtils::get(\Fisharebest\Webtrees\Services\RelationshipService::class);
+
+            if (!method_exists($relationshipService, 'getCloseRelationshipName')) {
+                return '';
+            }
+
+            $relationshipNames[$cacheKey] = trim(strip_tags($relationshipService->getCloseRelationshipName($proband, $individual)));
+
+            return $relationshipNames[$cacheKey];
+        } catch (\Throwable) {
+            $relationshipNames[$cacheKey] = '';
+
+            return '';
+        }
+    }
+
+    /**
      * Generate a fact summary using the configured place format.
      *
      * @param Fact $event
@@ -345,7 +431,6 @@ class ExtendedFamilySupport
     }
 
     /**
-     * tbd: switch to uppercase labels
      * generate a child linkage status label [challenged | disproven | proven]
      * GEDCOM record is for example ""
      *
@@ -358,20 +443,19 @@ class ExtendedFamilySupport
             if (preg_match('/\n1 FAMC @' . $child->childFamilies()->first()->xref() . '@(?:\n[2-9].*)*\n2 STAT (.+)/', $child->gedcom(), $match)) {
                 switch (strtolower($match[1])) {
                     case 'challenged':
-                        return I18N::translate('linkage challenged');
+                        return I18N::translate('Linkage challenged');
 
                     case 'disproven':
-                        return I18N::translate('linkage disproven');
+                        return I18N::translate('Linkage disproven');
 
                     case 'proven':
-                        return I18N::translate('linkage proven');
+                        return I18N::translate('Linkage proven');
                 }
             }
         }
         return '';
     }
     /**
-     * tbd: switch to uppercase labels
      * generate a label for twins and triplets etc.
      * GEDCOM record is for example "1 ASSO @I123@\n2 RELA triplet" or "1 BIRT\n2 _ASSO @I123@\n3 RELA triplet"
      *
@@ -411,21 +495,20 @@ class ExtendedFamilySupport
     private static function translateMultipleBirthLabel(string $rela): string
     {
         return match ($rela) {
-            'twin'      => I18N::translate('twin'),
-            'triplet'   => I18N::translate('triplet'),
-            'quadruplet' => I18N::translate('quadruplet'),
-            'quintuplet' => I18N::translate('quintuplet'),
-            'sextuplet' => I18N::translate('sextuplet'),
-            'septuplet' => I18N::translate('septuplet'),
-            'octuplet'  => I18N::translate('octuplet'),
-            'nonuplet'  => I18N::translate('nonuplet'),
-            'decuplet'  => I18N::translate('decuplet'),
+            'twin'      => I18N::translate('Twin'),
+            'triplet'   => I18N::translate('Triplet'),
+            'quadruplet' => I18N::translate('Quadruplet'),
+            'quintuplet' => I18N::translate('Quintuplet'),
+            'sextuplet' => I18N::translate('Sextuplet'),
+            'septuplet' => I18N::translate('Septuplet'),
+            'octuplet'  => I18N::translate('Octuplet'),
+            'nonuplet'  => I18N::translate('Nonuplet'),
+            'decuplet'  => I18N::translate('Decuplet'),
             default     => I18N::translate($rela),
         };
     }
 
     /**
-     * tbd: switch to uppercase labels
      * generate a label for children that are stillborn or died as an infant
      * GEDCOM record is for example "1 DEAT\n2 AGE INFANT" or "1 BIRT\n2 AGE STILLBORN"
      *
@@ -438,10 +521,10 @@ class ExtendedFamilySupport
     {     
         $childGedcom = $child->gedcom();
         if (preg_match('/\n2 AGE STILLBORN/i', $childGedcom, $match)) {
-            return I18N::translate('stillborn');
+            return I18N::translate('Stillborn');
         }        
         if (preg_match('/\n2 AGE INFANT/i', $childGedcom, $match)) {
-            return I18N::translate('died as infant');
+            return I18N::translate('Died as infant');
         }
         return '';
     }
@@ -748,6 +831,10 @@ class ExtendedFamilySupport
             Cousins::GROUP_COUSINS_HALF_FATHER                  => I18N::translate('Children of half siblings of father'),
             Cousins::GROUP_COUSINS_HALF_MOTHER                  => I18N::translate('Children of half siblings of mother'),
             Cousins::GROUP_COUSINS_HALF_U                       => I18N::translate('Children of half siblings of parent'),
+            Cousins::GROUP_COUSINS_FULL_SOCIAL                  => I18N::translate('Children of full siblings of social parents'),
+            Cousins::GROUP_COUSINS_HALF_SOCIAL                  => I18N::translate('Children of half siblings of social parents'),
+            Cousins::GROUP_COUSINS_FULL_STEP                    => I18N::translate('Children of full siblings of stepparents'),
+            Cousins::GROUP_COUSINS_HALF_STEP                    => I18N::translate('Children of half siblings of stepparents'),
             Siblings::GROUP_SIBLINGS_HALF                       => I18N::translate('Half siblings'),
             Siblings::GROUP_SIBLINGS_SOCIAL                     => I18N::translate('Social siblings'),
             Siblings::GROUP_SIBLINGS_STEP                       => I18N::translate('Stepsiblings'),
@@ -758,23 +845,38 @@ class ExtendedFamilySupport
             Children::GROUP_CHILDREN_SOCIAL                     => I18N::translate('Social children'),
             Children::GROUP_CHILDREN_STEP                       => I18N::translate('Stepchildren'),
             Children_in_law::GROUP_CHILDRENINLAW_BIO            => I18N::translate('Partners of biological children'),
+            Children_in_law::GROUP_CHILDRENINLAW_SOCIAL         => I18N::translate('Partners of social children'),
             Children_in_law::GROUP_CHILDRENINLAW_STEP           => I18N::translate('Partners of stepchildren'),
             Co_parents_in_law::GROUP_COPARENTSINLAW_BIO         => I18N::translate('Parents-in-law of biological children'),
             Co_parents_in_law::GROUP_COPARENTSINLAW_STEP        => I18N::translate('Parents-in-law of stepchildren'),
             Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING => I18N::translate('Children of siblings'),
+            Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING => I18N::translate('Siblings\' stepchildren'),
             Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER => I18N::translate('Children of siblings of partners'),
             Grandchildren::GROUP_GRANDCHILDREN_CHILD_SOCIAL      => I18N::translate('Children of social children'),
             Grandchildren::GROUP_GRANDCHILDREN_SOCIAL_CHILD      => I18N::translate('Social children of children'),
             Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD        => I18N::translate('Stepchildren of children'),
+            Grandchildren::GROUP_GRANDCHILDREN_CHILD_STEP        => I18N::translate('Children of stepchildren'),
             Grandchildren::GROUP_GRANDCHILDREN_STEP_STEP         => I18N::translate('Stepchildren of stepchildren'),
             Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_BIO   => I18N::translate('Partners of biological grandchildren'),
             Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_SOCIAL_CHILD => I18N::translate('Partners of social children of children'),
             Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_STEP_CHILD => I18N::translate('Partners of stepchildren of children'),
             Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_CHILD_STEP => I18N::translate('Partners of children of stepchildren'),
             Grandchildren_in_law::GROUP_GRANDCHILDRENINLAW_STEP_STEP => I18N::translate('Partners of stepchildren of stepchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIOLOGICAL => I18N::translate('Biological great-grandchildren'),
             Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIO    => I18N::translate('Children of biological grandchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_SOCIAL_CHILD => I18N::translate('Social children of grandchildren'),
             Great_grandchildren::GROUP_GREATGRANDCHILDREN_CHILD_SOCIAL => I18N::translate('Children of social grandchildren'),
             Great_grandchildren::GROUP_GREATGRANDCHILDREN_CHILD_STEP => I18N::translate('Children of stepgrandchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_STEP => I18N::translate('Stepchildren of grandchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_STEP_SOCIAL => I18N::translate('Stepchildren of social grandchildren'),
+            Great_grandchildren::GROUP_GREATGRANDCHILDREN_STEP_STEP => I18N::translate('Stepchildren of stepgrandchildren'),
+            Great_grandchild_in_law::GROUP_GREATGRANDCHILDRENINLAW_BIO => I18N::translate('Partners of biological great-grandchildren'),
+            Great_grandchild_in_law::GROUP_GREATGRANDCHILDRENINLAW_SOCIAL_CHILD => I18N::translate('Partners of social children of grandchildren'),
+            Great_grandchild_in_law::GROUP_GREATGRANDCHILDRENINLAW_CHILD_SOCIAL => I18N::translate('Partners of children of social grandchildren'),
+            Great_grandchild_in_law::GROUP_GREATGRANDCHILDRENINLAW_CHILD_STEP => I18N::translate('Partners of children of stepgrandchildren'),
+            Great_grandchild_in_law::GROUP_GREATGRANDCHILDRENINLAW_STEP => I18N::translate('Partners of stepchildren of grandchildren'),
+            Great_grandchild_in_law::GROUP_GREATGRANDCHILDRENINLAW_STEP_SOCIAL => I18N::translate('Partners of stepchildren of social grandchildren'),
+            Great_grandchild_in_law::GROUP_GREATGRANDCHILDRENINLAW_STEP_STEP => I18N::translate('Partners of stepchildren of stepgrandchildren'),
             default                                             => I18N::translate($groupName),
         };
     }

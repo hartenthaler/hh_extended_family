@@ -1,0 +1,88 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\View;
+
+/**
+ * @var string     $extended_family_css
+ * @var object     $extfam_obj
+ * @var object     $filterObj
+ * @var string     $filterOption
+ * @var Individual $individual
+ * @var string     $module
+ * @var string     $title
+ */
+
+$summaryName = '<span class="hh-extended-family-summary-name">' . $extfam_obj->proband->niceName->name . '</span>';
+?>
+
+<?php View::push('styles') ?>
+<link rel="stylesheet" href="<?= e($extended_family_css) ?>">
+<?php View::endpush() ?>
+
+<div class="hh-extended-family-print wt-tab-hh-extended-family py-4">
+    <div class="hh-extended-family-print-actions d-print-none mb-3">
+        <button type="button" class="btn btn-primary btn-sm" onclick="window.print()">
+            <i class="fas fa-print" aria-hidden="true"></i>
+            <?= I18N::translate('Print/PDF') ?>
+        </button>
+        <a class="btn btn-secondary btn-sm" href="<?= e($individual->url() . '#tab-' . $module) ?>">
+            &larr; <?= I18N::translate('Individual') ?>
+        </a>
+    </div>
+
+    <h1><?= $title ?></h1>
+
+    <?php if ($filterObj->efp->summary->allCount > 0): ?>
+        <?php foreach ($filterObj->efp as $propName => $propValue) : ?>
+            <?php if ($propName !== 'summary'): ?>
+                <?php if (($filterObj->efp->$propName->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+                    <section class="hh-extended-family-print-part">
+                        <?= view($module . '::partials/family-part-header', [
+                            'extfam_obj' => $extfam_obj,
+                            'filterObj'  => $filterObj,
+                            'propName'   => $propName,
+                        ]) ?>
+                        <?php if ($filterObj->efp->$propName->allCount): ?>
+                            <?= view($module . '::partials/family-part-summary', [
+                                'extfam_obj'  => $extfam_obj,
+                                'filterObj'   => $filterObj,
+                                'propName'    => $propName,
+                                'summaryName' => $summaryName,
+                            ]) ?>
+                            <?= view($module . '::partials/family-part-members', [
+                                'extfam_obj' => $extfam_obj,
+                                'filterObj'  => $filterObj,
+                                'individual' => $individual,
+                                'module'     => $module,
+                                'propName'   => $propName,
+                            ]) ?>
+                        <?php else: ?>
+                            <?= view($module . '::partials/empty-family-part', [
+                                'propName'    => $propName,
+                                'summaryName' => $summaryName,
+                            ]) ?>
+                        <?php endif ?>
+                    </section>
+                <?php endif ?>
+            <?php endif ?>
+        <?php endforeach ?>
+        <?php if ($extfam_obj->config->showSummary == 1) : ?>
+            <?= view($module . '::partials/summary', [
+                'extfam_obj' => $extfam_obj,
+                'filterObj'  => $filterObj,
+            ]) ?>
+        <?php endif ?>
+    <?php else: ?>
+        <h3><?= I18N::translate('No family available') ?></h3>
+    <?php endif ?>
+</div>
+
+<?php View::push('javascript') ?>
+<script>
+  window.addEventListener("load", function () {
+    window.print();
+  });
+</script>
+<?php View::endpush() ?>

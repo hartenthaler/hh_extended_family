@@ -57,6 +57,35 @@ require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandchild_in_law
 class ExtendedFamilyPersonExists extends ExtendedFamily
 {
     /**
+     * Efficient check order for family parts.
+     *
+     * Close direct relationships are checked first. More expensive or derived
+     * parts, such as cousins and partner chains, are checked later.
+     */
+    private const EXISTENCE_CHECK_ORDER = [
+        'parents',
+        'children',
+        'partners',
+        'siblings',
+        'grandparents',
+        'grandchildren',
+        'parents_in_law',
+        'children_in_law',
+        'siblings_in_law',
+        'co_parents_in_law',
+        'co_siblings_in_law',
+        'uncles_and_aunts',
+        'uncles_and_aunts_bm',
+        'nephews_and_nieces',
+        'cousins',
+        'great_grandparents',
+        'great_grandchildren',
+        'grandchildren_in_law',
+        'great_grandchild_in_law',
+        'partner_chains',
+    ];
+
+    /**
      * @var bool $found
      */
     public $found;
@@ -76,13 +105,12 @@ class ExtendedFamilyPersonExists extends ExtendedFamily
 
     /**
      * build extended family parts, but stop as soon as a person is found in one of the extended family parts
-     * tbd: start with parents, children, siblings, ... this is maybe a bit more efficient
      *
      * @return bool
      */
     private function constructCheck(): bool
     {
-        foreach ($this->config->shownFamilyParts as $efp => $element) {
+        foreach ($this->orderedShownFamilyParts() as $efp => $element) {
             if ($element->enabled) {
                 if (ExtendedFamilyPartFactory::create(ucfirst($efp),
                                                       $this->proband->indi,
@@ -94,6 +122,23 @@ class ExtendedFamilyPersonExists extends ExtendedFamily
             }
         }
         return false;
+    }
+
+    /**
+     * Return the selected family parts in an efficient order for existence checks.
+     *
+     * @return array<string,object>
+     */
+    private function orderedShownFamilyParts(): array
+    {
+        $shownFamilyParts = $this->config->shownFamilyParts;
+        $priority         = array_flip(self::EXISTENCE_CHECK_ORDER);
+
+        uksort($shownFamilyParts, static function (string $left, string $right) use ($priority): int {
+            return ($priority[$left] ?? PHP_INT_MAX) <=> ($priority[$right] ?? PHP_INT_MAX);
+        });
+
+        return $shownFamilyParts;
     }
 
     /**

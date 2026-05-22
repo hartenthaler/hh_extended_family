@@ -1,0 +1,37 @@
+<?php
+
+use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandchildren;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
+
+/**
+ * @var object $filterObj
+ * @var string $propName
+ */
+
+?>
+
+        <div class="hh_extended_family_box">
+            <?php $chainNumber = 1; ?>
+            <?php foreach ($filterObj->efp->$propName->chains->displayChains as $chain) : ?>
+                <?php if ($chainNumber > 1): ?>
+                    <hr>
+                <?php endif ?>
+                <?php $individualNumber = 1; ?>
+                <?php foreach ($chain as $indi) : ?>
+                    <?php if ($individualNumber > 1): ?>
+                        <?php echo ' ∞ ' ?>
+                    <?php endif ?>
+                    <?php if ($indi->getCanShow()): ?>
+                        <span class="hh_extended_family_counter"><?= $indi->getStep() ?></span>
+                        <span class="hh_extended_family_name"><a href="<?= e($indi->getUrl()) ?>"><?= $indi->getFullName() ?></a></span>
+                    <?php else: ?>
+                        <span class="hh_extended_family_counter"><?= $indi->getStep() ?></span>
+                        <span class="hh_extended_family_name"><?= $indi->getFullName() ?></span>
+                    <?php endif ?>
+                <?php $individualNumber++; endforeach ?>
+            <?php $chainNumber++; endforeach ?>
+        </div>

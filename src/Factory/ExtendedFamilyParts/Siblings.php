@@ -1,10 +1,10 @@
 <?php
 /*
  * webtrees - extended family parts
- * Copyright (C) 2021 Hermann Hartenthaler. All rights reserved.
+ * Copyright (C) 2026 Hermann Hartenthaler. All rights reserved.
  *
  * webtrees: online genealogy / web based family history software
- * Copyright (C) 2021 webtrees development team.
+ * Copyright (C) 2026 webtrees development team.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,90 +20,133 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
 
 /**
  * class Siblings
  *
- * data and methods for extended family part "siblings", as full and half siblings, and stepsiblings
+ * Data and methods for extended family part "siblings".
+ * The parents family part is used as the basis; siblings are derived from the
+ * biological, social, and step-parent branches of the proband.
  */
 class Siblings extends ExtendedFamilyPart
 {
-    public const GROUP_SIBLINGS_FULL = 'Full siblings';
-    public const GROUP_SIBLINGS_HALF = 'Half siblings';                         // including more than half siblings (if parents are related to each other)
+    public const GROUP_SIBLINGS_FULL   = 'Full siblings';
+    public const GROUP_SIBLINGS_HALF   = 'Half siblings';
     public const GROUP_SIBLINGS_SOCIAL = 'Social siblings';
-    public const GROUP_SIBLINGS_STEP = 'Stepsiblings';
+    public const GROUP_SIBLINGS_STEP   = 'Stepsiblings';
 
     /**
-     * @var object $_efpObject data structure for this extended family part
-     *
-     * common:
-     *  ->groups[]                      array
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
-     *  ->partName                      string
-     *
-     * special for this extended family part:
-     *  ->groups[]->members[]           array of Individual (index of groups is groupName)
-     *            ->labels[]            array of array of string
-     *            ->families[]          array of object
-     *            ->familiesStatus[]    string
-     *            ->referencePersons[]  array of array of Individual
-     *            ->groupName           string
-     */
-
-    /**
-     * Find members for this specific extended family part and modify $this->>efpObject
+     * Find members for this specific extended family part and modify $this->efpObject.
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->childFamilies() as $family) {                                 // Gen  1 F
-            foreach ($family->children() as $sibling) {                                             // Gen  0 P
-                if ($sibling->xref() === $this->getProband()->xref()) {
-                    continue;
-                }
+        $parents = new Parents($this->getProband(), 'all', $this->placeFormat);
 
-                if ($this->isBiologicalChildInFamily($this->getProband(), $family) && $this->isBiologicalChildInFamily($sibling, $family)) {
-                    $this->addIndividualToFamily(new IndividualFamily($sibling, $family), self::GROUP_SIBLINGS_FULL);
-                } elseif ($this->isSocialChildInFamily($this->getProband(), $family) || $this->isSocialChildInFamily($sibling, $family)) {
-                    $this->addIndividualToFamily(new IndividualFamily($sibling, $family), self::GROUP_SIBLINGS_SOCIAL);
+        foreach ($parents->getEfpObject()->groups as $group) {
+            foreach ($group->members as $key => $parent) {
+                $family = $group->families[$key] ?? null;
+
+                if ($parent instanceof Individual && $family instanceof Family) {
+                    $this->addSiblingsForParent($parent, $family, $group->groupName);
                 }
             }
         }
-        foreach ($this->getProband()->childFamilies() as $family1) {                                // Gen  1 F
-            if (!$this->isBiologicalChildInFamily($this->getProband(), $family1)) {
+    }
+
+    /**
+     * Add siblings derived from one parent entry.
+     *
+     * @param Individual $parent
+     * @param Family $family
+     * @param string $parentGroupName
+     * @return void
+     */
+    private function addSiblingsForParent(Individual $parent, Family $family, string $parentGroupName): void
+    {
+        if ($parentGroupName === Parents::GROUP_PARENTS_BIO) {
+            $this->addFullSiblingsFromFamily($family);
+            $this->addHalfSiblingsFromOtherFamilies($parent, $family);
+            return;
+        }
+
+        if ($parentGroupName === Parents::GROUP_PARENTS_SOCIAL) {
+            $this->addSocialSiblingsFromFamily($family);
+            return;
+        }
+
+        if ($parentGroupName === Parents::GROUP_PARENTS_STEP) {
+            $this->addStepSiblingsFromStepParent($parent);
+        }
+    }
+
+    /**
+     * Add biological siblings from the same parent-family as the proband.
+     *
+     * @param Family $family
+     * @return void
+     */
+    private function addFullSiblingsFromFamily(Family $family): void
+    {
+        foreach ($family->children() as $sibling) {
+            if ($sibling->xref() !== $this->getProband()->xref() && $this->isBiologicalChildInFamily($sibling, $family)) {
+                $this->addIndividualToFamily(new IndividualFamily($sibling, $family), self::GROUP_SIBLINGS_FULL);
+            }
+        }
+    }
+
+    /**
+     * Add biological half siblings from the other families of one biological parent.
+     *
+     * @param Individual $parent
+     * @param Family $probandFamily
+     * @return void
+     */
+    private function addHalfSiblingsFromOtherFamilies(Individual $parent, Family $probandFamily): void
+    {
+        foreach ($parent->spouseFamilies() as $family) {
+            if ($family->xref() === $probandFamily->xref()) {
                 continue;
             }
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
-                    foreach ($family2->children() as $sibling_half) {                           // Gen  0 P
-                        if ($sibling_half->xref() !== $this->getProband()->xref() && $family2->xref() !== $family1->xref() && $this->isBiologicalChildInFamily($sibling_half, $family2)) {
-                            $this->addIndividualToFamily(new IndividualFamily($sibling_half, $family1), self::GROUP_SIBLINGS_HALF);
-                        }
-                    }
+
+            foreach ($family->children() as $sibling) {
+                if ($sibling->xref() !== $this->getProband()->xref() && $this->isBiologicalChildInFamily($sibling, $family)) {
+                    $this->addIndividualToFamily(new IndividualFamily($sibling, $family), self::GROUP_SIBLINGS_HALF);
                 }
             }
         }
-        foreach ($this->getProband()->childFamilies() as $family1) {                                // Gen  1 F
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
-                    foreach ($family2->spouses() as $spouse2) {                                 // Gen  1 P
-                        foreach ($spouse2->spouseFamilies() as $family3) {                      // Gen  1 F
-                            foreach ($family3->children() as $sibling_step) {                   // Gen  0 P
-                                if ($sibling_step->xref() !== $this->getProband()->xref()) {
-                                    $this->addIndividualToFamily(new IndividualFamily($sibling_step, $family1), self::GROUP_SIBLINGS_STEP);
-                                }
-                            }
-                        }
-                    }
+    }
+
+    /**
+     * Add siblings from the same social parent-family as the proband.
+     *
+     * @param Family $family
+     * @return void
+     */
+    private function addSocialSiblingsFromFamily(Family $family): void
+    {
+        foreach ($family->children() as $sibling) {
+            if ($sibling->xref() !== $this->getProband()->xref()) {
+                $this->addIndividualToFamily(new IndividualFamily($sibling, $family), self::GROUP_SIBLINGS_SOCIAL);
+            }
+        }
+    }
+
+    /**
+     * Add children of one stepparent as stepsiblings.
+     *
+     * @param Individual $stepparent
+     * @return void
+     */
+    private function addStepSiblingsFromStepParent(Individual $stepparent): void
+    {
+        foreach ($stepparent->spouseFamilies() as $family) {
+            foreach ($family->children() as $sibling) {
+                if ($sibling->xref() !== $this->getProband()->xref()) {
+                    $this->addIndividualToFamily(new IndividualFamily($sibling, $family), self::GROUP_SIBLINGS_STEP);
                 }
             }
         }

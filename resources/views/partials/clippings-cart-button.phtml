@@ -6,7 +6,6 @@ use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
 
 /**
  * @var string     $action_mode
- * @var string     $cce_class
  * @var string     $filterOption
  * @var Individual $individual
  * @var string     $module
@@ -35,7 +34,7 @@ if ($action_mode === 'cce') {
 }
 ?>
 
-<label class="btn btn-outline-secondary <?= $cce_class ?>"
+<label class="btn btn-outline-secondary"
        title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
     <form method="post" action="<?= e($action_url); ?>">
         <?= csrf_field(); ?>

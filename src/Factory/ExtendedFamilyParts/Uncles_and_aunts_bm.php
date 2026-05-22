@@ -20,10 +20,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;

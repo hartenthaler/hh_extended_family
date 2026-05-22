@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hh_extended_family\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-22 01:20+0200\n"
+"POT-Creation-Date: 2026-05-23 00:29+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -17,761 +17,942 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:321
+#: ExtendedFamilyTabModule.php:320
 #, php-format
 msgid "The preferences for the module “%s” have been updated."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:596
+#: ExtendedFamilyTabModule.php:653
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will "
 "use the internal Extended Family action."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:763
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: ExtendedFamilyTabModule.php:832
+msgid "Extended family"
+msgstr "विस्तृत परिवार"
+
+#: ExtendedFamilyTabModule.php:854
 msgid "The selected tree could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:770
+#: ExtendedFamilyTabModule.php:861
 msgid "The selected individual could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:795
+#: ExtendedFamilyTabModule.php:886
 #, php-format
 msgid "The extended family has been copied to the clippings cart. New entries: %s"
 msgstr ""
 
+#: src/Factory/Objects/ExtendedFamilySupport.php:86
+msgid "Brother"
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:87
+msgid "Child"
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:88
+msgid "Daughter"
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:89
+msgid "Sibling"
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:90
+msgid "Sister"
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:91
+msgid "Son"
+msgstr ""
+
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:361
-msgid "linkage challenged"
+#: src/Factory/Objects/ExtendedFamilySupport.php:446
+msgid "Linkage challenged"
 msgstr "संबंध संदिग्ध"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:364
-msgid "linkage disproven"
+#: src/Factory/Objects/ExtendedFamilySupport.php:449
+msgid "Linkage disproven"
 msgstr "संबंध अस्वीकृत"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:367
-msgid "linkage proven"
+#: src/Factory/Objects/ExtendedFamilySupport.php:452
+msgid "Linkage proven"
 msgstr "संबंध स्वीकृत"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:414
-msgid "twin"
+#: src/Factory/Objects/ExtendedFamilySupport.php:498
+msgid "Twin"
 msgstr "जुड़वां"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:415
-msgid "triplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:499
+msgid "Triplet"
 msgstr "त्रिक"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:416
-msgid "quadruplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:500
+msgid "Quadruplet"
 msgstr "चतुष्क"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:417
-msgid "quintuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:501
+msgid "Quintuplet"
 msgstr "पंचक"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:418
-msgid "sextuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:502
+msgid "Sextuplet"
 msgstr "षटक"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:419
-msgid "septuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:503
+msgid "Septuplet"
 msgstr "सप्तक"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:420
-msgid "octuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:504
+msgid "Octuplet"
 msgstr "अष्टक"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:421
-msgid "nonuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:505
+msgid "Nonuplet"
 msgstr "नवक"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:422
-msgid "decuplet"
+#: src/Factory/Objects/ExtendedFamilySupport.php:506
+msgid "Decuplet"
 msgstr "दशक"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:441
-msgid "stillborn"
+#: src/Factory/Objects/ExtendedFamilySupport.php:524
+msgid "Stillborn"
 msgstr "मृत जन्म"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:444
-msgid "died as infant"
+#: src/Factory/Objects/ExtendedFamilySupport.php:527
+msgid "Died as infant"
 msgstr "बचपन में मृत"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:481
+#: src/Factory/Objects/ExtendedFamilySupport.php:564
 msgid "divorced"
 msgstr "divorced"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:482
+#: src/Factory/Objects/ExtendedFamilySupport.php:565
 msgid "married"
 msgstr "married"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:483
+#: src/Factory/Objects/ExtendedFamilySupport.php:566
 msgid "engaged"
 msgstr "engaged"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:484
+#: src/Factory/Objects/ExtendedFamilySupport.php:567
 msgid "partners"
 msgstr "partners"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:498
+#: src/Factory/Objects/ExtendedFamilySupport.php:581
 msgid "Ex-marriage"
 msgstr "Ex-marriage"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:499
+#: src/Factory/Objects/ExtendedFamilySupport.php:582
 msgid "Marriage"
 msgstr "Marriage"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:500
+#: src/Factory/Objects/ExtendedFamilySupport.php:583
 msgid "Fiancée"
 msgstr "Fiancée"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:501
+#: src/Factory/Objects/ExtendedFamilySupport.php:584
 msgid "Partnership"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:515
+#: src/Factory/Objects/ExtendedFamilySupport.php:598
 msgid "divorced partner"
 msgstr "divorced partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:516
+#: src/Factory/Objects/ExtendedFamilySupport.php:599
 msgid "married partner"
 msgstr "married partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:517
+#: src/Factory/Objects/ExtendedFamilySupport.php:600
 msgid "engaged partner"
 msgstr "engaged partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:518
+#: src/Factory/Objects/ExtendedFamilySupport.php:601
 msgid "partner"
 msgstr "partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:574
+#: src/Factory/Objects/ExtendedFamilySupport.php:657
 msgid "Half-brother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:575
+#: src/Factory/Objects/ExtendedFamilySupport.php:658
 msgid "Half-sister"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:576
+#: src/Factory/Objects/ExtendedFamilySupport.php:659
 msgid "Half-sibling"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:641
+#: src/Factory/Objects/ExtendedFamilySupport.php:724
 msgid "Great-grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:642
+#: src/Factory/Objects/ExtendedFamilySupport.php:725
 msgid "Grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:643
+#: src/Factory/Objects/ExtendedFamilySupport.php:726
 msgid "Uncles and Aunts"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:644
+#: src/Factory/Objects/ExtendedFamilySupport.php:727
 msgid "Uncles and Aunts by marriage"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:645
+#: src/Factory/Objects/ExtendedFamilySupport.php:728
 msgid "Parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:646
+#: src/Factory/Objects/ExtendedFamilySupport.php:729
 msgid "Parents-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:647
+#: src/Factory/Objects/ExtendedFamilySupport.php:730
 msgid "Co-parents-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:648
+#: src/Factory/Objects/ExtendedFamilySupport.php:731
 msgid "Partners"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:649
+#: src/Factory/Objects/ExtendedFamilySupport.php:732
 msgid "Partner chains"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:650
+#: src/Factory/Objects/ExtendedFamilySupport.php:733
 msgid "Siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:651
+#: src/Factory/Objects/ExtendedFamilySupport.php:734
 msgid "Siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:652
+#: src/Factory/Objects/ExtendedFamilySupport.php:735
 msgid "Co-siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:653
+#: src/Factory/Objects/ExtendedFamilySupport.php:736
 msgid "Cousins"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:654
+#: src/Factory/Objects/ExtendedFamilySupport.php:737
 msgid "Nephews and Nieces"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:655
+#: src/Factory/Objects/ExtendedFamilySupport.php:738
 msgid "Children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:656
+#: src/Factory/Objects/ExtendedFamilySupport.php:739
 msgid "Children-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:657
+#: src/Factory/Objects/ExtendedFamilySupport.php:740
 msgid "Grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:658
+#: src/Factory/Objects/ExtendedFamilySupport.php:741
 msgid "Great-grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:659
+#: src/Factory/Objects/ExtendedFamilySupport.php:742
 msgid "Grandchildren-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:660
+#: src/Factory/Objects/ExtendedFamilySupport.php:743
 msgid "Great-grandchildren-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:674
+#: src/Factory/Objects/ExtendedFamilySupport.php:757
 msgid "Biological great-grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:675
+#: src/Factory/Objects/ExtendedFamilySupport.php:758
 msgid "Biological grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:676
+#: src/Factory/Objects/ExtendedFamilySupport.php:759
 msgid "Full siblings of biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:677
+#: src/Factory/Objects/ExtendedFamilySupport.php:760
 msgid "Biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:678
+#: src/Factory/Objects/ExtendedFamilySupport.php:761
 msgid "Full siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:679
+#: src/Factory/Objects/ExtendedFamilySupport.php:762
 msgid "Children of full siblings of biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:680
+#: src/Factory/Objects/ExtendedFamilySupport.php:763
 msgid "Children of full siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:681
+#: src/Factory/Objects/ExtendedFamilySupport.php:764
 msgid "Biological children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:682
+#: src/Factory/Objects/ExtendedFamilySupport.php:765
 msgid "Biological grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:683
+#: src/Factory/Objects/ExtendedFamilySupport.php:766
+#: src/Factory/Objects/ExtendedFamilySupport.php:865
 msgid "Biological great-grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:697
+#: src/Factory/Objects/ExtendedFamilySupport.php:780
 msgid "Biological grandparents of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:698
+#: src/Factory/Objects/ExtendedFamilySupport.php:781
 msgid "Biological grandparents of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:699
+#: src/Factory/Objects/ExtendedFamilySupport.php:782
 msgid "Biological grandparents of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:700
+#: src/Factory/Objects/ExtendedFamilySupport.php:783
 msgid "Stepparents of biological parent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:701
+#: src/Factory/Objects/ExtendedFamilySupport.php:784
 msgid "Stepparents of biological parent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:702
+#: src/Factory/Objects/ExtendedFamilySupport.php:785
 #, fuzzy
 #| msgid "Children of biological grandchildren"
 msgid "Stepparents of biological grandparent"
 msgstr "Children of biological grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:703
+#: src/Factory/Objects/ExtendedFamilySupport.php:786
 msgid "Social parents of biological parent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:704
+#: src/Factory/Objects/ExtendedFamilySupport.php:787
 msgid "Social parents of biological parent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:705
+#: src/Factory/Objects/ExtendedFamilySupport.php:788
 #, fuzzy
 #| msgid "Children of biological grandchildren"
 msgid "Social parents of biological grandparent"
 msgstr "Children of biological grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:706
+#: src/Factory/Objects/ExtendedFamilySupport.php:789
 msgid "Parents of stepparent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:707
+#: src/Factory/Objects/ExtendedFamilySupport.php:790
 msgid "Parents of stepparent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:708
+#: src/Factory/Objects/ExtendedFamilySupport.php:791
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Parents of stepparent of parent"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:709
+#: src/Factory/Objects/ExtendedFamilySupport.php:792
 msgid "Stepparents of stepparent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:710
+#: src/Factory/Objects/ExtendedFamilySupport.php:793
 msgid "Stepparents of stepparent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:711
+#: src/Factory/Objects/ExtendedFamilySupport.php:794
 msgid "Stepparents of stepparent of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:712
+#: src/Factory/Objects/ExtendedFamilySupport.php:795
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Parents of social parent of father"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:713
+#: src/Factory/Objects/ExtendedFamilySupport.php:796
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Parents of social parent of mother"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:714
+#: src/Factory/Objects/ExtendedFamilySupport.php:797
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Parents of social parent of parent"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:715
+#: src/Factory/Objects/ExtendedFamilySupport.php:798
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Stepparents of social parent of father"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:716
+#: src/Factory/Objects/ExtendedFamilySupport.php:799
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Stepparents of social parent of mother"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:717
+#: src/Factory/Objects/ExtendedFamilySupport.php:800
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Stepparents of social parent of parent"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:718
+#: src/Factory/Objects/ExtendedFamilySupport.php:801
 msgid "Grandparents of stepparent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:719
+#: src/Factory/Objects/ExtendedFamilySupport.php:802
 #, fuzzy
 #| msgid "Children of social grandchildren"
 msgid "Grandparents of social parent"
 msgstr "Children of social grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:720
+#: src/Factory/Objects/ExtendedFamilySupport.php:803
 msgid "Biological parents of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:721
+#: src/Factory/Objects/ExtendedFamilySupport.php:804
 msgid "Biological parents of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:722
+#: src/Factory/Objects/ExtendedFamilySupport.php:805
 msgid "Biological parents of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:723
+#: src/Factory/Objects/ExtendedFamilySupport.php:806
 msgid "Stepparents of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:724
+#: src/Factory/Objects/ExtendedFamilySupport.php:807
 msgid "Stepparents of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:725
+#: src/Factory/Objects/ExtendedFamilySupport.php:808
 msgid "Stepparents of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:726
+#: src/Factory/Objects/ExtendedFamilySupport.php:809
 #, fuzzy
 #| msgid "Children of stepgrandchildren"
 msgid "Parents of stepparent"
 msgstr "Children of stepgrandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:727
+#: src/Factory/Objects/ExtendedFamilySupport.php:810
 msgid "Social parents of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:728
+#: src/Factory/Objects/ExtendedFamilySupport.php:811
 msgid "Social parents of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:729
+#: src/Factory/Objects/ExtendedFamilySupport.php:812
 msgid "Social parents of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:730
+#: src/Factory/Objects/ExtendedFamilySupport.php:813
 #, fuzzy
 #| msgid "Children of social grandchildren"
 msgid "Parents of social father"
 msgstr "Children of social grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:731
+#: src/Factory/Objects/ExtendedFamilySupport.php:814
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Parents of social mother"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:732
+#: src/Factory/Objects/ExtendedFamilySupport.php:815
 #, fuzzy
 #| msgid "Children of social grandchildren"
 msgid "Parents of social parent"
 msgstr "Children of social grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:733
+#: src/Factory/Objects/ExtendedFamilySupport.php:816
 msgid "Stepparents of social father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:734
+#: src/Factory/Objects/ExtendedFamilySupport.php:817
 msgid "Stepparents of social mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:735
+#: src/Factory/Objects/ExtendedFamilySupport.php:818
 #, fuzzy
 #| msgid "Children of social grandchildren"
 msgid "Stepparents of social parent"
 msgstr "Children of social grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:736
+#: src/Factory/Objects/ExtendedFamilySupport.php:819
 msgid "Stepparents of stepparent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:737
+#: src/Factory/Objects/ExtendedFamilySupport.php:820
 #, fuzzy
 #| msgid "Show parameters"
 msgid "Social parents"
 msgstr "पैरामीटर दिखाएं"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:738
+#: src/Factory/Objects/ExtendedFamilySupport.php:821
 msgid "Stepparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:739
+#: src/Factory/Objects/ExtendedFamilySupport.php:822
 msgid "Siblings and half siblings of biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:740
+#: src/Factory/Objects/ExtendedFamilySupport.php:823
 msgid "Siblings and half siblings of social parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:741
+#: src/Factory/Objects/ExtendedFamilySupport.php:824
 msgid "Siblings and half siblings of stepparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:742
+#: src/Factory/Objects/ExtendedFamilySupport.php:825
 msgid "Partners of siblings and half siblings of biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:743
+#: src/Factory/Objects/ExtendedFamilySupport.php:826
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Partners of siblings and half siblings of social parents"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:744
+#: src/Factory/Objects/ExtendedFamilySupport.php:827
 msgid "Partners of siblings and half siblings of stepparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:745
+#: src/Factory/Objects/ExtendedFamilySupport.php:828
 msgid "Children of full siblings of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:746
+#: src/Factory/Objects/ExtendedFamilySupport.php:829
 msgid "Children of full siblings of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:747
+#: src/Factory/Objects/ExtendedFamilySupport.php:830
 msgid "Children of full siblings of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:748
+#: src/Factory/Objects/ExtendedFamilySupport.php:831
 msgid "Children of half siblings of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:749
+#: src/Factory/Objects/ExtendedFamilySupport.php:832
 msgid "Children of half siblings of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:750
+#: src/Factory/Objects/ExtendedFamilySupport.php:833
 msgid "Children of half siblings of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:751
+#: src/Factory/Objects/ExtendedFamilySupport.php:834
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Children of full siblings of social parents"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:835
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Children of half siblings of social parents"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:836
+#, fuzzy
+#| msgid "Children of social grandchildren"
+msgid "Children of full siblings of stepparents"
+msgstr "Children of social grandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:837
+#, fuzzy
+#| msgid "Children of social grandchildren"
+msgid "Children of half siblings of stepparents"
+msgstr "Children of social grandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:838
 msgid "Half siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:752
+#: src/Factory/Objects/ExtendedFamilySupport.php:839
 msgid "Social siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:753
+#: src/Factory/Objects/ExtendedFamilySupport.php:840
 msgid "Stepsiblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:754
+#: src/Factory/Objects/ExtendedFamilySupport.php:841
 msgid "Siblings of partners"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:755
+#: src/Factory/Objects/ExtendedFamilySupport.php:842
 msgid "Partners of siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:756
+#: src/Factory/Objects/ExtendedFamilySupport.php:843
 msgid "Siblings of siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:757
+#: src/Factory/Objects/ExtendedFamilySupport.php:844
 msgid "Partners of siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:758
+#: src/Factory/Objects/ExtendedFamilySupport.php:845
 msgid "Social children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:759
+#: src/Factory/Objects/ExtendedFamilySupport.php:846
 msgid "Stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:760
+#: src/Factory/Objects/ExtendedFamilySupport.php:847
 #, fuzzy
 #| msgid "Children of biological grandchildren"
 msgid "Partners of biological children"
 msgstr "Children of biological grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:761
+#: src/Factory/Objects/ExtendedFamilySupport.php:848
+#, fuzzy
+#| msgid "Children of biological grandchildren"
+msgid "Partners of social children"
+msgstr "Children of biological grandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:849
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Partners of stepchildren"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:762
+#: src/Factory/Objects/ExtendedFamilySupport.php:850
 #, fuzzy
 #| msgid "Children of biological grandchildren"
 msgid "Parents-in-law of biological children"
 msgstr "Children of biological grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:763
+#: src/Factory/Objects/ExtendedFamilySupport.php:851
 #, fuzzy
 #| msgid "Children of stepgrandchildren"
 msgid "Parents-in-law of stepchildren"
 msgstr "Children of stepgrandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:764
+#: src/Factory/Objects/ExtendedFamilySupport.php:852
 #, fuzzy
 #| msgid "Children of social grandchildren"
 msgid "Children of siblings"
 msgstr "Children of social grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:765
+#: src/Factory/Objects/ExtendedFamilySupport.php:853
+#, fuzzy
+#| msgid "Children of stepgrandchildren"
+msgid "Siblings' stepchildren"
+msgstr "Children of stepgrandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:854
 msgid "Children of siblings of partners"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:766
+#: src/Factory/Objects/ExtendedFamilySupport.php:855
 #, fuzzy
 #| msgid "Children of social grandchildren"
 msgid "Children of social children"
 msgstr "Children of social grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:767
+#: src/Factory/Objects/ExtendedFamilySupport.php:856
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Social children of children"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:768
+#: src/Factory/Objects/ExtendedFamilySupport.php:857
 #, fuzzy
 #| msgid "Children of stepgrandchildren"
 msgid "Stepchildren of children"
 msgstr "Children of stepgrandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:769
+#: src/Factory/Objects/ExtendedFamilySupport.php:858
+#, fuzzy
+#| msgid "Children of stepgrandchildren"
+msgid "Children of stepchildren"
+msgstr "Children of stepgrandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:859
 #, fuzzy
 #| msgid "Children of stepgrandchildren"
 msgid "Stepchildren of stepchildren"
 msgstr "Children of stepgrandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:770
+#: src/Factory/Objects/ExtendedFamilySupport.php:860
 #, fuzzy
 #| msgid "Children of biological grandchildren"
 msgid "Partners of biological grandchildren"
 msgstr "Children of biological grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:771
+#: src/Factory/Objects/ExtendedFamilySupport.php:861
 msgid "Partners of social children of children"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:772
+#: src/Factory/Objects/ExtendedFamilySupport.php:862
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Partners of stepchildren of children"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:773
+#: src/Factory/Objects/ExtendedFamilySupport.php:863
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Partners of children of stepchildren"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:774
+#: src/Factory/Objects/ExtendedFamilySupport.php:864
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Partners of stepchildren of stepchildren"
 msgstr "Partners of social children of children"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:775
+#: src/Factory/Objects/ExtendedFamilySupport.php:866
 msgid "Children of biological grandchildren"
 msgstr "Children of biological grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:776
+#: src/Factory/Objects/ExtendedFamilySupport.php:867
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Social children of grandchildren"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:868
 msgid "Children of social grandchildren"
 msgstr "Children of social grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:777
+#: src/Factory/Objects/ExtendedFamilySupport.php:869
 msgid "Children of stepgrandchildren"
 msgstr "Children of stepgrandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:795
+#: src/Factory/Objects/ExtendedFamilySupport.php:870
+#, fuzzy
+#| msgid "Children of stepgrandchildren"
+msgid "Stepchildren of grandchildren"
+msgstr "Children of stepgrandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:871
+#, fuzzy
+#| msgid "Children of social grandchildren"
+msgid "Stepchildren of social grandchildren"
+msgstr "Children of social grandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:872
+#, fuzzy
+#| msgid "Children of stepgrandchildren"
+msgid "Stepchildren of stepgrandchildren"
+msgstr "Children of stepgrandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:873
+#, fuzzy
+#| msgid "Children of biological grandchildren"
+msgid "Partners of biological great-grandchildren"
+msgstr "Children of biological grandchildren"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:874
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Partners of social children of grandchildren"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:875
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Partners of children of social grandchildren"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:876
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Partners of children of stepgrandchildren"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:877
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Partners of stepchildren of grandchildren"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:878
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Partners of stepchildren of social grandchildren"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:879
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Partners of stepchildren of stepgrandchildren"
+msgstr "Partners of social children of children"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:897
 #, php-format
 msgctxt "Date range: year to today"
 msgid "The known dates range from %1$s to today."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:796
+#: src/Factory/Objects/ExtendedFamilySupport.php:898
 #, php-format
 msgctxt "Date range: date to today"
 msgid "The known dates range from %1$s to today."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:797
+#: src/Factory/Objects/ExtendedFamilySupport.php:899
 #, php-format
 msgctxt "Date range: year to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:798
+#: src/Factory/Objects/ExtendedFamilySupport.php:900
 #, php-format
 msgctxt "Date range: year to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:799
+#: src/Factory/Objects/ExtendedFamilySupport.php:901
 #, php-format
 msgctxt "Date range: date to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:800
-#: src/Factory/Objects/ExtendedFamilySupport.php:801
+#: src/Factory/Objects/ExtendedFamilySupport.php:902
+#: src/Factory/Objects/ExtendedFamilySupport.php:903
 #, php-format
 msgctxt "Date range: date to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:801
+#: src/Factory/Objects/ExtendedFamilySupport.php:903
 msgid "today"
 msgstr ""
 
-#: src/Factory/Objects/PlaceAbbreviation.php:289
+#: src/Factory/Objects/PlaceAbbreviation.php:283
 msgid "Full place name"
 msgstr ""
 
-#: src/Factory/Objects/PlaceAbbreviation.php:290
+#: src/Factory/Objects/PlaceAbbreviation.php:284
 msgid "City only"
 msgstr ""
 
-#: src/Factory/Objects/PlaceAbbreviation.php:291
+#: src/Factory/Objects/PlaceAbbreviation.php:285
 msgid "City and country"
 msgstr ""
 
-#: src/Factory/Objects/PlaceAbbreviation.php:292
+#: src/Factory/Objects/PlaceAbbreviation.php:286
 msgid "City and 2 letter ISO country code"
 msgstr ""
 
-#: src/Factory/Objects/PlaceAbbreviation.php:293
+#: src/Factory/Objects/PlaceAbbreviation.php:287
 msgid "City and 3 letter ISO country code"
 msgstr ""
 
-#: src/Factory/Objects/ProbandName.php:131
+#: src/Factory/Objects/ProbandName.php:84
+msgid "Him"
+msgstr ""
+
+#: src/Factory/Objects/ProbandName.php:86
+msgid "Her"
+msgstr ""
+
+#: src/Factory/Objects/ProbandName.php:88
+msgid "Him/her"
+msgstr ""
+
+#: src/Factory/Objects/ProbandName.php:176
 msgid "He"
 msgstr ""
 
-#: src/Factory/Objects/ProbandName.php:132
+#: src/Factory/Objects/ProbandName.php:178
 msgid "She"
 msgstr ""
 
-#: src/Factory/Objects/ProbandName.php:133
+#: src/Factory/Objects/ProbandName.php:180
 msgid "He/she"
 msgstr ""
 
-#: src/Factory/Objects/ProbandName.php:150
+#: src/Factory/Objects/ProbandName.php:197
 msgid "Mr."
 msgstr ""
 
-#: src/Factory/Objects/ProbandName.php:151
+#: src/Factory/Objects/ProbandName.php:198
 msgid "Mrs."
 msgstr ""
 
-#: resources/views/partials/clippings-cart-button.phtml:39
+#: resources/views/partials/clippings-cart-button.phtml:38
 msgid "copy all members of the extended family to the clippings cart"
 msgstr ""
 
-#: resources/views/partials/clippings-cart-button.phtml:50
+#: resources/views/partials/clippings-cart-button.phtml:49
 msgid "copy to clippings cart"
 msgstr ""
+
+#: resources/views/partials/empty-family-part.phtml:10
+#, php-format
+msgid "%s has no uncles or aunts recorded."
+msgstr ""
+
+#: resources/views/partials/empty-family-part.phtml:12
+#, php-format
+msgid "%s has no uncles or aunts by marriage recorded."
+msgstr ""
+
+#: resources/views/partials/empty-family-part.phtml:14
+#, php-format
+msgid "%s has no members of a partner chain recorded."
+msgstr ""
+
+#: resources/views/partials/empty-family-part.phtml:16
+#, php-format
+msgid "%s has no first cousins recorded."
+msgstr ""
+
+#: resources/views/partials/empty-family-part.phtml:18
+#, php-format
+msgid "%s has no nephews or nieces recorded."
+msgstr ""
+
+#: resources/views/partials/empty-family-part.phtml:20
+#, php-format
+msgid "%1$s has no %2$s recorded."
+msgstr "%1$s has no %2$s recorded."
 
 #: resources/views/partials/family-part-header.phtml:17
 #, php-format
@@ -796,6 +977,1819 @@ msgstr "संबंध गुणांक: %.1f"
 msgid "no blood relationship"
 msgstr "खून का रिश्ता नहीं"
 
+#: resources/views/partials/family-part-renderers/grouped-headings/child-family.phtml:30
+#: resources/views/partials/family-part-renderers/grouped-headings/child-family.phtml:36
+#, php-format
+msgid "connected with %s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:32
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:46
+#, fuzzy
+#| msgid "Partners of social children of children"
+msgid "Social child"
+msgstr "Partners of social children of children"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:35
+msgid "Stepson"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:37
+msgid "Stepdaughter"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:39
+#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:48
+msgid "Stepchild"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:26
+#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:33
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:31
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:33
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:55
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:92
+#, php-format
+msgid "%1$s %2$s connected with %3$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:28
+#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:35
+#, php-format
+msgid "Partners of %s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:39
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:41
+#, php-format
+msgid "%1$s %2$s connected with %3$s as social parents"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:47
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:49
+#, php-format
+msgid "%1$s %2$s connected with %3$s as stepparents"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:57
+#, php-format
+msgid "%1$s %2$s, parents of stepfather %3$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:59
+#, php-format
+msgid "%1$s %2$s, parents of stepmother %3$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:61
+#, fuzzy, php-format
+#| msgid "Children of stepgrandchildren"
+msgid "%1$s %2$s, parents of stepparent %3$s"
+msgstr "Children of stepgrandchildren"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:67
+#, php-format
+msgid "%1$s %2$s connected with %3$s as grandparents"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:69
+#, php-format
+msgid "%1$s %2$s, grandparents of stepfather %3$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:71
+#, php-format
+msgid "%1$s %2$s, grandparents of stepmother %3$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:73
+#, fuzzy, php-format
+#| msgid "Children of stepgrandchildren"
+msgid "%1$s %2$s, grandparents of stepparent %3$s"
+msgstr "Children of stepgrandchildren"
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:80
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:98
+msgid "Father"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:81
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:99
+msgid "Mother"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:82
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:84
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:100
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:102
+msgid "Parent"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:86
+#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:103
+#, php-format
+msgid "%1$s of %2$s %3$s, %4$s %5$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/nephews-and-nieces.phtml:29
+#, php-format
+msgid "%1$s %2$s, %3$s with %4$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/nephews-and-nieces.phtml:37
+#, php-format
+msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:41
+#, php-format
+msgid "Brother %1$s of partner %2$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:43
+#, php-format
+msgid "Sister %1$s of partner %2$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:45
+#, php-format
+msgid "Sibling %1$s of partner %2$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:50
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:63
+#, php-format
+msgid "Sibling of %1$s %2$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:54
+#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:66
+#, php-format
+msgid "Partner of %1$s sibling-in-law %2$s"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/parents-in-law.phtml:23
+#: resources/views/partials/family-part-renderers/parents-in-law.phtml:25
+msgid "with"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/partners.phtml:20
+msgid "Partner of"
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:18
+#, php-format
+msgid "%s has one great-grandmother recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:20
+#, php-format
+msgid "%s has one great-grandfather recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:22
+#, php-format
+msgid "%s has one great-grandparent of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:26
+#, php-format
+msgid "%2$s has %1$d great-grandmother recorded."
+msgid_plural "%2$s has %1$d great-grandmothers recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:28
+#, php-format
+msgid "%2$s has %1$d great-grandfather recorded."
+msgid_plural "%2$s has %1$d great-grandfathers recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:30
+#, php-format
+msgid "%2$s has %1$d great-grandparent of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandparents of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:32
+#: resources/views/partials/family-part-summary.phtml:35
+#, php-format
+msgid "%2$s has %1$d great-grandfather and"
+msgid_plural "%2$s has %1$d great-grandfathers and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:33
+#, php-format
+msgid "%d great-grandmother recorded (%d in total)."
+msgid_plural "%d great-grandmothers recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:36
+#: resources/views/partials/family-part-summary.phtml:39
+#: resources/views/partials/family-part-summary.phtml:43
+#, php-format
+msgid "%d great-grandparent of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandparents of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:38
+#, php-format
+msgid "%2$s has %1$d great-grandmother and"
+msgid_plural "%2$s has %1$d great-grandmothers and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:41
+#, php-format
+msgid "%2$s has %1$d great-grandfather,"
+msgid_plural "%2$s has %1$d great-grandfathers,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:42
+#, php-format
+msgid "%d great-grandmother, and"
+msgid_plural "%d great-grandmothers, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:49
+#, php-format
+msgid "%s has one grandmother recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:51
+#, php-format
+msgid "%s has one grandfather recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:53
+#, php-format
+msgid "%s has one grandparent of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:57
+#, php-format
+msgid "%2$s has %1$d grandmother recorded."
+msgid_plural "%2$s has %1$d grandmothers recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:59
+#, php-format
+msgid "%2$s has %1$d grandfather recorded."
+msgid_plural "%2$s has %1$d grandfathers recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:61
+#, php-format
+msgid "%2$s has %1$d grandparent of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d grandparents of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:63
+#: resources/views/partials/family-part-summary.phtml:66
+#, php-format
+msgid "%2$s has %1$d grandfather and"
+msgid_plural "%2$s has %1$d grandfathers and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:64
+#, php-format
+msgid "%d grandmother recorded (%d in total)."
+msgid_plural "%d grandmothers recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:67
+#: resources/views/partials/family-part-summary.phtml:70
+#: resources/views/partials/family-part-summary.phtml:74
+#, php-format
+msgid "%d grandparent of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d grandparents of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:69
+#, php-format
+msgid "%2$s has %1$d grandmother and"
+msgid_plural "%2$s has %1$d grandmothers and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:72
+#, php-format
+msgid "%2$s has %1$d grandfather,"
+msgid_plural "%2$s has %1$d grandfathers,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:73
+#, php-format
+msgid "%d grandmother, and"
+msgid_plural "%d grandmothers, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:80
+#, php-format
+msgid "%s has one aunt recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:82
+#, php-format
+msgid "%s has one uncle recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:84
+#, php-format
+msgid "%s has one uncle or aunt of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:88
+#, php-format
+msgid "%2$s has %1$d aunt recorded."
+msgid_plural "%2$s has %1$d aunts recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:90
+#, php-format
+msgid "%2$s has %1$d uncle recorded."
+msgid_plural "%2$s has %1$d uncles recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:92
+#, php-format
+msgid "%2$s has %1$d uncle or aunt of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:94
+#: resources/views/partials/family-part-summary.phtml:97
+#, php-format
+msgid "%2$s has %1$d uncle and"
+msgid_plural "%2$s has %1$d uncles and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:95
+#, php-format
+msgid "%d aunt recorded (%d in total)."
+msgid_plural "%d aunts recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:98
+#: resources/views/partials/family-part-summary.phtml:101
+#: resources/views/partials/family-part-summary.phtml:105
+#, php-format
+msgid "%d uncle or aunt of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:100
+#, php-format
+msgid "%2$s has %1$d aunt and"
+msgid_plural "%2$s has %1$d aunts and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:103
+#, php-format
+msgid "%2$s has %1$d uncle,"
+msgid_plural "%2$s has %1$d uncles,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:104
+#, php-format
+msgid "%d aunt, and"
+msgid_plural "%d aunts, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:111
+#, php-format
+msgid "%s has one aunt by marriage recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:113
+#, php-format
+msgid "%s has one uncle by marriage recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:115
+#, php-format
+msgid "%s has one uncle or aunt by marriage of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:119
+#, php-format
+msgid "%2$s has %1$d aunt by marriage recorded."
+msgid_plural "%2$s has %1$d aunts by marriage recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:121
+#, php-format
+msgid "%2$s has %1$d uncle by marriage recorded."
+msgid_plural "%2$s has %1$d uncles by marriage recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:123
+#, php-format
+msgid "%2$s has %1$d uncle or aunt by marriage of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts by marriage of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:125
+#: resources/views/partials/family-part-summary.phtml:128
+#, php-format
+msgid "%2$s has %1$d uncle by marriage and"
+msgid_plural "%2$s has %1$d uncles by marriage and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:126
+#, php-format
+msgid "%d aunt by marriage recorded (%d in total)."
+msgid_plural "%d aunts by marriage recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:129
+#: resources/views/partials/family-part-summary.phtml:132
+#: resources/views/partials/family-part-summary.phtml:136
+#, php-format
+msgid "%d uncle or aunt by marriage of diverse or unknown sex recorded (%d in total)."
+msgid_plural ""
+"%d uncles or aunts by marriage of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:131
+#, php-format
+msgid "%2$s has %1$d aunt by marriage and"
+msgid_plural "%2$s has %1$d aunts by marriage and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:134
+#, php-format
+msgid "%2$s has %1$d uncle by marriage,"
+msgid_plural "%2$s has %1$d uncles by marriage,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:135
+#, php-format
+msgid "%d aunt by marriage, and"
+msgid_plural "%d aunts by marriage, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:142
+#, php-format
+msgid "%s has one mother recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:144
+#, php-format
+msgid "%s has one father recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:146
+#, php-format
+msgid "%s has one parent of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:150
+#, php-format
+msgid "%2$s has %1$d mother recorded."
+msgid_plural "%2$s has %1$d mothers recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:152
+#, php-format
+msgid "%2$s has %1$d father recorded."
+msgid_plural "%2$s has %1$d fathers recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:154
+#, php-format
+msgid "%2$s has %1$d parent of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d parents of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:156
+#: resources/views/partials/family-part-summary.phtml:159
+#, php-format
+msgid "%2$s has %1$d father and"
+msgid_plural "%2$s has %1$d fathers and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:157
+#, php-format
+msgid "%d mother recorded (%d in total)."
+msgid_plural "%d mothers recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:160
+#: resources/views/partials/family-part-summary.phtml:163
+#: resources/views/partials/family-part-summary.phtml:167
+#, php-format
+msgid "%d parent of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d parents of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:162
+#, php-format
+msgid "%2$s has %1$d mother and"
+msgid_plural "%2$s has %1$d mothers and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:165
+#, php-format
+msgid "%2$s has %1$d father,"
+msgid_plural "%2$s has %1$d fathers,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:166
+#, php-format
+msgid "%d mother, and"
+msgid_plural "%d mothers, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:178
+#, php-format
+msgid "%s has one mother-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:180
+#, php-format
+msgid "%s has one father-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:182
+#, php-format
+msgid "%s has one parent-in-law of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:186
+#, php-format
+msgid "%2$s has %1$d mother-in-law recorded."
+msgid_plural "%2$s has %1$d mothers-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:188
+#, php-format
+msgid "%2$s has %1$d father-in-law recorded."
+msgid_plural "%2$s has %1$d fathers-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:190
+#, php-format
+msgid "%2$s has %1$d parent-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d parents-in-law of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:192
+#: resources/views/partials/family-part-summary.phtml:195
+#, php-format
+msgid "%2$s has %1$d father-in-law and"
+msgid_plural "%2$s has %1$d fathers-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:193
+#, php-format
+msgid "%d mother-in-law recorded (%d in total)."
+msgid_plural "%d mothers-in-law recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:196
+#: resources/views/partials/family-part-summary.phtml:199
+#: resources/views/partials/family-part-summary.phtml:203
+#, php-format
+msgid "%d parent-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d parents-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:198
+#, php-format
+msgid "%2$s has %1$d mother-in-law and"
+msgid_plural "%2$s has %1$d mothers-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:201
+#, php-format
+msgid "%2$s has %1$d father-in-law,"
+msgid_plural "%2$s has %1$d fathers-in-law,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:202
+#, php-format
+msgid "%d mother-in-law, and"
+msgid_plural "%d mothers-in-law, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:209
+#, php-format
+msgid "%s has one co-mother-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:211
+#, php-format
+msgid "%s has one co-father-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:213
+#, php-format
+msgid "%s has one co-parent-in-law of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:217
+#, php-format
+msgid "%2$s has %1$d co-mother-in-law recorded."
+msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:219
+#, php-format
+msgid "%2$s has %1$d co-father-in-law recorded."
+msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:221
+#, php-format
+msgid "%2$s has %1$d co-parent-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d co-parents-in-law of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:223
+#: resources/views/partials/family-part-summary.phtml:226
+#, php-format
+msgid "%2$s has %1$d co-father-in-law and"
+msgid_plural "%2$s has %1$d co-fathers-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:224
+#, php-format
+msgid "%d co-mother-in-law recorded (%d in total)."
+msgid_plural "%d co-mothers-in-law recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:227
+#: resources/views/partials/family-part-summary.phtml:230
+#: resources/views/partials/family-part-summary.phtml:234
+#, php-format
+msgid "%d co-parent-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d co-parents-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:229
+#, php-format
+msgid "%2$s has %1$d co-mother-in-law and"
+msgid_plural "%2$s has %1$d co-mothers-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:232
+#, php-format
+msgid "%2$s has %1$d co-father-in-law,"
+msgid_plural "%2$s has %1$d co-fathers-in-law,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:233
+#, php-format
+msgid "%d co-mother-in-law, and"
+msgid_plural "%d co-mothers-in-law, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:240
+#, php-format
+msgid "%s has one female partner recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:242
+#, php-format
+msgid "%s has one male partner recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:244
+#, php-format
+msgid "%s has one partner of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:249
+#, php-format
+msgid "%2$s has %1$d female partner recorded."
+msgid_plural "%2$s has %1$d female partners recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:251
+#, php-format
+msgid "%2$s has %1$d male partner recorded."
+msgid_plural "%2$s has %1$d male partners recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:253
+#, php-format
+msgid "%2$s has %1$d partner of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d partners of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:255
+#: resources/views/partials/family-part-summary.phtml:258
+#: resources/views/partials/family-part-summary.phtml:274
+#: resources/views/partials/family-part-summary.phtml:298
+#: resources/views/partials/family-part-summary.phtml:303
+#: resources/views/partials/family-part-summary.phtml:313
+#, php-format
+msgid "%2$s has %1$d male partner and"
+msgid_plural "%2$s has %1$d male partners and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:256
+#, php-format
+msgid "%d female partner recorded (%d in total)."
+msgid_plural "%d female partners recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:259
+#: resources/views/partials/family-part-summary.phtml:262
+#: resources/views/partials/family-part-summary.phtml:266
+#, php-format
+msgid "%d partner of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d partners of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:261
+#: resources/views/partials/family-part-summary.phtml:270
+#: resources/views/partials/family-part-summary.phtml:308
+#, php-format
+msgid "%2$s has %1$d female partner and"
+msgid_plural "%2$s has %1$d female partners and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:264
+#, php-format
+msgid "%2$s has %1$d male partner,"
+msgid_plural "%2$s has %1$d male partners,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:265
+#: resources/views/partials/family-part-summary.phtml:314
+#, php-format
+msgid "%d female partner, and"
+msgid_plural "%d female partners, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:271
+#, php-format
+msgid "%d male partner of female partners recorded (%d in total)."
+msgid_plural "%d male partners of female partners recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:275
+#, php-format
+msgid "%d female partner of male partners recorded (%d in total)."
+msgid_plural "%d female partners of male partners recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:278
+#, php-format
+msgid "%2$s has %1$d partner and"
+msgid_plural "%2$s has %1$d partners and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:279
+#, php-format
+msgid "%1$d partner of partners recorded (%2$d in total)."
+msgid_plural "%1$d partners of partners recorded (%2$d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:286
+#, php-format
+msgid "%d female partner in this partner chain recorded"
+msgid_plural "%d female partners in this partner chain recorded"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:287
+#: resources/views/partials/family-part-summary.phtml:291
+#: resources/views/partials/family-part-summary.phtml:295
+#: resources/views/partials/family-part-summary.phtml:300
+#: resources/views/partials/family-part-summary.phtml:305
+#: resources/views/partials/family-part-summary.phtml:310
+#, php-format
+msgid "including %s"
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:290
+#, php-format
+msgid "%d male partner in this partner chain recorded"
+msgid_plural "%d male partners in this partner chain recorded"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:294
+#, php-format
+msgid "%d partner of diverse or unknown sex in this partner chain recorded"
+msgid_plural "%d partners of diverse or unknown sex in this partner chain recorded"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:299
+#, php-format
+msgid "%1$d female partner in this partner chain recorded (%2$d in total"
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:304
+#: resources/views/partials/family-part-summary.phtml:309
+#, php-format
+msgid "%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d in total"
+msgid_plural ""
+"%1$d partners of diverse or unknown sex in this partner chain recorded (%2$d in total"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:315
+#, php-format
+msgid ""
+"%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d in total, "
+"including %3$s)."
+msgid_plural ""
+"%1$d partners of diverse or unknown sex in this partner chain recorded (%2$d in total, "
+"including %3$s)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:319
+#, php-format
+msgid "There are %d branches in the partner chain."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:321
+#, php-format
+msgid ""
+"The longest branch in the partner chain to %2$s consists of %1$d partners (including "
+"%3$s)."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:323
+#, php-format
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:330
+#, php-format
+msgid "%s has one sister recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:332
+#, php-format
+msgid "%s has one brother recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:334
+#, php-format
+msgid "%s has one sibling of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:338
+#, php-format
+msgid "%2$s has %1$d sister recorded."
+msgid_plural "%2$s has %1$d sisters recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:340
+#, php-format
+msgid "%2$s has %1$d brother recorded."
+msgid_plural "%2$s has %1$d brothers recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:342
+#, php-format
+msgid "%2$s has %1$d sibling of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:344
+#: resources/views/partials/family-part-summary.phtml:347
+#, php-format
+msgid "%2$s has %1$d brother and"
+msgid_plural "%2$s has %1$d brothers and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:345
+#, php-format
+msgid "%d sister recorded (%d in total)."
+msgid_plural "%d sisters recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:348
+#: resources/views/partials/family-part-summary.phtml:351
+#: resources/views/partials/family-part-summary.phtml:355
+#, php-format
+msgid "%d sibling of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d siblings of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:350
+#, php-format
+msgid "%2$s has %1$d sister and"
+msgid_plural "%2$s has %1$d sisters and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:353
+#, php-format
+msgid "%2$s has %1$d brother,"
+msgid_plural "%2$s has %1$d brothers,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:354
+#, php-format
+msgid "%d sister, and"
+msgid_plural "%d sisters, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:366
+#, php-format
+msgid "%s has one sister-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:368
+#, php-format
+msgid "%s has one brother-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:370
+#, php-format
+msgid "%s has one sibling-in-law of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:374
+#, php-format
+msgid "%2$s has %1$d sister-in-law recorded."
+msgid_plural "%2$s has %1$d sisters-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:376
+#, php-format
+msgid "%2$s has %1$d brother-in-law recorded."
+msgid_plural "%2$s has %1$d brothers-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:378
+#, php-format
+msgid "%2$s has %1$d sibling-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d siblings-in-law of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:380
+#: resources/views/partials/family-part-summary.phtml:383
+#, php-format
+msgid "%2$s has %1$d brother-in-law and"
+msgid_plural "%2$s has %1$d brothers-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:381
+#, php-format
+msgid "%d sister-in-law recorded (%d in total)."
+msgid_plural "%d sisters-in-law recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:384
+#: resources/views/partials/family-part-summary.phtml:387
+#: resources/views/partials/family-part-summary.phtml:391
+#, php-format
+msgid "%d sibling-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d siblings-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:386
+#, php-format
+msgid "%2$s has %1$d sister-in-law and"
+msgid_plural "%2$s has %1$d sisters-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:389
+#, php-format
+msgid "%2$s has %1$d brother-in-law,"
+msgid_plural "%2$s has %1$d brothers-in-law,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:390
+#, php-format
+msgid "%d sister-in-law, and"
+msgid_plural "%d sisters-in-law, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:402
+#, php-format
+msgid "%s has one co-sister-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:404
+#, php-format
+msgid "%s has one co-brother-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:406
+#, php-format
+msgid "%s has one co-sibling-in-law of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:410
+#, php-format
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:412
+#, php-format
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:414
+#, php-format
+msgid "%2$s has %1$d co-sibling-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d co-siblings-in-law of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:416
+#: resources/views/partials/family-part-summary.phtml:419
+#, php-format
+msgid "%2$s has %1$d co-brother-in-law and"
+msgid_plural "%2$s has %1$d co-brothers-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:417
+#, php-format
+msgid "%d co-sister-in-law recorded (%d in total)."
+msgid_plural "%d co-sisters-in-law recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:420
+#: resources/views/partials/family-part-summary.phtml:423
+#: resources/views/partials/family-part-summary.phtml:427
+#, php-format
+msgid "%d co-sibling-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d co-siblings-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:422
+#, php-format
+msgid "%2$s has %1$d co-sister-in-law and"
+msgid_plural "%2$s has %1$d co-sisters-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:425
+#, php-format
+msgid "%2$s has %1$d co-brother-in-law,"
+msgid_plural "%2$s has %1$d co-brothers-in-law,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:426
+#, php-format
+msgid "%d co-sister-in-law, and"
+msgid_plural "%d co-sisters-in-law, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:438
+#, php-format
+msgid "%s has one female first cousin recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:440
+#, php-format
+msgid "%s has one male first cousin recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:442
+#, php-format
+msgid "%s has one first cousin of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:446
+#, php-format
+msgid "%2$s has %1$d female first cousin recorded."
+msgid_plural "%2$s has %1$d female first cousins recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:448
+#, php-format
+msgid "%2$s has %1$d male first cousin recorded."
+msgid_plural "%2$s has %1$d male first cousins recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:450
+#, php-format
+msgid "%2$s has %1$d first cousin of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d first cousins of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:452
+#: resources/views/partials/family-part-summary.phtml:455
+#, php-format
+msgid "%2$s has %1$d male first cousin and"
+msgid_plural "%2$s has %1$d male first cousins and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:453
+#, php-format
+msgid "%d female first cousin recorded (%d in total)."
+msgid_plural "%d female first cousins recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:456
+#: resources/views/partials/family-part-summary.phtml:459
+#: resources/views/partials/family-part-summary.phtml:463
+#, php-format
+msgid "%d first cousin of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d first cousins of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:458
+#, php-format
+msgid "%2$s has %1$d female first cousin and"
+msgid_plural "%2$s has %1$d female first cousins and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:461
+#, php-format
+msgid "%2$s has %1$d male first cousin,"
+msgid_plural "%2$s has %1$d male first cousins,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:462
+#, php-format
+msgid "%d female first cousin, and"
+msgid_plural "%d female first cousins, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:469
+#, php-format
+msgid "%s has one niece recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:471
+#, php-format
+msgid "%s has one nephew recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:473
+#, php-format
+msgid "%s has one nephew or niece of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:477
+#, php-format
+msgid "%2$s has %1$d niece recorded."
+msgid_plural "%2$s has %1$d nieces recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:479
+#, php-format
+msgid "%2$s has %1$d nephew recorded."
+msgid_plural "%2$s has %1$d nephews recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:481
+#, php-format
+msgid "%2$s has %1$d nephew or niece of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d nephews or nieces of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:483
+#: resources/views/partials/family-part-summary.phtml:486
+#, php-format
+msgid "%2$s has %1$d nephew and"
+msgid_plural "%2$s has %1$d nephews and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:484
+#, php-format
+msgid "%d niece recorded (%d in total)."
+msgid_plural "%d nieces recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:487
+#: resources/views/partials/family-part-summary.phtml:490
+#: resources/views/partials/family-part-summary.phtml:494
+#, php-format
+msgid "%d nephew or niece of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d nephews or nieces of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:489
+#, php-format
+msgid "%2$s has %1$d niece and"
+msgid_plural "%2$s has %1$d nieces and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:492
+#, php-format
+msgid "%2$s has %1$d nephew,"
+msgid_plural "%2$s has %1$d nephews,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:493
+#, php-format
+msgid "%d niece, and"
+msgid_plural "%d nieces, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:500
+#, php-format
+msgid "%s has one daughter recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:502
+#, php-format
+msgid "%s has one son recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:504
+#, php-format
+msgid "%s has one child of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:508
+#, php-format
+msgid "%2$s has %1$d daughter recorded."
+msgid_plural "%2$s has %1$d daughters recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:510
+#, php-format
+msgid "%2$s has %1$d son recorded."
+msgid_plural "%2$s has %1$d sons recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:512
+#, php-format
+msgid "%2$s has %1$d child of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d children of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:514
+#: resources/views/partials/family-part-summary.phtml:517
+#, php-format
+msgid "%2$s has %1$d son and"
+msgid_plural "%2$s has %1$d sons and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:515
+#, php-format
+msgid "%d daughter recorded (%d in total)."
+msgid_plural "%d daughters recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:518
+#: resources/views/partials/family-part-summary.phtml:521
+#: resources/views/partials/family-part-summary.phtml:525
+#, php-format
+msgid "%d child of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d children of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:520
+#, php-format
+msgid "%2$s has %1$d daughter and"
+msgid_plural "%2$s has %1$d daughters and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:523
+#, php-format
+msgid "%2$s has %1$d son,"
+msgid_plural "%2$s has %1$d sons,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:524
+#, php-format
+msgid "%d daughter, and"
+msgid_plural "%d daughters, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:531
+#, php-format
+msgid "%s has one daughter-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:533
+#, php-format
+msgid "%s has one son-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:535
+#, php-format
+msgid "%s has one child-in-law of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:539
+#, php-format
+msgid "%2$s has %1$d daughter-in-law recorded."
+msgid_plural "%2$s has %1$d daughters-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:541
+#, php-format
+msgid "%2$s has %1$d son-in-law recorded."
+msgid_plural "%2$s has %1$d sons-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:543
+#, php-format
+msgid "%2$s has %1$d child-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d children-in-law of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:545
+#: resources/views/partials/family-part-summary.phtml:548
+#, php-format
+msgid "%2$s has %1$d son-in-law and"
+msgid_plural "%2$s has %1$d sons-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:546
+#, php-format
+msgid "%d daughter-in-law recorded (%d in total)."
+msgid_plural "%d daughters-in-law recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:549
+#: resources/views/partials/family-part-summary.phtml:552
+#: resources/views/partials/family-part-summary.phtml:556
+#, php-format
+msgid "%d child-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d children-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:551
+#, php-format
+msgid "%2$s has %1$d daughter-in-law and"
+msgid_plural "%2$s has %1$d daughters-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:554
+#, php-format
+msgid "%2$s has %1$d son-in-law,"
+msgid_plural "%2$s has %1$d sons-in-law,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:555
+#, php-format
+msgid "%d daughter-in-law, and"
+msgid_plural "%d daughters-in-law, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:562
+#, php-format
+msgid "%s has one granddaughter recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:564
+#, php-format
+msgid "%s has one grandson recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:566
+#, php-format
+msgid "%s has one grandchild of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:570
+#, php-format
+msgid "%2$s has %1$d granddaughter recorded."
+msgid_plural "%2$s has %1$d granddaughters recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:572
+#, php-format
+msgid "%2$s has %1$d grandson recorded."
+msgid_plural "%2$s has %1$d grandsons recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:574
+#, php-format
+msgid "%2$s has %1$d grandchild of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:576
+#: resources/views/partials/family-part-summary.phtml:579
+#, php-format
+msgid "%2$s has %1$d grandson and"
+msgid_plural "%2$s has %1$d grandsons and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:577
+#, php-format
+msgid "%d granddaughter recorded (%d in total)."
+msgid_plural "%d granddaughters recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:580
+#: resources/views/partials/family-part-summary.phtml:583
+#: resources/views/partials/family-part-summary.phtml:587
+#, php-format
+msgid "%d grandchild of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:582
+#, php-format
+msgid "%2$s has %1$d granddaughter and"
+msgid_plural "%2$s has %1$d granddaughters and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:585
+#, php-format
+msgid "%2$s has %1$d grandson,"
+msgid_plural "%2$s has %1$d grandsons,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:586
+#, php-format
+msgid "%d granddaughter, and"
+msgid_plural "%d granddaughters, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:593
+#, php-format
+msgid "%s has one great-granddaughter recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:595
+#, fuzzy, php-format
+#| msgid "%1$s has no %2$s recorded."
+msgid "%s has one great-grandson recorded."
+msgstr "%1$s has no %2$s recorded."
+
+#: resources/views/partials/family-part-summary.phtml:597
+#, php-format
+msgid "%s has one great-grandchild of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:601
+#, php-format
+msgid "%2$s has %1$d great-granddaughter recorded."
+msgid_plural "%2$s has %1$d great-granddaughters recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:603
+#, fuzzy, php-format
+#| msgid "%1$s has no %2$s recorded."
+msgid "%2$s has %1$d great-grandson recorded."
+msgid_plural "%2$s has %1$d great-grandsons recorded."
+msgstr[0] "%1$s has no %2$s recorded."
+msgstr[1] "%1$s has no %2$s recorded."
+
+#: resources/views/partials/family-part-summary.phtml:605
+#, php-format
+msgid "%2$s has %1$d great-grandchild of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandchildren of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:607
+#: resources/views/partials/family-part-summary.phtml:610
+#, php-format
+msgid "%2$s has %1$d great-grandson and"
+msgid_plural "%2$s has %1$d great-grandsons and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:608
+#, php-format
+msgid "%d great-granddaughter recorded (%d in total)."
+msgid_plural "%d great-granddaughters recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:611
+#: resources/views/partials/family-part-summary.phtml:614
+#: resources/views/partials/family-part-summary.phtml:618
+#, php-format
+msgid "%d great-grandchild of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandchildren of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:613
+#, php-format
+msgid "%2$s has %1$d great-granddaughter and"
+msgid_plural "%2$s has %1$d great-granddaughters and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:616
+#, php-format
+msgid "%2$s has %1$d great-grandson,"
+msgid_plural "%2$s has %1$d great-grandsons,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:617
+#, php-format
+msgid "%d great-granddaughter, and"
+msgid_plural "%d great-granddaughters, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:624
+#, php-format
+msgid "%s has one granddaughter-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:626
+#, php-format
+msgid "%s has one grandson-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:628
+#, php-format
+msgid "%s has one grandchild-in-law of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:632
+#, php-format
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:634
+#, php-format
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:636
+#, php-format
+msgid "%2$s has %1$d grandchild-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d grandchildren-in-law of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:638
+#: resources/views/partials/family-part-summary.phtml:641
+#, php-format
+msgid "%2$s has %1$d grandson-in-law and"
+msgid_plural "%2$s has %1$d grandsons-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:639
+#, php-format
+msgid "%d granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:642
+#: resources/views/partials/family-part-summary.phtml:645
+#: resources/views/partials/family-part-summary.phtml:649
+#, php-format
+msgid "%d grandchild-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:644
+#, php-format
+msgid "%2$s has %1$d granddaughter-in-law and"
+msgid_plural "%2$s has %1$d granddaughters-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:647
+#, php-format
+msgid "%2$s has %1$d grandson-in-law,"
+msgid_plural "%2$s has %1$d grandsons-in-law,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:648
+#, php-format
+msgid "%d granddaughter-in-law, and"
+msgid_plural "%d granddaughters-in-law, and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:655
+#, php-format
+msgid "%s has one great-granddaughter-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:657
+#, php-format
+msgid "%s has one great-grandson-in-law recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:659
+#, php-format
+msgid "%s has one great-grandchild-in-law of diverse or unknown sex recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:663
+#, php-format
+msgid "%2$s has %1$d great-granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d great-granddaughters-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:665
+#, php-format
+msgid "%2$s has %1$d great-grandson-in-law recorded."
+msgid_plural "%2$s has %1$d great-grandsons-in-law recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:667
+#, php-format
+msgid "%2$s has %1$d great-grandchild-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandchildren-in-law of diverse or unknown sex recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:669
+#: resources/views/partials/family-part-summary.phtml:672
+#, php-format
+msgid "%2$s has %1$d great-grandson-in-law and"
+msgid_plural "%2$s has %1$d great-grandsons-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:670
+#, php-format
+msgid "%d great-granddaughter-in-law recorded (%d in total)."
+msgid_plural "%d great-granddaughters-in-law recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:673
+#: resources/views/partials/family-part-summary.phtml:676
+#: resources/views/partials/family-part-summary.phtml:680
+#, php-format
+msgid "%d great-grandchild-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural ""
+"%d great-grandchildren-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:675
+#, php-format
+msgid "%2$s has %1$d great-granddaughter-in-law and"
+msgid_plural "%2$s has %1$d great-granddaughters-in-law and"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:678
+#, php-format
+msgid "%2$s has %1$d great-grandson-in-law,"
+msgid_plural "%2$s has %1$d great-grandsons-in-law,"
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/family-part-summary.phtml:679
+#, php-format
+msgid "%d great-granddaughter-in-law, and"
+msgid_plural "%d great-granddaughters-in-law, and"
+msgstr[0] ""
+msgstr[1] ""
+
 #: resources/views/partials/filter-controls.phtml:17
 msgid "show only male persons"
 msgstr "केवल पुरुष व्यक्तियों को दिखाएं"
@@ -805,7 +2799,7 @@ msgid "show only female persons"
 msgstr "केवल महिला व्यक्तियों को दिखाएं"
 
 #: resources/views/partials/filter-controls.phtml:25
-msgid "show only persons of other or unknown gender"
+msgid "show only persons of diverse or unknown gender"
 msgstr "केवल अज्ञात लिंग के व्यक्तियों को दिखाएं"
 
 #: resources/views/partials/filter-controls.phtml:34
@@ -831,7 +2825,7 @@ msgstr ""
 #: resources/views/partials/summary.phtml:22
 #, php-format
 msgid "The extended family has only %1$s as a member."
-msgid_plural "The extended family of %1$s has %2$d members (including %1$s)."
+msgid_plural "The extended family of %1$s has %2$d members (including %3$s)."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -869,179 +2863,191 @@ msgstr ""
 msgid "%s has no %s, and no %s recorded."
 msgstr ""
 
-#: resources/views/settings.phtml:35
-msgid "Control panel"
+#: resources/views/print.phtml:28 resources/views/tab.phtml:35
+msgid "Print/PDF"
+msgstr ""
+
+#: resources/views/print.phtml:31
+msgid "Individual"
+msgstr ""
+
+#: resources/views/print.phtml:78 resources/views/tab.phtml:88
+msgid "No family available"
 msgstr ""
 
 #: resources/views/settings.phtml:36
-msgid "Enabled"
+msgid "Control panel"
 msgstr ""
 
 #: resources/views/settings.phtml:37
-msgid "Move down"
+msgid "Enabled"
 msgstr ""
 
 #: resources/views/settings.phtml:38
-msgid "Move up"
+msgid "Move down"
 msgstr ""
 
 #: resources/views/settings.phtml:39
-msgid "no"
+msgid "Move up"
 msgstr ""
 
 #: resources/views/settings.phtml:40
-msgid "save"
+msgid "no"
 msgstr ""
 
 #: resources/views/settings.phtml:41
+msgid "save"
+msgstr ""
+
+#: resources/views/settings.phtml:42
 msgid "yes"
 msgstr ""
 
-#: resources/views/settings.phtml:55
+#: resources/views/settings.phtml:56
 msgid "In which sequence should the parts of the extended family be shown?"
 msgstr "विस्तारित परिवार के भागों को किस क्रम में दिखाया जाना चाहिए?"
 
-#: resources/views/settings.phtml:57 resources/views/settings.phtml:58
+#: resources/views/settings.phtml:58 resources/views/settings.phtml:59
 msgid "Quick selection for family parts"
 msgstr ""
 
-#: resources/views/settings.phtml:61
+#: resources/views/settings.phtml:62
 msgid "Enable all"
 msgstr ""
 
-#: resources/views/settings.phtml:64
+#: resources/views/settings.phtml:65
 msgid "Disable all"
 msgstr ""
 
-#: resources/views/settings.phtml:69
+#: resources/views/settings.phtml:70
 msgid "Enable all in-law family parts"
 msgstr ""
 
-#: resources/views/settings.phtml:72
+#: resources/views/settings.phtml:73
 msgid "Disable all in-law family parts"
 msgstr ""
 
-#: resources/views/settings.phtml:76 resources/views/settings.phtml:77
+#: resources/views/settings.phtml:77 resources/views/settings.phtml:78
 msgid "Degree"
 msgstr ""
 
-#: resources/views/settings.phtml:77
+#: resources/views/settings.phtml:78
 msgid "unlimited"
 msgstr ""
 
-#: resources/views/settings.phtml:79
+#: resources/views/settings.phtml:80
 msgid "Enable up to this degree"
 msgstr ""
 
-#: resources/views/settings.phtml:84
+#: resources/views/settings.phtml:85
 msgid ""
 "The quick selection changes only the checkboxes below. The configuration is saved when "
 "you click \"save\"."
 msgstr ""
 
-#: resources/views/settings.phtml:90
+#: resources/views/settings.phtml:91
 msgid "Family part (generation relative to proband)"
 msgstr "परिवार का हिस्सा (generation relative to proband)"
 
-#: resources/views/settings.phtml:145
+#: resources/views/settings.phtml:146
 msgid "Show options to filter the results?"
 msgstr "परिणामों को फ़िल्टर करने के लिए विकल्प दिखाएं?"
 
-#: resources/views/settings.phtml:146
+#: resources/views/settings.phtml:147
 msgid ""
 "This allows a user to filter the members of the extended family by gender and if they are "
 "alive or dead."
 msgstr ""
 
-#: resources/views/settings.phtml:151
+#: resources/views/settings.phtml:152
 msgid "Show filter options"
 msgstr "फ़िल्टर विकल्प दिखाएं"
 
-#: resources/views/settings.phtml:159
+#: resources/views/settings.phtml:160
 msgid "Should a summary block be shown?"
 msgstr ""
 
-#: resources/views/settings.phtml:160
+#: resources/views/settings.phtml:161
 msgid "The summary contains information about the extended family in total."
 msgstr ""
 
-#: resources/views/settings.phtml:165
+#: resources/views/settings.phtml:166
 msgid "Show summary"
 msgstr ""
 
-#: resources/views/settings.phtml:173
+#: resources/views/settings.phtml:174
 msgid "Should summary statistics be shown?"
 msgstr ""
 
-#: resources/views/settings.phtml:174
+#: resources/views/settings.phtml:175
 msgid ""
 "The summary statistics contain additional information about living and deceased members, "
 "gender distribution, and the known date range."
 msgstr ""
 
-#: resources/views/settings.phtml:179
+#: resources/views/settings.phtml:180
 msgid "Show summary statistics"
 msgstr ""
 
-#: resources/views/settings.phtml:187
+#: resources/views/settings.phtml:188
 msgid "How should empty parts of extended family be presented?"
 msgstr "विस्तारित परिवार के खाली हिस्सों को कैसे प्रस्तुत किया जाना चाहिए?"
 
-#: resources/views/settings.phtml:192
+#: resources/views/settings.phtml:193
 msgid "Show empty block"
 msgstr "खाली ब्लॉक दिखाएं"
 
-#: resources/views/settings.phtml:195
+#: resources/views/settings.phtml:196
 msgid "yes, always at standard location"
 msgstr "हाँ, हमेशा मानक स्थान पर"
 
-#: resources/views/settings.phtml:195
+#: resources/views/settings.phtml:196
 #, fuzzy
 msgid "no, but collect messages about empty blocks at the summary block"
 msgstr "नहीं, लेकिन अंत में खाली ब्लॉकों के बारे में संदेश एकत्र करें"
 
-#: resources/views/settings.phtml:195
+#: resources/views/settings.phtml:196
 msgid "never"
 msgstr "कभी नहीं"
 
-#: resources/views/settings.phtml:200
+#: resources/views/settings.phtml:201
 msgid "Count the members of the partner chains as members of the extended family?"
 msgstr ""
 
-#: resources/views/settings.phtml:202
+#: resources/views/settings.phtml:203
 msgid ""
 "If you select \"no\", then the additional members in the partner chains will not be "
 "counted to the total number of individuals in the extended family."
 msgstr ""
 
-#: resources/views/settings.phtml:203
+#: resources/views/settings.phtml:204
 msgid ""
 "And these persons and families will be not selected when a user decides to copy the "
 "extended family to the clippings cart."
 msgstr ""
 
-#: resources/views/settings.phtml:204
+#: resources/views/settings.phtml:205
 msgid ""
 "But even in this case, you can copy these persons and families to the clippings cart by "
 "using a special menu topic of the custom module \"enhanced clippings cart\": \"add "
 "partner chains for an individual\"."
 msgstr ""
 
-#: resources/views/settings.phtml:205
+#: resources/views/settings.phtml:206
 msgid ""
 "This is only relevant if you have chosen in the above table, that the partner chains "
 "should be shown as a part of the extended family."
 msgstr ""
 
-#: resources/views/settings.phtml:211
+#: resources/views/settings.phtml:212
 msgid "Include them"
 msgstr ""
 
-#: resources/views/settings.phtml:219
+#: resources/views/settings.phtml:220
 msgid "Show parameters of extended family part?"
 msgstr "विस्तारित पारिवारिक भाग के पैरामीटर दिखाएँ?"
 
-#: resources/views/settings.phtml:220
+#: resources/views/settings.phtml:221
 msgid ""
 "Display of additional information for each part of the extended family, such as the "
 "generation shift and the coefficient of relationship, which is a measure of the degree of "
@@ -1050,15 +3056,15 @@ msgstr ""
 "विस्तारित परिवार के प्रत्येक भाग के लिए अतिरिक्त जानकारी का प्रदर्शन, जैसे कि पीढ़ी का बदलाव और रिश्ते "
 "का गुणांक, जो कि समानता की डिग्री का एक उपाय है।"
 
-#: resources/views/settings.phtml:225
+#: resources/views/settings.phtml:226
 msgid "Show parameters"
 msgstr "पैरामीटर दिखाएं"
 
-#: resources/views/settings.phtml:233
+#: resources/views/settings.phtml:234
 msgid "Use the compact design?"
 msgstr "कॉम्पैक्ट डिज़ाइन का उपयोग करें?"
 
-#: resources/views/settings.phtml:234
+#: resources/views/settings.phtml:235
 msgid ""
 "The compact design only shows the name and life span for each person. The enriched design "
 "also shows a photo (if this is activated for this tree) as well as birth and death "
@@ -1067,15 +3073,15 @@ msgstr ""
 "कॉम्पैक्ट डिज़ाइन प्रत्येक व्यक्ति के लिए केवल नाम और जीवन काल दिखाता है।  समृद्ध डिज़ाइन एक तस्वीर (यदि "
 "यह इस वंशवृक्ष के लिए सक्रिय है) के साथ-साथ जन्म और मृत्यु की जानकारी भी दिखाता है।"
 
-#: resources/views/settings.phtml:239
+#: resources/views/settings.phtml:240
 msgid "Use the compact design"
 msgstr "कॉम्पैक्ट डिज़ाइन का उपयोग करें"
 
-#: resources/views/settings.phtml:247
+#: resources/views/settings.phtml:248
 msgid "Show name of proband as short name or as full name?"
 msgstr "विषय का नाम संक्षिप्त नाम के रूप में या पूरे नाम के रूप में दिखाएं?"
 
-#: resources/views/settings.phtml:248
+#: resources/views/settings.phtml:249
 msgid ""
 "The short name is based on the probands Rufname or nickname. If these are not available, "
 "the first of the given names is used, if one is given. Otherwise the last name is used."
@@ -1083,1837 +3089,66 @@ msgstr ""
 "संक्षिप्त नाम रूफनाम या उपनाम की जांच पर आधारित है।  यदि ये उपलब्ध नहीं हैं, तो दिए गए नामों में से पहले "
 "का प्रयोग किया जाता है, यदि कोई दिया गया हो।  अन्यथा अंतिम नाम का उपयोग किया जाता है।"
 
-#: resources/views/settings.phtml:253
+#: resources/views/settings.phtml:254
 msgid "Show short name"
 msgstr "संक्षिप्त नाम दिखाएं"
 
-#: resources/views/settings.phtml:261
+#: resources/views/settings.phtml:262
 msgid "How should place names be shown in event boxes?"
 msgstr ""
 
-#: resources/views/settings.phtml:262
+#: resources/views/settings.phtml:263
 msgid ""
 "This setting controls whether event places are shown as full place names or as "
 "abbreviated place names."
 msgstr ""
 
-#: resources/views/settings.phtml:267
+#: resources/views/settings.phtml:268
 msgid "Place name format"
 msgstr ""
 
-#: resources/views/settings.phtml:275
+#: resources/views/settings.phtml:276
 msgid "Show labels in special situations?"
 msgstr "विशेष परिस्थितियों में लेबल दिखाएं?"
 
-#: resources/views/settings.phtml:276
+#: resources/views/settings.phtml:277
 msgid "Labels (or stickers) are used for example for adopted persons or foster children."
 msgstr ""
 "उदाहरण के लिए गोद लिए गए व्यक्तियों या पालक बच्चों के लिए लेबल (या स्टिकर) का उपयोग किया जाता है।"
 
-#: resources/views/settings.phtml:281
+#: resources/views/settings.phtml:282
 msgid "Show labels"
 msgstr "लेबल दिखाएं"
 
-#: resources/views/settings.phtml:289
-msgid "Show a button \"copy to clippings cart\"?"
-msgstr ""
-
 #: resources/views/settings.phtml:290
-msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgid "Show a button \"Print/PDF\"?"
 msgstr ""
 
-#: resources/views/settings.phtml:300
+#: resources/views/settings.phtml:291
+msgid ""
+"This allows a user to open a print-optimized view and save it as a PDF file from the "
+"browser print dialog."
+msgstr ""
+
+#: resources/views/settings.phtml:296 resources/views/settings.phtml:315
 #, fuzzy
 msgid "Show button"
 msgstr "फ़िल्टर विकल्प दिखाएं"
 
-#: resources/views/settings.phtml:312
+#: resources/views/settings.phtml:304
+msgid "Show a button \"copy to clippings cart\"?"
+msgstr ""
+
+#: resources/views/settings.phtml:305
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr ""
+
+#: resources/views/settings.phtml:327
 msgid "Clippings cart action"
 msgstr ""
 
-#: resources/views/settings.phtml:315
+#: resources/views/settings.phtml:330
 msgid "huhwt-cce (recommended)"
-msgstr ""
-
-# #-#-#-#-#  catalog.po  #-#-#-#-#
-# Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/settings.phtml:315
-msgid "Extended family"
-msgstr "विस्तृत परिवार"
-
-#: resources/views/tab.phtml:46
-msgid "Brother"
-msgstr ""
-
-#: resources/views/tab.phtml:47
-msgid "Child"
-msgstr ""
-
-#: resources/views/tab.phtml:48
-msgid "Daughter"
-msgstr ""
-
-#: resources/views/tab.phtml:49
-msgid "Sibling"
-msgstr ""
-
-#: resources/views/tab.phtml:50
-msgid "Sister"
-msgstr ""
-
-#: resources/views/tab.phtml:51
-msgid "Son"
-msgstr ""
-
-#: resources/views/tab.phtml:102
-#, php-format
-msgid "%s has one great-grandmother recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:104
-#, php-format
-msgid "%s has one great-grandfather recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:106
-#, php-format
-msgid "%s has one great-grandparent of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:110
-#, php-format
-msgid "%2$s has %1$d great-grandmother recorded."
-msgid_plural "%2$s has %1$d great-grandmothers recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:112
-#, php-format
-msgid "%2$s has %1$d great-grandfather recorded."
-msgid_plural "%2$s has %1$d great-grandfathers recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:114
-#, php-format
-msgid "%2$s has %1$d great-grandparent of unknown sex recorded."
-msgid_plural "%2$s has %1$d great-grandparents of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:116 resources/views/tab.phtml:119
-#, php-format
-msgid "%2$s has %1$d great-grandfather and"
-msgid_plural "%2$s has %1$d great-grandfathers and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:117
-#, php-format
-msgid "%d great-grandmother recorded (%d in total)."
-msgid_plural "%d great-grandmothers recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:120 resources/views/tab.phtml:123 resources/views/tab.phtml:127
-#, php-format
-msgid "%d great-grandparent of unknown sex recorded (%d in total)."
-msgid_plural "%d great-grandparents of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:122
-#, php-format
-msgid "%2$s has %1$d great-grandmother and"
-msgid_plural "%2$s has %1$d great-grandmothers and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:125
-#, php-format
-msgid "%2$s has %1$d great-grandfather,"
-msgid_plural "%2$s has %1$d great-grandfathers,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:126
-#, php-format
-msgid "%d great-grandmother, and"
-msgid_plural "%d great-grandmothers, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:133
-#, php-format
-msgid "%s has one grandmother recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:135
-#, php-format
-msgid "%s has one grandfather recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:137
-#, php-format
-msgid "%s has one grandparent of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:141
-#, php-format
-msgid "%2$s has %1$d grandmother recorded."
-msgid_plural "%2$s has %1$d grandmothers recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:143
-#, php-format
-msgid "%2$s has %1$d grandfather recorded."
-msgid_plural "%2$s has %1$d grandfathers recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:145
-#, php-format
-msgid "%2$s has %1$d grandparent of unknown sex recorded."
-msgid_plural "%2$s has %1$d grandparents of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:147 resources/views/tab.phtml:150
-#, php-format
-msgid "%2$s has %1$d grandfather and"
-msgid_plural "%2$s has %1$d grandfathers and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:148
-#, php-format
-msgid "%d grandmother recorded (%d in total)."
-msgid_plural "%d grandmothers recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:151 resources/views/tab.phtml:154 resources/views/tab.phtml:158
-#, php-format
-msgid "%d grandparent of unknown sex recorded (%d in total)."
-msgid_plural "%d grandparents of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:153
-#, php-format
-msgid "%2$s has %1$d grandmother and"
-msgid_plural "%2$s has %1$d grandmothers and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:156
-#, php-format
-msgid "%2$s has %1$d grandfather,"
-msgid_plural "%2$s has %1$d grandfathers,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:157
-#, php-format
-msgid "%d grandmother, and"
-msgid_plural "%d grandmothers, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:164
-#, php-format
-msgid "%s has one aunt recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:166
-#, php-format
-msgid "%s has one uncle recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:168
-#, php-format
-msgid "%s has one uncle or aunt of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:172
-#, php-format
-msgid "%2$s has %1$d aunt recorded."
-msgid_plural "%2$s has %1$d aunts recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:174
-#, php-format
-msgid "%2$s has %1$d uncle recorded."
-msgid_plural "%2$s has %1$d uncles recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:176
-#, php-format
-msgid "%2$s has %1$d uncle or aunt of unknown sex recorded."
-msgid_plural "%2$s has %1$d uncles or aunts of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:178 resources/views/tab.phtml:181
-#, php-format
-msgid "%2$s has %1$d uncle and"
-msgid_plural "%2$s has %1$d uncles and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:179
-#, php-format
-msgid "%d aunt recorded (%d in total)."
-msgid_plural "%d aunts recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:182 resources/views/tab.phtml:185 resources/views/tab.phtml:189
-#, php-format
-msgid "%d uncle or aunt of unknown sex recorded (%d in total)."
-msgid_plural "%d uncles or aunts of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:184
-#, php-format
-msgid "%2$s has %1$d aunt and"
-msgid_plural "%2$s has %1$d aunts and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:187
-#, php-format
-msgid "%2$s has %1$d uncle,"
-msgid_plural "%2$s has %1$d uncles,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:188
-#, php-format
-msgid "%d aunt, and"
-msgid_plural "%d aunts, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:195
-#, php-format
-msgid "%s has one aunt by marriage recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:197
-#, php-format
-msgid "%s has one uncle by marriage recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:199
-#, php-format
-msgid "%s has one uncle or aunt by marriage of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:203
-#, php-format
-msgid "%2$s has %1$d aunt by marriage recorded."
-msgid_plural "%2$s has %1$d aunts by marriage recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:205
-#, php-format
-msgid "%2$s has %1$d uncle by marriage recorded."
-msgid_plural "%2$s has %1$d uncles by marriage recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:207
-#, php-format
-msgid "%2$s has %1$d uncle or aunt by marriage of unknown sex recorded."
-msgid_plural "%2$s has %1$d uncles or aunts by marriage of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:209 resources/views/tab.phtml:212
-#, php-format
-msgid "%2$s has %1$d uncle by marriage and"
-msgid_plural "%2$s has %1$d uncles by marriage and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:210
-#, php-format
-msgid "%d aunt by marriage recorded (%d in total)."
-msgid_plural "%d aunts by marriage recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:213 resources/views/tab.phtml:216 resources/views/tab.phtml:220
-#, php-format
-msgid "%d uncle or aunt by marriage of unknown sex recorded (%d in total)."
-msgid_plural "%d uncles or aunts by marriage of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:215
-#, php-format
-msgid "%2$s has %1$d aunt by marriage and"
-msgid_plural "%2$s has %1$d aunts by marriage and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:218
-#, php-format
-msgid "%2$s has %1$d uncle by marriage,"
-msgid_plural "%2$s has %1$d uncles by marriage,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:219
-#, php-format
-msgid "%d aunt by marriage, and"
-msgid_plural "%d aunts by marriage, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:226
-#, php-format
-msgid "%s has one mother recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:228
-#, php-format
-msgid "%s has one father recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:230
-#, php-format
-msgid "%s has one parent of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:234
-#, php-format
-msgid "%2$s has %1$d mother recorded."
-msgid_plural "%2$s has %1$d mothers recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:236
-#, php-format
-msgid "%2$s has %1$d father recorded."
-msgid_plural "%2$s has %1$d fathers recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:238
-#, php-format
-msgid "%2$s has %1$d parent of unknown sex recorded."
-msgid_plural "%2$s has %1$d parents of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:240 resources/views/tab.phtml:243
-#, php-format
-msgid "%2$s has %1$d father and"
-msgid_plural "%2$s has %1$d fathers and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:241
-#, php-format
-msgid "%d mother recorded (%d in total)."
-msgid_plural "%d mothers recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:244 resources/views/tab.phtml:247 resources/views/tab.phtml:251
-#, php-format
-msgid "%d parent of unknown sex recorded (%d in total)."
-msgid_plural "%d parents of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:246
-#, php-format
-msgid "%2$s has %1$d mother and"
-msgid_plural "%2$s has %1$d mothers and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:249
-#, php-format
-msgid "%2$s has %1$d father,"
-msgid_plural "%2$s has %1$d fathers,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:250
-#, php-format
-msgid "%d mother, and"
-msgid_plural "%d mothers, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:262
-#, php-format
-msgid "%s has one mother-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:264
-#, php-format
-msgid "%s has one father-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:266
-#, php-format
-msgid "%s has one parent-in-law of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:270
-#, php-format
-msgid "%2$s has %1$d mother-in-law recorded."
-msgid_plural "%2$s has %1$d mothers-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:272
-#, php-format
-msgid "%2$s has %1$d father-in-law recorded."
-msgid_plural "%2$s has %1$d fathers-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:274
-#, php-format
-msgid "%2$s has %1$d parent-in-law of unknown sex recorded."
-msgid_plural "%2$s has %1$d parents-in-law of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:276 resources/views/tab.phtml:279
-#, php-format
-msgid "%2$s has %1$d father-in-law and"
-msgid_plural "%2$s has %1$d fathers-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:277
-#, php-format
-msgid "%d mother-in-law recorded (%d in total)."
-msgid_plural "%d mothers-in-law recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:280 resources/views/tab.phtml:283 resources/views/tab.phtml:287
-#, php-format
-msgid "%d parent-in-law of unknown sex recorded (%d in total)."
-msgid_plural "%d parents-in-law of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:282
-#, php-format
-msgid "%2$s has %1$d mother-in-law and"
-msgid_plural "%2$s has %1$d mothers-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:285
-#, php-format
-msgid "%2$s has %1$d father-in-law,"
-msgid_plural "%2$s has %1$d fathers-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:286
-#, php-format
-msgid "%d mother-in-law, and"
-msgid_plural "%d mothers-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:293
-#, php-format
-msgid "%s has one co-mother-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:295
-#, php-format
-msgid "%s has one co-father-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:297
-#, php-format
-msgid "%s has one co-parent-in-law of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:301
-#, php-format
-msgid "%2$s has %1$d co-mother-in-law recorded."
-msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:303
-#, php-format
-msgid "%2$s has %1$d co-father-in-law recorded."
-msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:305
-#, php-format
-msgid "%2$s has %1$d co-parent-in-law of unknown sex recorded."
-msgid_plural "%2$s has %1$d co-parents-in-law of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:307 resources/views/tab.phtml:310
-#, php-format
-msgid "%2$s has %1$d co-father-in-law and"
-msgid_plural "%2$s has %1$d co-fathers-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:308
-#, php-format
-msgid "%d co-mother-in-law recorded (%d in total)."
-msgid_plural "%d co-mothers-in-law recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:311 resources/views/tab.phtml:314 resources/views/tab.phtml:318
-#, php-format
-msgid "%d co-parent-in-law of unknown sex recorded (%d in total)."
-msgid_plural "%d co-parents-in-law of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:313
-#, php-format
-msgid "%2$s has %1$d co-mother-in-law and"
-msgid_plural "%2$s has %1$d co-mothers-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:316
-#, php-format
-msgid "%2$s has %1$d co-father-in-law,"
-msgid_plural "%2$s has %1$d co-fathers-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:317
-#, php-format
-msgid "%d co-mother-in-law, and"
-msgid_plural "%d co-mothers-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:324
-#, php-format
-msgid "%s has one female partner recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:326
-#, php-format
-msgid "%s has one male partner recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:328
-#, php-format
-msgid "%s has one partner of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:333
-#, php-format
-msgid "%2$s has %1$d female partner recorded."
-msgid_plural "%2$s has %1$d female partners recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:335
-#, php-format
-msgid "%2$s has %1$d male partner recorded."
-msgid_plural "%2$s has %1$d male partners recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:337
-#, php-format
-msgid "%2$s has %1$d partner of unknown sex recorded."
-msgid_plural "%2$s has %1$d partners of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:339 resources/views/tab.phtml:342 resources/views/tab.phtml:358
-#: resources/views/tab.phtml:382 resources/views/tab.phtml:387 resources/views/tab.phtml:397
-#, php-format
-msgid "%2$s has %1$d male partner and"
-msgid_plural "%2$s has %1$d male partners and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:340
-#, php-format
-msgid "%d female partner recorded (%d in total)."
-msgid_plural "%d female partners recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:343 resources/views/tab.phtml:346 resources/views/tab.phtml:350
-#, php-format
-msgid "%d partner of unknown sex recorded (%d in total)."
-msgid_plural "%d partners of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:345 resources/views/tab.phtml:354 resources/views/tab.phtml:392
-#, php-format
-msgid "%2$s has %1$d female partner and"
-msgid_plural "%2$s has %1$d female partners and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:348
-#, php-format
-msgid "%2$s has %1$d male partner,"
-msgid_plural "%2$s has %1$d male partners,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:349 resources/views/tab.phtml:398
-#, php-format
-msgid "%d female partner, and"
-msgid_plural "%d female partners, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:355
-#, php-format
-msgid "%d male partner of female partners recorded (%d in total)."
-msgid_plural "%d male partners of female partners recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:359
-#, php-format
-msgid "%d female partner of male partners recorded (%d in total)."
-msgid_plural "%d female partners of male partners recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:362
-#, php-format
-msgid "%2$s has %1$d partner and"
-msgid_plural "%2$s has %1$d partners and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:363
-#, php-format
-msgid "%1$d partner of partners recorded (%2$d in total)."
-msgid_plural "%1$d partners of partners recorded (%2$d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:370
-#, php-format
-msgid "%d female partner in this partner chain recorded"
-msgid_plural "%d female partners in this partner chain recorded"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:371 resources/views/tab.phtml:375 resources/views/tab.phtml:379
-#: resources/views/tab.phtml:384 resources/views/tab.phtml:389 resources/views/tab.phtml:394
-#, php-format
-msgid "including %s"
-msgstr ""
-
-#: resources/views/tab.phtml:374
-#, php-format
-msgid "%d male partner in this partner chain recorded"
-msgid_plural "%d male partners in this partner chain recorded"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:378
-#, php-format
-msgid "%d partner of unknown sex in this partner chain recorded"
-msgid_plural "%d partners of unknown sex in this partner chain recorded"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:383
-#, php-format
-msgid "%1$d female partner in this partner chain recorded (%2$d in total"
-msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:388 resources/views/tab.phtml:393
-#, php-format
-msgid "%1$d partner of unknown sex in this partner chain recorded (%2$d in total"
-msgid_plural "%1$d partners of unknown sex in this partner chain recorded (%2$d in total"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:399
-#, php-format
-msgid ""
-"%1$d partner of unknown sex in this partner chain recorded (%2$d in total, including "
-"%3$s)."
-msgid_plural ""
-"%1$d partners of unknown sex in this partner chain recorded (%2$d in total, including "
-"%3$s)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:403
-#, php-format
-msgid "There are %d branches in the partner chain."
-msgstr ""
-
-#: resources/views/tab.phtml:405
-#, php-format
-msgid ""
-"The longest branch in the partner chain to %2$s consists of %1$d partners (including "
-"%3$s)."
-msgstr ""
-
-#: resources/views/tab.phtml:407
-#, php-format
-msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
-msgstr ""
-
-#: resources/views/tab.phtml:414
-#, php-format
-msgid "%s has one sister recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:416
-#, php-format
-msgid "%s has one brother recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:418
-#, php-format
-msgid "%s has one sibling of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:422
-#, php-format
-msgid "%2$s has %1$d sister recorded."
-msgid_plural "%2$s has %1$d sisters recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:424
-#, php-format
-msgid "%2$s has %1$d brother recorded."
-msgid_plural "%2$s has %1$d brothers recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:426
-#, php-format
-msgid "%2$s has %1$d sibling of unknown sex recorded."
-msgid_plural "%2$s has %1$d siblings of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:428 resources/views/tab.phtml:431
-#, php-format
-msgid "%2$s has %1$d brother and"
-msgid_plural "%2$s has %1$d brothers and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:429
-#, php-format
-msgid "%d sister recorded (%d in total)."
-msgid_plural "%d sisters recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:432 resources/views/tab.phtml:435 resources/views/tab.phtml:439
-#, php-format
-msgid "%d sibling of unknown sex recorded (%d in total)."
-msgid_plural "%d siblings of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:434
-#, php-format
-msgid "%2$s has %1$d sister and"
-msgid_plural "%2$s has %1$d sisters and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:437
-#, php-format
-msgid "%2$s has %1$d brother,"
-msgid_plural "%2$s has %1$d brothers,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:438
-#, php-format
-msgid "%d sister, and"
-msgid_plural "%d sisters, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:450
-#, php-format
-msgid "%s has one sister-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:452
-#, php-format
-msgid "%s has one brother-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:454
-#, php-format
-msgid "%s has one sibling-in-law of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:458
-#, php-format
-msgid "%2$s has %1$d sister-in-law recorded."
-msgid_plural "%2$s has %1$d sisters-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:460
-#, php-format
-msgid "%2$s has %1$d brother-in-law recorded."
-msgid_plural "%2$s has %1$d brothers-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:462
-#, php-format
-msgid "%2$s has %1$d sibling-in-law of unknown sex recorded."
-msgid_plural "%2$s has %1$d siblings-in-law of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:464 resources/views/tab.phtml:467
-#, php-format
-msgid "%2$s has %1$d brother-in-law and"
-msgid_plural "%2$s has %1$d brothers-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:465
-#, php-format
-msgid "%d sister-in-law recorded (%d in total)."
-msgid_plural "%d sisters-in-law recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:468 resources/views/tab.phtml:471 resources/views/tab.phtml:475
-#, php-format
-msgid "%d sibling-in-law of unknown sex recorded (%d in total)."
-msgid_plural "%d siblings-in-law of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:470
-#, php-format
-msgid "%2$s has %1$d sister-in-law and"
-msgid_plural "%2$s has %1$d sisters-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:473
-#, php-format
-msgid "%2$s has %1$d brother-in-law,"
-msgid_plural "%2$s has %1$d brothers-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:474
-#, php-format
-msgid "%d sister-in-law, and"
-msgid_plural "%d sisters-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:486
-#, php-format
-msgid "%s has one co-sister-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:488
-#, php-format
-msgid "%s has one co-brother-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:490
-#, php-format
-msgid "%s has one co-sibling-in-law of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:494
-#, php-format
-msgid "%2$s has %1$d co-sister-in-law recorded."
-msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:496
-#, php-format
-msgid "%2$s has %1$d co-brother-in-law recorded."
-msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:498
-#, php-format
-msgid "%2$s has %1$d co-sibling-in-law of unknown sex recorded."
-msgid_plural "%2$s has %1$d co-siblings-in-law of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:500 resources/views/tab.phtml:503
-#, php-format
-msgid "%2$s has %1$d co-brother-in-law and"
-msgid_plural "%2$s has %1$d co-brothers-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:501
-#, php-format
-msgid "%d co-sister-in-law recorded (%d in total)."
-msgid_plural "%d co-sisters-in-law recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:504 resources/views/tab.phtml:507 resources/views/tab.phtml:511
-#, php-format
-msgid "%d co-sibling-in-law of unknown sex recorded (%d in total)."
-msgid_plural "%d co-siblings-in-law of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:506
-#, php-format
-msgid "%2$s has %1$d co-sister-in-law and"
-msgid_plural "%2$s has %1$d co-sisters-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:509
-#, php-format
-msgid "%2$s has %1$d co-brother-in-law,"
-msgid_plural "%2$s has %1$d co-brothers-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:510
-#, php-format
-msgid "%d co-sister-in-law, and"
-msgid_plural "%d co-sisters-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:522
-#, php-format
-msgid "%s has one female first cousin recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:524
-#, php-format
-msgid "%s has one male first cousin recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:526
-#, php-format
-msgid "%s has one first cousin of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:530
-#, php-format
-msgid "%2$s has %1$d female first cousin recorded."
-msgid_plural "%2$s has %1$d female first cousins recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:532
-#, php-format
-msgid "%2$s has %1$d male first cousin recorded."
-msgid_plural "%2$s has %1$d male first cousins recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:534
-#, php-format
-msgid "%2$s has %1$d first cousin of unknown sex recorded."
-msgid_plural "%2$s has %1$d first cousins of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:536 resources/views/tab.phtml:539
-#, php-format
-msgid "%2$s has %1$d male first cousin and"
-msgid_plural "%2$s has %1$d male first cousins and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:537
-#, php-format
-msgid "%d female first cousin recorded (%d in total)."
-msgid_plural "%d female first cousins recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:540 resources/views/tab.phtml:543 resources/views/tab.phtml:547
-#, php-format
-msgid "%d first cousin of unknown sex recorded (%d in total)."
-msgid_plural "%d first cousins of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:542
-#, php-format
-msgid "%2$s has %1$d female first cousin and"
-msgid_plural "%2$s has %1$d female first cousins and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:545
-#, php-format
-msgid "%2$s has %1$d male first cousin,"
-msgid_plural "%2$s has %1$d male first cousins,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:546
-#, php-format
-msgid "%d female first cousin, and"
-msgid_plural "%d female first cousins, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:553
-#, php-format
-msgid "%s has one niece recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:555
-#, php-format
-msgid "%s has one nephew recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:557
-#, php-format
-msgid "%s has one nephew or niece of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:561
-#, php-format
-msgid "%2$s has %1$d niece recorded."
-msgid_plural "%2$s has %1$d nieces recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:563
-#, php-format
-msgid "%2$s has %1$d nephew recorded."
-msgid_plural "%2$s has %1$d nephews recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:565
-#, php-format
-msgid "%2$s has %1$d nephew or niece of unknown sex recorded."
-msgid_plural "%2$s has %1$d nephews or nieces of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:567 resources/views/tab.phtml:570
-#, php-format
-msgid "%2$s has %1$d nephew and"
-msgid_plural "%2$s has %1$d nephews and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:568
-#, php-format
-msgid "%d niece recorded (%d in total)."
-msgid_plural "%d nieces recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:571 resources/views/tab.phtml:574 resources/views/tab.phtml:578
-#, php-format
-msgid "%d nephew or niece of unknown sex recorded (%d in total)."
-msgid_plural "%d nephews or nieces of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:573
-#, php-format
-msgid "%2$s has %1$d niece and"
-msgid_plural "%2$s has %1$d nieces and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:576
-#, php-format
-msgid "%2$s has %1$d nephew,"
-msgid_plural "%2$s has %1$d nephews,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:577
-#, php-format
-msgid "%d niece, and"
-msgid_plural "%d nieces, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:584
-#, php-format
-msgid "%s has one daughter recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:586
-#, php-format
-msgid "%s has one son recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:588
-#, php-format
-msgid "%s has one child of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:592
-#, php-format
-msgid "%2$s has %1$d daughter recorded."
-msgid_plural "%2$s has %1$d daughters recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:594
-#, php-format
-msgid "%2$s has %1$d son recorded."
-msgid_plural "%2$s has %1$d sons recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:596
-#, php-format
-msgid "%2$s has %1$d child of unknown sex recorded."
-msgid_plural "%2$s has %1$d children of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:598 resources/views/tab.phtml:601
-#, php-format
-msgid "%2$s has %1$d son and"
-msgid_plural "%2$s has %1$d sons and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:599
-#, php-format
-msgid "%d daughter recorded (%d in total)."
-msgid_plural "%d daughters recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:602 resources/views/tab.phtml:605 resources/views/tab.phtml:609
-#, php-format
-msgid "%d child of unknown sex recorded (%d in total)."
-msgid_plural "%d children of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:604
-#, php-format
-msgid "%2$s has %1$d daughter and"
-msgid_plural "%2$s has %1$d daughters and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:607
-#, php-format
-msgid "%2$s has %1$d son,"
-msgid_plural "%2$s has %1$d sons,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:608
-#, php-format
-msgid "%d daughter, and"
-msgid_plural "%d daughters, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:615
-#, php-format
-msgid "%s has one daughter-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:617
-#, php-format
-msgid "%s has one son-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:619
-#, php-format
-msgid "%s has one child-in-law of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:623
-#, php-format
-msgid "%2$s has %1$d daughter-in-law recorded."
-msgid_plural "%2$s has %1$d daughters-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:625
-#, php-format
-msgid "%2$s has %1$d son-in-law recorded."
-msgid_plural "%2$s has %1$d sons-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:627
-#, php-format
-msgid "%2$s has %1$d child-in-law of unknown sex recorded."
-msgid_plural "%2$s has %1$d children-in-law of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:629 resources/views/tab.phtml:632
-#, php-format
-msgid "%2$s has %1$d son-in-law and"
-msgid_plural "%2$s has %1$d sons-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:630
-#, php-format
-msgid "%d daughter-in-law recorded (%d in total)."
-msgid_plural "%d daughters-in-law recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:633 resources/views/tab.phtml:636 resources/views/tab.phtml:640
-#, php-format
-msgid "%d child-in-law of unknown sex recorded (%d in total)."
-msgid_plural "%d children-in-law of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:635
-#, php-format
-msgid "%2$s has %1$d daughter-in-law and"
-msgid_plural "%2$s has %1$d daughters-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:638
-#, php-format
-msgid "%2$s has %1$d son-in-law,"
-msgid_plural "%2$s has %1$d sons-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:639
-#, php-format
-msgid "%d daughter-in-law, and"
-msgid_plural "%d daughters-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:646
-#, php-format
-msgid "%s has one granddaughter recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:648
-#, php-format
-msgid "%s has one grandson recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:650
-#, php-format
-msgid "%s has one grandchild of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:654
-#, php-format
-msgid "%2$s has %1$d granddaughter recorded."
-msgid_plural "%2$s has %1$d granddaughters recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:656
-#, php-format
-msgid "%2$s has %1$d grandson recorded."
-msgid_plural "%2$s has %1$d grandsons recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:658
-#, php-format
-msgid "%2$s has %1$d grandchild of unknown sex recorded."
-msgid_plural "%2$s has %1$d grandchildren of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:660 resources/views/tab.phtml:663
-#, php-format
-msgid "%2$s has %1$d grandson and"
-msgid_plural "%2$s has %1$d grandsons and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:661
-#, php-format
-msgid "%d granddaughter recorded (%d in total)."
-msgid_plural "%d granddaughters recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:664 resources/views/tab.phtml:667 resources/views/tab.phtml:671
-#, php-format
-msgid "%d grandchild of unknown sex recorded (%d in total)."
-msgid_plural "%d grandchildren of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:666
-#, php-format
-msgid "%2$s has %1$d granddaughter and"
-msgid_plural "%2$s has %1$d granddaughters and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:669
-#, php-format
-msgid "%2$s has %1$d grandson,"
-msgid_plural "%2$s has %1$d grandsons,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:670
-#, php-format
-msgid "%d granddaughter, and"
-msgid_plural "%d granddaughters, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:677
-#, php-format
-msgid "%s has one great-granddaughter recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:679
-#, fuzzy, php-format
-#| msgid "%1$s has no %2$s recorded."
-msgid "%s has one great-grandson recorded."
-msgstr "%1$s has no %2$s recorded."
-
-#: resources/views/tab.phtml:681
-#, php-format
-msgid "%s has one great-grandchild of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:685
-#, php-format
-msgid "%2$s has %1$d great-granddaughter recorded."
-msgid_plural "%2$s has %1$d great-granddaughters recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:687
-#, fuzzy, php-format
-#| msgid "%1$s has no %2$s recorded."
-msgid "%2$s has %1$d great-grandson recorded."
-msgid_plural "%2$s has %1$d great-grandsons recorded."
-msgstr[0] "%1$s has no %2$s recorded."
-msgstr[1] "%1$s has no %2$s recorded."
-
-#: resources/views/tab.phtml:689
-#, php-format
-msgid "%2$s has %1$d great-grandchild of unknown sex recorded."
-msgid_plural "%2$s has %1$d great-grandchildren of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:691 resources/views/tab.phtml:694
-#, php-format
-msgid "%2$s has %1$d great-grandson and"
-msgid_plural "%2$s has %1$d great-grandsons and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:692
-#, php-format
-msgid "%d great-granddaughter recorded (%d in total)."
-msgid_plural "%d great-granddaughters recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:695 resources/views/tab.phtml:698 resources/views/tab.phtml:702
-#, php-format
-msgid "%d great-grandchild of unknown sex recorded (%d in total)."
-msgid_plural "%d great-grandchildren of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:697
-#, php-format
-msgid "%2$s has %1$d great-granddaughter and"
-msgid_plural "%2$s has %1$d great-granddaughters and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:700
-#, php-format
-msgid "%2$s has %1$d great-grandson,"
-msgid_plural "%2$s has %1$d great-grandsons,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:701
-#, php-format
-msgid "%d great-granddaughter, and"
-msgid_plural "%d great-granddaughters, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:708
-#, php-format
-msgid "%s has one granddaughter-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:710
-#, php-format
-msgid "%s has one grandson-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:712
-#, php-format
-msgid "%s has one grandchild-in-law of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:716
-#, php-format
-msgid "%2$s has %1$d granddaughter-in-law recorded."
-msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:718
-#, php-format
-msgid "%2$s has %1$d grandson-in-law recorded."
-msgid_plural "%2$s has %1$d grandsons-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:720
-#, php-format
-msgid "%2$s has %1$d grandchild-in-law of unknown sex recorded."
-msgid_plural "%2$s has %1$d grandchildren-in-law of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:722 resources/views/tab.phtml:725
-#, php-format
-msgid "%2$s has %1$d grandson-in-law and"
-msgid_plural "%2$s has %1$d grandsons-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:723
-#, php-format
-msgid "%d granddaughter-in-law recorded (%d in total)."
-msgid_plural "%d granddaughters-in-law recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:726 resources/views/tab.phtml:729 resources/views/tab.phtml:733
-#, php-format
-msgid "%d grandchild-in-law of unknown sex recorded (%d in total)."
-msgid_plural "%d grandchildren-in-law of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:728
-#, php-format
-msgid "%2$s has %1$d granddaughter-in-law and"
-msgid_plural "%2$s has %1$d granddaughters-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:731
-#, php-format
-msgid "%2$s has %1$d grandson-in-law,"
-msgid_plural "%2$s has %1$d grandsons-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:732
-#, php-format
-msgid "%d granddaughter-in-law, and"
-msgid_plural "%d granddaughters-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:739
-#, php-format
-msgid "%s has one great-granddaughter-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:741
-#, php-format
-msgid "%s has one great-grandson-in-law recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:743
-#, php-format
-msgid "%s has one great-grandchild-in-law of unknown sex recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:747
-#, php-format
-msgid "%2$s has %1$d great-granddaughter-in-law recorded."
-msgid_plural "%2$s has %1$d great-granddaughters-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:749
-#, php-format
-msgid "%2$s has %1$d great-grandson-in-law recorded."
-msgid_plural "%2$s has %1$d great-grandsons-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:751
-#, php-format
-msgid "%2$s has %1$d great-grandchild-in-law of unknown sex recorded."
-msgid_plural "%2$s has %1$d great-grandchildren-in-law of unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:753 resources/views/tab.phtml:756
-#, php-format
-msgid "%2$s has %1$d great-grandson-in-law and"
-msgid_plural "%2$s has %1$d great-grandsons-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:754
-#, php-format
-msgid "%d great-granddaughter-in-law recorded (%d in total)."
-msgid_plural "%d great-granddaughters-in-law recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:757 resources/views/tab.phtml:760 resources/views/tab.phtml:764
-#, php-format
-msgid "%d great-grandchild-in-law of unknown sex recorded (%d in total)."
-msgid_plural "%d great-grandchildren-in-law of unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:759
-#, php-format
-msgid "%2$s has %1$d great-granddaughter-in-law and"
-msgid_plural "%2$s has %1$d great-granddaughters-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:762
-#, php-format
-msgid "%2$s has %1$d great-grandson-in-law,"
-msgid_plural "%2$s has %1$d great-grandsons-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:763
-#, php-format
-msgid "%d great-granddaughter-in-law, and"
-msgid_plural "%d great-granddaughters-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-
-#: resources/views/tab.phtml:778
-msgid "Partner of"
-msgstr ""
-
-#: resources/views/tab.phtml:840 resources/views/tab.phtml:842
-msgid "with"
-msgstr ""
-
-#: resources/views/tab.phtml:905
-#, php-format
-msgid "Brother %1$s of partner %2$s"
-msgstr ""
-
-#: resources/views/tab.phtml:907
-#, php-format
-msgid "Sister %1$s of partner %2$s"
-msgstr ""
-
-#: resources/views/tab.phtml:909
-#, php-format
-msgid "Sibling %1$s of partner %2$s"
-msgstr ""
-
-#: resources/views/tab.phtml:914 resources/views/tab.phtml:927
-#, php-format
-msgid "Sibling of %1$s %2$s"
-msgstr ""
-
-#: resources/views/tab.phtml:918 resources/views/tab.phtml:930
-#, php-format
-msgid "Partner of %1$s sibling-in-law %2$s"
-msgstr ""
-
-#: resources/views/tab.phtml:942
-#, php-format
-msgid "%1$s %2$s, %3$s with %4$s"
-msgstr ""
-
-#: resources/views/tab.phtml:950
-#, php-format
-msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
-msgstr ""
-
-#: resources/views/tab.phtml:967
-msgid "Stepson"
-msgstr ""
-
-#: resources/views/tab.phtml:969
-msgid "Stepdaughter"
-msgstr ""
-
-#: resources/views/tab.phtml:971 resources/views/tab.phtml:978
-msgid "Stepchild"
-msgstr ""
-
-#: resources/views/tab.phtml:991 resources/views/tab.phtml:1015
-#, php-format
-msgid "%1$s %2$s as parents of %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:993 resources/views/tab.phtml:1056
-#, php-format
-msgid "Parents %1$s (%2$s) of %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:999
-#, php-format
-msgid "%1$s %2$s as social parents of %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1001
-#, php-format
-msgid "Social parents %1$s (%2$s) of %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1007
-#, php-format
-msgid "%1$s %2$s as stepparents of %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1009
-#, php-format
-msgid "Stepparents %1$s (%2$s) of %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1017
-#, php-format
-msgid "Parents %1$s (%2$s) of stepfather %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1019
-#, php-format
-msgid "Parents %1$s (%2$s) of stepmother %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1021
-#, php-format
-msgid "Parents %1$s (%2$s) of stepparent %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1027
-#, php-format
-msgid "%1$s %2$s as grandparents of %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1029
-#, php-format
-msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1031
-#, php-format
-msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1033
-#, php-format
-msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1042 resources/views/tab.phtml:1062
-#, php-format
-msgid "Parents %1$s of %2$s"
-msgstr ""
-
-#: resources/views/tab.phtml:1058 resources/views/tab.phtml:1064
-#, php-format
-msgid "Partners of %s"
-msgstr ""
-
-#: resources/views/tab.phtml:1078 resources/views/tab.phtml:1084
-#, php-format
-msgid "connected with %s"
-msgstr ""
-
-#: resources/views/tab.phtml:1129
-#, php-format
-msgid "%s has no uncles or aunts recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:1131
-#, php-format
-msgid "%s has no uncles or aunts by marriage recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:1133
-#, php-format
-msgid "%s has no members of a partner chain recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:1135
-#, php-format
-msgid "%s has no first cousins recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:1137
-#, php-format
-msgid "%s has no nephews or nieces recorded."
-msgstr ""
-
-#: resources/views/tab.phtml:1139
-#, php-format
-msgid "%1$s has no %2$s recorded."
-msgstr "%1$s has no %2$s recorded."
-
-#: resources/views/tab.phtml:1153
-msgid "No family available"
 msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
@@ -2952,5 +3187,5 @@ msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "not a person of unknown gender"
+#~ msgid "not a person of diverse or unknown gender"
 #~ msgstr "अज्ञात लिंग का व्यक्ति नहीं"

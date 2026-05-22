@@ -439,22 +439,11 @@ abstract class ExtendedFamilyPart
     {
         $cousins = [];
         foreach ((($branch == 'full')? $this->findFullsiblingsIndividuals($parent): $this->findHalfsiblingsIndividuals($parent)) as $sibling) {
-            //echo "<br>Onkel oder Tante: ".$sibling->getIndividual()->fullName()." / ".$sibling->getFamily()->fullName();
             foreach ($sibling->getIndividual()->spouseFamilies() as $family) {
                 foreach ($family->children() as $cousin) {
-                    //echo "<br>  Cousin: " . $cousin->fullName() . " / " . $family->fullName();
                     $cousins[] = new IndividualFamily($cousin, $sibling->getFamily());
                 }
             }
-            /*
-            foreach ($this->findPartnersIndividuals($sibling->getIndividual()) as $uncleAunt) {
-                //echo "<br>angeheirateter Onkel oder Tante: ".$uncleAunt->getIndividual()->fullName()." / ".$uncleAunt->getFamily()->fullName();
-                foreach ($uncleAunt->getFamily()->children() as $cousin) {
-                    //echo "<br>  Cousin: ".$cousin->fullName()." / ".$uncleAunt->getFamily()->fullName();
-                    $cousins[] = new IndividualFamily($cousin, $uncleAunt->getFamily());
-                }
-            }
-            */
         }
         return $cousins;
     }
@@ -473,7 +462,7 @@ abstract class ExtendedFamilyPart
                 foreach ($this->callFunction('find'.ucfirst($config->getCallFamilyPart()).'BranchIndividuals',
                                              $parent->getIndividual(),
                                              $branch) as $obj) {
-                    $this->addIndividualToFamily($obj, $config->getConst()[$branch][$parent->getIndividual()->sex()]);
+                    $this->addIndividualToFamily($obj, $config->familyPartForSex($branch, $parent->getIndividual()->sex()));
                 }
             }
         }
@@ -569,8 +558,6 @@ abstract class ExtendedFamilyPart
 
     /**
      * add an individual to a new group as part of an extended family part
-     * tbd: add more labels to a person if there are special situations using
-     *      $labels[] = ExtendedFamily::getRelationshipName($referencePerson, $this->getProband(), '');
      *
      * @param IndividualFamily $indifam
      * @param string $groupName

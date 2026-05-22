@@ -20,12 +20,9 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- * how should an exception be thrown?
- * plausibility check: check if indices in $const are M, F, or U
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
+
+use Exception;
 
 use function array_keys;
 use function in_array;
@@ -37,6 +34,8 @@ use function in_array;
  */
 class FindBranchConfig
 {
+    private const SEX_KEYS = ['M', 'F', 'U', 'X'];
+
     // ------------ definition of data structures
 
     /** @var object $config
@@ -63,11 +62,11 @@ class FindBranchConfig
         if (in_array($callFamilyPart, ExtendedFamilySupport::listFamilyParts())) {
             $this->config->callFamilyPart = $callFamilyPart;
         } else {
-            throw new Exception('extended family part ' . $callFamilyPart . ' does not exist');   // tbd class "Exception" does not exist
+            throw new Exception('extended family part ' . $callFamilyPart . ' does not exist');
         }
-        $this->config->const = $const;
+        $this->config->const = $this->normalizeAndValidateConst($const);
 
-        $this->branches = $this->findBranches($const);
+        $this->branches = $this->findBranches($this->config->const);
     }
 
     /**
@@ -110,6 +109,23 @@ class FindBranchConfig
         return $this->config->const;
     }
 
+    public function familyPartForSex(string $branch, string $sex): string
+    {
+        if (!isset($this->config->const[$branch])) {
+            throw new Exception('extended family branch ' . $branch . ' does not exist');
+        }
+
+        if (isset($this->config->const[$branch][$sex])) {
+            return $this->config->const[$branch][$sex];
+        }
+
+        if (isset($this->config->const[$branch]['U'])) {
+            return $this->config->const[$branch]['U'];
+        }
+
+        throw new Exception('sex key ' . $sex . ' is not configured for branch ' . $branch);
+    }
+
     /**
      * get list of branches based on index of const
      *
@@ -119,5 +135,32 @@ class FindBranchConfig
     private function findBranches(array $const): array
     {
         return array_keys($const);
+    }
+
+    /**
+     * @param array<string,array<string,string>> $const
+     * @return array<string,array<string,string>>
+     */
+    private function normalizeAndValidateConst(array $const): array
+    {
+        foreach ($const as $branch => $sexMap) {
+            foreach (array_keys($sexMap) as $sex) {
+                if (!in_array($sex, self::SEX_KEYS, true)) {
+                    throw new Exception('invalid sex key ' . $sex . ' in branch ' . $branch);
+                }
+            }
+
+            if (isset($sexMap['U']) && !isset($sexMap['X'])) {
+                $const[$branch]['X'] = $sexMap['U'];
+            }
+
+            foreach (self::SEX_KEYS as $sex) {
+                if (!isset($const[$branch][$sex])) {
+                    throw new Exception('missing sex key ' . $sex . ' in branch ' . $branch);
+                }
+            }
+        }
+
+        return $const;
     }
 }

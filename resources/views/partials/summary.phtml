@@ -19,7 +19,7 @@ $statistics = $filterObj->efp->summary->statistics ?? null;
 
 <div id="hh-extended-family-summary-block">
     <h2><?= I18N::translate('Summary for the shown extended family') ?></h2>
-    <p><?= rtrim(I18N::plural('The extended family has only %1$s as a member.', 'The extended family of %1$s has %2$d members (including %1$s).', $filterObj->efp->summary->allCountUnique, $extfam_obj->proband->niceName, $filterObj->efp->summary->allCountUnique), '.') ?><?php if ($showPartnerChainsNotCounted) : ?> <?= I18N::translate('(additional members of the partner chains are not counted)') ?><?php endif ?>.
+    <p><?= rtrim(I18N::plural('The extended family has only %1$s as a member.', 'The extended family of %1$s has %2$d members (including %3$s).', $filterObj->efp->summary->allCountUnique, $extfam_obj->proband->niceName->forFamilyOf, $filterObj->efp->summary->allCountUnique, $extfam_obj->proband->niceName->name), '.') ?><?php if ($showPartnerChainsNotCounted) : ?> <?= I18N::translate('(additional members of the partner chains are not counted)') ?><?php endif ?>.
         <?php if ($filterObj->efp->summary->allCountUnique - 1 < $filterObj->efp->summary->allCount - ($extfam_obj->config->countPartnerChainsToTotal?0:(false?$filterObj->efp->partner_chains->allCount:0))) : ?>
             <?= I18N::translate('Some of them are member in more than one part of the extended family.') ?>
         <?php endif ?>
@@ -42,7 +42,7 @@ $statistics = $filterObj->efp->summary->statistics ?? null;
     <?php if ($extfam_obj->config->showEmptyBlock == 1) : ?>
         <?php if (count($emptyFamilyParts) > 0) : ?>
             <?php if (count($emptyFamilyParts) == 1) : ?>
-                <p><?= I18N::translate('%s has no %s recorded.', $extfam_obj->proband->niceName, $emptyFamilyParts[0]) ?></p>
+                <p><?= I18N::translate('%s has no %s recorded.', $extfam_obj->proband->niceName->name, $emptyFamilyParts[0]) ?></p>
             <?php else: ?>
                 <?php
                 // Keep the final family part separate so the sentence can say
@@ -50,7 +50,7 @@ $statistics = $filterObj->efp->summary->statistics ?? null;
                 $lastEmptyFamilyPart = array_pop($emptyFamilyParts);
                 $otherEmptyFamilyParts = implode(', ', $emptyFamilyParts);
                 ?>
-                <p><?= I18N::translate('%s has no %s, and no %s recorded.', $extfam_obj->proband->niceName, $otherEmptyFamilyParts, $lastEmptyFamilyPart) ?></p>
+                <p><?= I18N::translate('%s has no %s, and no %s recorded.', $extfam_obj->proband->niceName->name, $otherEmptyFamilyParts, $lastEmptyFamilyPart) ?></p>
             <?php endif ?>
         <?php endif ?>
     <?php endif ?>

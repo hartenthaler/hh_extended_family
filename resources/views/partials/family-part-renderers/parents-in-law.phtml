@@ -1,0 +1,60 @@
+<?php
+
+use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandchildren;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
+
+/**
+ * @var object $extfam_obj
+ * @var object $filterObj
+ * @var string $propName
+ */
+
+?>
+
+        <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
+            <div class="hh_extended_family_box">
+                <h4>
+                    <?php if ($group->partner->canShow()): ?>
+                        <?php $relationshipName = ExtendedFamilySupport::relationshipNameToProband($group->partner, $extfam_obj->proband->indi) ?>
+                        <span class="hh_extended_family_name"><?= I18N::translate($group->partnerFamilyStatus) ?> <?= I18N::translate('with') ?> <a href="<?= e($group->partner->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $group->partner->fullName() ?></a></span>
+                    <?php else: ?>
+                        <span class="hh_extended_family_name"><?= I18N::translate('Partnership') . ' ' . I18N::translate('with') . ' ' . $group->partner->fullName() ?></span>
+                    <?php endif ?>
+                    &nbsp;(<?= count($group->members) ?>)
+                </h4>
+                <?php $prev_fam_id = '-1'; ?>
+                <?php if ($group->family->xref() != $prev_fam_id) : ?>
+                    <?php $prev_fam_id = $group->family->xref(); $i = 1; ?>
+                    <?php if ($group->family->canShow()): ?>
+                        <h5><?= I18N::translate($group->familyStatus) ?>&nbsp;<a href="<?= e($group->family->url()); ?>"><?= $group->family->fullName() ?></a></h5>
+                    <?php else: ?>
+                        <h5><?= I18N::translate('Partnership') ?>&nbsp;<?= $group->family->fullName() ?></h5>
+                    <?php endif ?>
+                <?php endif ?>
+                <?php foreach ($group->members as $key => $indi) : ?>
+                    <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
+                        <?php if ($indi->canShow()): ?>
+                            <?php if ($extfam_obj->config->showThumbnail): ?>
+                                <div class="wt-chart-box-thumbnail float-start mr-1"><?= $indi->displayImage($extfam_obj->config->sizeThumbnailW, $extfam_obj->config->sizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                            <?php endif ?>
+                            <span class="hh_extended_family_counter"><?= $i ?></span>
+                            <?php $relationshipName = ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) ?>
+                            <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $indi->fullName() ?></a></span>
+                            <?php if ($extfam_obj->config->useCompactDesign): ?>
+                                <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                            <?php else: ?>
+                                <span class="hh_extended_family_birth_death">
+                                    <?= $group->vitalEventsSummaries[$key] ?? '' ?>
+                                </span>
+                            <?php endif ?>
+                        <?php else: ?>
+                            <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
+                        <?php endif ?>
+                    </div>
+                <?php $i++; endforeach ?>
+            </div>    
+        <?php endforeach ?>

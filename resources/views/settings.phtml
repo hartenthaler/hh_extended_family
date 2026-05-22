@@ -22,6 +22,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var boolean                 $show_summary
  * @var boolean                 $show_summary_statistics
  * @var boolean                 $count_partner_chains
+ * @var boolean                 $show_print_button
  * @var boolean                 $use_clippings_cart
  * @var boolean                 $cce_available
  * @var string                  $clippings_cart_action
@@ -286,6 +287,20 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
             </div>
         </fieldset>
 
+        <h3><?= I18N::translate('Show a button "Print/PDF"?') ?></h3>
+        <p><?= I18N::translate('This allows a user to open a print-optimized view and save it as a PDF file from the browser print dialog.') ?></p>
+        <!-- show print/PDF button -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show button') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_print_button', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_print_button]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Show a button "copy to clippings cart"?') ?></h3>
         <p><?= I18N::translate('This allows a user to copy all members of the extended family to the clippings cart.') ?></p>
         <?php if ((int) $use_clippings_cart === 0 && !$cce_available) : ?>
@@ -361,6 +376,7 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
       const degreeLimit = parseInt($('.hh-extended-family-degree-limit').val(), 10);
 
       if (Number.isNaN(degreeLimit)) {
+          $('.hh-extended-family-part-status').prop('checked', true);
           return;
       }
 

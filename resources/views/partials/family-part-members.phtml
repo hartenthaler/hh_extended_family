@@ -1,0 +1,42 @@
+<?php
+
+use Fisharebest\Webtrees\Individual;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+
+/**
+ * @var object     $extfam_obj
+ * @var object     $filterObj
+ * @var Individual $individual
+ * @var string     $module
+ * @var string     $propName
+ */
+
+    $coreLabels = ExtendedFamilySupport::coreRelationshipLabels();
+    $familyPartColumnCount = $propName == 'partner_chains' ? 1 : max(1, count($filterObj->efp->$propName->groups));
+?>
+<?php if ($extfam_obj->config->useCompactDesign): ?>
+<div id="hh_extended_family_content_compact" style="--hh-extended-family-columns: <?= $familyPartColumnCount ?>">
+<?php else: ?>
+<div id="hh_extended_family_content" style="--hh-extended-family-columns: <?= $familyPartColumnCount ?>">
+<?php endif ?>
+    <?php
+        $familyPartRenderer = match ($propName) {
+            'partners'       => 'partners',
+            'partner_chains' => 'partner-chains',
+            'parents_in_law' => 'parents-in-law',
+            default          => 'grouped',
+        };
+    ?>
+    <?= view($module . '::partials/family-part-renderers/' . $familyPartRenderer, [
+        'coreLabels'          => $coreLabels,
+        'extfam_obj'          => $extfam_obj,
+        'filterObj'           => $filterObj,
+        'individual'          => $individual,
+        'module'              => $module,
+        'propName'            => $propName,
+    ]) ?>
+<?php if ($extfam_obj->config->useCompactDesign): ?>
+</div>
+<?php else: ?>
+</div>
+<?php endif ?>

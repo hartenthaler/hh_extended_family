@@ -1,0 +1,22 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+
+?>
+
+<div id="hh-extended-family-summary">
+    <?php if ($propName == 'uncles_and_aunts'): ?>
+        <h3><?= I18N::translate('%s has no uncles or aunts recorded.', $summaryName) ?></h3>
+    <?php elseif ($propName == 'uncles_and_aunts_bm'): ?>
+        <h3><?= I18N::translate('%s has no uncles or aunts by marriage recorded.', $summaryName) ?></h3>
+    <?php elseif ($propName == 'partner_chains'): ?>
+        <h3><?= I18N::translate('%s has no members of a partner chain recorded.', $summaryName) ?></h3>
+    <?php elseif ($propName == 'cousins'): ?>
+        <h3><?= I18N::translate('%s has no first cousins recorded.', $summaryName) ?></h3>
+    <?php elseif ($propName == 'nephews_and_nieces'): ?>
+        <h3><?= I18N::translate('%s has no nephews or nieces recorded.', $summaryName) ?></h3>
+    <?php else: ?>
+        <h3><?= I18N::translate('%1$s has no %2$s recorded.', $summaryName, ExtendedFamilySupport::translateFamilyPart($propName)) ?></h3>
+    <?php endif ?>
+</div>

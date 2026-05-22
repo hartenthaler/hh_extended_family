@@ -1,0 +1,42 @@
+<?php
+
+use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandchildren;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
+
+/**
+ * @var object   $group
+ * @var int      $i
+ * @var int      $key
+ * @var string   $prev_id
+ * @var string   $prev_id1
+ */
+
+?>
+
+                        <?php $displayFamily = $group->families[$key] ?? $indi->childFamilies()->first() ?>
+                        <?php if ($displayFamily instanceof Family): ?>
+                            <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key] ?? ExtendedFamilySupport::findFamilyStatus($displayFamily)) ?>
+                            <?php $connectedChild = $group->referencePersons[$key][1] ?? null ?>
+                            <?php $connectedChildId = $connectedChild instanceof Individual ? $connectedChild->xref() : -1 ?>
+                            <?php if ($displayFamily->xref() != $prev_id || ($group->groupName == Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD && $connectedChildId != $prev_id1)): ?>
+                                <?php $prev_id = $displayFamily->xref(); $prev_id1 = $connectedChildId; $i = 1; ?>
+                                <?php if ($displayFamily->canShow()): ?>
+                                    <?php $linkFamily = '<a href="' . e($displayFamily->url()) . '">&nbsp;' . $displayFamily->fullName() . '</a>' ?>
+                                    <?php if ($group->groupName == Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD && $connectedChild instanceof Individual): ?>
+                                        <h5><?= $familyStatus ?><?= $linkFamily ?><?= ', ' . I18N::translate('connected with %s', ExtendedFamilySupport::individualLink($connectedChild)) ?></h5>
+                                    <?php else: ?>
+                                        <h5><?= $familyStatus ?><?= $linkFamily ?></h5>
+                                    <?php endif ?>
+                                <?php else: ?>
+                                    <?php if ($group->groupName == Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD && $connectedChild instanceof Individual): ?>
+                                        <h5><?= $familyStatus ?>&nbsp;<?= $displayFamily->fullName(); ?><?= ', ' . I18N::translate('connected with %s', ExtendedFamilySupport::individualLink($connectedChild)) ?></h5>
+                                    <?php else: ?>
+                                        <h5><?= $familyStatus ?>&nbsp;<?= $displayFamily->fullName(); ?></h5>
+                                    <?php endif ?>
+                                <?php endif ?>
+                            <?php endif ?>
+                        <?php endif ?>

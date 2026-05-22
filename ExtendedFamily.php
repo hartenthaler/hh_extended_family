@@ -21,52 +21,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * tbd: offene Punkte
- * ------------------
- * Performance: testen von Variante A und B (letztere muss erst noch fertig implementiert werden)
- *
- * Familiengruppe Urgroßeltern: Unterscheidung bei den Eltern eines Stiefelternteils nach Eltern und Stiefeltern
- * Familiengruppe Neffen und Nichten: 2-stufig: erst Geschwister als P bzw. Partner als P, dann Eltern wie gehabt
- * Familiengruppe Cousins: wenn sie zur Vater- und Mutterfamilie gehören, werden sie falsch zugeordnet (bei P Seudo: C2)
- * Familiengruppe Schwäger und Schwägerinnen: Ergänzen der vollbürtigen Geschwister um halbbürtige und Stiefgeschwister
- * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von
- *                Partner gemischt sein sollte
- * Familiengruppe Partnerketten: grafische Anzeige statt Textketten
- * Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette
- *                von Di. zu Ga., d.h. dies als zweite Information ergänzen
- * Familiengruppe Geschwister: eventuell statt Label eigene Kategorie für Adoptiv- und Pflegekinder bzw. Stillmutter
- *
- * generelle Familienkennzeichen: statt "Eltern" immer "Ehe/Partnerschaft" verwenden
- * Label für biologische Vorfahren und Nachkommen mit SOSA-Nummer bzw. d'Aboville
- * Label für diverse Personen unter Nutzung der Funktion getRelationshipName(),
- *      basierend auf den Vesta-Modulen oder eigenen Funktionen:
- *          Schwäger: Partner der Geschwister
- *          Schwippschwäger: Rechts = Partner der Schwäger (Ehemann, Ex-, Partner)
- *          Schwiegerkinder: Partnerin/Ehefrau
- *          Biologische Eltern, falls selbst adoptiert
- *          Partner: (Ehefrau, Ehemann, Partner)
- *          Angeheiratete Onkel und Tanten: generell (Ehefrau/Ehemann, Partner/Partnerin)
- * Label für Stiefkinder: etwa bei meinen Neffen Fabian, Felix, Jason und Sam
- * Label für Partner: neu einbauen (Ehemann/Ehefrau/Partner/Partnerin/Verlobter/Verlobte/Ex-...)
- * Label für Eltern: biologische Eltern, Stiefeltern, Adoptiveltern, Pflegeeltern
- * Label oder Gruppe bei Onkel/Tante: Halbonkel/-tante = Halbbruder/-schwester eines biologischen Elternteils
- *
- * Code: eventuell Verwendung der bestehenden Funktionen "_individuals" zum Aufbau von Familienteilen verwenden,
- *       statt es jedes Mal vom Probanden aus komplett neu zu gestalten
- *
- * Test: Übersetzung bei den Partnern testen bei diversen Fällen mit gemischtem Geschlecht
- * Test: wie verhält es sich, wenn eine Person als Kind zu zwei Familien gehört (bei P Seudo: C2)
- * Test: Stiefcousins (siehe Onkel Walter)
- * Test: Schwagerehe (etwa Levirat oder Sororat)
- *
- * andere Verwandtschaftssysteme: eventuell auch andere Verwandtschaftssysteme als nur das Eskimo-System implementieren
- * andere Verwandtschaftssysteme: Onkel als Vater- oder Mutterbruder ausweisen für Übersetzung (Label?);
- *                                Tante als Vater- oder Mutterschwester ausweisen für Übersetzung (Label?);
- * andere Verwandtschaftssysteme: Brüder und Schwestern als jüngere oder ältere Geschwister ausweisen für Übersetzung
- *                                (in Bezug auf Proband) (Label?)
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Family;
@@ -77,8 +31,6 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
 use Illuminate\Support\Collection;
 
 use function ucfirst;
-use function strip_tags;
-
 
 /**
  * class ExtendedFamily
@@ -115,8 +67,10 @@ class ExtendedFamily
     /**
      * @var $proband                                object
      *         ->indi                               Individual
-     *         ->niceName                           string
-     *         ->niceNamePlain                      string
+     *         ->niceName                           NiceName
+     *                   ->name                     string
+     *                   ->forFamilyOf              string
+     *                   ->plain                    string
      *         ->labels                             array<int,string>
      */
     public object $proband;
@@ -168,7 +122,6 @@ class ExtendedFamily
         $this->proband = (object)[];
         $this->proband->indi     = $proband;
         $this->proband->niceName = ProbandName::findNiceName($proband, $this->config->showShortName);
-        $this->proband->niceNamePlain = strip_tags($this->proband->niceName);
         $this->proband->labels   = ExtendedFamilySupport::generateChildLabels($proband);
     }
 
@@ -177,27 +130,25 @@ class ExtendedFamily
      */
     private function constructFiltersExtendedFamilyParts()
     {
-        $variant ='A';     // tbd test and compare performance of both variants
+        $variant ='A';     // compare performance of variants A and B, see issue #216
                                 // A: build up each filter variant from scratch
                                 // B: build for filter option 'all', then copy and reduce/filter this
         if ($variant == 'A') {
             $this->filters = [];
             foreach ($this->config->filterOptions as $filterOption) {
-                //if ($filterOption == 'F') {
-                    $extfamObj = (object)[];
-                    $extfamObj->efp = (object)[];
-                    $extfamObj->efp->summary = (object)[];
-                    $extfamObj->efp->summary->allCount = 0;
-                    foreach ($this->config->shownFamilyParts as $efp => $element) {
-                        if ($element->enabled) {
-                            $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption, $this->config->placeFormat);
-                            $extfamObj->efp->$efp = $efpO->getEfpObject();
-                            $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
-                        }
+                $extfamObj = (object)[];
+                $extfamObj->efp = (object)[];
+                $extfamObj->efp->summary = (object)[];
+                $extfamObj->efp->summary->allCount = 0;
+                foreach ($this->config->shownFamilyParts as $efp => $element) {
+                    if ($element->enabled) {
+                        $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption, $this->config->placeFormat);
+                        $extfamObj->efp->$efp = $efpO->getEfpObject();
+                        $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
                     }
-                    $this->addSummaryData($extfamObj);
-                    $this->filters[$filterOption] = $extfamObj;
-                //}
+                }
+                $this->addSummaryData($extfamObj);
+                $this->filters[$filterOption] = $extfamObj;
             }
         } else {
             // build up structure for 'all'
@@ -223,10 +174,6 @@ class ExtendedFamily
                     // replace ->summaryMessageEmptyBlocks
                 }
             }
-        }
-        // tbd remove because it is implemented now totally different
-        if ($this->config->useClippingsCart) {
-            //$this->addExtendedFamilyToClippingsCart($this->collectAllIndividuals($this->filters['all']), $this->collectAllFamilies($this->filters['all']));
         }
     }
 

@@ -1,10 +1,10 @@
 <?php
 /*
  * webtrees - extended family parts
- * Copyright (C) 2021 Hermann Hartenthaler. All rights reserved.
+ * Copyright (C) 2026 Hermann Hartenthaler. All rights reserved.
  *
  * webtrees: online genealogy / web based family history software
- * Copyright (C) 2021 webtrees development team.
+ * Copyright (C) 2026 webtrees development team.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,16 +20,15 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* tbd
- *
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
+
+use Fisharebest\Webtrees\Individual;
 
 /**
  * class Nephews_and_nieces
  *
- * data and methods for extended family part "nephews_and_nieces"
+ * Data and methods for extended family part "nephews_and_nieces".
+ * The siblings and siblings-in-law family parts are used as the basis.
  */
 class Nephews_and_nieces extends ExtendedFamilyPart
 {
@@ -40,83 +39,94 @@ class Nephews_and_nieces extends ExtendedFamilyPart
     public const GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING     = 'Children of full siblings';
 
     /**
-     * @var object $_efpObject data structure for this extended family part
-     *
-     * common:
-     *  ->groups[]                      array
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
-     *  ->partName                      string
-     *
-     * special for this extended family part:
-     *  ->groups[]->members[]           array of Individual (index of groups is groupName)
-     *            ->labels[]            array of array of string
-     *            ->families[]          array of object
-     *            ->familiesStatus[]    string
-     *            ->referencePersons[]  array of array of Individual
-     *            ->groupName           string
-     */
-
-    /**
-     * Find members for this specific extended family part and modify $this->efpObject
+     * Find members for this specific extended family part and modify $this->efpObject.
      */
     protected function addEfpMembers()
     {
-        foreach ($this->getProband()->childFamilies() as $family1) {                            // Gen  1 F
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
-                    foreach ($family2->children() as $sibling) {                                // Gen  0 P
-                        if ($sibling->xref() !== $this->getProband()->xref()) {
-                            foreach ($sibling->spouseFamilies() as $family3) {                  // Gen  0 F
-                                foreach ($family3->children() as $nephewniece) {                // Gen -1 P
-                                    $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family3, $sibling), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING);
-                                }
-                            }
-                        }
+        $siblings = new Siblings($this->getProband(), 'all', $this->placeFormat);
+
+        foreach ($siblings->getEfpObject()->groups as $group) {
+            foreach ($group->members as $sibling) {
+                if ($sibling instanceof Individual) {
+                    $this->addChildrenOfSibling($sibling);
+                    $this->addStepchildrenOfSibling($sibling);
+                }
+            }
+        }
+
+        $siblingsInLaw = new Siblings_in_law($this->getProband(), 'all', $this->placeFormat);
+
+        foreach ($siblingsInLaw->getEfpObject()->groups as $group) {
+            if ($group->groupName !== Siblings_in_law::GROUP_SIBLINGSINLAW_SIBOFP) {
+                continue;
+            }
+
+            foreach ($group->members as $key => $siblingInLaw) {
+                $partner = $group->referencePersons[$key][1] ?? null;
+
+                if ($siblingInLaw instanceof Individual && $partner instanceof Individual) {
+                    $this->addChildrenOfPartnersSibling($siblingInLaw, $partner);
+                }
+            }
+        }
+    }
+
+    /**
+     * Add children of one sibling.
+     *
+     * @param Individual $sibling
+     * @return void
+     */
+    private function addChildrenOfSibling(Individual $sibling): void
+    {
+        foreach ($sibling->spouseFamilies() as $family) {
+            foreach ($family->children() as $child) {
+                $this->addIndividualToFamily(new IndividualFamily($child, $family, $sibling), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING);
+            }
+        }
+    }
+
+    /**
+     * Add stepchildren of one sibling.
+     *
+     * Stepchildren are children of a sibling's partner from another family.
+     *
+     * @param Individual $sibling
+     * @return void
+     */
+    private function addStepchildrenOfSibling(Individual $sibling): void
+    {
+        foreach ($sibling->spouseFamilies() as $family) {
+            foreach ($family->spouses() as $partner) {
+                if ($partner->xref() === $sibling->xref()) {
+                    continue;
+                }
+
+                foreach ($partner->spouseFamilies() as $stepFamily) {
+                    if ($stepFamily->xref() === $family->xref()) {
+                        continue;
+                    }
+
+                    foreach ($stepFamily->children() as $stepchild) {
+                        $this->addIndividualToFamily(new IndividualFamily($stepchild, $family, $sibling), self::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING);
                     }
                 }
             }
         }
-        foreach ($this->getProband()->childFamilies() as $family1) {                            // Gen  1 F
-            foreach ($family1->spouses() as $spouse1) {                                         // Gen  1 P
-                foreach ($spouse1->spouseFamilies() as $family2) {                              // Gen  1 F
-                    foreach ($family2->children() as $sibling) {                                // Gen  0 P
-                        if ($sibling->xref() !== $this->getProband()->xref()) {
-                            foreach ($sibling->spouseFamilies() as $family3) {                  // Gen  0 F
-                                foreach ($family3->spouses() as $parent) {                      // Gen  0 P
-                                    foreach ($parent->spouseFamilies() as $family4) {           // Gen  0 F
-                                        foreach ($family4->children() as $nephewniece) {        // Gen -1 P
-                                            $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family3, $sibling), self::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        foreach ($this->getProband()->spouseFamilies() as $family0) {                                       // Gen  0 F
-            foreach ($family0->spouses() as $spouse0) {                                                     // Gen  0 P
-                if ($spouse0->xref() !== $this->getProband()->xref()) {
-                    foreach ($spouse0->childFamilies() as $family1) {                                       // Gen  1 F
-                        foreach ($family1->spouses() as $parent_in_law) {                                   // Gen  1 P
-                            foreach ($parent_in_law->spouseFamilies() as $family2) {                        // Gen  1 F
-                                foreach ($family2->children() as $sibling_in_law) {                         // Gen  0 P
-                                    if ($sibling_in_law->xref() !== $spouse0->xref()) {
-                                        foreach ($sibling_in_law->spouseFamilies() as $family3) {           // Gen  0 F
-                                            foreach ($family3->children() as $nephewniece) {                // Gen -1 P
-                                                $this->addIndividualToFamily(new IndividualFamily($nephewniece, $family3, $spouse0, $sibling_in_law), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+    }
+
+    /**
+     * Add children of one sibling of a partner.
+     *
+     * @param Individual $siblingInLaw
+     * @param Individual $partner
+     * @return void
+     */
+    private function addChildrenOfPartnersSibling(Individual $siblingInLaw, Individual $partner): void
+    {
+        foreach ($siblingInLaw->spouseFamilies() as $family) {
+            foreach ($family->children() as $child) {
+                $this->addIndividualToFamily(new IndividualFamily($child, $family, $partner, $siblingInLaw), self::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER);
             }
         }
     }

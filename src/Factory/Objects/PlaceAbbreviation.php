@@ -40,11 +40,6 @@ use function json_decode;
 use function preg_match;
 
 /**
- * tbd: kann man bei vorhandenem _LOC: Ortsangaben und GOV-Hierarchie zusätzlich darstellen?
- */
-
-
-/**
  * class PlaceAbbreviation
  *
  * static support methods to abbreviate place names
@@ -87,7 +82,6 @@ class PlaceAbbreviation
         $place_chunks = explode(",", $place_long);
         $place = "";
         $chunk_count = count($place_chunks);
-        // tbd check what happens if PLAC = "DEU"
         $abbreviating_country = !($chunk_count == 1 &&
                ($place_format == self::OPTION_2_LETTER_ISO || $place_format == self::OPTION_3_LETTER_ISO));
 
@@ -125,7 +119,6 @@ class PlaceAbbreviation
         $countries = self::loadCountryDataFile($code);
         $country = strip_tags(strtolower(trim($place_chunks[$chunk_count - 1])));
 
-        /* Der folgende Kommentar ist unvollständig oder widersprüchlich. tbd: austesten */
         /* It's possible the place name string was blank, meaning our return variable is
                still blank. We don't want to add a comma if that's the case. */
         if (!empty($place) && !empty($place_chunks[$chunk_count - 1]) && ($chunk_count > 1)) {
@@ -252,7 +245,8 @@ class PlaceAbbreviation
      * Loads country data from JSON file
      * https://github.com/Neriderc/GVExport/blob/main/app/Settings.php
      * Data comes from https://github.com/stefangabos/world_countries
-     * tbd: Systemfunktion für ressource-folder nutzen
+     * tbd: Avoid the manual relative path to resources/data. Use a central module resource-path helper
+     *      or inject the module resource folder into this helper instead.
      *
      * @param $type string iso2 or iso3
      * @return array|false
