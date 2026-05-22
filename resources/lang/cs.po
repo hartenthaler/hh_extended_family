@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "X-Generator: Poedit 3.9\n"
 "X-Poedit-Basepath: ../..\n"
-"X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
+"X-Poedit-KeywordsList: translate;noop;plural:1,2,3;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: ExtendedFamilyTabModule.php:321
