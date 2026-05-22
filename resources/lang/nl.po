@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-23 00:27+0200\n"
+"POT-Creation-Date: 2026-05-23 01:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -104,27 +104,27 @@ msgstr "vierling"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:501
 msgid "Quintuplet"
-msgstr "Quintuplet"
+msgstr "vijfling"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:502
 msgid "Sextuplet"
-msgstr "Sextuplet"
+msgstr "zesling"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:503
 msgid "Septuplet"
-msgstr "Septuplet"
+msgstr "zevenling"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:504
 msgid "Octuplet"
-msgstr "Octuplet"
+msgstr "achtling"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:505
 msgid "Nonuplet"
-msgstr "Nonuplet"
+msgstr "negenling"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:506
 msgid "Decuplet"
-msgstr "Decuplet"
+msgstr "tienling"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:524
 msgid "Stillborn"
@@ -136,15 +136,15 @@ msgstr "minder dan 1 jaar oud"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:564
 msgid "divorced"
-msgstr "divorced"
+msgstr "gescheiden"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:565
 msgid "married"
-msgstr "married"
+msgstr "getrouwd"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:566
 msgid "engaged"
-msgstr "engaged"
+msgstr "verloofd"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:567
 msgid "partners"
@@ -152,31 +152,31 @@ msgstr "partners"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:581
 msgid "Ex-marriage"
-msgstr "Ex-marriage"
+msgstr "Ex-huwelijk"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:582
 msgid "Marriage"
-msgstr "Marriage"
+msgstr "Huwelijk"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:583
 msgid "Fiancée"
-msgstr "Fiancée"
+msgstr "Verloofde"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:584
 msgid "Partnership"
-msgstr "Relatie"
+msgstr "Partnerrelatie"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:598
 msgid "divorced partner"
-msgstr "divorced partner"
+msgstr "ex-partner"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:599
 msgid "married partner"
-msgstr "married partner"
+msgstr "echtgenoot"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:600
 msgid "engaged partner"
-msgstr "engaged partner"
+msgstr "verloofde"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:601
 msgid "partner"
@@ -585,21 +585,22 @@ msgstr "Volle broers/zussen van biologische ouders"
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Siblings and half siblings of social parents"
-msgstr "Kinderen van halfbroers/-zussen van een ouder"
+msgstr "Broers/zussen en halfbroers/-zussen van sociale ouders"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:824
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Siblings and half siblings of stepparents"
-msgstr "Kinderen van halfbroers/-zussen van een ouder"
+msgstr "Broers/zussen en halfbroers/-zussen van sociale ouders"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:825
 #, fuzzy
 #| msgid "Children of full siblings of biological parents"
 msgid "Partners of siblings and half siblings of biological parents"
-msgstr "Kinderen van volle broers/zussen van biologische ouders"
+msgstr ""
+"Partners van broers/zussen en halfbroers/-zussen van biologische ouders"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:826
