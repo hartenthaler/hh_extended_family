@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-23 01:04+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
+"Last-Translator: TheDutchJewel <thedutchjewel@gmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -16,3530 +16,2370 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:320
 #, php-format
 msgid "The preferences for the module “%s” have been updated."
 msgstr "De voorkeuren voor de module “%s” zijn bijgewerkt."
 
-#: ExtendedFamilyTabModule.php:653
 msgid ""
-"The custom module “huhwt-cce” is not available. The button “copy to "
-"clippings cart” will use the internal Extended Family action."
+"The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action."
 msgstr ""
-"De aangepaste module “huhwt-cce” is niet beschikbaar. De knop “opiëren naar "
-"stamboomknipsels” maakt gebruik van de interne Uitgebreide family-actie."
+"De aangepaste module “huhwt-cce” is niet beschikbaar. De knop “kopiëren naar stamboomknipsels” maakt gebruik van de interne "
+"Uitgebreide family-actie."
 
-#: ExtendedFamilyTabModule.php:832
 msgid "Extended family"
 msgstr "Uitgebreide familie"
 
-#: ExtendedFamilyTabModule.php:854
 msgid "The selected tree could not be found."
 msgstr "De geselecteerde stamboom is niet gevonden."
 
-#: ExtendedFamilyTabModule.php:861
 msgid "The selected individual could not be found."
 msgstr "De geselecteerde persoon is niet gevonden."
 
-#: ExtendedFamilyTabModule.php:886
 #, php-format
-msgid ""
-"The extended family has been copied to the clippings cart. New entries: %s"
-msgstr ""
-"De uitgebreide familie is naar de stamboomknipsels gekopieerd. Nieuwe items: "
-"%s"
+msgid "The extended family has been copied to the clippings cart. New entries: %s"
+msgstr "De uitgebreide familie is naar de stamboomknipsels gekopieerd. Nieuwe items: %s"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:86
 msgid "Brother"
 msgstr "Broer"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:87
 msgid "Child"
 msgstr "Kind"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:88
 msgid "Daughter"
 msgstr "Dochter"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:89
 msgid "Sibling"
 msgstr "Broer/zus"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:90
 msgid "Sister"
 msgstr "Zus"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:91
 msgid "Son"
 msgstr "Zoon"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:446
 msgid "Linkage challenged"
-msgstr "koppeling betwist"
+msgstr "Koppeling betwist"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:449
 msgid "Linkage disproven"
-msgstr "koppeling weerlegd"
+msgstr "Koppeling weerlegd"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:452
 msgid "Linkage proven"
-msgstr "koppeling bewezen"
+msgstr "Koppeling bewezen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:498
 msgid "Twin"
-msgstr "tweeling"
+msgstr "Tweeling"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:499
 msgid "Triplet"
-msgstr "drieling"
+msgstr "Drieling"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:500
 msgid "Quadruplet"
-msgstr "vierling"
+msgstr "Vierling"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:501
 msgid "Quintuplet"
-msgstr "vijfling"
+msgstr "Vijfling"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:502
 msgid "Sextuplet"
-msgstr "zesling"
+msgstr "Zesling"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:503
 msgid "Septuplet"
-msgstr "zevenling"
+msgstr "Zevenling"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:504
 msgid "Octuplet"
-msgstr "achtling"
+msgstr "Achtling"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:505
 msgid "Nonuplet"
-msgstr "negenling"
+msgstr "Negenling"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:506
 msgid "Decuplet"
-msgstr "tienling"
+msgstr "Tienling"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:524
+msgid "Levirate"
+msgstr "Leviraat"
+
+msgid "Sororate"
+msgstr "Soraat"
+
 msgid "Stillborn"
-msgstr "levenloos geboren"
+msgstr "Levenloos geboren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:527
 msgid "Died as infant"
-msgstr "minder dan 1 jaar oud"
+msgstr "Minder dan 1 jaar oud"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:564
 msgid "divorced"
 msgstr "gescheiden"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:565
 msgid "married"
 msgstr "getrouwd"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:566
 msgid "engaged"
 msgstr "verloofd"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:567
 msgid "partners"
 msgstr "partners"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:581
 msgid "Ex-marriage"
 msgstr "Ex-huwelijk"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:582
 msgid "Marriage"
 msgstr "Huwelijk"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:583
 msgid "Fiancée"
 msgstr "Verloofde"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:584
 msgid "Partnership"
 msgstr "Partnerrelatie"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:598
 msgid "divorced partner"
 msgstr "ex-partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:599
 msgid "married partner"
 msgstr "echtgenoot"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:600
 msgid "engaged partner"
 msgstr "verloofde"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:601
 msgid "partner"
 msgstr "partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:657
+msgid "%1$s of %2$s"
+msgstr "%1$s van %2$s"
+
 msgid "Half-brother"
 msgstr "Halfbroer"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:658
 msgid "Half-sister"
 msgstr "Halfzus"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:659
 msgid "Half-sibling"
-msgstr "Halfbroer/zus"
+msgstr "Halfbroer/-zus"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:724
 msgid "Great-grandparents"
 msgstr "Overgrootouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:725
 msgid "Grandparents"
 msgstr "Grootouders"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:726
 msgid "Uncles and Aunts"
 msgstr "Ooms en tantes"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:727
 msgid "Uncles and Aunts by marriage"
 msgstr "Aangetrouwde ooms en tantes"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:728
 msgid "Parents"
 msgstr "Ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:729
 msgid "Parents-in-law"
 msgstr "Schoonouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:730
 msgid "Co-parents-in-law"
 msgstr "Mede-schoonouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:731
 msgid "Partners"
 msgstr "Partners"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:732
 msgid "Partner chains"
 msgstr "Partnerketens"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:733
 msgid "Siblings"
 msgstr "Broers en zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:734
 msgid "Siblings-in-law"
 msgstr "Zwagers en schoonzussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:735
 msgid "Co-siblings-in-law"
 msgstr "Mede-zwagers/schoonzussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:736
 msgid "Cousins"
 msgstr "Volle neven en nichten (kinderen van oom of tante)"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:737
 msgid "Nephews and Nieces"
 msgstr "Neefjes en nichtjes (kinderen van broer of zus)"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:738
 msgid "Children"
 msgstr "Kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:739
 msgid "Children-in-law"
 msgstr "Schoonkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:740
 msgid "Grandchildren"
 msgstr "Kleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:741
 msgid "Great-grandchildren"
 msgstr "Achterkleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:742
 msgid "Grandchildren-in-law"
 msgstr "Schoonkleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:743
-#, fuzzy
-#| msgid "Grandchildren-in-law"
 msgid "Great-grandchildren-in-law"
-msgstr "Schoonkleinkinderen"
+msgstr "Schoonachterkleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:757
 msgid "Biological great-grandparents"
 msgstr "Biologische overgrootouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:758
 msgid "Biological grandparents"
 msgstr "Biologische grootouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:759
 msgid "Full siblings of biological parents"
 msgstr "Volle broers/zussen van biologische ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:760
 msgid "Biological parents"
 msgstr "Biologische ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:761
 msgid "Full siblings"
 msgstr "Volle broers/zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:762
 msgid "Children of full siblings of biological parents"
 msgstr "Kinderen van volle broers/zussen van biologische ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:763
 msgid "Children of full siblings"
 msgstr "Kinderen van volle broers/zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:764
 msgid "Biological children"
 msgstr "Biologische kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:765
 msgid "Biological grandchildren"
 msgstr "Biologische kleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:766
-#: src/Factory/Objects/ExtendedFamilySupport.php:865
-#, fuzzy
-#| msgid "Biological grandchildren"
 msgid "Biological great-grandchildren"
-msgstr "Biologische kleinkinderen"
+msgstr "Biologische achterkleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:780
 msgid "Biological grandparents of father"
 msgstr "Biologische grootouders van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:781
 msgid "Biological grandparents of mother"
 msgstr "Biologische grootouders van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:782
 msgid "Biological grandparents of parent"
 msgstr "Biologische grootouders van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:783
 msgid "Stepparents of biological parent of father"
 msgstr "Stiefouders van een biologische ouder van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:784
 msgid "Stepparents of biological parent of mother"
 msgstr "Stiefouders van een biologische ouder van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:785
 msgid "Stepparents of biological grandparent"
 msgstr "Stiefouders van een biologische grootouder"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:786
 msgid "Social parents of biological parent of father"
-msgstr "Sociale ouders van de biologische ouder van de vader"
+msgstr "Sociale ouders van een biologische ouder van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:787
 msgid "Social parents of biological parent of mother"
-msgstr "Sociale ouders van de biologische ouder van de moeder"
+msgstr "Sociale ouders van een biologische ouder van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:788
 msgid "Social parents of biological grandparent"
 msgstr "Sociale ouders van een biologische grootouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:789
 msgid "Parents of stepparent of father"
 msgstr "Ouders van een stiefouder van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:790
 msgid "Parents of stepparent of mother"
 msgstr "Ouders van een stiefouder van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:791
 msgid "Parents of stepparent of parent"
 msgstr "Ouders van een stiefouder van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:792
-#, fuzzy
-#| msgid "Parents of stepparent of father"
 msgid "Stepparents of stepparent of father"
-msgstr "Ouders van een stiefouder van de vader"
+msgstr "Stiefouders van een stiefouder van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:793
-#, fuzzy
-#| msgid "Parents of stepparent of mother"
 msgid "Stepparents of stepparent of mother"
-msgstr "Ouders van een stiefouder van de moeder"
+msgstr "Stiefouders van een stiefouder van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:794
-#, fuzzy
-#| msgid "Parents of stepparent of parent"
 msgid "Stepparents of stepparent of parent"
-msgstr "Ouders van een stiefouder van een ouder"
+msgstr "Stiefouders van een stiefouder van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:795
 msgid "Parents of social parent of father"
 msgstr "Ouders van een sociale ouder van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:796
 msgid "Parents of social parent of mother"
 msgstr "Ouders van een sociale ouder van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:797
 msgid "Parents of social parent of parent"
 msgstr "Ouders van een sociale ouder van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:798
-#, fuzzy
-#| msgid "Parents of social parent of father"
 msgid "Stepparents of social parent of father"
-msgstr "Ouders van een sociale ouder van de vader"
+msgstr "Stiefouders van een sociale ouder van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:799
-#, fuzzy
-#| msgid "Parents of social parent of mother"
 msgid "Stepparents of social parent of mother"
-msgstr "Ouders van een sociale ouder van de moeder"
+msgstr "Stiefouders van een sociale ouder van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:800
-#, fuzzy
-#| msgid "Parents of social parent of parent"
 msgid "Stepparents of social parent of parent"
-msgstr "Ouders van een sociale ouder van een ouder"
+msgstr "Stiefouders van een sociale ouder van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:801
 msgid "Grandparents of stepparent"
-msgstr "Grootouders van de stiefouder"
+msgstr "Grootouders van een stiefouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:802
 msgid "Grandparents of social parent"
-msgstr "Grootouders van de sociale ouder"
+msgstr "Grootouders van een sociale ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:803
 msgid "Biological parents of father"
 msgstr "Biologische ouders van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:804
 msgid "Biological parents of mother"
 msgstr "Biologische ouders van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:805
 msgid "Biological parents of parent"
 msgstr "Biologische ouders van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:806
 msgid "Stepparents of father"
 msgstr "Stiefouders van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:807
 msgid "Stepparents of mother"
 msgstr "Stiefouders van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:808
 msgid "Stepparents of parent"
 msgstr "Stiefouders van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:809
 msgid "Parents of stepparent"
 msgstr "Ouders van een stiefouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:810
 msgid "Social parents of father"
 msgstr "Sociale ouders van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:811
 msgid "Social parents of mother"
 msgstr "Sociale ouders van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:812
 msgid "Social parents of parent"
 msgstr "Sociale ouders van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:813
 msgid "Parents of social father"
 msgstr "Ouders van de sociale vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:814
 msgid "Parents of social mother"
 msgstr "Ouders van de sociale moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:815
 msgid "Parents of social parent"
 msgstr "Ouders van een sociale ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:816
-#, fuzzy
-#| msgid "Parents of social father"
 msgid "Stepparents of social father"
-msgstr "Ouders van de sociale vader"
+msgstr "Stiefouders van de sociale vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:817
-#, fuzzy
-#| msgid "Parents of social mother"
 msgid "Stepparents of social mother"
-msgstr "Ouders van de sociale moeder"
+msgstr "Stiefouders van de sociale moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:818
-#, fuzzy
-#| msgid "Parents of social parent"
 msgid "Stepparents of social parent"
-msgstr "Ouders van een sociale ouder"
+msgstr "Stiefouders van een sociale ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:819
-#, fuzzy
-#| msgid "Stepparents of parent"
 msgid "Stepparents of stepparent"
-msgstr "Stiefouders van een ouder"
+msgstr "Stiefouders van een stiefouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:820
 msgid "Social parents"
 msgstr "Sociale ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:821
 msgid "Stepparents"
 msgstr "Stiefouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:822
-#, fuzzy
-#| msgid "Full siblings of biological parents"
 msgid "Siblings and half siblings of biological parents"
-msgstr "Volle broers/zussen van biologische ouders"
+msgstr "Broers/zussen en halfbroers/-zussen van de biologische ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:823
-#, fuzzy
-#| msgid "Children of half siblings of parent"
 msgid "Siblings and half siblings of social parents"
-msgstr "Broers/zussen en halfbroers/-zussen van sociale ouders"
+msgstr "Broers/zussen en halfbroers/-zussen van de sociale ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:824
-#, fuzzy
-#| msgid "Children of half siblings of parent"
 msgid "Siblings and half siblings of stepparents"
-msgstr "Broers/zussen en halfbroers/-zussen van sociale ouders"
+msgstr "Broers/zussen en halfbroers/-zussen van de stiefouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:825
-#, fuzzy
-#| msgid "Children of full siblings of biological parents"
 msgid "Partners of siblings and half siblings of biological parents"
-msgstr ""
-"Partners van broers/zussen en halfbroers/-zussen van biologische ouders"
+msgstr "Partners van de broers/zussen en halfbroers/-zussen van de biologische ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:826
-#, fuzzy
-#| msgid "Children of full siblings of biological parents"
 msgid "Partners of siblings and half siblings of social parents"
-msgstr "Kinderen van volle broers/zussen van biologische ouders"
+msgstr "Partners van de broers/zussen en halfbroers/-zussen van de sociale ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:827
-#, fuzzy
-#| msgid "Children of half siblings of parent"
 msgid "Partners of siblings and half siblings of stepparents"
-msgstr "Kinderen van halfbroers/-zussen van een ouder"
+msgstr "Partners van de broers/zussen en halfbroers/-zussen van de stiefouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:828
 msgid "Children of full siblings of father"
-msgstr "Kinderen van volle broers/zussen van de vader"
+msgstr "Kinderen van de volle broers/zussen van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:829
 msgid "Children of full siblings of mother"
-msgstr "Kinderen van volle broers/zussen van de moeder"
+msgstr "Kinderen van de volle broers/zussen van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:830
 msgid "Children of full siblings of parent"
-msgstr "Kinderen van volle broers/zussen van een ouder"
+msgstr "Kinderen van de volle broers/zussen van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:831
 msgid "Children of half siblings of father"
-msgstr "Kinderen van halfbroers/-zussen van de vader"
+msgstr "Kinderen van de halfbroers/-zussen van de vader"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:832
 msgid "Children of half siblings of mother"
-msgstr "Kinderen van halfbroers/-zussen van de moeder"
+msgstr "Kinderen van de halfbroers/-zussen van de moeder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:833
 msgid "Children of half siblings of parent"
-msgstr "Kinderen van halfbroers/-zussen van een ouder"
+msgstr "Kinderen van de halfbroers/-zussen van een ouder"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:834
-#, fuzzy
-#| msgid "Children of full siblings of biological parents"
 msgid "Children of full siblings of social parents"
-msgstr "Kinderen van volle broers/zussen van biologische ouders"
+msgstr "Kinderen van de volle broers/zussen van de sociale ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:835
-#, fuzzy
-#| msgid "Children of half siblings of parent"
 msgid "Children of half siblings of social parents"
-msgstr "Kinderen van halfbroers/-zussen van een ouder"
+msgstr "Kinderen van de halfbroers/-zussen van de sociale ouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:836
-#, fuzzy
-#| msgid "Children of full siblings of parent"
 msgid "Children of full siblings of stepparents"
-msgstr "Kinderen van volle broers/zussen van een ouder"
+msgstr "Kinderen van de volle broers/zussen van de stiefouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:837
-#, fuzzy
-#| msgid "Children of half siblings of parent"
 msgid "Children of half siblings of stepparents"
-msgstr "Kinderen van halfbroers/-zussen van een ouder"
+msgstr "Kinderen van de halfbroers/-zussen van de stiefouders"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:838
 msgid "Half siblings"
 msgstr "Halfbroers/-zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:839
 msgid "Social siblings"
 msgstr "Sociale broers/zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:840
 msgid "Stepsiblings"
 msgstr "Stiefbroers/-zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:841
 msgid "Siblings of partners"
-msgstr "Broers/zussen van partners"
+msgstr "Broers/zussen van de partners"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:842
 msgid "Partners of siblings"
-msgstr "Partners van broers/zussen"
+msgstr "Partners van de broers/zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:843
 msgid "Siblings of siblings-in-law"
-msgstr "Broers/zussen van zwagers/schoonzussen"
+msgstr "Broers/zussen van de zwagers/schoonzussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:844
 msgid "Partners of siblings-in-law"
-msgstr "Partners van zwagers/schoonzussen"
+msgstr "Partners van de zwagers/schoonzussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:845
 msgid "Social children"
 msgstr "Sociale kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:846
 msgid "Stepchildren"
 msgstr "Stiefkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:847
 msgid "Partners of biological children"
-msgstr "Partners van biologische kinderen"
+msgstr "Partners van de biologische kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:848
-#, fuzzy
-#| msgid "Partners of biological children"
 msgid "Partners of social children"
-msgstr "Partners van biologische kinderen"
+msgstr "Partners van de sociale kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:849
 msgid "Partners of stepchildren"
-msgstr "Partners van stiefkinderen"
+msgstr "Partners van de stiefkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:850
 msgid "Parents-in-law of biological children"
-msgstr "Schoonouders van biologische kinderen"
+msgstr "Schoonouders van de biologische kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:851
 msgid "Parents-in-law of stepchildren"
-msgstr "Schoonouders van stiefkinderen"
+msgstr "Schoonouders van de stiefkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:852
 msgid "Children of siblings"
-msgstr "Kinderen van broers/zussen"
+msgstr "Kinderen van de broers/zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:853
-#, fuzzy
-#| msgid "Stepchildren"
 msgid "Siblings' stepchildren"
-msgstr "Stiefkinderen"
+msgstr "Stiefkinderen van de broers/zussen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:854
 msgid "Children of siblings of partners"
-msgstr "Kinderen van broers/zussen van partners"
+msgstr "Kinderen van de broers/zussen van de partners"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:855
 msgid "Children of social children"
-msgstr ""
+msgstr "Kinderen van de sociale kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:856
 msgid "Social children of children"
-msgstr "Sociale kinderen van kinderen"
+msgstr "Sociale kinderen van de kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:857
 msgid "Stepchildren of children"
-msgstr "Stiefkinderen van kinderen"
+msgstr "Stiefkinderen van de kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:858
 msgid "Children of stepchildren"
-msgstr "Kinderen van stiefkinderen"
+msgstr "Kinderen van de stiefkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:859
 msgid "Stepchildren of stepchildren"
-msgstr "Stiefkinderen van stiefkinderen"
+msgstr "Stiefkinderen van de stiefkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:860
 msgid "Partners of biological grandchildren"
-msgstr "Partners van biologische kleinkinderen"
+msgstr "Partners van de biologische kleinkinderen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:861
 msgid "Partners of social children of children"
-msgstr "Partners of social children of children"
+msgstr "Partners van de sociale kinderen van de kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:862
 msgid "Partners of stepchildren of children"
-msgstr "Partners van stiefkinderen van kinderen"
+msgstr "Partners van de stiefkinderen van de kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:863
 msgid "Partners of children of stepchildren"
-msgstr "Partners van kinderen van stiefkinderen"
+msgstr "Partners van de kinderen van de stiefkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:864
 msgid "Partners of stepchildren of stepchildren"
-msgstr "Partners van stiefkinderen van stiefkinderen"
+msgstr "Partners van de stiefkinderen van de stiefkinderen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:866
 msgid "Children of biological grandchildren"
-msgstr "Children of biological grandchildren"
+msgstr "Kinderen van de biologische kleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:867
-#, fuzzy
-#| msgid "Social children of children"
 msgid "Social children of grandchildren"
-msgstr "Sociale kinderen van kinderen"
+msgstr "Sociale kinderen van de kleinkinderen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:868
 msgid "Children of social grandchildren"
-msgstr "Children of social grandchildren"
+msgstr "Kinderen van de sociale kleinkinderen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:869
 msgid "Children of stepgrandchildren"
-msgstr "Children of stepgrandchildren"
+msgstr "Kinderen van de stiefkleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:870
-#, fuzzy
-#| msgid "Stepchildren of children"
 msgid "Stepchildren of grandchildren"
-msgstr "Stiefkinderen van kinderen"
+msgstr "Stiefkinderen van de kleinkinderen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:871
-#, fuzzy
-#| msgid "Children of social grandchildren"
 msgid "Stepchildren of social grandchildren"
-msgstr "Children of social grandchildren"
+msgstr "Stiefkinderen van de sociale kleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:872
-#, fuzzy
-#| msgid "Stepchildren of stepchildren"
 msgid "Stepchildren of stepgrandchildren"
-msgstr "Stiefkinderen van stiefkinderen"
+msgstr "Stiefkinderen van de stiefkleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:873
-#, fuzzy
-#| msgid "Partners of biological grandchildren"
 msgid "Partners of biological great-grandchildren"
-msgstr "Partners van biologische kleinkinderen"
+msgstr "Partners van de biologische achterkleinkinderen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:874
-#, fuzzy
-#| msgid "Partners of social children of children"
 msgid "Partners of social children of grandchildren"
-msgstr "Partners of social children of children"
+msgstr "Partners van de sociale kinderen van de kleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:875
-#, fuzzy
-#| msgid "Partners of children of stepchildren"
 msgid "Partners of children of social grandchildren"
-msgstr "Partners van kinderen van stiefkinderen"
+msgstr "Partners van de kinderen van de sociale kinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:876
-#, fuzzy
-#| msgid "Partners of children of stepchildren"
 msgid "Partners of children of stepgrandchildren"
-msgstr "Partners van kinderen van stiefkinderen"
+msgstr "Partners van de kinderen van de stiefkleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:877
-#, fuzzy
-#| msgid "Partners of stepchildren of children"
 msgid "Partners of stepchildren of grandchildren"
-msgstr "Partners van stiefkinderen van kinderen"
+msgstr "Partners van de stiefkinderen van de kleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:878
-#, fuzzy
-#| msgid "Partners of stepchildren of children"
 msgid "Partners of stepchildren of social grandchildren"
-msgstr "Partners van stiefkinderen van kinderen"
+msgstr "Partners van de stiefkinderen van de sociale kleinkinderen"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:879
-#, fuzzy
-#| msgid "Partners of stepchildren of stepchildren"
 msgid "Partners of stepchildren of stepgrandchildren"
-msgstr "Partners van stiefkinderen van stiefkinderen"
+msgstr "Partners van de stiefkinderen van de stiefkleinkinderen"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:897
 #, php-format
 msgctxt "Date range: year to today"
 msgid "The known dates range from %1$s to today."
 msgstr "De bekende datums lopen van %1$s tot vandaag."
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:898
 #, php-format
 msgctxt "Date range: date to today"
 msgid "The known dates range from %1$s to today."
 msgstr "De bekende datums lopen van %1$s tot vandaag."
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:899
 #, php-format
 msgctxt "Date range: year to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr "De bekende datums lopen van %1$s tot %2$s."
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:900
 #, php-format
 msgctxt "Date range: year to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr "De bekende datums lopen van %1$s tot %2$s."
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:901
 #, php-format
 msgctxt "Date range: date to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr "De bekende datums lopen van %1$s tot %2$s."
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:902
-#: src/Factory/Objects/ExtendedFamilySupport.php:903
 #, php-format
 msgctxt "Date range: date to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr "De bekende datums lopen van %1$s tot %2$s."
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:903
 msgid "today"
 msgstr "vandaag"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:283
 msgid "Full place name"
 msgstr "Volledige plaatsnaam"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:284
 msgid "City only"
 msgstr "Alleen plaats"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:285
 msgid "City and country"
 msgstr "Plaats en land"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:286
 msgid "City and 2 letter ISO country code"
 msgstr "Plaats en 2-letterige ISO-landcode"
 
-#: src/Factory/Objects/PlaceAbbreviation.php:287
 msgid "City and 3 letter ISO country code"
 msgstr "Plaats en 3-letterige ISO-landcode"
 
-#: src/Factory/Objects/ProbandName.php:84
 msgid "Him"
-msgstr ""
+msgstr "Hem"
 
-#: src/Factory/Objects/ProbandName.php:86
-#, fuzzy
-#| msgid "He"
 msgid "Her"
-msgstr "Hij"
+msgstr "Haar"
 
-#: src/Factory/Objects/ProbandName.php:88
 msgid "Him/her"
-msgstr ""
+msgstr "Hem/haar"
 
-#: src/Factory/Objects/ProbandName.php:176
 msgid "He"
 msgstr "Hij"
 
-#: src/Factory/Objects/ProbandName.php:178
 msgid "She"
 msgstr "Zij"
 
-#: src/Factory/Objects/ProbandName.php:180
 msgid "He/she"
 msgstr "Hij/zij"
 
-#: src/Factory/Objects/ProbandName.php:197
 msgid "Mr."
 msgstr "De heer"
 
-#: src/Factory/Objects/ProbandName.php:198
 msgid "Mrs."
 msgstr "Mevrouw"
 
-#: resources/views/partials/clippings-cart-button.phtml:38
 msgid "copy all members of the extended family to the clippings cart"
 msgstr "kopieer alle leden van de uitgebreide familie naar de stamboomknipsels"
 
-#: resources/views/partials/clippings-cart-button.phtml:49
 msgid "copy to clippings cart"
 msgstr "kopiëren naar stamboomknipsels"
 
-#: resources/views/partials/empty-family-part.phtml:10
 #, php-format
 msgid "%s has no uncles or aunts recorded."
 msgstr "Voor %s zijn geen ooms of tantes geregistreerd."
 
-#: resources/views/partials/empty-family-part.phtml:12
 #, php-format
 msgid "%s has no uncles or aunts by marriage recorded."
 msgstr "Voor %s zijn geen aangetrouwde ooms of tantes geregistreerd."
 
-#: resources/views/partials/empty-family-part.phtml:14
 #, php-format
 msgid "%s has no members of a partner chain recorded."
 msgstr "Voor %s zijn geen leden van een partnerketen geregistreerd."
 
-#: resources/views/partials/empty-family-part.phtml:16
 #, php-format
 msgid "%s has no first cousins recorded."
 msgstr "Voor %s zijn geen volle neven/nichten geregistreerd."
 
-#: resources/views/partials/empty-family-part.phtml:18
 #, php-format
 msgid "%s has no nephews or nieces recorded."
-msgstr ""
-"Voor %s zijn geen neefjes of nichtjes (kinderen van broer/zus) geregistreerd."
+msgstr "Voor %s zijn geen neefjes of nichtjes (kinderen van broer/zus) geregistreerd."
 
-#: resources/views/partials/empty-family-part.phtml:20
-#, fuzzy, php-format
-#| msgid "%s has no %s recorded."
+#, php-format
 msgid "%1$s has no %2$s recorded."
-msgstr "Voor %s zijn geen %s geregistreerd."
+msgstr "Voor %1$s zijn geen %2$s geregistreerd."
 
-#: resources/views/partials/family-part-header.phtml:17
 #, php-format
 msgid "generation +%s"
 msgstr "generatie +%s"
 
-#: resources/views/partials/family-part-header.phtml:19
 msgid "same generation"
 msgstr "dezelfde generatie"
 
-#: resources/views/partials/family-part-header.phtml:21
 #, php-format
 msgid "generation %s"
 msgstr "generatie %s"
 
-#: resources/views/partials/family-part-header.phtml:26
 #, php-format
 msgid "relationship coefficient: %.1f"
 msgstr "verwantschapscoëfficiënt: %.1f"
 
-#: resources/views/partials/family-part-header.phtml:31
 msgid "no blood relationship"
 msgstr "geen bloedverwantschap"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/child-family.phtml:30
-#: resources/views/partials/family-part-renderers/grouped-headings/child-family.phtml:36
 #, php-format
 msgid "connected with %s"
 msgstr "verbonden met %s"
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:32
-#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:46
-#, fuzzy
-#| msgid "Social children"
 msgid "Social child"
-msgstr "Sociale kinderen"
+msgstr "Sociaal kind"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:35
 msgid "Stepson"
 msgstr "Stiefzoon"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:37
 msgid "Stepdaughter"
 msgstr "Stiefdochter"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:39
-#: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:48
 msgid "Stepchild"
 msgstr "Stiefkind"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:26
-#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:33
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:31
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:33
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:55
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:92
-#, fuzzy, php-format
-#| msgid "connected with %s"
+#, php-format
 msgid "%1$s %2$s connected with %3$s"
-msgstr "verbonden met %s"
+msgstr "%1$s %2$s verbonden met %3$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:28
-#: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:35
 #, php-format
 msgid "Partners of %s"
 msgstr "Partners van %s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:39
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:41
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as parents of %3$s"
+#, php-format
 msgid "%1$s %2$s connected with %3$s as social parents"
-msgstr "%1$s %2$s als ouders van %3$s"
+msgstr "%1$s %2$s verbonden met %3$s als sociale ouders"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:47
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:49
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as stepparents of %3$s"
+#, php-format
 msgid "%1$s %2$s connected with %3$s as stepparents"
-msgstr "%1$s %2$s als stiefouders van %3$s"
+msgstr "%1$s %2$s verbonden met %3$s als stiefouders"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:57
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as parents of %3$s"
+#, php-format
 msgid "%1$s %2$s, parents of stepfather %3$s"
-msgstr "%1$s %2$s als ouders van %3$s"
+msgstr "%1$s %2$s, ouders van de stiefvader %3$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:59
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as parents of %3$s"
+#, php-format
 msgid "%1$s %2$s, parents of stepmother %3$s"
-msgstr "%1$s %2$s als ouders van %3$s"
+msgstr "%1$s %2$s, ouders van de stiefmoeder %3$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:61
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as stepparents of %3$s"
+#, php-format
 msgid "%1$s %2$s, parents of stepparent %3$s"
-msgstr "%1$s %2$s als stiefouders van %3$s"
+msgstr "%1$s %2$s, ouders van de stiefouder %3$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:67
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as grandparents of %3$s"
+#, php-format
 msgid "%1$s %2$s connected with %3$s as grandparents"
-msgstr "%1$s %2$s als grootouders van %3$s"
+msgstr "%1$s %2$s verbonden met %3$s als grootouders"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:69
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as grandparents of %3$s"
+#, php-format
 msgid "%1$s %2$s, grandparents of stepfather %3$s"
-msgstr "%1$s %2$s als grootouders van %3$s"
+msgstr "%1$s %2$s, grootouders van de stiefvader %3$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:71
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as grandparents of %3$s"
+#, php-format
 msgid "%1$s %2$s, grandparents of stepmother %3$s"
-msgstr "%1$s %2$s als grootouders van %3$s"
+msgstr "%1$s %2$s, grootouders van de stiefmoeder %3$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:73
-#, fuzzy, php-format
-#| msgid "%1$s %2$s as grandparents of %3$s"
+#, php-format
 msgid "%1$s %2$s, grandparents of stepparent %3$s"
-msgstr "%1$s %2$s als grootouders van %3$s"
+msgstr "%1$s %2$s, grootouders van de stiefouder %3$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:80
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:98
-#, fuzzy
-#| msgid "Brother"
 msgid "Father"
-msgstr "Broer"
+msgstr "Vader"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:81
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:99
-#, fuzzy
-#| msgid "Brother"
 msgid "Mother"
-msgstr "Broer"
+msgstr "Moeder"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:82
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:84
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:100
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:102
-#, fuzzy
-#| msgid "Parents"
 msgid "Parent"
-msgstr "Ouders"
+msgstr "Ouder"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:86
-#: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:103
-#, fuzzy, php-format
-#| msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
+#, php-format
 msgid "%1$s of %2$s %3$s, %4$s %5$s"
-msgstr "%1$s %2$s van partner %3$s, %4$s met %5$s"
+msgstr "%1$s van %2$s %3$s, %4$s %5$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/nephews-and-nieces.phtml:29
 #, php-format
 msgid "%1$s %2$s, %3$s with %4$s"
 msgstr "%1$s %2$s, %3$s met %4$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/nephews-and-nieces.phtml:37
 #, php-format
 msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
 msgstr "%1$s %2$s van partner %3$s, %4$s met %5$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:41
 #, php-format
 msgid "Brother %1$s of partner %2$s"
 msgstr "Broer %1$s van partner %2$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:43
 #, php-format
 msgid "Sister %1$s of partner %2$s"
 msgstr "Zus %1$s van partner %2$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:45
 #, php-format
 msgid "Sibling %1$s of partner %2$s"
 msgstr "Broer/zus %1$s van partner %2$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:50
-#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:63
 #, php-format
 msgid "Sibling of %1$s %2$s"
 msgstr "Broer/zus van %1$s %2$s"
 
-#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:54
-#: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:66
 #, php-format
 msgid "Partner of %1$s sibling-in-law %2$s"
 msgstr "Partner van %1$s zwager of schoonzus %2$s"
 
-#: resources/views/partials/family-part-renderers/parents-in-law.phtml:23
-#: resources/views/partials/family-part-renderers/parents-in-law.phtml:25
 msgid "with"
 msgstr "met"
 
-#: resources/views/partials/family-part-renderers/partners.phtml:20
 msgid "Partner of"
 msgstr "Partner van"
 
-#: resources/views/partials/family-part-summary.phtml:18
 #, php-format
 msgid "%s has one great-grandmother recorded."
 msgstr "Voor %s is één overgrootmoeder geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:20
 #, php-format
 msgid "%s has one great-grandfather recorded."
 msgstr "Voor %s is één overgrootvader geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:22
 #, php-format
 msgid "%s has one great-grandparent of diverse or unknown sex recorded."
 msgstr "Voor %s is één overgrootouder van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:26
 #, php-format
 msgid "%2$s has %1$d great-grandmother recorded."
 msgid_plural "%2$s has %1$d great-grandmothers recorded."
 msgstr[0] "Voor %2$s is %1$d overgrootmoeder geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d overgrootmoeders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:28
 #, php-format
 msgid "%2$s has %1$d great-grandfather recorded."
 msgid_plural "%2$s has %1$d great-grandfathers recorded."
 msgstr[0] "Voor %2$s is %1$d overgrootvader geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d overgrootvaders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:30
 #, php-format
 msgid "%2$s has %1$d great-grandparent of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d great-grandparents of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d overgrootouder van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d overgrootouders van onbekend geslacht geregistreerd."
+msgid_plural "%2$s has %1$d great-grandparents of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d overgrootouder van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d overgrootouders van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:32
-#: resources/views/partials/family-part-summary.phtml:35
 #, php-format
 msgid "%2$s has %1$d great-grandfather and"
 msgid_plural "%2$s has %1$d great-grandfathers and"
 msgstr[0] "Voor %2$s zijn %1$d overgrootvader en"
 msgstr[1] "Voor %2$s zijn %1$d overgrootvaders en"
 
-#: resources/views/partials/family-part-summary.phtml:33
 #, php-format
 msgid "%d great-grandmother recorded (%d in total)."
 msgid_plural "%d great-grandmothers recorded (%d in total)."
 msgstr[0] "%d overgrootmoeder geregistreerd (%d in totaal)."
 msgstr[1] "%d overgrootmoeders geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:36
-#: resources/views/partials/family-part-summary.phtml:39
-#: resources/views/partials/family-part-summary.phtml:43
 #, php-format
 msgid "%d great-grandparent of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d great-grandparents of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-"%d overgrootouder van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d overgrootouders van onbekend geslacht geregistreerd (%d in totaal)."
+msgid_plural "%d great-grandparents of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d overgrootouder van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d overgrootouders van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:38
 #, php-format
 msgid "%2$s has %1$d great-grandmother and"
 msgid_plural "%2$s has %1$d great-grandmothers and"
 msgstr[0] "Voor %2$s zijn %1$d overgrootmoeder en"
 msgstr[1] "Voor %2$s zijn %1$d overgrootmoeders en"
 
-#: resources/views/partials/family-part-summary.phtml:41
 #, php-format
 msgid "%2$s has %1$d great-grandfather,"
 msgid_plural "%2$s has %1$d great-grandfathers,"
 msgstr[0] "Voor %2$s zijn %1$d overgrootvader,"
 msgstr[1] "Voor %2$s zijn %1$d overgrootvaders,"
 
-#: resources/views/partials/family-part-summary.phtml:42
 #, php-format
 msgid "%d great-grandmother, and"
 msgid_plural "%d great-grandmothers, and"
 msgstr[0] "%d overgrootmoeder en"
 msgstr[1] "%d overgrootmoeder en"
 
-#: resources/views/partials/family-part-summary.phtml:49
 #, php-format
 msgid "%s has one grandmother recorded."
 msgstr "Voor %s is één grootmoeder geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:51
 #, php-format
 msgid "%s has one grandfather recorded."
 msgstr "Voor %s is één grootvader geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:53
 #, php-format
 msgid "%s has one grandparent of diverse or unknown sex recorded."
 msgstr "Voor %s is één grootouder van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:57
 #, php-format
 msgid "%2$s has %1$d grandmother recorded."
 msgid_plural "%2$s has %1$d grandmothers recorded."
 msgstr[0] "Voor %2$s is %1$d grootmoeder geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d grootmoeders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:59
 #, php-format
 msgid "%2$s has %1$d grandfather recorded."
 msgid_plural "%2$s has %1$d grandfathers recorded."
 msgstr[0] "Voor %2$s is %1$d grootvader geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d grootvaders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:61
 #, php-format
 msgid "%2$s has %1$d grandparent of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d grandparents of diverse or unknown sex recorded."
 msgstr[0] "Voor %2$s is %1$d grootouder van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d grootouders van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d grootouders van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:63
-#: resources/views/partials/family-part-summary.phtml:66
 #, php-format
 msgid "%2$s has %1$d grandfather and"
 msgid_plural "%2$s has %1$d grandfathers and"
 msgstr[0] "Voor %2$s zijn %1$d grootvader en"
 msgstr[1] "Voor %2$s zijn %1$d grootvaders en"
 
-#: resources/views/partials/family-part-summary.phtml:64
 #, php-format
 msgid "%d grandmother recorded (%d in total)."
 msgid_plural "%d grandmothers recorded (%d in total)."
 msgstr[0] "%d grootmoeder geregistreerd (%d in totaal)."
 msgstr[1] "%d grootmoeders geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:67
-#: resources/views/partials/family-part-summary.phtml:70
-#: resources/views/partials/family-part-summary.phtml:74
 #, php-format
 msgid "%d grandparent of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d grandparents of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d grandparents of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d grootouder van onbekend geslacht geregistreerd (%d in totaal)."
 msgstr[1] "%d grootouders van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:69
 #, php-format
 msgid "%2$s has %1$d grandmother and"
 msgid_plural "%2$s has %1$d grandmothers and"
 msgstr[0] "Voor %2$s zijn %1$d grootmoeder en"
 msgstr[1] "Voor %2$s zijn %1$d grootmoeders en"
 
-#: resources/views/partials/family-part-summary.phtml:72
 #, php-format
 msgid "%2$s has %1$d grandfather,"
 msgid_plural "%2$s has %1$d grandfathers,"
 msgstr[0] "Voor %2$s zijn %1$d grootvader,"
 msgstr[1] "Voor %2$s zijn %1$d grootvaders,"
 
-#: resources/views/partials/family-part-summary.phtml:73
 #, php-format
 msgid "%d grandmother, and"
 msgid_plural "%d grandmothers, and"
 msgstr[0] "%d grootmoeder en"
 msgstr[1] "%d grootmoeders en"
 
-#: resources/views/partials/family-part-summary.phtml:80
 #, php-format
 msgid "%s has one aunt recorded."
 msgstr "Voor %s is één tante geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:82
 #, php-format
 msgid "%s has one uncle recorded."
 msgstr "Voor %s is één oom geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:84
 #, php-format
 msgid "%s has one uncle or aunt of diverse or unknown sex recorded."
 msgstr "Voor %s is één oom of tante van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:88
 #, php-format
 msgid "%2$s has %1$d aunt recorded."
 msgid_plural "%2$s has %1$d aunts recorded."
 msgstr[0] "Voor %2$s is %1$d tante geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d tantes geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:90
 #, php-format
 msgid "%2$s has %1$d uncle recorded."
 msgid_plural "%2$s has %1$d uncles recorded."
 msgstr[0] "Voor %2$s is %1$d oom geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d ooms geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:92
 #, php-format
 msgid "%2$s has %1$d uncle or aunt of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d uncles or aunts of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts of diverse or unknown sex recorded."
 msgstr[0] "Voor %2$s is %1$d oom of tante van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d ooms of tantes van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d ooms of tantes van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:94
-#: resources/views/partials/family-part-summary.phtml:97
 #, php-format
 msgid "%2$s has %1$d uncle and"
 msgid_plural "%2$s has %1$d uncles and"
 msgstr[0] "Voor %2$s zijn %1$d oom en"
 msgstr[1] "Voor %2$s zijn %1$d ooms en"
 
-#: resources/views/partials/family-part-summary.phtml:95
 #, php-format
 msgid "%d aunt recorded (%d in total)."
 msgid_plural "%d aunts recorded (%d in total)."
 msgstr[0] "%d tante geregistreerd (%d in totaal)."
 msgstr[1] "%d tantes geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:98
-#: resources/views/partials/family-part-summary.phtml:101
-#: resources/views/partials/family-part-summary.phtml:105
 #, php-format
 msgid "%d uncle or aunt of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d uncles or aunts of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d oom of tante van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d ooms of tantes van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d ooms of tantes van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:100
 #, php-format
 msgid "%2$s has %1$d aunt and"
 msgid_plural "%2$s has %1$d aunts and"
 msgstr[0] "Voor %2$s zijn %1$d tante en"
 msgstr[1] "Voor %2$s zijn %1$d tantes en"
 
-#: resources/views/partials/family-part-summary.phtml:103
 #, php-format
 msgid "%2$s has %1$d uncle,"
 msgid_plural "%2$s has %1$d uncles,"
 msgstr[0] "Voor %2$s zijn %1$d oom,"
 msgstr[1] "Voor %2$s zijn %1$d ooms,"
 
-#: resources/views/partials/family-part-summary.phtml:104
 #, php-format
 msgid "%d aunt, and"
 msgid_plural "%d aunts, and"
 msgstr[0] "%d tante en"
 msgstr[1] "%d tantes en"
 
-#: resources/views/partials/family-part-summary.phtml:111
 #, php-format
 msgid "%s has one aunt by marriage recorded."
 msgstr "Voor %s is één aangetrouwde tante geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:113
 #, php-format
 msgid "%s has one uncle by marriage recorded."
 msgstr "Voor %s is één aangetrouwde oom geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:115
 #, php-format
-msgid ""
-"%s has one uncle or aunt by marriage of diverse or unknown sex recorded."
-msgstr ""
-"Voor %s is één aangetrouwde oom of tante van onbekend geslacht geregistreerd."
+msgid "%s has one uncle or aunt by marriage of diverse or unknown sex recorded."
+msgstr "Voor %s is één aangetrouwde oom of tante van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:119
 #, php-format
 msgid "%2$s has %1$d aunt by marriage recorded."
 msgid_plural "%2$s has %1$d aunts by marriage recorded."
 msgstr[0] "Voor %2$s is %1$d aangetrouwde tante geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d aangetrouwde tantes geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:121
 #, php-format
 msgid "%2$s has %1$d uncle by marriage recorded."
 msgid_plural "%2$s has %1$d uncles by marriage recorded."
 msgstr[0] "Voor %2$s is %1$d aangetrouwde oom geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d aangetrouwde ooms geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:123
 #, php-format
-msgid ""
-"%2$s has %1$d uncle or aunt by marriage of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d uncles or aunts by marriage of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d aangetrouwde oom of tante van onbekend geslacht "
-"geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d aangetrouwde ooms of tantes van onbekend geslacht "
-"geregistreerd."
+msgid "%2$s has %1$d uncle or aunt by marriage of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d uncles or aunts by marriage of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d aangetrouwde oom of tante van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d aangetrouwde ooms of tantes van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:125
-#: resources/views/partials/family-part-summary.phtml:128
 #, php-format
 msgid "%2$s has %1$d uncle by marriage and"
 msgid_plural "%2$s has %1$d uncles by marriage and"
 msgstr[0] "Voor %2$s zijn %1$d aangetrouwde oom en"
 msgstr[1] "Voor %2$s zijn %1$d aangetrouwde ooms en"
 
-#: resources/views/partials/family-part-summary.phtml:126
 #, php-format
 msgid "%d aunt by marriage recorded (%d in total)."
 msgid_plural "%d aunts by marriage recorded (%d in total)."
 msgstr[0] "%d aangetrouwde tante geregistreerd (%d in totaal)."
 msgstr[1] "%d aangetrouwde tantes geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:129
-#: resources/views/partials/family-part-summary.phtml:132
-#: resources/views/partials/family-part-summary.phtml:136
 #, php-format
-msgid ""
-"%d uncle or aunt by marriage of diverse or unknown sex recorded (%d in "
-"total)."
-msgid_plural ""
-"%d uncles or aunts by marriage of diverse or unknown sex recorded (%d in "
-"total)."
-msgstr[0] ""
-"%d aangetrouwde oom of tante van onbekend geslacht geregistreerd (%d in "
-"totaal)."
-msgstr[1] ""
-"%d aangetrouwde ooms of tantes van onbekend geslacht geregistreerd (%d in "
-"totaal)."
+msgid "%d uncle or aunt by marriage of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d uncles or aunts by marriage of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d aangetrouwde oom of tante van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d aangetrouwde ooms of tantes van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:131
 #, php-format
 msgid "%2$s has %1$d aunt by marriage and"
 msgid_plural "%2$s has %1$d aunts by marriage and"
 msgstr[0] "Voor %2$s zijn %1$d aangetrouwde tante en"
 msgstr[1] "Voor %2$s zijn %1$d aangetrouwde tantes en"
 
-#: resources/views/partials/family-part-summary.phtml:134
 #, php-format
 msgid "%2$s has %1$d uncle by marriage,"
 msgid_plural "%2$s has %1$d uncles by marriage,"
 msgstr[0] "Voor %2$s zijn %1$d aangetrouwde oom,"
 msgstr[1] "Voor %2$s zijn %1$d aangetrouwde ooms,"
 
-#: resources/views/partials/family-part-summary.phtml:135
 #, php-format
 msgid "%d aunt by marriage, and"
 msgid_plural "%d aunts by marriage, and"
 msgstr[0] "%d aangetrouwde tante en"
 msgstr[1] "%d aangetrouwde tantes en"
 
-#: resources/views/partials/family-part-summary.phtml:142
 #, php-format
 msgid "%s has one mother recorded."
 msgstr "Voor %s is één moeder geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:144
 #, php-format
 msgid "%s has one father recorded."
 msgstr "Voor %s is één vader geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:146
 #, php-format
 msgid "%s has one parent of diverse or unknown sex recorded."
 msgstr "Voor %s is één ouder van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:150
 #, php-format
 msgid "%2$s has %1$d mother recorded."
 msgid_plural "%2$s has %1$d mothers recorded."
 msgstr[0] "Voor %2$s is %1$d moeder geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d moeders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:152
 #, php-format
 msgid "%2$s has %1$d father recorded."
 msgid_plural "%2$s has %1$d fathers recorded."
 msgstr[0] "Voor %2$s is %1$d vader geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d vaders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:154
 #, php-format
 msgid "%2$s has %1$d parent of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d parents of diverse or unknown sex recorded."
 msgstr[0] "Voor %2$s is %1$d ouder van onbekend geslacht geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d ouders van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:156
-#: resources/views/partials/family-part-summary.phtml:159
 #, php-format
 msgid "%2$s has %1$d father and"
 msgid_plural "%2$s has %1$d fathers and"
 msgstr[0] "Voor %2$s zijn %1$d vader en"
 msgstr[1] "Voor %2$s zijn %1$d vaders en"
 
-#: resources/views/partials/family-part-summary.phtml:157
 #, php-format
 msgid "%d mother recorded (%d in total)."
 msgid_plural "%d mothers recorded (%d in total)."
 msgstr[0] "%d moeder geregistreerd (%d in totaal)."
 msgstr[1] "%d moeders geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:160
-#: resources/views/partials/family-part-summary.phtml:163
-#: resources/views/partials/family-part-summary.phtml:167
 #, php-format
 msgid "%d parent of diverse or unknown sex recorded (%d in total)."
 msgid_plural "%d parents of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d ouder van onbekend geslacht geregistreerd (%d in totaal)."
 msgstr[1] "%d ouders van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:162
 #, php-format
 msgid "%2$s has %1$d mother and"
 msgid_plural "%2$s has %1$d mothers and"
 msgstr[0] "Voor %2$s zijn %1$d moeder en"
 msgstr[1] "Voor %2$s zijn %1$d moeders en"
 
-#: resources/views/partials/family-part-summary.phtml:165
 #, php-format
 msgid "%2$s has %1$d father,"
 msgid_plural "%2$s has %1$d fathers,"
 msgstr[0] "Voor %2$s zijn %1$d vader,"
 msgstr[1] "Voor %2$s zijn %1$d vaders,"
 
-#: resources/views/partials/family-part-summary.phtml:166
 #, php-format
 msgid "%d mother, and"
 msgid_plural "%d mothers, and"
 msgstr[0] "%d moeder en"
 msgstr[1] "%d moeders en"
 
-#: resources/views/partials/family-part-summary.phtml:178
 #, php-format
 msgid "%s has one mother-in-law recorded."
 msgstr "Voor %s is één schoonmoeder geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:180
 #, php-format
 msgid "%s has one father-in-law recorded."
 msgstr "Voor %s is één schoonvader geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:182
 #, php-format
 msgid "%s has one parent-in-law of diverse or unknown sex recorded."
 msgstr "Voor %s is één schoonouder van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:186
 #, php-format
 msgid "%2$s has %1$d mother-in-law recorded."
 msgid_plural "%2$s has %1$d mothers-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d schoonmoeder geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d schoonmoeders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:188
 #, php-format
 msgid "%2$s has %1$d father-in-law recorded."
 msgid_plural "%2$s has %1$d fathers-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d schoonvader geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d schoonvaders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:190
 #, php-format
 msgid "%2$s has %1$d parent-in-law of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d parents-in-law of diverse or unknown sex recorded."
 msgstr[0] "Voor %2$s is %1$d schoonouder van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d schoonouders van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonouders van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:192
-#: resources/views/partials/family-part-summary.phtml:195
 #, php-format
 msgid "%2$s has %1$d father-in-law and"
 msgid_plural "%2$s has %1$d fathers-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d schoonvader en"
 msgstr[1] "Voor %2$s zijn %1$d schoonvaders en"
 
-#: resources/views/partials/family-part-summary.phtml:193
 #, php-format
 msgid "%d mother-in-law recorded (%d in total)."
 msgid_plural "%d mothers-in-law recorded (%d in total)."
 msgstr[0] "%d schoonmoeder geregistreerd (%d in totaal)."
 msgstr[1] "%d schoonmoeder geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:196
-#: resources/views/partials/family-part-summary.phtml:199
-#: resources/views/partials/family-part-summary.phtml:203
 #, php-format
 msgid "%d parent-in-law of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d parents-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d parents-in-law of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d schoonouder van onbekend geslacht geregistreerd (%d in totaal)."
 msgstr[1] "%d schoonouders van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:198
 #, php-format
 msgid "%2$s has %1$d mother-in-law and"
 msgid_plural "%2$s has %1$d mothers-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d schoonmoeder en"
 msgstr[1] "Voor %2$s zijn %1$d schoonmoeders en"
 
-#: resources/views/partials/family-part-summary.phtml:201
 #, php-format
 msgid "%2$s has %1$d father-in-law,"
 msgid_plural "%2$s has %1$d fathers-in-law,"
 msgstr[0] "Voor %2$s zijn %1$d schoonvader,"
 msgstr[1] "Voor %2$s zijn %1$d schoonvaders,"
 
-#: resources/views/partials/family-part-summary.phtml:202
 #, php-format
 msgid "%d mother-in-law, and"
 msgid_plural "%d mothers-in-law, and"
 msgstr[0] "%d schoonmoeder en"
 msgstr[1] "%d schoonmoeders en"
 
-#: resources/views/partials/family-part-summary.phtml:209
 #, php-format
 msgid "%s has one co-mother-in-law recorded."
 msgstr "Voor %s is één mede-schoonmoeder geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:211
 #, php-format
 msgid "%s has one co-father-in-law recorded."
 msgstr "Voor %s is één mede-schoonvader geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:213
 #, php-format
 msgid "%s has one co-parent-in-law of diverse or unknown sex recorded."
 msgstr "Voor %s is één mede-schoonouder (van onbekend geslacht) geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:217
 #, php-format
 msgid "%2$s has %1$d co-mother-in-law recorded."
 msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d mede-schoonmoeder geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d mede-schoonmoeders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:219
 #, php-format
 msgid "%2$s has %1$d co-father-in-law recorded."
 msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d mede-schoonvader geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d mede-schoonvaders geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:221
 #, php-format
 msgid "%2$s has %1$d co-parent-in-law of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d co-parents-in-law of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d mede-schoonouder (van onbekend geslacht) geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d mede-schoonouders (van onbekend geslacht) geregistreerd."
+msgid_plural "%2$s has %1$d co-parents-in-law of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d mede-schoonouder (van onbekend geslacht) geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d mede-schoonouders (van onbekend geslacht) geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:223
-#: resources/views/partials/family-part-summary.phtml:226
 #, php-format
 msgid "%2$s has %1$d co-father-in-law and"
 msgid_plural "%2$s has %1$d co-fathers-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d mede-schoonvader en"
 msgstr[1] "Voor %2$s zijn %1$d mede-schoonvaders en"
 
-#: resources/views/partials/family-part-summary.phtml:224
 #, php-format
 msgid "%d co-mother-in-law recorded (%d in total)."
 msgid_plural "%d co-mothers-in-law recorded (%d in total)."
 msgstr[0] "%d mede-schoonmoeder geregistreerd (%d in totaal)."
 msgstr[1] "%d mede-schoonmoeders geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:227
-#: resources/views/partials/family-part-summary.phtml:230
-#: resources/views/partials/family-part-summary.phtml:234
 #, php-format
 msgid "%d co-parent-in-law of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d co-parents-in-law of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-"%d mede-schoonouder (van onbekend geslacht) geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d mede-schoonouders (van onbekend geslacht) geregistreerd (%d in totaal)."
+msgid_plural "%d co-parents-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d mede-schoonouder (van onbekend geslacht) geregistreerd (%d in totaal)."
+msgstr[1] "%d mede-schoonouders (van onbekend geslacht) geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:229
 #, php-format
 msgid "%2$s has %1$d co-mother-in-law and"
 msgid_plural "%2$s has %1$d co-mothers-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d mede-schoonmoeder en"
 msgstr[1] "Voor %2$s zijn %1$d mede-schoonmoeders en"
 
-#: resources/views/partials/family-part-summary.phtml:232
 #, php-format
 msgid "%2$s has %1$d co-father-in-law,"
 msgid_plural "%2$s has %1$d co-fathers-in-law,"
 msgstr[0] "Voor %2$s zijn %1$d mede-schoonvader,"
 msgstr[1] "Voor %2$s zijn %1$d mede-schoonvaders,"
 
-#: resources/views/partials/family-part-summary.phtml:233
 #, php-format
 msgid "%d co-mother-in-law, and"
 msgid_plural "%d co-mothers-in-law, and"
 msgstr[0] "%d mede-schoonmoeder en"
 msgstr[1] "%d mede-schoonmoeders en"
 
-#: resources/views/partials/family-part-summary.phtml:240
 #, php-format
 msgid "%s has one female partner recorded."
 msgstr "Voor %s is één vrouwelijke partner geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:242
 #, php-format
 msgid "%s has one male partner recorded."
 msgstr "Voor %s is één mannelijke partner geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:244
 #, php-format
 msgid "%s has one partner of diverse or unknown sex recorded."
 msgstr "Voor %s is één partner van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:249
 #, php-format
 msgid "%2$s has %1$d female partner recorded."
 msgid_plural "%2$s has %1$d female partners recorded."
 msgstr[0] "Voor %2$s is %1$d vrouwelijke partner geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d vrouwelijke partners geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:251
 #, php-format
 msgid "%2$s has %1$d male partner recorded."
 msgid_plural "%2$s has %1$d male partners recorded."
 msgstr[0] "Voor %2$s is %1$d mannelijke partner geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d mannelijke partners geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:253
 #, php-format
 msgid "%2$s has %1$d partner of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d partners of diverse or unknown sex recorded."
 msgstr[0] "Voor %2$s is %1$d partner van onbekend geslacht geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d partners van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:255
-#: resources/views/partials/family-part-summary.phtml:258
-#: resources/views/partials/family-part-summary.phtml:274
-#: resources/views/partials/family-part-summary.phtml:298
-#: resources/views/partials/family-part-summary.phtml:303
-#: resources/views/partials/family-part-summary.phtml:313
 #, php-format
 msgid "%2$s has %1$d male partner and"
 msgid_plural "%2$s has %1$d male partners and"
 msgstr[0] "Voor %2$s zijn %1$d mannelijke partner en"
 msgstr[1] "Voor %2$s zijn %1$d mannelijke partners en"
 
-#: resources/views/partials/family-part-summary.phtml:256
 #, php-format
 msgid "%d female partner recorded (%d in total)."
 msgid_plural "%d female partners recorded (%d in total)."
 msgstr[0] "%d vrouwelijke partner geregistreerd (%d in totaal)."
 msgstr[1] "%d vrouwelijke partners geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:259
-#: resources/views/partials/family-part-summary.phtml:262
-#: resources/views/partials/family-part-summary.phtml:266
 #, php-format
 msgid "%d partner of diverse or unknown sex recorded (%d in total)."
 msgid_plural "%d partners of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d partner van onbekend geslacht geregistreerd (%d in totaal)."
 msgstr[1] "%d partners van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:261
-#: resources/views/partials/family-part-summary.phtml:270
-#: resources/views/partials/family-part-summary.phtml:308
 #, php-format
 msgid "%2$s has %1$d female partner and"
 msgid_plural "%2$s has %1$d female partners and"
 msgstr[0] "Voor %2$s zijn %1$d vrouwelijke partner en"
 msgstr[1] "Voor %2$s zijn %1$d vrouwelijke partners en"
 
-#: resources/views/partials/family-part-summary.phtml:264
 #, php-format
 msgid "%2$s has %1$d male partner,"
 msgid_plural "%2$s has %1$d male partners,"
 msgstr[0] "Voor %2$s zijn %1$d mannelijke partner,"
 msgstr[1] "Voor %2$s zijn %1$d mannelijke partners,"
 
-#: resources/views/partials/family-part-summary.phtml:265
-#: resources/views/partials/family-part-summary.phtml:314
 #, php-format
 msgid "%d female partner, and"
 msgid_plural "%d female partners, and"
 msgstr[0] "%d vrouwelijke partner en"
 msgstr[1] "%d vrouwelijke partners en"
 
-#: resources/views/partials/family-part-summary.phtml:271
 #, php-format
 msgid "%d male partner of female partners recorded (%d in total)."
 msgid_plural "%d male partners of female partners recorded (%d in total)."
-msgstr[0] ""
-"%d mannelijke partner van vrouwelijke partners geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d mannelijke partners van vrouwelijke partners geregistreerd (%d in totaal)."
+msgstr[0] "%d mannelijke partner van vrouwelijke partners geregistreerd (%d in totaal)."
+msgstr[1] "%d mannelijke partners van vrouwelijke partners geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:275
 #, php-format
 msgid "%d female partner of male partners recorded (%d in total)."
 msgid_plural "%d female partners of male partners recorded (%d in total)."
-msgstr[0] ""
-"%d vrouwelijke partner van mannelijke partners geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d vrouwelijke partners van mannelijke partners geregistreerd (%d in totaal)."
+msgstr[0] "%d vrouwelijke partner van mannelijke partners geregistreerd (%d in totaal)."
+msgstr[1] "%d vrouwelijke partners van mannelijke partners geregistreerd (%d in totaal)."
 
-# Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/partials/family-part-summary.phtml:278
 #, php-format
 msgid "%2$s has %1$d partner and"
 msgid_plural "%2$s has %1$d partners and"
 msgstr[0] "Voor %2$s zijn %1$d partner en"
 msgstr[1] "Voor %2$s zijn %1$d partners en"
 
-#: resources/views/partials/family-part-summary.phtml:279
-#, fuzzy, php-format
-#| msgid "%d male partner of female partners recorded (%d in total)."
-#| msgid_plural "%d male partners of female partners recorded (%d in total)."
+#, php-format
 msgid "%1$d partner of partners recorded (%2$d in total)."
 msgid_plural "%1$d partners of partners recorded (%2$d in total)."
-msgstr[0] ""
-"%d mannelijke partner van vrouwelijke partners geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d mannelijke partners van vrouwelijke partners geregistreerd (%d in totaal)."
+msgstr[0] "%d partner van partners geregistreerd (%d in totaal)."
+msgstr[1] "%d partners van partners geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:286
 #, php-format
 msgid "%d female partner in this partner chain recorded"
 msgid_plural "%d female partners in this partner chain recorded"
 msgstr[0] "Er is %d vrouwelijke partner in deze partnerketen geregistreerd"
 msgstr[1] "Er zijn %d vrouwelijke partners in deze partnerketen geregistreerd"
 
-#: resources/views/partials/family-part-summary.phtml:287
-#: resources/views/partials/family-part-summary.phtml:291
-#: resources/views/partials/family-part-summary.phtml:295
-#: resources/views/partials/family-part-summary.phtml:300
-#: resources/views/partials/family-part-summary.phtml:305
-#: resources/views/partials/family-part-summary.phtml:310
 #, php-format
 msgid "including %s"
 msgstr "inclusief %s"
 
-#: resources/views/partials/family-part-summary.phtml:290
 #, php-format
 msgid "%d male partner in this partner chain recorded"
 msgid_plural "%d male partners in this partner chain recorded"
 msgstr[0] "Er is %d mannelijke partner in deze partnerketen geregistreerd"
 msgstr[1] "Er zijn %d mannelijke partners in deze partnerketen geregistreerd"
 
-#: resources/views/partials/family-part-summary.phtml:294
 #, php-format
 msgid "%d partner of diverse or unknown sex in this partner chain recorded"
-msgid_plural ""
-"%d partners of diverse or unknown sex in this partner chain recorded"
-msgstr[0] ""
-"Er is %d partner van onbekend geslacht in deze partnerketen geregistreerd"
-msgstr[1] ""
-"Er zijn %d partners van onbekend geslacht in deze partnerketen geregistreerd"
+msgid_plural "%d partners of diverse or unknown sex in this partner chain recorded"
+msgstr[0] "Er is %d partner van onbekend geslacht in deze partnerketen geregistreerd"
+msgstr[1] "Er zijn %d partners van onbekend geslacht in deze partnerketen geregistreerd"
 
-#: resources/views/partials/family-part-summary.phtml:299
 #, php-format
 msgid "%1$d female partner in this partner chain recorded (%2$d in total"
-msgid_plural ""
-"%1$d female partners in this partner chain recorded (%2$d in total"
-msgstr[0] ""
-"%1$d vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal"
-msgstr[1] ""
-"%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal"
+msgid_plural "%1$d female partners in this partner chain recorded (%2$d in total"
+msgstr[0] "%1$d vrouwelijke partner in deze partnerketen geregistreerd (%2$d in totaal"
+msgstr[1] "%1$d vrouwelijke partners in deze partnerketen geregistreerd (%2$d in totaal"
 
-#: resources/views/partials/family-part-summary.phtml:304
-#: resources/views/partials/family-part-summary.phtml:309
 #, php-format
-msgid ""
-"%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d "
-"in total"
-msgid_plural ""
-"%1$d partners of diverse or unknown sex in this partner chain recorded (%2$d "
-"in total"
-msgstr[0] ""
-"%1$d partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d "
-"in totaal"
-msgstr[1] ""
-"%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d "
-"in totaal"
+msgid "%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d in total"
+msgid_plural "%1$d partners of diverse or unknown sex in this partner chain recorded (%2$d in total"
+msgstr[0] "%1$d partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal"
+msgstr[1] "%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal"
 
-#: resources/views/partials/family-part-summary.phtml:315
 #, php-format
-msgid ""
-"%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d "
-"in total, including %3$s)."
-msgid_plural ""
-"%1$d partners of diverse or unknown sex in this partner chain recorded (%2$d "
-"in total, including %3$s)."
-msgstr[0] ""
-"%1$d partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d "
-"in totaal, inclusief %3$s)."
-msgstr[1] ""
-"%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d "
-"in totaal, inclusief %3$s)."
+msgid "%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgid_plural "%1$d partners of diverse or unknown sex in this partner chain recorded (%2$d in total, including %3$s)."
+msgstr[0] "%1$d partner van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s)."
+msgstr[1] "%1$d partners van onbekend geslacht in deze partnerketen geregistreerd (%2$d in totaal, inclusief %3$s)."
 
-#: resources/views/partials/family-part-summary.phtml:319
 #, php-format
 msgid "There are %d branches in the partner chain."
 msgstr "Er zijn %d takken in de partnerketen."
 
-#: resources/views/partials/family-part-summary.phtml:321
 #, php-format
-msgid ""
-"The longest branch in the partner chain to %2$s consists of %1$d partners "
-"(including %3$s)."
-msgstr ""
-"De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners "
-"(inclusief %3$s)."
+msgid "The longest branch in the partner chain to %2$s consists of %1$d partners (including %3$s)."
+msgstr "De langste tak in de partnerketen naar %2$s bestaat uit %1$d partners (inclusief %3$s)."
 
-#: resources/views/partials/family-part-summary.phtml:323
 #, php-format
-msgid ""
-"The longest branch in the partner chain consists of %1$d partners (including "
-"%2$s)."
-msgstr ""
-"De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s)."
+msgid "The longest branch in the partner chain consists of %1$d partners (including %2$s)."
+msgstr "De langste tak in de partnerketen bestaat uit %1$d partners (inclusief %2$s)."
 
-#: resources/views/partials/family-part-summary.phtml:330
 #, php-format
 msgid "%s has one sister recorded."
 msgstr "Voor %s is één zus geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:332
 #, php-format
 msgid "%s has one brother recorded."
 msgstr "Voor %s is één broer geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:334
 #, php-format
 msgid "%s has one sibling of diverse or unknown sex recorded."
 msgstr "Voor %s is één broer/zus van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:338
 #, php-format
 msgid "%2$s has %1$d sister recorded."
 msgid_plural "%2$s has %1$d sisters recorded."
 msgstr[0] "Voor %2$s is %1$d zus geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d zussen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:340
 #, php-format
 msgid "%2$s has %1$d brother recorded."
 msgid_plural "%2$s has %1$d brothers recorded."
 msgstr[0] "Voor %2$s is %1$d broer geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d broers geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:342
 #, php-format
 msgid "%2$s has %1$d sibling of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d siblings of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d een broer/zus van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d broers/zussen van onbekend geslacht geregistreerd."
+msgstr[0] "Voor %2$s is %1$d een broer/zus van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d broers/zussen van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:344
-#: resources/views/partials/family-part-summary.phtml:347
 #, php-format
 msgid "%2$s has %1$d brother and"
 msgid_plural "%2$s has %1$d brothers and"
 msgstr[0] "Voor %2$s zijn %1$d broer en"
 msgstr[1] "Voor %2$s zijn %1$d broers en"
 
-#: resources/views/partials/family-part-summary.phtml:345
 #, php-format
 msgid "%d sister recorded (%d in total)."
 msgid_plural "%d sisters recorded (%d in total)."
 msgstr[0] "%d zus geregistreerd (%d in totaal)."
 msgstr[1] "%d zussen geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:348
-#: resources/views/partials/family-part-summary.phtml:351
-#: resources/views/partials/family-part-summary.phtml:355
 #, php-format
 msgid "%d sibling of diverse or unknown sex recorded (%d in total)."
 msgid_plural "%d siblings of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d broer/zus van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d broers/zussen van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d broers/zussen van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:350
 #, php-format
 msgid "%2$s has %1$d sister and"
 msgid_plural "%2$s has %1$d sisters and"
 msgstr[0] "Voor %2$s zijn %1$d zus en"
 msgstr[1] "Voor %2$s zijn %1$d zussen en"
 
-#: resources/views/partials/family-part-summary.phtml:353
 #, php-format
 msgid "%2$s has %1$d brother,"
 msgid_plural "%2$s has %1$d brothers,"
 msgstr[0] "Voor %2$s zijn %1$d broer,"
 msgstr[1] "Voor %2$s zijn %1$d broers,"
 
-#: resources/views/partials/family-part-summary.phtml:354
 #, php-format
 msgid "%d sister, and"
 msgid_plural "%d sisters, and"
 msgstr[0] "%d zus en"
 msgstr[1] "%d zussen en"
 
-#: resources/views/partials/family-part-summary.phtml:366
 #, php-format
 msgid "%s has one sister-in-law recorded."
 msgstr "Voor %s is één schoonzus geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:368
 #, php-format
 msgid "%s has one brother-in-law recorded."
 msgstr "Voor %s is één zwager geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:370
 #, php-format
 msgid "%s has one sibling-in-law of diverse or unknown sex recorded."
 msgstr "Voor %s is één zwager/schoonzus van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:374
 #, php-format
 msgid "%2$s has %1$d sister-in-law recorded."
 msgid_plural "%2$s has %1$d sisters-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d schoonzus geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d schoonzussen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:376
 #, php-format
 msgid "%2$s has %1$d brother-in-law recorded."
 msgid_plural "%2$s has %1$d brothers-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d zwager geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d zwagers geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:378
 #, php-format
 msgid "%2$s has %1$d sibling-in-law of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d siblings-in-law of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d zwager/schoonzus van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d zwagers/schoonzussen van onbekend geslacht geregistreerd."
+msgid_plural "%2$s has %1$d siblings-in-law of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d zwager/schoonzus van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d zwagers/schoonzussen van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:380
-#: resources/views/partials/family-part-summary.phtml:383
 #, php-format
 msgid "%2$s has %1$d brother-in-law and"
 msgid_plural "%2$s has %1$d brothers-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d zwager en"
 msgstr[1] "Voor %2$s zijn %1$d zwagers en"
 
-#: resources/views/partials/family-part-summary.phtml:381
 #, php-format
 msgid "%d sister-in-law recorded (%d in total)."
 msgid_plural "%d sisters-in-law recorded (%d in total)."
 msgstr[0] "%d schoonzus geregistreerd (%d in totaal)."
 msgstr[1] "%d schoonzussen geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:384
-#: resources/views/partials/family-part-summary.phtml:387
-#: resources/views/partials/family-part-summary.phtml:391
 #, php-format
 msgid "%d sibling-in-law of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d siblings-in-law of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-"%d zwager/schoonzus van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d zwagers/schoonzuszen van onbekend geslacht geregistreerd (%d in totaal)."
+msgid_plural "%d siblings-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d zwager/schoonzus van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d zwagers/schoonzuszen van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:386
 #, php-format
 msgid "%2$s has %1$d sister-in-law and"
 msgid_plural "%2$s has %1$d sisters-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d schoonzus en"
 msgstr[1] "Voor %2$s zijn %1$d schoonzussen en"
 
-#: resources/views/partials/family-part-summary.phtml:389
 #, php-format
 msgid "%2$s has %1$d brother-in-law,"
 msgid_plural "%2$s has %1$d brothers-in-law,"
 msgstr[0] "Voor %2$s zijn %1$d zwager,"
 msgstr[1] "Voor %2$s zijn %1$d zwagers,"
 
-#: resources/views/partials/family-part-summary.phtml:390
 #, php-format
 msgid "%d sister-in-law, and"
 msgid_plural "%d sisters-in-law, and"
 msgstr[0] "%d schoonzus en"
 msgstr[1] "%d schoonzussen en"
 
-#: resources/views/partials/family-part-summary.phtml:402
 #, php-format
 msgid "%s has one co-sister-in-law recorded."
 msgstr "Voor %s is één mede-schoonzus geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:404
 #, php-format
 msgid "%s has one co-brother-in-law recorded."
 msgstr "Voor %s is één mede-zwager geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:406
 #, php-format
 msgid "%s has one co-sibling-in-law of diverse or unknown sex recorded."
-msgstr ""
-"Voor %s is één mede-zwager/schoonzus (van onbekend geslacht) geregistreerd."
+msgstr "Voor %s is één mede-zwager/schoonzus (van onbekend geslacht) geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:410
 #, php-format
 msgid "%2$s has %1$d co-sister-in-law recorded."
 msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d mede-schoonzus geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d mede-schoonzussen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:412
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law recorded."
 msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d mede-zwager geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d mede-zwagers geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:414
 #, php-format
 msgid "%2$s has %1$d co-sibling-in-law of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d co-siblings-in-law of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d mede-zwager/schoonzus (van onbekend geslacht) "
-"geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d mede-zwagers/schoonzussen (van onbekend geslacht) "
-"geregistreerd."
+msgid_plural "%2$s has %1$d co-siblings-in-law of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d mede-zwager/schoonzus (van onbekend geslacht) geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d mede-zwagers/schoonzussen (van onbekend geslacht) geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:416
-#: resources/views/partials/family-part-summary.phtml:419
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law and"
 msgid_plural "%2$s has %1$d co-brothers-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d mede-zwager en"
 msgstr[1] "Voor %2$s zijn %1$d mede-zwagers en"
 
-#: resources/views/partials/family-part-summary.phtml:417
 #, php-format
 msgid "%d co-sister-in-law recorded (%d in total)."
 msgid_plural "%d co-sisters-in-law recorded (%d in total)."
 msgstr[0] "%d mede-schoonzus geregistreerd (%d in totaal)."
 msgstr[1] "%d mede-schoonzussen geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:420
-#: resources/views/partials/family-part-summary.phtml:423
-#: resources/views/partials/family-part-summary.phtml:427
 #, php-format
 msgid "%d co-sibling-in-law of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d co-siblings-in-law of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-"%d mede-zwager/schoonzus (van onbekend geslacht) geregistreerd (%d in "
-"totaal)."
-msgstr[1] ""
-"%d mede-zwagers/schoonzussen (van onbekend geslacht) geregistreerd (%d in "
-"totaal)."
+msgid_plural "%d co-siblings-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d mede-zwager/schoonzus (van onbekend geslacht) geregistreerd (%d in totaal)."
+msgstr[1] "%d mede-zwagers/schoonzussen (van onbekend geslacht) geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:422
 #, php-format
 msgid "%2$s has %1$d co-sister-in-law and"
 msgid_plural "%2$s has %1$d co-sisters-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d mede-schoonzus en"
 msgstr[1] "Voor %2$s zijn %1$d mede-schoonzussen en"
 
-#: resources/views/partials/family-part-summary.phtml:425
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law,"
 msgid_plural "%2$s has %1$d co-brothers-in-law,"
-msgstr[0] "Voor %2$s zijn %1$d mede-zwager en,"
-msgstr[1] "Voor %2$s zijn %1$d mede-zwagers en"
+msgstr[0] "Voor %2$s zijn %1$d mede-zwager,"
+msgstr[1] "Voor %2$s zijn %1$d mede-zwagers,"
 
-#: resources/views/partials/family-part-summary.phtml:426
 #, php-format
 msgid "%d co-sister-in-law, and"
 msgid_plural "%d co-sisters-in-law, and"
 msgstr[0] "%d mede-schoonzus en"
 msgstr[1] "%d mede-schoonzussen en"
 
-#: resources/views/partials/family-part-summary.phtml:438
 #, php-format
 msgid "%s has one female first cousin recorded."
 msgstr "Voor %s is één volle nicht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:440
 #, php-format
 msgid "%s has one male first cousin recorded."
 msgstr "Voor %s is één volle neef geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:442
 #, php-format
 msgid "%s has one first cousin of diverse or unknown sex recorded."
 msgstr "Voor %s is één volle neef/nicht van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:446
 #, php-format
 msgid "%2$s has %1$d female first cousin recorded."
 msgid_plural "%2$s has %1$d female first cousins recorded."
 msgstr[0] "Voor %2$s is %1$d volle nicht geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d volle nichten geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:448
 #, php-format
 msgid "%2$s has %1$d male first cousin recorded."
 msgid_plural "%2$s has %1$d male first cousins recorded."
 msgstr[0] "Voor %2$s is %1$d volle neef geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d volle neven geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:450
 #, php-format
 msgid "%2$s has %1$d first cousin of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d first cousins of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d volle neef/nicht van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d volle neven/nichten van onbekend geslacht geregistreerd."
+msgstr[0] "Voor %2$s is %1$d volle neef/nicht van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d volle neven/nichten van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:452
-#: resources/views/partials/family-part-summary.phtml:455
 #, php-format
 msgid "%2$s has %1$d male first cousin and"
 msgid_plural "%2$s has %1$d male first cousins and"
 msgstr[0] "Voor %2$s zijn %1$d volle neef en"
 msgstr[1] "Voor %2$s zijn %1$d volle neven en"
 
-#: resources/views/partials/family-part-summary.phtml:453
 #, php-format
 msgid "%d female first cousin recorded (%d in total)."
 msgid_plural "%d female first cousins recorded (%d in total)."
 msgstr[0] "%d volle nicht geregistreerd (%d in totaal)."
 msgstr[1] "%d volle nichten geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:456
-#: resources/views/partials/family-part-summary.phtml:459
-#: resources/views/partials/family-part-summary.phtml:463
 #, php-format
 msgid "%d first cousin of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d first cousins of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-"%d volle neef/nicht van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d volle neven/nichten van onbekend geslacht geregistreerd (%d in totaal)."
+msgid_plural "%d first cousins of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d volle neef/nicht van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d volle neven/nichten van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:458
 #, php-format
 msgid "%2$s has %1$d female first cousin and"
 msgid_plural "%2$s has %1$d female first cousins and"
 msgstr[0] "Voor %2$s zijn %1$d volle nicht en"
 msgstr[1] "Voor %2$s zijn %1$d volle nichten en"
 
-#: resources/views/partials/family-part-summary.phtml:461
 #, php-format
 msgid "%2$s has %1$d male first cousin,"
 msgid_plural "%2$s has %1$d male first cousins,"
 msgstr[0] "Voor %2$s zijn %1$d volle neef,"
 msgstr[1] "Voor %2$s zijn %1$d volle neven,"
 
-#: resources/views/partials/family-part-summary.phtml:462
 #, php-format
 msgid "%d female first cousin, and"
 msgid_plural "%d female first cousins, and"
 msgstr[0] "%d volle nicht en"
 msgstr[1] "%d volle nichten en"
 
-#: resources/views/partials/family-part-summary.phtml:469
 #, php-format
 msgid "%s has one niece recorded."
 msgstr "Voor %s is één nichtje geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:471
 #, php-format
 msgid "%s has one nephew recorded."
 msgstr "Voor %s is één neefje geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:473
 #, php-format
 msgid "%s has one nephew or niece of diverse or unknown sex recorded."
 msgstr "Voor %s is één neefje/nichtje van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:477
 #, php-format
 msgid "%2$s has %1$d niece recorded."
 msgid_plural "%2$s has %1$d nieces recorded."
 msgstr[0] "Voor %2$s is %1$d nichtje geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d nichtjes geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:479
 #, php-format
 msgid "%2$s has %1$d nephew recorded."
 msgid_plural "%2$s has %1$d nephews recorded."
 msgstr[0] "Voor %2$s is %1$d neefje geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d neefjes geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:481
 #, php-format
 msgid "%2$s has %1$d nephew or niece of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d nephews or nieces of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d neefje/nichtje van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d neefjes/nichtje van onbekend geslacht geregistreerd."
+msgid_plural "%2$s has %1$d nephews or nieces of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d neefje/nichtje van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d neefjes/nichtje van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:483
-#: resources/views/partials/family-part-summary.phtml:486
 #, php-format
 msgid "%2$s has %1$d nephew and"
 msgid_plural "%2$s has %1$d nephews and"
 msgstr[0] "Voor %2$s zijn %1$d neefje en"
 msgstr[1] "Voor %2$s zijn %1$d neefjes en"
 
-#: resources/views/partials/family-part-summary.phtml:484
 #, php-format
 msgid "%d niece recorded (%d in total)."
 msgid_plural "%d nieces recorded (%d in total)."
 msgstr[0] "%d nichtje geregistreerd (%d in totaal)."
 msgstr[1] "%d nichtjes geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:487
-#: resources/views/partials/family-part-summary.phtml:490
-#: resources/views/partials/family-part-summary.phtml:494
 #, php-format
 msgid "%d nephew or niece of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d nephews or nieces of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-"%d neefje/nichtje van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d neefjes/nichtjes van onbekend geslacht geregistreerd (%d in totaal)."
+msgid_plural "%d nephews or nieces of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d neefje/nichtje van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d neefjes/nichtjes van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:489
 #, php-format
 msgid "%2$s has %1$d niece and"
 msgid_plural "%2$s has %1$d nieces and"
 msgstr[0] "Voor %2$s zijn %1$d nichtje en"
 msgstr[1] "Voor %2$s zijn %1$d nichtjes en"
 
-#: resources/views/partials/family-part-summary.phtml:492
 #, php-format
 msgid "%2$s has %1$d nephew,"
 msgid_plural "%2$s has %1$d nephews,"
 msgstr[0] "Voor %2$s zijn %1$d neefje,"
 msgstr[1] "Voor %2$s zijn %1$d neefjes,"
 
-#: resources/views/partials/family-part-summary.phtml:493
 #, php-format
 msgid "%d niece, and"
 msgid_plural "%d nieces, and"
 msgstr[0] "%d nichtje en"
 msgstr[1] "%d nichtjes en"
 
-#: resources/views/partials/family-part-summary.phtml:500
 #, php-format
 msgid "%s has one daughter recorded."
 msgstr "Voor %s is één dochter geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:502
 #, php-format
 msgid "%s has one son recorded."
 msgstr "Voor %s is één zoon geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:504
 #, php-format
 msgid "%s has one child of diverse or unknown sex recorded."
 msgstr "Voor %s is één kind van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:508
 #, php-format
 msgid "%2$s has %1$d daughter recorded."
 msgid_plural "%2$s has %1$d daughters recorded."
 msgstr[0] "Voor %2$s is %1$d dochter geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d dochters geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:510
 #, php-format
 msgid "%2$s has %1$d son recorded."
 msgid_plural "%2$s has %1$d sons recorded."
 msgstr[0] "Voor %2$s is %1$d zoon geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d zonen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:512
 #, php-format
 msgid "%2$s has %1$d child of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d children of diverse or unknown sex recorded."
 msgstr[0] "Voor %2$s is %1$d kind van onbekend geslacht geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d kinderen van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:514
-#: resources/views/partials/family-part-summary.phtml:517
 #, php-format
 msgid "%2$s has %1$d son and"
 msgid_plural "%2$s has %1$d sons and"
 msgstr[0] "Voor %2$s zijn %1$d zoon en"
 msgstr[1] "Voor %2$s zijn %1$d zonen en"
 
-#: resources/views/partials/family-part-summary.phtml:515
 #, php-format
 msgid "%d daughter recorded (%d in total)."
 msgid_plural "%d daughters recorded (%d in total)."
 msgstr[0] "%d dochter geregistreerd (%d in totaal)."
 msgstr[1] "%d dochters geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:518
-#: resources/views/partials/family-part-summary.phtml:521
-#: resources/views/partials/family-part-summary.phtml:525
 #, php-format
 msgid "%d child of diverse or unknown sex recorded (%d in total)."
 msgid_plural "%d children of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d kind van onbekend geslacht geregistreerd (%d in totaal)."
 msgstr[1] "%d kinderen van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:520
 #, php-format
 msgid "%2$s has %1$d daughter and"
 msgid_plural "%2$s has %1$d daughters and"
 msgstr[0] "Voor %2$s zijn %1$d dochter en"
 msgstr[1] "Voor %2$s zijn %1$d dochters en"
 
-#: resources/views/partials/family-part-summary.phtml:523
 #, php-format
 msgid "%2$s has %1$d son,"
 msgid_plural "%2$s has %1$d sons,"
 msgstr[0] "Voor %2$s zijn %1$d zoon,"
 msgstr[1] "Voor %2$s zijn %1$d zonen,"
 
-#: resources/views/partials/family-part-summary.phtml:524
 #, php-format
 msgid "%d daughter, and"
 msgid_plural "%d daughters, and"
 msgstr[0] "%d dochter en"
 msgstr[1] "%d dochters en"
 
-#: resources/views/partials/family-part-summary.phtml:531
 #, php-format
 msgid "%s has one daughter-in-law recorded."
 msgstr "Voor %s is één schoondochter geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:533
 #, php-format
 msgid "%s has one son-in-law recorded."
 msgstr "Voor %s is één schoonzoon geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:535
 #, php-format
 msgid "%s has one child-in-law of diverse or unknown sex recorded."
 msgstr "Voor %s is één schoonkind van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:539
 #, php-format
 msgid "%2$s has %1$d daughter-in-law recorded."
 msgid_plural "%2$s has %1$d daughters-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d schoondochter geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d schoondochters geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:541
 #, php-format
 msgid "%2$s has %1$d son-in-law recorded."
 msgid_plural "%2$s has %1$d sons-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d schoonzoon geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d schoonzonen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:543
 #, php-format
 msgid "%2$s has %1$d child-in-law of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d children-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d children-in-law of diverse or unknown sex recorded."
 msgstr[0] "Voor %2$s is %1$d schoonkind van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d schoonkinderen van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonkinderen van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:545
-#: resources/views/partials/family-part-summary.phtml:548
 #, php-format
 msgid "%2$s has %1$d son-in-law and"
 msgid_plural "%2$s has %1$d sons-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d schoonzoon en"
 msgstr[1] "Voor %2$s zijn %1$d schoonzonen en"
 
-#: resources/views/partials/family-part-summary.phtml:546
 #, php-format
 msgid "%d daughter-in-law recorded (%d in total)."
 msgid_plural "%d daughters-in-law recorded (%d in total)."
 msgstr[0] "%d schoondochter geregistreerd (%d in totaal)."
 msgstr[1] "%d schoondochters geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:549
-#: resources/views/partials/family-part-summary.phtml:552
-#: resources/views/partials/family-part-summary.phtml:556
 #, php-format
 msgid "%d child-in-law of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d children-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d children-in-law of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d schoonkind van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d schoonkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonkinderen van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:551
 #, php-format
 msgid "%2$s has %1$d daughter-in-law and"
 msgid_plural "%2$s has %1$d daughters-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d schoondochter en"
 msgstr[1] "Voor %2$s zijn %1$d schoondochters en"
 
-#: resources/views/partials/family-part-summary.phtml:554
 #, php-format
 msgid "%2$s has %1$d son-in-law,"
 msgid_plural "%2$s has %1$d sons-in-law,"
 msgstr[0] "Voor %2$s zijn %1$d schoonzoon,"
 msgstr[1] "Voor %2$s zijn %1$d schoonzonen,"
 
-#: resources/views/partials/family-part-summary.phtml:555
 #, php-format
 msgid "%d daughter-in-law, and"
 msgid_plural "%d daughters-in-law, and"
 msgstr[0] "%d schoondochter en"
 msgstr[1] "%d schoondochters en"
 
-#: resources/views/partials/family-part-summary.phtml:562
 #, php-format
 msgid "%s has one granddaughter recorded."
 msgstr "Voor %s is één kleindochter geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:564
 #, php-format
 msgid "%s has one grandson recorded."
 msgstr "Voor %s is één kleinzoon geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:566
 #, php-format
 msgid "%s has one grandchild of diverse or unknown sex recorded."
 msgstr "Voor %s is één kleinkind van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:570
 #, php-format
 msgid "%2$s has %1$d granddaughter recorded."
 msgid_plural "%2$s has %1$d granddaughters recorded."
 msgstr[0] "Voor %2$s is %1$d kleindochter geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d kleindochters geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:572
 #, php-format
 msgid "%2$s has %1$d grandson recorded."
 msgid_plural "%2$s has %1$d grandsons recorded."
 msgstr[0] "Voor %2$s is %1$d kleinzoon geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d kleinzonen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:574
 #, php-format
 msgid "%2$s has %1$d grandchild of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d grandchildren of diverse or unknown sex recorded."
 msgstr[0] "Voor %2$s is %1$d kleinkind van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d kleinkinderen van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d kleinkinderen van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:576
-#: resources/views/partials/family-part-summary.phtml:579
 #, php-format
 msgid "%2$s has %1$d grandson and"
 msgid_plural "%2$s has %1$d grandsons and"
 msgstr[0] "Voor %2$s zijn %1$d kleinzoon en"
 msgstr[1] "Voor %2$s zijn %1$d kleinzonen en"
 
-#: resources/views/partials/family-part-summary.phtml:577
 #, php-format
 msgid "%d granddaughter recorded (%d in total)."
 msgid_plural "%d granddaughters recorded (%d in total)."
 msgstr[0] "%d kleindochter geregistreerd (%d in totaal)."
 msgstr[1] "%d kleindochters geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:580
-#: resources/views/partials/family-part-summary.phtml:583
-#: resources/views/partials/family-part-summary.phtml:587
 #, php-format
 msgid "%d grandchild of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d grandchildren of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d grandchildren of diverse or unknown sex recorded (%d in total)."
 msgstr[0] "%d kleinkind van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d kleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d kleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:582
 #, php-format
 msgid "%2$s has %1$d granddaughter and"
 msgid_plural "%2$s has %1$d granddaughters and"
 msgstr[0] "Voor %2$s zijn %1$d kleindochter en"
 msgstr[1] "Voor %2$s zijn %1$d kleindochters en"
 
-#: resources/views/partials/family-part-summary.phtml:585
 #, php-format
 msgid "%2$s has %1$d grandson,"
 msgid_plural "%2$s has %1$d grandsons,"
 msgstr[0] "Voor %2$s zijn %1$d kleinzoon,"
 msgstr[1] "Voor %2$s zijn %1$d kleinzonen,"
 
-#: resources/views/partials/family-part-summary.phtml:586
 #, php-format
 msgid "%d granddaughter, and"
 msgid_plural "%d granddaughters, and"
 msgstr[0] "%d kleindochter en"
 msgstr[1] "%d kleindochters en"
 
-#: resources/views/partials/family-part-summary.phtml:593
 #, php-format
 msgid "%s has one great-granddaughter recorded."
 msgstr "Voor %s is één achterkleindochter geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:595
 #, php-format
 msgid "%s has one great-grandson recorded."
 msgstr "Voor %s is één achterkleinzoon geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:597
 #, php-format
 msgid "%s has one great-grandchild of diverse or unknown sex recorded."
 msgstr "Voor %s is één achterkleinkind van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:601
 #, php-format
 msgid "%2$s has %1$d great-granddaughter recorded."
 msgid_plural "%2$s has %1$d great-granddaughters recorded."
 msgstr[0] "Voor %2$s is %1$d achterkleindochter geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d achterkleindochters geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:603
 #, php-format
 msgid "%2$s has %1$d great-grandson recorded."
 msgid_plural "%2$s has %1$d great-grandsons recorded."
 msgstr[0] "Voor %2$s is %1$d achterkleinzoon geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d achterkleinzonen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:605
 #, php-format
 msgid "%2$s has %1$d great-grandchild of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d great-grandchildren of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d achterkleinkind van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d achterkleinkinderen van onbekend geslacht geregistreerd."
+msgid_plural "%2$s has %1$d great-grandchildren of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d achterkleinkind van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d achterkleinkinderen van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:607
-#: resources/views/partials/family-part-summary.phtml:610
 #, php-format
 msgid "%2$s has %1$d great-grandson and"
 msgid_plural "%2$s has %1$d great-grandsons and"
 msgstr[0] "Voor %2$s zijn %1$d achterkleinzoon en"
 msgstr[1] "%2$s heeft %1$d achterkleinzonen en"
 
-#: resources/views/partials/family-part-summary.phtml:608
 #, php-format
 msgid "%d great-granddaughter recorded (%d in total)."
 msgid_plural "%d great-granddaughters recorded (%d in total)."
 msgstr[0] "%d achterkleindochter geregistreerd (%d in totaal)."
 msgstr[1] "%d achterkleindochters geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:611
-#: resources/views/partials/family-part-summary.phtml:614
-#: resources/views/partials/family-part-summary.phtml:618
 #, php-format
 msgid "%d great-grandchild of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d great-grandchildren of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-"%d achterkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d achterkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+msgid_plural "%d great-grandchildren of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d achterkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d achterkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:613
 #, php-format
 msgid "%2$s has %1$d great-granddaughter and"
 msgid_plural "%2$s has %1$d great-granddaughters and"
 msgstr[0] "Voor %2$s zijn %1$d achterkleindochter en"
 msgstr[1] "Voor %2$s zijn %1$d achterkleindochters en"
 
-#: resources/views/partials/family-part-summary.phtml:616
 #, php-format
 msgid "%2$s has %1$d great-grandson,"
 msgid_plural "%2$s has %1$d great-grandsons,"
 msgstr[0] "Voor %2$s is %1$d achterkleinzoon,"
 msgstr[1] "Voor %2$s is %1$d achterkleinzonen,"
 
-#: resources/views/partials/family-part-summary.phtml:617
 #, php-format
 msgid "%d great-granddaughter, and"
 msgid_plural "%d great-granddaughters, and"
 msgstr[0] "%d achterkleindochter en"
 msgstr[1] "%d achterkleindochters en"
 
-#: resources/views/partials/family-part-summary.phtml:624
 #, php-format
 msgid "%s has one granddaughter-in-law recorded."
 msgstr "Voor %s is één schoonkleindochter geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:626
 #, php-format
 msgid "%s has one grandson-in-law recorded."
 msgstr "Voor %s is één schoonkleinzoon geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:628
 #, php-format
 msgid "%s has one grandchild-in-law of diverse or unknown sex recorded."
 msgstr "Voor %s is één schoonkleinkind van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:632
 #, php-format
 msgid "%2$s has %1$d granddaughter-in-law recorded."
 msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d schoonkleindochter geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d schoonkleindochters geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:634
 #, php-format
 msgid "%2$s has %1$d grandson-in-law recorded."
 msgid_plural "%2$s has %1$d grandsons-in-law recorded."
 msgstr[0] "Voor %2$s is %1$d schoonkleinzoon geregistreerd."
 msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:636
 #, php-format
 msgid "%2$s has %1$d grandchild-in-law of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d grandchildren-in-law of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d schoonkleinkind van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d schoonkleinkinderen van onbekend geslacht geregistreerd."
+msgid_plural "%2$s has %1$d grandchildren-in-law of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d schoonkleinkind van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonkleinkinderen van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:638
-#: resources/views/partials/family-part-summary.phtml:641
 #, php-format
 msgid "%2$s has %1$d grandson-in-law and"
 msgid_plural "%2$s has %1$d grandsons-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d schoonkleinzoon en"
 msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen en"
 
-#: resources/views/partials/family-part-summary.phtml:639
 #, php-format
 msgid "%d granddaughter-in-law recorded (%d in total)."
 msgid_plural "%d granddaughters-in-law recorded (%d in total)."
 msgstr[0] "%d schoonkleindochter geregistreerd (%d in totaal)."
 msgstr[1] "%d schoonkleindochters geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:642
-#: resources/views/partials/family-part-summary.phtml:645
-#: resources/views/partials/family-part-summary.phtml:649
 #, php-format
 msgid "%d grandchild-in-law of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d grandchildren-in-law of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-"%d schoonkleinkind van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d schoonkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+msgid_plural "%d grandchildren-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d schoonkleinkind van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:644
 #, php-format
 msgid "%2$s has %1$d granddaughter-in-law and"
 msgid_plural "%2$s has %1$d granddaughters-in-law and"
 msgstr[0] "Voor %2$s zijn %1$d schoonkleindochter en"
 msgstr[1] "Voor %2$s zijn %1$d schoonkleindochters en"
 
-#: resources/views/partials/family-part-summary.phtml:647
 #, php-format
 msgid "%2$s has %1$d grandson-in-law,"
 msgid_plural "%2$s has %1$d grandsons-in-law,"
 msgstr[0] "Voor %2$s zijn %1$d schoonkleinzoon,"
 msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen,"
 
-#: resources/views/partials/family-part-summary.phtml:648
 #, php-format
 msgid "%d granddaughter-in-law, and"
 msgid_plural "%d granddaughters-in-law, and"
 msgstr[0] "%d schoonkleindochter en"
 msgstr[1] "%d schoonkleindochters en"
 
-#: resources/views/partials/family-part-summary.phtml:655
-#, fuzzy, php-format
-#| msgid "%s has one granddaughter-in-law recorded."
+#, php-format
 msgid "%s has one great-granddaughter-in-law recorded."
-msgstr "Voor %s is één schoonkleindochter geregistreerd."
+msgstr "Voor %s is één schoonachterkleindochter geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:657
-#, fuzzy, php-format
-#| msgid "%s has one grandson-in-law recorded."
+#, php-format
 msgid "%s has one great-grandson-in-law recorded."
-msgstr "Voor %s is één schoonkleinzoon geregistreerd."
+msgstr "Voor %s is één schoonachterkleinzoon geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:659
-#, fuzzy, php-format
-#| msgid "%s has one grandchild-in-law of diverse or unknown sex recorded."
+#, php-format
 msgid "%s has one great-grandchild-in-law of diverse or unknown sex recorded."
-msgstr "Voor %s is één schoonkleinkind van onbekend geslacht geregistreerd."
+msgstr "Voor %s is één schoonachterkleinkind van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:663
-#, fuzzy, php-format
-#| msgid "%2$s has %1$d granddaughter-in-law recorded."
-#| msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+#, php-format
 msgid "%2$s has %1$d great-granddaughter-in-law recorded."
 msgid_plural "%2$s has %1$d great-granddaughters-in-law recorded."
-msgstr[0] "Voor %2$s is %1$d schoonkleindochter geregistreerd."
-msgstr[1] "Voor %2$s zijn %1$d schoonkleindochters geregistreerd."
+msgstr[0] "Voor %2$s is %1$d schoonachterkleindochter geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonachterkleindochters geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:665
-#, fuzzy, php-format
-#| msgid "%2$s has %1$d grandson-in-law recorded."
-#| msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+#, php-format
 msgid "%2$s has %1$d great-grandson-in-law recorded."
 msgid_plural "%2$s has %1$d great-grandsons-in-law recorded."
-msgstr[0] "Voor %2$s is %1$d schoonkleinzoon geregistreerd."
-msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen geregistreerd."
+msgstr[0] "Voor %2$s is %1$d schoonachterkleinzoon geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonachterkleinzonen geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:667
-#, fuzzy, php-format
-#| msgid "%2$s has %1$d grandchild-in-law of diverse or unknown sex recorded."
-#| msgid_plural ""
-#| "%2$s has %1$d grandchildren-in-law of diverse or unknown sex recorded."
-msgid ""
-"%2$s has %1$d great-grandchild-in-law of diverse or unknown sex recorded."
-msgid_plural ""
-"%2$s has %1$d great-grandchildren-in-law of diverse or unknown sex recorded."
-msgstr[0] ""
-"Voor %2$s is %1$d schoonkleinkind van onbekend geslacht geregistreerd."
-msgstr[1] ""
-"Voor %2$s zijn %1$d schoonkleinkinderen van onbekend geslacht geregistreerd."
+#, php-format
+msgid "%2$s has %1$d great-grandchild-in-law of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d great-grandchildren-in-law of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d schoonachterkleinkind van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d schoonachterkleinkinderen van onbekend geslacht geregistreerd."
 
-#: resources/views/partials/family-part-summary.phtml:669
-#: resources/views/partials/family-part-summary.phtml:672
-#, fuzzy, php-format
-#| msgid "%2$s has %1$d grandson-in-law and"
-#| msgid_plural "%2$s has %1$d grandsons-in-law and"
+#, php-format
 msgid "%2$s has %1$d great-grandson-in-law and"
 msgid_plural "%2$s has %1$d great-grandsons-in-law and"
-msgstr[0] "Voor %2$s zijn %1$d schoonkleinzoon en"
-msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen en"
+msgstr[0] "Voor %2$s zijn %1$d schoonachterkleinzoon en"
+msgstr[1] "Voor %2$s zijn %1$d schoonachterkleinzonen en"
 
-#: resources/views/partials/family-part-summary.phtml:670
-#, fuzzy, php-format
-#| msgid "%d granddaughter-in-law recorded (%d in total)."
-#| msgid_plural "%d granddaughters-in-law recorded (%d in total)."
+#, php-format
 msgid "%d great-granddaughter-in-law recorded (%d in total)."
 msgid_plural "%d great-granddaughters-in-law recorded (%d in total)."
-msgstr[0] "%d schoonkleindochter geregistreerd (%d in totaal)."
-msgstr[1] "%d schoonkleindochters geregistreerd (%d in totaal)."
+msgstr[0] "%d schoonachterkleindochter geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonachterkleindochters geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:673
-#: resources/views/partials/family-part-summary.phtml:676
-#: resources/views/partials/family-part-summary.phtml:680
-#, fuzzy, php-format
-#| msgid ""
-#| "%d grandchild-in-law of diverse or unknown sex recorded (%d in total)."
-#| msgid_plural ""
-#| "%d grandchildren-in-law of diverse or unknown sex recorded (%d in total)."
-msgid ""
-"%d great-grandchild-in-law of diverse or unknown sex recorded (%d in total)."
-msgid_plural ""
-"%d great-grandchildren-in-law of diverse or unknown sex recorded (%d in "
-"total)."
-msgstr[0] ""
-"%d schoonkleinkind van onbekend geslacht geregistreerd (%d in totaal)."
-msgstr[1] ""
-"%d schoonkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
+#, php-format
+msgid "%d great-grandchild-in-law of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d great-grandchildren-in-law of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d schoonachterkleinkind van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d schoonachterkleinkinderen van onbekend geslacht geregistreerd (%d in totaal)."
 
-#: resources/views/partials/family-part-summary.phtml:675
-#, fuzzy, php-format
-#| msgid "%2$s has %1$d granddaughter-in-law and"
-#| msgid_plural "%2$s has %1$d granddaughters-in-law and"
+#, php-format
 msgid "%2$s has %1$d great-granddaughter-in-law and"
 msgid_plural "%2$s has %1$d great-granddaughters-in-law and"
-msgstr[0] "Voor %2$s zijn %1$d schoonkleindochter en"
-msgstr[1] "Voor %2$s zijn %1$d schoonkleindochters en"
+msgstr[0] "Voor %2$s zijn %1$d schoonachterkleindochter en"
+msgstr[1] "Voor %2$s zijn %1$d schoonachterkleindochters en"
 
-#: resources/views/partials/family-part-summary.phtml:678
-#, fuzzy, php-format
-#| msgid "%2$s has %1$d grandson-in-law,"
-#| msgid_plural "%2$s has %1$d grandsons-in-law,"
+#, php-format
 msgid "%2$s has %1$d great-grandson-in-law,"
 msgid_plural "%2$s has %1$d great-grandsons-in-law,"
-msgstr[0] "Voor %2$s zijn %1$d schoonkleinzoon,"
-msgstr[1] "Voor %2$s zijn %1$d schoonkleinzonen,"
+msgstr[0] "Voor %2$s zijn %1$d schoonachterkleinzoon,"
+msgstr[1] "Voor %2$s zijn %1$d schoonachterkleinzonen,"
 
-#: resources/views/partials/family-part-summary.phtml:679
-#, fuzzy, php-format
-#| msgid "%d granddaughter-in-law, and"
-#| msgid_plural "%d granddaughters-in-law, and"
+#, php-format
 msgid "%d great-granddaughter-in-law, and"
 msgid_plural "%d great-granddaughters-in-law, and"
-msgstr[0] "%d schoonkleindochter en"
-msgstr[1] "%d schoonkleindochters en"
+msgstr[0] "%d schoonachterleindochter en"
+msgstr[1] "%d schoonachterkleindochters en"
 
-#: resources/views/partials/filter-controls.phtml:17
 msgid "show only male persons"
 msgstr "toon alleen mannen"
 
-#: resources/views/partials/filter-controls.phtml:21
 msgid "show only female persons"
 msgstr "toon alleen vrouwen"
 
-#: resources/views/partials/filter-controls.phtml:25
 msgid "show only persons of diverse or unknown gender"
 msgstr "toon alleen personen van een ander of onbekend geslacht"
 
-#: resources/views/partials/filter-controls.phtml:34
 msgid "show only alive persons"
 msgstr "toon alleen levende personen"
 
-#: resources/views/partials/filter-controls.phtml:36
 msgid "alive"
 msgstr "levend"
 
-#: resources/views/partials/filter-controls.phtml:38
 msgid "show only dead persons"
 msgstr "toon alleen overleden personen"
 
-#: resources/views/partials/filter-controls.phtml:40
 msgid "dead"
 msgstr "overleden"
 
-#: resources/views/partials/summary.phtml:21
 msgid "Summary for the shown extended family"
 msgstr "Samenvatting voor de getoonde uitgebreide familie"
 
-#: resources/views/partials/summary.phtml:22
 #, php-format
 msgid "The extended family has only %1$s as a member."
 msgid_plural "The extended family of %1$s has %2$d members (including %3$s)."
 msgstr[0] "De uitgebreide familie heeft alleen %1$s als lid."
 msgstr[1] "De uitgebreide familie van %1$s heeft %2$d leden (inclusief %3$s)."
 
-#: resources/views/partials/summary.phtml:22
 msgid "(additional members of the partner chains are not counted)"
 msgstr "(extra leden van de partnerketens worden niet meegeteld)"
 
-#: resources/views/partials/summary.phtml:24
 msgid "Some of them are member in more than one part of the extended family."
-msgstr ""
-"Sommigen van hen zijn lid van meer dan één deel van de uitgebreide familie."
+msgstr "Sommigen van hen zijn lid van meer dan één deel van de uitgebreide familie."
 
-#: resources/views/partials/summary.phtml:29
 #, php-format
 msgid "Living members: %1$s (%2$s); deceased members: %3$s (%4$s)."
 msgstr "Levende leden: %1$s (%2$s); overleden leden: %3$s (%4$s)."
 
-#: resources/views/partials/summary.phtml:33
 #, php-format
-msgid ""
-"Gender distribution: %1$s male (%2$s), %3$s female (%4$s), %5$s other or "
-"unknown (%6$s)."
-msgstr ""
-"Geslachtsverdeling: %1$s mannen (%2$s), %3$s vrouwen (%4$s), %5$s overig of "
-"onbekend (%6$s)."
+msgid "Gender distribution: %1$s male (%2$s), %3$s female (%4$s), %5$s other or unknown (%6$s)."
+msgstr "Geslachtsverdeling: %1$s mannen (%2$s), %3$s vrouwen (%4$s), %5$s overig of onbekend (%6$s)."
 
-#: resources/views/partials/summary.phtml:35
 #, php-format
 msgid "Gender distribution: %1$s male (%2$s), %3$s female (%4$s)."
 msgstr "Geslachtsverdeling: %1$s mannen (%2$s), %3$s vrouwen (%4$s)."
 
-#: resources/views/partials/summary.phtml:45
 #, php-format
 msgid "%s has no %s recorded."
 msgstr "Voor %s zijn geen %s geregistreerd."
 
-#: resources/views/partials/summary.phtml:53
 #, php-format
 msgid "%s has no %s, and no %s recorded."
 msgstr "Voor %s zijn geen %s en geen %s geregistreerd."
 
-#: resources/views/print.phtml:28 resources/views/tab.phtml:35
 msgid "Print/PDF"
-msgstr ""
+msgstr "Afdrukken/PDF"
 
-#: resources/views/print.phtml:31
 msgid "Individual"
-msgstr ""
+msgstr "Persoon"
 
-#: resources/views/print.phtml:78 resources/views/tab.phtml:88
 msgid "No family available"
 msgstr "Geen familie gevonden"
 
-#: resources/views/settings.phtml:36
 msgid "Control panel"
 msgstr "Controlepaneel"
 
-#: resources/views/settings.phtml:37
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-#: resources/views/settings.phtml:38
 msgid "Move down"
 msgstr "Omlaag"
 
-#: resources/views/settings.phtml:39
 msgid "Move up"
 msgstr "Omhoog"
 
-#: resources/views/settings.phtml:40
 msgid "no"
 msgstr "nee"
 
-#: resources/views/settings.phtml:41
 msgid "save"
 msgstr "opslaan"
 
-#: resources/views/settings.phtml:42
 msgid "yes"
 msgstr "ja"
 
-#: resources/views/settings.phtml:56
 msgid "In which sequence should the parts of the extended family be shown?"
-msgstr ""
-"In welke volgorde moeten de delen van de uitgebreide familie worden "
-"weergegeven?"
+msgstr "In welke volgorde moeten de delen van de uitgebreide familie worden weergegeven?"
 
-#: resources/views/settings.phtml:58 resources/views/settings.phtml:59
 msgid "Quick selection for family parts"
-msgstr ""
+msgstr "Snelkeuze voor familiedelen"
 
-#: resources/views/settings.phtml:62
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable all"
-msgstr "Ingeschakeld"
+msgstr "Alles inschakelen"
 
-#: resources/views/settings.phtml:65
 msgid "Disable all"
-msgstr ""
+msgstr "Alles uitschakelen"
 
-#: resources/views/settings.phtml:70
 msgid "Enable all in-law family parts"
-msgstr ""
+msgstr "Alle schoonfamiliedelen inschakelen"
 
-#: resources/views/settings.phtml:73
 msgid "Disable all in-law family parts"
-msgstr ""
+msgstr "Alle schoonfamiliedelen uitschakelen"
 
-#: resources/views/settings.phtml:77 resources/views/settings.phtml:78
 msgid "Degree"
-msgstr ""
+msgstr "Graad"
 
-#: resources/views/settings.phtml:78
 msgid "unlimited"
-msgstr ""
+msgstr "onbeperkt"
 
-#: resources/views/settings.phtml:80
 msgid "Enable up to this degree"
-msgstr ""
+msgstr "Inschakelen tot deze graad"
 
-#: resources/views/settings.phtml:85
-msgid ""
-"The quick selection changes only the checkboxes below. The configuration is "
-"saved when you click \"save\"."
-msgstr ""
+msgid "The quick selection changes only the checkboxes below. The configuration is saved when you click \"save\"."
+msgstr "De snelkeuze wijzigt alleen de onderstaande selectievakjes. De instellingen worden opgeslagen wanneer u op “opslaan” klikt."
 
-#: resources/views/settings.phtml:91
 msgid "Family part (generation relative to proband)"
 msgstr "Familiedeel (generatie ten opzichte van proband)"
 
-#: resources/views/settings.phtml:146
 msgid "Show options to filter the results?"
 msgstr "Toon opties om resultaten te filteren?"
 
-#: resources/views/settings.phtml:147
-msgid ""
-"This allows a user to filter the members of the extended family by gender "
-"and if they are alive or dead."
+msgid "This allows a user to filter the members of the extended family by gender and if they are alive or dead."
 msgstr ""
-"Hiermee kan een gebruiker de leden van de uitgebreide familie filteren op "
-"geslacht en of ze nog in leven zijn of al zijn overleden."
+"Hiermee kan een gebruiker de leden van de uitgebreide familie filteren op geslacht en of ze nog in leven zijn of al zijn overleden."
 
-#: resources/views/settings.phtml:152
 msgid "Show filter options"
 msgstr "Toon filteropties"
 
-#: resources/views/settings.phtml:160
 msgid "Should a summary block be shown?"
 msgstr "Moet een samenvattingsblok worden getoond?"
 
-#: resources/views/settings.phtml:161
 msgid "The summary contains information about the extended family in total."
-msgstr ""
-"De samenvatting bevat informatie over de totalen van de uitgebreide familie."
+msgstr "De samenvatting bevat informatie over de totalen van de uitgebreide familie."
 
-#: resources/views/settings.phtml:166
 msgid "Show summary"
 msgstr "Toon samenvatting"
 
-#: resources/views/settings.phtml:174
 msgid "Should summary statistics be shown?"
 msgstr "Moet de samenvattingsstatistieken worden getoond?"
 
-#: resources/views/settings.phtml:175
 msgid ""
-"The summary statistics contain additional information about living and "
-"deceased members, gender distribution, and the known date range."
+"The summary statistics contain additional information about living and deceased members, gender distribution, and the known date "
+"range."
 msgstr ""
-"De samenvattingsstatistieken bevatten aanvullende informatie over levende en "
-"overleden personen, de geslachtsverdeling en de bekende periode."
+"De samenvattingsstatistieken bevatten aanvullende informatie over levende en overleden personen, de geslachtsverdeling en de bekende "
+"periode."
 
-#: resources/views/settings.phtml:180
 msgid "Show summary statistics"
 msgstr "Toon samenvattingsstatistieken"
 
-#: resources/views/settings.phtml:188
 msgid "How should empty parts of extended family be presented?"
 msgstr "Hoe moeten lege delen van de uitgebreide familie worden weergegeven?"
 
-#: resources/views/settings.phtml:193
 msgid "Show empty block"
 msgstr "Toon leeg vak"
 
-#: resources/views/settings.phtml:196
 msgid "yes, always at standard location"
 msgstr "ja, altijd op de standaardlocatie"
 
-#: resources/views/settings.phtml:196
 msgid "no, but collect messages about empty blocks at the summary block"
-msgstr ""
-"nee, maar verzamel meldingen over lege blokken in het samenvattingsblok"
+msgstr "nee, maar verzamel meldingen over lege blokken in het samenvattingsblok"
 
-#: resources/views/settings.phtml:196
 msgid "never"
 msgstr "nooit"
 
-#: resources/views/settings.phtml:201
-msgid ""
-"Count the members of the partner chains as members of the extended family?"
-msgstr ""
-"Tellen de leden van de partnerketens mee als leden van de uitgebreide "
-"familie?"
+msgid "Count the members of the partner chains as members of the extended family?"
+msgstr "Tellen de leden van de partnerketens mee als leden van de uitgebreide familie?"
 
-#: resources/views/settings.phtml:203
 msgid ""
-"If you select \"no\", then the additional members in the partner chains will "
-"not be counted to the total number of individuals in the extended family."
+"If you select \"no\", then the additional members in the partner chains will not be counted to the total number of individuals in "
+"the extended family."
 msgstr ""
-"Als u \"nee\" selecteert, worden de extra leden in de partnerketens niet "
-"meegeteld bij het totaalaantal personen in de uitgebreide familie."
+"Als u \"nee\" selecteert, worden de extra leden in de partnerketens niet meegeteld bij het totaalaantal personen in de uitgebreide "
+"familie."
 
-#: resources/views/settings.phtml:204
+msgid "And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart."
+msgstr ""
+"En deze personen en gezinnen worden niet geselecteerd wanneer een gebruiker besluit om de uitgebreide familie naar de "
+"stamboomknipsels te kopiëren."
+
 msgid ""
-"And these persons and families will be not selected when a user decides to "
-"copy the extended family to the clippings cart."
+"But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom "
+"module \"enhanced clippings cart\": \"add partner chains for an individual\"."
 msgstr ""
-"En deze personen en gezinnen worden niet geselecteerd wanneer een gebruiker "
-"besluit om de uitgebreide familie naar de stamboomknipsels te kopiëren."
+"Maar zelfs in dat geval kunt u deze personen en gezinnen naar de stamboomknipsels kopiëren door gebruik te maken van een speciaal "
+"menu-item in de aangepaste module \"uitgebreide stamboomknipsels\": \"voeg partnerketens toe voor een persoon\"."
 
-#: resources/views/settings.phtml:205
 msgid ""
-"But even in this case, you can copy these persons and families to the "
-"clippings cart by using a special menu topic of the custom module \"enhanced "
-"clippings cart\": \"add partner chains for an individual\"."
+"This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended "
+"family."
 msgstr ""
-"Maar zelfs in dat geval kunt u deze personen en gezinnen naar de "
-"stamboomknipsels kopiëren door gebruik te maken van een speciaal menu-item "
-"in de aangepaste module \"uitgebreide stamboomknipsels\": \"voeg "
-"partnerketens toe voor een persoon\"."
+"Dit is alleen van toepassing als u in de bovenstaande tabel hebt aangegeven dat de partnerketens moeten worden weergegeven als "
+"onderdeel van de uitgebreide familie."
 
-#: resources/views/settings.phtml:206
-msgid ""
-"This is only relevant if you have chosen in the above table, that the "
-"partner chains should be shown as a part of the extended family."
-msgstr ""
-"Dit is alleen van toepassing als u in de bovenstaande tabel hebt aangegeven "
-"dat de partnerketens moeten worden weergegeven als onderdeel van de "
-"uitgebreide familie."
-
-#: resources/views/settings.phtml:212
 msgid "Include them"
 msgstr "Opnemen"
 
-#: resources/views/settings.phtml:220
 msgid "Show parameters of extended family part?"
 msgstr "Toon parameters van uitgebreidefamiliedeel?"
 
-#: resources/views/settings.phtml:221
 msgid ""
-"Display of additional information for each part of the extended family, such "
-"as the generation shift and the coefficient of relationship, which is a "
-"measure of the degree of consanguinity."
+"Display of additional information for each part of the extended family, such as the generation shift and the coefficient of "
+"relationship, which is a measure of the degree of consanguinity."
 msgstr ""
-"Weergave van aanvullende informatie voor elk deel van de uitgebreide "
-"familie, zoals de generatieverschuiving en de verwantschapscoëfficiënt, die "
-"een vermenigvuldigingsfactor is voor de graad van bloedverwantschap."
+"Weergave van aanvullende informatie voor elk deel van de uitgebreide familie, zoals de generatieverschuiving en de "
+"verwantschapscoëfficiënt, die een vermenigvuldigingsfactor is voor de graad van bloedverwantschap."
 
-#: resources/views/settings.phtml:226
 msgid "Show parameters"
 msgstr "Toon parameters"
 
-#: resources/views/settings.phtml:234
 msgid "Use the compact design?"
 msgstr "Compact ontwerp gebruiken?"
 
-#: resources/views/settings.phtml:235
 msgid ""
-"The compact design only shows the name and life span for each person. The "
-"enriched design also shows a photo (if this is activated for this tree) as "
-"well as birth and death information."
+"The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated "
+"for this tree) as well as birth and death information."
 msgstr ""
-"Het compacte ontwerp toont alleen de naam en levensduur van elk persoon. Het "
-"verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd) "
-"en geboorte- en overlijdensinformatie."
+"Het compacte ontwerp toont alleen de naam en levensduur van elk persoon. Het verrijkte ontwerp toont ook een foto (als dit voor deze "
+"boom is geactiveerd) en geboorte- en overlijdensinformatie."
 
-#: resources/views/settings.phtml:240
 msgid "Use the compact design"
 msgstr "Gebruik compact ontwerp"
 
-#: resources/views/settings.phtml:248
 msgid "Show name of proband as short name or as full name?"
 msgstr "Toon naam van proband als korte naam of als volledige naam?"
 
-#: resources/views/settings.phtml:249
 msgid ""
-"The short name is based on the probands Rufname or nickname. If these are "
-"not available, the first of the given names is used, if one is given. "
-"Otherwise the last name is used."
+"The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if "
+"one is given. Otherwise the last name is used."
 msgstr ""
-"De korte naam is gebaseerd op de roepnaam of bijnaam van de proband. Als "
-"deze niet beschikbaar zijn, wordt de eerste van de voornamen gebruikt, als "
-"er een is opgegeven. Anders wordt de achternaam gebruikt."
+"De korte naam is gebaseerd op de roepnaam of bijnaam van de proband. Als deze niet beschikbaar zijn, wordt de eerste van de "
+"voornamen gebruikt, als er een is opgegeven. Anders wordt de achternaam gebruikt."
 
-#: resources/views/settings.phtml:254
 msgid "Show short name"
 msgstr "Toon korte naam"
 
-#: resources/views/settings.phtml:262
 msgid "How should place names be shown in event boxes?"
 msgstr "Hoe moeten plaatsnamen in gebeurtenisvakken worden getoond?"
 
-#: resources/views/settings.phtml:263
-msgid ""
-"This setting controls whether event places are shown as full place names or "
-"as abbreviated place names."
-msgstr ""
-"Deze instelling bepaalt of locaties van gebeurtenissen worden getoond als "
-"volledige plaatsnamen of als afgekorte plaatsnamen."
+msgid "This setting controls whether event places are shown as full place names or as abbreviated place names."
+msgstr "Deze instelling bepaalt of locaties van gebeurtenissen worden getoond als volledige plaatsnamen of als afgekorte plaatsnamen."
 
-#: resources/views/settings.phtml:268
 msgid "Place name format"
 msgstr "Plaatsnaamnotatie"
 
-#: resources/views/settings.phtml:276
 msgid "Show labels in special situations?"
 msgstr "Toon labels in bijzondere situaties?"
 
-#: resources/views/settings.phtml:277
-msgid ""
-"Labels (or stickers) are used for example for adopted persons or foster "
-"children."
-msgstr ""
-"Labels (of stickers) worden gebruikt voor bijvoorbeeld geadopteerde personen "
-"of pleegkinderen."
+msgid "Labels (or stickers) are used for example for adopted persons or foster children."
+msgstr "Labels (of stickers) worden gebruikt voor bijvoorbeeld geadopteerde personen of pleegkinderen."
 
-#: resources/views/settings.phtml:282
 msgid "Show labels"
 msgstr "Toon labels"
 
-#: resources/views/settings.phtml:290
-#, fuzzy
-#| msgid "Show a button \"copy to clippings cart\"?"
+msgid "Show relationship to the proband as mouse-over text?"
+msgstr "Toon verwantschap met de proband als mouse-overtekst?"
+
+msgid "This shows the relationship of a person to the proband when the mouse pointer is over the name."
+msgstr "Hierdoor wordt de verwantschap van een persoon tot de proband weergegeven wanneer de muisaanwijzer op de naam wordt geplaatst."
+
+msgid "Show relationship"
+msgstr "Toon verwantschap"
+
 msgid "Show a button \"Print/PDF\"?"
-msgstr "Toon een knop \"kopiëren naar stamboomknipsels\"?"
+msgstr "Toon een knop \"Afdrukken/PDF\"?"
 
-#: resources/views/settings.phtml:291
-msgid ""
-"This allows a user to open a print-optimized view and save it as a PDF file "
-"from the browser print dialog."
+msgid "This allows a user to open a print-optimized view and save it as a PDF file from the browser print dialog."
 msgstr ""
+"Hierdoor kan een gebruiker een voor afdrukken geoptimaliseerde weergave openen en deze vanuit het afdrukvenster van de browser als "
+"pdf-bestand opslaan."
 
-#: resources/views/settings.phtml:296 resources/views/settings.phtml:315
 msgid "Show button"
 msgstr "Toon knop"
 
-#: resources/views/settings.phtml:304
 msgid "Show a button \"copy to clippings cart\"?"
 msgstr "Toon een knop \"kopiëren naar stamboomknipsels\"?"
 
-#: resources/views/settings.phtml:305
-msgid ""
-"This allows a user to copy all members of the extended family to the "
-"clippings cart."
-msgstr ""
-"Hiermee kan een gebruiker alle leden van de uitgebreide familie naar de "
-"stamboomknipsels kopiëren."
+msgid "This allows a user to copy all members of the extended family to the clippings cart."
+msgstr "Hiermee kan een gebruiker alle leden van de uitgebreide familie naar de stamboomknipsels kopiëren."
 
-#: resources/views/settings.phtml:327
 msgid "Clippings cart action"
 msgstr "Stamboomknipsels-actie"
 
-#: resources/views/settings.phtml:330
 msgid "huhwt-cce (recommended)"
 msgstr "huhwt-cce (aanbevolen)"
-
-#, php-format
-#~ msgid "Parents %1$s (%2$s) of %3$s"
-#~ msgstr "Ouders %1$s (%2$s) van %3$s"
-
-#, fuzzy, php-format
-#~| msgid "Stepparents %1$s (%2$s) of %3$s"
-#~ msgid "Social parents %1$s (%2$s) of %3$s"
-#~ msgstr "Stiefouders %1$s (%2$s) van %3$s"
-
-#, php-format
-#~ msgid "Stepparents %1$s (%2$s) of %3$s"
-#~ msgstr "Stiefouders %1$s (%2$s) van %3$s"
-
-#, php-format
-#~ msgid "Parents %1$s (%2$s) of stepfather %3$s"
-#~ msgstr "Ouders %1$s (%2$s) van stiefvader %3$s"
-
-#, php-format
-#~ msgid "Parents %1$s (%2$s) of stepmother %3$s"
-#~ msgstr "Ouders %1$s (%2$s) van stiefmoeder %3$s"
-
-#, php-format
-#~ msgid "Parents %1$s (%2$s) of stepparent %3$s"
-#~ msgstr "Ouders %1$s (%2$s) van stiefouder %3$s"
-
-#, php-format
-#~ msgid "Grandparents %1$s (%2$s) of stepfather %3$s"
-#~ msgstr "Grootouders %1$s (%2$s) van stiefvader %3$s"
-
-#, php-format
-#~ msgid "Grandparents %1$s (%2$s) of stepmother %3$s"
-#~ msgstr "Grootouders %1$s (%2$s) van stiefmoeder %3$s"
-
-#, php-format
-#~ msgid "Grandparents %1$s (%2$s) of stepparent %3$s"
-#~ msgstr "Grootouders %1$s (%2$s) van stiefouder %3$s"
-
-#, php-format
-#~ msgid "Parents %1$s of %2$s"
-#~ msgstr "Ouders %1$s van %2$s"
-
-#~ msgctxt "Male pedigree"
-#~ msgid "Birth"
-#~ msgstr "Geboorte"
-
-#~ msgctxt "Female pedigree"
-#~ msgid "Birth"
-#~ msgstr "Geboorte"
-
-#~ msgctxt "Pedigree"
-#~ msgid "Birth"
-#~ msgstr "Geboorte"
-
-#~ msgctxt "Male pedigree"
-#~ msgid "Adopted"
-#~ msgstr "Geadopteerd"
-
-#~ msgctxt "Female pedigree"
-#~ msgid "Adopted"
-#~ msgstr "Geadopteerd"
-
-#~ msgctxt "Pedigree"
-#~ msgid "Adopted"
-#~ msgstr "Geadopteerd"
-
-#~ msgctxt "Male pedigree"
-#~ msgid "Foster"
-#~ msgstr "Pleegvader"
-
-#~ msgctxt "Female pedigree"
-#~ msgid "Foster"
-#~ msgstr "Pleegmoeder"
-
-#~ msgctxt "Pedigree"
-#~ msgid "Foster"
-#~ msgstr "Pleegouder"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgctxt "Male pedigree"
-#~ msgid "Sealing"
-#~ msgstr "Verzegeling"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgctxt "Female pedigree"
-#~ msgid "Sealing"
-#~ msgstr "Verzegeling"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgctxt "Pedigree"
-#~ msgid "Sealing"
-#~ msgstr "Verzegeling"
-
-#~ msgid "Rada"
-#~ msgstr "Rada"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "Siblings of father"
-#~ msgstr "Broers/zussen van de vader"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "Siblings of mother"
-#~ msgstr "Broers/zussen van de moeder"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "Siblings-in-law of father"
-#~ msgstr "Zwagers/schoonzussen van de vader"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "Siblings-in-law of mother"
-#~ msgstr "Zwagers/schoonzussen van de moeder"
