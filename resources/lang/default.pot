@@ -117,6 +117,14 @@ msgstr ""
 msgid "Decuplet"
 msgstr ""
 
+#: src/Factory/ExtendedFamilyParts/Partners.php:182
+msgid "Levirate"
+msgstr ""
+
+#: src/Factory/ExtendedFamilyParts/Partners.php:183
+msgid "Sororate"
+msgstr ""
+
 #: src/Factory/Objects/ExtendedFamilySupport.php:524
 msgid "Stillborn"
 msgstr ""
@@ -171,6 +179,10 @@ msgstr ""
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:601
 msgid "partner"
+msgstr ""
+
+#: resources/views/partials/family-part-renderers/partners.phtml
+msgid "%1$s of %2$s"
 msgstr ""
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:657
@@ -2917,6 +2929,18 @@ msgstr ""
 
 #: resources/views/settings.phtml:282
 msgid "Show labels"
+msgstr ""
+
+#: resources/views/settings.phtml:290
+msgid "Show relationship to the proband as mouse-over text?"
+msgstr ""
+
+#: resources/views/settings.phtml:291
+msgid "This shows the relationship of a person to the proband when the mouse pointer is over the name."
+msgstr ""
+
+#: resources/views/settings.phtml:296
+msgid "Show relationship"
 msgstr ""
 
 #: resources/views/settings.phtml:290

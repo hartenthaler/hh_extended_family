@@ -25,7 +25,7 @@
 
 /*
  * tbd
- * -------------------------- ab hier für das Release 2.2.6.5 ------------------------------------------------*
+ * -------------------------- ab hier für das Release 2.2.6.6 ------------------------------------------------*
  * Test: in Testdatei "komplexe Familie" erscheinen keine Personenbadges (adoptiert, etc)
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Test: Prüfen, ob allCountUnique immer richtig berechnet wird
@@ -36,7 +36,7 @@
  * Test: Schwagerehe (etwa Levirat oder Sororat)
  * Doku:README: alle Screenshots aktualisieren
  *
- * -------------------------- ab hier für ein Release nach 2.2.6.5 ------------------------------------------------
+ * -------------------------- ab hier für ein Release nach 2.2.6.6 ------------------------------------------------
  * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von
  *                Partner gemischt sein sollte
  * Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette
@@ -127,7 +127,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.4';
+    public const CUSTOM_VERSION     = '2.2.6.5';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
@@ -194,6 +194,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         $configObj->showPrintButton             = $this->showPrintButton();
         $configObj->showShortName               = $this->showShortName();
         $configObj->showLabels                  = $this->showLabels();
+        $configObj->showRelationshipToProband   = $this->showRelationshipToProband();
         $configObj->useCompactDesign            = $this->useCompactDesign();
         $configObj->useClippingsCart            = $this->useClippingsCart();
         $configObj->shownFamilyParts            = $this->getShownFamilyParts();
@@ -254,6 +255,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_empty_block',
             'show_short_name',
             'show_labels',
+            'show_relationship_to_proband',
             'show_parameters',
             'use_compact_design',
             'place_format',
@@ -343,6 +345,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_empty_block'        => Validator::parsedBody($request)->isInArray(['0', '1', '2'])->string('show_empty_block', '0'),
             'show_short_name'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_short_name', '0'),
             'show_labels'             => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_labels', '0'),
+            'show_relationship_to_proband' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_relationship_to_proband', '0'),
             'show_parameters'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_parameters', '0'),
             'use_compact_design'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_compact_design', '0'),
             'place_format'            => Validator::parsedBody($request)->isInArray($place_format_options)->string('place_format', (string) PlaceAbbreviation::OPTION_FULL_PLACE_NAME),
@@ -543,6 +546,17 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function showLabels(): bool
     {
         return ($this->getPreference('show_labels', '0') == '0');
+    }
+
+    /**
+     * should a person's relationship to the proband be shown as mouse-over text
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool
+     */
+    private function showRelationshipToProband(): bool
+    {
+        return ($this->getPreference('show_relationship_to_proband', '0') == '0');
     }
 
     /**

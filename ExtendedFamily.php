@@ -50,6 +50,7 @@ class ExtendedFamily
      *        ->countPartnerChainsToTotal           bool
      *        ->showShortName                       bool
      *        ->showLabels                          bool
+     *        ->showRelationshipToProband           bool
      *        ->useCompactDesign                    bool
      *        ->useClippingsCart                    bool
      *        ->shownFamilyParts[]                  array<string,object>

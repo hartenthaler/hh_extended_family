@@ -56,10 +56,11 @@ use Fisharebest\Webtrees\Individual;
                         <?php endif ?>
                         <?php if ($filterObj->efp->$propName->allCount): ?>
                             <?= view($module . '::partials/family-part-summary', [
-                                'extfam_obj'  => $extfam_obj,
-                                'filterObj'   => $filterObj,
-                                'propName'    => $propName,
-                                'summaryName' => $summaryName,
+                                'extfam_obj'   => $extfam_obj,
+                                'filterObj'    => $filterObj,
+                                'filterOption' => $filterOption,
+                                'propName'     => $propName,
+                                'summaryName'  => $summaryName,
                             ]) ?>
                             <?= view($module . '::partials/family-part-members', [
                                 'extfam_obj'  => $extfam_obj,

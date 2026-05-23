@@ -146,6 +146,14 @@ msgstr "nonuplés"
 msgid "Decuplet"
 msgstr "décuplés"
 
+#: src/Factory/ExtendedFamilyParts/Partners.php:182
+msgid "Levirate"
+msgstr "Lévirat"
+
+#: src/Factory/ExtendedFamilyParts/Partners.php:183
+msgid "Sororate"
+msgstr "Sororat"
+
 #: src/Factory/Objects/ExtendedFamilySupport.php:524
 msgid "Stillborn"
 msgstr "mort-né"

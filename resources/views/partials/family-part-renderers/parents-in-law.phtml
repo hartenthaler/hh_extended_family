@@ -19,7 +19,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
             <div class="hh_extended_family_box">
                 <h4>
                     <?php if ($group->partner->canShow()): ?>
-                        <?php $relationshipName = ExtendedFamilySupport::relationshipNameToProband($group->partner, $extfam_obj->proband->indi) ?>
+                        <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($group->partner, $extfam_obj->proband->indi) : '' ?>
                         <span class="hh_extended_family_name"><?= I18N::translate($group->partnerFamilyStatus) ?> <?= I18N::translate('with') ?> <a href="<?= e($group->partner->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $group->partner->fullName() ?></a></span>
                     <?php else: ?>
                         <span class="hh_extended_family_name"><?= I18N::translate('Partnership') . ' ' . I18N::translate('with') . ' ' . $group->partner->fullName() ?></span>
@@ -42,7 +42,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                                 <div class="wt-chart-box-thumbnail float-start mr-1"><?= $indi->displayImage($extfam_obj->config->sizeThumbnailW, $extfam_obj->config->sizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
                             <?php endif ?>
                             <span class="hh_extended_family_counter"><?= $i ?></span>
-                            <?php $relationshipName = ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) ?>
+                            <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
                             <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $indi->fullName() ?></a></span>
                             <?php if ($extfam_obj->config->useCompactDesign): ?>
                                 <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>

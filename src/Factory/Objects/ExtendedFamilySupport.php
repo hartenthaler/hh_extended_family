@@ -643,6 +643,18 @@ class ExtendedFamilySupport
     }
 
     /**
+     * Check whether two individuals are biological full or half siblings.
+     *
+     * @param Individual $individual1
+     * @param Individual $individual2
+     * @return bool
+     */
+    public static function areSiblings(Individual $individual1, Individual $individual2): bool
+    {
+        return self::areFullSiblings($individual1, $individual2) || self::areHalfSiblings($individual1, $individual2);
+    }
+
+    /**
      * Translate a sibling label, optionally relative to another sibling.
      *
      * @param Individual $sibling

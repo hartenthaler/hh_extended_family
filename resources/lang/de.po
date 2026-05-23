@@ -120,6 +120,14 @@ msgstr "Neunling"
 msgid "Decuplet"
 msgstr "Zehnling"
 
+#: src/Factory/ExtendedFamilyParts/Partners.php:182
+msgid "Levirate"
+msgstr "Levirat"
+
+#: src/Factory/ExtendedFamilyParts/Partners.php:183
+msgid "Sororate"
+msgstr "Sororat"
+
 #: src/Factory/Objects/ExtendedFamilySupport.php:524
 msgid "Stillborn"
 msgstr "tot geboren"
@@ -175,6 +183,10 @@ msgstr "verlobter Partner"
 #: src/Factory/Objects/ExtendedFamilySupport.php:601
 msgid "partner"
 msgstr "Partner"
+
+#: resources/views/partials/family-part-renderers/partners.phtml
+msgid "%1$s of %2$s"
+msgstr "%1$s von %2$s"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:657
 msgid "Half-brother"
@@ -3276,6 +3288,18 @@ msgstr ""
 #: resources/views/settings.phtml:282
 msgid "Show labels"
 msgstr "Zeige Etiketten"
+
+#: resources/views/settings.phtml:290
+msgid "Show relationship to the proband as mouse-over text?"
+msgstr "Soll die Beziehung zum Probanden als MouseOver-Text angezeigt werden?"
+
+#: resources/views/settings.phtml:291
+msgid "This shows the relationship of a person to the proband when the mouse pointer is over the name."
+msgstr "Dies zeigt die Beziehung einer Person zum Probanden, wenn sich der Mauszeiger über dem Namen befindet."
+
+#: resources/views/settings.phtml:296
+msgid "Show relationship"
+msgstr "Zeige Beziehung"
 
 #: resources/views/settings.phtml:290
 msgid "Show a button \"Print/PDF\"?"

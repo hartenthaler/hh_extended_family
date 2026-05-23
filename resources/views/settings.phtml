@@ -15,6 +15,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var int                     $show_empty_block
  * @var boolean                 $show_short_name
  * @var boolean                 $show_labels
+ * @var boolean                 $show_relationship_to_proband
  * @var boolean                 $show_parameters
  * @var boolean                 $use_compact_design
  * @var string                  $place_format
@@ -283,6 +284,20 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/radios-inline', ['name' => 'show_labels', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_labels]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('Show relationship to the proband as mouse-over text?') ?></h3>
+        <p><?= I18N::translate('This shows the relationship of a person to the proband when the mouse pointer is over the name.') ?></p>
+        <!-- show relationship to proband as mouse-over text -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show relationship') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_relationship_to_proband', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_relationship_to_proband]) ?>
                 </div>
             </div>
         </fieldset>

@@ -22,10 +22,12 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 
 use function array_key_exists;
 use function array_key_first;
+use function in_array;
 
 /**
  * class Partners
@@ -48,6 +50,7 @@ class Partners extends ExtendedFamilyPart
      * special for this extended family part:
      *   ->groups[]->members[]          array of object Individual   (index of groups is "spouse->xref()")
      *             ->familiesStatus[]   string
+     *             ->labels[]           array of array of string
      *             ->partner            object Individual
      *   ->pCount                       int
      *   ->pmaleCount                   int
@@ -88,6 +91,7 @@ class Partners extends ExtendedFamilyPart
             $this->filter( ExtendedFamilySupport::convertfilterOptions($filterOption) );
         }
         $this->addCountersToFamilyPartObject();
+        $this->addLevirateSororateLabels();
         $this->addAdditionalCountersPartners();
     }
 
@@ -123,15 +127,64 @@ class Partners extends ExtendedFamilyPart
             }
             $this->efpObject->groups[$spouse->xref()]->members[] = $individual;
             $this->efpObject->groups[$spouse->xref()]->familiesStatus[] = $familyStatus;
+            $this->efpObject->groups[$spouse->xref()]->labels[] = [];
             $this->efpObject->groups[$spouse->xref()]->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
         } else {                                                                // generate new group of partners
             $newObj = (object)[];
             $newObj->members[] = $individual;
             $newObj->familiesStatus[] = $familyStatus;
+            $newObj->labels[] = [];
             $newObj->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
             $newObj->partner = $spouse;
             $this->efpObject->groups[$spouse->xref()] = $newObj;
         }
+    }
+
+    /**
+     * Add levirate/sororate labels if partners of the same person are siblings.
+     *
+     * @return void
+     */
+    private function addLevirateSororateLabels(): void
+    {
+        foreach ($this->efpObject->groups as $group) {
+            foreach ($group->members as $key => $partner) {
+                $label = $this->levirateSororateLabel($partner, $group->members, $key);
+
+                if ($label !== '') {
+                    $group->labels[$key][] = $label;
+                }
+            }
+        }
+    }
+
+    /**
+     * Get a levirate/sororate label for a partner if a same-sex sibling is also a partner.
+     *
+     * @param Individual $partner
+     * @param array<int,Individual> $partners
+     * @param int|string $partnerKey
+     * @return string
+     */
+    private function levirateSororateLabel(Individual $partner, array $partners, int|string $partnerKey): string
+    {
+        if (!in_array($partner->sex(), ['M', 'F'], true)) {
+            return '';
+        }
+
+        foreach ($partners as $otherKey => $otherPartner) {
+            if ($otherKey === $partnerKey || $otherPartner->sex() !== $partner->sex()) {
+                continue;
+            }
+
+            if (ExtendedFamilySupport::areSiblings($partner, $otherPartner)) {
+                return $partner->sex() === 'M'
+                    ? I18N::translate('Levirate')
+                    : I18N::translate('Sororate');
+            }
+        }
+
+        return '';
     }
 
     /**
