@@ -177,7 +177,7 @@ class ExtendedFamilySupport
             'parents_in_law'         => 2,
             'children_in_law'        => 2,
             'siblings_in_law'        => 2,
-            'partner_chains'         => 2,
+            'partner_chains'         => 2,    // this is used for the admin selection of family parts only, not for the members in a partner chain
             'great_grandparents'     => 3,
             'great_grandchildren'    => 3,
             'cousins'                => 3,
@@ -215,7 +215,7 @@ class ExtendedFamilySupport
         return [
             'M',
             'F',
-            'U',    // used for sex = "X" (other) and sex ="U" (unknown)
+            'U',    // used for sex = "X" (other/divers) and sex ="U" (unknown)
         ];
     }
 
@@ -351,6 +351,38 @@ class ExtendedFamilySupport
     /**
      * Get how an individual is related to the proband using Vesta, if available.
      *
+     * @return bool
+     */
+    public static function relationshipNamesAvailable(): bool
+    {
+        static $available = null;
+
+        if ($available !== null) {
+            return $available;
+        }
+
+        if (!class_exists('\Vesta\VestaUtils', true)) {
+            $available = false;
+
+            return $available;
+        }
+
+        try {
+            $relationshipService = \Vesta\VestaUtils::get(\Fisharebest\Webtrees\Services\RelationshipService::class);
+
+            $available = method_exists($relationshipService, 'getCloseRelationshipName');
+
+            return $available;
+        } catch (\Throwable) {
+            $available = false;
+
+            return $available;
+        }
+    }
+
+    /**
+     * Get how an individual is related to the proband using Vesta, if available.
+     *
      * @param Individual $individual
      * @param Individual $proband
      * @return string
@@ -359,7 +391,7 @@ class ExtendedFamilySupport
     {
         static $relationshipNames = [];
 
-        if ($individual->xref() === $proband->xref() || !class_exists('\Vesta\VestaUtils')) {
+        if ($individual->xref() === $proband->xref() || !self::relationshipNamesAvailable()) {
             return '';
         }
 
@@ -432,7 +464,7 @@ class ExtendedFamilySupport
 
     /**
      * generate a child linkage status label [challenged | disproven | proven]
-     * GEDCOM record is for example ""
+     * GEDCOM record is for example "1 FAMC @F1@\n2 PEDI birth\n2 STAT proven"
      *
      * @param Individual $child
      * @return string
@@ -757,6 +789,42 @@ class ExtendedFamilySupport
         };
     }
 
+   /**
+    * Translate family part names for use inside sentences.
+    *
+    * These strings intentionally differ from the heading labels above. Several
+    * languages use different capitalization in headings and running text.
+    *
+    * @param string $type (in lower case and using _)
+    * @return string
+    */
+    public static function translateFamilyPartSentenceObject(string $type): string
+    {
+        return match ($type) {
+            'great_grandparents'      => I18N::translateContext('Family part name in sentence', 'great-grandparents'),
+            'grandparents'            => I18N::translateContext('Family part name in sentence', 'grandparents'),
+            'uncles_and_aunts'        => I18N::translateContext('Family part name in sentence', 'uncles and aunts'),
+            'uncles_and_aunts_bm'     => I18N::translateContext('Family part name in sentence', 'uncles and aunts by marriage'),
+            'parents'                 => I18N::translateContext('Family part name in sentence', 'parents'),
+            'parents_in_law'          => I18N::translateContext('Family part name in sentence', 'parents-in-law'),
+            'co_parents_in_law'       => I18N::translateContext('Family part name in sentence', 'co-parents-in-law'),
+            'partners'                => I18N::translateContext('Family part name in sentence', 'partners'),
+            'partner_chains'          => I18N::translateContext('Family part name in sentence', 'partner chains'),
+            'siblings'                => I18N::translateContext('Family part name in sentence', 'siblings'),
+            'siblings_in_law'         => I18N::translateContext('Family part name in sentence', 'siblings-in-law'),
+            'co_siblings_in_law'      => I18N::translateContext('Family part name in sentence', 'co-siblings-in-law'),
+            'cousins'                 => I18N::translateContext('Family part name in sentence', 'cousins'),
+            'nephews_and_nieces'      => I18N::translateContext('Family part name in sentence', 'nephews and nieces'),
+            'children'                => I18N::translateContext('Family part name in sentence', 'children'),
+            'children_in_law'         => I18N::translateContext('Family part name in sentence', 'children-in-law'),
+            'grandchildren'           => I18N::translateContext('Family part name in sentence', 'grandchildren'),
+            'great_grandchildren'     => I18N::translateContext('Family part name in sentence', 'great-grandchildren'),
+            'grandchildren_in_law'    => I18N::translateContext('Family part name in sentence', 'grandchildren-in-law'),
+            'great_grandchild_in_law' => I18N::translateContext('Family part name in sentence', 'great-grandchildren-in-law'),
+            default                   => I18N::translate($type),
+        };
+    }
+
     /**
      * Translate comments used for the relationship coefficient badge.
      *
@@ -766,7 +834,7 @@ class ExtendedFamilySupport
     public static function translateRelationshipCoefficientComment(string $comment): string
     {
         return match ($comment) {
-            Great_grandparents::GROUP_GREATGRANDPARENTS_BIO                    => I18N::translate('Biological great-grandparents'),
+            Great_grandparents::GROUP_GREATGRANDPARENTS_BIO                   => I18N::translate('Biological great-grandparents'),
             Grandparents::GROUP_GRANDPARENTS_BIO                              => I18N::translate('Biological grandparents'),
             Uncles_and_aunts::GROUP_UNCLEAUNT_FULL_BIO                        => I18N::translate('Full siblings of biological parents'),
             Parents::GROUP_PARENTS_BIO                                        => I18N::translate('Biological parents'),

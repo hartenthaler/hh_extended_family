@@ -25,21 +25,21 @@
 
 /*
  * tbd
- * -------------------------- ab hier für das Release 2.2.6.6 ------------------------------------------------*
+ * -------------------------- ab hier für das Release 2.2.6.7 ------------------------------------------------*
  * Test: in Testdatei "komplexe Familie" erscheinen keine Personenbadges (adoptiert, etc)
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Test: Prüfen, ob allCountUnique immer richtig berechnet wird
  * Test: Rada testen inkl. Rada-Geschwistern, gibt es ein Badge?
+ * Test: Schwagerehe (etwa Levirat oder Sororat), gibt es ein Badge?
  * Test: was passiert, wenn der webtrees-Sammelbehälter deaktiviert ist?
  * Test: Übersetzung bei den Partnern testen bei diversen Fällen mit gemischtem Geschlecht
  * Test: Stiefcousins (siehe Onkel Walter)
- * Test: Schwagerehe (etwa Levirat oder Sororat)
  * Doku:README: alle Screenshots aktualisieren
  *
- * -------------------------- ab hier für ein Release nach 2.2.6.6 ------------------------------------------------
- * Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von
+ * -------------------------- ab hier für ein Release nach 2.2.6.7 ------------------------------------------------
+ * Bug/Test: Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von
  *                Partner gemischt sein sollte
- * Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette
+ * Bug/Test: Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette
  *                von Di. zu Ga., d.h. dies als zweite Information ergänzen
  * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
  * Code: Qualität überprüfen und wichtigste Dinge als issue formulieren
@@ -82,7 +82,6 @@ use Fisharebest\Webtrees\Services\TreeService;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-//use Cissee\Webtrees\Module\ExtendedRelationships;
 
 use function str_starts_with;
 use function explode;
@@ -111,9 +110,6 @@ class ExtendedFamilyTabModule extends AbstractModule
     // Module file name
     public const CUSTOM_MODULE      = 'hh_extended_family';
 
-    // Module description
-    public const CUSTOM_DESCRIPTION = 'A tab showing the extended family of an individual.';
-
     // Author of custom module
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
 
@@ -127,7 +123,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.5';
+    public const CUSTOM_VERSION     = '2.2.6.6';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
@@ -136,6 +132,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     private const CLIPPINGS_CART_ACTION_CCE      = 'cce';
     private const CLIPPINGS_CART_ACTION_INTERNAL = 'internal';
     private const CLIPPINGS_CART_ENHANCED_MODULE = '_huhwt-cce_';
+    private const VESTA_UTILS_CLASS              = '\Vesta\VestaUtils';
 
     /**
      * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
@@ -228,21 +225,6 @@ class ExtendedFamilyTabModule extends AbstractModule
     }
 
     /**
-     * dependency check if Vesta modules are available (needed for relationship name)
-     *
-     * @param bool $showErrorMessage
-     * @return bool
-     */
-    public static function VestaModulesAvailable(bool $showErrorMessage): bool
-    {
-        $vesta = class_exists("Cissee\WebtreesExt\AbstractModule", true);
-        if (!$vesta && $showErrorMessage) {
-            FlashMessages::addMessage("Missing dependency - Make sure to install all Vesta modules!");
-        }
-        return $vesta;
-    }
-
-    /**
      * generate list of other preferences
      * (control panel options beside the options related to the extended family parts itself)
      *
@@ -284,13 +266,14 @@ class ExtendedFamilyTabModule extends AbstractModule
             $response[$preference] = $this->getPreference($preference);
         }
 
-        $response['efps']           = $this->getShownFamilyParts();
-        $response['title']          = $this->title();
-        $response['description']    = $this->description();
-        $response['uses_sorting']   = true;
-        $response['place_format_options'] = PlaceAbbreviation::abbrPlacesOptions();
-        $response['cce_available']  = $this->isClippingsCartEnhancedAvailable();
+        $response['efps']           	   = $this->getShownFamilyParts();
+        $response['title']          	   = $this->title();
+        $response['description']    	   = $this->description();
+        $response['uses_sorting']   	   = true;
+        $response['place_format_options']  = PlaceAbbreviation::abbrPlacesOptions();
+        $response['cce_available']  	   = $this->isClippingsCartEnhancedAvailable();
         $response['clippings_cart_action'] = $this->clippingsCartAction();
+        $response['relationship_names_available'] = $this->relationshipNamesAvailable();
 
         return $this->viewResponse($this->name() . '::' . 'settings', $response);
     }
@@ -324,6 +307,10 @@ class ExtendedFamilyTabModule extends AbstractModule
 
             if (($params['use_clippings_cart'] ?? '1') === '0' && !$this->isClippingsCartEnhancedAvailable()) {
                 FlashMessages::addMessage($this->clippingsCartEnhancedFallbackMessage(), 'warning');
+            }
+
+            if (($params['show_relationship_to_proband'] ?? '1') === '0' && !$this->relationshipNamesAvailable()) {
+                FlashMessages::addMessage($this->relationshipNamesUnavailableMessage(), 'warning');
             }
         }
         return redirect($this->getConfigLink());
@@ -648,10 +635,47 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     private function isClippingsCartEnhancedAvailable(): bool
     {
-        try {
-            $module = (new ModuleService())->findByName(self::CLIPPINGS_CART_ENHANCED_MODULE);
+        return $this->customModuleAvailable(self::CLIPPINGS_CART_ENHANCED_MODULE, ClippingsCartEnhancedModule::class);
+    }
 
-            return $module !== null && class_exists(ClippingsCartEnhancedModule::class, true);
+    /**
+     * Is the Vesta relationship-name capability available?
+     *
+     * @return bool
+     */
+    private function relationshipNamesAvailable(): bool
+    {
+        return $this->customModuleAvailable(null, self::VESTA_UTILS_CLASS)
+            && ExtendedFamilySupport::relationshipNamesAvailable();
+    }
+
+    /**
+     * Check whether an optional custom-module dependency is available.
+     *
+     * @param string|null $module_name
+     * @param class-string|null $required_class
+     * @param Individual|null $individual
+     * @param class-string|null $access_interface
+     * @return bool
+     */
+    private function customModuleAvailable(?string $module_name, ?string $required_class = null, ?Individual $individual = null, ?string $access_interface = null): bool
+    {
+        try {
+            $module = $module_name === null ? null : (new ModuleService())->findByName($module_name);
+
+            if ($module_name !== null && $module === null) {
+                return false;
+            }
+
+            if ($required_class !== null && !class_exists($required_class, true)) {
+                return false;
+            }
+
+            if ($individual !== null && $access_interface !== null && $module !== null) {
+                return $module->accessLevel($individual->tree(), $access_interface) >= Auth::accessLevel($individual->tree(), Auth::user());
+            }
+
+            return true;
         } catch (\Throwable) {
             return false;
         }
@@ -668,13 +692,23 @@ class ExtendedFamilyTabModule extends AbstractModule
     }
 
     /**
+     * Warning shown when Vesta relationship names cannot be used.
+     *
+     * @return string
+     */
+    private function relationshipNamesUnavailableMessage(): string
+    {
+        return I18N::translate('Vesta relationship names are not available. Mouse-over text for relationships to the proband will not be shown.');
+    }
+
+    /**
      * How should this module be identified in the control panel, etc.?
      *
      * @return string
      */
     public function title(): string
     {
-        return /* I18N: Name of a module/tab on the individual page. */ I18N::translate(self::CUSTOM_TITLE);
+        return /* I18N: Name of a module/tab on the individual page. */ I18N::translate('Extended family');
     }
 
     /**
@@ -684,7 +718,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     public function description(): string
     {
-        return /* I18N: Description of this module */ I18N::translate(self::CUSTOM_DESCRIPTION);
+        return /* I18N: Description of this module */ I18N::translate('A tab showing the extended family of an individual.');
     }
 
     /**
@@ -963,22 +997,14 @@ class ExtendedFamilyTabModule extends AbstractModule
     }
 
     /**
-     * Check if _huhwt-cce_ is installed and accessible in the current user context.
+     * check if custom module _huhwt-cce_ is installed and accessible in the current user context.
      *
      * @param Individual $individual
      * @return bool
      */
     private function canAccessClippingsCartEnhanced(Individual $individual): bool
     {
-        try {
-            $module = (new ModuleService())->findByName(self::CLIPPINGS_CART_ENHANCED_MODULE);
-
-            return $module !== null
-                && class_exists(ClippingsCartEnhancedModule::class, true)
-                && $module->accessLevel($individual->tree(), ModuleMenuInterface::class) >= Auth::accessLevel($individual->tree(), Auth::user());
-        } catch (\Throwable) {
-            return false;
-        }
+        return $this->customModuleAvailable(self::CLIPPINGS_CART_ENHANCED_MODULE, ClippingsCartEnhancedModule::class, $individual, ModuleMenuInterface::class);
     }
 
     /** {@inheritdoc} */
@@ -996,7 +1022,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     public function boot(): void
     {
-        View::registerNamespace($this->name(), $this->resourcesFolder() . 'views/');
+        View::registerNamespace($this->name(), $this->resourcesFolder() . 'views'. DIRECTORY_SEPARATOR);
     }
     
     /**
@@ -1015,7 +1041,6 @@ class ExtendedFamilyTabModule extends AbstractModule
             'es'          => 'es',
             'fr', 'fr-CA' => 'fr',
             'hi'          => 'hi',
-            'it'          => 'it',
             'nb'          => 'nb',
             'nl'          => 'nl',
             'ru'          => 'ru',
@@ -1032,8 +1057,8 @@ class ExtendedFamilyTabModule extends AbstractModule
             return [];
         }
 
-        $poFile = __DIR__ . '/resources/lang/' . $languageFile . '.po';
-        $moFile = __DIR__ . '/resources/lang/' . $languageFile . '.mo';
+        $poFile = __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR . $languageFile . '.po';
+        $moFile = __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR . $languageFile . '.mo';
 
         if (is_file($poFile)) {
             return (new Translation($poFile))->asArray();

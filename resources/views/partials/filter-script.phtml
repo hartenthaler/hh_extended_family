@@ -32,6 +32,7 @@ use Fisharebest\Webtrees\View;
   $(".hh-extended-filter[data-filter-value='U']").addClass('d-none');
   $(".hh-extended-filter[data-filter-value='Y']").addClass('d-none');
   $(".hh-extended-filter[data-filter-value='N']").addClass('d-none');
+  $(".hh-extended-family-filter-actions[data-filter-value!='all']").addClass('d-none');
 
   // filter click function
   $(".hh-extended-filter-button").click(function ()
@@ -83,9 +84,11 @@ use Fisharebest\Webtrees\View;
 
       // Alle Blöcke unsichtbar machen
       $(".hh-extended-filter").addClass("d-none");
+      $(".hh-extended-family-filter-actions").addClass("d-none");
 
       // Zeige den passenden Block
       $(".hh-extended-filter[data-filter-value='" + filterValue + "']").removeClass("d-none");
+      $(".hh-extended-family-filter-actions[data-filter-value='" + filterValue + "']").removeClass("d-none");
 
       // console.log("hh-extended-filter[data-filter-value='"+filterValue+"']");
   });

@@ -67,6 +67,7 @@ class ClippingsCartWriter
             $this->addMediaLinksToCart($individual);
             $this->addNoteLinksToCart($individual);
             $this->addSourceLinksToCart($individual);
+            $this->addSubmitterLinksToCart($individual);
         } finally {
             $this->endRecord();
         }

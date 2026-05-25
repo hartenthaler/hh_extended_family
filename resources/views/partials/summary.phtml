@@ -11,47 +11,257 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 $partnerChainsCount = $filterObj->efp->partner_chains->allCount ?? 0;
 $showPartnerChainsNotCounted = !$extfam_obj->config->countPartnerChainsToTotal && $partnerChainsCount > 1;
 $emptyFamilyParts = array_map(
-    static fn (string $familyPart): string => ExtendedFamilySupport::translateFamilyPart($familyPart),
+    static fn (string $familyPart): string => method_exists(ExtendedFamilySupport::class, 'translateFamilyPartSentenceObject')
+        ? ExtendedFamilySupport::translateFamilyPartSentenceObject($familyPart)
+        : ExtendedFamilySupport::translateFamilyPart($familyPart),
     $filterObj->efp->summary->summaryMessageEmptyBlocks
 );
 $statistics = $filterObj->efp->summary->statistics ?? null;
+$lineageStatistics = $filterObj->efp->summary->lineageStatistics ?? null;
+$formatStatValue = static fn ($value): string => $value === null ? '-' : I18N::number((int) $value);
+$formatYearValue = static fn ($value): string => $value === null ? '-' : (string) (int) $value;
+$formatGeneration = static function (int $generation): string {
+    if ($generation > 0) {
+        return '+' . $generation;
+    }
+
+    return (string) $generation;
+};
+$formatRelation = static fn (string $relation): string => match ($relation) {
+    'self' => I18N::translate('Self'),
+    'parents' => I18N::translate('Parents'),
+    'grandparents' => I18N::translate('Grandparents'),
+    'great-grandparents' => I18N::translate('Great-grandparents'),
+    'children' => I18N::translate('Children'),
+    'grandchildren' => I18N::translate('Grandchildren'),
+    'great-grandchildren' => I18N::translate('Great-grandchildren'),
+    default => $relation,
+};
+$formatOldest = static function (?object $oldest): string {
+    if ($oldest === null) {
+        return '-';
+    }
+
+    $names = array_map(static fn ($individual): string => '<a href="' . e($individual->url()) . '">' . $individual->fullName() . '</a>', $oldest->individuals);
+
+    return I18N::translate('%1$s, %2$s years old', implode(', ', $names), I18N::number($oldest->age));
+};
+$sameOldestPeople = static function (?object $oldestA, ?object $oldestB): bool {
+    if ($oldestA === null || $oldestB === null || $oldestA->age !== $oldestB->age) {
+        return false;
+    }
+
+    $xrefsA = array_map(static fn ($individual): string => $individual->xref(), $oldestA->individuals);
+    $xrefsB = array_map(static fn ($individual): string => $individual->xref(), $oldestB->individuals);
+    sort($xrefsA);
+    sort($xrefsB);
+
+    return $xrefsA === $xrefsB;
+};
+$formatImplexPeople = static function (array $implexPeople): string {
+    if ($implexPeople === []) {
+        return '';
+    }
+
+    $items = [];
+    foreach (array_slice($implexPeople, 0, 3) as $implexPerson) {
+        $items[] = I18N::translate(
+            '%1$s (%2$s positions)',
+            '<a href="' . e($implexPerson->individual->url()) . '">' . $implexPerson->individual->fullName() . '</a>',
+            I18N::number($implexPerson->pathCount)
+        );
+    }
+
+    if (count($implexPeople) > 3) {
+        $items[] = I18N::translate('%s more', I18N::number(count($implexPeople) - 3));
+    }
+
+    return implode(', ', $items);
+};
+$lineageRows = [];
+if ($lineageStatistics?->ancestors !== null) {
+    foreach (array_reverse($lineageStatistics->ancestors->rows) as $row) {
+        if ($row->generation !== 1) {
+            $lineageRows[] = [(int) $row->generation - 1, $row];
+        }
+    }
+}
+if ($lineageStatistics?->ancestors !== null || $lineageStatistics?->descendants !== null) {
+    $selfRow = null;
+    if ($lineageStatistics?->ancestors !== null) {
+        $selfRow = $lineageStatistics->ancestors->rows[0] ?? null;
+    }
+    if ($selfRow === null && $lineageStatistics?->descendants !== null) {
+        $selfRow = $lineageStatistics->descendants->rows[0] ?? null;
+    }
+    if ($selfRow !== null) {
+        $lineageRows[] = [0, $selfRow];
+    }
+}
+if ($lineageStatistics?->descendants !== null) {
+    foreach ($lineageStatistics->descendants->rows as $row) {
+        if ($row->generation !== 1) {
+            $lineageRows[] = [1 - (int) $row->generation, $row];
+        }
+    }
+}
+
+$coveredGenerationCount = null;
+if ($lineageRows !== []) {
+    $maxAncestorGeneration = 0;
+    $minDescendantGeneration = 0;
+
+    foreach ($lineageRows as [$displayGeneration]) {
+        $maxAncestorGeneration = max($maxAncestorGeneration, $displayGeneration);
+        $minDescendantGeneration = min($minDescendantGeneration, $displayGeneration);
+    }
+
+    $coveredGenerationCount = $maxAncestorGeneration + abs($minDescendantGeneration) + 1;
+}
+
+$summarySentences = [];
+$summarySentence = rtrim(I18N::plural(
+    'The extended family has only %1$s as a member.',
+    'The extended family of %1$s has %2$d members (including %3$s).',
+    $filterObj->efp->summary->allCountUnique,
+    $extfam_obj->proband->niceName->forFamilyOf,
+    $filterObj->efp->summary->allCountUnique,
+    $extfam_obj->proband->niceName->name
+), '.');
+if ($showPartnerChainsNotCounted) {
+    $summarySentence .= ' ' . I18N::translate('(additional members of the partner chains are not counted)');
+}
+$summarySentences[] = $summarySentence . '.';
+
+if ($filterObj->efp->summary->allCountUnique - 1 < $filterObj->efp->summary->allCount - ($extfam_obj->config->countPartnerChainsToTotal ? 0 : (false ? $filterObj->efp->partner_chains->allCount : 0))) {
+    $summarySentences[] = I18N::translate('Some of them are member in more than one part of the extended family.');
+}
+
+if ($coveredGenerationCount !== null) {
+    $summarySentences[] = I18N::translate(
+        'The selected direct line covers %s.',
+        I18N::plural('%s generation', '%s generations', $coveredGenerationCount, I18N::number($coveredGenerationCount))
+    );
+}
+
+if ($extfam_obj->config->showSummaryStatistics && $statistics !== null) {
+    if ($statistics->dateRange->show) {
+        $summarySentences[] = ExtendedFamilySupport::translateKnownDateRange($statistics->dateRange->startDate, $statistics->dateRange->startDateType, $statistics->dateRange->endDate, $statistics->dateRange->endDateType);
+    }
+
+    if ($statistics->living->show) {
+        $summarySentences[] = I18N::translate(
+            'Living members: %1$s (%2$s); deceased members: %3$s (%4$s).',
+            I18N::number($statistics->living->livingCount),
+            I18N::percentage($statistics->living->livingPercent),
+            I18N::number($statistics->living->deceasedCount),
+            I18N::percentage($statistics->living->deceasedPercent)
+        );
+    }
+
+    if ($statistics->sex->show) {
+        $summarySentences[] = $statistics->sex->otherSexCount > 0
+            ? I18N::translate(
+                'Gender distribution: %1$s male (%2$s), %3$s female (%4$s), %5$s other or unknown (%6$s).',
+                I18N::number($statistics->sex->maleCount),
+                I18N::percentage($statistics->sex->malePercent),
+                I18N::number($statistics->sex->femaleCount),
+                I18N::percentage($statistics->sex->femalePercent),
+                I18N::number($statistics->sex->otherSexCount),
+                I18N::percentage($statistics->sex->otherSexPercent)
+            )
+            : I18N::translate(
+                'Gender distribution: %1$s male (%2$s), %3$s female (%4$s).',
+                I18N::number($statistics->sex->maleCount),
+                I18N::percentage($statistics->sex->malePercent),
+                I18N::number($statistics->sex->femaleCount),
+                I18N::percentage($statistics->sex->femalePercent)
+            );
+    }
+
+    $combinedLineage = $lineageStatistics?->combined ?? null;
+    if ($combinedLineage !== null) {
+        if ($combinedLineage->averageGenerationLength !== null) {
+            $summarySentences[] = I18N::translate('Average generation length: %s years.', $formatStatValue($combinedLineage->averageGenerationLength));
+        }
+        if ($combinedLineage->averageLifespan !== null) {
+            $summarySentences[] = I18N::translate('Average lifespan: %s years.', $formatStatValue($combinedLineage->averageLifespan));
+        }
+        if ($combinedLineage->oldest !== null && !$sameOldestPeople($combinedLineage->oldest, $combinedLineage->oldestMale) && !$sameOldestPeople($combinedLineage->oldest, $combinedLineage->oldestFemale)) {
+            $summarySentences[] = I18N::translate('Oldest person: %s.', $formatOldest($combinedLineage->oldest));
+        }
+        if ($combinedLineage->oldestMale !== null) {
+            $summarySentences[] = I18N::translate('Oldest male person: %s.', $formatOldest($combinedLineage->oldestMale));
+        }
+        if ($combinedLineage->oldestFemale !== null) {
+            $summarySentences[] = I18N::translate('Oldest female person: %s.', $formatOldest($combinedLineage->oldestFemale));
+        }
+    }
+
+    $implex = $lineageStatistics?->implex ?? null;
+    if ($implex?->hasAncestors) {
+        $summarySentences[] = I18N::translate('Ancestor implex: %s.', $formatImplexPeople($implex->ancestors));
+    }
+    if ($implex?->hasDescendants) {
+        $summarySentences[] = I18N::translate('Descendant implex: %s.', $formatImplexPeople($implex->descendants));
+    }
+    if ($implex !== null && !$implex->hasAny) {
+        $summarySentences[] = I18N::translate('No ancestor or descendant implex was detected in the selected direct-line generations.');
+    }
+}
+
+if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
+    if (count($emptyFamilyParts) == 1) {
+        $summarySentences[] = I18N::translate('%s has no %s recorded.', $extfam_obj->proband->niceName->name, $emptyFamilyParts[0]);
+    } else {
+        $lastEmptyFamilyPart = array_pop($emptyFamilyParts);
+        $otherEmptyFamilyParts = implode(', ', $emptyFamilyParts);
+        $summarySentences[] = I18N::translate('%s has no %s, and no %s recorded.', $extfam_obj->proband->niceName->name, $otherEmptyFamilyParts, $lastEmptyFamilyPart);
+    }
+}
 ?>
 
 <div id="hh-extended-family-summary-block">
-    <h2><?= I18N::translate('Summary for the shown extended family') ?></h2>
-    <p><?= rtrim(I18N::plural('The extended family has only %1$s as a member.', 'The extended family of %1$s has %2$d members (including %3$s).', $filterObj->efp->summary->allCountUnique, $extfam_obj->proband->niceName->forFamilyOf, $filterObj->efp->summary->allCountUnique, $extfam_obj->proband->niceName->name), '.') ?><?php if ($showPartnerChainsNotCounted) : ?> <?= I18N::translate('(additional members of the partner chains are not counted)') ?><?php endif ?>.
-        <?php if ($filterObj->efp->summary->allCountUnique - 1 < $filterObj->efp->summary->allCount - ($extfam_obj->config->countPartnerChainsToTotal?0:(false?$filterObj->efp->partner_chains->allCount:0))) : ?>
-            <?= I18N::translate('Some of them are member in more than one part of the extended family.') ?>
-        <?php endif ?>
+    <h2><?= I18N::translate('Summary for the extended family of %s',$extfam_obj->proband->niceName->name) ?></h2>
+    <?php if ($extfam_obj->config->showSummaryStatistics && $statistics !== null && $lineageRows !== []) : ?>
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered wt-facts-table hh-extended-family-lineage-statistics">
+                <thead>
+                    <tr>
+                        <th><?= I18N::translate('Generation') ?></th>
+                        <th><?= I18N::translate('Relation') ?></th>
+                        <th><?= I18N::translate('Total profiles') ?></th>
+                        <th><?= I18N::translate('Biological') ?></th>
+                        <th><?= I18N::translate('Earliest birth year') ?></th>
+                        <th><?= I18N::translate('Latest birth year') ?></th>
+                        <th><?= I18N::translate('Average birth year') ?></th>
+                        <th><?= I18N::translate('Average marriage age') ?></th>
+                        <th><?= I18N::translate('Generation length') ?></th>
+                        <th><?= I18N::translate('Average lifespan') ?></th>
+                        <th><?= I18N::translate('Average children') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($lineageRows as [$displayGeneration, $row]) : ?>
+                        <tr>
+                            <td><?= $formatGeneration($displayGeneration) ?></td>
+                            <td><?= $formatRelation($row->relation) ?></td>
+                            <td><?= I18N::number($row->totalCount) ?></td>
+                            <td><?= I18N::number($row->biologicalCount) ?></td>
+                            <td><?= $formatYearValue($row->earliestBirthYear) ?></td>
+                            <td><?= $formatYearValue($row->latestBirthYear) ?></td>
+                            <td><?= $formatYearValue($row->averageBirthYear) ?></td>
+                            <td><?= $formatStatValue($row->averageMarriageAge) ?></td>
+                            <td><?= $formatStatValue($row->generationLength) ?></td>
+                            <td><?= $formatStatValue($row->averageLifespan) ?></td>
+                            <td><?= $formatStatValue($row->averageChildren) ?></td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    <?php endif ?>
+    <p class="hh-extended-family-summary-text">
+        <?= implode(' ', $summarySentences) ?>
     </p>
-    <?php if ($extfam_obj->config->showSummaryStatistics && $statistics !== null) : ?>
-        <?php if ($statistics->living->show) : ?>
-            <p><?= I18N::translate('Living members: %1$s (%2$s); deceased members: %3$s (%4$s).', I18N::number($statistics->living->livingCount), I18N::percentage($statistics->living->livingPercent), I18N::number($statistics->living->deceasedCount), I18N::percentage($statistics->living->deceasedPercent)) ?></p>
-        <?php endif ?>
-        <?php if ($statistics->sex->show) : ?>
-            <?php if ($statistics->sex->otherSexCount > 0) : ?>
-                <p><?= I18N::translate('Gender distribution: %1$s male (%2$s), %3$s female (%4$s), %5$s other or unknown (%6$s).', I18N::number($statistics->sex->maleCount), I18N::percentage($statistics->sex->malePercent), I18N::number($statistics->sex->femaleCount), I18N::percentage($statistics->sex->femalePercent), I18N::number($statistics->sex->otherSexCount), I18N::percentage($statistics->sex->otherSexPercent)) ?></p>
-            <?php else : ?>
-                <p><?= I18N::translate('Gender distribution: %1$s male (%2$s), %3$s female (%4$s).', I18N::number($statistics->sex->maleCount), I18N::percentage($statistics->sex->malePercent), I18N::number($statistics->sex->femaleCount), I18N::percentage($statistics->sex->femalePercent)) ?></p>
-            <?php endif ?>
-        <?php endif ?>
-        <?php if ($statistics->dateRange->show) : ?>
-            <p><?= ExtendedFamilySupport::translateKnownDateRange($statistics->dateRange->startDate, $statistics->dateRange->startDateType, $statistics->dateRange->endDate, $statistics->dateRange->endDateType) ?></p>
-        <?php endif ?>
-    <?php endif ?>
-    <?php if ($extfam_obj->config->showEmptyBlock == 1) : ?>
-        <?php if (count($emptyFamilyParts) > 0) : ?>
-            <?php if (count($emptyFamilyParts) == 1) : ?>
-                <p><?= I18N::translate('%s has no %s recorded.', $extfam_obj->proband->niceName->name, $emptyFamilyParts[0]) ?></p>
-            <?php else: ?>
-                <?php
-                // Keep the final family part separate so the sentence can say
-                // "no A, B, and no C recorded".
-                $lastEmptyFamilyPart = array_pop($emptyFamilyParts);
-                $otherEmptyFamilyParts = implode(', ', $emptyFamilyParts);
-                ?>
-                <p><?= I18N::translate('%s has no %s, and no %s recorded.', $extfam_obj->proband->niceName->name, $otherEmptyFamilyParts, $lastEmptyFamilyPart) ?></p>
-            <?php endif ?>
-        <?php endif ?>
-    <?php endif ?>
 </div>

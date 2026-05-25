@@ -22,6 +22,7 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 
@@ -49,6 +50,7 @@ class Partners extends ExtendedFamilyPart
      *
      * special for this extended family part:
      *   ->groups[]->members[]          array of object Individual   (index of groups is "spouse->xref()")
+     *             ->families[]         array of object Family|null
      *             ->familiesStatus[]   string
      *             ->labels[]           array of array of string
      *             ->partner            object Individual
@@ -107,7 +109,7 @@ class Partners extends ExtendedFamilyPart
              ? ExtendedFamilySupport::FAM_STATUS_PARTNERSHIP
              : ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
 
-         $this->addIndividualToFamilyAsPartner($indifam->getIndividual(), $indifam->getReferencePersons()[1], $familyStatus);
+         $this->addIndividualToFamilyAsPartner($indifam->getIndividual(), $indifam->getReferencePersons()[1], $familyStatus, $indifam->getFamily());
     }
 
     /**
@@ -116,8 +118,9 @@ class Partners extends ExtendedFamilyPart
      * @param Individual $individual
      * @param Individual $spouse to which these partners are belonging
      * @param string $familyStatus
+     * @param Family|null $family
      */
-    private function addIndividualToFamilyAsPartner(Individual $individual, Individual $spouse, string $familyStatus)
+    private function addIndividualToFamilyAsPartner(Individual $individual, Individual $spouse, string $familyStatus, ?Family $family)
     {
         if ( array_key_exists($spouse->xref(), $this->efpObject->groups)) {    // check if this spouse is already stored as group in this part of the extended family
             foreach ($this->efpObject->groups[$spouse->xref()]->members as $member) {                                // check if individual is already a partner of this partner
@@ -126,12 +129,14 @@ class Partners extends ExtendedFamilyPart
                 }
             }
             $this->efpObject->groups[$spouse->xref()]->members[] = $individual;
+            $this->efpObject->groups[$spouse->xref()]->families[] = $family;
             $this->efpObject->groups[$spouse->xref()]->familiesStatus[] = $familyStatus;
             $this->efpObject->groups[$spouse->xref()]->labels[] = [];
             $this->efpObject->groups[$spouse->xref()]->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
         } else {                                                                // generate new group of partners
             $newObj = (object)[];
             $newObj->members[] = $individual;
+            $newObj->families[] = $family;
             $newObj->familiesStatus[] = $familyStatus;
             $newObj->labels[] = [];
             $newObj->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);

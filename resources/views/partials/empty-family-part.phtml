@@ -17,6 +17,6 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
     <?php elseif ($propName == 'nephews_and_nieces'): ?>
         <h3><?= I18N::translate('%s has no nephews or nieces recorded.', $summaryName) ?></h3>
     <?php else: ?>
-        <h3><?= I18N::translate('%1$s has no %2$s recorded.', $summaryName, ExtendedFamilySupport::translateFamilyPart($propName)) ?></h3>
+        <h3><?= I18N::translate('%1$s has no %2$s recorded.', $summaryName, ExtendedFamilySupport::translateFamilyPartSentenceObject($propName)) ?></h3>
     <?php endif ?>
 </div>

@@ -210,8 +210,31 @@
     pointer-events: none;    /* verhindert, dass der Button geklickt werden kann */
 }
 
-.hh-extended-family-actions {
-    margin: 0 10px 10px;
+.hh-extended-family-toolbar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    margin: 0 10px 12px;
+}
+
+.hh-extended-family-filter-controls,
+.hh-extended-family-filter-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.hh-extended-family-clippings-cart-form {
+    display: inline-block;
+    margin: 0;
+}
+
+.hh-extended-family-lineage-statistics th,
+.hh-extended-family-lineage-statistics td {
+    text-align: center;
+    vertical-align: middle;
 }
 
 .hh-extended-family-print h1 {

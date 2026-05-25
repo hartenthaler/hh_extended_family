@@ -68,8 +68,11 @@ The module supports
 * optional labels for special GEDCOM situations, such as adopted child, foster child, triplet, stillborn, infant death, and challenged linkage
 * relationship grouping that distinguishes biological, social, and step relationships where the underlying GEDCOM data provides this information
 * optional summary counts
+* optional summary statistics for selected direct-line generations, including ancestor/descendant rows, biological counts, generation length, lifespan, oldest persons, and detected ancestor/descendant implex
 * optional handling of partner chains
+* optional print/PDF button that opens a print-optimized view for the currently selected filter
 * optional "copy to clippings cart" action with support for huhwt-cce or the module's internal fallback action
+* optional mouseover information for each shown person's relationship path to the proband
 * configurable handling of empty family parts
 * full or shortened display name of the proband
 * configurable place-name format in event boxes, including full place names, city-only display, and city plus ISO country code
@@ -121,12 +124,18 @@ The most important settings are
 * whether user filter options are available
 * whether empty family parts are hidden or shown
 * whether summary counts are displayed
+* whether extended summary statistics are displayed
 * whether partner chains count toward totals
 * whether the compact or enriched design is used
 * whether labels and relationship parameters are displayed
+* whether relationship-path mouseover information is available for shown people
 * how place names are displayed in event boxes
+* whether the Print/PDF button is available
 * whether the clippings cart action is available
 * whether the clippings cart button uses huhwt-cce or the internal Extended Family action
+
+If the Print/PDF button is enabled, users can open a print-optimized page for the currently selected filter variant.
+The browser's print dialog can then be used to print the report or save it as a PDF.
 
 If the clippings cart button is enabled and
 [huhwt-cce](https://github.com/huhwt/huhwt-cce) is available, administrators can choose between the recommended huhwt-cce action and the internal Extended Family action.
@@ -202,7 +211,9 @@ To update the module, replace the `hh_extended_family` files with the files from
 
 You can help translate this module.
 The translation strings are stored as gettext files in `resources/lang/*.po`.
+
 The German translation in `resources/lang/de.po` is usually the most complete version and can be used as the reference for new translations.
+But there is an prepared default.pot file if you like to start translating from scratch.
 
 Updated translations can be contributed by pull request or by e-mail.
 They will be included in a future release of the module.
@@ -223,8 +234,6 @@ There are currently translations for
 * Swedish by Simon W
 * Ukrainian by [@z-yurets](https://github.com/z-yurets)
 * Vietnamese by [@ngohuuthuan](https://github.com/ngohuuthuan)
-
-An Italian PO file exists, but it does not yet contain active translations.
 
 <a name="Support"></a>
 ## ❓ Support

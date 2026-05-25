@@ -1,0 +1,28 @@
+<?php
+
+use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\I18N;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+
+/**
+ * @var object $extfam_obj
+ * @var object $group
+ * @var int    $key
+ */
+
+?>
+
+                        <?php $family = $group->families[$key] ?? null ?>
+                        <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key] ?? ExtendedFamilySupport::FAM_STATUS_PARTNERSHIP) ?>
+                        <?php $partnerStatusLabel = $group->partner->xref() == $extfam_obj->proband->indi->xref()
+                            ? $partnerStatus
+                            : I18N::translate('%1$s of %2$s', $partnerStatus, ExtendedFamilySupport::individualLink($group->partner)) ?>
+                        <?php if ($family instanceof Family): ?>
+                            <?php if ($family->canShow()): ?>
+                                <h5><?= $partnerStatusLabel ?>&nbsp;<a href="<?= e($family->url()) ?>"><?= $family->fullName() ?></a></h5>
+                            <?php else: ?>
+                                <h5><?= $partnerStatusLabel ?>&nbsp;<?= $family->fullName() ?></h5>
+                            <?php endif ?>
+                        <?php else: ?>
+                            <h5><?= $partnerStatusLabel ?></h5>
+                        <?php endif ?>

@@ -16,14 +16,14 @@ use Fisharebest\Webtrees\Individual;
 ?>
  
 <div class="wt-tab-hh-extended-family py-4">
-    <?= view($module . '::partials/filter-controls', [
-        'extfam_obj' => $extfam_obj,
-    ]) ?>
-    <?php foreach ($extfam_obj->filters as $filterOption => $filterObj) : ?>
-        <div class="hh-extended-filter" data-filter-value="<?= $filterOption ?>">
+    <div class="hh-extended-family-toolbar d-print-none">
+        <?= view($module . '::partials/filter-controls', [
+            'extfam_obj' => $extfam_obj,
+        ]) ?>
+        <?php foreach ($extfam_obj->filters as $filterOption => $filterObj) : ?>
             <?php if ($filterObj->efp->summary->allCount > 0): ?>
-                <?php if ($extfam_obj->config->showPrintButton): ?>
-                    <div class="hh-extended-family-actions d-print-none">
+                <div class="hh-extended-family-filter-actions<?= $filterOption === 'all' ? '' : ' d-none' ?>" data-filter-value="<?= $filterOption ?>">
+                    <?php if ($extfam_obj->config->showPrintButton): ?>
                         <a class="btn btn-secondary btn-sm" href="<?= e(route('module', [
                             'module' => $module,
                             'action' => 'Print',
@@ -34,17 +34,23 @@ use Fisharebest\Webtrees\Individual;
                             <i class="fas fa-print" aria-hidden="true"></i>
                             <?= I18N::translate('Print/PDF') ?>
                         </a>
-                    </div>
-                <?php endif ?>
-                <?php if ($extfam_obj->config->useClippingsCart): ?>
-                    <?= view($module . '::partials/clippings-cart-button', [
-                        'action_mode'  => $clippings_cart_action,
-                        'filterOption' => $filterOption,
-                        'individual'   => $individual,
-                        'module'       => $module,
-                        'tree_name'    => $tree_name,
-                    ]) ?>
-                <?php endif ?>
+                    <?php endif ?>
+                    <?php if ($extfam_obj->config->useClippingsCart): ?>
+                        <?= view($module . '::partials/clippings-cart-button', [
+                            'action_mode'  => $clippings_cart_action,
+                            'filterOption' => $filterOption,
+                            'individual'   => $individual,
+                            'module'       => $module,
+                            'tree_name'    => $tree_name,
+                        ]) ?>
+                    <?php endif ?>
+                </div>
+            <?php endif ?>
+        <?php endforeach ?>
+    </div>
+    <?php foreach ($extfam_obj->filters as $filterOption => $filterObj) : ?>
+        <div class="hh-extended-filter" data-filter-value="<?= $filterOption ?>">
+            <?php if ($filterObj->efp->summary->allCount > 0): ?>
                 <?php foreach ($filterObj->efp as $propName => $propValue) : ?>
                     <?php if ($propName !== 'summary'): ?>
                         <?php if (($filterObj->efp->$propName->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>

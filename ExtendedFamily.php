@@ -25,6 +25,8 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Date;
+use Fisharebest\Webtrees\Elements\PedigreeLinkageType;
+use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Registry;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
@@ -191,6 +193,592 @@ class ExtendedFamily
         $extendedFamily->efp->summary->summaryMessageEmptyBlocks = $this->summaryMessageEmptyBlocks($extendedFamily);
         $extendedFamily->efp->summary->allCountUnique = $individuals->count();
         $extendedFamily->efp->summary->statistics = $this->summaryStatistics($individuals);
+        $extendedFamily->efp->summary->lineageStatistics = $this->lineageStatistics($extendedFamily);
+    }
+
+    /**
+     * Calculate ancestor and descendant statistics for selected direct-line family parts.
+     *
+     * @param object $extendedFamily
+     * @return object
+     */
+    private function lineageStatistics(object $extendedFamily): object
+    {
+        $statistics = (object)[
+            'ancestors' => null,
+            'descendants' => null,
+            'combined' => null,
+        ];
+
+        $ancestorRows = $this->lineageRows($extendedFamily, 'ancestors');
+        if (count($ancestorRows) > 1) {
+            $statistics->ancestors = $this->lineageSummary($ancestorRows);
+        }
+
+        $descendantRows = $this->lineageRows($extendedFamily, 'descendants');
+        if (count($descendantRows) > 1) {
+            $statistics->descendants = $this->lineageSummary($descendantRows);
+        }
+
+        if ($statistics->ancestors !== null || $statistics->descendants !== null) {
+            $statistics->combined = $this->combinedLineageSummary($ancestorRows, $descendantRows);
+            $statistics->implex = $this->lineageImplexSummary($ancestorRows, $descendantRows);
+        }
+
+        return $statistics;
+    }
+
+    /**
+     * Build rows for direct ancestor or descendant statistics.
+     *
+     * @param object $extendedFamily
+     * @param string $direction
+     * @return array<int,object>
+     */
+    private function lineageRows(object $extendedFamily, string $direction): array
+    {
+        $rows = [
+            $this->lineageRow(1, 'self', [$this->proband->indi], [$this->proband->indi]),
+        ];
+
+        $parts = $direction === 'ancestors'
+            ? [
+                2 => ['parents', 'parents'],
+                3 => ['grandparents', 'grandparents'],
+                4 => ['great_grandparents', 'great-grandparents'],
+            ]
+            : [
+                2 => ['children', 'children'],
+                3 => ['grandchildren', 'grandchildren'],
+                4 => ['great_grandchildren', 'great-grandchildren'],
+            ];
+
+        foreach ($parts as $generation => [$familyPart, $relation]) {
+            if (!isset($extendedFamily->efp->$familyPart)) {
+                continue;
+            }
+
+            $individuals = $this->collectIndividualsFromFamilyPart($extendedFamily->efp->$familyPart);
+            if (count($individuals) === 0) {
+                continue;
+            }
+
+            $biologicalIndividuals = $this->collectBiologicalIndividualsFromFamilyPart($familyPart, $extendedFamily->efp->$familyPart);
+            $rows[] = $this->lineageRow($generation, $relation, $individuals, $biologicalIndividuals);
+        }
+
+        $this->addGenerationLengths($rows, $direction);
+
+        return $rows;
+    }
+
+    /**
+     * @param object $familyPart
+     * @return array<int,Individual>
+     */
+    private function collectIndividualsFromFamilyPart(object $familyPart): array
+    {
+        $individuals = [];
+
+        if (!isset($familyPart->groups) || !is_iterable($familyPart->groups)) {
+            return [];
+        }
+
+        foreach ($familyPart->groups as $group) {
+            if (!isset($group->members) || !is_iterable($group->members)) {
+                continue;
+            }
+
+            foreach ($group->members as $individual) {
+                if ($individual instanceof Individual) {
+                    $individuals[$individual->xref()] = $individual;
+                }
+            }
+        }
+
+        return array_values($individuals);
+    }
+
+    /**
+     * @param string $familyPartName
+     * @param object $familyPart
+     * @return array<int,Individual>
+     */
+    private function collectBiologicalIndividualsFromFamilyPart(string $familyPartName, object $familyPart): array
+    {
+        $individuals = [];
+
+        if (!isset($familyPart->groups) || !is_iterable($familyPart->groups)) {
+            return [];
+        }
+
+        foreach ($familyPart->groups as $group) {
+            if (!$this->isBiologicalLineageGroup($familyPartName, $group->groupName ?? '')) {
+                continue;
+            }
+
+            foreach ($group->members ?? [] as $individual) {
+                if ($individual instanceof Individual) {
+                    $individuals[$individual->xref()] = $individual;
+                }
+            }
+        }
+
+        return array_values($individuals);
+    }
+
+    /**
+     * @param string $familyPartName
+     * @param string $groupName
+     * @return bool
+     */
+    private function isBiologicalLineageGroup(string $familyPartName, string $groupName): bool
+    {
+        return match ($familyPartName) {
+            'parents' => $groupName === Parents::GROUP_PARENTS_BIO,
+            'grandparents' => in_array($groupName, [
+                Grandparents::GROUP_GRANDPARENTS_FATHER_BIO,
+                Grandparents::GROUP_GRANDPARENTS_MOTHER_BIO,
+                Grandparents::GROUP_GRANDPARENTS_U_BIO,
+            ], true),
+            'great_grandparents' => in_array($groupName, [
+                Great_grandparents::GROUP_GREATGRANDPARENTS_FATHERSIDE_BIO,
+                Great_grandparents::GROUP_GREATGRANDPARENTS_MOTHERSIDE_BIO,
+                Great_grandparents::GROUP_GREATGRANDPARENTS_USIDE_BIO,
+            ], true),
+            'children' => $groupName === Children::GROUP_CHILDREN_BIO,
+            'grandchildren' => $groupName === Grandchildren::GROUP_GRANDCHILDREN_BIO,
+            'great_grandchildren' => $groupName === Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIO,
+            default => false,
+        };
+    }
+
+    /**
+     * @param int $generation
+     * @param string $relation
+     * @param array<int,Individual> $individuals
+     * @param array<int,Individual> $biologicalIndividuals
+     * @return object
+     */
+    private function lineageRow(int $generation, string $relation, array $individuals, array $biologicalIndividuals): object
+    {
+        $birthYears = [];
+        $marriageAges = [];
+        $lifespans = [];
+        $childrenCounts = [];
+
+        foreach ($individuals as $individual) {
+            $birthYear = $this->individualBirthYear($individual);
+            if ($birthYear !== null) {
+                $birthYears[] = $birthYear;
+            }
+
+            $marriageAge = $this->individualFirstMarriageAge($individual);
+            if ($marriageAge !== null) {
+                $marriageAges[] = $marriageAge;
+            }
+
+            $lifespan = $this->individualLifespan($individual);
+            if ($lifespan !== null) {
+                $lifespans[] = $lifespan;
+            }
+
+            $childrenCounts[] = $this->biologicalChildrenCount($individual);
+        }
+
+        return (object)[
+            'generation' => $generation,
+            'relation' => $relation,
+            'individuals' => $individuals,
+            'totalCount' => count($individuals),
+            'biologicalCount' => count($biologicalIndividuals),
+            'birthYearCount' => count($birthYears),
+            'biologicalBirthYearCount' => count(array_filter($biologicalIndividuals, fn (Individual $individual): bool => $this->individualBirthYear($individual) !== null)),
+            'earliestBirthYear' => $birthYears === [] ? null : min($birthYears),
+            'latestBirthYear' => $birthYears === [] ? null : max($birthYears),
+            'averageBirthYear' => $this->averageRounded($birthYears),
+            'averageMarriageAge' => $this->averageRounded($marriageAges),
+            'generationLength' => null,
+            'averageLifespan' => $this->averageRounded($lifespans),
+            'averageChildren' => $this->averageRounded($childrenCounts),
+        ];
+    }
+
+    /**
+     * @param array<int,object> $rows
+     * @param string $direction
+     * @return void
+     */
+    private function addGenerationLengths(array &$rows, string $direction): void
+    {
+        foreach ($rows as $index => $row) {
+            if ($index === 0 || $row->averageBirthYear === null || $rows[$index - 1]->averageBirthYear === null) {
+                continue;
+            }
+
+            $generationGap = max(1, $row->generation - $rows[$index - 1]->generation);
+            $birthYearDifference = $direction === 'ancestors'
+                ? $rows[$index - 1]->averageBirthYear - $row->averageBirthYear
+                : $row->averageBirthYear - $rows[$index - 1]->averageBirthYear;
+
+            $row->generationLength = (int) round($birthYearDifference / $generationGap);
+        }
+    }
+
+    /**
+     * @param array<int,object> $rows
+     * @return object
+     */
+    private function lineageSummary(array $rows): object
+    {
+        $individuals = [];
+        foreach ($rows as $row) {
+            if ($row->generation === 1) {
+                continue;
+            }
+
+            foreach ($row->individuals as $individual) {
+                $individuals[$individual->xref()] = $individual;
+            }
+        }
+
+        $generationLengths = array_values(array_filter(array_map(static fn (object $row): ?int => $row->generationLength, $rows), static fn (?int $length): bool => $length !== null));
+        $lifespans = [];
+
+        foreach ($individuals as $individual) {
+            $lifespan = $this->individualLifespan($individual);
+            if ($lifespan !== null) {
+                $lifespans[] = $lifespan;
+            }
+        }
+
+        return (object)[
+            'rows' => $rows,
+            'averageGenerationLength' => $this->averageRounded($generationLengths),
+            'averageLifespan' => $this->averageRounded($lifespans),
+            'oldest' => $this->oldestIndividuals($individuals),
+            'oldestMale' => $this->oldestIndividuals($individuals, 'M'),
+            'oldestFemale' => $this->oldestIndividuals($individuals, 'F'),
+        ];
+    }
+
+    /**
+     * @param array<int,object> $ancestorRows
+     * @param array<int,object> $descendantRows
+     * @return object
+     */
+    private function combinedLineageSummary(array $ancestorRows, array $descendantRows): object
+    {
+        $individuals = [];
+        $generationLengths = [];
+        $lifespans = [];
+
+        foreach ([$ancestorRows, $descendantRows] as $rows) {
+            foreach ($rows as $row) {
+                if ($row->generationLength !== null) {
+                    $generationLengths[] = $row->generationLength;
+                }
+
+                if ($row->generation === 1) {
+                    continue;
+                }
+
+                foreach ($row->individuals as $individual) {
+                    $individuals[$individual->xref()] = $individual;
+                }
+            }
+        }
+
+        foreach ($individuals as $individual) {
+            $lifespan = $this->individualLifespan($individual);
+            if ($lifespan !== null) {
+                $lifespans[] = $lifespan;
+            }
+        }
+
+        return (object)[
+            'averageGenerationLength' => $this->averageRounded($generationLengths),
+            'averageLifespan' => $this->averageRounded($lifespans),
+            'oldest' => $this->oldestIndividuals($individuals),
+            'oldestMale' => $this->oldestIndividuals($individuals, 'M'),
+            'oldestFemale' => $this->oldestIndividuals($individuals, 'F'),
+        ];
+    }
+
+    /**
+     * Detect repeated biological ancestor/descendant positions in the selected direct-line generations.
+     *
+     * @param array<int,object> $ancestorRows
+     * @param array<int,object> $descendantRows
+     * @return object
+     */
+    private function lineageImplexSummary(array $ancestorRows, array $descendantRows): object
+    {
+        $ancestorDepth = $this->maxLineageDepth($ancestorRows);
+        $descendantDepth = $this->maxLineageDepth($descendantRows);
+
+        $ancestors = $ancestorDepth > 0 ? $this->repeatedLineagePositions($ancestorDepth, 'ancestors') : [];
+        $descendants = $descendantDepth > 0 ? $this->repeatedLineagePositions($descendantDepth, 'descendants') : [];
+
+        return (object)[
+            'ancestors' => $ancestors,
+            'descendants' => $descendants,
+            'hasAncestors' => $ancestors !== [],
+            'hasDescendants' => $descendants !== [],
+            'hasAny' => $ancestors !== [] || $descendants !== [],
+        ];
+    }
+
+    /**
+     * @param array<int,object> $rows
+     * @return int
+     */
+    private function maxLineageDepth(array $rows): int
+    {
+        $maxDepth = 0;
+
+        foreach ($rows as $row) {
+            $maxDepth = max($maxDepth, (int) $row->generation - 1);
+        }
+
+        return $maxDepth;
+    }
+
+    /**
+     * @param int $maxDepth
+     * @param string $direction
+     * @return array<string,object>
+     */
+    private function repeatedLineagePositions(int $maxDepth, string $direction): array
+    {
+        $positionsByXref = [];
+        $current = [[
+            'individual' => $this->proband->indi,
+            'path' => [$this->proband->indi->xref()],
+        ]];
+
+        for ($depth = 1; $depth <= $maxDepth; $depth++) {
+            $next = [];
+
+            foreach ($current as $position) {
+                $relatives = $direction === 'ancestors'
+                    ? $this->biologicalParents($position['individual'])
+                    : $this->biologicalChildren($position['individual']);
+
+                foreach ($relatives as $relative) {
+                    $path = [...$position['path'], $relative->xref()];
+                    $pathKey = implode('>', $path);
+                    $positionsByXref[$relative->xref()]['individual'] = $relative;
+                    $positionsByXref[$relative->xref()]['paths'][$pathKey] = $path;
+                    $positionsByXref[$relative->xref()]['generations'][$depth] = true;
+
+                    if (!in_array($relative->xref(), $position['path'], true)) {
+                        $next[] = [
+                            'individual' => $relative,
+                            'path' => $path,
+                        ];
+                    }
+                }
+            }
+
+            $current = $next;
+        }
+
+        $repeated = [];
+        foreach ($positionsByXref as $xref => $position) {
+            $pathCount = count($position['paths'] ?? []);
+
+            if ($pathCount > 1) {
+                $repeated[$xref] = (object)[
+                    'individual' => $position['individual'],
+                    'pathCount' => $pathCount,
+                    'generations' => array_keys($position['generations'] ?? []),
+                ];
+            }
+        }
+
+        uasort($repeated, static fn (object $a, object $b): int => $b->pathCount <=> $a->pathCount ?: $a->individual->fullName() <=> $b->individual->fullName());
+
+        return $repeated;
+    }
+
+    /**
+     * @param Individual $individual
+     * @return array<string,Individual>
+     */
+    private function biologicalParents(Individual $individual): array
+    {
+        $parents = [];
+
+        foreach ($individual->childFamilies() as $family) {
+            if (!$this->isBiologicalChildInFamily($individual, $family)) {
+                continue;
+            }
+
+            foreach ($family->spouses() as $parent) {
+                $parents[$parent->xref()] = $parent;
+            }
+        }
+
+        return $parents;
+    }
+
+    /**
+     * @param Individual $individual
+     * @return array<string,Individual>
+     */
+    private function biologicalChildren(Individual $individual): array
+    {
+        $children = [];
+
+        foreach ($individual->spouseFamilies() as $family) {
+            foreach ($family->children() as $child) {
+                if ($this->isBiologicalChildInFamily($child, $family)) {
+                    $children[$child->xref()] = $child;
+                }
+            }
+        }
+
+        return $children;
+    }
+
+    /**
+     * @param Individual $individual
+     * @return int|null
+     */
+    private function individualBirthYear(Individual $individual): ?int
+    {
+        $birthDate = $individual->getBirthDate();
+
+        if (!$birthDate->isOK()) {
+            return null;
+        }
+
+        $year = $birthDate->gregorianYear();
+
+        return $year === 0 ? null : $year;
+    }
+
+    /**
+     * @param Individual $individual
+     * @return int|null
+     */
+    private function individualLifespan(Individual $individual): ?int
+    {
+        $birthDate = $individual->getBirthDate();
+        $deathDate = $individual->getDeathDate();
+
+        if (!$birthDate->isOK() || !$deathDate->isOK()) {
+            return null;
+        }
+
+        return max(0, (int) round(($deathDate->julianDay() - $birthDate->julianDay()) / 365.2425));
+    }
+
+    /**
+     * @param Individual $individual
+     * @return int|null
+     */
+    private function individualFirstMarriageAge(Individual $individual): ?int
+    {
+        $birthDate = $individual->getBirthDate();
+
+        if (!$birthDate->isOK()) {
+            return null;
+        }
+
+        $marriageJulianDay = null;
+        foreach ($individual->spouseFamilies() as $family) {
+            $marriageDate = $family->getMarriageDate();
+
+            if ($marriageDate->isOK() && ($marriageJulianDay === null || $marriageDate->julianDay() < $marriageJulianDay)) {
+                $marriageJulianDay = $marriageDate->julianDay();
+            }
+        }
+
+        if ($marriageJulianDay === null || $marriageJulianDay < $birthDate->julianDay()) {
+            return null;
+        }
+
+        return (int) round(($marriageJulianDay - $birthDate->julianDay()) / 365.2425);
+    }
+
+    /**
+     * @param Individual $individual
+     * @return int
+     */
+    private function biologicalChildrenCount(Individual $individual): int
+    {
+        return count($this->biologicalChildren($individual));
+    }
+
+    /**
+     * Is this individual a biological child in this family?
+     *
+     * @param Individual $individual
+     * @param Family $family
+     * @return bool
+     */
+    private function isBiologicalChildInFamily(Individual $individual, Family $family): bool
+    {
+        $fact = $individual->facts(['FAMC'])->first(static fn (Fact $fact): bool => $fact->value() === '@' . $family->xref() . '@');
+
+        if ($fact instanceof Fact) {
+            return ($fact->attribute('PEDI') ?: PedigreeLinkageType::VALUE_BIRTH) === PedigreeLinkageType::VALUE_BIRTH;
+        }
+
+        return true;
+    }
+
+    /**
+     * @param array<int,int> $values
+     * @return int|null
+     */
+    private function averageRounded(array $values): ?int
+    {
+        if ($values === []) {
+            return null;
+        }
+
+        return (int) round(array_sum($values) / count($values));
+    }
+
+    /**
+     * @param array<string,Individual> $individuals
+     * @param string|null $sex
+     * @return object|null
+     */
+    private function oldestIndividuals(array $individuals, ?string $sex = null): ?object
+    {
+        $oldest = [];
+        $oldestAge = null;
+
+        foreach ($individuals as $individual) {
+            if ($sex !== null && $individual->sex() !== $sex) {
+                continue;
+            }
+
+            $lifespan = $this->individualLifespan($individual);
+            if ($lifespan === null) {
+                continue;
+            }
+
+            if ($oldestAge === null || $lifespan > $oldestAge) {
+                $oldestAge = $lifespan;
+                $oldest = [$individual];
+            } elseif ($lifespan === $oldestAge) {
+                $oldest[] = $individual;
+            }
+        }
+
+        if ($oldestAge === null) {
+            return null;
+        }
+
+        return (object)[
+            'age' => $oldestAge,
+            'individuals' => $oldest,
+        ];
     }
 
     /**

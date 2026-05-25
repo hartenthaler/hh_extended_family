@@ -26,12 +26,14 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var boolean                 $show_print_button
  * @var boolean                 $use_clippings_cart
  * @var boolean                 $cce_available
+ * @var boolean                 $relationship_names_available
  * @var string                  $clippings_cart_action
  */
 
 $place_format ??= PlaceAbbreviation::OPTION_FULL_PLACE_NAME;
 $place_format_options ??= PlaceAbbreviation::abbrPlacesOptions();
 $cce_available ??= false;
+$relationship_names_available ??= false;
 $clippings_cart_action ??= 'cce';
 $family_part_degrees = ExtendedFamilySupport::getFamilyPartDegrees();
 $coreControlPanel = /* I18N: This is a webtrees core UI string; no module-specific translation is needed. */ I18N::translate('Control panel');
@@ -174,6 +176,12 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
 
         <h3><?= I18N::translate('Should summary statistics be shown?') ?></h3>
         <p><?= I18N::translate('The summary statistics contain additional information about living and deceased members, gender distribution, and the known date range.') ?></p>
+        <p class="small text-muted">
+            <?= I18N::translate('This option only has an effect if the summary block is shown.') ?>
+        </p>
+        <div class="alert alert-warning hh-extended-family-summary-statistics-warning" role="alert">
+            <?= I18N::translate('Summary statistics cannot be shown while the summary block is disabled.') ?>
+        </div>
         <!-- show summary statistics -->
         <fieldset class="form-group">
             <div class="row">
@@ -187,6 +195,12 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
         </fieldset>
 
         <h3><?= I18N::translate('How should empty parts of extended family be presented?') ?></h3>
+        <p class="small text-muted">
+            <?= I18N::translate('The option to collect messages about empty family parts at the summary block only has an effect if the summary block is shown.') ?>
+        </p>
+        <div class="alert alert-warning hh-extended-family-empty-summary-warning" role="alert">
+            <?= I18N::translate('Empty family parts cannot be collected at the summary block while the summary block is disabled.') ?>
+        </div>
         <!-- show empty block -->
         <fieldset class="form-group">
             <div class="row">
@@ -290,6 +304,9 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
 
         <h3><?= I18N::translate('Show relationship to the proband as mouse-over text?') ?></h3>
         <p><?= I18N::translate('This shows the relationship of a person to the proband when the mouse pointer is over the name.') ?></p>
+        <div class="alert alert-warning hh-extended-family-relationship-warning <?= !$relationship_names_available && (int) $show_relationship_to_proband === 0 ? '' : 'd-none' ?>" role="alert">
+            <?= I18N::translate('Vesta relationship names are not available. Mouse-over text for relationships to the proband will not be shown.') ?>
+        </div>
         <!-- show relationship to proband as mouse-over text -->
         <fieldset class="form-group">
             <div class="row">
@@ -403,6 +420,21 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
           }
       });
   });
+
+  function updateDependencyWarnings() {
+      const summaryDisabled = $('input[name="show_summary"]:checked').val() === '1';
+      const statisticsEnabled = $('input[name="show_summary_statistics"]:checked').val() === '0';
+      const emptyPartsCollectedAtSummary = $('[name="show_empty_block"]').val() === '1';
+      const relationshipMouseoverEnabled = $('input[name="show_relationship_to_proband"]:checked').val() === '0';
+      const relationshipNamesAvailable = <?= $relationship_names_available ? 'true' : 'false' ?>;
+
+      $('.hh-extended-family-summary-statistics-warning').toggleClass('d-none', !(summaryDisabled && statisticsEnabled));
+      $('.hh-extended-family-empty-summary-warning').toggleClass('d-none', !(summaryDisabled && emptyPartsCollectedAtSummary));
+      $('.hh-extended-family-relationship-warning').toggleClass('d-none', !(!relationshipNamesAvailable && relationshipMouseoverEnabled));
+  }
+
+  $('input[name="show_summary"], input[name="show_summary_statistics"], input[name="show_relationship_to_proband"], [name="show_empty_block"]').on('change', updateDependencyWarnings);
+  updateDependencyWarnings();
 </script>
 <?php View::endpush() ?>
 
@@ -413,6 +445,12 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
     }
     .wt-table-menu tr:last-child .wt-icon-arrow-down {
         display:none;
+    }
+    .hh-extended-family .btn-toolbar .btn-group .btn + .btn {
+        margin-left: 0.25rem;
+    }
+    .hh-extended-family .btn-toolbar .btn-group .btn {
+        border-radius: 0.2rem;
     }
 </style>
 <?php View::endpush() ?>

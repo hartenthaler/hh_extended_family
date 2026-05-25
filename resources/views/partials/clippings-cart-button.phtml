@@ -34,19 +34,18 @@ if ($action_mode === 'cce') {
 }
 ?>
 
-<label class="btn btn-outline-secondary"
-       title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
-    <form method="post" action="<?= e($action_url); ?>">
-        <?= csrf_field(); ?>
-        <?php if ($uses_internal_action) : ?>
-            <input type="hidden" name="tree" value="<?= e($tree_name) ?>">
-            <input type="hidden" name="xref" value="<?= e($individual->xref()) ?>">
-            <input type="hidden" name="filter" value="<?= e($filterOption) ?>">
-            <input type="hidden" name="return_url" value="<?= e($individual->url() . '#tab-' . $module) ?>">
-        <?php endif ?>
-        <button type="submit" class="btn btn-primary">
-            <?= view('icons/copy') ?>
-            <?= I18N::translate("copy to clippings cart") ?>
-        </button>
-    </form>
-</label>
+<form class="hh-extended-family-clippings-cart-form" method="post" action="<?= e($action_url); ?>">
+    <?= csrf_field(); ?>
+    <?php if ($uses_internal_action) : ?>
+        <input type="hidden" name="tree" value="<?= e($tree_name) ?>">
+        <input type="hidden" name="xref" value="<?= e($individual->xref()) ?>">
+        <input type="hidden" name="filter" value="<?= e($filterOption) ?>">
+        <input type="hidden" name="return_url" value="<?= e($individual->url() . '#tab-' . $module) ?>">
+    <?php endif ?>
+    <button type="submit"
+            class="btn btn-primary btn-sm"
+            title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
+        <?= view('icons/copy') ?>
+        <?= I18N::translate("copy to clippings cart") ?>
+    </button>
+</form>

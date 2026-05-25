@@ -9,39 +9,30 @@ use Fisharebest\Webtrees\I18N;
 
 <?php if ($extfam_obj->config->showFilterOptions &&
           ($extfam_obj->filters['all']->efp->summary->allCount > 0)): // all ?>
-    <table>
-        <tr>
-            <div class="btn-toolbar d-flex justify-content-between mb-2" role="toolbar">
-                <th>
-                    <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
-                        <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only male persons") ?>">
-                            <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="M">
-                            <span class="wt-icon-sex wt-icon-sex-m"><i class="fas fa-mars fa-fw" aria-hidden="true"></i></span>
-                        </label>
-                        <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only female persons") ?>">
-                            <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="F">
-                            <span class="wt-icon-sex wt-icon-sex-f"><i class="fas fa-venus fa-fw" aria-hidden="true"></i></span>
-                        </label>
-                        <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only persons of diverse or unknown gender") ?>">
-                            <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="U">
-                            <span class="wt-icon-sex wt-icon-sex-u"><i class="fas fa-genderless fa-fw" aria-hidden="true"></i></span>
-                        </label>
-                    </div>
-                </th>
-                <th>&nbsp;</th>
-                <th>
-                    <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
-                        <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only alive persons") ?>">
-                            <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="Y">
-                            <?= I18N::translate("alive") ?>
-                        </label>
-                        <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only dead persons") ?>">
-                            <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="N">
-                            <?= I18N::translate("dead") ?>
-                        </label>
-                    </div>
-                </th>
-            </div>
-        </tr>
-    </table>
+    <div class="hh-extended-family-filter-controls">
+        <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
+            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only male persons") ?>">
+                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="M">
+                <span class="wt-icon-sex wt-icon-sex-m"><i class="fas fa-mars fa-fw" aria-hidden="true"></i></span>
+            </label>
+            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only female persons") ?>">
+                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="F">
+                <span class="wt-icon-sex wt-icon-sex-f"><i class="fas fa-venus fa-fw" aria-hidden="true"></i></span>
+            </label>
+            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only persons of diverse or unknown gender") ?>">
+                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="sex" data-filter-value="U">
+                <span class="wt-icon-sex wt-icon-sex-u"><i class="fas fa-genderless fa-fw" aria-hidden="true"></i></span>
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
+            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only alive persons") ?>">
+                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="Y">
+                <?= I18N::translate("alive") ?>
+            </label>
+            <label class="btn btn-outline-secondary" title="<?= I18N::translate("show only dead persons") ?>">
+                <input class="hh-extended-filter-button d-none" type="checkbox" autocomplete="off" data-filter-type="alive" data-filter-value="N">
+                <?= I18N::translate("dead") ?>
+            </label>
+        </div>
+    </div>
 <?php endif ?>
