@@ -2257,7 +2257,7 @@ msgstr "Gemiddelde generatieduur: %s jaar."
 
 #, php-format
 msgid "Average lifespan: %s years."
-msgstr ": %s jaar."
+msgstr "Gemiddelde levensduur: %s jaar."
 
 #, php-format
 msgid "Oldest person: %s."
