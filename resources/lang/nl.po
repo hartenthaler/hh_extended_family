@@ -2257,7 +2257,7 @@ msgstr "Gemiddelde generatieduur: %s jaar."
 
 #, php-format
 msgid "Average lifespan: %s years."
-msgstr "Gemiddelde levensduur: %s jaar."
+msgstr ": %s jaar."
 
 #, php-format
 msgid "Oldest person: %s."
@@ -2301,13 +2301,13 @@ msgid "Relation"
 msgstr "Relatie"
 
 msgid "Total profiles"
-msgstr "Totaal aantal profielen"
+msgstr "Aantal personen"
 
 msgid "Biological"
 msgstr "Biologisch"
 
 msgid "Earliest / latest birth year"
-msgstr "Vroegste/laatste geboortejaar"
+msgstr "Vroegste / laatste geboortejaar"
 
 msgid "Average birth year"
 msgstr "Gemiddeld geboortejaar"
