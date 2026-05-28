@@ -32,7 +32,7 @@ The active filter also controls the toolbar actions, so Print/PDF and clippings-
 
 ### Presentation configuration
 
-The module configuration controls order, visibility, labels, design density, thumbnails, summary counts, place formatting, and clippings-cart support.
+The module configuration controls order, visibility, labels, design density, thumbnails, summary counts, place formatting, tab-loading behavior, and clippings-cart support.
 Most values come from webtrees module preferences and are assembled into a runtime configuration object.
 
 ## 🧱 Main components
@@ -265,6 +265,7 @@ Important preference groups:
 * label and relationship-parameter display
 * relationship-path mouseover display
 * Print/PDF button display
+* tab-loading behavior
 * event-place display format
 * clippings-cart integration
 
@@ -316,8 +317,9 @@ The settings page also controls whether users see the clippings-cart button.
 When huhwt-cce is available, administrators can choose between huhwt-cce and the internal Extended Family action.
 When huhwt-cce is not available, the internal action is used automatically.
 
-The module currently disables Ajax loading for the tab.
-The tab content is rendered as part of the individual page request.
+The settings page also controls whether the tab can load by Ajax.
+The default is later Ajax loading: the individual page can render without calculating the extended-family tab, and the tab content is calculated when the user opens the tab.
+Administrators can disable Ajax loading to calculate the tab content immediately as part of the individual page request.
 
 ## 🌍 Translations
 
@@ -377,8 +379,6 @@ hh_extended_family/
 │   │   └── Objects/
 │   └── Services/
 │       └── ClippingsCartWriter.php
-└── vendor/
-    └── hartenthaler/Webtrees/Helpers/
 ```
 
 ## 🚧 Known limitations and design notes

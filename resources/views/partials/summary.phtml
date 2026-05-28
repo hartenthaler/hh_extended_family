@@ -232,8 +232,7 @@ if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
                         <th><?= I18N::translate('Relation') ?></th>
                         <th><?= I18N::translate('Total profiles') ?></th>
                         <th><?= I18N::translate('Biological') ?></th>
-                        <th><?= I18N::translate('Earliest birth year') ?></th>
-                        <th><?= I18N::translate('Latest birth year') ?></th>
+                        <th><?= I18N::translate('Earliest / latest birth year') ?></th>
                         <th><?= I18N::translate('Average birth year') ?></th>
                         <th><?= I18N::translate('Average marriage age') ?></th>
                         <th><?= I18N::translate('Generation length') ?></th>
@@ -248,8 +247,7 @@ if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
                             <td><?= $formatRelation($row->relation) ?></td>
                             <td><?= I18N::number($row->totalCount) ?></td>
                             <td><?= I18N::number($row->biologicalCount) ?></td>
-                            <td><?= $formatYearValue($row->earliestBirthYear) ?></td>
-                            <td><?= $formatYearValue($row->latestBirthYear) ?></td>
+                            <td><?= $formatYearValue($row->earliestBirthYear) ?> / <?= $formatYearValue($row->latestBirthYear) ?></td>
                             <td><?= $formatYearValue($row->averageBirthYear) ?></td>
                             <td><?= $formatStatValue($row->averageMarriageAge) ?></td>
                             <td><?= $formatStatValue($row->generationLength) ?></td>

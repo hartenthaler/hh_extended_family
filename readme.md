@@ -65,7 +65,7 @@ The module supports
 * compact and enriched layouts
 * optional thumbnail, birth, and death information
 * optional labels with generation shift and coefficient of relationship
-* optional labels for special GEDCOM situations, such as adopted child, foster child, triplet, stillborn, infant death, and challenged linkage
+* optional labels for special situations, such as adopted child, foster child, triplet, stillborn, infant death, challenged linkage, Levirate, and Sororate
 * relationship grouping that distinguishes biological, social, and step relationships where the underlying GEDCOM data provides this information
 * optional summary counts
 * optional summary statistics for selected direct-line generations, including ancestor/descendant rows, biological counts, generation length, lifespan, oldest persons, and detected ancestor/descendant implex
@@ -73,6 +73,7 @@ The module supports
 * optional print/PDF button that opens a print-optimized view for the currently selected filter
 * optional "copy to clippings cart" action with support for huhwt-cce or the module's internal fallback action
 * optional mouseover information for each shown person's relationship path to the proband
+* configurable tab loading, either on first click by Ajax or directly with the individual page
 * configurable handling of empty family parts
 * full or shortened display name of the proband
 * configurable place-name format in event boxes, including full place names, city-only display, and city plus ISO country code
@@ -84,6 +85,8 @@ Special labels are derived from GEDCOM patterns such as
 * `1 BIRT / 2 AGE STILLBORN`
 * `1 DEAT / 2 AGE INFANT`
 * `1 FAMC @F123@ / 2 STAT CHALLENGED`
+
+The labels `Levirate` and `Sororate` are derived from the computed family context when partners of the same person are same-sex siblings.
 
 <a name="Family"></a>
 ## 👥 Family parts
@@ -131,8 +134,13 @@ The most important settings are
 * whether relationship-path mouseover information is available for shown people
 * how place names are displayed in event boxes
 * whether the Print/PDF button is available
+* whether the Extended family tab is loaded immediately with the individual page or later when it is opened
 * whether the clippings cart action is available
 * whether the clippings cart button uses huhwt-cce or the internal Extended Family action
+
+By default, the Extended family tab is loaded later when the user opens it.
+This keeps the initial individual page request faster, but the user waits for the extended-family calculation when opening the tab.
+Administrators can disable this behavior if they prefer the tab content to be calculated immediately with the individual page.
 
 If the Print/PDF button is enabled, users can open a print-optimized page for the currently selected filter variant.
 The browser's print dialog can then be used to print the report or save it as a PDF.

@@ -28,6 +28,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var boolean                 $cce_available
  * @var boolean                 $relationship_names_available
  * @var string                  $clippings_cart_action
+ * @var boolean                 $load_tab_on_click
  */
 
 $place_format ??= PlaceAbbreviation::OPTION_FULL_PLACE_NAME;
@@ -69,9 +70,6 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
                     </button>
                 </div>
                 <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
-                    <button type="button" class="btn btn-secondary hh-extended-family-select-in-law">
-                        <?= I18N::translate('Enable all in-law family parts') ?>
-                    </button>
                     <button type="button" class="btn btn-secondary hh-extended-family-deselect-in-law">
                         <?= I18N::translate('Disable all in-law family parts') ?>
                     </button>
@@ -367,6 +365,20 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
             <input type="hidden" name="clippings_cart_action" value="internal">
         <?php endif ?>
 
+        <h3><?= I18N::translate('When should the extended family tab be loaded?') ?></h3>
+        <p><?= I18N::translate('Choose whether the extended family tab content is calculated immediately while the individual page opens or later by Ajax when the user opens the tab.') ?></p>
+        <!-- load tab content immediately or later by Ajax when the tab is opened -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Load later') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'load_tab_on_click', 'options' => [$coreYes, $coreNo], 'selected' => (int)$load_tab_on_click]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <button type="submit" class="btn btn-primary">
             <?= view('icons/save') ?>
             <?= $coreSave ?>
@@ -394,10 +406,6 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
 
   $('.hh-extended-family-select-none').click(function () {
       $('.hh-extended-family-part-status').prop('checked', false);
-  });
-
-  $('.hh-extended-family-select-in-law').click(function () {
-      $('.hh-extended-family-part-status[data-in-law="1"]').prop('checked', true);
   });
 
   $('.hh-extended-family-deselect-in-law').click(function () {

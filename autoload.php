@@ -15,9 +15,6 @@ $loader->addPsr4('Hartenthaler\\Webtrees\\Module\\ExtendedFamily\\', __DIR__ . '
 $loader->addPsr4('Hartenthaler\\Webtrees\\Module\\ExtendedFamily\\', __DIR__ . '/src/Factory/Objects');
 $loader->addPsr4('Hartenthaler\\Webtrees\\Module\\ExtendedFamily\\', __DIR__ . '/src/Factory/ExtendedFamilyParts');
 
-// my helper functions for webtrees custom modules
-$loader->addPsr4('Hartenthaler\\Webtrees\\Helpers\\', __DIR__ . "/vendor/hartenthaler/Webtrees/Helpers");
-
 $loader->register();
 
 return true;

@@ -251,7 +251,7 @@
 }
 
 @page {
-    size: A4 portrait;
+    size: A4 landscape;
     margin: 12mm;
 }
 
@@ -323,6 +323,18 @@
         break-inside: avoid;
         page-break-after: avoid;
         page-break-inside: avoid;
+    }
+
+    .hh-extended-family-lineage-statistics {
+        font-size: 7pt;
+        table-layout: auto;
+        width: 100%;
+    }
+
+    .hh-extended-family-lineage-statistics th,
+    .hh-extended-family-lineage-statistics td {
+        padding: 1mm;
+        white-space: nowrap;
     }
 
     #hh_extended_family_content,

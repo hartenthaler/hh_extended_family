@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Extended Family\n"
 "Report-Msgid-Bugs-To: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
-"POT-Creation-Date: 2026-05-25 01:18+0200\n"
+"POT-Creation-Date: 2026-05-28 10:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -16,12 +16,12 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:305
+#: ExtendedFamilyTabModule.php:289
 #, php-format
 msgid "The preferences for the module “%s” have been updated."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:691
+#: ExtendedFamilyTabModule.php:686
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “copy to "
 "clippings cart” will use the internal Extended Family action."
@@ -29,7 +29,7 @@ msgstr ""
 "Das Erweiterungsmodul „huhwt-cce“ ist nicht verfügbar. Die Schaltfläche „in "
 "den Sammelbehälter kopieren“ verwendet die interne Extended-Family-Aktion."
 
-#: ExtendedFamilyTabModule.php:701
+#: ExtendedFamilyTabModule.php:696
 msgid ""
 "Vesta relationship names are not available. Mouse-over text for "
 "relationships to the proband will not be shown."
@@ -37,23 +37,23 @@ msgstr ""
 "Beziehungsnamen aus Vesta sind nicht verfügbar. Der Text zur Beziehung zum "
 "Probanden kann bei Mouse-over nicht angezeigt werden."
 
-#: ExtendedFamilyTabModule.php:711 ExtendedFamilyTabModule.php:880
+#: ExtendedFamilyTabModule.php:706 ExtendedFamilyTabModule.php:875
 msgid "Extended family"
 msgstr "Großfamilie"
 
-#: ExtendedFamilyTabModule.php:721
+#: ExtendedFamilyTabModule.php:716
 msgid "A tab showing the extended family of an individual."
 msgstr "Ein Reiter, der die Großfamilie einer Person anzeigt."
 
-#: ExtendedFamilyTabModule.php:902
+#: ExtendedFamilyTabModule.php:897
 msgid "The selected tree could not be found."
 msgstr "Der ausgewählte Stammbaum wurde nicht gefunden."
 
-#: ExtendedFamilyTabModule.php:909
+#: ExtendedFamilyTabModule.php:904
 msgid "The selected individual could not be found."
 msgstr "Die ausgewählte Person wurde nicht gefunden."
 
-#: ExtendedFamilyTabModule.php:934
+#: ExtendedFamilyTabModule.php:929
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"
@@ -3202,30 +3202,26 @@ msgid "Biological"
 msgstr "Biologisch"
 
 #: resources/views/partials/summary.phtml:235
-msgid "Earliest birth year"
-msgstr "Frühestes Geburtsjahr"
+msgid "Earliest / latest birth year"
+msgstr "Frühestes / Spätestes Geburtsjahr"
 
 #: resources/views/partials/summary.phtml:236
-msgid "Latest birth year"
-msgstr "Spätestes Geburtsjahr"
-
-#: resources/views/partials/summary.phtml:237
 msgid "Average birth year"
 msgstr "Durchschnittliches Geburtsjahr"
 
-#: resources/views/partials/summary.phtml:238
+#: resources/views/partials/summary.phtml:237
 msgid "Average marriage age"
 msgstr "Mittleres Heiratsalter"
 
-#: resources/views/partials/summary.phtml:239
+#: resources/views/partials/summary.phtml:238
 msgid "Generation length"
 msgstr "Generationenlänge"
 
-#: resources/views/partials/summary.phtml:240
+#: resources/views/partials/summary.phtml:239
 msgid "Average lifespan"
 msgstr "Durchschnittliche Lebensspanne"
 
-#: resources/views/partials/summary.phtml:241
+#: resources/views/partials/summary.phtml:240
 msgid "Average children"
 msgstr "Durchschnittliche Kinderzahl"
 
@@ -3241,73 +3237,69 @@ msgstr ""
 msgid "No family available"
 msgstr "Es wurde keine Familie gefunden"
 
-#: resources/views/settings.phtml:39
+#: resources/views/settings.phtml:40
 msgid "Control panel"
 msgstr ""
 
-#: resources/views/settings.phtml:40
+#: resources/views/settings.phtml:41
 msgid "Enabled"
 msgstr ""
 
-#: resources/views/settings.phtml:41
+#: resources/views/settings.phtml:42
 msgid "Move down"
 msgstr ""
 
-#: resources/views/settings.phtml:42
+#: resources/views/settings.phtml:43
 msgid "Move up"
 msgstr ""
 
-#: resources/views/settings.phtml:43
+#: resources/views/settings.phtml:44
 msgid "no"
 msgstr ""
 
-#: resources/views/settings.phtml:44
+#: resources/views/settings.phtml:45
 msgid "save"
 msgstr ""
 
-#: resources/views/settings.phtml:45
+#: resources/views/settings.phtml:46
 msgid "yes"
 msgstr ""
 
-#: resources/views/settings.phtml:59
+#: resources/views/settings.phtml:60
 msgid "In which sequence should the parts of the extended family be shown?"
 msgstr ""
 "In welcher Reihenfolge sollen die Teile der erweiterten Familie angezeigt "
 "werden?"
 
-#: resources/views/settings.phtml:61 resources/views/settings.phtml:62
+#: resources/views/settings.phtml:62 resources/views/settings.phtml:63
 msgid "Quick selection for family parts"
 msgstr "Schnellauswahl für Familienteile"
 
-#: resources/views/settings.phtml:65
+#: resources/views/settings.phtml:66
 msgid "Enable all"
 msgstr "Alle aktivieren"
 
-#: resources/views/settings.phtml:68
+#: resources/views/settings.phtml:69
 msgid "Disable all"
 msgstr "Alle deaktivieren"
 
-#: resources/views/settings.phtml:73
-msgid "Enable all in-law family parts"
-msgstr "Alle angeheirateten Familienteile aktivieren"
-
-#: resources/views/settings.phtml:76
+#: resources/views/settings.phtml:74
 msgid "Disable all in-law family parts"
 msgstr "Alle angeheirateten Familienteile deaktivieren"
 
-#: resources/views/settings.phtml:80 resources/views/settings.phtml:81
+#: resources/views/settings.phtml:78 resources/views/settings.phtml:79
 msgid "Degree"
 msgstr "Entfernung"
 
-#: resources/views/settings.phtml:81
+#: resources/views/settings.phtml:79
 msgid "unlimited"
 msgstr "unbegrenzt"
 
-#: resources/views/settings.phtml:83
+#: resources/views/settings.phtml:81
 msgid "Enable up to this degree"
 msgstr "Bis zu dieser Entfernung aktivieren"
 
-#: resources/views/settings.phtml:88
+#: resources/views/settings.phtml:86
 msgid ""
 "The quick selection changes only the checkboxes below. The configuration is "
 "saved when you click \"save\"."
@@ -3315,15 +3307,15 @@ msgstr ""
 "Die Schnellauswahl ändert nur die nachfolgenden Kontrollkästchen. Die "
 "Konfiguration wird gespeichert, wenn Sie auf \"Speichern\" klicken."
 
-#: resources/views/settings.phtml:94
+#: resources/views/settings.phtml:92
 msgid "Family part (generation relative to proband)"
 msgstr "Familienteil (Generation relativ zum Probanden)"
 
-#: resources/views/settings.phtml:149
+#: resources/views/settings.phtml:147
 msgid "Show options to filter the results?"
 msgstr "Sollen Optionen zum Filtern der Ergebnisse angezeigt werden?"
 
-#: resources/views/settings.phtml:150
+#: resources/views/settings.phtml:148
 msgid ""
 "This allows a user to filter the members of the extended family by gender "
 "and if they are alive or dead."
@@ -3331,29 +3323,29 @@ msgstr ""
 "Dies erlaubt es einem Nutzer die Mitglieder der erweiterten Familie nach "
 "Geschlecht sowie nach lebend/tot zu filtern."
 
-#: resources/views/settings.phtml:155
+#: resources/views/settings.phtml:153
 msgid "Show filter options"
 msgstr "Zeige Filteroptionen"
 
-#: resources/views/settings.phtml:163
+#: resources/views/settings.phtml:161
 msgid "Should a summary block be shown?"
 msgstr "Soll ein zusammenfassender Abschnitt angezeigt werden?"
 
-#: resources/views/settings.phtml:164
+#: resources/views/settings.phtml:162
 msgid "The summary contains information about the extended family in total."
 msgstr ""
 "Die Zusammenfassung enthält Informationen über die erweiterte Familie als "
 "Ganzes."
 
-#: resources/views/settings.phtml:169
+#: resources/views/settings.phtml:167
 msgid "Show summary"
 msgstr "Zeige Zusammenfassung"
 
-#: resources/views/settings.phtml:177
+#: resources/views/settings.phtml:175
 msgid "Should summary statistics be shown?"
 msgstr "Soll die zusammenfassende Statistik angezeigt werden?"
 
-#: resources/views/settings.phtml:178
+#: resources/views/settings.phtml:176
 msgid ""
 "The summary statistics contain additional information about living and "
 "deceased members, gender distribution, and the known date range."
@@ -3362,27 +3354,27 @@ msgstr ""
 "und verstorbenen Mitgliedern, zur Geschlechtsverteilung und zum bekannten "
 "Zeitraum."
 
-#: resources/views/settings.phtml:180
+#: resources/views/settings.phtml:178
 msgid "This option only has an effect if the summary block is shown."
 msgstr ""
 "Diese Option wirkt sich nur aus, wenn der Zusammenfassungsblock angezeigt "
 "wird."
 
-#: resources/views/settings.phtml:183
+#: resources/views/settings.phtml:181
 msgid "Summary statistics cannot be shown while the summary block is disabled."
 msgstr ""
 "Zusammenfassende Statistiken können nicht angezeigt werden, solange der "
 "Zusammenfassungsblock deaktiviert ist."
 
-#: resources/views/settings.phtml:189
+#: resources/views/settings.phtml:187
 msgid "Show summary statistics"
 msgstr "Zeige zusammenfassende Statistik"
 
-#: resources/views/settings.phtml:197
+#: resources/views/settings.phtml:195
 msgid "How should empty parts of extended family be presented?"
 msgstr "Wie sollen leere Teile der erweiterten Familie angezeigt werden?"
 
-#: resources/views/settings.phtml:199
+#: resources/views/settings.phtml:197
 msgid ""
 "The option to collect messages about empty family parts at the summary block "
 "only has an effect if the summary block is shown."
@@ -3391,7 +3383,7 @@ msgstr ""
 "anzuzeigen, wirkt sich nur aus, wenn der Zusammenfassungsblock angezeigt "
 "wird."
 
-#: resources/views/settings.phtml:202
+#: resources/views/settings.phtml:200
 msgid ""
 "Empty family parts cannot be collected at the summary block while the "
 "summary block is disabled."
@@ -3399,30 +3391,30 @@ msgstr ""
 "Leere Familienelemente können nicht im Zusammenfassungsblock gesammelt "
 "werden, solange dieser deaktiviert ist."
 
-#: resources/views/settings.phtml:208
+#: resources/views/settings.phtml:206
 msgid "Show empty block"
 msgstr "Zeige leere Familienteile"
 
-#: resources/views/settings.phtml:211
+#: resources/views/settings.phtml:209
 msgid "yes, always at standard location"
 msgstr "ja, immer am normalen Platz"
 
-#: resources/views/settings.phtml:211
+#: resources/views/settings.phtml:209
 msgid "no, but collect messages about empty blocks at the summary block"
 msgstr ""
 "nein, aber sammle Nachrichten über leere Familienteile im zusammenfassenden "
 "Abschnitt"
 
-#: resources/views/settings.phtml:211
+#: resources/views/settings.phtml:209
 msgid "never"
 msgstr "niemals"
 
-#: resources/views/settings.phtml:216
+#: resources/views/settings.phtml:214
 msgid ""
 "Count the members of the partner chains as members of the extended family?"
 msgstr "Zählen die Mitglieder der Partnerketten zur erweiterten Familie?"
 
-#: resources/views/settings.phtml:218
+#: resources/views/settings.phtml:216
 msgid ""
 "If you select \"no\", then the additional members in the partner chains will "
 "not be counted to the total number of individuals in the extended family."
@@ -3431,7 +3423,7 @@ msgstr ""
 "Partnerketten nicht zur Gesamtzahl der Mitglieder der erweiterten Familie "
 "gezählt."
 
-#: resources/views/settings.phtml:219
+#: resources/views/settings.phtml:217
 msgid ""
 "And these persons and families will be not selected when a user decides to "
 "copy the extended family to the clippings cart."
@@ -3439,7 +3431,7 @@ msgstr ""
 "Und diese Personen und Familien werden nicht ausgewählt, wenn ein Anwender "
 "sich entscheidet, die Großfamilie in den Sammelbehälter zu kopieren."
 
-#: resources/views/settings.phtml:220
+#: resources/views/settings.phtml:218
 msgid ""
 "But even in this case, you can copy these persons and families to the "
 "clippings cart by using a special menu topic of the custom module \"enhanced "
@@ -3450,7 +3442,7 @@ msgstr ""
 "Erweiterungsmodul \"huhwt_cce\" ausgewählt wird: \"füge Partnerketten für "
 "eine Person hinzu\"."
 
-#: resources/views/settings.phtml:221
+#: resources/views/settings.phtml:219
 msgid ""
 "This is only relevant if you have chosen in the above table, that the "
 "partner chains should be shown as a part of the extended family."
@@ -3459,15 +3451,15 @@ msgstr ""
 "ausgewählt haben, dass die Partnerketten ein Teil der erweiterten Familie "
 "sind."
 
-#: resources/views/settings.phtml:227
+#: resources/views/settings.phtml:225
 msgid "Include them"
 msgstr "Einbeziehen"
 
-#: resources/views/settings.phtml:235
+#: resources/views/settings.phtml:233
 msgid "Show parameters of extended family part?"
 msgstr "Sollen Parameter für die erweiterten Familienteile angezeigt werden?"
 
-#: resources/views/settings.phtml:236
+#: resources/views/settings.phtml:234
 msgid ""
 "Display of additional information for each part of the extended family, such "
 "as the generation shift and the coefficient of relationship, which is a "
@@ -3477,15 +3469,15 @@ msgstr ""
 "etwa die Generationenverschiebung und den Verwandtschaftskoeffizienten, der "
 "ein Maß für den Grad der Blutsverwandtschaft ist."
 
-#: resources/views/settings.phtml:241
+#: resources/views/settings.phtml:239
 msgid "Show parameters"
 msgstr "Zeige Parameter"
 
-#: resources/views/settings.phtml:249
+#: resources/views/settings.phtml:247
 msgid "Use the compact design?"
 msgstr "Soll das kompakte Design verwendet werden?"
 
-#: resources/views/settings.phtml:250
+#: resources/views/settings.phtml:248
 msgid ""
 "The compact design only shows the name and life span for each person. The "
 "enriched design also shows a photo (if this is activated for this tree) as "
@@ -3495,16 +3487,16 @@ msgstr ""
 "Lebensspanne. Das angereicherte Design zeigt zusätzlich ein Foto (wenn dies "
 "für diesen Baum aktiviert ist) sowie Geburts- und Sterbeinformationen."
 
-#: resources/views/settings.phtml:255
+#: resources/views/settings.phtml:253
 msgid "Use the compact design"
 msgstr "Kompaktes Design anwenden"
 
-#: resources/views/settings.phtml:263
+#: resources/views/settings.phtml:261
 msgid "Show name of proband as short name or as full name?"
 msgstr ""
 "Soll eine Kurzform oder der vollständige Name des Probanden angezeigt werden?"
 
-#: resources/views/settings.phtml:264
+#: resources/views/settings.phtml:262
 msgid ""
 "The short name is based on the probands Rufname or nickname. If these are "
 "not available, the first of the given names is used, if one is given. "
@@ -3514,15 +3506,15 @@ msgstr ""
 "Falls diese nicht vorhanden sind, wird der erste der Vornamen verwendet, "
 "sofern ein solcher angegeben ist. Andernfalls wird der Nachname verwendet."
 
-#: resources/views/settings.phtml:269
+#: resources/views/settings.phtml:267
 msgid "Show short name"
 msgstr "Zeige die Kurzform des Namens"
 
-#: resources/views/settings.phtml:277
+#: resources/views/settings.phtml:275
 msgid "How should place names be shown in event boxes?"
 msgstr "Wie sollen Ortsnamen in Ereignisboxen angezeigt werden?"
 
-#: resources/views/settings.phtml:278
+#: resources/views/settings.phtml:276
 msgid ""
 "This setting controls whether event places are shown as full place names or "
 "as abbreviated place names."
@@ -3530,15 +3522,15 @@ msgstr ""
 "Diese Einstellung legt fest, ob Ereignisorte als vollständige oder als "
 "abgekürzte Ortsnamen angezeigt werden."
 
-#: resources/views/settings.phtml:283
+#: resources/views/settings.phtml:281
 msgid "Place name format"
 msgstr "Format der Ortsnamen"
 
-#: resources/views/settings.phtml:291
+#: resources/views/settings.phtml:289
 msgid "Show labels in special situations?"
 msgstr "Sollen in besonderen Situationen Etiketten gezeigt werden?"
 
-#: resources/views/settings.phtml:292
+#: resources/views/settings.phtml:290
 msgid ""
 "Labels (or stickers) are used for example for adopted persons or foster "
 "children."
@@ -3546,15 +3538,15 @@ msgstr ""
 "Etiketten werden beispielsweise für Adoptivpersonen oder Pflegekinder "
 "verwendet."
 
-#: resources/views/settings.phtml:297
+#: resources/views/settings.phtml:295
 msgid "Show labels"
 msgstr "Zeige Etiketten"
 
-#: resources/views/settings.phtml:305
+#: resources/views/settings.phtml:303
 msgid "Show relationship to the proband as mouse-over text?"
 msgstr "Soll die Beziehung zum Probanden als MouseOver-Text angezeigt werden?"
 
-#: resources/views/settings.phtml:306
+#: resources/views/settings.phtml:304
 msgid ""
 "This shows the relationship of a person to the proband when the mouse "
 "pointer is over the name."
@@ -3562,15 +3554,15 @@ msgstr ""
 "Dies zeigt die Beziehung einer Person zum Probanden, wenn sich der "
 "Mauszeiger über dem Namen befindet."
 
-#: resources/views/settings.phtml:314
+#: resources/views/settings.phtml:312
 msgid "Show relationship"
 msgstr "Zeige Beziehung"
 
-#: resources/views/settings.phtml:322
+#: resources/views/settings.phtml:320
 msgid "Show a button \"Print/PDF\"?"
 msgstr "Soll eine Schaltfläche \"Drucken/PDF\" gezeigt werden?"
 
-#: resources/views/settings.phtml:323
+#: resources/views/settings.phtml:321
 msgid ""
 "This allows a user to open a print-optimized view and save it as a PDF file "
 "from the browser print dialog."
@@ -3578,16 +3570,16 @@ msgstr ""
 "Das erlaubt einem Anwender, eine druckoptimierte Ansicht zu öffnen und sie "
 "über den Druckdialog des Browsers als PDF-Datei zu speichern."
 
-#: resources/views/settings.phtml:328 resources/views/settings.phtml:347
+#: resources/views/settings.phtml:326 resources/views/settings.phtml:345
 msgid "Show button"
 msgstr "Zeige die Schaltfläche"
 
-#: resources/views/settings.phtml:336
+#: resources/views/settings.phtml:334
 msgid "Show a button \"copy to clippings cart\"?"
 msgstr ""
 "Soll eine Schaltfläche \"in den Sammelbehälter kopieren\" gezeigt werden?"
 
-#: resources/views/settings.phtml:337
+#: resources/views/settings.phtml:335
 msgid ""
 "This allows a user to copy all members of the extended family to the "
 "clippings cart."
@@ -3595,13 +3587,51 @@ msgstr ""
 "Das erlaubt einem Anwender alle Mitglieder der erweiterten Familie in den "
 "Sammelbehälter zu kopieren."
 
-#: resources/views/settings.phtml:359
+#: resources/views/settings.phtml:357
 msgid "Clippings cart action"
 msgstr "Sammelbehälter-Aktion"
 
-#: resources/views/settings.phtml:362
+#: resources/views/settings.phtml:360
 msgid "huhwt-cce (recommended)"
 msgstr "huhwt-cce (empfohlen)"
+
+#: resources/views/settings.phtml:368
+msgid "When should the extended family tab be loaded?"
+msgstr "Wann soll die Registerkarte „Großfamilie“ geladen werden?"
+
+#: resources/views/settings.phtml:369
+msgid ""
+"Choose whether the extended family tab content is calculated immediately "
+"while the individual page opens or later by Ajax when the user opens the tab."
+msgstr ""
+"Legen Sie fest, ob der Inhalt der Registerkarte „Großfamilie“ sofort beim "
+"Öffnen der Seite oder erst später per Ajax geladen wird, wenn der Benutzer "
+"die Registerkarte öffnet."
+
+#: resources/views/settings.phtml:374
+msgid "Load later"
+msgstr "Später laden"
+
+#~ msgid ""
+#~ "If this option is enabled, the individual page opens faster because the "
+#~ "extended family tab content is loaded by Ajax when the user opens the "
+#~ "tab. If it is disabled, the tab content is calculated during the "
+#~ "individual page request."
+#~ msgstr ""
+#~ "Wenn diese Option aktiviert ist, wird die Personen-Seite schneller "
+#~ "geladen, da der Inhalt der Registerkarte „Großfamilie“ per Ajax geladen "
+#~ "wird, sobald der Benutzer die Registerkarte öffnet. Ist sie deaktiviert, "
+#~ "wird der Inhalt der Registerkarte bereits während der Anfrage für die "
+#~ "einzelne Seite berechnet."
+
+#~ msgid "Load on click"
+#~ msgstr "Laden beim Auswählen"
+
+#~ msgid "Latest birth year"
+#~ msgstr "Spätestes Geburtsjahr"
+
+#~ msgid "Enable all in-law family parts"
+#~ msgstr "Alle angeheirateten Familienteile aktivieren"
 
 #~ msgid "Marriage/partnership"
 #~ msgstr "Ehe/Partnerschaft"

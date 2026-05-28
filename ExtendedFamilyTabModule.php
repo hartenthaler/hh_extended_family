@@ -57,7 +57,6 @@ declare(strict_types=1);
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
-use Hartenthaler\Webtrees\Helpers\Functions;
 use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
 use Fisharebest\Localization\Translation;
 use Fisharebest\Webtrees\Auth;
@@ -67,6 +66,7 @@ use Fisharebest\Webtrees\Registry;
 use Fisharebest\Webtrees\Session;
 use Fisharebest\Webtrees\Validator;
 use Fisharebest\Webtrees\View;
+use Fisharebest\Webtrees\Webtrees;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\FlashMessages;
 use Fisharebest\Webtrees\Module\AbstractModule;
@@ -79,7 +79,6 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Fisharebest\Webtrees\Services\ModuleService;
 use Fisharebest\Webtrees\Services\TreeService;
-use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -123,7 +122,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.6';
+    public const CUSTOM_VERSION     = '2.2.6.7';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
@@ -133,22 +132,6 @@ class ExtendedFamilyTabModule extends AbstractModule
     private const CLIPPINGS_CART_ACTION_INTERNAL = 'internal';
     private const CLIPPINGS_CART_ENHANCED_MODULE = '_huhwt-cce_';
     private const VESTA_UTILS_CLASS              = '\Vesta\VestaUtils';
-
-    /**
-     * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
-     * This is a good place to load business logic ("services").  Type-hint the parameters and
-     * they will be injected automatically.
-     */
-    public function __construct()
-    {
-        // NOTE:  If your module is dependent on any of the business logic ("services"),
-        // then you would type-hint them in the constructor and let webtrees inject them
-        // for you.  However, we can't use dependency injection on anonymous classes like
-        // this one. For an example of this, see the example-server-configuration module.
-
-        // use helper function in order to work with webtrees versions 2.1 and 2.2
-        $response_factory = Functions::getFromContainer(ResponseFactoryInterface::class);
-    }
 
     /**
      * find members of extended family parts
@@ -247,6 +230,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_print_button',
             'use_clippings_cart',
             'clippings_cart_action',
+            'load_tab_on_click',
         ];
     }
 
@@ -342,6 +326,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_print_button'       => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_print_button', '0'),
             'use_clippings_cart'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_clippings_cart', '0'),
             'clippings_cart_action'   => Validator::parsedBody($request)->isInArray([self::CLIPPINGS_CART_ACTION_CCE, self::CLIPPINGS_CART_ACTION_INTERNAL])->string('clippings_cart_action', self::CLIPPINGS_CART_ACTION_CCE),
+            'load_tab_on_click'       => Validator::parsedBody($request)->isInArray(['0', '1'])->string('load_tab_on_click', '0'),
             'order'                   => [],
         ];
 
@@ -629,6 +614,16 @@ class ExtendedFamilyTabModule extends AbstractModule
     }
 
     /**
+     * Should the tab content be loaded only when the user opens the tab?
+     *
+     * @return bool
+     */
+    private function loadTabOnClick(): bool
+    {
+        return ($this->getPreference('load_tab_on_click', '0') == '0');
+    }
+
+    /**
      * Is the enhanced clippings cart module installed and enabled?
      *
      * @return bool
@@ -895,7 +890,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         $xref       = Validator::parsedBody($request)->isXref()->string('xref', '');
         $filter     = Validator::parsedBody($request)->string('filter', 'all');
 
-        $tree_service = Functions::getFromContainer(TreeService::class);
+        $tree_service = self::getFromContainer(TreeService::class);
         $tree         = $tree_service->all()->get($tree_name);
 
         if ($tree === null) {
@@ -982,7 +977,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         }
 
         try {
-            $request   = Functions::getFromContainer(ServerRequestInterface::class);
+            $request   = self::getFromContainer(ServerRequestInterface::class);
             $base_url  = (string) $request->getAttribute('base_url', '');
             $base_path = parse_url($base_url, PHP_URL_PATH);
 
@@ -1010,7 +1005,22 @@ class ExtendedFamilyTabModule extends AbstractModule
     /** {@inheritdoc} */
     public function canLoadAjax(): bool
     {
-        return false;
+        return $this->loadTabOnClick();
+    }
+
+    /**
+     * Get a service from the webtrees container in webtrees 2.1 and 2.2.
+     *
+     * @param string $id
+     * @return mixed
+     */
+    private static function getFromContainer(string $id)
+    {
+        if (version_compare(Webtrees::VERSION, '2.2.0', '>=')) {
+            return Registry::container()->get($id);
+        }
+
+        return app($id);
     }
 
     /**
@@ -1022,7 +1032,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     public function boot(): void
     {
-        View::registerNamespace($this->name(), $this->resourcesFolder() . 'views'. DIRECTORY_SEPARATOR);
+        View::registerNamespace($this->name(), strtr($this->resourcesFolder() . 'views' . DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, '/'));
     }
     
     /**

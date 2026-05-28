@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Extended Family\n"
 "Report-Msgid-Bugs-To: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
-"POT-Creation-Date: 2026-05-24 22:38+0200\n"
+"POT-Creation-Date: 2026-05-28 10:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -17,43 +17,48 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:304
+#: ExtendedFamilyTabModule.php:289
 #, php-format
 msgid "The preferences for the module “%s” have been updated."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:649
+#: ExtendedFamilyTabModule.php:686
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal "
 "Extended Family action."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:669
-msgid "A tab showing the extended family of an individual."
+#: ExtendedFamilyTabModule.php:696
+msgid ""
+"Vesta relationship names are not available. Mouse-over text for relationships to the proband will not be shown."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:828
+#: ExtendedFamilyTabModule.php:706 ExtendedFamilyTabModule.php:875
 msgid "Extended family"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:850
+#: ExtendedFamilyTabModule.php:716
+msgid "A tab showing the extended family of an individual."
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:897
 msgid "The selected tree could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:857
+#: ExtendedFamilyTabModule.php:904
 msgid "The selected individual could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:882
+#: ExtendedFamilyTabModule.php:929
 #, php-format
 msgid "The extended family has been copied to the clippings cart. New entries: %s"
 msgstr ""
 
-#: src/Factory/ExtendedFamilyParts/Partners.php:182
+#: src/Factory/ExtendedFamilyParts/Partners.php:187
 msgid "Levirate"
 msgstr ""
 
-#: src/Factory/ExtendedFamilyParts/Partners.php:183
+#: src/Factory/ExtendedFamilyParts/Partners.php:188
 msgid "Sororate"
 msgstr ""
 
@@ -81,775 +86,775 @@ msgstr ""
 msgid "Son"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:446
+#: src/Factory/Objects/ExtendedFamilySupport.php:478
 msgid "Linkage challenged"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:449
+#: src/Factory/Objects/ExtendedFamilySupport.php:481
 msgid "Linkage disproven"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:452
+#: src/Factory/Objects/ExtendedFamilySupport.php:484
 msgid "Linkage proven"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:498
+#: src/Factory/Objects/ExtendedFamilySupport.php:530
 msgid "Twin"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:499
+#: src/Factory/Objects/ExtendedFamilySupport.php:531
 msgid "Triplet"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:500
+#: src/Factory/Objects/ExtendedFamilySupport.php:532
 msgid "Quadruplet"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:501
+#: src/Factory/Objects/ExtendedFamilySupport.php:533
 msgid "Quintuplet"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:502
+#: src/Factory/Objects/ExtendedFamilySupport.php:534
 msgid "Sextuplet"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:503
+#: src/Factory/Objects/ExtendedFamilySupport.php:535
 msgid "Septuplet"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:504
+#: src/Factory/Objects/ExtendedFamilySupport.php:536
 msgid "Octuplet"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:505
+#: src/Factory/Objects/ExtendedFamilySupport.php:537
 msgid "Nonuplet"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:506
+#: src/Factory/Objects/ExtendedFamilySupport.php:538
 msgid "Decuplet"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:524
+#: src/Factory/Objects/ExtendedFamilySupport.php:556
 msgid "Stillborn"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:527
+#: src/Factory/Objects/ExtendedFamilySupport.php:559
 msgid "Died as infant"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:564
+#: src/Factory/Objects/ExtendedFamilySupport.php:596
 msgid "divorced"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:565
+#: src/Factory/Objects/ExtendedFamilySupport.php:597
 msgid "married"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:566
+#: src/Factory/Objects/ExtendedFamilySupport.php:598
 msgid "engaged"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:567
+#: src/Factory/Objects/ExtendedFamilySupport.php:599
 msgid "partners"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:581
+#: src/Factory/Objects/ExtendedFamilySupport.php:613
 msgid "Ex-marriage"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:582
+#: src/Factory/Objects/ExtendedFamilySupport.php:614
 msgid "Marriage"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:583
+#: src/Factory/Objects/ExtendedFamilySupport.php:615
 msgid "Fiancée"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:584
+#: src/Factory/Objects/ExtendedFamilySupport.php:616
 msgid "Partnership"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:598
+#: src/Factory/Objects/ExtendedFamilySupport.php:630
 msgid "divorced partner"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:599
+#: src/Factory/Objects/ExtendedFamilySupport.php:631
 msgid "married partner"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:600
+#: src/Factory/Objects/ExtendedFamilySupport.php:632
 msgid "engaged partner"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:601
+#: src/Factory/Objects/ExtendedFamilySupport.php:633
 msgid "partner"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:669
+#: src/Factory/Objects/ExtendedFamilySupport.php:701
 msgid "Half-brother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:670
+#: src/Factory/Objects/ExtendedFamilySupport.php:702
 msgid "Half-sister"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:671
+#: src/Factory/Objects/ExtendedFamilySupport.php:703
 msgid "Half-sibling"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:736
+#: src/Factory/Objects/ExtendedFamilySupport.php:768
 msgid "Great-grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:737
+#: src/Factory/Objects/ExtendedFamilySupport.php:769
 msgid "Grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:738
+#: src/Factory/Objects/ExtendedFamilySupport.php:770
 msgid "Uncles and Aunts"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:739
+#: src/Factory/Objects/ExtendedFamilySupport.php:771
 msgid "Uncles and Aunts by marriage"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:740
+#: src/Factory/Objects/ExtendedFamilySupport.php:772
 msgid "Parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:741
+#: src/Factory/Objects/ExtendedFamilySupport.php:773
 msgid "Parents-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:742
+#: src/Factory/Objects/ExtendedFamilySupport.php:774
 msgid "Co-parents-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:743
+#: src/Factory/Objects/ExtendedFamilySupport.php:775
 msgid "Partners"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:744
+#: src/Factory/Objects/ExtendedFamilySupport.php:776
 msgid "Partner chains"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:745
+#: src/Factory/Objects/ExtendedFamilySupport.php:777
 msgid "Siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:746
+#: src/Factory/Objects/ExtendedFamilySupport.php:778
 msgid "Siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:747
+#: src/Factory/Objects/ExtendedFamilySupport.php:779
 msgid "Co-siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:748
+#: src/Factory/Objects/ExtendedFamilySupport.php:780
 msgid "Cousins"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:749
+#: src/Factory/Objects/ExtendedFamilySupport.php:781
 msgid "Nephews and Nieces"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:750
+#: src/Factory/Objects/ExtendedFamilySupport.php:782
 msgid "Children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:751
+#: src/Factory/Objects/ExtendedFamilySupport.php:783
 msgid "Children-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:752
+#: src/Factory/Objects/ExtendedFamilySupport.php:784
 msgid "Grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:753
+#: src/Factory/Objects/ExtendedFamilySupport.php:785
 msgid "Great-grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:754
+#: src/Factory/Objects/ExtendedFamilySupport.php:786
 msgid "Grandchildren-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:755
+#: src/Factory/Objects/ExtendedFamilySupport.php:787
 msgid "Great-grandchildren-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:772
+#: src/Factory/Objects/ExtendedFamilySupport.php:804
 msgctxt "Family part name in sentence"
 msgid "great-grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:773
+#: src/Factory/Objects/ExtendedFamilySupport.php:805
 msgctxt "Family part name in sentence"
 msgid "grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:774
+#: src/Factory/Objects/ExtendedFamilySupport.php:806
 msgctxt "Family part name in sentence"
 msgid "uncles and aunts"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:775
+#: src/Factory/Objects/ExtendedFamilySupport.php:807
 msgctxt "Family part name in sentence"
 msgid "uncles and aunts by marriage"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:776
+#: src/Factory/Objects/ExtendedFamilySupport.php:808
 msgctxt "Family part name in sentence"
 msgid "parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:777
+#: src/Factory/Objects/ExtendedFamilySupport.php:809
 msgctxt "Family part name in sentence"
 msgid "parents-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:778
+#: src/Factory/Objects/ExtendedFamilySupport.php:810
 msgctxt "Family part name in sentence"
 msgid "co-parents-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:779
+#: src/Factory/Objects/ExtendedFamilySupport.php:811
 msgctxt "Family part name in sentence"
 msgid "partners"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:780
+#: src/Factory/Objects/ExtendedFamilySupport.php:812
 msgctxt "Family part name in sentence"
 msgid "partner chains"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:781
+#: src/Factory/Objects/ExtendedFamilySupport.php:813
 msgctxt "Family part name in sentence"
 msgid "siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:782
+#: src/Factory/Objects/ExtendedFamilySupport.php:814
 msgctxt "Family part name in sentence"
 msgid "siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:783
+#: src/Factory/Objects/ExtendedFamilySupport.php:815
 msgctxt "Family part name in sentence"
 msgid "co-siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:784
+#: src/Factory/Objects/ExtendedFamilySupport.php:816
 msgctxt "Family part name in sentence"
 msgid "cousins"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:785
+#: src/Factory/Objects/ExtendedFamilySupport.php:817
 msgctxt "Family part name in sentence"
 msgid "nephews and nieces"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:786
+#: src/Factory/Objects/ExtendedFamilySupport.php:818
 msgctxt "Family part name in sentence"
 msgid "children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:787
+#: src/Factory/Objects/ExtendedFamilySupport.php:819
 msgctxt "Family part name in sentence"
 msgid "children-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:788
+#: src/Factory/Objects/ExtendedFamilySupport.php:820
 msgctxt "Family part name in sentence"
 msgid "grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:789
+#: src/Factory/Objects/ExtendedFamilySupport.php:821
 msgctxt "Family part name in sentence"
 msgid "great-grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:790
+#: src/Factory/Objects/ExtendedFamilySupport.php:822
 msgctxt "Family part name in sentence"
 msgid "grandchildren-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:791
+#: src/Factory/Objects/ExtendedFamilySupport.php:823
 msgctxt "Family part name in sentence"
 msgid "great-grandchildren-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:805
+#: src/Factory/Objects/ExtendedFamilySupport.php:837
 msgid "Biological great-grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:806
+#: src/Factory/Objects/ExtendedFamilySupport.php:838
 msgid "Biological grandparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:807
+#: src/Factory/Objects/ExtendedFamilySupport.php:839
 msgid "Full siblings of biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:808
+#: src/Factory/Objects/ExtendedFamilySupport.php:840
 msgid "Biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:809
+#: src/Factory/Objects/ExtendedFamilySupport.php:841
 msgid "Full siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:810
+#: src/Factory/Objects/ExtendedFamilySupport.php:842
 msgid "Children of full siblings of biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:811
+#: src/Factory/Objects/ExtendedFamilySupport.php:843
 msgid "Children of full siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:812
+#: src/Factory/Objects/ExtendedFamilySupport.php:844
 msgid "Biological children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:813
+#: src/Factory/Objects/ExtendedFamilySupport.php:845
 msgid "Biological grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:814 src/Factory/Objects/ExtendedFamilySupport.php:913
+#: src/Factory/Objects/ExtendedFamilySupport.php:846 src/Factory/Objects/ExtendedFamilySupport.php:945
 msgid "Biological great-grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:828
+#: src/Factory/Objects/ExtendedFamilySupport.php:860
 msgid "Biological grandparents of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:829
+#: src/Factory/Objects/ExtendedFamilySupport.php:861
 msgid "Biological grandparents of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:830
+#: src/Factory/Objects/ExtendedFamilySupport.php:862
 msgid "Biological grandparents of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:831
+#: src/Factory/Objects/ExtendedFamilySupport.php:863
 msgid "Stepparents of biological parent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:832
+#: src/Factory/Objects/ExtendedFamilySupport.php:864
 msgid "Stepparents of biological parent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:833
+#: src/Factory/Objects/ExtendedFamilySupport.php:865
 msgid "Stepparents of biological grandparent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:834
+#: src/Factory/Objects/ExtendedFamilySupport.php:866
 msgid "Social parents of biological parent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:835
+#: src/Factory/Objects/ExtendedFamilySupport.php:867
 msgid "Social parents of biological parent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:836
+#: src/Factory/Objects/ExtendedFamilySupport.php:868
 msgid "Social parents of biological grandparent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:837
+#: src/Factory/Objects/ExtendedFamilySupport.php:869
 msgid "Parents of stepparent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:838
+#: src/Factory/Objects/ExtendedFamilySupport.php:870
 msgid "Parents of stepparent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:839
+#: src/Factory/Objects/ExtendedFamilySupport.php:871
 msgid "Parents of stepparent of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:840
+#: src/Factory/Objects/ExtendedFamilySupport.php:872
 msgid "Stepparents of stepparent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:841
+#: src/Factory/Objects/ExtendedFamilySupport.php:873
 msgid "Stepparents of stepparent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:842
+#: src/Factory/Objects/ExtendedFamilySupport.php:874
 msgid "Stepparents of stepparent of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:843
+#: src/Factory/Objects/ExtendedFamilySupport.php:875
 msgid "Parents of social parent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:844
+#: src/Factory/Objects/ExtendedFamilySupport.php:876
 msgid "Parents of social parent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:845
+#: src/Factory/Objects/ExtendedFamilySupport.php:877
 msgid "Parents of social parent of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:846
+#: src/Factory/Objects/ExtendedFamilySupport.php:878
 msgid "Stepparents of social parent of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:847
+#: src/Factory/Objects/ExtendedFamilySupport.php:879
 msgid "Stepparents of social parent of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:848
+#: src/Factory/Objects/ExtendedFamilySupport.php:880
 msgid "Stepparents of social parent of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:849
+#: src/Factory/Objects/ExtendedFamilySupport.php:881
 msgid "Grandparents of stepparent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:850
+#: src/Factory/Objects/ExtendedFamilySupport.php:882
 msgid "Grandparents of social parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:851
+#: src/Factory/Objects/ExtendedFamilySupport.php:883
 msgid "Biological parents of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:852
+#: src/Factory/Objects/ExtendedFamilySupport.php:884
 msgid "Biological parents of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:853
+#: src/Factory/Objects/ExtendedFamilySupport.php:885
 msgid "Biological parents of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:854
+#: src/Factory/Objects/ExtendedFamilySupport.php:886
 msgid "Stepparents of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:855
+#: src/Factory/Objects/ExtendedFamilySupport.php:887
 msgid "Stepparents of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:856
+#: src/Factory/Objects/ExtendedFamilySupport.php:888
 msgid "Stepparents of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:857
+#: src/Factory/Objects/ExtendedFamilySupport.php:889
 msgid "Parents of stepparent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:858
+#: src/Factory/Objects/ExtendedFamilySupport.php:890
 msgid "Social parents of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:859
+#: src/Factory/Objects/ExtendedFamilySupport.php:891
 msgid "Social parents of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:860
+#: src/Factory/Objects/ExtendedFamilySupport.php:892
 msgid "Social parents of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:861
+#: src/Factory/Objects/ExtendedFamilySupport.php:893
 msgid "Parents of social father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:862
+#: src/Factory/Objects/ExtendedFamilySupport.php:894
 msgid "Parents of social mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:863
+#: src/Factory/Objects/ExtendedFamilySupport.php:895
 msgid "Parents of social parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:864
+#: src/Factory/Objects/ExtendedFamilySupport.php:896
 msgid "Stepparents of social father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:865
+#: src/Factory/Objects/ExtendedFamilySupport.php:897
 msgid "Stepparents of social mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:866
+#: src/Factory/Objects/ExtendedFamilySupport.php:898
 msgid "Stepparents of social parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:867
+#: src/Factory/Objects/ExtendedFamilySupport.php:899
 msgid "Stepparents of stepparent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:868
+#: src/Factory/Objects/ExtendedFamilySupport.php:900
 msgid "Social parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:869
+#: src/Factory/Objects/ExtendedFamilySupport.php:901
 msgid "Stepparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:870
+#: src/Factory/Objects/ExtendedFamilySupport.php:902
 msgid "Siblings and half siblings of biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:871
+#: src/Factory/Objects/ExtendedFamilySupport.php:903
 msgid "Siblings and half siblings of social parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:872
+#: src/Factory/Objects/ExtendedFamilySupport.php:904
 msgid "Siblings and half siblings of stepparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:873
+#: src/Factory/Objects/ExtendedFamilySupport.php:905
 msgid "Partners of siblings and half siblings of biological parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:874
+#: src/Factory/Objects/ExtendedFamilySupport.php:906
 msgid "Partners of siblings and half siblings of social parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:875
+#: src/Factory/Objects/ExtendedFamilySupport.php:907
 msgid "Partners of siblings and half siblings of stepparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:876
+#: src/Factory/Objects/ExtendedFamilySupport.php:908
 msgid "Children of full siblings of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:877
+#: src/Factory/Objects/ExtendedFamilySupport.php:909
 msgid "Children of full siblings of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:878
+#: src/Factory/Objects/ExtendedFamilySupport.php:910
 msgid "Children of full siblings of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:879
+#: src/Factory/Objects/ExtendedFamilySupport.php:911
 msgid "Children of half siblings of father"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:880
+#: src/Factory/Objects/ExtendedFamilySupport.php:912
 msgid "Children of half siblings of mother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:881
+#: src/Factory/Objects/ExtendedFamilySupport.php:913
 msgid "Children of half siblings of parent"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:882
+#: src/Factory/Objects/ExtendedFamilySupport.php:914
 msgid "Children of full siblings of social parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:883
+#: src/Factory/Objects/ExtendedFamilySupport.php:915
 msgid "Children of half siblings of social parents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:884
+#: src/Factory/Objects/ExtendedFamilySupport.php:916
 msgid "Children of full siblings of stepparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:885
+#: src/Factory/Objects/ExtendedFamilySupport.php:917
 msgid "Children of half siblings of stepparents"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:886
+#: src/Factory/Objects/ExtendedFamilySupport.php:918
 msgid "Half siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:887
+#: src/Factory/Objects/ExtendedFamilySupport.php:919
 msgid "Social siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:888
+#: src/Factory/Objects/ExtendedFamilySupport.php:920
 msgid "Stepsiblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:889
+#: src/Factory/Objects/ExtendedFamilySupport.php:921
 msgid "Siblings of partners"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:890
+#: src/Factory/Objects/ExtendedFamilySupport.php:922
 msgid "Partners of siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:891
+#: src/Factory/Objects/ExtendedFamilySupport.php:923
 msgid "Siblings of siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:892
+#: src/Factory/Objects/ExtendedFamilySupport.php:924
 msgid "Partners of siblings-in-law"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:893
+#: src/Factory/Objects/ExtendedFamilySupport.php:925
 msgid "Social children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:894
+#: src/Factory/Objects/ExtendedFamilySupport.php:926
 msgid "Stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:895
+#: src/Factory/Objects/ExtendedFamilySupport.php:927
 msgid "Partners of biological children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:896
+#: src/Factory/Objects/ExtendedFamilySupport.php:928
 msgid "Partners of social children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:897
+#: src/Factory/Objects/ExtendedFamilySupport.php:929
 msgid "Partners of stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:898
+#: src/Factory/Objects/ExtendedFamilySupport.php:930
 msgid "Parents-in-law of biological children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:899
+#: src/Factory/Objects/ExtendedFamilySupport.php:931
 msgid "Parents-in-law of stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:900
+#: src/Factory/Objects/ExtendedFamilySupport.php:932
 msgid "Children of siblings"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:901
+#: src/Factory/Objects/ExtendedFamilySupport.php:933
 msgid "Siblings' stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:902
+#: src/Factory/Objects/ExtendedFamilySupport.php:934
 msgid "Children of siblings of partners"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:903
+#: src/Factory/Objects/ExtendedFamilySupport.php:935
 msgid "Children of social children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:904
+#: src/Factory/Objects/ExtendedFamilySupport.php:936
 msgid "Social children of children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:905
+#: src/Factory/Objects/ExtendedFamilySupport.php:937
 msgid "Stepchildren of children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:906
+#: src/Factory/Objects/ExtendedFamilySupport.php:938
 msgid "Children of stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:907
+#: src/Factory/Objects/ExtendedFamilySupport.php:939
 msgid "Stepchildren of stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:908
+#: src/Factory/Objects/ExtendedFamilySupport.php:940
 msgid "Partners of biological grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:909
+#: src/Factory/Objects/ExtendedFamilySupport.php:941
 msgid "Partners of social children of children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:910
+#: src/Factory/Objects/ExtendedFamilySupport.php:942
 msgid "Partners of stepchildren of children"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:911
+#: src/Factory/Objects/ExtendedFamilySupport.php:943
 msgid "Partners of children of stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:912
+#: src/Factory/Objects/ExtendedFamilySupport.php:944
 msgid "Partners of stepchildren of stepchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:914
+#: src/Factory/Objects/ExtendedFamilySupport.php:946
 msgid "Children of biological grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:915
+#: src/Factory/Objects/ExtendedFamilySupport.php:947
 msgid "Social children of grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:916
+#: src/Factory/Objects/ExtendedFamilySupport.php:948
 msgid "Children of social grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:917
+#: src/Factory/Objects/ExtendedFamilySupport.php:949
 msgid "Children of stepgrandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:918
+#: src/Factory/Objects/ExtendedFamilySupport.php:950
 msgid "Stepchildren of grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:919
+#: src/Factory/Objects/ExtendedFamilySupport.php:951
 msgid "Stepchildren of social grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:920
+#: src/Factory/Objects/ExtendedFamilySupport.php:952
 msgid "Stepchildren of stepgrandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:921
+#: src/Factory/Objects/ExtendedFamilySupport.php:953
 msgid "Partners of biological great-grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:922
+#: src/Factory/Objects/ExtendedFamilySupport.php:954
 msgid "Partners of social children of grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:923
+#: src/Factory/Objects/ExtendedFamilySupport.php:955
 msgid "Partners of children of social grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:924
+#: src/Factory/Objects/ExtendedFamilySupport.php:956
 msgid "Partners of children of stepgrandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:925
+#: src/Factory/Objects/ExtendedFamilySupport.php:957
 msgid "Partners of stepchildren of grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:926
+#: src/Factory/Objects/ExtendedFamilySupport.php:958
 msgid "Partners of stepchildren of social grandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:927
+#: src/Factory/Objects/ExtendedFamilySupport.php:959
 msgid "Partners of stepchildren of stepgrandchildren"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:945
+#: src/Factory/Objects/ExtendedFamilySupport.php:977
 #, php-format
 msgctxt "Date range: year to today"
 msgid "The known dates range from %1$s to today."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:946
+#: src/Factory/Objects/ExtendedFamilySupport.php:978
 #, php-format
 msgctxt "Date range: date to today"
 msgid "The known dates range from %1$s to today."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:947
+#: src/Factory/Objects/ExtendedFamilySupport.php:979
 #, php-format
 msgctxt "Date range: year to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:948
+#: src/Factory/Objects/ExtendedFamilySupport.php:980
 #, php-format
 msgctxt "Date range: year to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:949
+#: src/Factory/Objects/ExtendedFamilySupport.php:981
 #, php-format
 msgctxt "Date range: date to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:950 src/Factory/Objects/ExtendedFamilySupport.php:951
+#: src/Factory/Objects/ExtendedFamilySupport.php:982 src/Factory/Objects/ExtendedFamilySupport.php:983
 #, php-format
 msgctxt "Date range: date to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:951
+#: src/Factory/Objects/ExtendedFamilySupport.php:983
 msgid "today"
 msgstr ""
 
@@ -1086,6 +1091,11 @@ msgstr ""
 msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
 msgstr ""
 
+#: resources/views/partials/family-part-renderers/grouped-headings/partners.phtml:19
+#, php-format
+msgid "%1$s of %2$s"
+msgstr ""
+
 #: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:41
 #, php-format
 msgid "Brother %1$s of partner %2$s"
@@ -1118,13 +1128,8 @@ msgstr ""
 msgid "with"
 msgstr ""
 
-#: resources/views/partials/family-part-renderers/partners.phtml:20
+#: resources/views/partials/family-part-renderers/partners.phtml:16
 msgid "Partner of"
-msgstr ""
-
-#: resources/views/partials/family-part-renderers/partners.phtml:38
-#, php-format
-msgid "%1$s of %2$s"
 msgstr ""
 
 #: resources/views/partials/family-part-summary.phtml:19
@@ -2813,101 +2818,97 @@ msgstr ""
 msgid "Gender distribution: %1$s male (%2$s), %3$s female (%4$s)."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:184
+#: resources/views/partials/summary.phtml:185
 #, php-format
 msgid "Average generation length: %s years."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:185
+#: resources/views/partials/summary.phtml:188
 #, php-format
 msgid "Average lifespan: %s years."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:187
+#: resources/views/partials/summary.phtml:191
 #, php-format
 msgid "Oldest person: %s."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:189
+#: resources/views/partials/summary.phtml:194
 #, php-format
 msgid "Oldest male person: %s."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:190
+#: resources/views/partials/summary.phtml:197
 #, php-format
 msgid "Oldest female person: %s."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:195
+#: resources/views/partials/summary.phtml:203
 #, php-format
 msgid "Ancestor implex: %s."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:198
+#: resources/views/partials/summary.phtml:206
 #, php-format
 msgid "Descendant implex: %s."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:201
+#: resources/views/partials/summary.phtml:209
 msgid "No ancestor or descendant implex was detected in the selected direct-line generations."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:207
+#: resources/views/partials/summary.phtml:215
 #, php-format
 msgid "%s has no %s recorded."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:211
+#: resources/views/partials/summary.phtml:219
 #, php-format
 msgid "%s has no %s, and no %s recorded."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:217
+#: resources/views/partials/summary.phtml:225
 #, php-format
 msgid "Summary for the extended family of %s"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:223
+#: resources/views/partials/summary.phtml:231
 msgid "Generation"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:224
+#: resources/views/partials/summary.phtml:232
 msgid "Relation"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:225
+#: resources/views/partials/summary.phtml:233
 msgid "Total profiles"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:226
+#: resources/views/partials/summary.phtml:234
 msgid "Biological"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:227
-msgid "Earliest birth year"
+#: resources/views/partials/summary.phtml:235
+msgid "Earliest / latest birth year"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:228
-msgid "Latest birth year"
-msgstr ""
-
-#: resources/views/partials/summary.phtml:229
+#: resources/views/partials/summary.phtml:236
 msgid "Average birth year"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:230
+#: resources/views/partials/summary.phtml:237
 msgid "Average marriage age"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:231
+#: resources/views/partials/summary.phtml:238
 msgid "Generation length"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:232
+#: resources/views/partials/summary.phtml:239
 msgid "Average lifespan"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:233
+#: resources/views/partials/summary.phtml:240
 msgid "Average children"
 msgstr ""
 
@@ -2923,52 +2924,48 @@ msgstr ""
 msgid "No family available"
 msgstr ""
 
-#: resources/views/settings.phtml:37
+#: resources/views/settings.phtml:40
 msgid "Control panel"
 msgstr ""
 
-#: resources/views/settings.phtml:38
+#: resources/views/settings.phtml:41
 msgid "Enabled"
 msgstr ""
 
-#: resources/views/settings.phtml:39
+#: resources/views/settings.phtml:42
 msgid "Move down"
 msgstr ""
 
-#: resources/views/settings.phtml:40
+#: resources/views/settings.phtml:43
 msgid "Move up"
 msgstr ""
 
-#: resources/views/settings.phtml:41
+#: resources/views/settings.phtml:44
 msgid "no"
 msgstr ""
 
-#: resources/views/settings.phtml:42
+#: resources/views/settings.phtml:45
 msgid "save"
 msgstr ""
 
-#: resources/views/settings.phtml:43
+#: resources/views/settings.phtml:46
 msgid "yes"
 msgstr ""
 
-#: resources/views/settings.phtml:57
+#: resources/views/settings.phtml:60
 msgid "In which sequence should the parts of the extended family be shown?"
 msgstr ""
 
-#: resources/views/settings.phtml:59 resources/views/settings.phtml:60
+#: resources/views/settings.phtml:62 resources/views/settings.phtml:63
 msgid "Quick selection for family parts"
 msgstr ""
 
-#: resources/views/settings.phtml:63
+#: resources/views/settings.phtml:66
 msgid "Enable all"
 msgstr ""
 
-#: resources/views/settings.phtml:66
+#: resources/views/settings.phtml:69
 msgid "Disable all"
-msgstr ""
-
-#: resources/views/settings.phtml:71
-msgid "Enable all in-law family parts"
 msgstr ""
 
 #: resources/views/settings.phtml:74
@@ -3177,34 +3174,48 @@ msgstr ""
 msgid "This shows the relationship of a person to the proband when the mouse pointer is over the name."
 msgstr ""
 
-#: resources/views/settings.phtml:309
+#: resources/views/settings.phtml:312
 msgid "Show relationship"
 msgstr ""
 
-#: resources/views/settings.phtml:317
+#: resources/views/settings.phtml:320
 msgid "Show a button \"Print/PDF\"?"
 msgstr ""
 
-#: resources/views/settings.phtml:318
+#: resources/views/settings.phtml:321
 msgid "This allows a user to open a print-optimized view and save it as a PDF file from the browser print dialog."
 msgstr ""
 
-#: resources/views/settings.phtml:323 resources/views/settings.phtml:342
+#: resources/views/settings.phtml:326 resources/views/settings.phtml:345
 msgid "Show button"
 msgstr ""
 
-#: resources/views/settings.phtml:331
+#: resources/views/settings.phtml:334
 msgid "Show a button \"copy to clippings cart\"?"
 msgstr ""
 
-#: resources/views/settings.phtml:332
+#: resources/views/settings.phtml:335
 msgid "This allows a user to copy all members of the extended family to the clippings cart."
 msgstr ""
 
-#: resources/views/settings.phtml:354
+#: resources/views/settings.phtml:357
 msgid "Clippings cart action"
 msgstr ""
 
-#: resources/views/settings.phtml:357
+#: resources/views/settings.phtml:360
 msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:368
+msgid "When should the extended family tab be loaded?"
+msgstr ""
+
+#: resources/views/settings.phtml:369
+msgid ""
+"Choose whether the extended family tab content is calculated immediately while the individual page opens or "
+"later by Ajax when the user opens the tab."
+msgstr ""
+
+#: resources/views/settings.phtml:374
+msgid "Load later"
 msgstr ""
