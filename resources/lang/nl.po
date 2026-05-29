@@ -159,6 +159,9 @@ msgstr "Overgrootouders"
 msgid "Grandparents"
 msgstr "Grootouders"
 
+msgid "Grandaunts and Granduncles"
+msgstr "Oudooms en -tantes"
+
 msgid "Uncles and Aunts"
 msgstr "Ooms en tantes"
 
@@ -220,6 +223,10 @@ msgstr "overgrootouders"
 msgctxt "Family part name in sentence"
 msgid "grandparents"
 msgstr "grootouders"
+
+msgctxt "Family part name in sentence"
+msgid "grandaunts and granduncles"
+msgstr "oudooms en -tantes"
 
 msgctxt "Family part name in sentence"
 msgid "uncles and aunts"
@@ -298,6 +305,9 @@ msgstr "Biologische overgrootouders"
 
 msgid "Biological grandparents"
 msgstr "Biologische grootouders"
+
+msgid "Full siblings of biological grandparents"
+msgstr "Volle broers/zussen van biologische grootouders"
 
 msgid "Full siblings of biological parents"
 msgstr "Volle broers/zussen van biologische ouders"
@@ -442,6 +452,15 @@ msgstr "Stiefouders van een sociale ouder"
 
 msgid "Stepparents of stepparent"
 msgstr "Stiefouders van een stiefouder"
+
+msgid "Siblings and half siblings of biological grandparents"
+msgstr "Broers/zussen en halfbroers/-zussen van biologische grootouders"
+
+msgid "Siblings and half siblings of social grandparents"
+msgstr "Broers/zussen en halfbroers/-zussen van sociale grootouders"
+
+msgid "Siblings and half siblings of stepgrandparents"
+msgstr "Broers/zussen en halfbroers/-zussen van stiefgrootouders"
 
 msgid "Social parents"
 msgstr "Sociale ouders"
@@ -800,6 +819,15 @@ msgstr "%1$s %2$s, grootouders van de stiefmoeder %3$s"
 msgid "%1$s %2$s, grandparents of stepparent %3$s"
 msgstr "%1$s %2$s, grootouders van de stiefouder %3$s"
 
+msgid "Grandfather"
+msgstr "Grootvader"
+
+msgid "Grandmother"
+msgstr "Grootmoeder"
+
+msgid "Grandparent"
+msgstr "Grootouder"
+
 msgid "Father"
 msgstr "Vader"
 
@@ -982,6 +1010,72 @@ msgid "%d grandmother, and"
 msgid_plural "%d grandmothers, and"
 msgstr[0] "%d grootmoeder en"
 msgstr[1] "%d grootmoeders en"
+
+#, php-format
+msgid "%s has one grandaunt recorded."
+msgstr "Voor %s is één oudtante geregistreerd."
+
+#, php-format
+msgid "%s has one granduncle recorded."
+msgstr "Voor %s is één oudoom geregistreerd."
+
+#, php-format
+msgid "%s has one grandaunt or granduncle of diverse or unknown sex recorded."
+msgstr "Voor %s is één oudtante of oudoom van onbekend geslacht geregistreerd."
+
+#, php-format
+msgid "%2$s has %1$d grandaunt recorded."
+msgid_plural "%2$s has %1$d grandaunts recorded."
+msgstr[0] "Voor %2$s is %1$d oudtante geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d oudtantes geregistreerd."
+
+#, php-format
+msgid "%2$s has %1$d granduncle recorded."
+msgid_plural "%2$s has %1$d granduncles recorded."
+msgstr[0] "Voor %2$s is %1$d oudoom geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d oudooms geregistreerd."
+
+#, php-format
+msgid "%2$s has %1$d grandaunt or granduncle of diverse or unknown sex recorded."
+msgid_plural "%2$s has %1$d grandaunts or granduncles of diverse or unknown sex recorded."
+msgstr[0] "Voor %2$s is %1$d één oudtante of oudoom van onbekend geslacht geregistreerd."
+msgstr[1] "Voor %2$s zijn %1$d oudtantes of oudooms van onbekend geslacht geregistreerd."
+
+#, php-format
+msgid "%2$s has %1$d granduncle and"
+msgid_plural "%2$s has %1$d granduncles and"
+msgstr[0] "Voor %2$s zijn %1$d oudoom en"
+msgstr[1] "Voor %2$s zijn %1$d oudooms en"
+
+#, php-format
+msgid "%d grandaunt recorded (%d in total)."
+msgid_plural "%d grandaunts recorded (%d in total)."
+msgstr[0] "%d oudtante geregistreerd (%d in totaal)."
+msgstr[1] "%d oudtantes geregistreerd (%d in totaal)."
+
+#, php-format
+msgid "%d grandaunt or granduncle of diverse or unknown sex recorded (%d in total)."
+msgid_plural "%d grandaunts or granduncles of diverse or unknown sex recorded (%d in total)."
+msgstr[0] "%d oudtante of oudoom van onbekend geslacht geregistreerd (%d in totaal)."
+msgstr[1] "%d oudtantes of oudooms van onbekend geslacht geregistreerd (%d in totaal)."
+
+#, php-format
+msgid "%2$s has %1$d grandaunt and"
+msgid_plural "%2$s has %1$d grandaunts and"
+msgstr[0] "Voor %2$s zijn %1$d oudtante en"
+msgstr[1] "Voor %2$s zijn %1$d oudtantes en"
+
+#, php-format
+msgid "%2$s has %1$d granduncle,"
+msgid_plural "%2$s has %1$d granduncles,"
+msgstr[0] "Voor %2$s zijn %1$d oudoom,"
+msgstr[1] "Voor %2$s zijn %1$d oudooms,"
+
+#, php-format
+msgid "%d grandaunt, and"
+msgid_plural "%d grandaunts, and"
+msgstr[0] "%d oudtante en"
+msgstr[1] "%d oudtantes en"
 
 #, php-format
 msgid "%s has one aunt recorded."
@@ -2237,7 +2331,7 @@ msgstr[1] "%s generaties"
 
 #, php-format
 msgid "The selected direct line covers %s."
-msgstr "De geselecteerde directe lijn beslaat %s."
+msgstr "De geselecteerde rechte lijn beslaat %s."
 
 #, php-format
 msgid "Living members: %1$s (%2$s); deceased members: %3$s (%4$s)."
@@ -2324,6 +2418,9 @@ msgstr "Gemiddelde levensduur"
 msgid "Average children"
 msgstr "Gemiddeld aantal kinderen"
 
+msgid "Direct line"
+msgstr "Rechte lijn"
+
 msgid "Print/PDF"
 msgstr "Afdrukken/PDF"
 
@@ -2360,6 +2457,9 @@ msgstr "In welke volgorde moeten de delen van de uitgebreide familie worden weer
 msgid "Quick selection for family parts"
 msgstr "Snelkeuze voor familiedelen"
 
+msgid "Reset order to default"
+msgstr "Volgorde terugzetten naar standaardinstellingen"
+
 msgid "Enable all"
 msgstr "Alles inschakelen"
 
@@ -2381,8 +2481,8 @@ msgstr "onbeperkt"
 msgid "Enable up to this degree"
 msgstr "Inschakelen tot deze graad"
 
-msgid "The quick selection changes only the checkboxes below. The configuration is saved when you click \"save\"."
-msgstr "De snelkeuze wijzigt alleen de onderstaande selectievakjes. De instellingen worden opgeslagen wanneer u op “opslaan” klikt."
+msgid "The quick selection changes only the checkboxes below. The order reset changes only the sequence below. The configuration is saved when you click \"save\"."
+msgstr "De snelkeuze wijzigt alleen de onderstaande selectievakjes. Het opnieuw instellen van de volgorde heeft alleen invloed op de onderstaande volgorde. De instellingen worden opgeslagen wanneer u op “opslaan” klikt."
 
 msgid "Family part (generation relative to proband)"
 msgstr "Familiedeel (generatie ten opzichte van proband)"
@@ -2450,12 +2550,10 @@ msgstr "Als u \"nee\" selecteert, worden de extra leden in de partnerketens niet
 msgid "And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart."
 msgstr "En deze personen en gezinnen worden niet geselecteerd wanneer een gebruiker besluit om de uitgebreide familie naar de stamboomknipsels te kopiëren."
 
-msgid ""
-"But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module \"enhanced clippings cart\": \"add partner "
-"chains for an individual\"."
+msgid "But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module \"enhanced clippings cart\": \"add partner chains for an individual\"."
 msgstr ""
-"Maar zelfs in dat geval kunt u deze personen en gezinnen naar de stamboomknipsels kopiëren door gebruik te maken van een speciaal menu-item in de aangepaste module \"uitgebreide "
-"stamboomknipsels\": \"voeg partnerketens toe voor een persoon\"."
+"Maar zelfs in dat geval kunt u deze personen en gezinnen naar de stamboomknipsels kopiëren door gebruik te maken van een speciaal menu-item in de aangepaste module \"uitgebreide stamboomknipsels\": \"voeg "
+"partnerketens toe voor een persoon\"."
 
 msgid "This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family."
 msgstr "Dit is alleen van toepassing als u in de bovenstaande tabel hebt aangegeven dat de partnerketens moeten worden weergegeven als onderdeel van de uitgebreide familie."
@@ -2466,12 +2564,9 @@ msgstr "Opnemen"
 msgid "Show parameters of extended family part?"
 msgstr "Toon parameters van uitgebreidefamiliedeel?"
 
-msgid ""
-"Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of "
-"consanguinity."
+msgid "Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity."
 msgstr ""
-"Weergave van aanvullende informatie voor elk deel van de uitgebreide familie, zoals de generatieverschuiving en de verwantschapscoëfficiënt, die een vermenigvuldigingsfactor is "
-"voor de graad van bloedverwantschap."
+"Weergave van aanvullende informatie voor elk deel van de uitgebreide familie, zoals de generatieverschuiving en de verwantschapscoëfficiënt, die een vermenigvuldigingsfactor is voor de graad van bloedverwantschap."
 
 msgid "Show parameters"
 msgstr "Toon parameters"
@@ -2479,12 +2574,8 @@ msgstr "Toon parameters"
 msgid "Use the compact design?"
 msgstr "Compact ontwerp gebruiken?"
 
-msgid ""
-"The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death "
-"information."
-msgstr ""
-"Het compacte ontwerp toont alleen de naam en levensduur van elk persoon. Het verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd) en geboorte- en "
-"overlijdensinformatie."
+msgid "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information."
+msgstr "Het compacte ontwerp toont alleen de naam en levensduur van elk persoon. Het verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd) en geboorte- en overlijdensinformatie."
 
 msgid "Use the compact design"
 msgstr "Gebruik compact ontwerp"
@@ -2492,11 +2583,8 @@ msgstr "Gebruik compact ontwerp"
 msgid "Show name of proband as short name or as full name?"
 msgstr "Toon naam van proband als korte naam of als volledige naam?"
 
-msgid ""
-"The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
-msgstr ""
-"De korte naam is gebaseerd op de roepnaam of bijnaam van de proband. Als deze niet beschikbaar zijn, wordt de eerste van de voornamen gebruikt, als er een is opgegeven. Anders "
-"wordt de achternaam gebruikt."
+msgid "The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used."
+msgstr "De korte naam is gebaseerd op de roepnaam of bijnaam van de proband. Als deze niet beschikbaar zijn, wordt de eerste van de voornamen gebruikt, als er een is opgegeven. Anders wordt de achternaam gebruikt."
 
 msgid "Show short name"
 msgstr "Toon korte naam"
