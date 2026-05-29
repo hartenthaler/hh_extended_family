@@ -12,8 +12,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 
 ?>
 
-                        <?php $family = $group->families[$key] ?? null ?>
-                        <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key] ?? ExtendedFamilySupport::FAM_STATUS_PARTNERSHIP) ?>
+                        <?php $family = $entry->family ?>
+                        <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($entry->familyStatus ?: ExtendedFamilySupport::FAM_STATUS_PARTNERSHIP) ?>
                         <?php $partnerStatusLabel = $group->partner->xref() == $extfam_obj->proband->indi->xref()
                             ? $partnerStatus
                             : I18N::translate('%1$s of %2$s', $partnerStatus, ExtendedFamilySupport::individualLink($group->partner)) ?>

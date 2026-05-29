@@ -39,18 +39,15 @@ class Siblings_in_law extends ExtendedFamilyPart
      *
      * common:
      *  ->groups[]                      array
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
-     *  ->groups[]->members[]           array of Individual (index of groups is groupName)
-     *            ->labels[]            array of array of string
-     *            ->families[]          array of object
-     *            ->familiesStatus[]    string
-     *            ->referencePersons[]  array of array of Individual
+     *  ->groups[]->entries[]           array of GroupEntry (index of groups is groupName)
      *            ->groupName           string
      */
 
@@ -62,7 +59,8 @@ class Siblings_in_law extends ExtendedFamilyPart
         $siblings = new Siblings($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($siblings->getEfpObject()->groups as $group) {
-            foreach ($group->members as $sibling) {
+            foreach ($group->entries as $entry) {
+                $sibling = $entry->individual;
                 if ($sibling instanceof Individual) {
                     $this->addPartnersOfSibling($sibling);
                 }
@@ -102,7 +100,8 @@ class Siblings_in_law extends ExtendedFamilyPart
         $siblingsOfPartner = new Siblings($partner->getIndividual(), 'all', $this->placeFormat);
 
         foreach ($siblingsOfPartner->getEfpObject()->groups as $group) {
-            foreach ($group->members as $sibling) {
+            foreach ($group->entries as $entry) {
+                $sibling = $entry->individual;
                 if ($sibling instanceof Individual) {
                     $this->addIndividualToFamily(
                         new IndividualFamily($sibling, $partner->getFamily(), $partner->getIndividual()),

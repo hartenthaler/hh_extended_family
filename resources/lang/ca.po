@@ -31,7 +31,7 @@ msgstr ""
 # Migrated from ExtendedFamilyTranslations.php.old
 #: ExtendedFamilyTabModule.php:669
 msgid "A tab showing the extended family of an individual."
-msgstr "Aquesta pestanya mostra tots els vincles familiars d'una persona"
+msgstr "Aquesta pestanya mostra tots els vincles familiars d'una persona."
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
@@ -1385,7 +1385,7 @@ msgstr "Mateixa Generació"
 #: resources/views/partials/family-part-header.phtml:21
 #, php-format
 msgid "generation %s"
-msgstr "Generació +%s"
+msgstr "Generació %s"
 
 #: resources/views/partials/family-part-header.phtml:26
 #, php-format
@@ -1586,7 +1586,7 @@ msgstr "Pares %1$s de %2$s"
 #: resources/views/partials/family-part-summary.phtml:19
 #, php-format
 msgid "%s has one great-grandmother recorded."
-msgstr "%s t&eacute; una bes&agrave;via registrada"
+msgstr "%s t&eacute; una bes&agrave;via registrada."
 
 #: resources/views/partials/family-part-summary.phtml:21
 #, php-format
@@ -2471,7 +2471,7 @@ msgstr "%s t&eacute; un  germ&agrave; registrat."
 #: resources/views/partials/family-part-summary.phtml:335
 #, php-format
 msgid "%s has one sibling of diverse or unknown sex recorded."
-msgstr "%s t&eacute; un/a germ&agrave;/na registrats/des"
+msgstr "%s t&eacute; un/a germ&agrave;/na registrats/des."
 
 #: resources/views/partials/family-part-summary.phtml:339
 #, php-format
@@ -2762,7 +2762,7 @@ msgstr[1] "%2$s t&eacute; %1$d cosins registrats."
 #, php-format
 msgid "%2$s has %1$d first cousin of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d first cousins of diverse or unknown sex recorded."
-msgstr[0] "%2$s t&eacute; registrat %1$d com cosina germ&agrave;/na."
+msgstr[0] "%2$s t&eacute; registrat %1$d com cosina germ&agrave;/na"
 msgstr[1] "%2$s t&eacute; registrats %1$d cosins/es germans/es"
 
 #: resources/views/partials/family-part-summary.phtml:453
@@ -3647,7 +3647,7 @@ msgstr "Resum per a la familia extensa que es mostra"
 #, fuzzy
 #| msgid "generation %s"
 msgid "Generation"
-msgstr "Generació +%s"
+msgstr "Generació"
 
 #: resources/views/partials/summary.phtml:224
 msgid "Relation"
@@ -3685,7 +3685,7 @@ msgstr ""
 #, fuzzy
 #| msgid "generation %s"
 msgid "Generation length"
-msgstr "Generació +%s"
+msgstr "Durada de la generació"
 
 #: resources/views/partials/summary.phtml:232
 msgid "Average lifespan"
@@ -3988,7 +3988,7 @@ msgid ""
 "children."
 msgstr ""
 "Les etiquetes s'utilitzen, per exemple, per a persones adoptades o nens "
-"d'acolliment. "
+"d'acolliment."
 
 #: resources/views/settings.phtml:295
 msgid "Show labels"

@@ -4,105 +4,103 @@ use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Grandchildren;
-use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
 
 /**
- * @var object   $group
- * @var int      $i
+ * @var object     $entry
+ * @var object     $group
+ * @var int        $i
  * @var Individual $indi
- * @var int      $key
- * @var string   $prev_id
- * @var string   $prev_id1
- * @var string   $propName
+ * @var string     $prev_id
+ * @var string     $prev_id1
+ * @var string     $propName
  */
 
 ?>
 
-                        <?php $referenceParentId = $propName == 'uncles_and_aunts' && isset($group->referencePersons[$key][1]) ? $group->referencePersons[$key][1]->xref() : -1 ?>
-                        <?php if ($group->families[$key]->xref() != $prev_id || $referenceParentId != $prev_id1): ?>
-                            <?php $prev_id = $group->families[$key]->xref(); $prev_id1 = $referenceParentId; $i = 1; ?>
-                            <?php if ($group->families[$key]->canShow()): ?>
-                                <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]) ?>
+                        <?php $family = $entry->family ?>
+                        <?php $referencePerson = $entry->referencePersons[1] ?? null ?>
+                        <?php $referenceParentId = ($propName == 'uncles_and_aunts' || $propName == 'grandaunts_uncles') && $referencePerson instanceof Individual ? $referencePerson->xref() : -1 ?>
+                        <?php if ($family instanceof Family && ($family->xref() != $prev_id || $referenceParentId != $prev_id1)): ?>
+                            <?php $prev_id = $family->xref(); $prev_id1 = $referenceParentId; $i = 1; ?>
+                            <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($entry->familyStatus) ?>
+                            <?php if ($family->canShow()): ?>
                                 <?php if (str_starts_with($group->groupName, 'Biological grandparents of ') || $group->groupName == 'Parents of stepparents' || $group->groupName == 'Partners of siblings'): ?>
-                                    <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
-                                    <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
-                                    <?php if ($propName == 'great_grandparents'): ?>
-                                        <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php else: ?>
-                                        <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php endif ?>
+                                    <?php $linkParents = ('<a href="'.e($family->url()).'">'.$family->fullName().'</a>') ?>
+                                    <?php $linkReferencePerson = $referencePerson instanceof Individual ? ('<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>') : '' ?>
+                                    <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
                                 <?php elseif (str_starts_with($group->groupName, 'Social parents of biological')): ?>
-                                    <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
-                                    <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
-                                    <?php if ($propName == 'great_grandparents'): ?>
-                                        <h5><?= I18N::translate('%1$s %2$s connected with %3$s as social parents', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php else: ?>
-                                        <h5><?= I18N::translate('%1$s %2$s connected with %3$s as social parents', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php endif ?>
+                                    <?php $linkParents = ('<a href="'.e($family->url()).'">'.$family->fullName().'</a>') ?>
+                                    <?php $linkReferencePerson = $referencePerson instanceof Individual ? ('<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>') : '' ?>
+                                    <h5><?= I18N::translate('%1$s %2$s connected with %3$s as social parents', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
                                 <?php elseif (str_starts_with($group->groupName, 'Stepparents of biological') || str_starts_with($group->groupName, 'Stepparents of social parent of') || str_starts_with($group->groupName, 'Stepparents of stepparent of')): ?>
-                                    <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
-                                    <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
-                                    <?php if ($propName == 'great_grandparents'): ?>
-                                        <h5><?= I18N::translate('%1$s %2$s connected with %3$s as stepparents', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php else: ?>
-                                        <h5><?= I18N::translate('%1$s %2$s connected with %3$s as stepparents', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php endif ?>
+                                    <?php $linkParents = ('<a href="'.e($family->url()).'">'.$family->fullName().'</a>') ?>
+                                    <?php $linkReferencePerson = $referencePerson instanceof Individual ? ('<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>') : '' ?>
+                                    <h5><?= I18N::translate('%1$s %2$s connected with %3$s as stepparents', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
                                 <?php elseif (str_starts_with($group->groupName, 'Parents of stepparent of') || str_starts_with($group->groupName, 'Parents of social parent of')): ?>
-                                    <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
-                                    <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                                    <?php $linkParents = ('<a href="'.e($family->url()).'">'.$family->fullName().'</a>') ?>
+                                    <?php $linkReferencePerson = $referencePerson instanceof Individual ? ('<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>') : '' ?>
                                     <?php if ($propName == 'great_grandparents'): ?>
                                         <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php elseif ($group->referencePersons[$key][1]->sex() == 'M'): ?>
+                                    <?php elseif ($referencePerson instanceof Individual && $referencePerson->sex() == 'M'): ?>
                                         <h5><?= I18N::translate('%1$s %2$s, parents of stepfather %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
+                                    <?php elseif ($referencePerson instanceof Individual && $referencePerson->sex() == 'F'): ?>
                                         <h5><?= I18N::translate('%1$s %2$s, parents of stepmother %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
                                     <?php else: ?>
                                         <h5><?= I18N::translate('%1$s %2$s, parents of stepparent %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
                                     <?php endif ?>
                                 <?php elseif ($group->groupName == 'Grandparents of stepparent' || $group->groupName == 'Grandparents of social parent'): ?>
-                                    <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
-                                    <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                                    <?php $linkParents = ('<a href="'.e($family->url()).'">'.$family->fullName().'</a>') ?>
+                                    <?php $linkReferencePerson = $referencePerson instanceof Individual ? ('<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>') : '' ?>
                                     <?php if ($propName == 'great_grandparents'): ?>
                                         <h5><?= I18N::translate('%1$s %2$s connected with %3$s as grandparents', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php elseif ($group->referencePersons[$key][1]->sex() == 'M'): ?>
+                                    <?php elseif ($referencePerson instanceof Individual && $referencePerson->sex() == 'M'): ?>
                                         <h5><?= I18N::translate('%1$s %2$s, grandparents of stepfather %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
-                                    <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
+                                    <?php elseif ($referencePerson instanceof Individual && $referencePerson->sex() == 'F'): ?>
                                         <h5><?= I18N::translate('%1$s %2$s, grandparents of stepmother %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
                                     <?php else: ?>
                                         <h5><?= I18N::translate('%1$s %2$s, grandparents of stepparent %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
                                     <?php endif ?>
                                 <?php elseif (str_starts_with($group->groupName, 'Siblings and half siblings of')): ?>
-                                    <?php $referenceParent = $group->referencePersons[$key][1] ?? null ?>
-                                    <?php $isHalfSibling = $referenceParent instanceof Individual && ExtendedFamilySupport::areHalfSiblings($indi, $referenceParent) ?>
+                                    <?php $isHalfSibling = $referencePerson instanceof Individual && ExtendedFamilySupport::areHalfSiblings($indi, $referencePerson) ?>
                                     <?php $siblingLabel = I18N::translate($isHalfSibling ? 'Half siblings' : 'Full siblings') ?>
-                                    <?php $referenceParentLabel = match ($referenceParent?->sex()) {
-                                        'M'     => I18N::translate('Father'),
-                                        'F'     => I18N::translate('Mother'),
-                                        default => I18N::translate('Parent'),
-                                    } ?>
-                                    <?php $linkReferenceParent = $referenceParent instanceof Individual ? ExtendedFamilySupport::individualLink($referenceParent) : I18N::translate('Parent') ?>
-                                    <?php $linkParents = ('<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>') ?>
+                                    <?php $referenceParentLabel = $propName == 'grandaunts_uncles'
+                                        ? match ($referencePerson?->sex()) {
+                                            'M'     => I18N::translate('Grandfather'),
+                                            'F'     => I18N::translate('Grandmother'),
+                                            default => I18N::translate('Grandparent'),
+                                        }
+                                        : match ($referencePerson?->sex()) {
+                                            'M'     => I18N::translate('Father'),
+                                            'F'     => I18N::translate('Mother'),
+                                            default => I18N::translate('Parent'),
+                                        } ?>
+                                    <?php $linkReferenceParent = $referencePerson instanceof Individual ? ExtendedFamilySupport::individualLink($referencePerson) : ($propName == 'grandaunts_uncles' ? I18N::translate('Grandparent') : I18N::translate('Parent')) ?>
+                                    <?php $linkParents = ('<a href="'.e($family->url()).'">'.$family->fullName().'</a>') ?>
                                     <h5><?= I18N::translate('%1$s of %2$s %3$s, %4$s %5$s', $siblingLabel, $referenceParentLabel, $linkReferenceParent, $familyStatus, $linkParents) ?></h5>
                                 <?php else: ?>
-                                    <h5><?= $familyStatus ?>&nbsp;<a href="<?= e($group->families[$key]->url()); ?>">&nbsp;<?= $group->families[$key]->fullName() ?></a></h5>
+                                    <h5><?= $familyStatus ?>&nbsp;<a href="<?= e($family->url()); ?>">&nbsp;<?= $family->fullName() ?></a></h5>
                                 <?php endif ?>
                             <?php else: ?>
                                 <?php if ($group->groupName == 'Parents of stepparents' || $group->groupName == 'Partners of siblings'): ?>
-                                    <h5><?= I18N::translate('%1$s %2$s connected with %3$s', ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]), $group->families[$key]->fullName(), $group->referencePersons[$key][1]->fullName()) ?></h5>
+                                    <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $family->fullName(), $referencePerson instanceof Individual ? $referencePerson->fullName() : '') ?></h5>
                                 <?php elseif (str_starts_with($group->groupName, 'Siblings and half siblings of')): ?>
-                                    <?php $referenceParent = $group->referencePersons[$key][1] ?? null ?>
-                                    <?php $isHalfSibling = $referenceParent instanceof Individual && ExtendedFamilySupport::areHalfSiblings($indi, $referenceParent) ?>
+                                    <?php $isHalfSibling = $referencePerson instanceof Individual && ExtendedFamilySupport::areHalfSiblings($indi, $referencePerson) ?>
                                     <?php $siblingLabel = I18N::translate($isHalfSibling ? 'Half siblings' : 'Full siblings') ?>
-                                    <?php $referenceParentLabel = match ($referenceParent?->sex()) {
-                                        'M'     => I18N::translate('Father'),
-                                        'F'     => I18N::translate('Mother'),
-                                        default => I18N::translate('Parent'),
-                                    } ?>
-                                    <?php $linkReferenceParent = $referenceParent instanceof Individual ? $referenceParent->fullName() : I18N::translate('Parent') ?>
-                                    <h5><?= I18N::translate('%1$s of %2$s %3$s, %4$s %5$s', $siblingLabel, $referenceParentLabel, $linkReferenceParent, ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]), $group->families[$key]->fullName()) ?></h5>
+                                    <?php $referenceParentLabel = $propName == 'grandaunts_uncles'
+                                        ? match ($referencePerson?->sex()) {
+                                            'M'     => I18N::translate('Grandfather'),
+                                            'F'     => I18N::translate('Grandmother'),
+                                            default => I18N::translate('Grandparent'),
+                                        }
+                                        : match ($referencePerson?->sex()) {
+                                            'M'     => I18N::translate('Father'),
+                                            'F'     => I18N::translate('Mother'),
+                                            default => I18N::translate('Parent'),
+                                        } ?>
+                                    <?php $linkReferenceParent = $referencePerson instanceof Individual ? $referencePerson->fullName() : ($propName == 'grandaunts_uncles' ? I18N::translate('Grandparent') : I18N::translate('Parent')) ?>
+                                    <h5><?= I18N::translate('%1$s of %2$s %3$s, %4$s %5$s', $siblingLabel, $referenceParentLabel, $linkReferenceParent, $familyStatus, $family->fullName()) ?></h5>
                                 <?php else: ?>
-                                    <h5><?= ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]) ?>&nbsp;<?= $group->families[$key]->fullName() ?></h5>
+                                    <h5><?= $familyStatus ?>&nbsp;<?= $family->fullName() ?></h5>
                                 <?php endif ?>
                             <?php endif ?>
                         <?php endif ?>

@@ -46,7 +46,8 @@ class Nephews_and_nieces extends ExtendedFamilyPart
         $siblings = new Siblings($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($siblings->getEfpObject()->groups as $group) {
-            foreach ($group->members as $sibling) {
+            foreach ($group->entries as $entry) {
+                $sibling = $entry->individual;
                 if ($sibling instanceof Individual) {
                     $this->addChildrenOfSibling($sibling);
                     $this->addStepchildrenOfSibling($sibling);
@@ -61,8 +62,9 @@ class Nephews_and_nieces extends ExtendedFamilyPart
                 continue;
             }
 
-            foreach ($group->members as $key => $siblingInLaw) {
-                $partner = $group->referencePersons[$key][1] ?? null;
+            foreach ($group->entries as $entry) {
+                $siblingInLaw = $entry->individual;
+                $partner = $entry->referencePersons[1] ?? null;
 
                 if ($siblingInLaw instanceof Individual && $partner instanceof Individual) {
                     $this->addChildrenOfPartnersSibling($siblingInLaw, $partner);

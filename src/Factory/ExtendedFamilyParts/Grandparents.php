@@ -57,18 +57,15 @@ class Grandparents extends ExtendedFamilyPart
      *
      * common:
      *  ->groups[]                      array there are 7 groups defined (1a, 1b, 1c, 2a, 2b, 2c, 3)
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
-     *  ->groups[]->members[]           array of Individual (index of groups is int)
-     *            ->family              Family
-     *            ->familyStatus        string
-     *            ->partner             Individual
-     *            ->partnerFamilyStatus string
+     *  ->groups[]->entries[]           array of GroupEntry (index of groups is int)
      */
 
     /**
@@ -82,7 +79,8 @@ class Grandparents extends ExtendedFamilyPart
         $parents = new Parents($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($parents->getEfpObject()->groups as $group) {
-            foreach ($group->members as $parent) {
+            foreach ($group->entries as $entry) {
+                $parent = $entry->individual;
                 if ($parent instanceof Individual) {
                     $this->addGrandparentsForParent($parent, $group->groupName);
                 }

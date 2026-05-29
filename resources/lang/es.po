@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-24 22:40+0200\n"
+"POT-Creation-Date: 2026-05-28 17:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -16,48 +16,54 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:304
+#: ExtendedFamilyTabModule.php:289
 #, php-format
 msgid "The preferences for the module “%s” have been updated."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:649
+#: ExtendedFamilyTabModule.php:686
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “copy to "
 "clippings cart” will use the internal Extended Family action."
 msgstr ""
 
-# #-#-#-#-#  catalog.po  #-#-#-#-#
-# Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:669
-msgid "A tab showing the extended family of an individual."
-msgstr "Esta pestaña muestra todos los vinculos familiares de una persona."
+#: ExtendedFamilyTabModule.php:696
+msgid ""
+"Vesta relationship names are not available. Mouse-over text for "
+"relationships to the proband will not be shown."
+msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:828
+#: ExtendedFamilyTabModule.php:706 ExtendedFamilyTabModule.php:875
 msgid "Extended family"
 msgstr "Familia extendida"
 
-#: ExtendedFamilyTabModule.php:850
+# #-#-#-#-#  catalog.po  #-#-#-#-#
+# Migrated from ExtendedFamilyTranslations.php.old
+#: ExtendedFamilyTabModule.php:716
+msgid "A tab showing the extended family of an individual."
+msgstr "Esta pestaña muestra todos los vinculos familiares de una persona."
+
+#: ExtendedFamilyTabModule.php:897
 msgid "The selected tree could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:857
+#: ExtendedFamilyTabModule.php:904
 msgid "The selected individual could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:882
+#: ExtendedFamilyTabModule.php:929
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"
 msgstr ""
 
-#: src/Factory/ExtendedFamilyParts/Partners.php:182
+#: src/Factory/ExtendedFamilyParts/Partners.php:187
 msgid "Levirate"
 msgstr ""
 
-#: src/Factory/ExtendedFamilyParts/Partners.php:183
+#: src/Factory/ExtendedFamilyParts/Partners.php:188
 msgid "Sororate"
 msgstr ""
 
@@ -91,148 +97,148 @@ msgstr "Hijastro"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:446
+#: src/Factory/Objects/ExtendedFamilySupport.php:478
 msgid "Linkage challenged"
 msgstr "Disputa para ser reconocido"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:449
+#: src/Factory/Objects/ExtendedFamilySupport.php:481
 msgid "Linkage disproven"
 msgstr "No reconocido"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:452
+#: src/Factory/Objects/ExtendedFamilySupport.php:484
 msgid "Linkage proven"
 msgstr "Reconocido"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:498
+#: src/Factory/Objects/ExtendedFamilySupport.php:530
 msgid "Twin"
 msgstr "Mellizo"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:499
+#: src/Factory/Objects/ExtendedFamilySupport.php:531
 msgid "Triplet"
 msgstr "Trillizo"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:500
+#: src/Factory/Objects/ExtendedFamilySupport.php:532
 msgid "Quadruplet"
 msgstr "cuatrillizo"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:501
+#: src/Factory/Objects/ExtendedFamilySupport.php:533
 msgid "Quintuplet"
 msgstr "Quintillizo"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:502
+#: src/Factory/Objects/ExtendedFamilySupport.php:534
 msgid "Sextuplet"
 msgstr "Sextillizo"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:503
+#: src/Factory/Objects/ExtendedFamilySupport.php:535
 msgid "Septuplet"
 msgstr "Septillizo"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:504
+#: src/Factory/Objects/ExtendedFamilySupport.php:536
 msgid "Octuplet"
 msgstr "Octillizo"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:505
+#: src/Factory/Objects/ExtendedFamilySupport.php:537
 msgid "Nonuplet"
 msgstr "Nonallizos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:506
+#: src/Factory/Objects/ExtendedFamilySupport.php:538
 msgid "Decuplet"
 msgstr "Decillizos"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:524
+#: src/Factory/Objects/ExtendedFamilySupport.php:556
 msgid "Stillborn"
 msgstr "nacido muerto"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:527
+#: src/Factory/Objects/ExtendedFamilySupport.php:559
 msgid "Died as infant"
 msgstr "Murió cuando era niño"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:564
+#: src/Factory/Objects/ExtendedFamilySupport.php:596
 msgid "divorced"
 msgstr "divorced"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:565
+#: src/Factory/Objects/ExtendedFamilySupport.php:597
 msgid "married"
 msgstr "married"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:566
+#: src/Factory/Objects/ExtendedFamilySupport.php:598
 msgid "engaged"
 msgstr "engaged"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:567
+#: src/Factory/Objects/ExtendedFamilySupport.php:599
 msgid "partners"
 msgstr "partners"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:581
+#: src/Factory/Objects/ExtendedFamilySupport.php:613
 msgid "Ex-marriage"
 msgstr "Ex-matrimonio"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:582
+#: src/Factory/Objects/ExtendedFamilySupport.php:614
 msgid "Marriage"
 msgstr "Matrimonio"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:583
+#: src/Factory/Objects/ExtendedFamilySupport.php:615
 msgid "Fiancée"
 msgstr "Novia"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:584
+#: src/Factory/Objects/ExtendedFamilySupport.php:616
 msgid "Partnership"
 msgstr "Cónyugue"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:598
+#: src/Factory/Objects/ExtendedFamilySupport.php:630
 msgid "divorced partner"
 msgstr "divorced partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:599
+#: src/Factory/Objects/ExtendedFamilySupport.php:631
 msgid "married partner"
 msgstr "married partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:600
+#: src/Factory/Objects/ExtendedFamilySupport.php:632
 msgid "engaged partner"
 msgstr "engaged partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:601
+#: src/Factory/Objects/ExtendedFamilySupport.php:633
 msgid "partner"
 msgstr "partner"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:669
+#: src/Factory/Objects/ExtendedFamilySupport.php:701
 msgid "Half-brother"
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:670
+#: src/Factory/Objects/ExtendedFamilySupport.php:702
 msgid "Half-sister"
 msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:671
+#: src/Factory/Objects/ExtendedFamilySupport.php:703
 #, fuzzy
 #| msgid "Half siblings"
 msgid "Half-sibling"
@@ -240,110 +246,110 @@ msgstr "Cuñados y cuñadas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:736
+#: src/Factory/Objects/ExtendedFamilySupport.php:768
 msgid "Great-grandparents"
 msgstr "Bisabuelos y Bisabuelas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:737
+#: src/Factory/Objects/ExtendedFamilySupport.php:769
 msgid "Grandparents"
 msgstr "Abuelos y Abuelas"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:738
+#: src/Factory/Objects/ExtendedFamilySupport.php:770
 msgid "Uncles and Aunts"
 msgstr "Tíos y Tías"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:739
+#: src/Factory/Objects/ExtendedFamilySupport.php:771
 msgid "Uncles and Aunts by marriage"
 msgstr "Tíos y tías políticos/as"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:740
+#: src/Factory/Objects/ExtendedFamilySupport.php:772
 msgid "Parents"
 msgstr "Padres y Madres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:741
+#: src/Factory/Objects/ExtendedFamilySupport.php:773
 msgid "Parents-in-law"
 msgstr "Suegros y Suegras"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:742
+#: src/Factory/Objects/ExtendedFamilySupport.php:774
 msgid "Co-parents-in-law"
 msgstr "Consuegros y Consuegras"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:743
+#: src/Factory/Objects/ExtendedFamilySupport.php:775
 msgid "Partners"
 msgstr "Cónyuge"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:744
+#: src/Factory/Objects/ExtendedFamilySupport.php:776
 msgid "Partner chains"
 msgstr "Cadena de miembros familiares"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:745
+#: src/Factory/Objects/ExtendedFamilySupport.php:777
 msgid "Siblings"
 msgstr "Hermanos y Hermanas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:746
+#: src/Factory/Objects/ExtendedFamilySupport.php:778
 msgid "Siblings-in-law"
 msgstr "Cuñados y Cuñadas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:747
+#: src/Factory/Objects/ExtendedFamilySupport.php:779
 msgid "Co-siblings-in-law"
 msgstr "Concuñados y Concuñadas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:748
+#: src/Factory/Objects/ExtendedFamilySupport.php:780
 msgid "Cousins"
 msgstr "Primos y Primas"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:749
+#: src/Factory/Objects/ExtendedFamilySupport.php:781
 msgid "Nephews and Nieces"
 msgstr "Sobrinos y Sobrinas"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:750
+#: src/Factory/Objects/ExtendedFamilySupport.php:782
 msgid "Children"
 msgstr "Hijos e Hijas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:751
+#: src/Factory/Objects/ExtendedFamilySupport.php:783
 msgid "Children-in-law"
 msgstr "Hijos/as políticos/as (Yerno/Nuera)"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:752
+#: src/Factory/Objects/ExtendedFamilySupport.php:784
 msgid "Grandchildren"
 msgstr "Nietos y Nietas"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:753
+#: src/Factory/Objects/ExtendedFamilySupport.php:785
 msgid "Great-grandchildren"
 msgstr "Great-grandchildren"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:754
+#: src/Factory/Objects/ExtendedFamilySupport.php:786
 msgid "Grandchildren-in-law"
 msgstr "Nietos/as políticos/as"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:755
+#: src/Factory/Objects/ExtendedFamilySupport.php:787
 msgid "Great-grandchildren-in-law"
 msgstr "Great-grandchildren-in-law"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:772
+#: src/Factory/Objects/ExtendedFamilySupport.php:804
 #, fuzzy
 #| msgid "Great-grandparents"
 msgctxt "Family part name in sentence"
@@ -352,28 +358,28 @@ msgstr "Bisabuelos y Bisabuelas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:773
+#: src/Factory/Objects/ExtendedFamilySupport.php:805
 #, fuzzy
 #| msgid "Grandparents"
 msgctxt "Family part name in sentence"
 msgid "grandparents"
 msgstr "Abuelos y Abuelas"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:774
+#: src/Factory/Objects/ExtendedFamilySupport.php:806
 #, fuzzy
 #| msgid "Uncles and Aunts"
 msgctxt "Family part name in sentence"
 msgid "uncles and aunts"
 msgstr "Tíos y Tías"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:775
+#: src/Factory/Objects/ExtendedFamilySupport.php:807
 #, fuzzy
 #| msgid "Uncles and Aunts by marriage"
 msgctxt "Family part name in sentence"
 msgid "uncles and aunts by marriage"
 msgstr "Tíos y tías políticos/as"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:776
+#: src/Factory/Objects/ExtendedFamilySupport.php:808
 #, fuzzy
 #| msgid "Parents"
 msgctxt "Family part name in sentence"
@@ -382,7 +388,7 @@ msgstr "Padres y Madres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:777
+#: src/Factory/Objects/ExtendedFamilySupport.php:809
 #, fuzzy
 #| msgid "Parents-in-law"
 msgctxt "Family part name in sentence"
@@ -391,21 +397,21 @@ msgstr "Suegros y Suegras"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:778
+#: src/Factory/Objects/ExtendedFamilySupport.php:810
 #, fuzzy
 #| msgid "Co-parents-in-law"
 msgctxt "Family part name in sentence"
 msgid "co-parents-in-law"
 msgstr "Consuegros y Consuegras"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:779
+#: src/Factory/Objects/ExtendedFamilySupport.php:811
 #, fuzzy
 #| msgid "partners"
 msgctxt "Family part name in sentence"
 msgid "partners"
 msgstr "partners"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:780
+#: src/Factory/Objects/ExtendedFamilySupport.php:812
 #, fuzzy
 #| msgid "Partner chains"
 msgctxt "Family part name in sentence"
@@ -413,7 +419,7 @@ msgid "partner chains"
 msgstr "Cadena de miembros familiares"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:781
+#: src/Factory/Objects/ExtendedFamilySupport.php:813
 #, fuzzy
 #| msgid "Siblings"
 msgctxt "Family part name in sentence"
@@ -422,7 +428,7 @@ msgstr "Hermanos y Hermanas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:782
+#: src/Factory/Objects/ExtendedFamilySupport.php:814
 #, fuzzy
 #| msgid "Siblings-in-law"
 msgctxt "Family part name in sentence"
@@ -431,7 +437,7 @@ msgstr "Cuñados y Cuñadas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:783
+#: src/Factory/Objects/ExtendedFamilySupport.php:815
 #, fuzzy
 #| msgid "Co-siblings-in-law"
 msgctxt "Family part name in sentence"
@@ -440,14 +446,14 @@ msgstr "Concuñados y Concuñadas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:784
+#: src/Factory/Objects/ExtendedFamilySupport.php:816
 #, fuzzy
 #| msgid "Cousins"
 msgctxt "Family part name in sentence"
 msgid "cousins"
 msgstr "Primos y Primas"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:785
+#: src/Factory/Objects/ExtendedFamilySupport.php:817
 #, fuzzy
 #| msgid "Nephews and Nieces"
 msgctxt "Family part name in sentence"
@@ -455,7 +461,7 @@ msgid "nephews and nieces"
 msgstr "Sobrinos y Sobrinas"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:786
+#: src/Factory/Objects/ExtendedFamilySupport.php:818
 #, fuzzy
 #| msgid "Children"
 msgctxt "Family part name in sentence"
@@ -464,7 +470,7 @@ msgstr "Hijos e Hijas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:787
+#: src/Factory/Objects/ExtendedFamilySupport.php:819
 #, fuzzy
 #| msgid "Children-in-law"
 msgctxt "Family part name in sentence"
@@ -473,14 +479,14 @@ msgstr "Hijos/as políticos/as (Yerno/Nuera)"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:788
+#: src/Factory/Objects/ExtendedFamilySupport.php:820
 #, fuzzy
 #| msgid "Grandchildren"
 msgctxt "Family part name in sentence"
 msgid "grandchildren"
 msgstr "Nietos y Nietas"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:789
+#: src/Factory/Objects/ExtendedFamilySupport.php:821
 #, fuzzy
 #| msgid "Great-grandchildren"
 msgctxt "Family part name in sentence"
@@ -489,14 +495,14 @@ msgstr "Great-grandchildren"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:790
+#: src/Factory/Objects/ExtendedFamilySupport.php:822
 #, fuzzy
 #| msgid "Grandchildren-in-law"
 msgctxt "Family part name in sentence"
 msgid "grandchildren-in-law"
 msgstr "Nietos/as políticos/as"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:791
+#: src/Factory/Objects/ExtendedFamilySupport.php:823
 #, fuzzy
 #| msgid "Great-grandchildren-in-law"
 msgctxt "Family part name in sentence"
@@ -505,100 +511,100 @@ msgstr "Great-grandchildren-in-law"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:805
+#: src/Factory/Objects/ExtendedFamilySupport.php:837
 msgid "Biological great-grandparents"
 msgstr "Bisabuelos biolbiol&oacute;gicos"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:806
+#: src/Factory/Objects/ExtendedFamilySupport.php:838
 msgid "Biological grandparents"
 msgstr "Biological grandparents"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:807
+#: src/Factory/Objects/ExtendedFamilySupport.php:839
 msgid "Full siblings of biological parents"
 msgstr "Relaci&oacute; completa de hermanos de los padres biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:808
+#: src/Factory/Objects/ExtendedFamilySupport.php:840
 msgid "Biological parents"
 msgstr "Padres biolbiol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:809
+#: src/Factory/Objects/ExtendedFamilySupport.php:841
 msgid "Full siblings"
 msgstr "Todos los hermanos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:810
+#: src/Factory/Objects/ExtendedFamilySupport.php:842
 msgid "Children of full siblings of biological parents"
 msgstr "Relaci&oacute; de hijos de hermanos de los padres biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:811
+#: src/Factory/Objects/ExtendedFamilySupport.php:843
 msgid "Children of full siblings"
 msgstr "Hijos de los hermanos mayores"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:812
+#: src/Factory/Objects/ExtendedFamilySupport.php:844
 msgid "Biological children"
 msgstr "Hijos biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:813
+#: src/Factory/Objects/ExtendedFamilySupport.php:845
 msgid "Biological grandchildren"
 msgstr "Nietos biol&oacute;gicos"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:814
-#: src/Factory/Objects/ExtendedFamilySupport.php:913
+#: src/Factory/Objects/ExtendedFamilySupport.php:846
+#: src/Factory/Objects/ExtendedFamilySupport.php:945
 msgid "Biological great-grandchildren"
 msgstr "Biological great-grandchildren"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:828
+#: src/Factory/Objects/ExtendedFamilySupport.php:860
 msgid "Biological grandparents of father"
 msgstr "Abuelos biol&oacute;gicos del padre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:829
+#: src/Factory/Objects/ExtendedFamilySupport.php:861
 msgid "Biological grandparents of mother"
 msgstr "Abuelos biol&oacute;gicos de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:830
+#: src/Factory/Objects/ExtendedFamilySupport.php:862
 msgid "Biological grandparents of parent"
 msgstr "Abuelos biol&oacute;gicos de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:831
+#: src/Factory/Objects/ExtendedFamilySupport.php:863
 msgid "Stepparents of biological parent of father"
 msgstr "Padrastos del padre biol&oacute;gico"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:832
+#: src/Factory/Objects/ExtendedFamilySupport.php:864
 msgid "Stepparents of biological parent of mother"
 msgstr "Padrastros del padre biol&oacute;gico de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:833
+#: src/Factory/Objects/ExtendedFamilySupport.php:865
 msgid "Stepparents of biological grandparent"
 msgstr "Padrastros del abuelo biol&oacute;gico"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:834
+#: src/Factory/Objects/ExtendedFamilySupport.php:866
 #, fuzzy
 #| msgid "Stepparents of biological parent of father"
 msgid "Social parents of biological parent of father"
@@ -606,7 +612,7 @@ msgstr "Padrastos del padre biol&oacute;gico"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:835
+#: src/Factory/Objects/ExtendedFamilySupport.php:867
 #, fuzzy
 #| msgid "Stepparents of biological parent of mother"
 msgid "Social parents of biological parent of mother"
@@ -614,7 +620,7 @@ msgstr "Padrastros del padre biol&oacute;gico de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:836
+#: src/Factory/Objects/ExtendedFamilySupport.php:868
 #, fuzzy
 #| msgid "Stepparents of biological grandparent"
 msgid "Social parents of biological grandparent"
@@ -622,25 +628,25 @@ msgstr "Padrastros del abuelo biol&oacute;gico"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:837
+#: src/Factory/Objects/ExtendedFamilySupport.php:869
 msgid "Parents of stepparent of father"
 msgstr "Padres del padrasto o de la madrasta"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:838
+#: src/Factory/Objects/ExtendedFamilySupport.php:870
 msgid "Parents of stepparent of mother"
 msgstr "Padres del padrastro de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:839
+#: src/Factory/Objects/ExtendedFamilySupport.php:871
 msgid "Parents of stepparent of parent"
 msgstr "Padres del padrastro de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:840
+#: src/Factory/Objects/ExtendedFamilySupport.php:872
 #, fuzzy
 #| msgid "Parents of stepparent of father"
 msgid "Stepparents of stepparent of father"
@@ -648,7 +654,7 @@ msgstr "Padres del padrasto o de la madrasta"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:841
+#: src/Factory/Objects/ExtendedFamilySupport.php:873
 #, fuzzy
 #| msgid "Parents of stepparent of mother"
 msgid "Stepparents of stepparent of mother"
@@ -656,7 +662,7 @@ msgstr "Padres del padrastro de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:842
+#: src/Factory/Objects/ExtendedFamilySupport.php:874
 #, fuzzy
 #| msgid "Parents of stepparent of parent"
 msgid "Stepparents of stepparent of parent"
@@ -664,7 +670,7 @@ msgstr "Padres del padrastro de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:843
+#: src/Factory/Objects/ExtendedFamilySupport.php:875
 #, fuzzy
 #| msgid "Parents of stepparent of father"
 msgid "Parents of social parent of father"
@@ -672,7 +678,7 @@ msgstr "Padres del padrasto o de la madrasta"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:844
+#: src/Factory/Objects/ExtendedFamilySupport.php:876
 #, fuzzy
 #| msgid "Parents of stepparent of mother"
 msgid "Parents of social parent of mother"
@@ -680,7 +686,7 @@ msgstr "Padres del padrastro de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:845
+#: src/Factory/Objects/ExtendedFamilySupport.php:877
 #, fuzzy
 #| msgid "Parents of stepparent of parent"
 msgid "Parents of social parent of parent"
@@ -688,7 +694,7 @@ msgstr "Padres del padrastro de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:846
+#: src/Factory/Objects/ExtendedFamilySupport.php:878
 #, fuzzy
 #| msgid "Stepparents of biological parent of father"
 msgid "Stepparents of social parent of father"
@@ -696,7 +702,7 @@ msgstr "Padrastos del padre biol&oacute;gico"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:847
+#: src/Factory/Objects/ExtendedFamilySupport.php:879
 #, fuzzy
 #| msgid "Stepparents of biological parent of mother"
 msgid "Stepparents of social parent of mother"
@@ -704,7 +710,7 @@ msgstr "Padrastros del padre biol&oacute;gico de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:848
+#: src/Factory/Objects/ExtendedFamilySupport.php:880
 #, fuzzy
 #| msgid "Stepparents of biological parent of father"
 msgid "Stepparents of social parent of parent"
@@ -712,13 +718,13 @@ msgstr "Padrastos del padre biol&oacute;gico"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:849
+#: src/Factory/Objects/ExtendedFamilySupport.php:881
 msgid "Grandparents of stepparent"
 msgstr "Abuelos de los padrastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:850
+#: src/Factory/Objects/ExtendedFamilySupport.php:882
 #, fuzzy
 #| msgid "Grandparents of stepparent"
 msgid "Grandparents of social parent"
@@ -726,49 +732,49 @@ msgstr "Abuelos de los padrastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:851
+#: src/Factory/Objects/ExtendedFamilySupport.php:883
 msgid "Biological parents of father"
 msgstr "Abuelos biol&oacute;gicos por parte de padre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:852
+#: src/Factory/Objects/ExtendedFamilySupport.php:884
 msgid "Biological parents of mother"
 msgstr "Abuelos biol&oacute;gicos por parte de madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:853
+#: src/Factory/Objects/ExtendedFamilySupport.php:885
 msgid "Biological parents of parent"
 msgstr "Padres biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:854
+#: src/Factory/Objects/ExtendedFamilySupport.php:886
 msgid "Stepparents of father"
 msgstr "Padrastros del padre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:855
+#: src/Factory/Objects/ExtendedFamilySupport.php:887
 msgid "Stepparents of mother"
 msgstr "Padrastros de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:856
+#: src/Factory/Objects/ExtendedFamilySupport.php:888
 msgid "Stepparents of parent"
 msgstr "Padrastros de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:857
+#: src/Factory/Objects/ExtendedFamilySupport.php:889
 msgid "Parents of stepparent"
 msgstr "Padres de padrastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:858
+#: src/Factory/Objects/ExtendedFamilySupport.php:890
 #, fuzzy
 #| msgid "Biological parents of father"
 msgid "Social parents of father"
@@ -776,7 +782,7 @@ msgstr "Abuelos biol&oacute;gicos por parte de padre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:859
+#: src/Factory/Objects/ExtendedFamilySupport.php:891
 #, fuzzy
 #| msgid "Biological parents of mother"
 msgid "Social parents of mother"
@@ -784,7 +790,7 @@ msgstr "Abuelos biol&oacute;gicos por parte de madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:860
+#: src/Factory/Objects/ExtendedFamilySupport.php:892
 #, fuzzy
 #| msgid "Biological parents of parent"
 msgid "Social parents of parent"
@@ -792,7 +798,7 @@ msgstr "Padres biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:861
+#: src/Factory/Objects/ExtendedFamilySupport.php:893
 #, fuzzy
 #| msgid "Parents of stepparent of father"
 msgid "Parents of social father"
@@ -800,7 +806,7 @@ msgstr "Padres del padrasto o de la madrasta"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:862
+#: src/Factory/Objects/ExtendedFamilySupport.php:894
 #, fuzzy
 #| msgid "Parents of stepparent of mother"
 msgid "Parents of social mother"
@@ -808,7 +814,7 @@ msgstr "Padres del padrastro de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:863
+#: src/Factory/Objects/ExtendedFamilySupport.php:895
 #, fuzzy
 #| msgid "Parents of stepparent"
 msgid "Parents of social parent"
@@ -816,7 +822,7 @@ msgstr "Padres de padrastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:864
+#: src/Factory/Objects/ExtendedFamilySupport.php:896
 #, fuzzy
 #| msgid "Stepparents of father"
 msgid "Stepparents of social father"
@@ -824,7 +830,7 @@ msgstr "Padrastros del padre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:865
+#: src/Factory/Objects/ExtendedFamilySupport.php:897
 #, fuzzy
 #| msgid "Stepparents of mother"
 msgid "Stepparents of social mother"
@@ -832,7 +838,7 @@ msgstr "Padrastros de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:866
+#: src/Factory/Objects/ExtendedFamilySupport.php:898
 #, fuzzy
 #| msgid "Stepparents of parent"
 msgid "Stepparents of social parent"
@@ -840,7 +846,7 @@ msgstr "Padrastros de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:867
+#: src/Factory/Objects/ExtendedFamilySupport.php:899
 #, fuzzy
 #| msgid "Stepparents of parent"
 msgid "Stepparents of stepparent"
@@ -848,7 +854,7 @@ msgstr "Padrastros de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:868
+#: src/Factory/Objects/ExtendedFamilySupport.php:900
 #, fuzzy
 #| msgid "Biological parents"
 msgid "Social parents"
@@ -856,13 +862,13 @@ msgstr "Padres biolbiol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:869
+#: src/Factory/Objects/ExtendedFamilySupport.php:901
 msgid "Stepparents"
 msgstr "Padrastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:870
+#: src/Factory/Objects/ExtendedFamilySupport.php:902
 #, fuzzy
 #| msgid "Full siblings of biological parents"
 msgid "Siblings and half siblings of biological parents"
@@ -870,7 +876,7 @@ msgstr "Relaci&oacute; completa de hermanos de los padres biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:871
+#: src/Factory/Objects/ExtendedFamilySupport.php:903
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Siblings and half siblings of social parents"
@@ -878,7 +884,7 @@ msgstr "Hijos de medio hermanos de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:872
+#: src/Factory/Objects/ExtendedFamilySupport.php:904
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Siblings and half siblings of stepparents"
@@ -886,7 +892,7 @@ msgstr "Hijos de medio hermanos de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:873
+#: src/Factory/Objects/ExtendedFamilySupport.php:905
 #, fuzzy
 #| msgid "Children of full siblings of biological parents"
 msgid "Partners of siblings and half siblings of biological parents"
@@ -894,7 +900,7 @@ msgstr "Relaci&oacute; de hijos de hermanos de los padres biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:874
+#: src/Factory/Objects/ExtendedFamilySupport.php:906
 #, fuzzy
 #| msgid "Children of full siblings of biological parents"
 msgid "Partners of siblings and half siblings of social parents"
@@ -902,7 +908,7 @@ msgstr "Relaci&oacute; de hijos de hermanos de los padres biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:875
+#: src/Factory/Objects/ExtendedFamilySupport.php:907
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Partners of siblings and half siblings of stepparents"
@@ -910,43 +916,43 @@ msgstr "Hijos de medio hermanos de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:876
+#: src/Factory/Objects/ExtendedFamilySupport.php:908
 msgid "Children of full siblings of father"
 msgstr "Primos y primas por parte de padre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:877
+#: src/Factory/Objects/ExtendedFamilySupport.php:909
 msgid "Children of full siblings of mother"
 msgstr "Primos y primas por parte de madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:878
+#: src/Factory/Objects/ExtendedFamilySupport.php:910
 msgid "Children of full siblings of parent"
 msgstr "Primos y primas por parte de padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:879
+#: src/Factory/Objects/ExtendedFamilySupport.php:911
 msgid "Children of half siblings of father"
 msgstr "Hijos de medio hermanos del padre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:880
+#: src/Factory/Objects/ExtendedFamilySupport.php:912
 msgid "Children of half siblings of mother"
 msgstr "Hijos de medio hermanos de la madre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:881
+#: src/Factory/Objects/ExtendedFamilySupport.php:913
 msgid "Children of half siblings of parent"
 msgstr "Hijos de medio hermanos de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:882
+#: src/Factory/Objects/ExtendedFamilySupport.php:914
 #, fuzzy
 #| msgid "Children of full siblings of biological parents"
 msgid "Children of full siblings of social parents"
@@ -954,7 +960,7 @@ msgstr "Relaci&oacute; de hijos de hermanos de los padres biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:883
+#: src/Factory/Objects/ExtendedFamilySupport.php:915
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Children of half siblings of social parents"
@@ -962,7 +968,7 @@ msgstr "Hijos de medio hermanos de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:884
+#: src/Factory/Objects/ExtendedFamilySupport.php:916
 #, fuzzy
 #| msgid "Children of full siblings of parent"
 msgid "Children of full siblings of stepparents"
@@ -970,7 +976,7 @@ msgstr "Primos y primas por parte de padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:885
+#: src/Factory/Objects/ExtendedFamilySupport.php:917
 #, fuzzy
 #| msgid "Children of half siblings of parent"
 msgid "Children of half siblings of stepparents"
@@ -978,13 +984,13 @@ msgstr "Hijos de medio hermanos de los padres"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:886
+#: src/Factory/Objects/ExtendedFamilySupport.php:918
 msgid "Half siblings"
 msgstr "Cuñados y cuñadas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:887
+#: src/Factory/Objects/ExtendedFamilySupport.php:919
 #, fuzzy
 #| msgid "Half siblings"
 msgid "Social siblings"
@@ -992,37 +998,37 @@ msgstr "Cuñados y cuñadas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:888
+#: src/Factory/Objects/ExtendedFamilySupport.php:920
 msgid "Stepsiblings"
 msgstr "Hermanastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:889
+#: src/Factory/Objects/ExtendedFamilySupport.php:921
 msgid "Siblings of partners"
 msgstr "Hermanos/as del cónyuge"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:890
+#: src/Factory/Objects/ExtendedFamilySupport.php:922
 msgid "Partners of siblings"
 msgstr "Cónyugues de sus hermanos/as"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:891
+#: src/Factory/Objects/ExtendedFamilySupport.php:923
 msgid "Siblings of siblings-in-law"
 msgstr "Concuñados/as"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:892
+#: src/Factory/Objects/ExtendedFamilySupport.php:924
 msgid "Partners of siblings-in-law"
 msgstr "Cónyuges de sus cuñados y cuñadas"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:893
+#: src/Factory/Objects/ExtendedFamilySupport.php:925
 #, fuzzy
 #| msgid "Biological children"
 msgid "Social children"
@@ -1030,19 +1036,19 @@ msgstr "Hijos biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:894
+#: src/Factory/Objects/ExtendedFamilySupport.php:926
 msgid "Stepchildren"
 msgstr "Hijastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:895
+#: src/Factory/Objects/ExtendedFamilySupport.php:927
 msgid "Partners of biological children"
 msgstr "Cónyuges de los hijos biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:896
+#: src/Factory/Objects/ExtendedFamilySupport.php:928
 #, fuzzy
 #| msgid "Partners of biological children"
 msgid "Partners of social children"
@@ -1050,41 +1056,41 @@ msgstr "Cónyuges de los hijos biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:897
+#: src/Factory/Objects/ExtendedFamilySupport.php:929
 msgid "Partners of stepchildren"
 msgstr "Cónyuge de hijastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:898
+#: src/Factory/Objects/ExtendedFamilySupport.php:930
 msgid "Parents-in-law of biological children"
 msgstr "Suegros de sus hijos/as biol&oacute;gicos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:899
+#: src/Factory/Objects/ExtendedFamilySupport.php:931
 msgid "Parents-in-law of stepchildren"
 msgstr "Consuegros/as de hijastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:900
+#: src/Factory/Objects/ExtendedFamilySupport.php:932
 msgid "Children of siblings"
 msgstr "Hijos de hermanos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:901
+#: src/Factory/Objects/ExtendedFamilySupport.php:933
 msgid "Siblings' stepchildren"
 msgstr "Hijastros de hermanos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:902
+#: src/Factory/Objects/ExtendedFamilySupport.php:934
 msgid "Children of siblings of partners"
 msgstr "Hijos de los hermanos del cónyuge"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:903
+#: src/Factory/Objects/ExtendedFamilySupport.php:935
 #, fuzzy
 #| msgid "Children of social grandchildren"
 msgid "Children of social children"
@@ -1092,7 +1098,7 @@ msgstr "Children of social grandchildren"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:904
+#: src/Factory/Objects/ExtendedFamilySupport.php:936
 #, fuzzy
 #| msgid "Stepchildren of children"
 msgid "Social children of children"
@@ -1100,79 +1106,79 @@ msgstr "Hijastros/as"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:905
+#: src/Factory/Objects/ExtendedFamilySupport.php:937
 msgid "Stepchildren of children"
 msgstr "Hijastros/as"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:906
+#: src/Factory/Objects/ExtendedFamilySupport.php:938
 msgid "Children of stepchildren"
 msgstr "Hijos de hijastros/as"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:907
+#: src/Factory/Objects/ExtendedFamilySupport.php:939
 msgid "Stepchildren of stepchildren"
 msgstr "Hijastro/a de hijastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:908
+#: src/Factory/Objects/ExtendedFamilySupport.php:940
 msgid "Partners of biological grandchildren"
 msgstr "Parejas de los nietos biol&oacute;gicos"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:909
+#: src/Factory/Objects/ExtendedFamilySupport.php:941
 msgid "Partners of social children of children"
 msgstr "Partners of social children of children"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:910
+#: src/Factory/Objects/ExtendedFamilySupport.php:942
 msgid "Partners of stepchildren of children"
 msgstr "Parejas de los hijos de los nietos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:911
+#: src/Factory/Objects/ExtendedFamilySupport.php:943
 msgid "Partners of children of stepchildren"
 msgstr "Parejas de los hijos de hijastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:912
+#: src/Factory/Objects/ExtendedFamilySupport.php:944
 msgid "Partners of stepchildren of stepchildren"
 msgstr "Parejas de los hijastros"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:914
+#: src/Factory/Objects/ExtendedFamilySupport.php:946
 msgid "Children of biological grandchildren"
 msgstr "Children of biological grandchildren"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:915
+#: src/Factory/Objects/ExtendedFamilySupport.php:947
 #, fuzzy
 #| msgid "Stepchildren of children"
 msgid "Social children of grandchildren"
 msgstr "Hijastros/as"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:916
+#: src/Factory/Objects/ExtendedFamilySupport.php:948
 msgid "Children of social grandchildren"
 msgstr "Children of social grandchildren"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:917
+#: src/Factory/Objects/ExtendedFamilySupport.php:949
 msgid "Children of stepgrandchildren"
 msgstr "Children of stepgrandchildren"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:918
+#: src/Factory/Objects/ExtendedFamilySupport.php:950
 #, fuzzy
 #| msgid "Stepchildren of children"
 msgid "Stepchildren of grandchildren"
 msgstr "Hijastros/as"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:919
+#: src/Factory/Objects/ExtendedFamilySupport.php:951
 #, fuzzy
 #| msgid "Children of social grandchildren"
 msgid "Stepchildren of social grandchildren"
@@ -1180,7 +1186,7 @@ msgstr "Children of social grandchildren"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:920
+#: src/Factory/Objects/ExtendedFamilySupport.php:952
 #, fuzzy
 #| msgid "Stepchildren of stepchildren"
 msgid "Stepchildren of stepgrandchildren"
@@ -1188,13 +1194,13 @@ msgstr "Hijastro/a de hijastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:921
+#: src/Factory/Objects/ExtendedFamilySupport.php:953
 #, fuzzy
 #| msgid "Partners of biological grandchildren"
 msgid "Partners of biological great-grandchildren"
 msgstr "Parejas de los nietos biol&oacute;gicos"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:922
+#: src/Factory/Objects/ExtendedFamilySupport.php:954
 #, fuzzy
 #| msgid "Partners of social children of children"
 msgid "Partners of social children of grandchildren"
@@ -1202,7 +1208,7 @@ msgstr "Partners of social children of children"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:923
+#: src/Factory/Objects/ExtendedFamilySupport.php:955
 #, fuzzy
 #| msgid "Partners of children of stepchildren"
 msgid "Partners of children of social grandchildren"
@@ -1210,7 +1216,7 @@ msgstr "Parejas de los hijos de hijastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:924
+#: src/Factory/Objects/ExtendedFamilySupport.php:956
 #, fuzzy
 #| msgid "Partners of children of stepchildren"
 msgid "Partners of children of stepgrandchildren"
@@ -1218,7 +1224,7 @@ msgstr "Parejas de los hijos de hijastros"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:925
+#: src/Factory/Objects/ExtendedFamilySupport.php:957
 #, fuzzy
 #| msgid "Partners of stepchildren of children"
 msgid "Partners of stepchildren of grandchildren"
@@ -1226,7 +1232,7 @@ msgstr "Parejas de los hijos de los nietos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:926
+#: src/Factory/Objects/ExtendedFamilySupport.php:958
 #, fuzzy
 #| msgid "Partners of stepchildren of children"
 msgid "Partners of stepchildren of social grandchildren"
@@ -1234,50 +1240,50 @@ msgstr "Parejas de los hijos de los nietos"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/Objects/ExtendedFamilySupport.php:927
+#: src/Factory/Objects/ExtendedFamilySupport.php:959
 #, fuzzy
 #| msgid "Partners of stepchildren of stepchildren"
 msgid "Partners of stepchildren of stepgrandchildren"
 msgstr "Parejas de los hijastros"
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:945
+#: src/Factory/Objects/ExtendedFamilySupport.php:977
 #, php-format
 msgctxt "Date range: year to today"
 msgid "The known dates range from %1$s to today."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:946
+#: src/Factory/Objects/ExtendedFamilySupport.php:978
 #, php-format
 msgctxt "Date range: date to today"
 msgid "The known dates range from %1$s to today."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:947
+#: src/Factory/Objects/ExtendedFamilySupport.php:979
 #, php-format
 msgctxt "Date range: year to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:948
+#: src/Factory/Objects/ExtendedFamilySupport.php:980
 #, php-format
 msgctxt "Date range: year to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:949
+#: src/Factory/Objects/ExtendedFamilySupport.php:981
 #, php-format
 msgctxt "Date range: date to year"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:950
-#: src/Factory/Objects/ExtendedFamilySupport.php:951
+#: src/Factory/Objects/ExtendedFamilySupport.php:982
+#: src/Factory/Objects/ExtendedFamilySupport.php:983
 #, php-format
 msgctxt "Date range: date to date"
 msgid "The known dates range from %1$s to %2$s."
 msgstr ""
 
-#: src/Factory/Objects/ExtendedFamilySupport.php:951
+#: src/Factory/Objects/ExtendedFamilySupport.php:983
 msgid "today"
 msgstr ""
 
@@ -1533,6 +1539,12 @@ msgstr ""
 msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
 msgstr ""
 
+#: resources/views/partials/family-part-renderers/grouped-headings/partners.phtml:19
+#, fuzzy, php-format
+#| msgid "Parents %1$s of %2$s"
+msgid "%1$s of %2$s"
+msgstr "Padres %1$s de %2$s"
+
 #: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:41
 #, php-format
 msgid "Brother %1$s of partner %2$s"
@@ -1567,17 +1579,11 @@ msgstr "Cónyuges de sus cuñados y cuñadas"
 #: resources/views/partials/family-part-renderers/parents-in-law.phtml:23
 #: resources/views/partials/family-part-renderers/parents-in-law.phtml:25
 msgid "with"
-msgstr " con"
+msgstr "con"
 
-#: resources/views/partials/family-part-renderers/partners.phtml:20
+#: resources/views/partials/family-part-renderers/partners.phtml:16
 msgid "Partner of"
 msgstr "Cónyuge de"
-
-#: resources/views/partials/family-part-renderers/partners.phtml:38
-#, fuzzy, php-format
-#| msgid "Parents %1$s of %2$s"
-msgid "%1$s of %2$s"
-msgstr "Padres %1$s de %2$s"
 
 #: resources/views/partials/family-part-summary.phtml:19
 #, php-format
@@ -3430,24 +3436,24 @@ msgstr ""
 msgid "Gender distribution: %1$s male (%2$s), %3$s female (%4$s)."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:184
+#: resources/views/partials/summary.phtml:185
 #, php-format
 msgid "Average generation length: %s years."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:185
+#: resources/views/partials/summary.phtml:188
 #, php-format
 msgid "Average lifespan: %s years."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:187
+#: resources/views/partials/summary.phtml:191
 #, php-format
 msgid "Oldest person: %s."
 msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/partials/summary.phtml:189
+#: resources/views/partials/summary.phtml:194
 #, fuzzy, php-format
 #| msgid "not a male person"
 msgid "Oldest male person: %s."
@@ -3455,95 +3461,91 @@ msgstr "No es un hombre"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/partials/summary.phtml:190
+#: resources/views/partials/summary.phtml:197
 #, fuzzy, php-format
 #| msgid "not a female person"
 msgid "Oldest female person: %s."
 msgstr "No es una mujer"
 
-#: resources/views/partials/summary.phtml:195
+#: resources/views/partials/summary.phtml:203
 #, php-format
 msgid "Ancestor implex: %s."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:198
+#: resources/views/partials/summary.phtml:206
 #, php-format
 msgid "Descendant implex: %s."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:201
+#: resources/views/partials/summary.phtml:209
 msgid ""
 "No ancestor or descendant implex was detected in the selected direct-line "
 "generations."
 msgstr ""
 
-#: resources/views/partials/summary.phtml:207
+#: resources/views/partials/summary.phtml:215
 #, php-format
 msgid "%s has no %s recorded."
 msgstr "%s no tiene %s registrados."
 
-#: resources/views/partials/summary.phtml:211
+#: resources/views/partials/summary.phtml:219
 #, php-format
 msgid "%s has no %s, and no %s recorded."
 msgstr "%s no tiene %s ni %s registrados."
 
-#: resources/views/partials/summary.phtml:217
+#: resources/views/partials/summary.phtml:225
 #, fuzzy, php-format
 #| msgid "Summary for the shown extended family"
 msgid "Summary for the extended family of %s"
 msgstr "Summary for the shown extended family"
 
-#: resources/views/partials/summary.phtml:223
+#: resources/views/partials/summary.phtml:231
 #, fuzzy
 #| msgid "generation %s"
 msgid "Generation"
-msgstr "Generaci&oacute;n %s"
+msgstr "Generaci&oacute;n"
 
-#: resources/views/partials/summary.phtml:224
+#: resources/views/partials/summary.phtml:232
 msgid "Relation"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:225
+#: resources/views/partials/summary.phtml:233
 msgid "Total profiles"
 msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/partials/summary.phtml:226
+#: resources/views/partials/summary.phtml:234
 #, fuzzy
 #| msgid "Biological parents"
 msgid "Biological"
 msgstr "Padres biolbiol&oacute;gicos"
 
-#: resources/views/partials/summary.phtml:227
-msgid "Earliest birth year"
+#: resources/views/partials/summary.phtml:235
+msgid "Earliest / latest birth year"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:228
-msgid "Latest birth year"
-msgstr ""
-
-#: resources/views/partials/summary.phtml:229
+#: resources/views/partials/summary.phtml:236
 msgid "Average birth year"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:230
+#: resources/views/partials/summary.phtml:237
 msgid "Average marriage age"
 msgstr ""
 
-#: resources/views/partials/summary.phtml:231
+#: resources/views/partials/summary.phtml:238
 #, fuzzy
 #| msgid "generation %s"
 msgid "Generation length"
-msgstr "Generaci&oacute;n %s"
+msgstr "Duraci&oacute;n de generaci&oacute;n"
 
-#: resources/views/partials/summary.phtml:232
+#: resources/views/partials/summary.phtml:239
 msgid "Average lifespan"
 msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: resources/views/partials/summary.phtml:233
+#: resources/views/partials/summary.phtml:240
 #, fuzzy
 #| msgid "Grandchildren"
 msgid "Average children"
@@ -3561,54 +3563,50 @@ msgstr ""
 msgid "No family available"
 msgstr "No hay familia disponible"
 
-#: resources/views/settings.phtml:37
+#: resources/views/settings.phtml:40
 msgid "Control panel"
 msgstr ""
 
-#: resources/views/settings.phtml:38
+#: resources/views/settings.phtml:41
 msgid "Enabled"
 msgstr ""
 
-#: resources/views/settings.phtml:39
+#: resources/views/settings.phtml:42
 msgid "Move down"
 msgstr ""
 
-#: resources/views/settings.phtml:40
+#: resources/views/settings.phtml:43
 msgid "Move up"
 msgstr ""
 
-#: resources/views/settings.phtml:41
+#: resources/views/settings.phtml:44
 msgid "no"
 msgstr ""
 
-#: resources/views/settings.phtml:42
+#: resources/views/settings.phtml:45
 msgid "save"
 msgstr ""
 
-#: resources/views/settings.phtml:43
+#: resources/views/settings.phtml:46
 msgid "yes"
 msgstr ""
 
-#: resources/views/settings.phtml:57
+#: resources/views/settings.phtml:60
 msgid "In which sequence should the parts of the extended family be shown?"
 msgstr ""
 "¿Que bloques de la familia quieres que se muestren, y en que orden, en la "
 "pestaña \"Familia extendida\"?"
 
-#: resources/views/settings.phtml:59 resources/views/settings.phtml:60
+#: resources/views/settings.phtml:62 resources/views/settings.phtml:63
 msgid "Quick selection for family parts"
 msgstr ""
 
-#: resources/views/settings.phtml:63
+#: resources/views/settings.phtml:66
 msgid "Enable all"
 msgstr ""
 
-#: resources/views/settings.phtml:66
+#: resources/views/settings.phtml:69
 msgid "Disable all"
-msgstr ""
-
-#: resources/views/settings.phtml:71
-msgid "Enable all in-law family parts"
 msgstr ""
 
 #: resources/views/settings.phtml:74
@@ -3855,42 +3853,60 @@ msgid ""
 "pointer is over the name."
 msgstr ""
 
-#: resources/views/settings.phtml:309
+#: resources/views/settings.phtml:312
 #, fuzzy
 #| msgid "no blood relationship"
 msgid "Show relationship"
 msgstr "sin relaci&oacute;n de consanguinidad"
 
-#: resources/views/settings.phtml:317
+#: resources/views/settings.phtml:320
 msgid "Show a button \"Print/PDF\"?"
 msgstr ""
 
-#: resources/views/settings.phtml:318
+#: resources/views/settings.phtml:321
 msgid ""
 "This allows a user to open a print-optimized view and save it as a PDF file "
 "from the browser print dialog."
 msgstr ""
 
-#: resources/views/settings.phtml:323 resources/views/settings.phtml:342
+#: resources/views/settings.phtml:326 resources/views/settings.phtml:345
 msgid "Show button"
 msgstr ""
 
-#: resources/views/settings.phtml:331
+#: resources/views/settings.phtml:334
 msgid "Show a button \"copy to clippings cart\"?"
 msgstr ""
 
-#: resources/views/settings.phtml:332
+#: resources/views/settings.phtml:335
 msgid ""
 "This allows a user to copy all members of the extended family to the "
 "clippings cart."
 msgstr ""
 
-#: resources/views/settings.phtml:354
+#: resources/views/settings.phtml:357
 msgid "Clippings cart action"
 msgstr ""
 
-#: resources/views/settings.phtml:357
+#: resources/views/settings.phtml:360
 msgid "huhwt-cce (recommended)"
+msgstr ""
+
+#: resources/views/settings.phtml:368
+#, fuzzy
+#| msgid "In which sequence should the parts of the extended family be shown?"
+msgid "When should the extended family tab be loaded?"
+msgstr ""
+"¿Que bloques de la familia quieres que se muestren, y en que orden, en la "
+"pestaña \"Familia extendida\"?"
+
+#: resources/views/settings.phtml:369
+msgid ""
+"Choose whether the extended family tab content is calculated immediately "
+"while the individual page opens or later by Ajax when the user opens the tab."
+msgstr ""
+
+#: resources/views/settings.phtml:374
+msgid "Load later"
 msgstr ""
 
 #, php-format

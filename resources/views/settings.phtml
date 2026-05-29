@@ -37,6 +37,7 @@ $cce_available ??= false;
 $relationship_names_available ??= false;
 $clippings_cart_action ??= 'cce';
 $family_part_degrees = ExtendedFamilySupport::getFamilyPartDegrees();
+$default_family_part_order = ExtendedFamilySupport::listFamilyParts();
 $coreControlPanel = /* I18N: This is a webtrees core UI string; no module-specific translation is needed. */ I18N::translate('Control panel');
 $coreEnabled = /* I18N: This is a webtrees core UI string; no module-specific translation is needed. */ I18N::translate('Enabled');
 $coreMoveDown = /* I18N: This is a webtrees core UI string; no module-specific translation is needed. */ I18N::translate('Move down');
@@ -62,6 +63,11 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
             <legend><?= I18N::translate('Quick selection for family parts') ?></legend>
             <div class="btn-toolbar mb-3" role="toolbar" aria-label="<?= I18N::translate('Quick selection for family parts') ?>">
                 <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
+                    <button type="button" class="btn btn-secondary hh-extended-family-reset-order">
+                        <?= I18N::translate('Reset order to default') ?>
+                    </button>
+                </div>
+                <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                     <button type="button" class="btn btn-secondary hh-extended-family-select-all">
                         <?= I18N::translate('Enable all') ?>
                     </button>
@@ -83,7 +89,7 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
                 </div>
             </div>
             <p class="small text-muted">
-                <?= I18N::translate('The quick selection changes only the checkboxes below. The configuration is saved when you click "save".') ?>
+                <?= I18N::translate('The quick selection changes only the checkboxes below. The order reset changes only the sequence below. The configuration is saved when you click "save".') ?>
             </p>
         </fieldset>
         <table class="table table-bordered wt-table-menu">
@@ -388,6 +394,8 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
 
 <?php View::push('javascript') ?>
 <script>
+  const defaultFamilyPartOrder = <?= json_encode($default_family_part_order) ?>;
+
   $('.wt-table-menu td.move').click(function () {
       var row = $(this).closest('tr');
 
@@ -410,6 +418,20 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
 
   $('.hh-extended-family-deselect-in-law').click(function () {
       $('.hh-extended-family-part-status[data-in-law="1"]').prop('checked', false);
+  });
+
+  $('.hh-extended-family-reset-order').click(function () {
+      const tableBody = $('.wt-table-menu tbody');
+
+      defaultFamilyPartOrder.forEach(function (familyPart) {
+          const row = tableBody.find('input[name="order[]"]').filter(function () {
+              return $(this).val() === familyPart;
+          }).closest('tr');
+
+          if (row.length) {
+              tableBody.append(row);
+          }
+      });
   });
 
   $('.hh-extended-family-apply-degree').click(function () {
@@ -459,6 +481,9 @@ $coreYes = /* I18N: This is a webtrees core UI string; no module-specific transl
     }
     .hh-extended-family .btn-toolbar .btn-group .btn {
         border-radius: 0.2rem;
+    }
+    .hh-extended-family .btn-toolbar > .btn-group {
+        margin-right: 0.75rem;
     }
 </style>
 <?php View::endpush() ?>

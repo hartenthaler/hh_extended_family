@@ -17,10 +17,10 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
 
 ?>
 
-                        <?php $displayFamily = $group->families[$key] ?? $indi->childFamilies()->first() ?>
+                        <?php $displayFamily = $entry->family ?? $indi->childFamilies()->first() ?>
                         <?php if ($displayFamily instanceof Family): ?>
-                            <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key] ?? ExtendedFamilySupport::findFamilyStatus($displayFamily)) ?>
-                            <?php $connectedChild = $group->referencePersons[$key][1] ?? null ?>
+                            <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($entry->familyStatus ?: ExtendedFamilySupport::findFamilyStatus($displayFamily)) ?>
+                            <?php $connectedChild = $entry->referencePersons[1] ?? null ?>
                             <?php $connectedChildId = $connectedChild instanceof Individual ? $connectedChild->xref() : -1 ?>
                             <?php if ($displayFamily->xref() != $prev_id || ($group->groupName == Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD && $connectedChildId != $prev_id1)): ?>
                                 <?php $prev_id = $displayFamily->xref(); $prev_id1 = $connectedChildId; $i = 1; ?>

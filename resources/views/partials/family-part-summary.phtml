@@ -75,6 +75,37 @@ use Fisharebest\Webtrees\I18N;
                                                 <?= I18N::plural('%d grandparent of diverse or unknown sex recorded (%d in total).', '%d grandparents of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
+                                <?php elseif ($propName == 'grandaunts_uncles'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one grandaunt recorded.', $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one granduncle recorded.', $summaryName) ?></h3>
+                                        <?php else: ?>
+                                            <h3><?= I18N::translate('%s has one grandaunt or granduncle of diverse or unknown sex recorded.', $summaryName) ?></h3>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandaunt recorded.',  '%2$s has %1$d grandaunts recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d granduncle recorded.', '%2$s has %1$d granduncles recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandaunt or granduncle of diverse or unknown sex recorded.', '%2$s has %1$d grandaunts or granduncles of diverse or unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d granduncle and', '%2$s has %1$d granduncles and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandaunt recorded (%d in total).', '%d grandaunts recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d granduncle and', '%2$s has %1$d granduncles and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandaunt or granduncle of diverse or unknown sex recorded (%d in total).', '%d grandaunts or granduncles of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandaunt and', '%2$s has %1$d grandaunts and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandaunt or granduncle of diverse or unknown sex recorded (%d in total).', '%d grandaunts or granduncles of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php else: ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d granduncle,', '%2$s has %1$d granduncles,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandaunt, and', '%d grandaunts, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
+                                                <?= I18N::plural('%d grandaunt or granduncle of diverse or unknown sex recorded (%d in total).', '%d grandaunts or granduncles of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php endif ?>
+                                    <?php endif ?>
                                 <?php elseif ($propName == 'uncles_and_aunts'): ?>
                                     <?php if ($filterObj->efp->$propName->allCount == 1): ?>
                                         <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>

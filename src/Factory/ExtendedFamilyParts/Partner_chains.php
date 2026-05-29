@@ -51,10 +51,11 @@ class Partner_chains extends ExtendedFamilyPart
      *
      * common:
      *  ->groups                        array       // not used for this extended family part
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
@@ -208,9 +209,7 @@ class Partner_chains extends ExtendedFamilyPart
      */
     private function addCountersPartnerChains()
     {
-        $counter = $this->countMaleFemale($this->efpObject->collectionIndividuals->all());
-        list ($this->efpObject->maleCount, $this->efpObject->femaleCount, $this->efpObject->otherSexCount, $this->efpObject->allCount) =
-            [$counter->male, $counter->female, $counter->unknown_others, $counter->male + $counter->female + $counter->unknown_others];
+        $this->setFamilyPartCounts($this->efpObject, $this->countMaleFemale($this->efpObject->collectionIndividuals->all()));
         if ($this->efpObject->allCount > 0) {
             $this->addCountersToFamilyPartObjectPartnerChains();
         }
@@ -237,7 +236,7 @@ class Partner_chains extends ExtendedFamilyPart
         $this->efpObject->chains->longestChainCount = $max + 1;
         $this->efpObject->chains->mostDistantPartner = $mostDistantNode->getIndividual();
         if ($this->efpObject->chains->longestChainCount <= 2) {                // normal marriage is no partner chain
-            $this->efpObject->allCount = 0;
+            $this->setFamilyPartCounts($this->efpObject, new FamilyPartCounts());
         }
     }
 

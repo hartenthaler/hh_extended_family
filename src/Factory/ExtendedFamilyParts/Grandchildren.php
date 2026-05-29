@@ -49,7 +49,8 @@ class Grandchildren extends ExtendedFamilyPart
         $children = new Children($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($children->getEfpObject()->groups as $group) {
-            foreach ($group->members as $child) {
+            foreach ($group->entries as $entry) {
+                $child = $entry->individual;
                 if ($child instanceof Individual) {
                     $this->addChildrenOfChild($child, $group->groupName);
                     $this->addStepchildrenOfChild($child, $group->groupName);

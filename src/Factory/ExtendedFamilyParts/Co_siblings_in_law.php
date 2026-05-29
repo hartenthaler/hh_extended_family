@@ -44,7 +44,8 @@ class Co_siblings_in_law extends ExtendedFamilyPart
         $siblingsInLaw = new Siblings_in_law($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($siblingsInLaw->getEfpObject()->groups as $group) {
-            foreach ($group->members as $siblingInLaw) {
+            foreach ($group->entries as $entry) {
+                $siblingInLaw = $entry->individual;
                 if (!$siblingInLaw instanceof Individual) {
                     continue;
                 }
@@ -69,10 +70,11 @@ class Co_siblings_in_law extends ExtendedFamilyPart
         $siblings = new Siblings($siblingInLaw, 'all', $this->placeFormat);
 
         foreach ($siblings->getEfpObject()->groups as $group) {
-            foreach ($group->members as $key => $sibling) {
+            foreach ($group->entries as $entry) {
+                $sibling = $entry->individual;
                 if ($sibling instanceof Individual) {
                     $this->addIndividualToFamily(
-                        new IndividualFamily($sibling, $group->families[$key], $siblingInLaw),
+                        new IndividualFamily($sibling, $entry->family, $siblingInLaw),
                         self::GROUP_COSIBLINGSINLAW_SIBPARSIB
                     );
                 }

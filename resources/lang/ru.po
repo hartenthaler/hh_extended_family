@@ -2055,7 +2055,7 @@ msgstr "Сводка по родственникам"
 #, fuzzy
 #| msgid "generation %s"
 msgid "Generation"
-msgstr "%s поколение"
+msgstr "Поколение"
 
 #: resources/views/partials/summary.phtml:224
 msgid "Relation"
@@ -2093,7 +2093,7 @@ msgstr ""
 #, fuzzy
 #| msgid "generation %s"
 msgid "Generation length"
-msgstr "%s поколение"
+msgstr "Длина поколения"
 
 #: resources/views/partials/summary.phtml:232
 msgid "Average lifespan"

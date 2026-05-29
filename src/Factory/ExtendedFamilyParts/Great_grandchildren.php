@@ -51,7 +51,8 @@ class Great_grandchildren extends ExtendedFamilyPart
         $grandchildren = new Grandchildren($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($grandchildren->getEfpObject()->groups as $group) {
-            foreach ($group->members as $grandchild) {
+            foreach ($group->entries as $entry) {
+                $grandchild = $entry->individual;
                 if ($grandchild instanceof Individual) {
                     $this->addChildrenOfGrandchild($grandchild, $group->groupName);
                     $this->addStepchildrenOfGrandchild($grandchild, $group->groupName);

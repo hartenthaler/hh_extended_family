@@ -54,8 +54,9 @@ class Cousins extends ExtendedFamilyPart
         $unclesAndAunts = new Uncles_and_aunts($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($unclesAndAunts->getEfpObject()->groups as $group) {
-            foreach ($group->members as $key => $uncleAunt) {
-                $referenceParent = $group->referencePersons[$key][1] ?? null;
+            foreach ($group->entries as $entry) {
+                $uncleAunt = $entry->individual;
+                $referenceParent = $entry->referencePersons[1] ?? null;
 
                 if ($uncleAunt instanceof Individual && $referenceParent instanceof Individual) {
                     $this->addChildrenOfUncleOrAunt(

@@ -17,35 +17,36 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
 
 ?>
 
-                        <?php if ($group->referencePersons[$key][1]->xref() != $prev_id): ?>
-                            <?php $prev_id = $group->referencePersons[$key][1]->xref(); $i = 1; ?>
-                            <?php if ($group->referencePersons[$key][1]->canShow()): ?>
+                        <?php $referencePerson = $entry->referencePersons[1] ?? null ?>
+                        <?php if ($referencePerson instanceof Individual && $referencePerson->xref() != $prev_id): ?>
+                            <?php $prev_id = $referencePerson->xref(); $i = 1; ?>
+                            <?php if ($referencePerson->canShow()): ?>
                                 <?php if ($group->groupName == 'Partners of biological children'): ?>
-                                    <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
-                                        <h5><?= $coreLabels->son ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
-                                    <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
-                                        <h5><?= $coreLabels->daughter ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                    <?php if ($referencePerson->sex() == 'M'): ?>
+                                        <h5><?= $coreLabels->son ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
+                                    <?php elseif ($referencePerson->sex() == 'F'): ?>
+                                        <h5><?= $coreLabels->daughter ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
                                     <?php else: ?>
-                                        <h5><?= $coreLabels->child ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                        <h5><?= $coreLabels->child ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
                                     <?php endif ?>
                                 <?php elseif ($group->groupName == 'Partners of social children'): ?>
-                                    <h5><?= I18N::translate('Social child') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                    <h5><?= I18N::translate('Social child') ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
                                 <?php elseif ($group->groupName == 'Partners of stepchildren'): ?>
-                                    <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
-                                        <h5><?= I18N::translate('Stepson') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
-                                    <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
-                                        <h5><?= I18N::translate('Stepdaughter') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                    <?php if ($referencePerson->sex() == 'M'): ?>
+                                        <h5><?= I18N::translate('Stepson') ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
+                                    <?php elseif ($referencePerson->sex() == 'F'): ?>
+                                        <h5><?= I18N::translate('Stepdaughter') ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
                                     <?php else: ?>
-                                        <h5><?= I18N::translate('Stepchild') ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                        <h5><?= I18N::translate('Stepchild') ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
                                     <?php endif ?>
                                 <?php endif ?>
                             <?php else: ?>
                                 <?php if ($group->groupName == 'Partners of biological children'): ?>
-                                    <h5><?= $coreLabels->child ?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
+                                    <h5><?= $coreLabels->child ?>&nbsp;<?= $referencePerson->fullName() ?></h5>
                                 <?php elseif ($group->groupName == 'Partners of social children'): ?>
-                                    <h5><?= I18N::translate('Social child')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
+                                    <h5><?= I18N::translate('Social child')?>&nbsp;<?= $referencePerson->fullName() ?></h5>
                                 <?php elseif ($group->groupName == 'Partners of stepchildren'): ?>
-                                    <h5><?= I18N::translate('Stepchild')?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
+                                    <h5><?= I18N::translate('Stepchild')?>&nbsp;<?= $referencePerson->fullName() ?></h5>
                                 <?php endif ?>
                             <?php endif ?>
                         <?php endif ?>

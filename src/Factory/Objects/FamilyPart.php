@@ -20,13 +20,6 @@
  * along with this program; If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * tbd
- * ===
- * neues Objekt: member->Individual und member->labels und member->family und member->familyStatus und member->referencePersons
- * neu: member als Collection of member statt array
- */
-
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;
@@ -35,7 +28,7 @@ use Fisharebest\Webtrees\Family;
 /**
  * class FamilyPart
  *
- * object to store a family part
+ * object to store a family-part group
  * this is used by some extended family parts
  */
 class FamilyPart
@@ -43,16 +36,9 @@ class FamilyPart
     // ------------ definition of data structures
 
     /**
-     * @var object $familyPart
-     *  ->groupName                 string
-     *  ->members                   array<int,Individual>
-     *  ->labels                    array<int,array<int,string>>
-     *  ->families                  array<int,Family>
-     *  ->familiesStatus            array<int,string>
-     *  ->referencePersons          array<int,array<int,Individual>>
-     *  ->vitalEventsSummaries      array<int,string>
+     * @var FamilyPartGroup $familyPart
      */
-    private object $familyPart;
+    private FamilyPartGroup $familyPart;
 
     // ------------ definition of methods
 
@@ -62,7 +48,7 @@ class FamilyPart
      * @param string $groupName
      * @param Individual $member
      * @param array<int,string> $labels
-     * @param Family $family
+     * @param Family|null $family
      * @param string $familyStatus
      * @param array<int,Individual> $referencePersons
      * @param string $vitalEventsSummary
@@ -72,28 +58,22 @@ class FamilyPart
             string $groupName,
             Individual $member,
             array $labels,
-            Family $family,
+            ?Family $family,
             string $familyStatus,
             array $referencePersons,
             string $vitalEventsSummary
         )
     {
-        $this->familyPart = (object)[];
-        $this->familyPart->groupName = $groupName;
-        $this->familyPart->members[] = $member;
-        $this->familyPart->labels[] = $labels;
-        $this->familyPart->families[] = $family;
-        $this->familyPart->familiesStatus[] = $familyStatus;
-        $this->familyPart->referencePersons[] = $referencePersons;
-        $this->familyPart->vitalEventsSummaries[] = $vitalEventsSummary;
+        $this->familyPart = new FamilyPartGroup($groupName);
+        $this->familyPart->addEntry(new GroupEntry($member, $family, $familyStatus, $referencePersons, $labels, $vitalEventsSummary));
     }
 
     /**
      * get object family part
      *
-     * @return object
+     * @return FamilyPartGroup
      */
-    public function getFamilyPart(): object
+    public function getFamilyPart(): FamilyPartGroup
     {
         return $this->familyPart;
     }

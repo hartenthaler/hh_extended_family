@@ -16,23 +16,25 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
 
 ?>
 
-                        <?php if ($group->referencePersons[$key][1]->xref() != $prev_id): ?>
-                            <?php $prev_id = $group->referencePersons[$key][1]->xref(); $i = 1; ?>
-                            <?php if ($group->referencePersons[$key][1]->canShow()): ?>
-                                <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
+                        <?php $referencePerson = $entry->referencePersons[1] ?? null ?>
+                        <?php $family = $entry->family ?>
+                        <?php if ($referencePerson instanceof Individual && $referencePerson->xref() != $prev_id): ?>
+                            <?php $prev_id = $referencePerson->xref(); $i = 1; ?>
+                            <?php if ($referencePerson->canShow()): ?>
+                                <?php $linkReferencePerson = ('<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>') ?>
                                 <?php if ($group->groupName == 'Siblings of siblings-in-law'): ?>
-                                    <?php $linkFamily = '<a href="'.e($group->families[$key]->url()).'">'.$group->families[$key]->fullName().'</a>' ?>
-                                    <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]) ?>
+                                    <?php $linkFamily = '<a href="'.e($family->url()).'">'.$family->fullName().'</a>' ?>
+                                    <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($entry->familyStatus) ?>
                                     <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $linkFamily, $linkReferencePerson) ?></h5>
                                 <?php else: ?>
                                     <h5><?= I18N::translate('Partners of %s', $linkReferencePerson) ?></h5>
                                 <?php endif ?>
                             <?php else: ?>
                                 <?php if ($group->groupName == 'Siblings of siblings-in-law'): ?>
-                                    <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($group->familiesStatus[$key]) ?>
-                                    <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $group->families[$key]->fullName(), $group->referencePersons[$key][1]->fullName()) ?></h5>
+                                    <?php $familyStatus = ExtendedFamilySupport::translateFamilyStatus($entry->familyStatus) ?>
+                                    <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $family->fullName(), $referencePerson->fullName()) ?></h5>
                                 <?php else: ?>
-                                    <h5><?= I18N::translate('Partners of %s', $group->referencePersons[$key][1]->fullName()) ?></h5>
+                                    <h5><?= I18N::translate('Partners of %s', $referencePerson->fullName()) ?></h5>
                                 <?php endif ?>
                             <?php endif ?>
                         <?php endif ?>

@@ -19,16 +19,17 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
 
         <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
             <div class="hh_extended_family_box">
-                <h4><?= ExtendedFamilySupport::translateGroupName($group->groupName); ?>&nbsp;(<?= count($group->members) ?>)</h4>
+                <h4><?= ExtendedFamilySupport::translateGroupName($group->groupName); ?>&nbsp;(<?= count($group->entries) ?>)</h4>
                 <?php $prev_id = -1; $prev_id1 = -1; $prev_id2 = -1; ?>
-                <?php  foreach ($group->members as $key => $indi) : ?>
+                <?php  foreach ($group->entries as $key => $entry) : ?>
+                    <?php $indi = $entry->individual; ?>
                     <?php if ($propName == 'siblings_in_law' || $propName == 'uncles_and_aunts_bm') : ?>
                         <?php include __DIR__ . '/grouped-headings/reference-person.phtml'; ?>
                     <?php elseif ($propName == 'nephews_and_nieces') : ?>
                         <?php include __DIR__ . '/grouped-headings/nephews-and-nieces.phtml'; ?>
                     <?php elseif ($propName == 'children_in_law'): ?>
                         <?php include __DIR__ . '/grouped-headings/children-in-law.phtml'; ?>
-                    <?php elseif ($propName == 'great_grandparents' || $propName == 'grandparents' || $propName == 'uncles_and_aunts' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'grandchildren_in_law' || $propName == 'great_grandchild_in_law'): ?>
+                    <?php elseif ($propName == 'great_grandparents' || $propName == 'grandparents' || $propName == 'grandaunts_uncles' || $propName == 'uncles_and_aunts' || $propName == 'parents' || $propName == 'co_parents_in_law' || $propName == 'grandchildren_in_law' || $propName == 'great_grandchild_in_law'): ?>
                         <?php include __DIR__ . '/grouped-headings/family-reference.phtml'; ?>
                     <?php elseif ($propName == 'co_siblings_in_law'): ?>
                         <?php include __DIR__ . '/grouped-headings/co-siblings-in-law.phtml'; ?>
@@ -47,18 +48,18 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                                 <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                             <?php else: ?>
                                 <span class="hh_extended_family_birth_death">
-                                    <?= $group->vitalEventsSummaries[$key] ?? '' ?>
+                                    <?= $entry->vitalEventsSummary ?>
                                 </span>
                             <?php endif ?>
-                            <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
-                                <?php foreach ($group->labels[$key] as $label): ?>
+                            <?php if ($extfam_obj->config->showLabels && $entry->labels): ?>
+                                <?php foreach ($entry->labels as $label): ?>
                                     <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
                                 <?php endforeach ?>
                             <?php endif ?>
                         <?php else: ?>
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php if ($propName == 'children_in_law'): ?>
-                                <span class="hh_extended_family_label_box"><?= ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key]) ?></span>&nbsp;
+                                <span class="hh_extended_family_label_box"><?= ExtendedFamilySupport::translateFamilyStatusAsPartner($entry->familyStatus) ?></span>&nbsp;
                             <?php endif ?>
                             <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
                         <?php endif ?>

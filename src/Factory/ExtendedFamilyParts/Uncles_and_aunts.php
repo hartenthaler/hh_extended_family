@@ -43,18 +43,15 @@ class Uncles_and_aunts extends ExtendedFamilyPart
      *
      * common:
      *  ->groups[]                      array
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
-     *  ->groups[]->members[]           array of Individual (index of groups is groupName)
-     *            ->labels[]            array of array of string
-     *            ->families[]          array of object
-     *            ->familiesStatus[]    string
-     *            ->referencePersons[]  array of array of Individual
+     *  ->groups[]->entries[]           array of GroupEntry (index of groups is groupName)
      *            ->groupName           string
      */
 
@@ -71,7 +68,8 @@ class Uncles_and_aunts extends ExtendedFamilyPart
         foreach ($parents->getEfpObject()->groups as $group) {
             $groupName = $this->unclesAndAuntsGroupName($group->groupName);
 
-            foreach ($group->members as $parent) {
+            foreach ($group->entries as $entry) {
+                $parent = $entry->individual;
                 if ($parent instanceof Individual) {
                     $this->addUnclesAndAuntsForParent($parent, $groupName);
                 }

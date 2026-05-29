@@ -49,7 +49,8 @@ class Great_grandchild_in_law extends ExtendedFamilyPart
         $greatGrandchildren = new Great_grandchildren($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($greatGrandchildren->getEfpObject()->groups as $group) {
-            foreach ($group->members as $greatGrandchild) {
+            foreach ($group->entries as $entry) {
+                $greatGrandchild = $entry->individual;
                 if ($greatGrandchild instanceof Individual) {
                     $this->addPartnersOfGreatGrandchild($greatGrandchild, $this->partnerGroupName($group->groupName));
                 }

@@ -30,7 +30,6 @@
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Test: Prüfen, ob allCountUnique immer richtig berechnet wird
  * Test: Rada testen inkl. Rada-Geschwistern, gibt es ein Badge?
- * Test: Schwagerehe (etwa Levirat oder Sororat), gibt es ein Badge?
  * Test: was passiert, wenn der webtrees-Sammelbehälter deaktiviert ist?
  * Test: Übersetzung bei den Partnern testen bei diversen Fällen mit gemischtem Geschlecht
  * Test: Stiefcousins (siehe Onkel Walter)
@@ -44,13 +43,12 @@
  * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
  * Code: Qualität überprüfen und wichtigste Dinge als issue formulieren
  * Code: alle noch verwendeten object als Klassen definieren
- * Code: Beziehungsbezeichnungen als Label aus Vesta-Relationship oder durch eigene Funktion ergänzen?
  * Code: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern (siehe issue #46 von Sir Peter)
  *         Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus?
  *         Testen, wenn im CSS-Modul nichts eingetragen ist.
  *         Option für thumbnail size? css für silhouette anpassen?
  * Code: Information der Anwender über Neuigkeiten zu diesem Modul?
- * Code: verstreut vorkommende restliche Übersetzungen mit I18N auf nur wenige Dateien verschieben
+ * Code: verstreut vorkommende restliche Übersetzungen mit I18N auf nur wenige Dateien verschieben?
  */
 
 declare(strict_types=1);
@@ -122,7 +120,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.7';
+    public const CUSTOM_VERSION     = '2.2.6.8';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
@@ -421,9 +419,25 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function addFamilyParts(array $listFamilyParts, array &$order)
     {
 
-        foreach ($listFamilyParts as $familyPart) {
-            if (!in_array($familyPart, $order)) {
-                $order[] = $familyPart;                 // add new parts at the end of the list
+        foreach ($listFamilyParts as $familyPartPosition => $familyPart) {
+            if (in_array($familyPart, $order, true)) {
+                continue;
+            }
+
+            $inserted = false;
+            for ($previousPartPosition = $familyPartPosition - 1; $previousPartPosition >= 0; $previousPartPosition--) {
+                $previousFamilyPart = $listFamilyParts[$previousPartPosition];
+                $orderPosition      = array_search($previousFamilyPart, $order, true);
+
+                if ($orderPosition !== false) {
+                    array_splice($order, $orderPosition + 1, 0, [$familyPart]);
+                    $inserted = true;
+                    break;
+                }
+            }
+
+            if (!$inserted) {
+                $order[] = $familyPart;
             }
         }
     }

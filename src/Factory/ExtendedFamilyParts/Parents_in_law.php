@@ -39,16 +39,16 @@ class Parents_in_law extends ExtendedFamilyPart
      * @var object $efpObject data structure for this extended family part
      *
      * common:
-     *  ->groups[]                      array of object
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->groups[]                      array of FamilyPartGroup
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
-     *  ->groups[]->groupName           string
-     *            ->members             array<int, Individual>
+     *            ->entries[]           array of GroupEntry
      *            ->family              Family
      *            ->familyStatus        string
      *            ->partner             Individual
@@ -121,16 +121,27 @@ class Parents_in_law extends ExtendedFamilyPart
         }
         foreach ($this->efpObject->groups as $famkey => $groupObj) {                    // check if this family is already stored in this part of the extended family
             if ($groupObj->family->xref() == $indifam->getFamily()->xref()) {           // family exists already
-                $this->efpObject->groups[$famkey]->members[] = $indifam->getIndividual();
-                $this->efpObject->groups[$famkey]->vitalEventsSummaries[] = $this->vitalEventsSummary($indifam->getIndividual());
+                $this->addEntryToGroup(
+                    $this->efpObject->groups[$famkey],
+                    new GroupEntry(
+                        $indifam->getIndividual(),
+                        $indifam->getFamily(),
+                        ExtendedFamilySupport::findFamilyStatus($indifam->getFamily()),
+                        $indifam->getReferencePersons(),
+                        ExtendedFamilySupport::generateChildLabels($indifam->getIndividual()),
+                        $this->vitalEventsSummary($indifam->getIndividual())
+                    )
+                );
                 return;
             }
         }
-        $newObj = (object)[];                                           // individual not found and family not found
-        $newObj->members[] = $indifam->getIndividual();
-        $newObj->vitalEventsSummaries[] = $this->vitalEventsSummary($indifam->getIndividual());
-        $newObj->family = $indifam->getFamily();
-        $newObj->familyStatus = ExtendedFamilySupport::findFamilyStatus($indifam->getFamily());
+        $newObj = new FamilyPartGroup(
+            '',
+            [],
+            null,
+            $indifam->getFamily(),
+            ExtendedFamilySupport::findFamilyStatus($indifam->getFamily())
+        );                                           // individual not found and family not found
         if (isset($indifam->getReferencePersons()[1])) {
             $newObj->partner = $indifam->getReferencePersons()[1];
             foreach ($this->getProband()->spouseFamilies() as $fam) {
@@ -141,6 +152,17 @@ class Parents_in_law extends ExtendedFamilyPart
                 }
             }
         }
+        $this->addEntryToGroup(
+            $newObj,
+            new GroupEntry(
+                $indifam->getIndividual(),
+                $indifam->getFamily(),
+                ExtendedFamilySupport::findFamilyStatus($indifam->getFamily()),
+                $indifam->getReferencePersons(),
+                ExtendedFamilySupport::generateChildLabels($indifam->getIndividual()),
+                $this->vitalEventsSummary($indifam->getIndividual())
+            )
+        );
         $this->efpObject->groups[] = $newObj;
     }
 }

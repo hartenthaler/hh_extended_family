@@ -84,10 +84,11 @@ class Great_grandparents extends ExtendedFamilyPart
      *
      * common:
      *  ->groups                        array of FamilyPart (there are 10 groups defined (1a-c, 2a-c, 3a-c, 4))
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for several extended family parts:
@@ -112,12 +113,13 @@ class Great_grandparents extends ExtendedFamilyPart
         foreach ($grandparents->getEfpObject()->groups as $group) {
             $groupNames = $this->greatGrandparentGroupNames($group->groupName);
 
-            foreach ($group->members as $key => $grandparent) {
+            foreach ($group->entries as $entry) {
+                $grandparent = $entry->individual;
                 if ($grandparent instanceof Individual) {
                     $referencePerson = $this->greatGrandparentReferencePerson(
                         $group->groupName,
                         $grandparent,
-                        $group->referencePersons[$key][1] ?? null
+                        $entry->referencePersons[1] ?? null
                     );
                     $this->addGreatGrandparentsForGrandparent($grandparent, $referencePerson, $groupNames);
                 }

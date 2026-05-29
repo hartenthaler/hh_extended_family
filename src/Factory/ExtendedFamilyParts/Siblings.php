@@ -47,8 +47,9 @@ class Siblings extends ExtendedFamilyPart
         $parents = new Parents($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($parents->getEfpObject()->groups as $group) {
-            foreach ($group->members as $key => $parent) {
-                $family = $group->families[$key] ?? null;
+            foreach ($group->entries as $entry) {
+                $parent = $entry->individual;
+                $family = $entry->family;
 
                 if ($parent instanceof Individual && $family instanceof Family) {
                     $this->addSiblingsForParent($parent, $family, $group->groupName);

@@ -17,53 +17,55 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
 
 ?>
 
-                        <?php if ($group->referencePersons[$key][1]->xref() != $prev_id): ?>
-                            <?php $prev_id = $group->referencePersons[$key][1]->xref(); $i = 1; ?>
-                            <?php if ($group->referencePersons[$key][1]->canShow()): ?>
+                        <?php $referencePerson = $entry->referencePersons[1] ?? null ?>
+                        <?php $referencePerson2 = $entry->referencePersons[2] ?? null ?>
+                        <?php if ($referencePerson instanceof Individual && $referencePerson->xref() != $prev_id): ?>
+                            <?php $prev_id = $referencePerson->xref(); $i = 1; ?>
+                            <?php if ($referencePerson->canShow()): ?>
                                 <?php if ($group->groupName == 'Siblings-in-law of father' || $group->groupName == 'Siblings-in-law of mother' || str_starts_with($group->groupName, 'Partners of siblings and half siblings of')): ?>
-                                    <h5><?= ExtendedFamilySupport::translateSiblingLabel($group->referencePersons[$key][1], $group->referencePersons[$key][2] ?? null) ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                    <h5><?= ExtendedFamilySupport::translateSiblingLabel($referencePerson, $referencePerson2) ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
                                 <?php elseif ($group->groupName == 'Partners of siblings' || $group->groupName == 'Siblings of siblings-in-law' || $group->groupName == 'Children of siblings' || $group->groupName == 'Siblings\' stepchildren'): ?>
-                                    <?php if ($group->referencePersons[$key][1]->sex() == 'M'): ?>
-                                        <h5><?= $coreLabels->brother ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
-                                    <?php elseif ($group->referencePersons[$key][1]->sex() == 'F'): ?>
-                                        <h5><?= $coreLabels->sister ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                    <?php if ($referencePerson->sex() == 'M'): ?>
+                                        <h5><?= $coreLabels->brother ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
+                                    <?php elseif ($referencePerson->sex() == 'F'): ?>
+                                        <h5><?= $coreLabels->sister ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
                                     <?php else: ?>
-                                        <h5><?= $coreLabels->sibling ?><a href="<?= e($group->referencePersons[$key][1]->url()); ?>">&nbsp;<?= $group->referencePersons[$key][1]->fullName(); ?></a></h5>
+                                        <h5><?= $coreLabels->sibling ?><a href="<?= e($referencePerson->url()); ?>">&nbsp;<?= $referencePerson->fullName(); ?></a></h5>
                                     <?php endif ?>
-                                <?php elseif ($group->groupName == 'Children of siblings of partners'): ?>
-                                    <?php $linkReferencePerson = ('<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>') ?>
-                                    <?php if ($group->referencePersons[$key][2]->canShow()): ?>
-                                        <?php $linkReferencePerson2 = ('<a href="'.e($group->referencePersons[$key][2]->url()).'">'.$group->referencePersons[$key][2]->fullName().'</a>') ?>
+                                <?php elseif ($group->groupName == 'Children of siblings of partners' && $referencePerson2 instanceof Individual): ?>
+                                    <?php $linkReferencePerson = ('<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>') ?>
+                                    <?php if ($referencePerson2->canShow()): ?>
+                                        <?php $linkReferencePerson2 = ('<a href="'.e($referencePerson2->url()).'">'.$referencePerson2->fullName().'</a>') ?>
                                     <?php else: ?>
-                                        <?php $linkReferencePerson2 = $group->referencePersons[$key][2]->fullName() ?>
+                                        <?php $linkReferencePerson2 = $referencePerson2->fullName() ?>
                                     <?php endif ?>
-                                    <?php if ($group->referencePersons[$key][2]->sex() == 'M'): ?>
+                                    <?php if ($referencePerson2->sex() == 'M'): ?>
                                         <h5><?= I18N::translate('Brother %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
-                                    <?php elseif ($group->referencePersons[$key][2]->sex() == 'F'): ?>
+                                    <?php elseif ($referencePerson2->sex() == 'F'): ?>
                                         <h5><?= I18N::translate('Sister %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
                                     <?php else: ?>
                                         <h5><?= I18N::translate('Sibling %1$s of partner %2$s', $linkReferencePerson2, $linkReferencePerson) ?></h5>
                                     <?php endif ?>
                                 <?php elseif ($group->groupName == 'Siblings of partners'): ?>
-                                    <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key]) ?>
-                                    <?php $linkReferencePerson = '<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>' ?>
+                                    <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($entry->familyStatus) ?>
+                                    <?php $linkReferencePerson = '<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>' ?>
                                     <h5><?= I18N::translate('Sibling of %1$s %2$s', $partnerStatus, $linkReferencePerson) ?></h5>
                                 <?php elseif ($group->groupName == 'Partners of siblings-in-law'): ?>
-                                    <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key]) ?>
-                                    <?php $linkReferencePerson = '<a href="'.e($group->referencePersons[$key][1]->url()).'">'.$group->referencePersons[$key][1]->fullName().'</a>' ?>
+                                    <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($entry->familyStatus) ?>
+                                    <?php $linkReferencePerson = '<a href="'.e($referencePerson->url()).'">'.$referencePerson->fullName().'</a>' ?>
                                     <h5><?= I18N::translate('Partner of %1$s sibling-in-law %2$s', $partnerStatus, $linkReferencePerson) ?></h5>
                                 <?php endif ?>
                             <?php else: ?>
                                 <?php if ($group->groupName == 'Siblings-in-law of father' || $group->groupName == 'Siblings-in-law of mother' || str_starts_with($group->groupName, 'Partners of siblings and half siblings of')) : ?>
-                                    <h5><?= ExtendedFamilySupport::translateSiblingLabel($group->referencePersons[$key][1], $group->referencePersons[$key][2] ?? null) ?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
+                                    <h5><?= ExtendedFamilySupport::translateSiblingLabel($referencePerson, $referencePerson2) ?>&nbsp;<?= $referencePerson->fullName() ?></h5>
                                 <?php elseif ($group->groupName == 'Partners of siblings'  || $group->groupName == 'Siblings of siblings-in-law') : ?>
-                                    <h5><?= $coreLabels->sibling ?>&nbsp;<?= $group->referencePersons[$key][1]->fullName() ?></h5>
+                                    <h5><?= $coreLabels->sibling ?>&nbsp;<?= $referencePerson->fullName() ?></h5>
                                 <?php elseif ($group->groupName == 'Siblings of partners'): ?>
-                                    <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key]) ?>
-                                    <h5><?= I18N::translate('Sibling of %1$s %2$s', $partnerStatus, $group->referencePersons[$key][1]->fullName()) ?></h5>
+                                    <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($entry->familyStatus) ?>
+                                    <h5><?= I18N::translate('Sibling of %1$s %2$s', $partnerStatus, $referencePerson->fullName()) ?></h5>
                                 <?php elseif ($group->groupName == 'Partners of siblings-in-law'): ?>
-                                    <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($group->familiesStatus[$key]) ?>
-                                    <h5><?= I18N::translate('Partner of %1$s sibling-in-law %2$s', $partnerStatus, $group->referencePersons[$key][1]->fullName()) ?></h5>
+                                    <?php $partnerStatus = ExtendedFamilySupport::translateFamilyStatusAsPartner($entry->familyStatus) ?>
+                                    <h5><?= I18N::translate('Partner of %1$s sibling-in-law %2$s', $partnerStatus, $referencePerson->fullName()) ?></h5>
                                 <?php endif ?>
                             <?php endif ?>
                         <?php endif ?>

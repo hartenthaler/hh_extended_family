@@ -45,10 +45,11 @@ class Grandchildren_in_law extends ExtendedFamilyPart
      *
      * common:
      *  ->groups                        array
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
@@ -68,7 +69,8 @@ class Grandchildren_in_law extends ExtendedFamilyPart
         $grandchildren = new Grandchildren($this->getProband(), 'all', $this->placeFormat);
 
         foreach ($grandchildren->getEfpObject()->groups as $group) {
-            foreach ($group->members as $grandchild) {
+            foreach ($group->entries as $entry) {
+                $grandchild = $entry->individual;
                 if ($grandchild instanceof Individual) {
                     $this->addPartnersOfGrandchild($grandchild, $this->partnerGroupName($group->groupName));
                 }

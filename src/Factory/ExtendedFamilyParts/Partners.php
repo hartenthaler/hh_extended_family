@@ -42,26 +42,21 @@ class Partners extends ExtendedFamilyPart
      *
      * common:
      *  ->groups                        array
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
-     *   ->groups[]->members[]          array of object Individual   (index of groups is "spouse->xref()")
-     *             ->families[]         array of object Family|null
-     *             ->familiesStatus[]   string
-     *             ->labels[]           array of array of string
-     *             ->partner            object Individual
-     *   ->pCount                       int
-     *   ->pmaleCount                   int
-     *   ->pfemaleCount                 int
-     *   ->potherSexCount               int
-     *   ->popCount                     int
-     *   ->popmaleCount                 int
-     *   ->popfemaleCount               int
-     *   ->popotherSexCount             int
+     *   ->groups[]                     array of FamilyPartGroup (index of groups is "spouse->xref()")
+     *             ->entries[]          array of GroupEntry
+     *             ->partner            Individual
+     *   ->partnerCounts                FamilyPartCounts for direct partners
+     *   ->partnerOfPartnerCounts       FamilyPartCounts for partners of partners
+     *   ->pCount                       int legacy alias for partnerCounts->allCount
+     *   ->popCount                     int legacy alias for partnerOfPartnerCounts->allCount
      */
 
     /**
@@ -123,24 +118,21 @@ class Partners extends ExtendedFamilyPart
     private function addIndividualToFamilyAsPartner(Individual $individual, Individual $spouse, string $familyStatus, ?Family $family)
     {
         if ( array_key_exists($spouse->xref(), $this->efpObject->groups)) {    // check if this spouse is already stored as group in this part of the extended family
-            foreach ($this->efpObject->groups[$spouse->xref()]->members as $member) {                                // check if individual is already a partner of this partner
-                if ($individual->xref() == $member->xref()) {
+            foreach ($this->efpObject->groups[$spouse->xref()]->entries as $entry) {                                // check if individual is already a partner of this partner
+                if ($individual->xref() == $entry->individual->xref()) {
                     return;
                 }
             }
-            $this->efpObject->groups[$spouse->xref()]->members[] = $individual;
-            $this->efpObject->groups[$spouse->xref()]->families[] = $family;
-            $this->efpObject->groups[$spouse->xref()]->familiesStatus[] = $familyStatus;
-            $this->efpObject->groups[$spouse->xref()]->labels[] = [];
-            $this->efpObject->groups[$spouse->xref()]->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
+            $this->addEntryToGroup(
+                $this->efpObject->groups[$spouse->xref()],
+                new GroupEntry($individual, $family, $familyStatus, [], [], $this->vitalEventsSummary($individual))
+            );
         } else {                                                                // generate new group of partners
-            $newObj = (object)[];
-            $newObj->members[] = $individual;
-            $newObj->families[] = $family;
-            $newObj->familiesStatus[] = $familyStatus;
-            $newObj->labels[] = [];
-            $newObj->vitalEventsSummaries[] = $this->vitalEventsSummary($individual);
-            $newObj->partner = $spouse;
+            $newObj = new FamilyPartGroup('', [], $spouse);
+            $this->addEntryToGroup(
+                $newObj,
+                new GroupEntry($individual, $family, $familyStatus, [], [], $this->vitalEventsSummary($individual))
+            );
             $this->efpObject->groups[$spouse->xref()] = $newObj;
         }
     }
@@ -153,11 +145,12 @@ class Partners extends ExtendedFamilyPart
     private function addLevirateSororateLabels(): void
     {
         foreach ($this->efpObject->groups as $group) {
-            foreach ($group->members as $key => $partner) {
-                $label = $this->levirateSororateLabel($partner, $group->members, $key);
+            foreach ($group->entries as $key => $entry) {
+                $partner = $entry->individual;
+                $label = $this->levirateSororateLabel($partner, $group->entries, $key);
 
                 if ($label !== '') {
-                    $group->labels[$key][] = $label;
+                    $entry->labels[] = $label;
                 }
             }
         }
@@ -167,7 +160,7 @@ class Partners extends ExtendedFamilyPart
      * Get a levirate/sororate label for a partner if a same-sex sibling is also a partner.
      *
      * @param Individual $partner
-     * @param array<int,Individual> $partners
+     * @param array<int,GroupEntry> $partners
      * @param int|string $partnerKey
      * @return string
      */
@@ -178,11 +171,11 @@ class Partners extends ExtendedFamilyPart
         }
 
         foreach ($partners as $otherKey => $otherPartner) {
-            if ($otherKey === $partnerKey || $otherPartner->sex() !== $partner->sex()) {
+            if ($otherKey === $partnerKey || $otherPartner->individual->sex() !== $partner->sex()) {
                 continue;
             }
 
-            if (ExtendedFamilySupport::areSiblings($partner, $otherPartner)) {
+            if (ExtendedFamilySupport::areSiblings($partner, $otherPartner->individual)) {
                 return $partner->sex() === 'M'
                     ? I18N::translate('Levirate')
                     : I18N::translate('Sororate');
@@ -198,20 +191,23 @@ class Partners extends ExtendedFamilyPart
     private function addAdditionalCountersPartners()
     {
         if (array_key_first($this->efpObject->groups)) {
-            $count = $this->countMaleFemale($this->efpObject->groups[array_key_first($this->efpObject->groups)]->members);
+            $partnerCounts = $this->countMaleFemale($this->individualsFromEntries($this->efpObject->groups[array_key_first($this->efpObject->groups)]->entries));
         } else {                            // error: this should not happen
-            $count=(object)[];
-            list ($count->male, $count->female, $count->unknown_others) = [0, 0, 0];
+            $partnerCounts = new FamilyPartCounts();
         }
 
-        $this->efpObject->pmaleCount = $count->male;
-        $this->efpObject->pfemaleCount = $count->female;
-        $this->efpObject->potherSexCount = $count->unknown_others;
-        $this->efpObject->pCount = $count->male + $count->female + $count->unknown_others;
+        $partnerOfPartnerCounts = $this->efpObject->counts->subtract($partnerCounts);
 
-        $this->efpObject->popmaleCount = $this->efpObject->maleCount - $count->male;
-        $this->efpObject->popfemaleCount = $this->efpObject->femaleCount - $count->female;
-        $this->efpObject->popotherSexCount = $this->efpObject->otherSexCount - $count->unknown_others;
-        $this->efpObject->popCount = $this->efpObject->allCount - $this->efpObject->pCount;
+        $this->efpObject->partnerCounts = $partnerCounts;
+        $this->efpObject->pmaleCount = $partnerCounts->maleCount;
+        $this->efpObject->pfemaleCount = $partnerCounts->femaleCount;
+        $this->efpObject->potherSexCount = $partnerCounts->otherSexCount;
+        $this->efpObject->pCount = $partnerCounts->allCount;
+
+        $this->efpObject->partnerOfPartnerCounts = $partnerOfPartnerCounts;
+        $this->efpObject->popmaleCount = $partnerOfPartnerCounts->maleCount;
+        $this->efpObject->popfemaleCount = $partnerOfPartnerCounts->femaleCount;
+        $this->efpObject->popotherSexCount = $partnerOfPartnerCounts->otherSexCount;
+        $this->efpObject->popCount = $partnerOfPartnerCounts->allCount;
     }
 }

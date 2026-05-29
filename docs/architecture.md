@@ -79,7 +79,16 @@ Objects under `src/Factory/Objects/` hold supporting data and helper behavior.
 Important examples are:
 
 * `ExtendedFamilySupport`: lists configurable family parts and filter options
-* `FamilyPart`: describes one configured family part
+* `ExtendedFamilyFilterResult`: stores the calculated data for one filter option
+* `ExtendedFamilyPartSet`: stores the summary plus the calculated family parts for one filter option
+* `ExtendedFamilyProband`: stores the proband individual, display-name variants, and proband labels
+* `ExtendedFamilySummary`: stores the summary counts and precomputed summary statistics for one filter option
+* `FamilyPart`: compatibility builder for one rendered family-part group
+* `FamilyPartCounts`: stores male, female, other/unknown, and total counters for a family part
+* `FamilyPartGroup`: stores one rendered group inside a family part
+* `GroupEntry`: keeps one rendered person together with its family, family status, reference people, labels, and prepared event summary
+* `SummaryStatistics`, `LivingStatistics`, `SexStatistics`, and `DateRangeStatistics`: store optional summary-statistic data
+* `LineageStatistics`, `LineageSummary`, `LineageRow`, `LineageImplexSummary`, `RepeatedLineagePerson`, and `OldestIndividuals`: store direct-line statistics and implex data
 * `IndividualFamily`: wraps individual/family relationship context
 * `ProbandName`: formats the proband name for the tab
 * `PartnerChainNode` and `PartnerChainPerson`: represent partner-chain structures
@@ -137,6 +146,7 @@ The module currently contains calculators for:
 
 * great-grandparents
 * grandparents
+* grandaunts and granduncles
 * parents
 * parents-in-law
 * co-parents-in-law
@@ -155,9 +165,70 @@ The module currently contains calculators for:
 * great-grandchildren
 * great-grandchildren-in-law
 
-The family-part base class stores results as grouped individuals and counters.
-Depending on the relationship type, a group may represent a family branch, a couple, an in-law relation, a descendant branch, or a partner-chain segment.
-Groups may also carry reference people and families that are used only to explain the relationship in the rendered heading.
+The family-part base class stores results as grouped entries and counters.
+The canonical data structure for normal family parts is:
+
+```text
+ExtendedFamily
+├── proband: ExtendedFamilyProband
+│   ├── indi: Individual
+│   ├── niceName: NiceName
+│   └── labels: array<int,string>
+└── filters[filterOption]: ExtendedFamilyFilterResult
+    └── efp: ExtendedFamilyPartSet
+        ├── summary: ExtendedFamilySummary
+        │   ├── allCount: int
+        │   ├── allCountUnique: int
+        │   ├── summaryMessageEmptyBlocks: array<int,string>
+        │   ├── statistics: SummaryStatistics|null
+        │   └── lineageStatistics: LineageStatistics|null
+        └── <family_part_name>
+            ├── groups[]: FamilyPartGroup
+            │   ├── groupName: string
+            │   ├── entries[]: GroupEntry
+            │   ├── partner: Individual|null
+            │   ├── family: Family|null
+            │   ├── familyStatus: string
+            │   └── partnerFamilyStatus: string
+            ├── counts: FamilyPartCounts
+            │   ├── maleCount: int
+            │   ├── femaleCount: int
+            │   ├── otherSexCount: int
+            │   └── allCount: int
+            ├── maleCount: int
+            ├── femaleCount: int
+            ├── otherSexCount: int
+            ├── allCount: int
+            └── partName: string
+```
+
+`ExtendedFamilyFilterResult` represents one precomputed filter variant such as `all`, `only_M`, or `only_alive`.
+`ExtendedFamilyProband` stores the selected individual together with the name variants and labels that views need repeatedly.
+`ExtendedFamilyPartSet` is iterable so existing renderers can loop over `summary` and the concrete family parts in display order.
+`ExtendedFamilySummary` stores global counts for the selected filter plus precomputed summary text support data.
+Optional summary statistics are split into small value objects:
+`SummaryStatistics` contains `LivingStatistics`, `SexStatistics`, and `DateRangeStatistics`.
+Direct-line statistics are held by `LineageStatistics`, which can contain ancestor, descendant, combined, and implex summaries.
+`LineageRow` stores one generation row for the summary table.
+`LineageSummary` stores aggregate values such as average generation length, average lifespan, and oldest known people.
+`LineageImplexSummary` stores repeated ancestor/descendant positions using `RepeatedLineagePerson`.
+`FamilyPartCounts` is the canonical counter structure for family parts.
+The scalar fields `maleCount`, `femaleCount`, `otherSexCount`, and `allCount` are still populated as compatibility aliases because templates and existing code use them heavily.
+The `partners` family part also has `partnerCounts` and `partnerOfPartnerCounts` for its special direct-partner and partner-of-partner subtotals, again with legacy scalar aliases.
+
+`FamilyPartGroup` represents one rendered group inside a family part.
+Depending on the relationship type, a group may represent a named family branch, a couple, an in-law relation, or a descendant branch.
+Most grouped family parts use `groupName` for the heading and translation.
+The `partners` and `parents_in_law` renderers additionally use the optional `partner`, `family`, `familyStatus`, and `partnerFamilyStatus` fields to explain the group heading.
+
+Every `FamilyPartGroup` has an `entries` array.
+Every `GroupEntry` contains the rendered individual plus the context that belongs to that exact person:
+`individual`, `family`, `familyStatus`, `referencePersons`, `labels`, and the prepared `vitalEventsSummary`.
+This keeps person-level context on the person entry instead of spreading it across parallel arrays.
+The older parallel arrays (`members`, `families`, `familiesStatus`, `referencePersons`, `labels`, and `vitalEventsSummaries`) are no longer populated.
+
+The `partner_chains` family part is the main exception.
+It uses the `chains` structure with `PartnerChainNode` and `PartnerChainPerson` because it renders a recursive graph rather than flat groups of entries.
 
 ### Relationship basis map
 
@@ -171,6 +242,7 @@ so that biological, social, step, and in-law relationship distinctions are propa
 | `parents` | Biological, social, and step parents of the proband | Proband plus shared parent helper methods | source-level family part. |
 | `grandparents` | Parents and stepparents of the proband's biological, social, and step parents | `parents` | uses `Parents` as basis and preserves biological, social, and step-parent distinctions. |
 | `great_grandparents` | Parents and stepparents of the relevant grandparent groups | `grandparents` | uses `Grandparents` as basis and preserves its group distinctions. |
+| `grandaunts_uncles` | Siblings and half siblings of the proband's grandparent groups | `grandparents` | uses `Grandparents` as basis and preserves biological, social, and step-grandparent distinctions. |
 | `partners` | Direct partners of the proband and partners of those partners | Proband spouse families | source-level family part. |
 | `partner_chains` | Recursive partner graph starting at the proband | Proband spouse families | special source-level graph calculation. |
 | `children` | Biological, social, and step children of the proband | Proband spouse families plus `FAMC/PEDI` helper methods | source-level descendant family part. |
@@ -215,6 +287,7 @@ although individual members of a partner chain may later receive their exact per
 | `siblings_in_law` | 2 | Partners of siblings or siblings of partners. |
 | `partner_chains` | 2 | Special administrative value for partner chains. |
 | `great_grandparents` | 3 | Parents of grandparents. |
+| `grandaunts_uncles` | 3 | Siblings of grandparents. |
 | `great_grandchildren` | 3 | Children of grandchildren. |
 | `cousins` | 3 | Children of uncles and aunts. |
 | `uncles_and_aunts_bm` | 3 | Partners of uncles and aunts. |
@@ -291,6 +364,7 @@ The member-list stage is delegated to `resources/views/partials/family-part-memb
 
 The table below was checked against `ExtendedFamilySupport::getFamilyPartParameters()`
 and the `family-part-members.phtml` renderer dispatch.
+Normal member renderers and their heading partials iterate over group `entries`.
 
 | Rendering pattern | Renderer partial | Family parts | Grouping / heading basis |
 | --- | --- | --- | --- |
@@ -300,7 +374,7 @@ and the `family-part-members.phtml` renderer dispatch.
 | Shared reference-person branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/reference-person.phtml` | `siblings_in_law`, `uncles_and_aunts_bm` | Groups by reference person; headings distinguish sibling, partner, and partnership context. |
 | Dedicated nephews-and-nieces reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/nephews-and-nieces.phtml` | `nephews_and_nieces` | Groups by sibling or sibling-in-law reference person; for partners' siblings it also uses a second reference person. |
 | Dedicated children-in-law reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/children-in-law.phtml` | `children_in_law` | Groups by child reference person and child relationship type; member labels show the partner status. |
-| Shared family / reference-family branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/family-reference.phtml` | `great_grandparents`, `grandparents`, `uncles_and_aunts`, `parents`, `co_parents_in_law`, `grandchildren_in_law`, `great_grandchild_in_law` | Groups by stored family and, where available, reference person; headings describe parent, grandparent, stepparent, in-law, or uncle/aunt context. |
+| Shared family / reference-family branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/family-reference.phtml` | `great_grandparents`, `grandparents`, `grandaunts_uncles`, `uncles_and_aunts`, `parents`, `co_parents_in_law`, `grandchildren_in_law`, `great_grandchild_in_law` | Groups by stored family and, where available, reference person; headings describe parent, grandparent, stepparent, in-law, uncle/aunt, or grandaunt/granduncle context. |
 | Dedicated co-siblings-in-law reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/co-siblings-in-law.phtml` | `co_siblings_in_law` | Groups by sibling-in-law reference person; headings distinguish siblings of siblings-in-law from partners of siblings-in-law. |
 | Shared child-family branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/child-family.phtml` | `siblings`, `cousins`, `children`, `grandchildren`, `great_grandchildren` | Groups by each member's displayed parent family; step-grandchildren also show the connected child reference. |
 
@@ -377,6 +451,19 @@ hh_extended_family/
 │   │   ├── ExtendedFamilyPartFactory.php
 │   │   ├── ExtendedFamilyParts/
 │   │   └── Objects/
+│   │       ├── ExtendedFamilyFilterResult.php
+│   │       ├── ExtendedFamilyPartSet.php
+│   │       ├── ExtendedFamilyProband.php
+│   │       ├── ExtendedFamilySummary.php
+│   │       ├── FamilyPart.php
+│   │       ├── FamilyPartCounts.php
+│   │       ├── FamilyPartGroup.php
+│   │       ├── GroupEntry.php
+│   │       ├── LineageStatistics.php
+│   │       ├── LineageSummary.php
+│   │       ├── LineageRow.php
+│   │       ├── SummaryStatistics.php
+│   │       └── ...
 │   └── Services/
 │       └── ClippingsCartWriter.php
 ```

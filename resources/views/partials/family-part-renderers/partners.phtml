@@ -24,10 +24,11 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                             <span class="hh_extended_family_name"><?= $group->partner->fullName() ?></span>
                         <?php endif ?>
                     <?php endif ?>
-                    &nbsp;(<?= count($group->members) ?>)
+                    &nbsp;(<?= count($group->entries) ?>)
                 </h4>
                 <?php $i = 1; ?>
-                <?php foreach ($group->members as $key => $indi) : ?>
+                <?php foreach ($group->entries as $key => $entry) : ?>
+                    <?php $indi = $entry->individual; ?>
                     <?php include __DIR__ . '/grouped-headings/partners.phtml'; ?>
                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                         <?php if ($indi->canShow()): ?>
@@ -37,8 +38,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
                             <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $indi->fullName() ?></a></span>
-                            <?php if ($extfam_obj->config->showLabels && $group->labels[$key]): ?>
-                                <?php foreach ($group->labels[$key] as $label): ?>
+                            <?php if ($extfam_obj->config->showLabels && $entry->labels): ?>
+                                <?php foreach ($entry->labels as $label): ?>
                                     <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
                                 <?php endforeach ?>
                             <?php endif ?>
@@ -46,7 +47,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                                 <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                             <?php else: ?>
                                 <span class="hh_extended_family_birth_death">
-                                    <?= $group->vitalEventsSummaries[$key] ?? '' ?>
+                                    <?= $entry->vitalEventsSummary ?>
                                 </span>
                             <?php endif ?>
                         <?php else: ?>

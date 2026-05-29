@@ -95,6 +95,7 @@ The default presentation order is based on the generation shift relative to the 
 
 * great-grandparents: generation +3
 * grandparents: generation +2
+* grandaunts and granduncles: generation +2
 * uncles and aunts: generation +1
 * uncles and aunts by marriage: generation +1
 * parents: generation +1

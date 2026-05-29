@@ -40,18 +40,15 @@ class Children_in_law extends ExtendedFamilyPart
      *
      * common:
      *  ->groups[]                      array
-     *  ->maleCount                     int
-     *  ->femaleCount                   int
-     *  ->otherSexCount                 int
-     *  ->allCount                      int
+     *  ->counts                        FamilyPartCounts
+     *  ->maleCount                     int legacy alias
+     *  ->femaleCount                   int legacy alias
+     *  ->otherSexCount                 int legacy alias
+     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
-     *  ->groups[]->members[]           array of Individual (index of groups is groupName)
-     *            ->labels[]            array of array of string
-     *            ->families[]          array of object
-     *            ->familiesStatus[]    string
-     *            ->referencePersons[]  array of array of Individual
+     *  ->groups[]->entries[]           array of GroupEntry (index of groups is groupName)
      *            ->groupName           string
      */
 
@@ -65,7 +62,8 @@ class Children_in_law extends ExtendedFamilyPart
         foreach ($children->getEfpObject()->groups as $group) {
             $groupName = $this->childrenInLawGroupName($group->groupName);
 
-            foreach ($group->members as $child) {
+            foreach ($group->entries as $entry) {
+                $child = $entry->individual;
                 if ($child instanceof Individual) {
                     $this->addPartnersOfChild($child, $groupName);
                 }

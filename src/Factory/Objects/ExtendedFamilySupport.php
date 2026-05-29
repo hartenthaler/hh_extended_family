@@ -124,6 +124,7 @@ class ExtendedFamilySupport
         return [
             'great_grandparents'     => ['generation' => +3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Great_grandparents::GROUP_GREATGRANDPARENTS_BIO],
             'grandparents'           => ['generation' => +2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandparents::GROUP_GRANDPARENTS_BIO],
+            'grandaunts_uncles'      => ['generation' => +2, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Grandaunts_uncles::GROUP_GRANDAUNTUNCLE_FULL_BIO],
             'uncles_and_aunts'       => ['generation' => +1, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Uncles_and_aunts::GROUP_UNCLEAUNT_FULL_BIO],
             'uncles_and_aunts_bm'    => ['generation' => +1, 'relationshipCoefficient' => 0],
             'parents'                => ['generation' => +1, 'relationshipCoefficient' => 0.5,   'relationshipCoefficientComment' => Parents::GROUP_PARENTS_BIO],
@@ -139,8 +140,8 @@ class ExtendedFamilySupport
             'children'               => ['generation' => -1, 'relationshipCoefficient' => 0.5,   'relationshipCoefficientComment' => Children::GROUP_CHILDREN_BIO],
             'children_in_law'        => ['generation' => -1, 'relationshipCoefficient' => 0],
             'grandchildren'          => ['generation' => -2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandchildren::GROUP_GRANDCHILDREN_BIO],
-            'great_grandchildren'    => ['generation' => -3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIOLOGICAL],
             'grandchildren_in_law'   => ['generation' => -2, 'relationshipCoefficient' => 0],
+            'great_grandchildren'    => ['generation' => -3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIOLOGICAL],
             'great_grandchild_in_law' => ['generation' => -3, 'relationshipCoefficient' => 0],
        ];
     }
@@ -179,6 +180,7 @@ class ExtendedFamilySupport
             'siblings_in_law'        => 2,
             'partner_chains'         => 2,    // this is used for the admin selection of family parts only, not for the members in a partner chain
             'great_grandparents'     => 3,
+            'grandaunts_uncles'     => 3,
             'great_grandchildren'    => 3,
             'cousins'                => 3,
             'uncles_and_aunts_bm'    => 3,
@@ -767,6 +769,7 @@ class ExtendedFamilySupport
         return match ($type) {
             'great_grandparents'      => I18N::translate('Great-grandparents'),
             'grandparents'            => I18N::translate('Grandparents'),
+            'grandaunts_uncles'      => I18N::translate('Grandaunts and Granduncles'),
             'uncles_and_aunts'        => I18N::translate('Uncles and Aunts'),
             'uncles_and_aunts_bm'     => I18N::translate('Uncles and Aunts by marriage'),
             'parents'                 => I18N::translate('Parents'),
@@ -803,6 +806,7 @@ class ExtendedFamilySupport
         return match ($type) {
             'great_grandparents'      => I18N::translateContext('Family part name in sentence', 'great-grandparents'),
             'grandparents'            => I18N::translateContext('Family part name in sentence', 'grandparents'),
+            'grandaunts_uncles'      => I18N::translateContext('Family part name in sentence', 'grandaunts and granduncles'),
             'uncles_and_aunts'        => I18N::translateContext('Family part name in sentence', 'uncles and aunts'),
             'uncles_and_aunts_bm'     => I18N::translateContext('Family part name in sentence', 'uncles and aunts by marriage'),
             'parents'                 => I18N::translateContext('Family part name in sentence', 'parents'),
@@ -836,6 +840,7 @@ class ExtendedFamilySupport
         return match ($comment) {
             Great_grandparents::GROUP_GREATGRANDPARENTS_BIO                   => I18N::translate('Biological great-grandparents'),
             Grandparents::GROUP_GRANDPARENTS_BIO                              => I18N::translate('Biological grandparents'),
+            Grandaunts_uncles::GROUP_GRANDAUNTUNCLE_FULL_BIO          => I18N::translate('Full siblings of biological grandparents'),
             Uncles_and_aunts::GROUP_UNCLEAUNT_FULL_BIO                        => I18N::translate('Full siblings of biological parents'),
             Parents::GROUP_PARENTS_BIO                                        => I18N::translate('Biological parents'),
             Siblings::GROUP_SIBLINGS_FULL                                     => I18N::translate('Full siblings'),
@@ -897,6 +902,9 @@ class ExtendedFamilySupport
             Grandparents::GROUP_GRANDPARENTS_SOCIAL_MOTHER_STEP => I18N::translate('Stepparents of social mother'),
             Grandparents::GROUP_GRANDPARENTS_SOCIAL_PARENT_STEP => I18N::translate('Stepparents of social parent'),
             Grandparents::GROUP_GRANDPARENTS_STEP_PARENT_STEP   => I18N::translate('Stepparents of stepparent'),
+            Grandaunts_uncles::GROUP_GRANDAUNTUNCLE_BIO_GRANDPARENT    => I18N::translate('Siblings and half siblings of biological grandparents'),
+            Grandaunts_uncles::GROUP_GRANDAUNTUNCLE_SOCIAL_GRANDPARENT => I18N::translate('Siblings and half siblings of social grandparents'),
+            Grandaunts_uncles::GROUP_GRANDAUNTUNCLE_STEP_GRANDPARENT   => I18N::translate('Siblings and half siblings of stepgrandparents'),
             Parents::GROUP_PARENTS_SOCIAL                       => I18N::translate('Social parents'),
             Parents::GROUP_PARENTS_STEP                         => I18N::translate('Stepparents'),
             Uncles_and_aunts::GROUP_UNCLEAUNT_BIO_PARENT        => I18N::translate('Siblings and half siblings of biological parents'),
