@@ -25,30 +25,19 @@
 
 /*
  * tbd
- * -------------------------- ab hier für das Release 2.2.6.7 ------------------------------------------------*
  * Test: in Testdatei "komplexe Familie" erscheinen keine Personenbadges (adoptiert, etc)
  * Test: Konfigurationsoption "Partnerketten zählen dazu/nicht dazu"
  * Test: Prüfen, ob allCountUnique immer richtig berechnet wird
  * Test: Rada testen inkl. Rada-Geschwistern, gibt es ein Badge?
  * Test: was passiert, wenn der webtrees-Sammelbehälter deaktiviert ist?
  * Test: Übersetzung bei den Partnern testen bei diversen Fällen mit gemischtem Geschlecht
- * Test: Stiefcousins (siehe Onkel Walter)
  * Doku:README: alle Screenshots aktualisieren
- *
- * -------------------------- ab hier für ein Release nach 2.2.6.7 ------------------------------------------------
  * Bug/Test: Familiengruppe Partner: Problem mit Zusammenfassung, falls Geschlecht der Partner oder Geschlecht der Partner von
  *                Partner gemischt sein sollte
  * Bug/Test: Familiengruppe Partnerketten: von Ge. geht keine Partnerkette aus, aber sie ist Mitglied in der Partnerkette
  *                von Di. zu Ga., d.h. dies als zweite Information ergänzen
  * Code: Versionsprüfung von hh_metasearch übernehmen ??? oder ganz anders?
  * Code: Qualität überprüfen und wichtigste Dinge als issue formulieren
- * Code: alle noch verwendeten object als Klassen definieren
- * Code: Funktionen getSizeThumbnailW() und getSizeThumbnailH() verbessern (siehe issue #46 von Sir Peter)
- *         Gibt es einen Zusammenhang oder sind sie unabhängig? Wie genau wirken sie sich aus?
- *         Testen, wenn im CSS-Modul nichts eingetragen ist.
- *         Option für thumbnail size? css für silhouette anpassen?
- * Code: Information der Anwender über Neuigkeiten zu diesem Modul?
- * Code: verstreut vorkommende restliche Übersetzungen mit I18N auf nur wenige Dateien verschieben?
  */
 
 declare(strict_types=1);
@@ -77,6 +66,7 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Fisharebest\Webtrees\Services\ModuleService;
 use Fisharebest\Webtrees\Services\TreeService;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -130,6 +120,14 @@ class ExtendedFamilyTabModule extends AbstractModule
     private const CLIPPINGS_CART_ACTION_INTERNAL = 'internal';
     private const CLIPPINGS_CART_ENHANCED_MODULE = '_huhwt-cce_';
     private const VESTA_UTILS_CLASS              = '\Vesta\VestaUtils';
+    private const THUMBNAIL_SIZE_SMALL           = 'small';
+    private const THUMBNAIL_SIZE_MEDIUM          = 'medium';
+    private const THUMBNAIL_SIZE_LARGE           = 'large';
+    private const THUMBNAIL_SIZES                = [
+        self::THUMBNAIL_SIZE_SMALL  => ['width' => 66, 'height' => 100],
+        self::THUMBNAIL_SIZE_MEDIUM => ['width' => 80, 'height' => 120],
+        self::THUMBNAIL_SIZE_LARGE  => ['width' => 100, 'height' => 150],
+    ];
 
     /**
      * find members of extended family parts
@@ -172,6 +170,7 @@ class ExtendedFamilyTabModule extends AbstractModule
         $configObj->showPrintButton             = $this->showPrintButton();
         $configObj->showShortName               = $this->showShortName();
         $configObj->showLabels                  = $this->showLabels();
+        $configObj->showSosaNumbers             = $this->showSosaNumbers();
         $configObj->showRelationshipToProband   = $this->showRelationshipToProband();
         $configObj->useCompactDesign            = $this->useCompactDesign();
         $configObj->useClippingsCart            = $this->useClippingsCart();
@@ -192,7 +191,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     private function getSizeThumbnailW(): int
     {
-        return 66;
+        return $this->thumbnailDimensions()['width'];
     }
 
     /**
@@ -202,7 +201,34 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     private function getSizeThumbnailH(): int
     {
-        return 100;
+        return $this->thumbnailDimensions()['height'];
+    }
+
+    /**
+     * @return array{width:int,height:int}
+     */
+    private function thumbnailDimensions(): array
+    {
+        return self::THUMBNAIL_SIZES[$this->thumbnailSize()];
+    }
+
+    private function thumbnailSize(): string
+    {
+        $thumbnailSize = $this->getPreference('thumbnail_size', self::THUMBNAIL_SIZE_SMALL);
+
+        return array_key_exists($thumbnailSize, self::THUMBNAIL_SIZES) ? $thumbnailSize : self::THUMBNAIL_SIZE_SMALL;
+    }
+
+    /**
+     * @return array<string,string>
+     */
+    private function thumbnailSizeOptions(): array
+    {
+        return [
+            self::THUMBNAIL_SIZE_SMALL  => I18N::translate('small') . ' (66 x 100 px)',
+            self::THUMBNAIL_SIZE_MEDIUM => I18N::translate('medium') . ' (80 x 120 px)',
+            self::THUMBNAIL_SIZE_LARGE  => I18N::translate('large') . ' (100 x 150 px)',
+        ];
     }
 
     /**
@@ -218,9 +244,11 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_empty_block',
             'show_short_name',
             'show_labels',
+            'show_sosa_numbers',
             'show_relationship_to_proband',
             'show_parameters',
             'use_compact_design',
+            'thumbnail_size',
             'place_format',
             'show_summary',
             'show_summary_statistics',
@@ -247,12 +275,15 @@ class ExtendedFamilyTabModule extends AbstractModule
         foreach ($preferences as $preference) {
             $response[$preference] = $this->getPreference($preference);
         }
+        $response['show_sosa_numbers'] = $this->showSosaNumbers() ? '0' : '1';
 
         $response['efps']           	   = $this->getShownFamilyParts();
         $response['title']          	   = $this->title();
         $response['description']    	   = $this->description();
         $response['uses_sorting']   	   = true;
         $response['place_format_options']  = PlaceAbbreviation::abbrPlacesOptions();
+        $response['thumbnail_size']         = $this->thumbnailSize();
+        $response['thumbnail_size_options'] = $this->thumbnailSizeOptions();
         $response['cce_available']  	   = $this->isClippingsCartEnhancedAvailable();
         $response['clippings_cart_action'] = $this->clippingsCartAction();
         $response['relationship_names_available'] = $this->relationshipNamesAvailable();
@@ -284,7 +315,7 @@ class ExtendedFamilyTabModule extends AbstractModule
 
             $this->postAdminActionOther($params);
             $this->postAdminActionEfp($params);
-            FlashMessages::addMessage(/* I18N: This is a webtrees core flash message; no module-specific translation is needed. */ I18N::translate('The preferences for the module “%s” have been updated.',
+            FlashMessages::addMessage(MoreI18N::xlate('The preferences for the module “%s” have been updated.',
                 $this->title()), 'success');
 
             if (($params['use_clippings_cart'] ?? '1') === '0' && !$this->isClippingsCartEnhancedAvailable()) {
@@ -308,15 +339,18 @@ class ExtendedFamilyTabModule extends AbstractModule
     {
         $family_parts         = ExtendedFamilySupport::listFamilyParts();
         $place_format_options = array_map('strval', array_keys(PlaceAbbreviation::abbrPlacesOptions()));
+        $thumbnail_size_options = array_keys(self::THUMBNAIL_SIZES);
 
         $params = [
             'show_filter_options'     => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_filter_options', '0'),
             'show_empty_block'        => Validator::parsedBody($request)->isInArray(['0', '1', '2'])->string('show_empty_block', '0'),
             'show_short_name'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_short_name', '0'),
             'show_labels'             => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_labels', '0'),
+            'show_sosa_numbers'       => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_sosa_numbers', '1'),
             'show_relationship_to_proband' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_relationship_to_proband', '0'),
             'show_parameters'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_parameters', '0'),
             'use_compact_design'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_compact_design', '0'),
+            'thumbnail_size'          => Validator::parsedBody($request)->isInArray($thumbnail_size_options)->string('thumbnail_size', self::THUMBNAIL_SIZE_SMALL),
             'place_format'            => Validator::parsedBody($request)->isInArray($place_format_options)->string('place_format', (string) PlaceAbbreviation::OPTION_FULL_PLACE_NAME),
             'show_summary'            => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary', '0'),
             'show_summary_statistics' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary_statistics', '0'),
@@ -535,6 +569,17 @@ class ExtendedFamilyTabModule extends AbstractModule
     }
 
     /**
+     * should SOSA numbers be shown for the proband and biological ancestors
+     * set default values in case the settings are not stored in the database yet
+     *
+     * @return bool
+     */
+    private function showSosaNumbers(): bool
+    {
+        return ($this->getPreference('show_sosa_numbers', '1') == '0');
+    }
+
+    /**
      * should a person's relationship to the proband be shown as mouse-over text
      * set default values in case the settings are not stored in the database yet
      *
@@ -697,7 +742,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     private function clippingsCartEnhancedFallbackMessage(): string
     {
-        return I18N::translate('The custom module “huhwt-cce” is not available. The button “copy to clippings cart” will use the internal Extended Family action.');
+        return I18N::translate('The custom module “huhwt-cce” is not available. The button “Copy to clippings cart” will use the internal Extended Family action.');
     }
 
     /**
@@ -878,6 +923,9 @@ class ExtendedFamilyTabModule extends AbstractModule
         if (!isset($extfam_obj->filters[$filterOption])) {
             $filterOption = 'all';
         }
+
+        // The print/PDF view should not include stale messages from unrelated modules.
+        FlashMessages::getMessages();
 
         return $this->viewResponse($this->name() . '::print', [
             'extended_family_css' => route('module', ['module' => $this->name(), 'action' => 'Css']),

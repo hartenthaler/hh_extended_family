@@ -10,6 +10,8 @@ use Fisharebest\Webtrees\I18N;
  * @var string $summaryName
  */
 
+$showProbandLabels = in_array($propName, ['parents', 'siblings'], true);
+
 ?>
 
                             <div id="hh-extended-family-summary">
@@ -199,8 +201,13 @@ use Fisharebest\Webtrees\I18N;
                                                 <?= I18N::plural('%d parent of diverse or unknown sex recorded (%d in total).', '%d parents of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
-                                    <?php if ($extfam_obj->config->showLabels && $extfam_obj->proband->labels): ?>
+                                    <?php if ($showProbandLabels && $extfam_obj->config->showLabels && $extfam_obj->proband->labels): ?>
                                         <?php foreach ($extfam_obj->proband->labels as $label): ?>
+                                            <span class="hh_extended_family_label"><?= $label ?></span>&nbsp;
+                                        <?php endforeach ?>
+                                    <?php endif ?>
+                                    <?php if ($propName == 'parents' && $extfam_obj->config->showSosaNumbers && $extfam_obj->proband->sosaLabels): ?>
+                                        <?php foreach ($extfam_obj->proband->sosaLabels as $label): ?>
                                             <span class="hh_extended_family_label"><?= $label ?></span>&nbsp;
                                         <?php endforeach ?>
                                     <?php endif ?>
@@ -387,8 +394,13 @@ use Fisharebest\Webtrees\I18N;
                                                 <?= I18N::plural('%d sibling of diverse or unknown sex recorded (%d in total).', '%d siblings of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
-                                    <?php if ($extfam_obj->config->showLabels && $extfam_obj->proband->labels): ?>
+                                    <?php if ($showProbandLabels && $extfam_obj->config->showLabels && $extfam_obj->proband->labels): ?>
                                         <?php foreach ($extfam_obj->proband->labels as $label): ?>
+                                            <span class="hh_extended_family_label"><?= $label ?></span>&nbsp;
+                                        <?php endforeach ?>
+                                    <?php endif ?>
+                                    <?php if ($propName == 'parents' && $extfam_obj->config->showSosaNumbers && $extfam_obj->proband->sosaLabels): ?>
+                                        <?php foreach ($extfam_obj->proband->sosaLabels as $label): ?>
                                             <span class="hh_extended_family_label"><?= $label ?></span>&nbsp;
                                         <?php endforeach ?>
                                     <?php endif ?>
@@ -423,8 +435,13 @@ use Fisharebest\Webtrees\I18N;
                                                 <?= I18N::plural('%d sibling-in-law of diverse or unknown sex recorded (%d in total).', '%d siblings-in-law of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
-                                    <?php if ($extfam_obj->config->showLabels && $extfam_obj->proband->labels): ?>
+                                    <?php if ($showProbandLabels && $extfam_obj->config->showLabels && $extfam_obj->proband->labels): ?>
                                         <?php foreach ($extfam_obj->proband->labels as $label): ?>
+                                            <span class="hh_extended_family_label"><?= $label ?></span>&nbsp;
+                                        <?php endforeach ?>
+                                    <?php endif ?>
+                                    <?php if ($propName == 'parents' && $extfam_obj->config->showSosaNumbers && $extfam_obj->proband->sosaLabels): ?>
+                                        <?php foreach ($extfam_obj->proband->sosaLabels as $label): ?>
                                             <span class="hh_extended_family_label"><?= $label ?></span>&nbsp;
                                         <?php endforeach ?>
                                     <?php endif ?>
@@ -459,8 +476,13 @@ use Fisharebest\Webtrees\I18N;
                                                 <?= I18N::plural('%d co-sibling-in-law of diverse or unknown sex recorded (%d in total).', '%d co-siblings-in-law of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
-                                    <?php if ($extfam_obj->config->showLabels && $extfam_obj->proband->labels): ?>
+                                    <?php if ($showProbandLabels && $extfam_obj->config->showLabels && $extfam_obj->proband->labels): ?>
                                         <?php foreach ($extfam_obj->proband->labels as $label): ?>
+                                            <span class="hh_extended_family_label"><?= $label ?></span>&nbsp;
+                                        <?php endforeach ?>
+                                    <?php endif ?>
+                                    <?php if ($propName == 'parents' && $extfam_obj->config->showSosaNumbers && $extfam_obj->proband->sosaLabels): ?>
+                                        <?php foreach ($extfam_obj->proband->sosaLabels as $label): ?>
                                             <span class="hh_extended_family_label"><?= $label ?></span>&nbsp;
                                         <?php endforeach ?>
                                     <?php endif ?>
@@ -524,6 +546,37 @@ use Fisharebest\Webtrees\I18N;
                                             <h3><?= I18N::plural('%2$s has %1$d nephew,', '%2$s has %1$d nephews,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
                                                 <?= I18N::plural('%d niece, and', '%d nieces, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                                 <?= I18N::plural('%d nephew or niece of diverse or unknown sex recorded (%d in total).', '%d nephews or nieces of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'grandnephews_nieces'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one grandniece recorded.', $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == 1): ?>
+                                            <h3><?= I18N::translate('%s has one grandnephew recorded.', $summaryName) ?></h3>
+                                        <?php else: ?>
+                                            <h3><?= I18N::translate('%s has one grandnephew or grandniece of diverse or unknown sex recorded.', $summaryName) ?></h3>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?php if ($filterObj->efp->$propName->femaleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandniece recorded.',  '%2$s has %1$d grandnieces recorded.', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandnephew recorded.', '%2$s has %1$d grandnephews recorded.', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->otherSexCount == $filterObj->efp->$propName->allCount): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandnephew or grandniece of diverse or unknown sex recorded.', '%2$s has %1$d grandnephews or grandnieces of diverse or unknown sex recorded.', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $summaryName) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->otherSexCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandnephew and', '%2$s has %1$d grandnephews and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandniece recorded (%d in total).', '%d grandnieces recorded (%d in total).', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->femaleCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandnephew and', '%2$s has %1$d grandnephews and', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandnephew or grandniece of diverse or unknown sex recorded (%d in total).', '%d grandnephews or grandnieces of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php elseif ($filterObj->efp->$propName->maleCount == 0): ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandniece and', '%2$s has %1$d grandnieces and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandnephew or grandniece of diverse or unknown sex recorded (%d in total).', '%d grandnephews or grandnieces of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
+                                        <?php else: ?>
+                                            <h3><?= I18N::plural('%2$s has %1$d grandnephew,', '%2$s has %1$d grandnephews,', $filterObj->efp->$propName->maleCount, $filterObj->efp->$propName->maleCount, $summaryName) . ' ' ?>
+                                                <?= I18N::plural('%d grandniece, and', '%d grandnieces, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
+                                                <?= I18N::plural('%d grandnephew or grandniece of diverse or unknown sex recorded (%d in total).', '%d grandnephews or grandnieces of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
                                     <?php endif ?>
                                 <?php elseif ($propName == 'children'): ?>
@@ -680,6 +733,12 @@ use Fisharebest\Webtrees\I18N;
                                                 <?= I18N::plural('%d granddaughter-in-law, and', '%d granddaughters-in-law, and', $filterObj->efp->$propName->femaleCount, $filterObj->efp->$propName->femaleCount) . ' ' ?>
                                             <?= I18N::plural('%d grandchild-in-law of diverse or unknown sex recorded (%d in total).', '%d grandchildren-in-law of diverse or unknown sex recorded (%d in total).', $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->otherSexCount, $filterObj->efp->$propName->allCount) ?></h3>
                                         <?php endif ?>
+                                    <?php endif ?>
+                                <?php elseif ($propName == 'godparents_witnesses'): ?>
+                                    <?php if ($filterObj->efp->$propName->allCount == 1): ?>
+                                        <h3><?= I18N::translate('The extended family of %s has one godparent, witness, or other linked person recorded.', $summaryName) ?></h3>
+                                    <?php else: ?>
+                                        <h3><?= I18N::plural('The extended family of %2$s has %1$d godparent, witness, or other linked person recorded.', 'The extended family of %2$s has %1$d godparents, witnesses, or other linked persons recorded.', $filterObj->efp->$propName->allCount, $filterObj->efp->$propName->allCount, $summaryName) ?></h3>
                                     <?php endif ?>
                                 <?php elseif ($propName == 'great_grandchild_in_law'): ?>
                                     <?php if ($filterObj->efp->$propName->allCount == 1): ?>

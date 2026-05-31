@@ -32,7 +32,7 @@ The active filter also controls the toolbar actions, so Print/PDF and clippings-
 
 ### Presentation configuration
 
-The module configuration controls order, visibility, labels, design density, thumbnails, summary counts, place formatting, tab-loading behavior, and clippings-cart support.
+The module configuration controls order, visibility, labels, SOSA labels, design density, thumbnail size, summary counts, place formatting, tab-loading behavior, and clippings-cart support.
 Most values come from webtrees module preferences and are assembled into a runtime configuration object.
 
 ## 🧱 Main components
@@ -81,12 +81,13 @@ Important examples are:
 * `ExtendedFamilySupport`: lists configurable family parts and filter options
 * `ExtendedFamilyFilterResult`: stores the calculated data for one filter option
 * `ExtendedFamilyPartSet`: stores the summary plus the calculated family parts for one filter option
-* `ExtendedFamilyProband`: stores the proband individual, display-name variants, and proband labels
+* `ExtendedFamilyProband`: stores the proband individual, display-name variants, proband labels, and optional SOSA labels
 * `ExtendedFamilySummary`: stores the summary counts and precomputed summary statistics for one filter option
 * `FamilyPart`: compatibility builder for one rendered family-part group
 * `FamilyPartCounts`: stores male, female, other/unknown, and total counters for a family part
 * `FamilyPartGroup`: stores one rendered group inside a family part
-* `GroupEntry`: keeps one rendered person together with its family, family status, reference people, labels, and prepared event summary
+* `GroupEntry`: keeps one rendered person together with its family, family status, reference people, labels, optional SOSA labels, and prepared event summary
+* `AssociatedPersonEntry`: keeps one linked person or name together with role, event, and reference person or family for the godparents/witnesses family part
 * `SummaryStatistics`, `LivingStatistics`, `SexStatistics`, and `DateRangeStatistics`: store optional summary-statistic data
 * `LineageStatistics`, `LineageSummary`, `LineageRow`, `LineageImplexSummary`, `RepeatedLineagePerson`, and `OldestIndividuals`: store direct-line statistics and implex data
 * `IndividualFamily`: wraps individual/family relationship context
@@ -153,13 +154,15 @@ The module currently contains calculators for:
 * uncles and aunts
 * uncles and aunts by marriage
 * partners and partner chains
+* godparents, witnesses, and other linked persons
 * siblings
 * siblings-in-law
 * co-siblings-in-law
 * cousins
-* nephews and nieces
 * children
 * children-in-law
+* nephews and nieces
+* grandnephews and grandnieces
 * grandchildren
 * grandchildren-in-law
 * great-grandchildren
@@ -173,7 +176,8 @@ ExtendedFamily
 ├── proband: ExtendedFamilyProband
 │   ├── indi: Individual
 │   ├── niceName: NiceName
-│   └── labels: array<int,string>
+│   ├── labels: array<int,string>
+│   └── sosaLabels: array<int,string>
 └── filters[filterOption]: ExtendedFamilyFilterResult
     └── efp: ExtendedFamilyPartSet
         ├── summary: ExtendedFamilySummary
@@ -203,7 +207,7 @@ ExtendedFamily
 ```
 
 `ExtendedFamilyFilterResult` represents one precomputed filter variant such as `all`, `only_M`, or `only_alive`.
-`ExtendedFamilyProband` stores the selected individual together with the name variants and labels that views need repeatedly.
+`ExtendedFamilyProband` stores the selected individual together with the name variants, special labels, and optional SOSA labels that views need repeatedly.
 `ExtendedFamilyPartSet` is iterable so existing renderers can loop over `summary` and the concrete family parts in display order.
 `ExtendedFamilySummary` stores global counts for the selected filter plus precomputed summary text support data.
 Optional summary statistics are split into small value objects:
@@ -223,12 +227,19 @@ The `partners` and `parents_in_law` renderers additionally use the optional `par
 
 Every `FamilyPartGroup` has an `entries` array.
 Every `GroupEntry` contains the rendered individual plus the context that belongs to that exact person:
-`individual`, `family`, `familyStatus`, `referencePersons`, `labels`, and the prepared `vitalEventsSummary`.
+`individual`, `family`, `familyStatus`, `referencePersons`, `labels`, optional `sosaLabels`, and the prepared `vitalEventsSummary`.
 This keeps person-level context on the person entry instead of spreading it across parallel arrays.
 The older parallel arrays (`members`, `families`, `familiesStatus`, `referencePersons`, `labels`, and `vitalEventsSummaries`) are no longer populated.
 
 The `partner_chains` family part is the main exception.
 It uses the `chains` structure with `PartnerChainNode` and `PartnerChainPerson` because it renders a recursive graph rather than flat groups of entries.
+
+The `godparents_witnesses` family part is another exception.
+It searches the current filtered family-part result for GEDCOM `ASSO` and `_ASSO` links and for configured proprietary name tags in individual and family events.
+The initial proprietary tag list is `_GODP`, `_WITN`, `_WITNESS`, `_SPON`, and `_SPONSOR`.
+Its entries use `AssociatedPersonEntry` because some linked people are normal webtrees individuals while proprietary tags may contain only a name.
+The part keeps its own counters, including sex/gender counters, but it is excluded from the extended-family total count and from the unique-member summary count.
+The tab header suppresses generation and relationship-coefficient badges for this part because the linked people can belong to any generation.
 
 ### Relationship basis map
 
@@ -260,6 +271,8 @@ so that biological, social, step, and in-law relationship distinctions are propa
 | `uncles_and_aunts_bm` | Partners of the persons in `uncles_and_aunts` | `uncles_and_aunts` | uses `Uncles_and_aunts` as basis and preserves its group distinctions. |
 | `cousins` | Children of the persons in `uncles_and_aunts` | `uncles_and_aunts` | uses `Uncles_and_aunts` as basis and preserves biological, social, step-parent, full-sibling, and half-sibling distinctions. |
 | `nephews_and_nieces` | Children of siblings and children of siblings-in-law | `siblings` and `siblings_in_law` | uses `Siblings` for children and stepchildren of siblings, and `Siblings_in_law` for children of partners' siblings. |
+| `grandnephews_nieces` | Children and stepchildren of nephews and nieces | `nephews_and_nieces` | uses `Nephews_and_nieces` as basis. |
+| `godparents_witnesses` | Godparents, witnesses, and other people linked to visible extended-family persons or families through `ASSO`, `_ASSO`, or configured proprietary event tags | Current filtered family-part result | special derived family part; keeps repeated roles as separate rows, can render name-only entries from proprietary tags, is displayed last, and is not included in extended-family total counts. |
 
 ### Administrative degree map
 
@@ -288,6 +301,7 @@ although individual members of a partner chain may later receive their exact per
 | `partner_chains` | 2 | Special administrative value for partner chains. |
 | `great_grandparents` | 3 | Parents of grandparents. |
 | `grandaunts_uncles` | 3 | Siblings of grandparents. |
+| `grandnephews_nieces` | 3 | Children of nephews and nieces. |
 | `great_grandchildren` | 3 | Children of grandchildren. |
 | `cousins` | 3 | Children of uncles and aunts. |
 | `uncles_and_aunts_bm` | 3 | Partners of uncles and aunts. |
@@ -295,6 +309,7 @@ although individual members of a partner chain may later receive their exact per
 | `co_siblings_in_law` | 3 | Siblings or partners reached through siblings-in-law. |
 | `grandchildren_in_law` | 3 | Partners of grandchildren. |
 | `great_grandchild_in_law` | 4 | Partners of great-grandchildren. |
+| `godparents_witnesses` | 2 | Linked persons are selected through events of the current filtered extended-family result and can belong to any generation. |
 
 ## 🔎 Filtering and summaries
 
@@ -310,6 +325,8 @@ For each filter variant, the module calculates counters for:
 * all
 
 The summary section can include or exclude partner-chain members, depending on the administrator setting.
+The `godparents_witnesses` family part is never included in the extended-family total count or the unique-member summary count.
+It still keeps its own member and sex/gender counters for the family-part summary.
 It can also render direct-line statistics for selected ancestor and descendant generations.
 These statistics are calculated only for direct-line family parts that are currently enabled and non-empty.
 The biological column is based on the module's biological relationship groups, not on all visible people in the row.
@@ -332,7 +349,7 @@ Important preference groups:
 * shown family parts and their display order
 * user-visible filter options
 * compact or enriched design
-* thumbnails and vital data
+* thumbnail size and vital data
 * summary counts
 * empty-block handling
 * label and relationship-parameter display
@@ -370,13 +387,14 @@ Normal member renderers and their heading partials iterate over group `entries`.
 | --- | --- | --- | --- |
 | Dedicated partners branch | `partials/family-part-renderers/partners.phtml` | `partners` | Groups by partner / partner-of-partner reference person; heading is "Partner of ..." |
 | Dedicated partner-chains branch | `partials/family-part-renderers/partner-chains.phtml` | `partner_chains` | Renders partner chains as chain segments; this part does not use named groups. |
+| Dedicated linked-person branch | `partials/family-part-renderers/godparents-witnesses.phtml` | `godparents_witnesses` | Renders associated people and name-only entries with role, event, and reference person or family. |
 | Dedicated parents-in-law branch | `partials/family-part-renderers/parents-in-law.phtml` | `parents_in_law` | Groups by the proband's partner partnership, then by the partner's parent family. |
 | Shared reference-person branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/reference-person.phtml` | `siblings_in_law`, `uncles_and_aunts_bm` | Groups by reference person; headings distinguish sibling, partner, and partnership context. |
 | Dedicated nephews-and-nieces reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/nephews-and-nieces.phtml` | `nephews_and_nieces` | Groups by sibling or sibling-in-law reference person; for partners' siblings it also uses a second reference person. |
 | Dedicated children-in-law reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/children-in-law.phtml` | `children_in_law` | Groups by child reference person and child relationship type; member labels show the partner status. |
 | Shared family / reference-family branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/family-reference.phtml` | `great_grandparents`, `grandparents`, `grandaunts_uncles`, `uncles_and_aunts`, `parents`, `co_parents_in_law`, `grandchildren_in_law`, `great_grandchild_in_law` | Groups by stored family and, where available, reference person; headings describe parent, grandparent, stepparent, in-law, uncle/aunt, or grandaunt/granduncle context. |
 | Dedicated co-siblings-in-law reference branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/co-siblings-in-law.phtml` | `co_siblings_in_law` | Groups by sibling-in-law reference person; headings distinguish siblings of siblings-in-law from partners of siblings-in-law. |
-| Shared child-family branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/child-family.phtml` | `siblings`, `cousins`, `children`, `grandchildren`, `great_grandchildren` | Groups by each member's displayed parent family; step-grandchildren also show the connected child reference. |
+| Shared child-family branch | `partials/family-part-renderers/grouped.phtml` + `grouped-headings/child-family.phtml` | `siblings`, `cousins`, `grandnephews_nieces`, `children`, `grandchildren`, `great_grandchildren` | Groups by each member's displayed parent family; step-grandchildren also show the connected child reference. |
 
 Overall summary statistics are rendered by `partials/summary.phtml`.
 The empty-family-part message is already isolated in `partials/empty-family-part.phtml`.

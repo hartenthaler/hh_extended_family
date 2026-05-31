@@ -36,7 +36,7 @@ class Nephews_and_nieces extends ExtendedFamilyPart
     public const GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING = 'Siblings\' stepchildren';
     public const GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER = 'Children of siblings of partners';
 
-    public const GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING     = 'Children of full siblings';
+    public const GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING     = 'Biological children of biological full siblings';
 
     /**
      * Find members for this specific extended family part and modify $this->efpObject.

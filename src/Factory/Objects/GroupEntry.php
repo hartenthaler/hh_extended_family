@@ -15,6 +15,7 @@ class GroupEntry
     /**
      * @param array<int,string> $labels
      * @param array<int,Individual> $referencePersons
+     * @param array<int,string> $sosaLabels
      */
     public function __construct(
         public Individual $individual,
@@ -22,7 +23,8 @@ class GroupEntry
         public string $familyStatus,
         public array $referencePersons,
         public array $labels,
-        public string $vitalEventsSummary
+        public string $vitalEventsSummary,
+        public array $sosaLabels = []
     ) {
     }
 }

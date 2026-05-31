@@ -11,7 +11,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 ?>
 
 <h2><?= ExtendedFamilySupport::translateFamilyPart($filterObj->efp->$propName->partName) ?></h2>
-<?php if ($extfam_obj->config->showParameters): ?>
+<?php if ($extfam_obj->config->showParameters && $propName !== 'godparents_witnesses'): ?>
     <span class="hh_extended_family_parameter">
         <?php if ($extfam_obj->config->familyPartParameters[$propName]['generation'] > 0): ?>
             <?= I18N::translate('generation +%s', $extfam_obj->config->familyPartParameters[$propName]['generation']) ?>

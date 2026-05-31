@@ -21,10 +21,11 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 <?php endif ?>
     <?php
         $familyPartRenderer = match ($propName) {
-            'partners'       => 'partners',
-            'partner_chains' => 'partner-chains',
-            'parents_in_law' => 'parents-in-law',
-            default          => 'grouped',
+            'partners'             => 'partners',
+            'partner_chains'       => 'partner-chains',
+            'parents_in_law'       => 'parents-in-law',
+            'godparents_witnesses' => 'godparents-witnesses',
+            default                => 'grouped',
         };
     ?>
     <?= view($module . '::partials/family-part-renderers/' . $familyPartRenderer, [

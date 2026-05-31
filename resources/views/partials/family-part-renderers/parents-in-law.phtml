@@ -40,7 +40,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                         <?php if ($indi->canShow()): ?>
                             <?php if ($extfam_obj->config->showThumbnail): ?>
-                                <div class="wt-chart-box-thumbnail float-start mr-1"><?= $indi->displayImage($extfam_obj->config->sizeThumbnailW, $extfam_obj->config->sizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                                <div class="wt-chart-box-thumbnail float-start mr-1" style="--hh-thumbnail-width: <?= $extfam_obj->config->sizeThumbnailW ?>px; --hh-thumbnail-height: <?= $extfam_obj->config->sizeThumbnailH ?>px;"><?= $indi->displayImage($extfam_obj->config->sizeThumbnailW, $extfam_obj->config->sizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
                             <?php endif ?>
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>

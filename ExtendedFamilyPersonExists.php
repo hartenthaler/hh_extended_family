@@ -40,8 +40,10 @@ require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Siblings_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Co_siblings_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partners.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partner_chains.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Godparents_witnesses.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Cousins.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Nephews_and_nieces.php');
+require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandnephews_nieces.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children_in_law.php');
 require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren.php');
@@ -77,12 +79,14 @@ class ExtendedFamilyPersonExists extends ExtendedFamily
         'uncles_and_aunts',
         'uncles_and_aunts_bm',
         'nephews_and_nieces',
+        'grandnephews_nieces',
         'cousins',
         'great_grandparents',
         'great_grandchildren',
         'grandchildren_in_law',
         'great_grandchild_in_law',
         'partner_chains',
+        'godparents_witnesses',
     ];
 
     /**

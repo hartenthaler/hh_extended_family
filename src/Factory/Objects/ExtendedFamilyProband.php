@@ -13,11 +13,13 @@ class ExtendedFamilyProband
 {
     /**
      * @param array<int,string> $labels
+     * @param array<int,string> $sosaLabels
      */
     public function __construct(
         public Individual $indi,
         public NiceName $niceName,
-        public array $labels
+        public array $labels,
+        public array $sosaLabels = []
     ) {
     }
 }

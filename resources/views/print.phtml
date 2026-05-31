@@ -2,6 +2,7 @@
 
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
 use Fisharebest\Webtrees\View;
 
 /**
@@ -19,6 +20,12 @@ $summaryName = '<span class="hh-extended-family-summary-name">' . $extfam_obj->p
 
 <?php View::push('styles') ?>
 <link rel="stylesheet" href="<?= e($extended_family_css) ?>">
+<style>
+@page {
+    size: landscape;
+    margin: 12mm;
+}
+</style>
 <?php View::endpush() ?>
 
 <div class="hh-extended-family-print wt-tab-hh-extended-family py-4">
@@ -28,7 +35,7 @@ $summaryName = '<span class="hh-extended-family-summary-name">' . $extfam_obj->p
             <?= I18N::translate('Print/PDF') ?>
         </button>
         <a class="btn btn-secondary btn-sm" href="<?= e($individual->url() . '#tab-' . $module) ?>">
-            &larr; <?= I18N::translate('Individual') ?>
+            &larr; <?= MoreI18N::xlate('Individual') ?>
         </a>
     </div>
 

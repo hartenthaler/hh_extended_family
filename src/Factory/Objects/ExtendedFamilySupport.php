@@ -29,6 +29,7 @@ use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Registry;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
 
 // string functions
 use function e;
@@ -83,12 +84,12 @@ class ExtendedFamilySupport
     public static function coreRelationshipLabels(): object
     {
         return (object)[
-            'brother'  => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Brother'),
-            'child'    => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Child'),
-            'daughter' => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Daughter'),
-            'sibling'  => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Sibling'),
-            'sister'   => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Sister'),
-            'son'      => /* I18N: This is a webtrees core relationship label; no module-specific translation is needed. */ I18N::translate('Son'),
+            'brother'  => MoreI18N::xlate('Brother'),
+            'child'    => MoreI18N::xlate('Child'),
+            'daughter' => MoreI18N::xlate('Daughter'),
+            'sibling'  => MoreI18N::xlate('Sibling'),
+            'sister'   => MoreI18N::xlate('Sister'),
+            'son'      => MoreI18N::xlate('Son'),
         ];
     }
 
@@ -136,13 +137,15 @@ class ExtendedFamilySupport
             'siblings_in_law'        => ['generation' =>  0, 'relationshipCoefficient' => 0],
             'co_siblings_in_law'     => ['generation' =>  0, 'relationshipCoefficient' => 0],
             'cousins'                => ['generation' =>  0, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Cousins::GROUP_COUSINS_FULL_BIO],
-            'nephews_and_nieces'     => ['generation' => -1, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING],
             'children'               => ['generation' => -1, 'relationshipCoefficient' => 0.5,   'relationshipCoefficientComment' => Children::GROUP_CHILDREN_BIO],
             'children_in_law'        => ['generation' => -1, 'relationshipCoefficient' => 0],
+            'nephews_and_nieces'     => ['generation' => -1, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING],
+            'grandnephews_nieces'    => ['generation' => -2, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Grandnephews_nieces::GROUP_GRANDNEPHEW_NIECES_CHILD_FULL],
             'grandchildren'          => ['generation' => -2, 'relationshipCoefficient' => 0.25,  'relationshipCoefficientComment' => Grandchildren::GROUP_GRANDCHILDREN_BIO],
             'grandchildren_in_law'   => ['generation' => -2, 'relationshipCoefficient' => 0],
             'great_grandchildren'    => ['generation' => -3, 'relationshipCoefficient' => 0.125, 'relationshipCoefficientComment' => Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIOLOGICAL],
             'great_grandchild_in_law' => ['generation' => -3, 'relationshipCoefficient' => 0],
+            'godparents_witnesses'   => ['generation' =>  0, 'relationshipCoefficient' => 0],
        ];
     }
 
@@ -175,6 +178,7 @@ class ExtendedFamilySupport
             'grandchildren'          => 2,
             'uncles_and_aunts'       => 2,
             'nephews_and_nieces'     => 2,
+            'grandnephews_nieces'    => 3,
             'parents_in_law'         => 2,
             'children_in_law'        => 2,
             'siblings_in_law'        => 2,
@@ -188,6 +192,7 @@ class ExtendedFamilySupport
             'co_siblings_in_law'     => 3,
             'grandchildren_in_law'   => 3,
             'great_grandchild_in_law' => 4,
+            'godparents_witnesses'   => 2,
         ];
     }
 
@@ -199,6 +204,10 @@ class ExtendedFamilySupport
      */
     public static function formatGeneration(string $efp): string
     {
+        if ($efp === 'godparents_witnesses') {
+            return I18N::translate('all generations');
+        }
+
         $generation = ExtendedFamilySupport::getFamilyPartParameters()[$efp]['generation'];
         if ($generation > 0) {
             return '+' . strval($generation);
@@ -348,6 +357,17 @@ class ExtendedFamilySupport
             self::generateMultipleBirthLabel($child),
             self::generateAgeLabel($child),
         ]);
+    }
+
+    /**
+     * Generate a SOSA label for one or more Sosa-Stradonitz numbers.
+     *
+     * @param array<int,int> $sosaNumbers
+     * @return string
+     */
+    public static function generateSosaLabel(array $sosaNumbers): string
+    {
+        return I18N::translate('Sosa') . ' ' . implode(', ', array_map(static fn (int $number): string => I18N::number($number), $sosaNumbers));
     }
 
     /**
@@ -777,11 +797,13 @@ class ExtendedFamilySupport
             'co_parents_in_law'       => I18N::translate('Co-parents-in-law'),
             'partners'                => I18N::translate('Partners'),
             'partner_chains'          => I18N::translate('Partner chains'),
+            'godparents_witnesses'    => I18N::translate('Godparents and witnesses'),
             'siblings'                => I18N::translate('Siblings'),
             'siblings_in_law'         => I18N::translate('Siblings-in-law'),
             'co_siblings_in_law'      => I18N::translate('Co-siblings-in-law'),
             'cousins'                 => I18N::translate('Cousins'),
             'nephews_and_nieces'      => I18N::translate('Nephews and Nieces'),
+            'grandnephews_nieces'     => I18N::translate('Grandnephews and Grandnieces'),
             'children'                => I18N::translate('Children'),
             'children_in_law'         => I18N::translate('Children-in-law'),
             'grandchildren'           => I18N::translate('Grandchildren'),
@@ -814,11 +836,13 @@ class ExtendedFamilySupport
             'co_parents_in_law'       => I18N::translateContext('Family part name in sentence', 'co-parents-in-law'),
             'partners'                => I18N::translateContext('Family part name in sentence', 'partners'),
             'partner_chains'          => I18N::translateContext('Family part name in sentence', 'partner chains'),
+            'godparents_witnesses'    => I18N::translateContext('Family part name in sentence', 'godparents and witnesses'),
             'siblings'                => I18N::translateContext('Family part name in sentence', 'siblings'),
             'siblings_in_law'         => I18N::translateContext('Family part name in sentence', 'siblings-in-law'),
             'co_siblings_in_law'      => I18N::translateContext('Family part name in sentence', 'co-siblings-in-law'),
             'cousins'                 => I18N::translateContext('Family part name in sentence', 'cousins'),
             'nephews_and_nieces'      => I18N::translateContext('Family part name in sentence', 'nephews and nieces'),
+            'grandnephews_nieces'     => I18N::translateContext('Family part name in sentence', 'grandnephews and grandnieces'),
             'children'                => I18N::translateContext('Family part name in sentence', 'children'),
             'children_in_law'         => I18N::translateContext('Family part name in sentence', 'children-in-law'),
             'grandchildren'           => I18N::translateContext('Family part name in sentence', 'grandchildren'),
@@ -840,12 +864,13 @@ class ExtendedFamilySupport
         return match ($comment) {
             Great_grandparents::GROUP_GREATGRANDPARENTS_BIO                   => I18N::translate('Biological great-grandparents'),
             Grandparents::GROUP_GRANDPARENTS_BIO                              => I18N::translate('Biological grandparents'),
-            Grandaunts_uncles::GROUP_GRANDAUNTUNCLE_FULL_BIO          => I18N::translate('Full siblings of biological grandparents'),
-            Uncles_and_aunts::GROUP_UNCLEAUNT_FULL_BIO                        => I18N::translate('Full siblings of biological parents'),
+            Grandaunts_uncles::GROUP_GRANDAUNTUNCLE_FULL_BIO                  => I18N::translate('Biological full siblings of biological grandparents'),
+            Uncles_and_aunts::GROUP_UNCLEAUNT_FULL_BIO                        => I18N::translate('Biological full siblings of biological parents'),
             Parents::GROUP_PARENTS_BIO                                        => I18N::translate('Biological parents'),
-            Siblings::GROUP_SIBLINGS_FULL                                     => I18N::translate('Full siblings'),
-            Cousins::GROUP_COUSINS_FULL_BIO                                   => I18N::translate('Children of full siblings of biological parents'),
-            Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING         => I18N::translate('Children of full siblings'),
+            Siblings::GROUP_SIBLINGS_FULL                                     => I18N::translate('Biological full siblings'),
+            Cousins::GROUP_COUSINS_FULL_BIO                                   => I18N::translate('Biological children of biological full siblings of biological parents'),
+            Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_FULLSIBLING         => I18N::translate('Biological children of biological full siblings'),
+            Grandnephews_nieces::GROUP_GRANDNEPHEW_NIECES_CHILD_FULL          => I18N::translate('Biological grandchildren of biological full siblings'),
             Children::GROUP_CHILDREN_BIO                                      => I18N::translate('Biological children'),
             Grandchildren::GROUP_GRANDCHILDREN_BIO                            => I18N::translate('Biological grandchildren'),
             Great_grandchildren::GROUP_GREATGRANDCHILDREN_BIOLOGICAL          => I18N::translate('Biological great-grandchildren'),
@@ -940,6 +965,10 @@ class ExtendedFamilySupport
             Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING => I18N::translate('Children of siblings'),
             Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING => I18N::translate('Siblings\' stepchildren'),
             Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER => I18N::translate('Children of siblings of partners'),
+            Grandnephews_nieces::GROUP_GRANDNEPHEW_NIECES_CHILD => I18N::translate('Children of nephews and nieces'),
+            Grandnephews_nieces::GROUP_GRANDNEPHEW_NIECES_SOCIAL_CHILD => I18N::translate('Social children of nephews and nieces'),
+            Grandnephews_nieces::GROUP_GRANDNEPHEW_NIECES_STEPCHILD => I18N::translate('Stepchildren of nephews and nieces'),
+            Godparents_witnesses::GROUP_LINKED_PERSONS          => I18N::translate('Godparents, witnesses, and other linked persons'),
             Grandchildren::GROUP_GRANDCHILDREN_CHILD_SOCIAL      => I18N::translate('Children of social children'),
             Grandchildren::GROUP_GRANDCHILDREN_SOCIAL_CHILD      => I18N::translate('Social children of children'),
             Grandchildren::GROUP_GRANDCHILDREN_STEP_CHILD        => I18N::translate('Stepchildren of children'),
@@ -988,7 +1017,7 @@ class ExtendedFamilySupport
             'year-date'  => I18N::translateContext('Date range: year to date', 'The known dates range from %1$s to %2$s.', $startDate, $endDate),
             'date-year'  => I18N::translateContext('Date range: date to year', 'The known dates range from %1$s to %2$s.', $startDate, $endDate),
             'date-date'  => I18N::translateContext('Date range: date to date', 'The known dates range from %1$s to %2$s.', $startDate, $endDate),
-            default      => I18N::translateContext('Date range: date to date', 'The known dates range from %1$s to %2$s.', $startDate, $endDate ?? /* I18N: This is a webtrees core date string; no module-specific translation is needed. */ I18N::translate('today')),
+            default      => I18N::translateContext('Date range: date to date', 'The known dates range from %1$s to %2$s.', $startDate, $endDate ?? MoreI18N::xlate('today')),
         };
     }
 }

@@ -33,13 +33,13 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                         <?php include __DIR__ . '/grouped-headings/family-reference.phtml'; ?>
                     <?php elseif ($propName == 'co_siblings_in_law'): ?>
                         <?php include __DIR__ . '/grouped-headings/co-siblings-in-law.phtml'; ?>
-                    <?php elseif ($propName == 'siblings' || $propName == 'cousins' || $propName == 'children' || $propName == 'grandchildren' || $propName == 'great_grandchildren'): ?>
+                    <?php elseif ($propName == 'siblings' || $propName == 'cousins' || $propName == 'grandnephews_nieces' || $propName == 'children' || $propName == 'grandchildren' || $propName == 'great_grandchildren'): ?>
                         <?php include __DIR__ . '/grouped-headings/child-family.phtml'; ?>
                     <?php endif ?>
                     <div class="wt-chart-box-<?= strtolower($indi->sex()) ?>">
                         <?php if ($indi->canShow()): ?>
                             <?php if ($extfam_obj->config->showThumbnail): ?>
-                                <div class="wt-chart-box-thumbnail float-start mr-1"><?= $indi->displayImage($extfam_obj->config->sizeThumbnailW, $extfam_obj->config->sizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
+                                <div class="wt-chart-box-thumbnail float-start mr-1" style="--hh-thumbnail-width: <?= $extfam_obj->config->sizeThumbnailW ?>px; --hh-thumbnail-height: <?= $extfam_obj->config->sizeThumbnailH ?>px;"><?= $indi->displayImage($extfam_obj->config->sizeThumbnailW, $extfam_obj->config->sizeThumbnailH, 'crop', ['class' => 'wt-chart-box-thumbnail']) ?></div>
                             <?php endif ?>
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
@@ -53,6 +53,11 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                             <?php endif ?>
                             <?php if ($extfam_obj->config->showLabels && $entry->labels): ?>
                                 <?php foreach ($entry->labels as $label): ?>
+                                    <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
+                                <?php endforeach ?>
+                            <?php endif ?>
+                            <?php if ($extfam_obj->config->showSosaNumbers && $entry->sosaLabels): ?>
+                                <?php foreach ($entry->sosaLabels as $label): ?>
                                     <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
                                 <?php endforeach ?>
                             <?php endif ?>

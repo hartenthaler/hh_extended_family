@@ -63,13 +63,15 @@ The module supports
 
 * configurable family parts and display order
 * compact and enriched layouts
-* optional thumbnail, birth, and death information
+* optional thumbnail, birth, and death information with configurable thumbnail size
 * optional labels with generation shift and coefficient of relationship
 * optional labels for special situations, such as adopted child, foster child, triplet, stillborn, infant death, challenged linkage, Levirate, and Sororate
+* optional SOSA labels for the proband and biological ancestors
 * relationship grouping that distinguishes biological, social, and step relationships where the underlying GEDCOM data provides this information
 * optional summary counts
 * optional summary statistics for selected direct-line generations, including ancestor/descendant rows, biological counts, generation length, lifespan, oldest persons, and detected ancestor/descendant implex
 * optional handling of partner chains
+* optional family part for godparents, witnesses, and other linked persons from `ASSO`, `_ASSO`, and configured proprietary event tags
 * optional print/PDF button that opens a print-optimized view for the currently selected filter
 * optional "copy to clippings cart" action with support for huhwt-cce or the module's internal fallback action
 * optional mouseover information for each shown person's relationship path to the proband
@@ -92,6 +94,7 @@ The labels `Levirate` and `Sororate` are derived from the computed family contex
 ## 👥 Family parts
 
 The default presentation order is based on the generation shift relative to the proband.
+The special family part for godparents, witnesses, and other linked persons is generation-independent and is placed at the end.
 
 * great-grandparents: generation +3
 * grandparents: generation +2
@@ -106,15 +109,23 @@ The default presentation order is based on the generation shift relative to the 
 * siblings-in-law: generation 0
 * co-siblings-in-law: generation 0
 * cousins: generation 0
-* nephews and nieces: generation -1
 * children: generation -1
 * children-in-law: generation -1
+* nephews and nieces: generation -1
+* grandnephews and grandnieces: generation -2
 * grandchildren: generation -2
 * grandchildren-in-law: generation -2
 * great-grandchildren: generation -3
 * great-grandchildren-in-law: generation -3
+* godparents, witnesses, and other linked persons: all generations
 
 Every family part can be enabled, disabled, and reordered in the webtrees control panel.
+
+The family part "godparents and witnesses" also searches configured proprietary name tags in
+individual and family events.
+The initial list is `_GODP`, `_WITN`, `_WITNESS`, `_SPON`, and `_SPONSOR`.
+It has its own counters, including sex/gender counts, but its entries are not included in the total number of extended-family members.
+The generation and relationship-coefficient badges are not shown for this family part because linked people can belong to any generation.
 
 <a name="Configuration"></a>
 ## ⚙️ Configuration
@@ -131,7 +142,8 @@ The most important settings are
 * whether extended summary statistics are displayed
 * whether partner chains count toward totals
 * whether the compact or enriched design is used
-* whether labels and relationship parameters are displayed
+* which thumbnail size is used in the enriched design
+* whether labels, SOSA numbers, and relationship parameters are displayed
 * whether relationship-path mouseover information is available for shown people
 * how place names are displayed in event boxes
 * whether the Print/PDF button is available

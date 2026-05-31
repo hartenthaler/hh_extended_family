@@ -1,0 +1,63 @@
+<?php
+
+use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\AssociatedPersonEntry;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+
+/**
+ * @var object $extfam_obj
+ * @var object $filterObj
+ * @var string $propName
+ */
+
+?>
+
+        <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
+            <div class="hh_extended_family_box hh-extended-family-associated-persons">
+                <h4><?= ExtendedFamilySupport::translateGroupName($group->groupName); ?>&nbsp;(<?= count($group->entries) ?>)</h4>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th><?= I18N::translate('Person or name') ?></th>
+                            <th><?= I18N::translate('Role') ?></th>
+                            <th><?= I18N::translate('Event') ?></th>
+                            <th><?= I18N::translate('Linked with') ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($group->entries as $entry): ?>
+                            <?php if (!$entry instanceof AssociatedPersonEntry) { continue; } ?>
+                            <tr>
+                                <td>
+                                    <?php if ($entry->associatedIndividual instanceof Individual): ?>
+                                        <?php if ($entry->associatedIndividual->canShow()): ?>
+                                            <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($entry->associatedIndividual, $extfam_obj->proband->indi) : '' ?>
+                                            <a href="<?= e($entry->associatedIndividual->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $entry->associatedIndividual->fullName() ?></a>
+                                        <?php else: ?>
+                                            <?= $entry->associatedIndividual->fullName() ?>
+                                        <?php endif ?>
+                                    <?php else: ?>
+                                        <?= e($entry->associatedName) ?>
+                                    <?php endif ?>
+                                </td>
+                                <td><?= e($entry->role) ?></td>
+                                <td><?= e($entry->event) ?></td>
+                                <td>
+                                    <?php if ($entry->referenceIndividual instanceof Individual): ?>
+                                        <?= ExtendedFamilySupport::individualLink($entry->referenceIndividual) ?>
+                                    <?php elseif ($entry->referenceFamily instanceof Family): ?>
+                                        <?php if ($entry->referenceFamily->canShow()): ?>
+                                            <a href="<?= e($entry->referenceFamily->url()) ?>"><?= $entry->referenceFamily->fullName() ?></a>
+                                        <?php else: ?>
+                                            <?= $entry->referenceFamily->fullName() ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php endforeach ?>

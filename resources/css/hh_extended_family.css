@@ -83,6 +83,30 @@
     width: 99%;
 }
 
+#hh_extended_family_content div.wt-chart-box-thumbnail {
+    height: var(--hh-thumbnail-height, 100px);
+    margin-right: 0.5rem;
+    margin-inline-end: 0.5rem;
+    min-width: var(--hh-thumbnail-width, 66px);
+    overflow: hidden;
+    text-align: center;
+    width: var(--hh-thumbnail-width, 66px);
+}
+
+#hh_extended_family_content div.wt-chart-box-thumbnail > img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+#hh_extended_family_content div.wt-chart-box-thumbnail .icon-silhouette {
+    font-size: calc(var(--hh-thumbnail-height, 100px) * 0.9);
+    height: 100%;
+    line-height: var(--hh-thumbnail-height, 100px);
+    width: 100%;
+}
+
 /* Namen und XREF-Badges in den Summary-Überschriften in der Textzeile halten */
 #hh-extended-family-summary h3 .wt-icon-help,
 #hh-extended-family-summary h3 [class*="wt-icon"] {
@@ -251,7 +275,7 @@
 }
 
 @page {
-    size: A4 landscape;
+    size: landscape;
     margin: 12mm;
 }
 

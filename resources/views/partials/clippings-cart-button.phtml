@@ -43,9 +43,9 @@ if ($action_mode === 'cce') {
         <input type="hidden" name="return_url" value="<?= e($individual->url() . '#tab-' . $module) ?>">
     <?php endif ?>
     <button type="submit"
-            class="btn btn-primary btn-sm"
+            class="btn btn-secondary btn-sm"
             title="<?= I18N::translate("copy all members of the extended family to the clippings cart") ?>">
         <?= view('icons/copy') ?>
-        <?= I18N::translate("copy to clippings cart") ?>
+        <?= I18N::translate("Copy to clippings cart") ?>
     </button>
 </form>

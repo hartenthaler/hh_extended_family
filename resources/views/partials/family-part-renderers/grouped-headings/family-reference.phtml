@@ -4,6 +4,7 @@ use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
 
 /**
  * @var object     $entry
@@ -70,8 +71,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                                             default => I18N::translate('Grandparent'),
                                         }
                                         : match ($referencePerson?->sex()) {
-                                            'M'     => I18N::translate('Father'),
-                                            'F'     => I18N::translate('Mother'),
+                                            'M'     => MoreI18N::xlate('Father'),
+                                            'F'     => MoreI18N::xlate('Mother'),
                                             default => I18N::translate('Parent'),
                                         } ?>
                                     <?php $linkReferenceParent = $referencePerson instanceof Individual ? ExtendedFamilySupport::individualLink($referencePerson) : ($propName == 'grandaunts_uncles' ? I18N::translate('Grandparent') : I18N::translate('Parent')) ?>
@@ -93,8 +94,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                                             default => I18N::translate('Grandparent'),
                                         }
                                         : match ($referencePerson?->sex()) {
-                                            'M'     => I18N::translate('Father'),
-                                            'F'     => I18N::translate('Mother'),
+                                            'M'     => MoreI18N::xlate('Father'),
+                                            'F'     => MoreI18N::xlate('Mother'),
                                             default => I18N::translate('Parent'),
                                         } ?>
                                     <?php $linkReferenceParent = $referencePerson instanceof Individual ? $referencePerson->fullName() : ($propName == 'grandaunts_uncles' ? I18N::translate('Grandparent') : I18N::translate('Parent')) ?>

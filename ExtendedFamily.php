@@ -52,6 +52,7 @@ class ExtendedFamily
      *        ->countPartnerChainsToTotal           bool
      *        ->showShortName                       bool
      *        ->showLabels                          bool
+     *        ->showSosaNumbers                     bool
      *        ->showRelationshipToProband           bool
      *        ->useCompactDesign                    bool
      *        ->useClippingsCart                    bool
@@ -71,6 +72,11 @@ class ExtendedFamily
      * @var ExtendedFamilyProband $proband
      */
     public ExtendedFamilyProband $proband;
+
+    /**
+     * @var array<string,array<int,int>> SOSA numbers indexed by individual xref
+     */
+    private array $sosaNumbers = [];
         
     /**
      * @var $filters                                        array<string,ExtendedFamilyFilterResult> (index is filterOption)
@@ -119,7 +125,8 @@ class ExtendedFamily
         $this->proband = new ExtendedFamilyProband(
             $proband,
             ProbandName::findNiceName($proband, $this->config->showShortName),
-            ExtendedFamilySupport::generateChildLabels($proband)
+            ExtendedFamilySupport::generateChildLabels($proband),
+            $this->config->showSosaNumbers ? [ExtendedFamilySupport::generateSosaLabel([1])] : []
         );
     }
 
@@ -135,26 +142,32 @@ class ExtendedFamily
             $this->filters = [];
             foreach ($this->config->filterOptions as $filterOption) {
                 $extfamObj = new ExtendedFamilyFilterResult();
+                $familyParts = $this->buildFamilyPartsForFilter($filterOption);
                 foreach ($this->config->shownFamilyParts as $efp => $element) {
-                    if ($element->enabled) {
-                        $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption, $this->config->placeFormat);
-                        $extfamObj->efp->$efp = $efpO->getEfpObject();
-                        $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
+                    if (isset($familyParts[$efp])) {
+                        $extfamObj->efp->$efp = $familyParts[$efp];
+                        if ($efp !== 'godparents_witnesses') {
+                            $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
+                        }
                     }
                 }
+                $this->addSosaLabels($extfamObj);
                 $this->addSummaryData($extfamObj);
                 $this->filters[$filterOption] = $extfamObj;
             }
         } else {
             // build up structure for 'all'
             $extfamObj = new ExtendedFamilyFilterResult();
+            $familyParts = $this->buildFamilyPartsForFilter('all');
             foreach ($this->config->shownFamilyParts as $efp => $element) {
-                if ($element->enabled) {
-                    $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, 'all', $this->config->placeFormat);
-                    $extfamObj->efp->$efp = $efpO->getEfpObject();
-                    $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
+                if (isset($familyParts[$efp])) {
+                    $extfamObj->efp->$efp = $familyParts[$efp];
+                    if ($efp !== 'godparents_witnesses') {
+                        $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
+                    }
                 }
             }
+            $this->addSosaLabels($extfamObj);
             $this->addSummaryData($extfamObj);
             $this->filters['all'] = $extfamObj;
             // clone and reduce/filter this filtered object
@@ -167,6 +180,39 @@ class ExtendedFamily
                 }
             }
         }
+    }
+
+    /**
+     * Build enabled family parts for one filter.
+     *
+     * The associated-person family part depends on the other currently enabled
+     * family parts. It is therefore calculated after the normal family parts
+     * but inserted later in the configured display order.
+     *
+     * @param string $filterOption
+     * @return array<string,object>
+     */
+    private function buildFamilyPartsForFilter(string $filterOption): array
+    {
+        $familyParts = [];
+        $seedFamilyParts = new ExtendedFamilyPartSet();
+
+        foreach ($this->config->shownFamilyParts as $efp => $element) {
+            if (!$element->enabled || $efp === 'godparents_witnesses') {
+                continue;
+            }
+
+            $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption, $this->config->placeFormat);
+            $familyParts[$efp] = $efpO->getEfpObject();
+            $seedFamilyParts->$efp = $familyParts[$efp];
+        }
+
+        if ($this->config->shownFamilyParts['godparents_witnesses']->enabled ?? false) {
+            $efpO = new Godparents_witnesses($this->proband->indi, $filterOption, $this->config->placeFormat, $seedFamilyParts);
+            $familyParts['godparents_witnesses'] = $efpO->getEfpObject();
+        }
+
+        return $familyParts;
     }
 
     /**
@@ -183,6 +229,119 @@ class ExtendedFamily
         $extendedFamily->efp->summary->allCountUnique = $individuals->count();
         $extendedFamily->efp->summary->statistics = $this->summaryStatistics($individuals);
         $extendedFamily->efp->summary->lineageStatistics = $this->lineageStatistics($extendedFamily);
+    }
+
+    /**
+     * Add SOSA labels to biological ancestors in one filtered result.
+     *
+     * @param ExtendedFamilyFilterResult $extendedFamily
+     * @return void
+     */
+    private function addSosaLabels(ExtendedFamilyFilterResult $extendedFamily): void
+    {
+        if (!$this->config->showSosaNumbers) {
+            return;
+        }
+
+        $sosaNumbers = $this->sosaNumbers();
+
+        foreach ($this->collectGroupEntries($extendedFamily) as $entry) {
+            $xref = $entry->individual->xref();
+
+            if (isset($sosaNumbers[$xref])) {
+                $entry->sosaLabels[] = ExtendedFamilySupport::generateSosaLabel($sosaNumbers[$xref]);
+            }
+        }
+    }
+
+    /**
+     * Collect all group entries from one filtered result.
+     *
+     * @param ExtendedFamilyFilterResult $extendedFamily
+     * @return array<int,GroupEntry>
+     */
+    private function collectGroupEntries(ExtendedFamilyFilterResult $extendedFamily): array
+    {
+        $entries = [];
+
+        foreach (ExtendedFamilySupport::listFamilyParts() as $familyPart) {
+            if (!isset($extendedFamily->efp->$familyPart->groups) || !is_iterable($extendedFamily->efp->$familyPart->groups)) {
+                continue;
+            }
+
+            foreach ($extendedFamily->efp->$familyPart->groups as $group) {
+                foreach ($group->entries ?? [] as $entry) {
+                    if ($entry instanceof GroupEntry) {
+                        $entries[] = $entry;
+                    }
+                }
+            }
+        }
+
+        return $entries;
+    }
+
+    /**
+     * SOSA numbers for the proband and biological ancestors shown by this module.
+     *
+     * @return array<string,array<int,int>>
+     */
+    private function sosaNumbers(): array
+    {
+        if ($this->sosaNumbers !== []) {
+            return $this->sosaNumbers;
+        }
+
+        $ancestors = [1 => $this->proband->indi];
+        $queue = [1];
+        $max = 2 ** 3;
+
+        while ($queue !== []) {
+            $sosaNumber = array_shift($queue);
+            $individual = $ancestors[$sosaNumber];
+            $this->sosaNumbers[$individual->xref()][] = $sosaNumber;
+
+            if ($sosaNumber >= $max) {
+                continue;
+            }
+
+            $family = $this->biologicalChildFamily($individual);
+
+            if ($family instanceof Family) {
+                if ($family->husband() instanceof Individual) {
+                    $ancestors[$sosaNumber * 2] = $family->husband();
+                    $queue[] = $sosaNumber * 2;
+                }
+
+                if ($family->wife() instanceof Individual) {
+                    $ancestors[$sosaNumber * 2 + 1] = $family->wife();
+                    $queue[] = $sosaNumber * 2 + 1;
+                }
+            }
+        }
+
+        foreach ($this->sosaNumbers as &$numbers) {
+            sort($numbers);
+        }
+
+        return $this->sosaNumbers;
+    }
+
+    /**
+     * First family in which the individual is linked as biological child.
+     *
+     * @param Individual $individual
+     * @return Family|null
+     */
+    private function biologicalChildFamily(Individual $individual): ?Family
+    {
+        foreach ($individual->childFamilies() as $family) {
+            if ($this->isBiologicalChildInFamily($individual, $family)) {
+                return $family;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -894,6 +1053,10 @@ class ExtendedFamily
                 continue;
             }
 
+            if ($propName === 'godparents_witnesses') {
+                continue;
+            }
+
             if ($propName === 'partner_chains') {
                 if ($this->config->countPartnerChainsToTotal && isset($propValue->collectionIndividuals) && is_iterable($propValue->collectionIndividuals)) {
                     foreach ($propValue->collectionIndividuals as $individual) {
@@ -913,7 +1076,7 @@ class ExtendedFamily
                 }
 
                 foreach ($group->entries as $entry) {
-                    $individual = $entry->individual ?? null;
+                    $individual = $entry->individual ?? $entry->associatedIndividual ?? null;
                     $this->addIndividualToCollection($collection, $individual);
                 }
             }
@@ -939,6 +1102,10 @@ class ExtendedFamily
                 continue;
             }
 
+            if ($propName === 'godparents_witnesses') {
+                continue;
+            }
+
             if ($propName === 'partner_chains') {
                 if ($this->config->countPartnerChainsToTotal && isset($propValue->collectionFamilies) && is_iterable($propValue->collectionFamilies)) {
                     foreach ($propValue->collectionFamilies as $family) {
@@ -955,7 +1122,7 @@ class ExtendedFamily
             foreach ($propValue->groups as $group) {
                 if (isset($group->entries) && is_iterable($group->entries)) {
                     foreach ($group->entries as $entry) {
-                        $family = $entry->family ?? null;
+                        $family = $entry->family ?? $entry->referenceFamily ?? null;
                         $this->addFamilyToCollection($collection, $family);
                     }
                 }
