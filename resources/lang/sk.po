@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
-"POT-Creation-Date: 2026-05-31 21:49+0200\n"
+"POT-Creation-Date: 2026-06-01 12:42+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -29,11 +29,15 @@ msgid "large"
 msgstr ""
 
 #: ExtendedFamilyTabModule.php:745
+#, fuzzy
+#| msgid ""
+#| "The custom module “huhwt-cce” is not available. The button “copy to "
+#| "clippings cart” will use the internal Extended Family action."
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “Copy to "
 "clippings cart” will use the internal Extended Family action."
 msgstr ""
-"Užívateľský modul “huhwt-cce” nie je prístupný. Tlačidlo \"Kopírovať do "
+"Užívateľský modul “huhwt-cce” nie je prístupný. Tlačidlo \"kopírovať do "
 "schránky výstrižkov\" použije internú akciu modulu širšia rodina."
 
 #: ExtendedFamilyTabModule.php:755
@@ -41,9 +45,11 @@ msgid ""
 "Vesta relationship names are not available. Mouse-over text for "
 "relationships to the proband will not be shown."
 msgstr ""
+"Názvy vzťahov z modulov Vesty nie sú k dispozícii. Po nastavení myši na "
+"osobu sa nezobrazí text so vzťahom k probandovi."
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:765 ExtendedFamilyTabModule.php:934
+#: ExtendedFamilyTabModule.php:765 ExtendedFamilyTabModule.php:937
 msgid "Extended family"
 msgstr "Širšia rodina"
 
@@ -52,49 +58,65 @@ msgstr "Širšia rodina"
 msgid "A tab showing the extended family of an individual."
 msgstr "Záložka širšej rodiny danej osoby."
 
-#: ExtendedFamilyTabModule.php:956
+#: ExtendedFamilyTabModule.php:959
 msgid "The selected tree could not be found."
 msgstr "Zvolený rodokmeň sa nenašiel."
 
-#: ExtendedFamilyTabModule.php:963
+#: ExtendedFamilyTabModule.php:966
 msgid "The selected individual could not be found."
 msgstr "Zvolená osoba sa nenašla."
 
-#: ExtendedFamilyTabModule.php:988
+#: ExtendedFamilyTabModule.php:991
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"
 msgstr "Širšia rodina sa skopírovala do schránky výstrižkov. Nové záznamy: %s"
 
-#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:255
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:289
 msgid "Record"
 msgstr ""
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:266
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:300
 #, fuzzy
 #| msgid "Grandparents"
 msgid "Godparent"
 msgstr "Starí rodičia"
 
-#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:267
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:301
+msgid "Confirmation godparent"
+msgstr ""
+
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:302
 msgid "Witness"
 msgstr ""
 
-#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:268
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:303
+msgid "Witness of marriage"
+msgstr ""
+
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:304
+msgid "Priest"
+msgstr ""
+
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:305
 msgid "Sponsor"
 msgstr ""
 
-#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:269
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:306
 msgid "Employer"
 msgstr ""
 
-#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:270
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:307
 msgid "Landlord"
 msgstr ""
 
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:308
+msgid "Neighbor"
+msgstr ""
+
 # Migrated from ExtendedFamilyTranslations.php.old
-#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:271
+#: src/Factory/ExtendedFamilyParts/Godparents_witnesses.php:309
 #, fuzzy
 #| msgid "a dead person"
 msgid "Associated person"
@@ -102,11 +124,11 @@ msgstr "zosnulá osoba"
 
 #: src/Factory/ExtendedFamilyParts/Partners.php:180
 msgid "Levirate"
-msgstr ""
+msgstr "Levirát"
 
 #: src/Factory/ExtendedFamilyParts/Partners.php:181
 msgid "Sororate"
-msgstr ""
+msgstr "Sororát"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:208
 #, fuzzy
@@ -120,59 +142,59 @@ msgstr ""
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:500
 msgid "Linkage challenged"
-msgstr ""
+msgstr "Vzťah spochybnený"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:503
 msgid "Linkage disproven"
-msgstr ""
+msgstr "Vzťah vyvrátený"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:506
 msgid "Linkage proven"
-msgstr ""
+msgstr "Vzťah potvrdený"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:552
 msgid "Twin"
-msgstr ""
+msgstr "Dvojča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:553
 msgid "Triplet"
-msgstr ""
+msgstr "Trojča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:554
 msgid "Quadruplet"
-msgstr ""
+msgstr "Štvorča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:555
 msgid "Quintuplet"
-msgstr ""
+msgstr "Pätorča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:556
 msgid "Sextuplet"
-msgstr ""
+msgstr "Šestorča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:557
 msgid "Septuplet"
-msgstr ""
+msgstr "Sedmorča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:558
 msgid "Octuplet"
-msgstr ""
+msgstr "Osmorča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:559
 msgid "Nonuplet"
-msgstr ""
+msgstr "Devätorča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:560
 msgid "Decuplet"
-msgstr ""
+msgstr "Ddesatorča"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:578
 msgid "Stillborn"
-msgstr ""
+msgstr "Mŕtvonarodené"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:581
 msgid "Died as infant"
-msgstr ""
+msgstr "Umrel/a ako dieťa"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:618
 msgid "divorced"
@@ -294,12 +316,12 @@ msgstr "Súrodenci"
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:802
 msgid "Siblings-in-law"
-msgstr "Švagriné a švagrovia"
+msgstr "Švagrovia a švagriné"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:803
 msgid "Co-siblings-in-law"
-msgstr "Súrodenci a manželia švagrov a švagrín"
+msgstr "Súrodenci a partneri švagrov a švagrín"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:804
@@ -312,9 +334,10 @@ msgstr "Synovci a netere"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:806
 #, fuzzy
-#| msgid "Nephews and Nieces"
+#| msgctxt "Family part name in sentence"
+#| msgid "nephews and nieces"
 msgid "Grandnephews and Grandnieces"
-msgstr "Synovci a netere"
+msgstr "synovci a netere"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:807
@@ -324,7 +347,7 @@ msgstr "Deti"
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:808
 msgid "Children-in-law"
-msgstr "Nevesty a zaťovia"
+msgstr "Zaťovia a nevesty"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:809
@@ -333,7 +356,7 @@ msgstr "Vnúčatá"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:810
 msgid "Great-grandchildren"
-msgstr "Pradeti"
+msgstr "Pravnúčatá"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:811
@@ -342,17 +365,17 @@ msgstr "Partneri vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:812
 msgid "Great-grandchildren-in-law"
-msgstr "Partneri pradetí"
+msgstr "Partneri pravnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:829
 msgctxt "Family part name in sentence"
 msgid "great-grandparents"
-msgstr ""
+msgstr "prastarí rodičia"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:830
 msgctxt "Family part name in sentence"
 msgid "grandparents"
-msgstr ""
+msgstr "starí rodičia"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:831
 msgctxt "Family part name in sentence"
@@ -362,37 +385,37 @@ msgstr ""
 #: src/Factory/Objects/ExtendedFamilySupport.php:832
 msgctxt "Family part name in sentence"
 msgid "uncles and aunts"
-msgstr ""
+msgstr "strýkovia a tety"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:833
 msgctxt "Family part name in sentence"
 msgid "uncles and aunts by marriage"
-msgstr ""
+msgstr "strýkovia a tety získané manželstvom"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:834
 msgctxt "Family part name in sentence"
 msgid "parents"
-msgstr ""
+msgstr "rodičia"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:835
 msgctxt "Family part name in sentence"
 msgid "parents-in-law"
-msgstr ""
+msgstr "svokrovci"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:836
 msgctxt "Family part name in sentence"
 msgid "co-parents-in-law"
-msgstr ""
+msgstr "svatovci"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:837
 msgctxt "Family part name in sentence"
 msgid "partners"
-msgstr ""
+msgstr "partneri"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:838
 msgctxt "Family part name in sentence"
 msgid "partner chains"
-msgstr ""
+msgstr "zreťazenie partnerov"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:839
 msgctxt "Family part name in sentence"
@@ -402,64 +425,65 @@ msgstr ""
 #: src/Factory/Objects/ExtendedFamilySupport.php:840
 msgctxt "Family part name in sentence"
 msgid "siblings"
-msgstr ""
+msgstr "súrodenci"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:841
 msgctxt "Family part name in sentence"
 msgid "siblings-in-law"
-msgstr ""
+msgstr "švagriné a švagrovia"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:842
 msgctxt "Family part name in sentence"
 msgid "co-siblings-in-law"
-msgstr ""
+msgstr "súrodenci a partneri švagrov a švagrín"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:843
 msgctxt "Family part name in sentence"
 msgid "cousins"
-msgstr ""
+msgstr "bratranci a sesternice"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:844
 msgctxt "Family part name in sentence"
 msgid "nephews and nieces"
-msgstr ""
+msgstr "synovci a netere"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:845
 #, fuzzy
-#| msgid "Nephews and Nieces"
+#| msgctxt "Family part name in sentence"
+#| msgid "nephews and nieces"
 msgctxt "Family part name in sentence"
 msgid "grandnephews and grandnieces"
-msgstr "Synovci a netere"
+msgstr "synovci a netere"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:846
 msgctxt "Family part name in sentence"
 msgid "children"
-msgstr ""
+msgstr "deti"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:847
 msgctxt "Family part name in sentence"
 msgid "children-in-law"
-msgstr ""
+msgstr "nevesty a zaťovia"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:848
 msgctxt "Family part name in sentence"
 msgid "grandchildren"
-msgstr ""
+msgstr "vnúčatá"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:849
 msgctxt "Family part name in sentence"
 msgid "great-grandchildren"
-msgstr ""
+msgstr "pravnúčatá"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:850
 msgctxt "Family part name in sentence"
 msgid "grandchildren-in-law"
-msgstr ""
+msgstr "partneri vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:851
 msgctxt "Family part name in sentence"
 msgid "great-grandchildren-in-law"
-msgstr ""
+msgstr "partneri pravnúčat"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:865
@@ -474,16 +498,16 @@ msgstr "Biologickí starí rodičia"
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:867
 #, fuzzy
-#| msgid "Full siblings of biological parents"
+#| msgid "Children of full siblings of biological parents"
 msgid "Biological full siblings of biological grandparents"
-msgstr "Pokrvní súrodenci biologických rodičov"
+msgstr "Deti súrodencov biologických rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:868
 #, fuzzy
 #| msgid "Full siblings of biological parents"
 msgid "Biological full siblings of biological parents"
-msgstr "Pokrvní súrodenci biologických rodičov"
+msgstr "Súrodenci biologických rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:869
@@ -495,7 +519,7 @@ msgstr "Biologickí rodičia"
 #, fuzzy
 #| msgid "Children of full siblings"
 msgid "Biological full siblings"
-msgstr "Deti vlastných súrodencov"
+msgstr "Deti súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:871
@@ -509,7 +533,7 @@ msgstr "Deti súrodencov biologických rodičov"
 #, fuzzy
 #| msgid "Children of full siblings"
 msgid "Biological children of biological full siblings"
-msgstr "Deti vlastných súrodencov"
+msgstr "Deti súrodencov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:873
@@ -531,7 +555,7 @@ msgstr "Biologické vnúčatá"
 #: src/Factory/Objects/ExtendedFamilySupport.php:876
 #: src/Factory/Objects/ExtendedFamilySupport.php:982
 msgid "Biological great-grandchildren"
-msgstr "Biologické pradeti"
+msgstr "Biologické pravnúčatá"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:890
@@ -793,19 +817,19 @@ msgstr "Deti polovičných súrodencov jedného z rodičov"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:947
 msgid "Children of full siblings of social parents"
-msgstr ""
+msgstr "Deti súrodencov sociálnych rodičov"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:948
 msgid "Children of half siblings of social parents"
-msgstr ""
+msgstr "Deti polovičných súrodencov sociálnych rodičov"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:949
 msgid "Children of full siblings of stepparents"
-msgstr ""
+msgstr "Deti súrodencov nevlastných rodičov"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:950
 msgid "Children of half siblings of stepparents"
-msgstr ""
+msgstr "Deti polovičných súrodencov nevlastných rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:951
@@ -857,7 +881,7 @@ msgstr "Partneri vlastných detí"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:961
 msgid "Partners of social children"
-msgstr ""
+msgstr "Partneri sociálnych detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:962
@@ -887,26 +911,27 @@ msgstr "Nevlastné deti súrodencov"
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:967
 msgid "Children of siblings of partners"
-msgstr "Deti súrodencov partnera"
+msgstr "Deti súrodencov partnerov"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:968
 #, fuzzy
-#| msgid "Nephews and Nieces"
+#| msgctxt "Family part name in sentence"
+#| msgid "nephews and nieces"
 msgid "Children of nephews and nieces"
-msgstr "Synovci a netere"
+msgstr "synovci a netere"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:969
 #, fuzzy
-#| msgid "Social children of children"
+#| msgid "Social children of grandchildren"
 msgid "Social children of nephews and nieces"
-msgstr "Sociálne deti detí"
+msgstr "Sociálne deti vnúčat"
 
-# Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:970
 #, fuzzy
-#| msgid "Stepchildren of stepchildren"
+#| msgctxt "Family part name in sentence"
+#| msgid "nephews and nieces"
 msgid "Stepchildren of nephews and nieces"
-msgstr "Nevlastné deti nevlastných detí"
+msgstr "synovci a netere"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:971
 msgid "Godparents, witnesses, and other linked persons"
@@ -938,7 +963,7 @@ msgstr "Nevlastné deti nevlastných detí"
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:977
 msgid "Partners of biological grandchildren"
-msgstr "Partner biologického vnúčaťa"
+msgstr "Partneri biologických vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:978
 msgid "Partners of social children of children"
@@ -947,17 +972,17 @@ msgstr "Partneri sociálnych detí detí"
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:979
 msgid "Partners of stepchildren of children"
-msgstr "Partner nevlastného dieťaťa dieťaťa"
+msgstr "Partneri nevlastných detí detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:980
 msgid "Partners of children of stepchildren"
-msgstr "Partner dieťaťa nevlastného dieťaťa"
+msgstr "Partneri detí nevlastných detí"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:981
 msgid "Partners of stepchildren of stepchildren"
-msgstr "Partner nevlastného dieťaťa nevlastného dieťaťa"
+msgstr "Partneri nevlastných detí nevlastných detí"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:983
 msgid "Children of biological grandchildren"
@@ -965,7 +990,7 @@ msgstr "Deti biologických vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:984
 msgid "Social children of grandchildren"
-msgstr ""
+msgstr "Sociálne deti vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:985
 msgid "Children of social grandchildren"
@@ -977,43 +1002,43 @@ msgstr "Deti nevlastných vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:987
 msgid "Stepchildren of grandchildren"
-msgstr ""
+msgstr "Nevlastné deti vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:988
 msgid "Stepchildren of social grandchildren"
-msgstr ""
+msgstr "Nevlastné deti sociálnych vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:989
 msgid "Stepchildren of stepgrandchildren"
-msgstr ""
+msgstr "Nevlastné deti nevlastných vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:990
 msgid "Partners of biological great-grandchildren"
-msgstr ""
+msgstr "Partneri biologických pravnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:991
 msgid "Partners of social children of grandchildren"
-msgstr ""
+msgstr "Partneri sociálnych detí pravnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:992
 msgid "Partners of children of social grandchildren"
-msgstr ""
+msgstr "Partneri detí sociálnych vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:993
 msgid "Partners of children of stepgrandchildren"
-msgstr ""
+msgstr "Partneri detí nevlastných vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:994
 msgid "Partners of stepchildren of grandchildren"
-msgstr ""
+msgstr "Partneri nevlastných detí vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:995
 msgid "Partners of stepchildren of social grandchildren"
-msgstr ""
+msgstr "Partneri nevlastných detí sociálnych cnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:996
 msgid "Partners of stepchildren of stepgrandchildren"
-msgstr ""
+msgstr "Partneri nevlastných detí nevlastných vnúčat"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:1014
 #, php-format
@@ -1074,15 +1099,15 @@ msgstr "Mesto a 3 znakový ISO kód štátu"
 
 #: src/Factory/Objects/ProbandName.php:84
 msgid "Him"
-msgstr ""
+msgstr "Jeho"
 
 #: src/Factory/Objects/ProbandName.php:86
 msgid "Her"
-msgstr ""
+msgstr "Jej"
 
 #: src/Factory/Objects/ProbandName.php:88
 msgid "Him/her"
-msgstr ""
+msgstr "Jeho/jej"
 
 #: src/Factory/Objects/ProbandName.php:176
 msgid "He"
@@ -1105,17 +1130,19 @@ msgid "Mrs."
 msgstr "Pani"
 
 #: resources/views/partials/clippings-cart-button.phtml:47
-msgid "Copy all members of the extended family to the clippings cart"
-msgstr "Kopírovať všetkých členov širšej rodiny do schránky výstrižkov"
+msgid "copy all members of the extended family to the clippings cart"
+msgstr "kopírovať všetkých členov širšej rodiny do schránky výstrižkov"
 
 #: resources/views/partials/clippings-cart-button.phtml:49
+#, fuzzy
+#| msgid "copy to clippings cart"
 msgid "Copy to clippings cart"
-msgstr "Kopírovať do schránky výstrižkov"
+msgstr "kopírovať do schránky výstrižkov"
 
 #: resources/views/partials/empty-family-part.phtml:10
 #, php-format
 msgid "%s has no uncles or aunts recorded."
-msgstr "%s nemá zaznamenaného žiadneho strýka alebo tetu."
+msgstr "%s nemá zaznamenaných žiadnych strýkov alebo tety."
 
 #: resources/views/partials/empty-family-part.phtml:12
 #, php-format
@@ -1125,7 +1152,7 @@ msgstr "%s nemá zaznamenaných žiadnych strýkov a tety získaných sobášom.
 #: resources/views/partials/empty-family-part.phtml:14
 #, php-format
 msgid "%s has no members of a partner chain recorded."
-msgstr "%s nemá zaznamenaného žiadneho člena reťaze partnerov."
+msgstr "%s nemá zaznamenaného žiadnych členov reťaze partnerov."
 
 #: resources/views/partials/empty-family-part.phtml:16
 #, php-format
@@ -1188,12 +1215,12 @@ msgstr ""
 #: resources/views/partials/family-part-renderers/grouped-headings/child-family.phtml:36
 #, php-format
 msgid "connected with %s"
-msgstr ""
+msgstr "prepojený s %s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:33
 #: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:47
 msgid "Social child"
-msgstr ""
+msgstr "Sociálne dieťa"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/children-in-law.phtml:36
 msgid "Stepson"
@@ -1215,7 +1242,7 @@ msgstr "Nevlastné dieťa"
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:86
 #, php-format
 msgid "%1$s %2$s connected with %3$s"
-msgstr ""
+msgstr "%1$s %2$s prepojený s %3$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:30
 #: resources/views/partials/family-part-renderers/grouped-headings/co-siblings-in-law.phtml:37
@@ -1226,47 +1253,47 @@ msgstr "Partneri osoby %s"
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:35
 #, php-format
 msgid "%1$s %2$s connected with %3$s as social parents"
-msgstr ""
+msgstr "%1$s %2$s prepojený s %3$s ako sociálni rodičia"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:39
 #, php-format
 msgid "%1$s %2$s connected with %3$s as stepparents"
-msgstr ""
+msgstr "%1$s %2$s prepojený s %3$s ako nevlastní rodičia"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:46
 #, php-format
 msgid "%1$s %2$s, parents of stepfather %3$s"
-msgstr ""
+msgstr "%1$s %2$s, rodičia nevlastného otca %3$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:48
 #, php-format
 msgid "%1$s %2$s, parents of stepmother %3$s"
-msgstr ""
+msgstr "%1$s %2$s, rodičia nevlastnej matky %3$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:50
 #, php-format
 msgid "%1$s %2$s, parents of stepparent %3$s"
-msgstr ""
+msgstr "%1$s %2$s, rodičia nevlastných rodičov %3$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:56
 #, php-format
 msgid "%1$s %2$s connected with %3$s as grandparents"
-msgstr ""
+msgstr "%1$s %2$s prepojený s %3$s ako starí rodičia"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:58
 #, php-format
 msgid "%1$s %2$s, grandparents of stepfather %3$s"
-msgstr ""
+msgstr "%1$s %2$s, starí rodičia nevlastného otca %3$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:60
 #, php-format
 msgid "%1$s %2$s, grandparents of stepmother %3$s"
-msgstr ""
+msgstr "%1$s %2$s, starí rodičia nevlastnej matky %3$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:62
 #, php-format
 msgid "%1$s %2$s, grandparents of stepparent %3$s"
-msgstr ""
+msgstr "%1$s %2$s, starí rodičia nevlastného rodiča %3$s"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:69
@@ -1299,28 +1326,28 @@ msgstr "Starí rodičia"
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:99
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:101
 msgid "Parent"
-msgstr ""
+msgstr "Rodič"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:80
 #: resources/views/partials/family-part-renderers/grouped-headings/family-reference.phtml:102
 #, php-format
 msgid "%1$s of %2$s %3$s, %4$s %5$s"
-msgstr ""
+msgstr "%1$s osoby %2$s %3$s, %4$s %5$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/nephews-and-nieces.phtml:32
 #, php-format
 msgid "%1$s %2$s, %3$s with %4$s"
-msgstr ""
+msgstr "%1$s %2$s, %3$s s osobou %4$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/nephews-and-nieces.phtml:40
 #, php-format
 msgid "%1$s %2$s of partner %3$s, %4$s with %5$s"
-msgstr ""
+msgstr "%1$s %2$s partnera %3$s, %4$s s osobou %5$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/partners.phtml:19
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s osoby %2$s"
 
 #: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:43
 #, php-format
@@ -1347,33 +1374,34 @@ msgstr "Súrodenec osoby %2$s (%1$s)"
 #: resources/views/partials/family-part-renderers/grouped-headings/reference-person.phtml:68
 #, php-format
 msgid "Partner of %1$s sibling-in-law %2$s"
-msgstr ""
+msgstr "Partner osoby %1$s švagor (švagriná) %2$s"
 
 #: resources/views/partials/family-part-renderers/parents-in-law.phtml:23
 #: resources/views/partials/family-part-renderers/parents-in-law.phtml:25
 msgid "with"
-msgstr ""
+msgstr "s"
 
 #: resources/views/partials/family-part-renderers/partners.phtml:16
 msgid "Partner of"
 msgstr "Partner osoby"
 
-#: resources/views/partials/family-part-summary.phtml:19
+#: resources/views/partials/family-part-summary.phtml:21
 #, php-format
 msgid "%s has one great-grandmother recorded."
 msgstr "%s má zaznamenanú jednu prastarú matku."
 
-#: resources/views/partials/family-part-summary.phtml:21
+#: resources/views/partials/family-part-summary.phtml:23
 #, php-format
 msgid "%s has one great-grandfather recorded."
 msgstr "%s má zaznamenaného jedného prastarého otca."
 
-#: resources/views/partials/family-part-summary.phtml:23
+#: resources/views/partials/family-part-summary.phtml:25
 #, php-format
 msgid "%s has one great-grandparent of diverse or unknown sex recorded."
 msgstr ""
+"%s má zaznamenaného jedného prastarého rodiča iného alebo neznámeho pohlavia."
 
-#: resources/views/partials/family-part-summary.phtml:27
+#: resources/views/partials/family-part-summary.phtml:29
 #, php-format
 msgid "%2$s has %1$d great-grandmother recorded."
 msgid_plural "%2$s has %1$d great-grandmothers recorded."
@@ -1381,7 +1409,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d prastarú matku."
 msgstr[1] "%2$s má zaznamenané %1$d prastaré matky."
 msgstr[2] "%2$s má zaznamenaných %1$d prastarých matiek."
 
-#: resources/views/partials/family-part-summary.phtml:29
+#: resources/views/partials/family-part-summary.phtml:31
 #, php-format
 msgid "%2$s has %1$d great-grandfather recorded."
 msgid_plural "%2$s has %1$d great-grandfathers recorded."
@@ -1389,17 +1417,20 @@ msgstr[0] "%2$s má zaznamenaného %1$d prastarého otca."
 msgstr[1] "%2$s má zaznamenaných %1$d prastarých otcov."
 msgstr[2] "%2$s má zaznamenaných %1$d prastarých otcov."
 
-#: resources/views/partials/family-part-summary.phtml:31
+#: resources/views/partials/family-part-summary.phtml:33
 #, php-format
 msgid "%2$s has %1$d great-grandparent of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d great-grandparents of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d prastarého rodiča iného alebo neznámeho pohlavia."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d prastarých rodičov iného alebo neznámeho pohlavia."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d prastarých rodičov iného alebo neznámeho pohlavia."
 
-#: resources/views/partials/family-part-summary.phtml:33
-#: resources/views/partials/family-part-summary.phtml:36
+#: resources/views/partials/family-part-summary.phtml:35
+#: resources/views/partials/family-part-summary.phtml:38
 #, php-format
 msgid "%2$s has %1$d great-grandfather and"
 msgid_plural "%2$s has %1$d great-grandfathers and"
@@ -1407,7 +1438,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d prastarého otca a"
 msgstr[1] "%2$s má zaznamenaných %1$d prastarých otcov a"
 msgstr[2] "%2$s má zaznamenaných %1$d prastarých otcov a"
 
-#: resources/views/partials/family-part-summary.phtml:34
+#: resources/views/partials/family-part-summary.phtml:36
 #, php-format
 msgid "%d great-grandmother recorded (%d in total)."
 msgid_plural "%d great-grandmothers recorded (%d in total)."
@@ -1415,18 +1446,18 @@ msgstr[0] "%d prastarú matku (spolu %d)."
 msgstr[1] "%d prastaré matky (spolu %d)."
 msgstr[2] "%d prastarých matiek (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:37
-#: resources/views/partials/family-part-summary.phtml:40
-#: resources/views/partials/family-part-summary.phtml:44
+#: resources/views/partials/family-part-summary.phtml:39
+#: resources/views/partials/family-part-summary.phtml:42
+#: resources/views/partials/family-part-summary.phtml:46
 #, php-format
 msgid "%d great-grandparent of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d great-grandparents of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d prastarého rodiča iného alebo neznámeho pohlavia (spolu %d)."
+msgstr[1] "%d prastarých rodičov iného alebo neznámeho pohlavia (spolu %d)."
+msgstr[2] "%d prastarých rodičov iného alebo neznámeho pohlavia (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:39
+#: resources/views/partials/family-part-summary.phtml:41
 #, php-format
 msgid "%2$s has %1$d great-grandmother and"
 msgid_plural "%2$s has %1$d great-grandmothers and"
@@ -1434,7 +1465,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d prastarú matku a"
 msgstr[1] "%2$s má zaznamenané %1$d prastaré matky a"
 msgstr[2] "%2$s má zaznamenaných %1$d prastarých matiek a"
 
-#: resources/views/partials/family-part-summary.phtml:42
+#: resources/views/partials/family-part-summary.phtml:44
 #, php-format
 msgid "%2$s has %1$d great-grandfather,"
 msgid_plural "%2$s has %1$d great-grandfathers,"
@@ -1442,7 +1473,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d prastarého otca,"
 msgstr[1] "%2$s má zaznamenaných %1$d prastarých otcov,"
 msgstr[2] "%2$s má zaznamenaných %1$d prastarých otcov,"
 
-#: resources/views/partials/family-part-summary.phtml:43
+#: resources/views/partials/family-part-summary.phtml:45
 #, php-format
 msgid "%d great-grandmother, and"
 msgid_plural "%d great-grandmothers, and"
@@ -1450,22 +1481,23 @@ msgstr[0] "%d prastarú matku a"
 msgstr[1] "%d prastaré matky a"
 msgstr[2] "%d prastarých matiek a"
 
-#: resources/views/partials/family-part-summary.phtml:50
+#: resources/views/partials/family-part-summary.phtml:52
 #, php-format
 msgid "%s has one grandmother recorded."
 msgstr "%s má zaznamenanú jednu starú mamu."
 
-#: resources/views/partials/family-part-summary.phtml:52
+#: resources/views/partials/family-part-summary.phtml:54
 #, php-format
 msgid "%s has one grandfather recorded."
 msgstr "%s má zaznamenaného jedného starého otca."
 
-#: resources/views/partials/family-part-summary.phtml:54
+#: resources/views/partials/family-part-summary.phtml:56
 #, php-format
 msgid "%s has one grandparent of diverse or unknown sex recorded."
 msgstr ""
+"%s má zaznamenaného jedného starého rodiča iného alebo neznámeho pohlavia."
 
-#: resources/views/partials/family-part-summary.phtml:58
+#: resources/views/partials/family-part-summary.phtml:60
 #, php-format
 msgid "%2$s has %1$d grandmother recorded."
 msgid_plural "%2$s has %1$d grandmothers recorded."
@@ -1473,7 +1505,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d starú matku."
 msgstr[1] "%2$s má zaznamenané %1$d staré matky."
 msgstr[2] "%2$s má zaznamenaných %1$d starých matiek."
 
-#: resources/views/partials/family-part-summary.phtml:60
+#: resources/views/partials/family-part-summary.phtml:62
 #, php-format
 msgid "%2$s has %1$d grandfather recorded."
 msgid_plural "%2$s has %1$d grandfathers recorded."
@@ -1481,16 +1513,19 @@ msgstr[0] "%2$s má zaznamenaného %1$d starého otca."
 msgstr[1] "%2$s má zaznamenaných %1$d starých otcov."
 msgstr[2] "%2$s má zaznamenaných %1$d starých otcov."
 
-#: resources/views/partials/family-part-summary.phtml:62
+#: resources/views/partials/family-part-summary.phtml:64
 #, php-format
 msgid "%2$s has %1$d grandparent of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d grandparents of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d starého rodiča iného alebo neznámeho pohlavia."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d starých rodičov iného alebo neznámeho pohlavia."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d starých rodičov iného alebo neznámeho pohlavia."
 
-#: resources/views/partials/family-part-summary.phtml:64
-#: resources/views/partials/family-part-summary.phtml:67
+#: resources/views/partials/family-part-summary.phtml:66
+#: resources/views/partials/family-part-summary.phtml:69
 #, php-format
 msgid "%2$s has %1$d grandfather and"
 msgid_plural "%2$s has %1$d grandfathers and"
@@ -1498,7 +1533,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d starého otca a"
 msgstr[1] "%2$s má zaznamenaných %1$d starých otcov a"
 msgstr[2] "%2$s má zaznamenaných %1$d starých otcov a"
 
-#: resources/views/partials/family-part-summary.phtml:65
+#: resources/views/partials/family-part-summary.phtml:67
 #, php-format
 msgid "%d grandmother recorded (%d in total)."
 msgid_plural "%d grandmothers recorded (%d in total)."
@@ -1506,18 +1541,18 @@ msgstr[0] "%d starú matku (spolu %d)."
 msgstr[1] "%d staré matky (spolu %d)."
 msgstr[2] "%d starých matiek (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:68
-#: resources/views/partials/family-part-summary.phtml:71
-#: resources/views/partials/family-part-summary.phtml:75
+#: resources/views/partials/family-part-summary.phtml:70
+#: resources/views/partials/family-part-summary.phtml:73
+#: resources/views/partials/family-part-summary.phtml:77
 #, php-format
 msgid "%d grandparent of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d grandparents of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d starého rodiča iného alebo neznámeho pohlavia (spolu %d)."
+msgstr[1] "%d starých rodičov iného alebo neznámeho pohlavia (spolu %d)."
+msgstr[2] "%d starých rodičov iného alebo neznámeho pohlavia (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:70
+#: resources/views/partials/family-part-summary.phtml:72
 #, php-format
 msgid "%2$s has %1$d grandmother and"
 msgid_plural "%2$s has %1$d grandmothers and"
@@ -1525,7 +1560,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d starú matku a"
 msgstr[1] "%2$s má zaznamenané %1$d staré matky a"
 msgstr[2] "%2$s má zaznamenaných %1$d starých matiek a"
 
-#: resources/views/partials/family-part-summary.phtml:73
+#: resources/views/partials/family-part-summary.phtml:75
 #, php-format
 msgid "%2$s has %1$d grandfather,"
 msgid_plural "%2$s has %1$d grandfathers,"
@@ -1533,7 +1568,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d starého otca,"
 msgstr[1] "%2$s má zaznamenaných %1$d starých otcov,"
 msgstr[2] "%2$s má zaznamenaných %1$d starých otcov,"
 
-#: resources/views/partials/family-part-summary.phtml:74
+#: resources/views/partials/family-part-summary.phtml:76
 #, php-format
 msgid "%d grandmother, and"
 msgid_plural "%d grandmothers, and"
@@ -1541,25 +1576,25 @@ msgstr[0] "%d starú matku a"
 msgstr[1] "%d staré matky a"
 msgstr[2] "%d starých matiek a"
 
-#: resources/views/partials/family-part-summary.phtml:81
+#: resources/views/partials/family-part-summary.phtml:83
 #, fuzzy, php-format
 #| msgid "%s has one grandson recorded."
 msgid "%s has one grandaunt recorded."
 msgstr "%s má zaznamenaného jedného vnuka."
 
-#: resources/views/partials/family-part-summary.phtml:83
+#: resources/views/partials/family-part-summary.phtml:85
 #, fuzzy, php-format
 #| msgid "%s has one uncle recorded."
 msgid "%s has one granduncle recorded."
 msgstr "%s má zaznamenaného jedného strýka."
 
-#: resources/views/partials/family-part-summary.phtml:85
+#: resources/views/partials/family-part-summary.phtml:87
 #, fuzzy, php-format
-#| msgid "%s has one great-grandchild of unknown sex recorded."
+#| msgid "%s has one great-grandchild of diverse or unknown sex recorded."
 msgid "%s has one grandaunt or granduncle of diverse or unknown sex recorded."
-msgstr "%s má zaznamenané jedno pravnúča s neznámym pohlavím."
+msgstr "%s má zaznamenané jedno pravnúča s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:89
+#: resources/views/partials/family-part-summary.phtml:91
 #, fuzzy, php-format
 #| msgid "%2$s has %1$d grandson recorded."
 #| msgid_plural "%2$s has %1$d grandsons recorded."
@@ -1569,7 +1604,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d vnuka."
 msgstr[1] "%2$s má zaznamenaných %1$d vnukov."
 msgstr[2] "%2$s má zaznamenaných %1$d vnukov."
 
-#: resources/views/partials/family-part-summary.phtml:91
+#: resources/views/partials/family-part-summary.phtml:93
 #, fuzzy, php-format
 #| msgid "%2$s has %1$d uncle recorded."
 #| msgid_plural "%2$s has %1$d uncles recorded."
@@ -1579,20 +1614,22 @@ msgstr[0] "%2$s má zaznamenaného %1$d strýka."
 msgstr[1] "%2$s má zaznamenaných %1$d strýkov."
 msgstr[2] "%2$s má zaznamenaných %1$d strýkov."
 
-#: resources/views/partials/family-part-summary.phtml:93
+#: resources/views/partials/family-part-summary.phtml:95
 #, fuzzy, php-format
-#| msgid "%2$s has %1$d great-grandchild of unknown sex recorded."
-#| msgid_plural "%2$s has %1$d great-grandchildren of unknown sex recorded."
+#| msgid "%2$s has %1$d great-grandchild of diverse or unknown sex recorded."
+#| msgid_plural ""
+#| "%2$s has %1$d great-grandchildren of diverse or unknown sex recorded."
 msgid ""
 "%2$s has %1$d grandaunt or granduncle of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d grandaunts or granduncles of diverse or unknown sex recorded."
-msgstr[0] "%2$s má zaznamenané %1$d pravnúča s neznámym pohlavím."
-msgstr[1] "%2$s má zaznamenané %1$d pravnúčatá s neznámym pohlavím."
-msgstr[2] "%2$s má zaznamenaných %1$d pravnúčat s neznámym pohlavím."
+msgstr[0] "%2$s má zaznamenané %1$d pravnúča s iným alebo neznámym pohlavím."
+msgstr[1] "%2$s má zaznamenané %1$d pravnúčatá s iným alebo neznámym pohlavím."
+msgstr[2] ""
+"%2$s má zaznamenaných %1$d pravnúčat s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:95
-#: resources/views/partials/family-part-summary.phtml:98
+#: resources/views/partials/family-part-summary.phtml:97
+#: resources/views/partials/family-part-summary.phtml:100
 #, fuzzy, php-format
 #| msgid "%2$s has %1$d uncle and"
 #| msgid_plural "%2$s has %1$d uncles and"
@@ -1602,7 +1639,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d strýka a"
 msgstr[1] "%2$s má zaznamenaných %1$d strýkov a"
 msgstr[2] "%2$s má zaznamenaných %1$d strýkov a"
 
-#: resources/views/partials/family-part-summary.phtml:96
+#: resources/views/partials/family-part-summary.phtml:98
 #, fuzzy, php-format
 #| msgid "%d aunt recorded (%d in total)."
 #| msgid_plural "%d aunts recorded (%d in total)."
@@ -1612,22 +1649,24 @@ msgstr[0] "%d tetu (spolu %d)."
 msgstr[1] "%d tety (spolu %d)."
 msgstr[2] "%d tiet (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:99
-#: resources/views/partials/family-part-summary.phtml:102
-#: resources/views/partials/family-part-summary.phtml:106
+#: resources/views/partials/family-part-summary.phtml:101
+#: resources/views/partials/family-part-summary.phtml:104
+#: resources/views/partials/family-part-summary.phtml:108
 #, fuzzy, php-format
-#| msgid "%d great-grandchild of unknown sex recorded (%d in total)."
-#| msgid_plural "%d great-grandchildren of unknown sex recorded (%d in total)."
+#| msgid ""
+#| "%d great-grandchild of diverse or unknown sex recorded (%d in total)."
+#| msgid_plural ""
+#| "%d great-grandchildren of diverse or unknown sex recorded (%d in total)."
 msgid ""
 "%d grandaunt or granduncle of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d grandaunts or granduncles of diverse or unknown sex recorded (%d in "
 "total)."
-msgstr[0] "%d pravnúča s neznámym pohlavím (spolu %d)."
-msgstr[1] "%d pravnúčatá s neznámym pohlavím (spolu %d)."
-msgstr[2] "%d pravnúčat s neznámym pohlavím (spolu %d)."
+msgstr[0] "%d pravnúča s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d pravnúčatá s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d pravnúčat s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:101
+#: resources/views/partials/family-part-summary.phtml:103
 #, fuzzy, php-format
 #| msgid "%2$s has %1$d grandson and"
 #| msgid_plural "%2$s has %1$d grandsons and"
@@ -1637,7 +1676,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d vnuka a"
 msgstr[1] "%2$s má zaznamenaných %1$d vnukov a"
 msgstr[2] "%2$s má zaznamenaných %1$d vnukov a"
 
-#: resources/views/partials/family-part-summary.phtml:104
+#: resources/views/partials/family-part-summary.phtml:106
 #, fuzzy, php-format
 #| msgid "%2$s has %1$d uncle,"
 #| msgid_plural "%2$s has %1$d uncles,"
@@ -1647,7 +1686,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d strýka,"
 msgstr[1] "%2$s má zaznamenaných %1$d strýkov,"
 msgstr[2] "%2$s má zaznamenaných %1$d strýkov,"
 
-#: resources/views/partials/family-part-summary.phtml:105
+#: resources/views/partials/family-part-summary.phtml:107
 #, fuzzy, php-format
 #| msgid "%d granddaughter, and"
 #| msgid_plural "%d granddaughters, and"
@@ -1657,22 +1696,23 @@ msgstr[0] "%d vnučku a"
 msgstr[1] "%d vnučky a"
 msgstr[2] "%d vnučiek a"
 
-#: resources/views/partials/family-part-summary.phtml:112
+#: resources/views/partials/family-part-summary.phtml:114
 #, php-format
 msgid "%s has one aunt recorded."
 msgstr "%s má zaznamenanú jednu tetu."
 
-#: resources/views/partials/family-part-summary.phtml:114
+#: resources/views/partials/family-part-summary.phtml:116
 #, php-format
 msgid "%s has one uncle recorded."
 msgstr "%s má zaznamenaného jedného strýka."
 
-#: resources/views/partials/family-part-summary.phtml:116
+#: resources/views/partials/family-part-summary.phtml:118
 #, php-format
 msgid "%s has one uncle or aunt of diverse or unknown sex recorded."
 msgstr ""
+"%s má zaznamenaného jedného strýka alebo tetu s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:120
+#: resources/views/partials/family-part-summary.phtml:122
 #, php-format
 msgid "%2$s has %1$d aunt recorded."
 msgid_plural "%2$s has %1$d aunts recorded."
@@ -1680,7 +1720,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d tetu."
 msgstr[1] "%2$s má zaznamenané %1$d tety."
 msgstr[2] "%2$s má zaznamenaných %1$d tiet."
 
-#: resources/views/partials/family-part-summary.phtml:122
+#: resources/views/partials/family-part-summary.phtml:124
 #, php-format
 msgid "%2$s has %1$d uncle recorded."
 msgid_plural "%2$s has %1$d uncles recorded."
@@ -1688,17 +1728,20 @@ msgstr[0] "%2$s má zaznamenaného %1$d strýka."
 msgstr[1] "%2$s má zaznamenaných %1$d strýkov."
 msgstr[2] "%2$s má zaznamenaných %1$d strýkov."
 
-#: resources/views/partials/family-part-summary.phtml:124
+#: resources/views/partials/family-part-summary.phtml:126
 #, php-format
 msgid "%2$s has %1$d uncle or aunt of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d uncles or aunts of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d strýka alebo tetu s iným alebo neznámym pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d strýkov alebo tety s iným alebo neznámym pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d strýkov alebo tiet s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:126
-#: resources/views/partials/family-part-summary.phtml:129
+#: resources/views/partials/family-part-summary.phtml:128
+#: resources/views/partials/family-part-summary.phtml:131
 #, php-format
 msgid "%2$s has %1$d uncle and"
 msgid_plural "%2$s has %1$d uncles and"
@@ -1706,7 +1749,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d strýka a"
 msgstr[1] "%2$s má zaznamenaných %1$d strýkov a"
 msgstr[2] "%2$s má zaznamenaných %1$d strýkov a"
 
-#: resources/views/partials/family-part-summary.phtml:127
+#: resources/views/partials/family-part-summary.phtml:129
 #, php-format
 msgid "%d aunt recorded (%d in total)."
 msgid_plural "%d aunts recorded (%d in total)."
@@ -1714,18 +1757,18 @@ msgstr[0] "%d tetu (spolu %d)."
 msgstr[1] "%d tety (spolu %d)."
 msgstr[2] "%d tiet (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:130
-#: resources/views/partials/family-part-summary.phtml:133
-#: resources/views/partials/family-part-summary.phtml:137
+#: resources/views/partials/family-part-summary.phtml:132
+#: resources/views/partials/family-part-summary.phtml:135
+#: resources/views/partials/family-part-summary.phtml:139
 #, php-format
 msgid "%d uncle or aunt of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d uncles or aunts of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d strýka alebo tetu s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d strýkov alebo tety s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d strýkov alebo tiet s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:132
+#: resources/views/partials/family-part-summary.phtml:134
 #, php-format
 msgid "%2$s has %1$d aunt and"
 msgid_plural "%2$s has %1$d aunts and"
@@ -1733,7 +1776,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d tetu a"
 msgstr[1] "%2$s má zaznamenané %1$d tety a"
 msgstr[2] "%2$s má zaznamenaných %1$d tiet a"
 
-#: resources/views/partials/family-part-summary.phtml:135
+#: resources/views/partials/family-part-summary.phtml:137
 #, php-format
 msgid "%2$s has %1$d uncle,"
 msgid_plural "%2$s has %1$d uncles,"
@@ -1741,7 +1784,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d strýka,"
 msgstr[1] "%2$s má zaznamenaných %1$d strýkov,"
 msgstr[2] "%2$s má zaznamenaných %1$d strýkov,"
 
-#: resources/views/partials/family-part-summary.phtml:136
+#: resources/views/partials/family-part-summary.phtml:138
 #, php-format
 msgid "%d aunt, and"
 msgid_plural "%d aunts, and"
@@ -1749,23 +1792,25 @@ msgstr[0] "%d tetu a"
 msgstr[1] "%d tety a"
 msgstr[2] "%d tiet a"
 
-#: resources/views/partials/family-part-summary.phtml:143
+#: resources/views/partials/family-part-summary.phtml:145
 #, php-format
 msgid "%s has one aunt by marriage recorded."
 msgstr "%s má zaznamenanú jednu tetu získanú sobášom."
 
-#: resources/views/partials/family-part-summary.phtml:145
+#: resources/views/partials/family-part-summary.phtml:147
 #, php-format
 msgid "%s has one uncle by marriage recorded."
-msgstr "%s má zaznamenaného jedého strýka získaného sobášom."
+msgstr "%s má zaznamenaného jedného strýka získaného sobášom."
 
-#: resources/views/partials/family-part-summary.phtml:147
+#: resources/views/partials/family-part-summary.phtml:149
 #, php-format
 msgid ""
 "%s has one uncle or aunt by marriage of diverse or unknown sex recorded."
 msgstr ""
+"%smá zaznamenaného jedného strýka alebo tetu získaného manželstvom s iným, "
+"alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:151
+#: resources/views/partials/family-part-summary.phtml:153
 #, php-format
 msgid "%2$s has %1$d aunt by marriage recorded."
 msgid_plural "%2$s has %1$d aunts by marriage recorded."
@@ -1773,7 +1818,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d tetu získanú sobášom."
 msgstr[1] "%2$s má zaznamenané %1$d tety získané sobášom."
 msgstr[2] "%2$s má zaznamenaných %1$d tiet získaných sobášom."
 
-#: resources/views/partials/family-part-summary.phtml:153
+#: resources/views/partials/family-part-summary.phtml:155
 #, php-format
 msgid "%2$s has %1$d uncle by marriage recorded."
 msgid_plural "%2$s has %1$d uncles by marriage recorded."
@@ -1781,26 +1826,32 @@ msgstr[0] "%2$s má zaznamenaného %1$d strýka získaného sobášom."
 msgstr[1] "%2$s má zaznamenaných %1$d strýkov získaných sobášom."
 msgstr[2] "%2$s má zaznamenaných %1$d strýkov získaných sobášom."
 
-#: resources/views/partials/family-part-summary.phtml:155
+#: resources/views/partials/family-part-summary.phtml:157
 #, php-format
 msgid ""
 "%2$s has %1$d uncle or aunt by marriage of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d uncles or aunts by marriage of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d strýka alebo tetu získaného manželstvom s iným, "
+"alebo neznámym pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d strýkov alebo tety získaných manželstvom s iným, "
+"alebo neznámym pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d strýkov alebo tiet získaných manželstvom s iným, "
+"alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:157
-#: resources/views/partials/family-part-summary.phtml:160
+#: resources/views/partials/family-part-summary.phtml:159
+#: resources/views/partials/family-part-summary.phtml:162
 #, php-format
 msgid "%2$s has %1$d uncle by marriage and"
 msgid_plural "%2$s has %1$d uncles by marriage and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d strýka získaného manželstvom a"
+msgstr[1] "%2$s má zaznamenaných %1$d strýkov získaných manželstvom a"
+msgstr[2] "%2$s má zaznamenaných %1$d strýkov získaných manželstvom a"
 
-#: resources/views/partials/family-part-summary.phtml:158
+#: resources/views/partials/family-part-summary.phtml:160
 #, php-format
 msgid "%d aunt by marriage recorded (%d in total)."
 msgid_plural "%d aunts by marriage recorded (%d in total)."
@@ -1808,9 +1859,9 @@ msgstr[0] "%d tetu získanú manželstvom (spolu %d)."
 msgstr[1] "%d tety získané manželstvom (spolu %d)."
 msgstr[2] "%d tiet získaných manželstvom (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:161
-#: resources/views/partials/family-part-summary.phtml:164
-#: resources/views/partials/family-part-summary.phtml:168
+#: resources/views/partials/family-part-summary.phtml:163
+#: resources/views/partials/family-part-summary.phtml:166
+#: resources/views/partials/family-part-summary.phtml:170
 #, php-format
 msgid ""
 "%d uncle or aunt by marriage of diverse or unknown sex recorded (%d in "
@@ -1819,49 +1870,55 @@ msgid_plural ""
 "%d uncles or aunts by marriage of diverse or unknown sex recorded (%d in "
 "total)."
 msgstr[0] ""
+"%d strýka alebo tetu získaného manželstvom s iným alebo neznámym pohlavím "
+"(spolu %d)."
 msgstr[1] ""
+"%d strýkov alebo tety získaných manželstvom s iným alebo neznámym pohlavím "
+"(spolu %d)."
 msgstr[2] ""
+"%d strýkov alebo tiet získaných manželstvom s iným alebo neznámym pohlavím "
+"(spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:163
+#: resources/views/partials/family-part-summary.phtml:165
 #, php-format
 msgid "%2$s has %1$d aunt by marriage and"
 msgid_plural "%2$s has %1$d aunts by marriage and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenanú %1$d tetu získanú manželstvom a"
+msgstr[1] "%2$s má zaznamenané %1$d tety získané manželstvom a"
+msgstr[2] "%2$s má zaznamenaných %1$d tiet získané manželstvom a"
 
-#: resources/views/partials/family-part-summary.phtml:166
+#: resources/views/partials/family-part-summary.phtml:168
 #, php-format
 msgid "%2$s has %1$d uncle by marriage,"
 msgid_plural "%2$s has %1$d uncles by marriage,"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d strýka získaného manželstvom,"
+msgstr[1] "%2$s má zaznamenaných %1$d strýkov získaných manželstvom,"
+msgstr[2] "%2$s má zaznamenaných %1$d strýkov získaných manželstvom,"
 
-#: resources/views/partials/family-part-summary.phtml:167
+#: resources/views/partials/family-part-summary.phtml:169
 #, php-format
 msgid "%d aunt by marriage, and"
 msgid_plural "%d aunts by marriage, and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d tetu získanú manželstvom a"
+msgstr[1] "%d tety získané manželstvom a"
+msgstr[2] "%d tiet získaných manželstvom a"
 
-#: resources/views/partials/family-part-summary.phtml:174
+#: resources/views/partials/family-part-summary.phtml:176
 #, php-format
 msgid "%s has one mother recorded."
 msgstr "%s má zaznamenanú jednu matku."
 
-#: resources/views/partials/family-part-summary.phtml:176
+#: resources/views/partials/family-part-summary.phtml:178
 #, php-format
 msgid "%s has one father recorded."
 msgstr "%s má zaznamenaného jedného otca."
 
-#: resources/views/partials/family-part-summary.phtml:178
+#: resources/views/partials/family-part-summary.phtml:180
 #, php-format
 msgid "%s has one parent of diverse or unknown sex recorded."
-msgstr ""
+msgstr "%s má zaznamenaného jedného rodiča s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:182
+#: resources/views/partials/family-part-summary.phtml:184
 #, php-format
 msgid "%2$s has %1$d mother recorded."
 msgid_plural "%2$s has %1$d mothers recorded."
@@ -1869,7 +1926,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d matku."
 msgstr[1] "%2$s má zaznamenané %1$d matky."
 msgstr[2] "%2$s má zaznamenaných %1$d matiek."
 
-#: resources/views/partials/family-part-summary.phtml:184
+#: resources/views/partials/family-part-summary.phtml:186
 #, php-format
 msgid "%2$s has %1$d father recorded."
 msgid_plural "%2$s has %1$d fathers recorded."
@@ -1877,16 +1934,16 @@ msgstr[0] "%2$s má zaznamenaného %1$d otca."
 msgstr[1] "%2$s má zaznamenaných %1$d otcov."
 msgstr[2] "%2$s má zaznamenaných %1$d otcov."
 
-#: resources/views/partials/family-part-summary.phtml:186
+#: resources/views/partials/family-part-summary.phtml:188
 #, php-format
 msgid "%2$s has %1$d parent of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d parents of diverse or unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d rodiča s iným alebo neznámym pohlavím."
+msgstr[1] "%2$s má zaznamenaných %1$d rodičov s iným alebo neznámym pohlavím."
+msgstr[2] "%2$s má zaznamenaných %1$d rodičov s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:188
-#: resources/views/partials/family-part-summary.phtml:191
+#: resources/views/partials/family-part-summary.phtml:190
+#: resources/views/partials/family-part-summary.phtml:193
 #, php-format
 msgid "%2$s has %1$d father and"
 msgid_plural "%2$s has %1$d fathers and"
@@ -1894,7 +1951,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d otca a"
 msgstr[1] "%2$s má zaznamenaných %1$d otcov a"
 msgstr[2] "%2$s má zaznamenaných %1$d otcov a"
 
-#: resources/views/partials/family-part-summary.phtml:189
+#: resources/views/partials/family-part-summary.phtml:191
 #, php-format
 msgid "%d mother recorded (%d in total)."
 msgid_plural "%d mothers recorded (%d in total)."
@@ -1902,17 +1959,17 @@ msgstr[0] "%d matku (spolu %d)."
 msgstr[1] "%d matky (spolu %d)."
 msgstr[2] "%d matiek (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:192
-#: resources/views/partials/family-part-summary.phtml:195
-#: resources/views/partials/family-part-summary.phtml:199
+#: resources/views/partials/family-part-summary.phtml:194
+#: resources/views/partials/family-part-summary.phtml:197
+#: resources/views/partials/family-part-summary.phtml:201
 #, php-format
 msgid "%d parent of diverse or unknown sex recorded (%d in total)."
 msgid_plural "%d parents of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d rodič s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d rodičov s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d rodičov s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:194
+#: resources/views/partials/family-part-summary.phtml:196
 #, php-format
 msgid "%2$s has %1$d mother and"
 msgid_plural "%2$s has %1$d mothers and"
@@ -1920,7 +1977,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d matku a"
 msgstr[1] "%2$s má zaznamenané %1$d matky a"
 msgstr[2] "%2$s má zaznamenaných %1$d matiek a"
 
-#: resources/views/partials/family-part-summary.phtml:197
+#: resources/views/partials/family-part-summary.phtml:199
 #, php-format
 msgid "%2$s has %1$d father,"
 msgid_plural "%2$s has %1$d fathers,"
@@ -1928,7 +1985,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d otca,"
 msgstr[1] "%2$s má zaznamenaného %1$d otcov,"
 msgstr[2] "%2$s má zaznamenaného %1$d otcov,"
 
-#: resources/views/partials/family-part-summary.phtml:198
+#: resources/views/partials/family-part-summary.phtml:200
 #, php-format
 msgid "%d mother, and"
 msgid_plural "%d mothers, and"
@@ -1936,22 +1993,22 @@ msgstr[0] "%d matku a"
 msgstr[1] "%d matky a"
 msgstr[2] "%d matiek a"
 
-#: resources/views/partials/family-part-summary.phtml:215
+#: resources/views/partials/family-part-summary.phtml:217
 #, php-format
 msgid "%s has one mother-in-law recorded."
 msgstr "%s má zaznamenanú jednu svokru."
 
-#: resources/views/partials/family-part-summary.phtml:217
+#: resources/views/partials/family-part-summary.phtml:219
 #, php-format
 msgid "%s has one father-in-law recorded."
 msgstr "%s má zaznamenaného jedného svokra."
 
-#: resources/views/partials/family-part-summary.phtml:219
+#: resources/views/partials/family-part-summary.phtml:221
 #, php-format
 msgid "%s has one parent-in-law of diverse or unknown sex recorded."
-msgstr ""
+msgstr "%s má jedného svokra/svokru s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:223
+#: resources/views/partials/family-part-summary.phtml:225
 #, php-format
 msgid "%2$s has %1$d mother-in-law recorded."
 msgid_plural "%2$s has %1$d mothers-in-law recorded."
@@ -1959,7 +2016,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d svokru."
 msgstr[1] "%2$s má zaznamenané %1$d svokry."
 msgstr[2] "%2$s má zaznamenaných %1$d svokier."
 
-#: resources/views/partials/family-part-summary.phtml:225
+#: resources/views/partials/family-part-summary.phtml:227
 #, php-format
 msgid "%2$s has %1$d father-in-law recorded."
 msgid_plural "%2$s has %1$d fathers-in-law recorded."
@@ -1967,16 +2024,19 @@ msgstr[0] "%2$s má zaznamenaného %1$d svokra."
 msgstr[1] "%2$s má zaznamenaných %1$d svokrov."
 msgstr[2] "%2$s má zaznamenaných %1$d svokrov."
 
-#: resources/views/partials/family-part-summary.phtml:227
+#: resources/views/partials/family-part-summary.phtml:229
 #, php-format
 msgid "%2$s has %1$d parent-in-law of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d parents-in-law of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d svokra/svokru s iným alebo neznámym pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d svokrovcov s iným alebo neznámym pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d svokrovcov s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:229
-#: resources/views/partials/family-part-summary.phtml:232
+#: resources/views/partials/family-part-summary.phtml:231
+#: resources/views/partials/family-part-summary.phtml:234
 #, php-format
 msgid "%2$s has %1$d father-in-law and"
 msgid_plural "%2$s has %1$d fathers-in-law and"
@@ -1984,7 +2044,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d svokra a"
 msgstr[1] "%2$s má zaznamenaných %1$d svokrov a"
 msgstr[2] "%2$s má zaznamenaných %1$d svokrov a"
 
-#: resources/views/partials/family-part-summary.phtml:230
+#: resources/views/partials/family-part-summary.phtml:232
 #, php-format
 msgid "%d mother-in-law recorded (%d in total)."
 msgid_plural "%d mothers-in-law recorded (%d in total)."
@@ -1992,18 +2052,18 @@ msgstr[0] "%d svokru (spolu %d)."
 msgstr[1] "%d svokry (spolu %d)."
 msgstr[2] "%d svokier (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:233
-#: resources/views/partials/family-part-summary.phtml:236
-#: resources/views/partials/family-part-summary.phtml:240
+#: resources/views/partials/family-part-summary.phtml:235
+#: resources/views/partials/family-part-summary.phtml:238
+#: resources/views/partials/family-part-summary.phtml:242
 #, php-format
 msgid "%d parent-in-law of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d parents-in-law of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d svokra/svokru s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d svokrovcov s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d svokrovcov s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:235
+#: resources/views/partials/family-part-summary.phtml:237
 #, php-format
 msgid "%2$s has %1$d mother-in-law and"
 msgid_plural "%2$s has %1$d mothers-in-law and"
@@ -2011,7 +2071,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d svokru a"
 msgstr[1] "%2$s má zaznamenané %1$d svokry a"
 msgstr[2] "%2$s má zaznamenaných %1$d svokier a"
 
-#: resources/views/partials/family-part-summary.phtml:238
+#: resources/views/partials/family-part-summary.phtml:240
 #, php-format
 msgid "%2$s has %1$d father-in-law,"
 msgid_plural "%2$s has %1$d fathers-in-law,"
@@ -2019,7 +2079,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d svokra,"
 msgstr[1] "%2$s má zaznamenaných %1$d svokrov,"
 msgstr[2] "%2$s má zaznamenaných %1$d svokrov,"
 
-#: resources/views/partials/family-part-summary.phtml:239
+#: resources/views/partials/family-part-summary.phtml:241
 #, php-format
 msgid "%d mother-in-law, and"
 msgid_plural "%d mothers-in-law, and"
@@ -2027,22 +2087,23 @@ msgstr[0] "%d svokru a"
 msgstr[1] "%d svokry a"
 msgstr[2] "%d svokier a"
 
-#: resources/views/partials/family-part-summary.phtml:246
+#: resources/views/partials/family-part-summary.phtml:248
 #, php-format
 msgid "%s has one co-mother-in-law recorded."
 msgstr "%s má zaznamenanú jednu svatku."
 
-#: resources/views/partials/family-part-summary.phtml:248
+#: resources/views/partials/family-part-summary.phtml:250
 #, php-format
 msgid "%s has one co-father-in-law recorded."
 msgstr "%s má zaznamenaného jedného svata."
 
-#: resources/views/partials/family-part-summary.phtml:250
+#: resources/views/partials/family-part-summary.phtml:252
 #, php-format
 msgid "%s has one co-parent-in-law of diverse or unknown sex recorded."
 msgstr ""
+"%s má zaznamenaného jedného svata/svatku iného alebo neznámeho pohlavia."
 
-#: resources/views/partials/family-part-summary.phtml:254
+#: resources/views/partials/family-part-summary.phtml:256
 #, php-format
 msgid "%2$s has %1$d co-mother-in-law recorded."
 msgid_plural "%2$s has %1$d co-mothers-in-law recorded."
@@ -2050,7 +2111,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d svatku."
 msgstr[1] "%2$s má zaznamenané %1$d svatky."
 msgstr[2] "%2$s má zaznamenaných %1$d svatiek."
 
-#: resources/views/partials/family-part-summary.phtml:256
+#: resources/views/partials/family-part-summary.phtml:258
 #, php-format
 msgid "%2$s has %1$d co-father-in-law recorded."
 msgid_plural "%2$s has %1$d co-fathers-in-law recorded."
@@ -2058,25 +2119,28 @@ msgstr[0] "%2$s má zaznamenaného %1$d svata."
 msgstr[1] "%2$s má zaznamenaných %1$d svatov."
 msgstr[2] "%2$s má zaznamenaných %1$d svatov."
 
-#: resources/views/partials/family-part-summary.phtml:258
+#: resources/views/partials/family-part-summary.phtml:260
 #, php-format
 msgid "%2$s has %1$d co-parent-in-law of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d co-parents-in-law of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d svata/svatku iného alebo neznámeho pohlavia."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d svatovcov iného alebo neznámeho pohlavia."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d svatovcov iného alebo neznámeho pohlavia."
 
-#: resources/views/partials/family-part-summary.phtml:260
-#: resources/views/partials/family-part-summary.phtml:263
+#: resources/views/partials/family-part-summary.phtml:262
+#: resources/views/partials/family-part-summary.phtml:265
 #, php-format
 msgid "%2$s has %1$d co-father-in-law and"
 msgid_plural "%2$s has %1$d co-fathers-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d svata a"
+msgstr[1] "%2$s má zaznamenaných %1$d svatov a"
+msgstr[2] "%2$s má zaznamenaných %1$d svatov a"
 
-#: resources/views/partials/family-part-summary.phtml:261
+#: resources/views/partials/family-part-summary.phtml:263
 #, php-format
 msgid "%d co-mother-in-law recorded (%d in total)."
 msgid_plural "%d co-mothers-in-law recorded (%d in total)."
@@ -2084,57 +2148,57 @@ msgstr[0] "%d svatku (spolu %d)."
 msgstr[1] "%d svatky (spolu %d)."
 msgstr[2] "%d svatiek (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:264
-#: resources/views/partials/family-part-summary.phtml:267
-#: resources/views/partials/family-part-summary.phtml:271
+#: resources/views/partials/family-part-summary.phtml:266
+#: resources/views/partials/family-part-summary.phtml:269
+#: resources/views/partials/family-part-summary.phtml:273
 #, php-format
 msgid "%d co-parent-in-law of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d co-parents-in-law of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d svata/svatku s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d svatovcov s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d svatovcov s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:266
+#: resources/views/partials/family-part-summary.phtml:268
 #, php-format
 msgid "%2$s has %1$d co-mother-in-law and"
 msgid_plural "%2$s has %1$d co-mothers-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenanú %1$d svatku a"
+msgstr[1] "%2$s má zaznamenané %1$d svatky a"
+msgstr[2] "%2$s má zaznamenaných %1$d svatiek a"
 
-#: resources/views/partials/family-part-summary.phtml:269
+#: resources/views/partials/family-part-summary.phtml:271
 #, php-format
 msgid "%2$s has %1$d co-father-in-law,"
 msgid_plural "%2$s has %1$d co-fathers-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d svata,"
+msgstr[1] "%2$s má zaznamenaných %1$d svatov,"
+msgstr[2] "%2$s má zaznamenaných %1$d svatov,"
 
-#: resources/views/partials/family-part-summary.phtml:270
+#: resources/views/partials/family-part-summary.phtml:272
 #, php-format
 msgid "%d co-mother-in-law, and"
 msgid_plural "%d co-mothers-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d svatku a"
+msgstr[1] "%d svatky a"
+msgstr[2] "%d svatiek a"
 
-#: resources/views/partials/family-part-summary.phtml:277
+#: resources/views/partials/family-part-summary.phtml:279
 #, php-format
 msgid "%s has one female partner recorded."
 msgstr "%s má zaznamenanú jednu partnerku."
 
-#: resources/views/partials/family-part-summary.phtml:279
+#: resources/views/partials/family-part-summary.phtml:281
 #, php-format
 msgid "%s has one male partner recorded."
 msgstr "%s má zaznamenaného jedného partnera."
 
-#: resources/views/partials/family-part-summary.phtml:281
+#: resources/views/partials/family-part-summary.phtml:283
 #, php-format
 msgid "%s has one partner of diverse or unknown sex recorded."
-msgstr ""
+msgstr "%s má zaznamenaného jedného partnera s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:286
+#: resources/views/partials/family-part-summary.phtml:288
 #, php-format
 msgid "%2$s has %1$d female partner recorded."
 msgid_plural "%2$s has %1$d female partners recorded."
@@ -2142,7 +2206,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d partnerku."
 msgstr[1] "%2$s má zaznamenané %1$d partnerky."
 msgstr[2] "%2$s má zaznamenaných %1$d partneriek."
 
-#: resources/views/partials/family-part-summary.phtml:288
+#: resources/views/partials/family-part-summary.phtml:290
 #, php-format
 msgid "%2$s has %1$d male partner recorded."
 msgid_plural "%2$s has %1$d male partners recorded."
@@ -2150,20 +2214,25 @@ msgstr[0] "%2$s má zaznamenaného %1$d partnera."
 msgstr[1] "%2$s má zaznamenaných %1$d partnerov."
 msgstr[2] "%2$s má zaznamenaných %1$d partnerov."
 
-#: resources/views/partials/family-part-summary.phtml:290
+#: resources/views/partials/family-part-summary.phtml:292
 #, php-format
 msgid "%2$s has %1$d partner of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d partners of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d partnera/partnerku s iným alebo neznámym pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d partnerov/partnerky s iným alebo neznámym "
+"pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d partnerov/partneriek s iným alebo neznámym "
+"pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:292
-#: resources/views/partials/family-part-summary.phtml:295
-#: resources/views/partials/family-part-summary.phtml:311
-#: resources/views/partials/family-part-summary.phtml:335
-#: resources/views/partials/family-part-summary.phtml:340
-#: resources/views/partials/family-part-summary.phtml:350
+#: resources/views/partials/family-part-summary.phtml:294
+#: resources/views/partials/family-part-summary.phtml:297
+#: resources/views/partials/family-part-summary.phtml:313
+#: resources/views/partials/family-part-summary.phtml:337
+#: resources/views/partials/family-part-summary.phtml:342
+#: resources/views/partials/family-part-summary.phtml:352
 #, php-format
 msgid "%2$s has %1$d male partner and"
 msgid_plural "%2$s has %1$d male partners and"
@@ -2171,7 +2240,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d partnera a"
 msgstr[1] "%2$s má zaznamenaných %1$d partnerov a"
 msgstr[2] "%2$s má zaznamenaných %1$d partnerov a"
 
-#: resources/views/partials/family-part-summary.phtml:293
+#: resources/views/partials/family-part-summary.phtml:295
 #, php-format
 msgid "%d female partner recorded (%d in total)."
 msgid_plural "%d female partners recorded (%d in total)."
@@ -2179,19 +2248,19 @@ msgstr[0] "%d partnerku (spolu %d)."
 msgstr[1] "%d partnerky (spolu %d)."
 msgstr[2] "%d partneriek (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:296
-#: resources/views/partials/family-part-summary.phtml:299
-#: resources/views/partials/family-part-summary.phtml:303
+#: resources/views/partials/family-part-summary.phtml:298
+#: resources/views/partials/family-part-summary.phtml:301
+#: resources/views/partials/family-part-summary.phtml:305
 #, php-format
 msgid "%d partner of diverse or unknown sex recorded (%d in total)."
 msgid_plural "%d partners of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d partnera s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d partnerov s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d partnerov s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:298
-#: resources/views/partials/family-part-summary.phtml:307
-#: resources/views/partials/family-part-summary.phtml:345
+#: resources/views/partials/family-part-summary.phtml:300
+#: resources/views/partials/family-part-summary.phtml:309
+#: resources/views/partials/family-part-summary.phtml:347
 #, php-format
 msgid "%2$s has %1$d female partner and"
 msgid_plural "%2$s has %1$d female partners and"
@@ -2199,7 +2268,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d partnerku a"
 msgstr[1] "%2$s má zaznamenané %1$d partnerky a"
 msgstr[2] "%2$s má zaznamenaných %1$d partneriek a"
 
-#: resources/views/partials/family-part-summary.phtml:301
+#: resources/views/partials/family-part-summary.phtml:303
 #, php-format
 msgid "%2$s has %1$d male partner,"
 msgid_plural "%2$s has %1$d male partners,"
@@ -2207,8 +2276,8 @@ msgstr[0] "%2$s má zaznamenaného %1$d partnera,"
 msgstr[1] "%2$s má zaznamenaných %1$d partnerov,"
 msgstr[2] "%2$s má zaznamenaných %1$d partnerov,"
 
-#: resources/views/partials/family-part-summary.phtml:302
-#: resources/views/partials/family-part-summary.phtml:351
+#: resources/views/partials/family-part-summary.phtml:304
+#: resources/views/partials/family-part-summary.phtml:353
 #, php-format
 msgid "%d female partner, and"
 msgid_plural "%d female partners, and"
@@ -2216,7 +2285,7 @@ msgstr[0] "%d partnerku a"
 msgstr[1] "%d partnerky a"
 msgstr[2] "%d partneriek a"
 
-#: resources/views/partials/family-part-summary.phtml:308
+#: resources/views/partials/family-part-summary.phtml:310
 #, php-format
 msgid "%d male partner of female partners recorded (%d in total)."
 msgid_plural "%d male partners of female partners recorded (%d in total)."
@@ -2224,7 +2293,7 @@ msgstr[0] "%d partnera partneriek (spolu %d)."
 msgstr[1] "%d partnerov partneriek (spolu %d)."
 msgstr[2] "%d partnerov partneriek (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:312
+#: resources/views/partials/family-part-summary.phtml:314
 #, php-format
 msgid "%d female partner of male partners recorded (%d in total)."
 msgid_plural "%d female partners of male partners recorded (%d in total)."
@@ -2232,7 +2301,7 @@ msgstr[0] "%d partnerku partnerov (spolu %d)."
 msgstr[1] "%d partnerky partnerov (spolu %d)."
 msgstr[2] "%d partneriek partnerov (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:315
+#: resources/views/partials/family-part-summary.phtml:317
 #, php-format
 msgid "%2$s has %1$d partner and"
 msgid_plural "%2$s has %1$d partners and"
@@ -2240,7 +2309,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d partnera a"
 msgstr[1] "%2$s má zaznamenaných %1$d partnerov a"
 msgstr[2] "%2$s má zaznamenaných %1$d partnerov a"
 
-#: resources/views/partials/family-part-summary.phtml:316
+#: resources/views/partials/family-part-summary.phtml:318
 #, php-format
 msgid "%1$d partner of partners recorded (%2$d in total)."
 msgid_plural "%1$d partners of partners recorded (%2$d in total)."
@@ -2248,7 +2317,7 @@ msgstr[0] "%1$d partner partnerov (spolu %2$d)."
 msgstr[1] "%1$d partnerov partnerov (spolu %2$d)."
 msgstr[2] "%1$d partnerov partnerov (spolu %2$d)."
 
-#: resources/views/partials/family-part-summary.phtml:323
+#: resources/views/partials/family-part-summary.phtml:325
 #, php-format
 msgid "%d female partner in this partner chain recorded"
 msgid_plural "%d female partners in this partner chain recorded"
@@ -2256,17 +2325,17 @@ msgstr[0] "má v tejto reťazi partnerov zaznamenanú %d partnerku"
 msgstr[1] "má v tejto reťazi partnerov zaznamenané %d partnerky"
 msgstr[2] "má v tejto reťazi partnerov zaznamenaných %d partneriek"
 
-#: resources/views/partials/family-part-summary.phtml:324
-#: resources/views/partials/family-part-summary.phtml:328
-#: resources/views/partials/family-part-summary.phtml:332
-#: resources/views/partials/family-part-summary.phtml:337
-#: resources/views/partials/family-part-summary.phtml:342
-#: resources/views/partials/family-part-summary.phtml:347
+#: resources/views/partials/family-part-summary.phtml:326
+#: resources/views/partials/family-part-summary.phtml:330
+#: resources/views/partials/family-part-summary.phtml:334
+#: resources/views/partials/family-part-summary.phtml:339
+#: resources/views/partials/family-part-summary.phtml:344
+#: resources/views/partials/family-part-summary.phtml:349
 #, php-format
 msgid "including %s"
 msgstr "vrátane %s"
 
-#: resources/views/partials/family-part-summary.phtml:327
+#: resources/views/partials/family-part-summary.phtml:329
 #, php-format
 msgid "%d male partner in this partner chain recorded"
 msgid_plural "%d male partners in this partner chain recorded"
@@ -2274,16 +2343,22 @@ msgstr[0] "má v tejto reťazi partnerov zaznamenaného %d partnera"
 msgstr[1] "má v tejto reťazi partnerov zaznamenaných %d partnerov"
 msgstr[2] "má v tejto reťazi partnerov zaznamenaných %d partnerov"
 
-#: resources/views/partials/family-part-summary.phtml:331
+#: resources/views/partials/family-part-summary.phtml:333
 #, php-format
 msgid "%d partner of diverse or unknown sex in this partner chain recorded"
 msgid_plural ""
 "%d partners of diverse or unknown sex in this partner chain recorded"
 msgstr[0] ""
+"má v tejto reťazi partnerov zaznamenaného %d partnera s iným alebo neznámym "
+"pohlavím"
 msgstr[1] ""
+"má v tejto reťazi partnerov zaznamenaných %d partnerov s iným alebo neznámym "
+"pohlavím"
 msgstr[2] ""
+"má v tejto reťazi partnerov zaznamenaných %d partnerov s iným alebo neznámym "
+"pohlavím"
 
-#: resources/views/partials/family-part-summary.phtml:336
+#: resources/views/partials/family-part-summary.phtml:338
 #, php-format
 msgid "%1$d female partner in this partner chain recorded (%2$d in total"
 msgid_plural ""
@@ -2292,8 +2367,8 @@ msgstr[0] "%1$d partnerku (spolu %2$d"
 msgstr[1] "%1$d partnerky (spolu %2$d"
 msgstr[2] "%1$d partneriek (spolu %2$d"
 
-#: resources/views/partials/family-part-summary.phtml:341
-#: resources/views/partials/family-part-summary.phtml:346
+#: resources/views/partials/family-part-summary.phtml:343
+#: resources/views/partials/family-part-summary.phtml:348
 #, php-format
 msgid ""
 "%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d "
@@ -2301,11 +2376,11 @@ msgid ""
 msgid_plural ""
 "%1$d partners of diverse or unknown sex in this partner chain recorded (%2$d "
 "in total"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1$d partnera s iným alebo neznámym pohlavím (spolu %2$d"
+msgstr[1] "%1$d partnerov s iným alebo neznámym pohlavím (spolu %2$d"
+msgstr[2] "%1$d partnerov s iným alebo neznámym pohlavím (spolu %2$d"
 
-#: resources/views/partials/family-part-summary.phtml:352
+#: resources/views/partials/family-part-summary.phtml:354
 #, php-format
 msgid ""
 "%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d "
@@ -2314,15 +2389,21 @@ msgid_plural ""
 "%1$d partners of diverse or unknown sex in this partner chain recorded (%2$d "
 "in total, including %3$s)."
 msgstr[0] ""
+"%1$d partnera/partnerku s iným alebo neznámym pohlavím (spolu %2$d, vrátane "
+"%3$s)."
 msgstr[1] ""
+"%1$d partnerov/partnerky s iným alebo neznámym pohlavím (spolu %2$d, vrátane "
+"%3$s)."
 msgstr[2] ""
+"%1$d partnerov/partneriek s iným alebo neznámym pohlavím (spolu %2$d, "
+"vrátane %3$s)."
 
-#: resources/views/partials/family-part-summary.phtml:356
+#: resources/views/partials/family-part-summary.phtml:358
 #, php-format
 msgid "There are %d branches in the partner chain."
 msgstr "Počet vetiev v reťazi partnerov: %d."
 
-#: resources/views/partials/family-part-summary.phtml:358
+#: resources/views/partials/family-part-summary.phtml:360
 #, php-format
 msgid ""
 "The longest branch in the partner chain to %2$s consists of %1$d partners "
@@ -2331,7 +2412,7 @@ msgstr ""
 "Najdlhšia vetva v zreťazení partnerov k osobe %2$s pozostáva z %1$d partnera "
 "(partnerov) (vrátane %3$s)."
 
-#: resources/views/partials/family-part-summary.phtml:360
+#: resources/views/partials/family-part-summary.phtml:362
 #, php-format
 msgid ""
 "The longest branch in the partner chain consists of %1$d partners (including "
@@ -2340,22 +2421,22 @@ msgstr ""
 "Najdlhšia vetva v zreťazení partnerov pozostáva z %1$d partnera (partnerov) "
 "(vrátane %2$s)."
 
-#: resources/views/partials/family-part-summary.phtml:367
+#: resources/views/partials/family-part-summary.phtml:369
 #, php-format
 msgid "%s has one sister recorded."
 msgstr "%s má zaznamenanú jednu sestru."
 
-#: resources/views/partials/family-part-summary.phtml:369
+#: resources/views/partials/family-part-summary.phtml:371
 #, php-format
 msgid "%s has one brother recorded."
 msgstr "%s má zaznamenaného jedného brata."
 
-#: resources/views/partials/family-part-summary.phtml:371
+#: resources/views/partials/family-part-summary.phtml:373
 #, php-format
 msgid "%s has one sibling of diverse or unknown sex recorded."
-msgstr ""
+msgstr "%s má zaznamenaného jedného súrodenca s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:375
+#: resources/views/partials/family-part-summary.phtml:377
 #, php-format
 msgid "%2$s has %1$d sister recorded."
 msgid_plural "%2$s has %1$d sisters recorded."
@@ -2363,7 +2444,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d sestru."
 msgstr[1] "%2$s má zaznamenané %1$d sestry."
 msgstr[2] "%2$s má zaznamenaných %1$d sestier."
 
-#: resources/views/partials/family-part-summary.phtml:377
+#: resources/views/partials/family-part-summary.phtml:379
 #, php-format
 msgid "%2$s has %1$d brother recorded."
 msgid_plural "%2$s has %1$d brothers recorded."
@@ -2371,16 +2452,19 @@ msgstr[0] "%2$s má zaznamenaného %1$d brata."
 msgstr[1] "%2$s má zaznamenaných %1$d bratov."
 msgstr[2] "%2$s má zaznamenaných %1$d bratov."
 
-#: resources/views/partials/family-part-summary.phtml:379
+#: resources/views/partials/family-part-summary.phtml:381
 #, php-format
 msgid "%2$s has %1$d sibling of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d siblings of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d súrodenca s iným alebo neznámym pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d súrodencov s iným alebo neznámym pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d súrodencov s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:381
-#: resources/views/partials/family-part-summary.phtml:384
+#: resources/views/partials/family-part-summary.phtml:383
+#: resources/views/partials/family-part-summary.phtml:386
 #, php-format
 msgid "%2$s has %1$d brother and"
 msgid_plural "%2$s has %1$d brothers and"
@@ -2388,7 +2472,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d brata a"
 msgstr[1] "%2$s má zaznamenaných %1$d bratov a"
 msgstr[2] "%2$s má zaznamenaných %1$d bratov a"
 
-#: resources/views/partials/family-part-summary.phtml:382
+#: resources/views/partials/family-part-summary.phtml:384
 #, php-format
 msgid "%d sister recorded (%d in total)."
 msgid_plural "%d sisters recorded (%d in total)."
@@ -2396,17 +2480,17 @@ msgstr[0] "%d sestru (spolu %d)."
 msgstr[1] "%d sestry (spolu %d)."
 msgstr[2] "%d sestier (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:385
-#: resources/views/partials/family-part-summary.phtml:388
-#: resources/views/partials/family-part-summary.phtml:392
+#: resources/views/partials/family-part-summary.phtml:387
+#: resources/views/partials/family-part-summary.phtml:390
+#: resources/views/partials/family-part-summary.phtml:394
 #, php-format
 msgid "%d sibling of diverse or unknown sex recorded (%d in total)."
 msgid_plural "%d siblings of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d súrodenca s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d súrodencov s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d súrodencov s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:387
+#: resources/views/partials/family-part-summary.phtml:389
 #, php-format
 msgid "%2$s has %1$d sister and"
 msgid_plural "%2$s has %1$d sisters and"
@@ -2414,7 +2498,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d sestru a"
 msgstr[1] "%2$s má zaznamenané %1$d sestry a"
 msgstr[2] "%2$s má zaznamenaných %1$d sestier a"
 
-#: resources/views/partials/family-part-summary.phtml:390
+#: resources/views/partials/family-part-summary.phtml:392
 #, php-format
 msgid "%2$s has %1$d brother,"
 msgid_plural "%2$s has %1$d brothers,"
@@ -2422,7 +2506,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d brata,"
 msgstr[1] "%2$s má zaznamenaných %1$d bratov,"
 msgstr[2] "%2$s má zaznamenaných %1$d bratov,"
 
-#: resources/views/partials/family-part-summary.phtml:391
+#: resources/views/partials/family-part-summary.phtml:393
 #, php-format
 msgid "%d sister, and"
 msgid_plural "%d sisters, and"
@@ -2430,22 +2514,23 @@ msgstr[0] "%d sestru a"
 msgstr[1] "%d sestry a"
 msgstr[2] "%d sestier a"
 
-#: resources/views/partials/family-part-summary.phtml:408
+#: resources/views/partials/family-part-summary.phtml:410
 #, php-format
 msgid "%s has one sister-in-law recorded."
 msgstr "%s má zaznamenanú jednu švagrinú."
 
-#: resources/views/partials/family-part-summary.phtml:410
+#: resources/views/partials/family-part-summary.phtml:412
 #, php-format
 msgid "%s has one brother-in-law recorded."
 msgstr "%s má zaznamenaného jedného švagra."
 
-#: resources/views/partials/family-part-summary.phtml:412
+#: resources/views/partials/family-part-summary.phtml:414
 #, php-format
 msgid "%s has one sibling-in-law of diverse or unknown sex recorded."
 msgstr ""
+"%s má zaznamenaného jedného švagra/švagrinú s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:416
+#: resources/views/partials/family-part-summary.phtml:418
 #, php-format
 msgid "%2$s has %1$d sister-in-law recorded."
 msgid_plural "%2$s has %1$d sisters-in-law recorded."
@@ -2453,7 +2538,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d švagrinú."
 msgstr[1] "%2$s má zaznamenané %1$d švagriné."
 msgstr[2] "%2$s má zaznamenaných %1$d švagrín."
 
-#: resources/views/partials/family-part-summary.phtml:418
+#: resources/views/partials/family-part-summary.phtml:420
 #, php-format
 msgid "%2$s has %1$d brother-in-law recorded."
 msgid_plural "%2$s has %1$d brothers-in-law recorded."
@@ -2461,17 +2546,20 @@ msgstr[0] "%2$s má zaznamenaného %1$d švagra."
 msgstr[1] "%2$s má zaznamenaných %1$d švagrov."
 msgstr[2] "%2$s má zaznamenaných %1$d švagrov."
 
-#: resources/views/partials/family-part-summary.phtml:420
+#: resources/views/partials/family-part-summary.phtml:422
 #, php-format
 msgid "%2$s has %1$d sibling-in-law of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d siblings-in-law of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d švagra/švagrinú s iným alebo neznámym pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d švagrov/švagriné s iným alebo neznámym pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d švagrov/švagrín s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:422
-#: resources/views/partials/family-part-summary.phtml:425
+#: resources/views/partials/family-part-summary.phtml:424
+#: resources/views/partials/family-part-summary.phtml:427
 #, php-format
 msgid "%2$s has %1$d brother-in-law and"
 msgid_plural "%2$s has %1$d brothers-in-law and"
@@ -2479,7 +2567,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d švagra a"
 msgstr[1] "%2$s má zaznamenaných %1$d švagrov a"
 msgstr[2] "%2$s má zaznamenaných %1$d švagrov a"
 
-#: resources/views/partials/family-part-summary.phtml:423
+#: resources/views/partials/family-part-summary.phtml:425
 #, php-format
 msgid "%d sister-in-law recorded (%d in total)."
 msgid_plural "%d sisters-in-law recorded (%d in total)."
@@ -2487,18 +2575,18 @@ msgstr[0] "%d švagrinú (spolu %d)."
 msgstr[1] "%d švagriné (spolu %d)."
 msgstr[2] "%d švagrín (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:426
-#: resources/views/partials/family-part-summary.phtml:429
-#: resources/views/partials/family-part-summary.phtml:433
+#: resources/views/partials/family-part-summary.phtml:428
+#: resources/views/partials/family-part-summary.phtml:431
+#: resources/views/partials/family-part-summary.phtml:435
 #, php-format
 msgid "%d sibling-in-law of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d siblings-in-law of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d švagra/švagrinu s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d švagrov/švagriné s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d švagrov/švagrín s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:428
+#: resources/views/partials/family-part-summary.phtml:430
 #, php-format
 msgid "%2$s has %1$d sister-in-law and"
 msgid_plural "%2$s has %1$d sisters-in-law and"
@@ -2506,7 +2594,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d švagrinú a"
 msgstr[1] "%2$s má zaznamenané %1$d švagriné a"
 msgstr[2] "%2$s má zaznamenaných %1$d švagrín a"
 
-#: resources/views/partials/family-part-summary.phtml:431
+#: resources/views/partials/family-part-summary.phtml:433
 #, php-format
 msgid "%2$s has %1$d brother-in-law,"
 msgid_plural "%2$s has %1$d brothers-in-law,"
@@ -2514,7 +2602,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d švagra,"
 msgstr[1] "%2$s má zaznamenaných %1$d švagrov,"
 msgstr[2] "%2$s má zaznamenaných %1$d švagrov,"
 
-#: resources/views/partials/family-part-summary.phtml:432
+#: resources/views/partials/family-part-summary.phtml:434
 #, php-format
 msgid "%d sister-in-law, and"
 msgid_plural "%d sisters-in-law, and"
@@ -2522,114 +2610,139 @@ msgstr[0] "%d švagriná a"
 msgstr[1] "%d švagriné a"
 msgstr[2] "%d švagrín a"
 
-#: resources/views/partials/family-part-summary.phtml:449
-#, php-format
-msgid "%s has one co-sister-in-law recorded."
-msgstr "%s má zaznamenanú jednu švagrinú partnera/partnerky."
-
 #: resources/views/partials/family-part-summary.phtml:451
 #, php-format
-msgid "%s has one co-brother-in-law recorded."
-msgstr "%s má zaznamenaného jedného švagra partnera/partnerky."
+msgid "%s has one co-sister-in-law recorded."
+msgstr "%s má zaznamenanú jednu sestru alebo partnerku švagra/švagrinej."
 
 #: resources/views/partials/family-part-summary.phtml:453
 #, php-format
+msgid "%s has one co-brother-in-law recorded."
+msgstr "%s má zaznamenaného jedného brata alebo partnera švagrinej/švagra."
+
+#: resources/views/partials/family-part-summary.phtml:455
+#, php-format
 msgid "%s has one co-sibling-in-law of diverse or unknown sex recorded."
 msgstr ""
-
-#: resources/views/partials/family-part-summary.phtml:457
-#, php-format
-msgid "%2$s has %1$d co-sister-in-law recorded."
-msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
-msgstr[0] "%2$s má zaznamenanú %1$d švagrinú partnera/partnerky."
-msgstr[1] "%2$s má zaznamenané %1$d švagriné partnera/partnerky."
-msgstr[2] "%2$s má zaznamenaných %1$d švagrín partnera/partnerky."
+"%s má zaznamenaného jedného súrodenca alebo partnera švagra/švagrinej s iným "
+"alebo neznámym pohlavím."
 
 #: resources/views/partials/family-part-summary.phtml:459
 #, php-format
-msgid "%2$s has %1$d co-brother-in-law recorded."
-msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
-msgstr[0] "%2$s má zaznamenaného %1$d švagra partnera/partnerky."
-msgstr[1] "%2$s má zaznamenaných %1$d švagrov partnera/partnerky."
-msgstr[2] "%2$s má zaznamenaných %1$d švagrov partnera/partnerky."
+msgid "%2$s has %1$d co-sister-in-law recorded."
+msgid_plural "%2$s has %1$d co-sisters-in-law recorded."
+msgstr[0] ""
+"%2$s má zaznamenanú %1$d sestru alebo partnerku švagra/švagrinej (spolu %d)."
+msgstr[1] "%2$s má zaznamenané %1$d sestry alebo partnerky švagrov a švagrín."
+msgstr[2] ""
+"%2$s má zaznamenaných %1$d sestier alebo partneriek švagrov a švagrín."
 
 #: resources/views/partials/family-part-summary.phtml:461
+#, php-format
+msgid "%2$s has %1$d co-brother-in-law recorded."
+msgid_plural "%2$s has %1$d co-brothers-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d brata alebo partnera švagrinej/švagra."
+msgstr[1] ""
+"%2$s má zaznamenaných %1$d bratov alebo partnerov švagrov a švagrín."
+msgstr[2] ""
+"%2$s má zaznamenaných %1$d bratov alebo partnerov švagrov a švagrín."
+
+#: resources/views/partials/family-part-summary.phtml:463
 #, php-format
 msgid "%2$s has %1$d co-sibling-in-law of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d co-siblings-in-law of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d súrodenca alebo partnera s iným alebo neznámym "
+"pohlavím švagrov a švagrín."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d súrodencov alebo partnera s iným alebo neznámym "
+"pohlavím švagrov a švagrín."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d súrodencov alebo partnera s iným alebo neznámym "
+"pohlavím švagrov a švagrín."
 
-#: resources/views/partials/family-part-summary.phtml:463
-#: resources/views/partials/family-part-summary.phtml:466
+#: resources/views/partials/family-part-summary.phtml:465
+#: resources/views/partials/family-part-summary.phtml:468
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law and"
 msgid_plural "%2$s has %1$d co-brothers-in-law and"
-msgstr[0] ""
+msgstr[0] "%2$s má zaznamenaného %1$d brata alebo partnera švagra/švagrinej a"
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d bratov alebo partnerov švagrov a švagrín a"
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d bratov alebo partnerov švagrov a švagrín a"
 
-#: resources/views/partials/family-part-summary.phtml:464
+#: resources/views/partials/family-part-summary.phtml:466
 #, php-format
 msgid "%d co-sister-in-law recorded (%d in total)."
 msgid_plural "%d co-sisters-in-law recorded (%d in total)."
-msgstr[0] "%d sestru alebo manželku švagrov a švagrín (spolu %d)."
-msgstr[1] "%d sestry alebo manželky švagrov a švagrín (spolu %d)."
-msgstr[2] "%d sestier alebo manželiek švagrov a švagrín (spolu %d)."
+msgstr[0] "%d sestru alebo partnerku švagra/švagrinej (spolu %d)."
+msgstr[1] "%d sestry alebo partnerky švagrov a švagrín (spolu %d)."
+msgstr[2] "%d sestier alebo partneriek švagrov a švagrín (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:467
-#: resources/views/partials/family-part-summary.phtml:470
-#: resources/views/partials/family-part-summary.phtml:474
+#: resources/views/partials/family-part-summary.phtml:469
+#: resources/views/partials/family-part-summary.phtml:472
+#: resources/views/partials/family-part-summary.phtml:476
 #, php-format
 msgid "%d co-sibling-in-law of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d co-siblings-in-law of diverse or unknown sex recorded (%d in total)."
 msgstr[0] ""
+"%d súrodenca alebo partnera s iným alebo neznámym pohlavím švagra/švagrinej "
+"(spolu %d)."
 msgstr[1] ""
+"%d súrodencov alebo partnerov s iným alebo neznámym pohlavím švagrov a "
+"švagrín (spolu %d)."
 msgstr[2] ""
+"%d súrodencov alebo partnerov s iným alebo neznámym pohlavím švagrov a "
+"švagrín (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:469
+#: resources/views/partials/family-part-summary.phtml:471
 #, php-format
 msgid "%2$s has %1$d co-sister-in-law and"
 msgid_plural "%2$s has %1$d co-sisters-in-law and"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2$s má zaznamenanú %1$d sestru alebo partnerku švagra/švagrinej a"
+msgstr[1] "%2$s má zaznamenané %1$d sestry alebo partnerky švagrov a švagrín a"
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d sestier alebo partneriek švagrov a švagrín a"
 
-#: resources/views/partials/family-part-summary.phtml:472
+#: resources/views/partials/family-part-summary.phtml:474
 #, php-format
 msgid "%2$s has %1$d co-brother-in-law,"
 msgid_plural "%2$s has %1$d co-brothers-in-law,"
-msgstr[0] ""
+msgstr[0] "%2$s má zaznamenaného %1$d brata alebo partnera švagra/švagrinej,"
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d bratov alebo partnerov švagrov a švagrín,"
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d bratov alebo partnerov švagrov a švagrín,"
 
-#: resources/views/partials/family-part-summary.phtml:473
+#: resources/views/partials/family-part-summary.phtml:475
 #, php-format
 msgid "%d co-sister-in-law, and"
 msgid_plural "%d co-sisters-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d sestru alebo partnerku švagra/švagrinej a"
+msgstr[1] "%d sestry alebo partnerky švagrov a švagrín a"
+msgstr[2] "%d sestier alebo partneriek švagrov a švagrín a"
 
-#: resources/views/partials/family-part-summary.phtml:490
+#: resources/views/partials/family-part-summary.phtml:492
 #, php-format
 msgid "%s has one female first cousin recorded."
 msgstr "%s má zaznamenanú jednu prvostupňovú sesternicu."
 
-#: resources/views/partials/family-part-summary.phtml:492
+#: resources/views/partials/family-part-summary.phtml:494
 #, php-format
 msgid "%s has one male first cousin recorded."
 msgstr "%s má zaznamenaného jedného prvostupňového bratranca."
 
-#: resources/views/partials/family-part-summary.phtml:494
+#: resources/views/partials/family-part-summary.phtml:496
 #, php-format
 msgid "%s has one first cousin of diverse or unknown sex recorded."
 msgstr ""
+"%s má zaznamenaného jedného prvostupňového bratranca/sesternicu s iným, "
+"alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:498
+#: resources/views/partials/family-part-summary.phtml:500
 #, php-format
 msgid "%2$s has %1$d female first cousin recorded."
 msgid_plural "%2$s has %1$d female first cousins recorded."
@@ -2637,7 +2750,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d prvostupňovú sesternicu."
 msgstr[1] "%2$s má zaznamenané %1$d prvostupňové sesternice."
 msgstr[2] "%2$s má zaznamenané %1$d prvostupňových sesterníc."
 
-#: resources/views/partials/family-part-summary.phtml:500
+#: resources/views/partials/family-part-summary.phtml:502
 #, php-format
 msgid "%2$s has %1$d male first cousin recorded."
 msgid_plural "%2$s has %1$d male first cousins recorded."
@@ -2645,16 +2758,22 @@ msgstr[0] "%2$s má zaznamenaného %1$d prvostupňového bratranca."
 msgstr[1] "%2$s má zaznamenaného %1$d prvostupňových bratrancov."
 msgstr[2] "%2$s má zaznamenaných %1$d prvostupňových bratrancov."
 
-#: resources/views/partials/family-part-summary.phtml:502
+#: resources/views/partials/family-part-summary.phtml:504
 #, php-format
 msgid "%2$s has %1$d first cousin of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d first cousins of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d prvostupňového bratranca/sesternicu s iným alebo "
+"neznámym pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d prvostupňových bratrancov/sesternice s iným, "
+"alebo neznámym pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d prvostupňových bratrancov/sesterníc s iným alebo "
+"neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:504
-#: resources/views/partials/family-part-summary.phtml:507
+#: resources/views/partials/family-part-summary.phtml:506
+#: resources/views/partials/family-part-summary.phtml:509
 #, php-format
 msgid "%2$s has %1$d male first cousin and"
 msgid_plural "%2$s has %1$d male first cousins and"
@@ -2662,7 +2781,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d prvostupňového bratranca a"
 msgstr[1] "%2$s má zaznamenaných %1$d prvostupňových bratrancov a"
 msgstr[2] "%2$s má zaznamenaných %1$d prvostupňových bratrancov a"
 
-#: resources/views/partials/family-part-summary.phtml:505
+#: resources/views/partials/family-part-summary.phtml:507
 #, php-format
 msgid "%d female first cousin recorded (%d in total)."
 msgid_plural "%d female first cousins recorded (%d in total)."
@@ -2670,18 +2789,24 @@ msgstr[0] "%d prvostupňovú sesternicu (spolu %d)."
 msgstr[1] "%d prvostupňové sesternice (spolu %d)."
 msgstr[2] "%d prvostupňových sesterníc (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:508
-#: resources/views/partials/family-part-summary.phtml:511
-#: resources/views/partials/family-part-summary.phtml:515
+#: resources/views/partials/family-part-summary.phtml:510
+#: resources/views/partials/family-part-summary.phtml:513
+#: resources/views/partials/family-part-summary.phtml:517
 #, php-format
 msgid "%d first cousin of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d first cousins of diverse or unknown sex recorded (%d in total)."
 msgstr[0] ""
+"%d prvostupňového bratranca/sesternicu s iným alebo neznámym pohlavím (spolu "
+"%d)."
 msgstr[1] ""
+"%d prvostupňových bratrancov/sesternice s iným alebo neznámym pohlavím "
+"(spolu %d)."
 msgstr[2] ""
+"%d prvostupňových bratrancov/sesterníc s iným alebo neznámym pohlavím (spolu "
+"%d)."
 
-#: resources/views/partials/family-part-summary.phtml:510
+#: resources/views/partials/family-part-summary.phtml:512
 #, php-format
 msgid "%2$s has %1$d female first cousin and"
 msgid_plural "%2$s has %1$d female first cousins and"
@@ -2689,7 +2814,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d prvostupňovú sesternicu a"
 msgstr[1] "%2$s má zaznamenané %1$d prvostupňové sesternice a"
 msgstr[2] "%2$s má zaznamenaných %1$d prvostupňových sesterníc a"
 
-#: resources/views/partials/family-part-summary.phtml:513
+#: resources/views/partials/family-part-summary.phtml:515
 #, php-format
 msgid "%2$s has %1$d male first cousin,"
 msgid_plural "%2$s has %1$d male first cousins,"
@@ -2697,7 +2822,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d prvostupňového bratranca,"
 msgstr[1] "%2$s má zaznamenaných %1$d prvostupňových bratrancov,"
 msgstr[2] "%2$s má zaznamenaných %1$d prvostupňových bratrancov,"
 
-#: resources/views/partials/family-part-summary.phtml:514
+#: resources/views/partials/family-part-summary.phtml:516
 #, php-format
 msgid "%d female first cousin, and"
 msgid_plural "%d female first cousins, and"
@@ -2705,22 +2830,24 @@ msgstr[0] "%d prvostupňovú sesternicu a"
 msgstr[1] "%d prvostupňové sesternice a"
 msgstr[2] "%d prvostupňových sesterníc a"
 
-#: resources/views/partials/family-part-summary.phtml:521
+#: resources/views/partials/family-part-summary.phtml:523
 #, php-format
 msgid "%s has one niece recorded."
 msgstr "%s má zaznamenanú jednu neter."
 
-#: resources/views/partials/family-part-summary.phtml:523
+#: resources/views/partials/family-part-summary.phtml:525
 #, php-format
 msgid "%s has one nephew recorded."
 msgstr "%s má zaznamenaného jedného synovca."
 
-#: resources/views/partials/family-part-summary.phtml:525
+#: resources/views/partials/family-part-summary.phtml:527
 #, php-format
 msgid "%s has one nephew or niece of diverse or unknown sex recorded."
 msgstr ""
+"%s má zaznamenaného jedného synovca alebo neter s iným alebo neznámym "
+"pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:529
+#: resources/views/partials/family-part-summary.phtml:531
 #, php-format
 msgid "%2$s has %1$d niece recorded."
 msgid_plural "%2$s has %1$d nieces recorded."
@@ -2728,7 +2855,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d neter."
 msgstr[1] "%2$s má zaznamenané %1$d netere."
 msgstr[2] "%2$s má zaznamenaných %1$d neterí."
 
-#: resources/views/partials/family-part-summary.phtml:531
+#: resources/views/partials/family-part-summary.phtml:533
 #, php-format
 msgid "%2$s has %1$d nephew recorded."
 msgid_plural "%2$s has %1$d nephews recorded."
@@ -2736,17 +2863,23 @@ msgstr[0] "%2$s má zaznamenaného %1$d synovca."
 msgstr[1] "%2$s má zaznamenaných %1$d synovcov."
 msgstr[2] "%2$s zaznamenaných %1$d synovcov."
 
-#: resources/views/partials/family-part-summary.phtml:533
+#: resources/views/partials/family-part-summary.phtml:535
 #, php-format
 msgid "%2$s has %1$d nephew or niece of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d nephews or nieces of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d synovca alebo neter s iným alebo neznámym "
+"pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d synovcov alebo netere s iným alebo neznámym "
+"pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d synovcov alebo neterí s iným alebo neznámym "
+"pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:535
-#: resources/views/partials/family-part-summary.phtml:538
+#: resources/views/partials/family-part-summary.phtml:537
+#: resources/views/partials/family-part-summary.phtml:540
 #, php-format
 msgid "%2$s has %1$d nephew and"
 msgid_plural "%2$s has %1$d nephews and"
@@ -2754,7 +2887,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d synovca a"
 msgstr[1] "%2$s má zaznamenaných %1$d synovcov a"
 msgstr[2] "%2$s má zaznamenaných %1$d synovcov a"
 
-#: resources/views/partials/family-part-summary.phtml:536
+#: resources/views/partials/family-part-summary.phtml:538
 #, php-format
 msgid "%d niece recorded (%d in total)."
 msgid_plural "%d nieces recorded (%d in total)."
@@ -2762,18 +2895,18 @@ msgstr[0] "%d neter (spolu %d)."
 msgstr[1] "%d netere (spolu %d)."
 msgstr[2] "%d neterí (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:539
-#: resources/views/partials/family-part-summary.phtml:542
-#: resources/views/partials/family-part-summary.phtml:546
+#: resources/views/partials/family-part-summary.phtml:541
+#: resources/views/partials/family-part-summary.phtml:544
+#: resources/views/partials/family-part-summary.phtml:548
 #, php-format
 msgid "%d nephew or niece of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d nephews or nieces of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d synovca alebo neter s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d synovcov alebo netere s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d synovcov alebo neterí s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:541
+#: resources/views/partials/family-part-summary.phtml:543
 #, php-format
 msgid "%2$s has %1$d niece and"
 msgid_plural "%2$s has %1$d nieces and"
@@ -2781,7 +2914,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d neter a"
 msgstr[1] "%2$s má zaznamenané %1$d netere a"
 msgstr[2] "%2$s má zaznamenaných %1$d neterí a"
 
-#: resources/views/partials/family-part-summary.phtml:544
+#: resources/views/partials/family-part-summary.phtml:546
 #, php-format
 msgid "%2$s has %1$d nephew,"
 msgid_plural "%2$s has %1$d nephews,"
@@ -2789,7 +2922,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d synovca,"
 msgstr[1] "%2$s má zaznamenaných %1$d synovcov,"
 msgstr[2] "%2$s má zaznamenaných %1$d synovcov,"
 
-#: resources/views/partials/family-part-summary.phtml:545
+#: resources/views/partials/family-part-summary.phtml:547
 #, php-format
 msgid "%d niece, and"
 msgid_plural "%d nieces, and"
@@ -2797,36 +2930,38 @@ msgstr[0] "%d neter a"
 msgstr[1] "%d netere a"
 msgstr[2] "%d neterí a"
 
-#: resources/views/partials/family-part-summary.phtml:552
-#, fuzzy, php-format
-#| msgid "%s has one uncle recorded."
-msgid "%s has one grandniece recorded."
-msgstr "%s má zaznamenaného jedného strýka."
-
 #: resources/views/partials/family-part-summary.phtml:554
+#, fuzzy, php-format
+#| msgid "%s has one niece recorded."
+msgid "%s has one grandniece recorded."
+msgstr "%s má zaznamenanú jednu neter."
+
+#: resources/views/partials/family-part-summary.phtml:556
 #, fuzzy, php-format
 #| msgid "%s has one nephew recorded."
 msgid "%s has one grandnephew recorded."
 msgstr "%s má zaznamenaného jedného synovca."
 
-#: resources/views/partials/family-part-summary.phtml:556
+#: resources/views/partials/family-part-summary.phtml:558
 #, fuzzy, php-format
-#| msgid "%s has one great-grandchild of unknown sex recorded."
+#| msgid "%s has one nephew or niece of diverse or unknown sex recorded."
 msgid ""
 "%s has one grandnephew or grandniece of diverse or unknown sex recorded."
-msgstr "%s má zaznamenané jedno pravnúča s neznámym pohlavím."
-
-#: resources/views/partials/family-part-summary.phtml:560
-#, fuzzy, php-format
-#| msgid "%2$s has %1$d uncle recorded."
-#| msgid_plural "%2$s has %1$d uncles recorded."
-msgid "%2$s has %1$d grandniece recorded."
-msgid_plural "%2$s has %1$d grandnieces recorded."
-msgstr[0] "%2$s má zaznamenaného %1$d strýka."
-msgstr[1] "%2$s má zaznamenaných %1$d strýkov."
-msgstr[2] "%2$s má zaznamenaných %1$d strýkov."
+msgstr ""
+"%s má zaznamenaného jedného synovca alebo neter s iným alebo neznámym "
+"pohlavím."
 
 #: resources/views/partials/family-part-summary.phtml:562
+#, fuzzy, php-format
+#| msgid "%2$s has %1$d niece recorded."
+#| msgid_plural "%2$s has %1$d nieces recorded."
+msgid "%2$s has %1$d grandniece recorded."
+msgid_plural "%2$s has %1$d grandnieces recorded."
+msgstr[0] "%2$s má zaznamenanú %1$d neter."
+msgstr[1] "%2$s má zaznamenané %1$d netere."
+msgstr[2] "%2$s má zaznamenaných %1$d neterí."
+
+#: resources/views/partials/family-part-summary.phtml:564
 #, fuzzy, php-format
 #| msgid "%2$s has %1$d nephew recorded."
 #| msgid_plural "%2$s has %1$d nephews recorded."
@@ -2836,20 +2971,27 @@ msgstr[0] "%2$s má zaznamenaného %1$d synovca."
 msgstr[1] "%2$s má zaznamenaných %1$d synovcov."
 msgstr[2] "%2$s zaznamenaných %1$d synovcov."
 
-#: resources/views/partials/family-part-summary.phtml:564
+#: resources/views/partials/family-part-summary.phtml:566
 #, fuzzy, php-format
-#| msgid "%2$s has %1$d great-grandchild of unknown sex recorded."
-#| msgid_plural "%2$s has %1$d great-grandchildren of unknown sex recorded."
+#| msgid "%2$s has %1$d nephew or niece of diverse or unknown sex recorded."
+#| msgid_plural ""
+#| "%2$s has %1$d nephews or nieces of diverse or unknown sex recorded."
 msgid ""
 "%2$s has %1$d grandnephew or grandniece of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d grandnephews or grandnieces of diverse or unknown sex recorded."
-msgstr[0] "%2$s má zaznamenané %1$d pravnúča s neznámym pohlavím."
-msgstr[1] "%2$s má zaznamenané %1$d pravnúčatá s neznámym pohlavím."
-msgstr[2] "%2$s má zaznamenaných %1$d pravnúčat s neznámym pohlavím."
+msgstr[0] ""
+"%2$s má zaznamenaného %1$d synovca alebo neter s iným alebo neznámym "
+"pohlavím."
+msgstr[1] ""
+"%2$s má zaznamenaných %1$d synovcov alebo netere s iným alebo neznámym "
+"pohlavím."
+msgstr[2] ""
+"%2$s má zaznamenaných %1$d synovcov alebo neterí s iným alebo neznámym "
+"pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:566
-#: resources/views/partials/family-part-summary.phtml:569
+#: resources/views/partials/family-part-summary.phtml:568
+#: resources/views/partials/family-part-summary.phtml:571
 #, fuzzy, php-format
 #| msgid "%2$s has %1$d nephew and"
 #| msgid_plural "%2$s has %1$d nephews and"
@@ -2859,7 +3001,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d synovca a"
 msgstr[1] "%2$s má zaznamenaných %1$d synovcov a"
 msgstr[2] "%2$s má zaznamenaných %1$d synovcov a"
 
-#: resources/views/partials/family-part-summary.phtml:567
+#: resources/views/partials/family-part-summary.phtml:569
 #, fuzzy, php-format
 #| msgid "%d niece recorded (%d in total)."
 #| msgid_plural "%d nieces recorded (%d in total)."
@@ -2869,33 +3011,34 @@ msgstr[0] "%d neter (spolu %d)."
 msgstr[1] "%d netere (spolu %d)."
 msgstr[2] "%d neterí (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:570
-#: resources/views/partials/family-part-summary.phtml:573
-#: resources/views/partials/family-part-summary.phtml:577
+#: resources/views/partials/family-part-summary.phtml:572
+#: resources/views/partials/family-part-summary.phtml:575
+#: resources/views/partials/family-part-summary.phtml:579
 #, fuzzy, php-format
-#| msgid "%d great-grandchild of unknown sex recorded (%d in total)."
-#| msgid_plural "%d great-grandchildren of unknown sex recorded (%d in total)."
+#| msgid "%d nephew or niece of diverse or unknown sex recorded (%d in total)."
+#| msgid_plural ""
+#| "%d nephews or nieces of diverse or unknown sex recorded (%d in total)."
 msgid ""
 "%d grandnephew or grandniece of diverse or unknown sex recorded (%d in "
 "total)."
 msgid_plural ""
 "%d grandnephews or grandnieces of diverse or unknown sex recorded (%d in "
 "total)."
-msgstr[0] "%d pravnúča s neznámym pohlavím (spolu %d)."
-msgstr[1] "%d pravnúčatá s neznámym pohlavím (spolu %d)."
-msgstr[2] "%d pravnúčat s neznámym pohlavím (spolu %d)."
+msgstr[0] "%d synovca alebo neter s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d synovcov alebo netere s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d synovcov alebo neterí s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:572
+#: resources/views/partials/family-part-summary.phtml:574
 #, fuzzy, php-format
-#| msgid "%2$s has %1$d uncle and"
-#| msgid_plural "%2$s has %1$d uncles and"
+#| msgid "%2$s has %1$d niece and"
+#| msgid_plural "%2$s has %1$d nieces and"
 msgid "%2$s has %1$d grandniece and"
 msgid_plural "%2$s has %1$d grandnieces and"
-msgstr[0] "%2$s má zaznamenaného %1$d strýka a"
-msgstr[1] "%2$s má zaznamenaných %1$d strýkov a"
-msgstr[2] "%2$s má zaznamenaných %1$d strýkov a"
+msgstr[0] "%2$s má zaznamenanú %1$d neter a"
+msgstr[1] "%2$s má zaznamenané %1$d netere a"
+msgstr[2] "%2$s má zaznamenaných %1$d neterí a"
 
-#: resources/views/partials/family-part-summary.phtml:575
+#: resources/views/partials/family-part-summary.phtml:577
 #, fuzzy, php-format
 #| msgid "%2$s has %1$d nephew,"
 #| msgid_plural "%2$s has %1$d nephews,"
@@ -2905,7 +3048,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d synovca,"
 msgstr[1] "%2$s má zaznamenaných %1$d synovcov,"
 msgstr[2] "%2$s má zaznamenaných %1$d synovcov,"
 
-#: resources/views/partials/family-part-summary.phtml:576
+#: resources/views/partials/family-part-summary.phtml:578
 #, fuzzy, php-format
 #| msgid "%d niece, and"
 #| msgid_plural "%d nieces, and"
@@ -2915,22 +3058,22 @@ msgstr[0] "%d neter a"
 msgstr[1] "%d netere a"
 msgstr[2] "%d neterí a"
 
-#: resources/views/partials/family-part-summary.phtml:583
+#: resources/views/partials/family-part-summary.phtml:585
 #, php-format
 msgid "%s has one daughter recorded."
 msgstr "%s má zaznamenanú jednu dcéru."
 
-#: resources/views/partials/family-part-summary.phtml:585
+#: resources/views/partials/family-part-summary.phtml:587
 #, php-format
 msgid "%s has one son recorded."
 msgstr "%s má zaznamenaného jedného syna."
 
-#: resources/views/partials/family-part-summary.phtml:587
+#: resources/views/partials/family-part-summary.phtml:589
 #, php-format
 msgid "%s has one child of diverse or unknown sex recorded."
-msgstr ""
+msgstr "%s má zaznamenané jedno dieťa s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:591
+#: resources/views/partials/family-part-summary.phtml:593
 #, php-format
 msgid "%2$s has %1$d daughter recorded."
 msgid_plural "%2$s has %1$d daughters recorded."
@@ -2938,7 +3081,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d dcéru."
 msgstr[1] "%2$s má zaznamenané %1$d dcéry."
 msgstr[2] "%2$s má zaznamenaných %1$d dcér."
 
-#: resources/views/partials/family-part-summary.phtml:593
+#: resources/views/partials/family-part-summary.phtml:595
 #, php-format
 msgid "%2$s has %1$d son recorded."
 msgid_plural "%2$s has %1$d sons recorded."
@@ -2946,16 +3089,16 @@ msgstr[0] "%2$s má zaznamenaného %1$d syna."
 msgstr[1] "%2$s má zaznamenaných %1$d synov."
 msgstr[2] "%2$s má zaznamenaných %1$d synov."
 
-#: resources/views/partials/family-part-summary.phtml:595
+#: resources/views/partials/family-part-summary.phtml:597
 #, php-format
 msgid "%2$s has %1$d child of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d children of diverse or unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenané %1$d dieťa s iným alebo neznámym pohlavím."
+msgstr[1] "%2$s má zaznamenané %1$d deti s iným alebo neznámym pohlavím."
+msgstr[2] "%2$s má zaznamenaných %1$d detí s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:597
-#: resources/views/partials/family-part-summary.phtml:600
+#: resources/views/partials/family-part-summary.phtml:599
+#: resources/views/partials/family-part-summary.phtml:602
 #, php-format
 msgid "%2$s has %1$d son and"
 msgid_plural "%2$s has %1$d sons and"
@@ -2963,7 +3106,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d syna a"
 msgstr[1] "%2$s má zaznamenaných %1$d synov a"
 msgstr[2] "%2$s má zaznamenaných %1$d synov a"
 
-#: resources/views/partials/family-part-summary.phtml:598
+#: resources/views/partials/family-part-summary.phtml:600
 #, php-format
 msgid "%d daughter recorded (%d in total)."
 msgid_plural "%d daughters recorded (%d in total)."
@@ -2971,17 +3114,17 @@ msgstr[0] "%d dcéru (spolu %d)."
 msgstr[1] "%d dcéry (spolu %d)."
 msgstr[2] "%d dcér (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:601
-#: resources/views/partials/family-part-summary.phtml:604
-#: resources/views/partials/family-part-summary.phtml:608
+#: resources/views/partials/family-part-summary.phtml:603
+#: resources/views/partials/family-part-summary.phtml:606
+#: resources/views/partials/family-part-summary.phtml:610
 #, php-format
 msgid "%d child of diverse or unknown sex recorded (%d in total)."
 msgid_plural "%d children of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d dieťa s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d detí s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d detí s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:603
+#: resources/views/partials/family-part-summary.phtml:605
 #, php-format
 msgid "%2$s has %1$d daughter and"
 msgid_plural "%2$s has %1$d daughters and"
@@ -2989,7 +3132,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d dcéru a"
 msgstr[1] "%2$s má zaznamenané %1$d dcéry a"
 msgstr[2] "%2$s má zaznamenaných %1$d dcér a"
 
-#: resources/views/partials/family-part-summary.phtml:606
+#: resources/views/partials/family-part-summary.phtml:608
 #, php-format
 msgid "%2$s has %1$d son,"
 msgid_plural "%2$s has %1$d sons,"
@@ -2997,7 +3140,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d syna,"
 msgstr[1] "%2$s má zaznamenaných %1$d synov,"
 msgstr[2] "%2$s má zaznamenaných %1$d synov,"
 
-#: resources/views/partials/family-part-summary.phtml:607
+#: resources/views/partials/family-part-summary.phtml:609
 #, php-format
 msgid "%d daughter, and"
 msgid_plural "%d daughters, and"
@@ -3005,22 +3148,23 @@ msgstr[0] "%d dcéru a"
 msgstr[1] "%d dcéry a"
 msgstr[2] "%d dcér a"
 
-#: resources/views/partials/family-part-summary.phtml:614
+#: resources/views/partials/family-part-summary.phtml:616
 #, php-format
 msgid "%s has one daughter-in-law recorded."
 msgstr "%s má zaznamenanú jednu nevestu."
 
-#: resources/views/partials/family-part-summary.phtml:616
+#: resources/views/partials/family-part-summary.phtml:618
 #, php-format
 msgid "%s has one son-in-law recorded."
 msgstr "%s má zaznamenaného jedného zaťa."
 
-#: resources/views/partials/family-part-summary.phtml:618
+#: resources/views/partials/family-part-summary.phtml:620
 #, php-format
 msgid "%s has one child-in-law of diverse or unknown sex recorded."
 msgstr ""
+"%s má zaznamenaného jedného zaťa/nevestu s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:622
+#: resources/views/partials/family-part-summary.phtml:624
 #, php-format
 msgid "%2$s has %1$d daughter-in-law recorded."
 msgid_plural "%2$s has %1$d daughters-in-law recorded."
@@ -3028,7 +3172,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d nevestu."
 msgstr[1] "%2$s má zaznamenané %1$d nevesty."
 msgstr[2] "%2$s má zaznamenaných %1$d neviest."
 
-#: resources/views/partials/family-part-summary.phtml:624
+#: resources/views/partials/family-part-summary.phtml:626
 #, php-format
 msgid "%2$s has %1$d son-in-law recorded."
 msgid_plural "%2$s has %1$d sons-in-law recorded."
@@ -3036,17 +3180,20 @@ msgstr[0] "%2$s má zaznamenaného %1$d zaťa."
 msgstr[1] "%2$s má zaznamenaných %1$d zaťov."
 msgstr[2] "%2$s má zaznamenaných %1$d zaťov."
 
-#: resources/views/partials/family-part-summary.phtml:626
+#: resources/views/partials/family-part-summary.phtml:628
 #, php-format
 msgid "%2$s has %1$d child-in-law of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d children-in-law of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d zaťa/nevestu s iným alebo neznámym pohlavím."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d zaťov/nevesty s iným alebo neznámym pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d zaťov/neviest s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:628
-#: resources/views/partials/family-part-summary.phtml:631
+#: resources/views/partials/family-part-summary.phtml:630
+#: resources/views/partials/family-part-summary.phtml:633
 #, php-format
 msgid "%2$s has %1$d son-in-law and"
 msgid_plural "%2$s has %1$d sons-in-law and"
@@ -3054,7 +3201,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d zaťa a"
 msgstr[1] "%2$s má zaznamenaných %1$d zaťov a"
 msgstr[2] "%2$s má zaznamenaných %1$d zaťov a"
 
-#: resources/views/partials/family-part-summary.phtml:629
+#: resources/views/partials/family-part-summary.phtml:631
 #, php-format
 msgid "%d daughter-in-law recorded (%d in total)."
 msgid_plural "%d daughters-in-law recorded (%d in total)."
@@ -3062,18 +3209,18 @@ msgstr[0] "%d nevestu (spolu %d)."
 msgstr[1] "%d nevesty (spolu %d)."
 msgstr[2] "%d neviest (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:632
-#: resources/views/partials/family-part-summary.phtml:635
-#: resources/views/partials/family-part-summary.phtml:639
+#: resources/views/partials/family-part-summary.phtml:634
+#: resources/views/partials/family-part-summary.phtml:637
+#: resources/views/partials/family-part-summary.phtml:641
 #, php-format
 msgid "%d child-in-law of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d children-in-law of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d zaťa/nevestu s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d zaťov/nevesty s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d zaťov/neviest s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:634
+#: resources/views/partials/family-part-summary.phtml:636
 #, php-format
 msgid "%2$s has %1$d daughter-in-law and"
 msgid_plural "%2$s has %1$d daughters-in-law and"
@@ -3081,7 +3228,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d nevestu a"
 msgstr[1] "%2$s má zaznamenané %1$d nevesty a"
 msgstr[2] "%2$s má zaznamenaných %1$d neviest a"
 
-#: resources/views/partials/family-part-summary.phtml:637
+#: resources/views/partials/family-part-summary.phtml:639
 #, php-format
 msgid "%2$s has %1$d son-in-law,"
 msgid_plural "%2$s has %1$d sons-in-law,"
@@ -3089,7 +3236,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d zaťa,"
 msgstr[1] "%2$s má zaznamenaných %1$d zaťov,"
 msgstr[2] "%2$s má zaznamenaných %1$d zaťov,"
 
-#: resources/views/partials/family-part-summary.phtml:638
+#: resources/views/partials/family-part-summary.phtml:640
 #, php-format
 msgid "%d daughter-in-law, and"
 msgid_plural "%d daughters-in-law, and"
@@ -3097,22 +3244,22 @@ msgstr[0] "%1$d nevestu a"
 msgstr[1] "%1$d nevesty a"
 msgstr[2] "%1$d neviest a"
 
-#: resources/views/partials/family-part-summary.phtml:645
+#: resources/views/partials/family-part-summary.phtml:647
 #, php-format
 msgid "%s has one granddaughter recorded."
 msgstr "%s má zaznamenanú jednu vnučku."
 
-#: resources/views/partials/family-part-summary.phtml:647
+#: resources/views/partials/family-part-summary.phtml:649
 #, php-format
 msgid "%s has one grandson recorded."
 msgstr "%s má zaznamenaného jedného vnuka."
 
-#: resources/views/partials/family-part-summary.phtml:649
+#: resources/views/partials/family-part-summary.phtml:651
 #, php-format
 msgid "%s has one grandchild of diverse or unknown sex recorded."
-msgstr ""
+msgstr "%s má zaznamenané jedno vnúča s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:653
+#: resources/views/partials/family-part-summary.phtml:655
 #, php-format
 msgid "%2$s has %1$d granddaughter recorded."
 msgid_plural "%2$s has %1$d granddaughters recorded."
@@ -3120,7 +3267,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d vnučku."
 msgstr[1] "%2$s má zaznamenané %1$d vnučky."
 msgstr[2] "%2$s má zaznamenaných %1$d vnučiek."
 
-#: resources/views/partials/family-part-summary.phtml:655
+#: resources/views/partials/family-part-summary.phtml:657
 #, php-format
 msgid "%2$s has %1$d grandson recorded."
 msgid_plural "%2$s has %1$d grandsons recorded."
@@ -3128,16 +3275,16 @@ msgstr[0] "%2$s má zaznamenaného %1$d vnuka."
 msgstr[1] "%2$s má zaznamenaných %1$d vnukov."
 msgstr[2] "%2$s má zaznamenaných %1$d vnukov."
 
-#: resources/views/partials/family-part-summary.phtml:657
+#: resources/views/partials/family-part-summary.phtml:659
 #, php-format
 msgid "%2$s has %1$d grandchild of diverse or unknown sex recorded."
 msgid_plural "%2$s has %1$d grandchildren of diverse or unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenané %1$d vnúča s iným alebo neznámym pohlavím."
+msgstr[1] "%2$s má zaznamenané %1$d vnúčatá s iným alebo neznámym pohlavím."
+msgstr[2] "%2$s má zaznamenaných %1$d vnúčat s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:659
-#: resources/views/partials/family-part-summary.phtml:662
+#: resources/views/partials/family-part-summary.phtml:661
+#: resources/views/partials/family-part-summary.phtml:664
 #, php-format
 msgid "%2$s has %1$d grandson and"
 msgid_plural "%2$s has %1$d grandsons and"
@@ -3145,7 +3292,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d vnuka a"
 msgstr[1] "%2$s má zaznamenaných %1$d vnukov a"
 msgstr[2] "%2$s má zaznamenaných %1$d vnukov a"
 
-#: resources/views/partials/family-part-summary.phtml:660
+#: resources/views/partials/family-part-summary.phtml:662
 #, php-format
 msgid "%d granddaughter recorded (%d in total)."
 msgid_plural "%d granddaughters recorded (%d in total)."
@@ -3153,18 +3300,18 @@ msgstr[0] "%d vnučku (spolu %d)."
 msgstr[1] "%d vnučky (spolu %d)."
 msgstr[2] "%d vnučiek (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:663
-#: resources/views/partials/family-part-summary.phtml:666
-#: resources/views/partials/family-part-summary.phtml:670
+#: resources/views/partials/family-part-summary.phtml:665
+#: resources/views/partials/family-part-summary.phtml:668
+#: resources/views/partials/family-part-summary.phtml:672
 #, php-format
 msgid "%d grandchild of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d grandchildren of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d vnúča s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d vnúčatá s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d vnúčat s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:665
+#: resources/views/partials/family-part-summary.phtml:667
 #, php-format
 msgid "%2$s has %1$d granddaughter and"
 msgid_plural "%2$s has %1$d granddaughters and"
@@ -3172,7 +3319,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d vnučku a"
 msgstr[1] "%2$s má zaznamenané %1$d vnučky a"
 msgstr[2] "%2$s má zaznamenaných %1$d vnučiek a"
 
-#: resources/views/partials/family-part-summary.phtml:668
+#: resources/views/partials/family-part-summary.phtml:670
 #, php-format
 msgid "%2$s has %1$d grandson,"
 msgid_plural "%2$s has %1$d grandsons,"
@@ -3180,7 +3327,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d vnuka,"
 msgstr[1] "%2$s má zaznamenaných %1$d vnukov,"
 msgstr[2] "%2$s má zaznamenaných %1$d vnukov,"
 
-#: resources/views/partials/family-part-summary.phtml:669
+#: resources/views/partials/family-part-summary.phtml:671
 #, php-format
 msgid "%d granddaughter, and"
 msgid_plural "%d granddaughters, and"
@@ -3188,22 +3335,22 @@ msgstr[0] "%d vnučku a"
 msgstr[1] "%d vnučky a"
 msgstr[2] "%d vnučiek a"
 
-#: resources/views/partials/family-part-summary.phtml:676
+#: resources/views/partials/family-part-summary.phtml:678
 #, php-format
 msgid "%s has one great-granddaughter recorded."
 msgstr "%s má zaznamenanú jednu pravnučku."
 
-#: resources/views/partials/family-part-summary.phtml:678
+#: resources/views/partials/family-part-summary.phtml:680
 #, php-format
 msgid "%s has one great-grandson recorded."
 msgstr "%s má zaznamenaného jedného pravnuka."
 
-#: resources/views/partials/family-part-summary.phtml:680
+#: resources/views/partials/family-part-summary.phtml:682
 #, php-format
 msgid "%s has one great-grandchild of diverse or unknown sex recorded."
-msgstr ""
+msgstr "%s má zaznamenané jedno pravnúča s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:684
+#: resources/views/partials/family-part-summary.phtml:686
 #, php-format
 msgid "%2$s has %1$d great-granddaughter recorded."
 msgid_plural "%2$s has %1$d great-granddaughters recorded."
@@ -3211,7 +3358,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d pravnučku."
 msgstr[1] "%2$s má zaznamenané %1$d pravnučky."
 msgstr[2] "%2$s má zaznamenaných %1$d pravnučiek."
 
-#: resources/views/partials/family-part-summary.phtml:686
+#: resources/views/partials/family-part-summary.phtml:688
 #, php-format
 msgid "%2$s has %1$d great-grandson recorded."
 msgid_plural "%2$s has %1$d great-grandsons recorded."
@@ -3219,17 +3366,18 @@ msgstr[0] "%2$s má zaznamenaného %1$d pravnuka."
 msgstr[1] "%2$s má zaznamenaných %1$d pravnukov."
 msgstr[2] "%2$s má zaznamenaných %1$d pravnukov."
 
-#: resources/views/partials/family-part-summary.phtml:688
+#: resources/views/partials/family-part-summary.phtml:690
 #, php-format
 msgid "%2$s has %1$d great-grandchild of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d great-grandchildren of diverse or unknown sex recorded."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2$s má zaznamenané %1$d pravnúča s iným alebo neznámym pohlavím."
+msgstr[1] "%2$s má zaznamenané %1$d pravnúčatá s iným alebo neznámym pohlavím."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d pravnúčat s iným alebo neznámym pohlavím."
 
-#: resources/views/partials/family-part-summary.phtml:690
-#: resources/views/partials/family-part-summary.phtml:693
+#: resources/views/partials/family-part-summary.phtml:692
+#: resources/views/partials/family-part-summary.phtml:695
 #, php-format
 msgid "%2$s has %1$d great-grandson and"
 msgid_plural "%2$s has %1$d great-grandsons and"
@@ -3237,7 +3385,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d pravnuka a"
 msgstr[1] "%2$s má zaznamenaných %1$d pravnukov a"
 msgstr[2] "%2$s má zaznamenaných %1$d pravnukov a"
 
-#: resources/views/partials/family-part-summary.phtml:691
+#: resources/views/partials/family-part-summary.phtml:693
 #, php-format
 msgid "%d great-granddaughter recorded (%d in total)."
 msgid_plural "%d great-granddaughters recorded (%d in total)."
@@ -3245,18 +3393,18 @@ msgstr[0] "%d pravnučku (spolu %d)."
 msgstr[1] "%d pravnučky (spolu %d)."
 msgstr[2] "%d pravnučiek (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:694
-#: resources/views/partials/family-part-summary.phtml:697
-#: resources/views/partials/family-part-summary.phtml:701
+#: resources/views/partials/family-part-summary.phtml:696
+#: resources/views/partials/family-part-summary.phtml:699
+#: resources/views/partials/family-part-summary.phtml:703
 #, php-format
 msgid "%d great-grandchild of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d great-grandchildren of diverse or unknown sex recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d pravnúča s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[1] "%d pravnúčatá s iným alebo neznámym pohlavím (spolu %d)."
+msgstr[2] "%d pravnúčat s iným alebo neznámym pohlavím (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:696
+#: resources/views/partials/family-part-summary.phtml:698
 #, php-format
 msgid "%2$s has %1$d great-granddaughter and"
 msgid_plural "%2$s has %1$d great-granddaughters and"
@@ -3264,7 +3412,7 @@ msgstr[0] "%2$s má zaznamenanú %1$d pravnučku a"
 msgstr[1] "%2$s má zaznamenané %1$d pravnučky a"
 msgstr[2] "%2$s má zaznamenaných %1$d pravnučiek a"
 
-#: resources/views/partials/family-part-summary.phtml:699
+#: resources/views/partials/family-part-summary.phtml:701
 #, php-format
 msgid "%2$s has %1$d great-grandson,"
 msgid_plural "%2$s has %1$d great-grandsons,"
@@ -3272,7 +3420,7 @@ msgstr[0] "%2$s má zaznamenaného %1$d pravnuka,"
 msgstr[1] "%2$s má zaznamenaných %1$d pravnukov,"
 msgstr[2] "%2$s má zaznamenaných %1$d pravnukov,"
 
-#: resources/views/partials/family-part-summary.phtml:700
+#: resources/views/partials/family-part-summary.phtml:702
 #, php-format
 msgid "%d great-granddaughter, and"
 msgid_plural "%d great-granddaughters, and"
@@ -3280,176 +3428,197 @@ msgstr[0] "%d pravnučku a"
 msgstr[1] "%d pravnučky a"
 msgstr[2] "%d pravnučiek a"
 
-#: resources/views/partials/family-part-summary.phtml:707
-#, php-format
-msgid "%s has one granddaughter-in-law recorded."
-msgstr "%s má zaznamenanú jednu partnerku vnuka."
-
 #: resources/views/partials/family-part-summary.phtml:709
 #, php-format
-msgid "%s has one grandson-in-law recorded."
-msgstr "%s má zaznamenaného jedného partnera vnučky."
+msgid "%s has one granddaughter-in-law recorded."
+msgstr "%s má zaznamenanú jednu partnerku vnúčaťa."
 
 #: resources/views/partials/family-part-summary.phtml:711
 #, php-format
+msgid "%s has one grandson-in-law recorded."
+msgstr "%s má zaznamenaného jedného partnera vnúčaťa."
+
+#: resources/views/partials/family-part-summary.phtml:713
+#, php-format
 msgid "%s has one grandchild-in-law of diverse or unknown sex recorded."
 msgstr ""
-
-#: resources/views/partials/family-part-summary.phtml:715
-#, php-format
-msgid "%2$s has %1$d granddaughter-in-law recorded."
-msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
-msgstr[0] "%2$s má zaznamenanú %1$d manželku vnuka."
-msgstr[1] "%2$s má zaznamenané %1$d partnerky vnukov."
-msgstr[2] "%2$s má zaznamenaných %1$d partneriek vnukov."
+"%s má zaznamenaného jedného partnera/partnerku s iným alebo neznámym "
+"pohlavím vnúčaťa."
 
 #: resources/views/partials/family-part-summary.phtml:717
 #, php-format
-msgid "%2$s has %1$d grandson-in-law recorded."
-msgid_plural "%2$s has %1$d grandsons-in-law recorded."
-msgstr[0] "%2$s má zaznamenaného %1$d partnera vnučiek."
-msgstr[1] "%2$s má zaznamenaných %1$d partnerov vnučiek."
-msgstr[2] "%2$s má zaznamenaných %1$d partnerov vnučiek."
+msgid "%2$s has %1$d granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d granddaughters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanú %1$d partnerku vnúčaťa."
+msgstr[1] "%2$s má zaznamenané %1$d partnerky vnúčat."
+msgstr[2] "%2$s má zaznamenaných %1$d partneriek vnúčat."
 
 #: resources/views/partials/family-part-summary.phtml:719
+#, php-format
+msgid "%2$s has %1$d grandson-in-law recorded."
+msgid_plural "%2$s has %1$d grandsons-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnúčaťa."
+msgstr[1] "%2$s má zaznamenaných %1$d partnerov vnúčat."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerov vnúčat."
+
+#: resources/views/partials/family-part-summary.phtml:721
 #, php-format
 msgid "%2$s has %1$d grandchild-in-law of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d grandchildren-in-law of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d partnera/partnerku s iným alebo neznámym pohlavím "
+"vnúčaťa."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d partnerov/partnerky s iným alebo neznámym "
+"pohlavím vnúčat."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d partnerov/partneriek s iným alebo neznámym "
+"pohlavím vnúčat."
 
-#: resources/views/partials/family-part-summary.phtml:721
-#: resources/views/partials/family-part-summary.phtml:724
+#: resources/views/partials/family-part-summary.phtml:723
+#: resources/views/partials/family-part-summary.phtml:726
 #, php-format
 msgid "%2$s has %1$d grandson-in-law and"
 msgid_plural "%2$s has %1$d grandsons-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnúčaťa a"
+msgstr[1] "%2$s má zaznamenaných %1$d partnerov vnúčat a"
+msgstr[2] "%2$s má zaznamenaných %1$d partnerov vnúčat a"
 
-#: resources/views/partials/family-part-summary.phtml:722
+#: resources/views/partials/family-part-summary.phtml:724
 #, php-format
 msgid "%d granddaughter-in-law recorded (%d in total)."
 msgid_plural "%d granddaughters-in-law recorded (%d in total)."
-msgstr[0] "%d partnerku vnuka (spolu %d)."
-msgstr[1] "%d partnerky vnukov (spolu %d)."
-msgstr[2] "%d partneriek vnukov  (spolu %d)."
+msgstr[0] "%d partnerku vnúčaťa (spolu %d)."
+msgstr[1] "%d partnerky vnúčat (spolu %d)."
+msgstr[2] "%d partneriek vnúčat (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:725
-#: resources/views/partials/family-part-summary.phtml:728
-#: resources/views/partials/family-part-summary.phtml:732
+#: resources/views/partials/family-part-summary.phtml:727
+#: resources/views/partials/family-part-summary.phtml:730
+#: resources/views/partials/family-part-summary.phtml:734
 #, php-format
 msgid "%d grandchild-in-law of diverse or unknown sex recorded (%d in total)."
 msgid_plural ""
 "%d grandchildren-in-law of diverse or unknown sex recorded (%d in total)."
 msgstr[0] ""
+"%d partner/partnerka s iným alebo neznámym pohlavím vnúčaťa (spolu %d)."
 msgstr[1] ""
+"%d partnerov/partnerky s iným alebo neznámym pohlavím vnúčat (spolu %d)."
 msgstr[2] ""
+"%d partnerov/partneriek s iným alebo neznámym pohlavím vnúčat (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:727
+#: resources/views/partials/family-part-summary.phtml:729
 #, php-format
 msgid "%2$s has %1$d granddaughter-in-law and"
 msgid_plural "%2$s has %1$d granddaughters-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenanú %1$d partnerku vnúčaťa a"
+msgstr[1] "%2$s má zaznamenanú %1$d partnerky vnúčat a"
+msgstr[2] "%2$s má zaznamenanú %1$d partneriek vnúčat a"
 
-#: resources/views/partials/family-part-summary.phtml:730
+#: resources/views/partials/family-part-summary.phtml:732
 #, php-format
 msgid "%2$s has %1$d grandson-in-law,"
 msgid_plural "%2$s has %1$d grandsons-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d partnera vnúčaťa,"
+msgstr[1] "%2$s má zaznamenaných %1$d partnerov vnúčat,"
+msgstr[2] "%2$s má zaznamenaných %1$d partnerov vnúčat,"
 
-#: resources/views/partials/family-part-summary.phtml:731
+#: resources/views/partials/family-part-summary.phtml:733
 #, php-format
 msgid "%d granddaughter-in-law, and"
 msgid_plural "%d granddaughters-in-law, and"
+msgstr[0] "%d partnerka vnúčaťa a"
+msgstr[1] "%d partnerky vnúčat a"
+msgstr[2] "%d partneriek vnúčat a"
+
+#: resources/views/partials/family-part-summary.phtml:739
+#, php-format
+msgid ""
+"The extended family of %s has one godparent, witness, or other linked person "
+"recorded."
+msgstr ""
+
+#: resources/views/partials/family-part-summary.phtml:741
+#, php-format
+msgid ""
+"The extended family of %2$s has %1$d godparent, witness, or other linked "
+"person recorded."
+msgid_plural ""
+"The extended family of %2$s has %1$d godparents, witnesses, or other linked "
+"persons recorded."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-#: resources/views/partials/family-part-summary.phtml:737
-#, fuzzy, php-format
-#| msgid "%s has one partner of unknown sex recorded."
-msgid "%s has one godparent, witness, or other linked person recorded."
-msgstr "%s má zaznamenaného jedného partnera s neznámym pohlavím."
-
-#: resources/views/partials/family-part-summary.phtml:739
-#, fuzzy, php-format
-#| msgid "%2$s has %1$d partner of unknown sex recorded."
-#| msgid_plural "%2$s has %1$d partners of unknown sex recorded."
-msgid "%2$s has %1$d godparent, witness, or other linked person recorded."
-msgid_plural ""
-"%2$s has %1$d godparents, witnesses, or other linked persons recorded."
-msgstr[0] "%2$s má zaznamenaného %1$d partnera s neznámym pohlavím."
-msgstr[1] "%2$s má zaznamenaného %1$d partnerov s neznámym pohlavím."
-msgstr[2] "%2$s má zaznamenaného %1$d partnerov s neznámym pohlavím."
-
-#: resources/views/partials/family-part-summary.phtml:744
-#, php-format
-msgid "%s has one great-granddaughter-in-law recorded."
-msgstr ""
 
 #: resources/views/partials/family-part-summary.phtml:746
 #, php-format
-msgid "%s has one great-grandson-in-law recorded."
-msgstr ""
+msgid "%s has one great-granddaughter-in-law recorded."
+msgstr "%s má zaznamenanú jednu partnerku pravnúčaťa."
 
 #: resources/views/partials/family-part-summary.phtml:748
 #, php-format
+msgid "%s has one great-grandson-in-law recorded."
+msgstr "%s má zaznamenanú jedného partnera pravnúčaťa."
+
+#: resources/views/partials/family-part-summary.phtml:750
+#, php-format
 msgid "%s has one great-grandchild-in-law of diverse or unknown sex recorded."
 msgstr ""
-
-#: resources/views/partials/family-part-summary.phtml:752
-#, php-format
-msgid "%2$s has %1$d great-granddaughter-in-law recorded."
-msgid_plural "%2$s has %1$d great-granddaughters-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+"%s má zaznamenaného jedného partnera/partnerku s iným alebo neznámym "
+"pohlavím pravnúčaťa."
 
 #: resources/views/partials/family-part-summary.phtml:754
 #, php-format
-msgid "%2$s has %1$d great-grandson-in-law recorded."
-msgid_plural "%2$s has %1$d great-grandsons-in-law recorded."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgid "%2$s has %1$d great-granddaughter-in-law recorded."
+msgid_plural "%2$s has %1$d great-granddaughters-in-law recorded."
+msgstr[0] "%2$s má zaznamenanú %1$d partnerku pravnúčaťa."
+msgstr[1] "%2$s má zaznamenané %1$d partnerky pravnúčat."
+msgstr[2] "%2$s má zaznamenaných %1$d partneriek pravnúčat."
 
 #: resources/views/partials/family-part-summary.phtml:756
+#, php-format
+msgid "%2$s has %1$d great-grandson-in-law recorded."
+msgid_plural "%2$s has %1$d great-grandsons-in-law recorded."
+msgstr[0] "%2$s má zaznamenaného %1$d partnera pravnúčaťa."
+msgstr[1] "%2$s má zaznamenaných %1$d partnerov pravnúčat."
+msgstr[2] "%2$s má zaznamenaných %1$d partnerov pravnúčat."
+
+#: resources/views/partials/family-part-summary.phtml:758
 #, php-format
 msgid ""
 "%2$s has %1$d great-grandchild-in-law of diverse or unknown sex recorded."
 msgid_plural ""
 "%2$s has %1$d great-grandchildren-in-law of diverse or unknown sex recorded."
 msgstr[0] ""
+"%2$s má zaznamenaného %1$d partnera/partnerku s iným alebo neznámym pohlavím "
+"pravnúčaťa."
 msgstr[1] ""
+"%2$s má zaznamenaných %1$d partnerov/partnerky s iným alebo neznámym "
+"pohlavím pravnúčat."
 msgstr[2] ""
+"%2$s má zaznamenaných %1$d partnerov/partneriek s iným alebo neznámym "
+"pohlavím pravnúčat."
 
-#: resources/views/partials/family-part-summary.phtml:758
-#: resources/views/partials/family-part-summary.phtml:761
+#: resources/views/partials/family-part-summary.phtml:760
+#: resources/views/partials/family-part-summary.phtml:763
 #, php-format
 msgid "%2$s has %1$d great-grandson-in-law and"
 msgid_plural "%2$s has %1$d great-grandsons-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d partnera pravnúčaťa a"
+msgstr[1] "%2$s má zaznamenaných %1$d partnerov pravnúčat a"
+msgstr[2] "%2$s má zaznamenaných %1$d partnerov pravnúčat a"
 
-#: resources/views/partials/family-part-summary.phtml:759
+#: resources/views/partials/family-part-summary.phtml:761
 #, php-format
 msgid "%d great-granddaughter-in-law recorded (%d in total)."
 msgid_plural "%d great-granddaughters-in-law recorded (%d in total)."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d partnerku pravnúčaťa (spolu %d)."
+msgstr[1] "%d partnerky pravnúčat (spolu %d)."
+msgstr[2] "%d partneriek pravnúčat (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:762
-#: resources/views/partials/family-part-summary.phtml:765
-#: resources/views/partials/family-part-summary.phtml:769
+#: resources/views/partials/family-part-summary.phtml:764
+#: resources/views/partials/family-part-summary.phtml:767
+#: resources/views/partials/family-part-summary.phtml:771
 #, php-format
 msgid ""
 "%d great-grandchild-in-law of diverse or unknown sex recorded (%d in total)."
@@ -3457,32 +3626,35 @@ msgid_plural ""
 "%d great-grandchildren-in-law of diverse or unknown sex recorded (%d in "
 "total)."
 msgstr[0] ""
+"%d partnera/partnerku s iným alebo neznámym pohlavím pravnúčaťa (spolu %d)."
 msgstr[1] ""
+"%d partnerov/partnerky s iným alebo neznámym pohlavím pravnúčat (spolu %d)."
 msgstr[2] ""
+"%d partnerov/partneriek s iným alebo neznámym pohlavím pravnúčat (spolu %d)."
 
-#: resources/views/partials/family-part-summary.phtml:764
+#: resources/views/partials/family-part-summary.phtml:766
 #, php-format
 msgid "%2$s has %1$d great-granddaughter-in-law and"
 msgid_plural "%2$s has %1$d great-granddaughters-in-law and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenanú %1$d partnerku pravnúčaťa a"
+msgstr[1] "%2$s má zaznamenané %1$d partnerky pravnúčat a"
+msgstr[2] "%2$s má zaznamenaných %1$d partneriek pravnúčat a"
 
-#: resources/views/partials/family-part-summary.phtml:767
+#: resources/views/partials/family-part-summary.phtml:769
 #, php-format
 msgid "%2$s has %1$d great-grandson-in-law,"
 msgid_plural "%2$s has %1$d great-grandsons-in-law,"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2$s má zaznamenaného %1$d partnera pravnúčaťa,"
+msgstr[1] "%2$s má zaznamenaných %1$d partnerov pravnúčat,"
+msgstr[2] "%2$s má zaznamenaných %1$d partnerov pravnúčat,"
 
-#: resources/views/partials/family-part-summary.phtml:768
+#: resources/views/partials/family-part-summary.phtml:770
 #, php-format
 msgid "%d great-granddaughter-in-law, and"
 msgid_plural "%d great-granddaughters-in-law, and"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d partnerku pravnúčaťa a"
+msgstr[1] "%d partnerky pravnúčat a"
+msgstr[2] "%d partneriek pravnúčat a"
 
 #: resources/views/partials/filter-controls.phtml:14
 msgid "show only male persons"
@@ -3494,7 +3666,7 @@ msgstr "zobraziť len ženy"
 
 #: resources/views/partials/filter-controls.phtml:22
 msgid "show only persons of diverse or unknown gender"
-msgstr ""
+msgstr "zobraziť len osoby s iným alebo neznámym pohlavím"
 
 #: resources/views/partials/filter-controls.phtml:28
 msgid "show only alive persons"
@@ -3514,30 +3686,30 @@ msgstr "zosnulí"
 
 #: resources/views/partials/summary.phtml:31
 msgid "Self"
-msgstr ""
+msgstr "Proband"
 
 #: resources/views/partials/summary.phtml:47
 #, php-format
 msgid "%1$s, %2$s years old"
-msgstr ""
+msgstr "%1$s - vek %2$s rokov"
 
 #: resources/views/partials/summary.phtml:69
 #, php-format
 msgid "%1$s (%2$s positions)"
-msgstr ""
+msgstr "%1$s (%2$s pozície)"
 
 #: resources/views/partials/summary.phtml:76
 #, php-format
 msgid "%s more"
-msgstr ""
+msgstr "%s viac"
 
 #: resources/views/partials/summary.phtml:124
 #, php-format
 msgid "The extended family has only %1$s as a member."
 msgid_plural "The extended family of %1$s has %2$d members (including %3$s)."
 msgstr[0] "Širšia rodina má len jedného člena - %1$s."
-msgstr[1] "Širšia rodina osoby %1$s má %2$d členov (včítane %3$s)."
-msgstr[2] "Širšia rodina osoby %1$s má %2$d členov (včítane %3$s)."
+msgstr[1] "Širšia rodina osoby %1$s má %2$d členov (vrátane %3$s)."
+msgstr[2] "Širšia rodina osoby %1$s má %2$d členov (vrátane %3$s)."
 
 #: resources/views/partials/summary.phtml:132
 msgid "(additional members of the partner chains are not counted)"
@@ -3551,14 +3723,14 @@ msgstr "Niektorí z nich sú členmi vo viacerých častiach širšej rodiny."
 #, php-format
 msgid "%s generation"
 msgid_plural "%s generations"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s generáciu"
+msgstr[1] "%s generácie"
+msgstr[2] "%s generácií"
 
 #: resources/views/partials/summary.phtml:142
 #, php-format
 msgid "The selected direct line covers %s."
-msgstr ""
+msgstr "Zvolená priama línia zahŕňa %s."
 
 #: resources/views/partials/summary.phtml:154
 #, php-format
@@ -3571,8 +3743,8 @@ msgid ""
 "Gender distribution: %1$s male (%2$s), %3$s female (%4$s), %5$s other or "
 "unknown (%6$s)."
 msgstr ""
-"Rozdelenie podľa pohlavia: %1$s muži (%2$s), %3$s ženy (%4$s), %5$s, iné "
-"alebo neznáme (%6$s)."
+"Rozdelenie podľa pohlavia: muži - %1$s (%2$s), ženy - %3$s (%4$s), iné alebo "
+"neznáme - %5$s (%6$s)."
 
 #: resources/views/partials/summary.phtml:174
 #, php-format
@@ -3582,43 +3754,45 @@ msgstr "Rozdelenie podľa pohlavia: %1$s muži (%2$s), %3$s ženy (%4$s)."
 #: resources/views/partials/summary.phtml:185
 #, php-format
 msgid "Average generation length: %s years."
-msgstr ""
+msgstr "Priemerná dĺžka generácie: %s rokov."
 
 #: resources/views/partials/summary.phtml:188
 #, php-format
 msgid "Average lifespan: %s years."
-msgstr ""
+msgstr "Priemerná doba života: %s rokov."
 
 #: resources/views/partials/summary.phtml:191
 #, php-format
 msgid "Oldest person: %s."
-msgstr ""
+msgstr "Najstaršia osoba: %s."
 
 #: resources/views/partials/summary.phtml:194
 #, php-format
 msgid "Oldest male person: %s."
-msgstr ""
+msgstr "Najstarší muž: %s."
 
 #: resources/views/partials/summary.phtml:197
 #, php-format
 msgid "Oldest female person: %s."
-msgstr ""
+msgstr "Najstaršia žena: %s."
 
 #: resources/views/partials/summary.phtml:203
 #, php-format
 msgid "Ancestor implex: %s."
-msgstr ""
+msgstr "Strata predkov: %s."
 
 #: resources/views/partials/summary.phtml:206
 #, php-format
 msgid "Descendant implex: %s."
-msgstr ""
+msgstr "Strata potomkov: %s."
 
 #: resources/views/partials/summary.phtml:209
 msgid ""
 "No ancestor or descendant implex was detected in the selected direct-line "
 "generations."
 msgstr ""
+"Vo zvolenej priamej línii generácií nebola zistená strata ani predkov, ani "
+"potomkov."
 
 #: resources/views/partials/summary.phtml:215
 #, php-format
@@ -3633,57 +3807,57 @@ msgstr "%s nemá zaznamenané %s ani %s."
 #: resources/views/partials/summary.phtml:225
 #, php-format
 msgid "Summary for the extended family of %s"
-msgstr ""
+msgstr "Zhrnutie širšej rodiny osoby %s"
 
 #: resources/views/partials/summary.phtml:231
 msgid "Generation"
-msgstr ""
+msgstr "Generácia"
 
 #: resources/views/partials/summary.phtml:232
 msgid "Relation"
-msgstr ""
+msgstr "Vzťah"
 
 #: resources/views/partials/summary.phtml:233
 msgid "Total profiles"
-msgstr ""
+msgstr "Spolu profilov"
 
 #: resources/views/partials/summary.phtml:234
 msgid "Biological"
-msgstr ""
+msgstr "Biologickí"
 
 #: resources/views/partials/summary.phtml:235
 msgid "Earliest / latest birth year"
-msgstr ""
+msgstr "Najskorší /najneskorší rok narodenia"
 
 #: resources/views/partials/summary.phtml:236
 msgid "Average birth year"
-msgstr ""
+msgstr "Priemerný rok narodenia"
 
 #: resources/views/partials/summary.phtml:237
 msgid "Average marriage age"
-msgstr ""
+msgstr "Priemerný vek pri sobáši"
 
 #: resources/views/partials/summary.phtml:238
 msgid "Generation length"
-msgstr ""
+msgstr "Dĺžka generácie"
 
 #: resources/views/partials/summary.phtml:239
 msgid "Average lifespan"
-msgstr ""
+msgstr "Priemerný vek"
 
 #: resources/views/partials/summary.phtml:240
 msgid "Average children"
-msgstr ""
+msgstr "Priemerný počet detí"
 
 #: resources/views/partials/summary.phtml:261
 msgid "Summary table for direct line"
 msgstr ""
 
-#: resources/views/print.phtml:29 resources/views/tab.phtml:44
+#: resources/views/print.phtml:35 resources/views/tab.phtml:44
 msgid "Print/PDF"
-msgstr ""
+msgstr "Tlač/PDF"
 
-#: resources/views/print.phtml:80 resources/views/tab.phtml:104
+#: resources/views/print.phtml:86 resources/views/tab.phtml:104
 msgid "No family available"
 msgstr "Nenašla sa žiadna rodina"
 
@@ -3733,12 +3907,12 @@ msgid ""
 "changes only the sequence below. The configuration is saved when you click "
 "\"save\"."
 msgstr ""
-"Rýchla voľba zmení len checkboxy pod týmto. Konfigurácia sa uloží až keď "
-"kliknete na \"uložiť\"."
+"Rýchla voľba zmení len checkboxy. Konfigurácia sa uloží až keď kliknete na "
+"\"uložiť\"."
 
 #: resources/views/settings.phtml:108
 msgid "Family part (generation relative to proband)"
-msgstr "Časť rodiny (generation relative to proband)"
+msgstr "Časť rodiny (generácie k probandovi)"
 
 #: resources/views/settings.phtml:163
 msgid "Show options to filter the results?"
@@ -3750,7 +3924,7 @@ msgid ""
 "and if they are alive or dead."
 msgstr ""
 "Toto umožňuje filtrovať členov širšej rodiny podľa pohlavia a podľa toho či "
-"sú nažive, alebo mŕtvi."
+"sú nažive alebo mŕtvi."
 
 #: resources/views/settings.phtml:169
 msgid "Show filter options"
@@ -3782,11 +3956,12 @@ msgstr ""
 
 #: resources/views/settings.phtml:194
 msgid "This option only has an effect if the summary block is shown."
-msgstr ""
+msgstr "Táto voľba má vplyv len keď je zobrazený súhrnný blok."
 
 #: resources/views/settings.phtml:197
 msgid "Summary statistics cannot be shown while the summary block is disabled."
 msgstr ""
+"Súhrnná štatistika sa nemôže zobraziť, pokiaľ nie je zobrazený súhrnný blok."
 
 #: resources/views/settings.phtml:203
 msgid "Show summary statistics"
@@ -3801,12 +3976,16 @@ msgid ""
 "The option to collect messages about empty family parts at the summary block "
 "only has an effect if the summary block is shown."
 msgstr ""
+"Voľba zobrazenia prázdnych blokov v sumárnom bloku je možná, len pokiaľ je "
+"zvolené zobrazenie sumárneho bloku."
 
 #: resources/views/settings.phtml:216
 msgid ""
 "Empty family parts cannot be collected at the summary block while the "
 "summary block is disabled."
 msgstr ""
+"Prázdne bloky sa môžu zbierať do súhrnu len pokiaľ je zvolené zobrazenie "
+"sumárneho bloku."
 
 #: resources/views/settings.phtml:222
 msgid "Show empty block"
@@ -3834,7 +4013,7 @@ msgid ""
 "If you select \"no\", then the additional members in the partner chains will "
 "not be counted to the total number of individuals in the extended family."
 msgstr ""
-"Ak zvolíte \"nie\", tak dodatočný členovia v zreťazení partnerov nebudú "
+"Ak zvolíte \"nie\", tak dodatoční členovia v zreťazení partnerov nebudú "
 "započítaní do celkového počtu členov širšej rodiny."
 
 #: resources/views/settings.phtml:233
@@ -3869,7 +4048,7 @@ msgstr "Zahrnúť ich"
 
 #: resources/views/settings.phtml:249
 msgid "Show parameters of extended family part?"
-msgstr "Zobraziť parametere pre časti širšej rodiny?"
+msgstr "Zobraziť parametre pre časti širšej rodiny?"
 
 #: resources/views/settings.phtml:250
 msgid ""
@@ -3918,7 +4097,7 @@ msgstr ""
 
 #: resources/views/settings.phtml:291
 msgid "Show name of proband as short name or as full name?"
-msgstr "Zobraziť skrátené, alebo plné meno probanda?"
+msgstr "Zobraziť skrátené alebo plné meno probanda?"
 
 #: resources/views/settings.phtml:292
 msgid ""
@@ -3926,7 +4105,7 @@ msgid ""
 "not available, the first of the given names is used, if one is given. "
 "Otherwise the last name is used."
 msgstr ""
-"Skrátené meno je buď tzv. Rufname, alebo prezývka. Ak tieto neexistujú, tak "
+"Skrátené meno je buď tzv. Rufname alebo prezývka. Ak tieto neexistujú, tak "
 "sa použije prvé krstné meno. Ak ani toto neexistuje, tak sa použije "
 "priezvisko."
 
@@ -3943,7 +4122,7 @@ msgid ""
 "This setting controls whether event places are shown as full place names or "
 "as abbreviated place names."
 msgstr ""
-"Toto nastavenie určuje, či sa zobrazí úplný názov, alebo skrátený názov."
+"Toto nastavenie určuje, či sa zobrazí úplný názov alebo skrátený názov."
 
 #: resources/views/settings.phtml:311
 msgid "Place name format"
@@ -3980,35 +4159,39 @@ msgstr ""
 
 #: resources/views/settings.phtml:347
 msgid "Show relationship to the proband as mouse-over text?"
-msgstr ""
+msgstr "Zobraziť vzťah k probandovi ako text po nastavení myši?"
 
 #: resources/views/settings.phtml:348
 msgid ""
 "This shows the relationship of a person to the proband when the mouse "
 "pointer is over the name."
-msgstr ""
+msgstr "Táto voľba zobrazí vzťah k pobandovi keď sa presunie myš nad meno."
 
 #: resources/views/settings.phtml:356
 msgid "Show relationship"
-msgstr ""
+msgstr "Zobraziť vzťah"
 
 #: resources/views/settings.phtml:364
 msgid "Show a button \"Print/PDF\"?"
-msgstr ""
+msgstr "Zobraziť tlačidlo \"Tlač/PDF\"?"
 
 #: resources/views/settings.phtml:365
 msgid ""
 "This allows a user to open a print-optimized view and save it as a PDF file "
 "from the browser print dialog."
 msgstr ""
+"Táto voľba umožní užívateľovi otvoriť stránku optimalizovanú na tlač a "
+"uložiť ako pdf súbor z tlačového dialógu prehliadača."
 
 #: resources/views/settings.phtml:370 resources/views/settings.phtml:389
 msgid "Show button"
 msgstr "Zobraziť tlačidlo"
 
 #: resources/views/settings.phtml:378
+#, fuzzy
+#| msgid "Show a button \"copy to clippings cart\"?"
 msgid "Show a button \"Copy to clippings cart\"?"
-msgstr "Zobraziť tlačidlo \"Kopírovať do schránky výstrižkov\"?"
+msgstr "Zobraziť tlačidlo \"kopírovať do schránky výstrižkov\"?"
 
 #: resources/views/settings.phtml:379
 msgid ""
@@ -4027,20 +4210,21 @@ msgid "huhwt-cce (recommended)"
 msgstr "huhwt-cce (doporučené)"
 
 #: resources/views/settings.phtml:412
-#, fuzzy
-#| msgid "In which sequence should the parts of the extended family be shown?"
 msgid "When should the extended family tab be loaded?"
-msgstr "V akom poradí sa majú zobraziť časti širšej rodiny?"
+msgstr "Kedy sa má načítať záložka Širšia rodina?"
 
 #: resources/views/settings.phtml:413
 msgid ""
 "Choose whether the extended family tab content is calculated immediately "
 "while the individual page opens or later by Ajax when the user opens the tab."
 msgstr ""
+"Vyberte si, či sa má obsah záložky Širšia rodina zistiť okamžite počas "
+"otvárania stránky osoby, alebo pomocou ajax-u v okamihu, keď užívateľ otvorí "
+"záložku."
 
 #: resources/views/settings.phtml:418
 msgid "Load later"
-msgstr ""
+msgstr "Načítaj neskôr"
 
 #, php-format
 #~ msgid "The preferences for the module “%s” have been updated."
@@ -4071,6 +4255,15 @@ msgstr ""
 #~ msgid "today"
 #~ msgstr "dnešok"
 
+#~ msgid "Father"
+#~ msgstr "Otec"
+
+#~ msgid "Mother"
+#~ msgstr "Matka"
+
+#~ msgid "Individual"
+#~ msgstr "Osoba"
+
 #~ msgid "Control panel"
 #~ msgstr "Riadiaci panel"
 
@@ -4091,6 +4284,12 @@ msgstr ""
 
 #~ msgid "yes"
 #~ msgstr "áno"
+
+#~ msgid "Earliest birth year"
+#~ msgstr "Najskorší rok narodenia"
+
+#~ msgid "Latest birth year"
+#~ msgstr "Najneskorší rok narodenia"
 
 #~ msgid "Enable all in-law family parts"
 #~ msgstr "Povoliť všetky časti rodiny získané sobášom"
@@ -4301,6 +4500,17 @@ msgstr ""
 #~ msgstr[2] "%d svatovcov s neznámym pohlavím (spolu %d)."
 
 #, php-format
+#~ msgid "%s has one partner of unknown sex recorded."
+#~ msgstr "%s má zaznamenaného jedného partnera s neznámym pohlavím."
+
+#, php-format
+#~ msgid "%2$s has %1$d partner of unknown sex recorded."
+#~ msgid_plural "%2$s has %1$d partners of unknown sex recorded."
+#~ msgstr[0] "%2$s má zaznamenaného %1$d partnera s neznámym pohlavím."
+#~ msgstr[1] "%2$s má zaznamenaného %1$d partnerov s neznámym pohlavím."
+#~ msgstr[2] "%2$s má zaznamenaného %1$d partnerov s neznámym pohlavím."
+
+#, php-format
 #~ msgid "%d partner of unknown sex recorded (%d in total)."
 #~ msgid_plural "%d partners of unknown sex recorded (%d in total)."
 #~ msgstr[0] "%d partnera s neznámym pohlavím (spolu %d)."
@@ -4498,6 +4708,24 @@ msgstr ""
 #~ msgstr[0] "%d vnúča s neznámym pohlavím (spolu %d)."
 #~ msgstr[1] "%d vnúčatá s neznámym pohlavím (spolu %d)."
 #~ msgstr[2] "%d vnúčat s neznámym pohlavím (spolu %d)."
+
+#, php-format
+#~ msgid "%s has one great-grandchild of unknown sex recorded."
+#~ msgstr "%s má zaznamenané jedno pravnúča s neznámym pohlavím."
+
+#, php-format
+#~ msgid "%2$s has %1$d great-grandchild of unknown sex recorded."
+#~ msgid_plural "%2$s has %1$d great-grandchildren of unknown sex recorded."
+#~ msgstr[0] "%2$s má zaznamenané %1$d pravnúča s neznámym pohlavím."
+#~ msgstr[1] "%2$s má zaznamenané %1$d pravnúčatá s neznámym pohlavím."
+#~ msgstr[2] "%2$s má zaznamenaných %1$d pravnúčat s neznámym pohlavím."
+
+#, php-format
+#~ msgid "%d great-grandchild of unknown sex recorded (%d in total)."
+#~ msgid_plural "%d great-grandchildren of unknown sex recorded (%d in total)."
+#~ msgstr[0] "%d pravnúča s neznámym pohlavím (spolu %d)."
+#~ msgstr[1] "%d pravnúčatá s neznámym pohlavím (spolu %d)."
+#~ msgstr[2] "%d pravnúčat s neznámym pohlavím (spolu %d)."
 
 #, php-format
 #~ msgid "%s has one grandchild-in-law of unknown sex recorded."
