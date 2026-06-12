@@ -85,10 +85,6 @@ class Great_grandparents extends ExtendedFamilyPart
      * common:
      *  ->groups                        array of FamilyPart (there are 10 groups defined (1a-c, 2a-c, 3a-c, 4))
      *  ->counts                        FamilyPartCounts
-     *  ->maleCount                     int legacy alias
-     *  ->femaleCount                   int legacy alias
-     *  ->otherSexCount                 int legacy alias
-     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for several extended family parts:

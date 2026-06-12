@@ -192,7 +192,7 @@ class ExtendedFamilySupport
             'co_siblings_in_law'     => 3,
             'grandchildren_in_law'   => 3,
             'great_grandchild_in_law' => 4,
-            'godparents_witnesses'   => 2,
+            'godparents_witnesses'   => 9,
         ];
     }
 
@@ -948,6 +948,7 @@ class ExtendedFamilySupport
             Cousins::GROUP_COUSINS_HALF_SOCIAL                  => I18N::translate('Children of half siblings of social parents'),
             Cousins::GROUP_COUSINS_FULL_STEP                    => I18N::translate('Children of full siblings of stepparents'),
             Cousins::GROUP_COUSINS_HALF_STEP                    => I18N::translate('Children of half siblings of stepparents'),
+            Siblings::GROUP_SIBLINGS_FULL                       => I18N::translate('Full siblings'),
             Siblings::GROUP_SIBLINGS_HALF                       => I18N::translate('Half siblings'),
             Siblings::GROUP_SIBLINGS_SOCIAL                     => I18N::translate('Social siblings'),
             Siblings::GROUP_SIBLINGS_STEP                       => I18N::translate('Stepsiblings'),

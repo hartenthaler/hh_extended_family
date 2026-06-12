@@ -120,12 +120,16 @@
 #hh-extended-family-summary h3 .hh-extended-family-summary-name,
 #hh-extended-family-summary h3 .hh-extended-family-summary-name * {
     display: inline !important;
+    white-space: nowrap;
+    width: auto !important;
 }
 
 #hh-extended-family-summary h3 span.NAME,
 #hh-extended-family-summary h3 span.SURN,
 #hh-extended-family-summary h3 span.wt-icon-help {
     display: inline !important;
+    white-space: nowrap;
+    width: auto !important;
 }
 
 .hh_extended_family_box {

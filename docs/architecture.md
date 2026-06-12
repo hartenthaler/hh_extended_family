@@ -79,6 +79,7 @@ Objects under `src/Factory/Objects/` hold supporting data and helper behavior.
 Important examples are:
 
 * `ExtendedFamilySupport`: lists configurable family parts and filter options
+* `ExtendedFamilyConfig`: stores runtime configuration assembled from module and tree preferences
 * `ExtendedFamilyFilterResult`: stores the calculated data for one filter option
 * `ExtendedFamilyPartSet`: stores the summary plus the calculated family parts for one filter option
 * `ExtendedFamilyProband`: stores the proband individual, display-name variants, proband labels, and optional SOSA labels
@@ -154,7 +155,6 @@ The module currently contains calculators for:
 * uncles and aunts
 * uncles and aunts by marriage
 * partners and partner chains
-* godparents, witnesses, and other linked persons
 * siblings
 * siblings-in-law
 * co-siblings-in-law
@@ -167,6 +167,7 @@ The module currently contains calculators for:
 * grandchildren-in-law
 * great-grandchildren
 * great-grandchildren-in-law
+* godparents, witnesses, and other linked persons
 
 The family-part base class stores results as grouped entries and counters.
 The canonical data structure for normal family parts is:
@@ -199,13 +200,11 @@ ExtendedFamily
             │   ├── femaleCount: int
             │   ├── otherSexCount: int
             │   └── allCount: int
-            ├── maleCount: int
-            ├── femaleCount: int
-            ├── otherSexCount: int
-            ├── allCount: int
             └── partName: string
 ```
 
+`ExtendedFamilyConfig` is the typed runtime configuration object passed from the tab module into the calculation layer.
+It contains the resolved display, filter, ordering, thumbnail, and integration settings for the current tree.
 `ExtendedFamilyFilterResult` represents one precomputed filter variant such as `all`, `only_M`, or `only_alive`.
 `ExtendedFamilyProband` stores the selected individual together with the name variants, special labels, and optional SOSA labels that views need repeatedly.
 `ExtendedFamilyPartSet` is iterable so existing renderers can loop over `summary` and the concrete family parts in display order.
@@ -217,7 +216,6 @@ Direct-line statistics are held by `LineageStatistics`, which can contain ancest
 `LineageSummary` stores aggregate values such as average generation length, average lifespan, and oldest known people.
 `LineageImplexSummary` stores repeated ancestor/descendant positions using `RepeatedLineagePerson`.
 `FamilyPartCounts` is the canonical counter structure for family parts.
-The scalar fields `maleCount`, `femaleCount`, `otherSexCount`, and `allCount` are still populated as compatibility aliases because templates and existing code use them heavily.
 The `partners` family part also has `partnerCounts` and `partnerOfPartnerCounts` for its special direct-partner and partner-of-partner subtotals, again with legacy scalar aliases.
 
 `FamilyPartGroup` represents one rendered group inside a family part.
@@ -309,7 +307,7 @@ although individual members of a partner chain may later receive their exact per
 | `co_siblings_in_law` | 3 | Siblings or partners reached through siblings-in-law. |
 | `grandchildren_in_law` | 3 | Partners of grandchildren. |
 | `great_grandchild_in_law` | 4 | Partners of great-grandchildren. |
-| `godparents_witnesses` | 2 | Linked persons are selected through events of the current filtered extended-family result and can belong to any generation. |
+| `godparents_witnesses` | 9 | Linked persons are selected through events of the current filtered extended-family result, can belong to any generation, and are treated as remote for the admin quick selection. |
 
 ## 🔎 Filtering and summaries
 
@@ -458,30 +456,79 @@ hh_extended_family/
 │           ├── filter-script.phtml
 │           ├── summary.phtml
 │           └── family-part-renderers/
+│               ├── godparents-witnesses.phtml
 │               ├── grouped.phtml
+│               ├── parents-in-law.phtml
 │               ├── partner-chains.phtml
 │               ├── partners.phtml
-│               ├── parents-in-law.phtml
 │               └── grouped-headings/
+│                   ├── child-family.phtml
+│                   ├── children-in-law.phtml
+│                   ├── co-siblings-in-law.phtml
+│                   ├── family-reference.phtml
+│                   ├── nephews-and-nieces.phtml
+│                   ├── partners.phtml
+│                   └── reference-person.phtml
 ├── src/
 │   ├── Factory/
 │   │   ├── ExtendedFamilyPart.php
 │   │   ├── ExtendedFamilyPartFactory.php
 │   │   ├── ExtendedFamilyParts/
+│   │   │   ├── Children.php
+│   │   │   ├── Children_in_law.php
+│   │   │   ├── Co_parents_in_law.php
+│   │   │   ├── Co_siblings_in_law.php
+│   │   │   ├── Cousins.php
+│   │   │   ├── Godparents_witnesses.php
+│   │   │   ├── Grandaunts_uncles.php
+│   │   │   ├── Grandchildren.php
+│   │   │   ├── Grandchildren_in_law.php
+│   │   │   ├── Grandnephews_nieces.php
+│   │   │   ├── Grandparents.php
+│   │   │   ├── Great_grandchild_in_law.php
+│   │   │   ├── Great_grandchildren.php
+│   │   │   ├── Great_grandparents.php
+│   │   │   ├── Nephews_and_nieces.php
+│   │   │   ├── Parents.php
+│   │   │   ├── Parents_in_law.php
+│   │   │   ├── Partner_chains.php
+│   │   │   ├── Partners.php
+│   │   │   ├── Siblings.php
+│   │   │   ├── Siblings_in_law.php
+│   │   │   ├── Uncles_and_aunts.php
+│   │   │   └── Uncles_and_aunts_bm.php
 │   │   └── Objects/
+│   │       ├── AssociatedPersonEntry.php
+│   │       ├── DateRangeStatistics.php
+│   │       ├── ExtendedFamilyConfig.php
 │   │       ├── ExtendedFamilyFilterResult.php
 │   │       ├── ExtendedFamilyPartSet.php
 │   │       ├── ExtendedFamilyProband.php
 │   │       ├── ExtendedFamilySummary.php
+│   │       ├── ExtendedFamilySupport.php
 │   │       ├── FamilyPart.php
 │   │       ├── FamilyPartCounts.php
 │   │       ├── FamilyPartGroup.php
+│   │       ├── FindBranchConfig.php
 │   │       ├── GroupEntry.php
+│   │       ├── IndividualFamily.php
+│   │       ├── LineageImplexSummary.php
 │   │       ├── LineageStatistics.php
 │   │       ├── LineageSummary.php
 │   │       ├── LineageRow.php
+│   │       ├── LivingStatistics.php
+│   │       ├── NiceName.php
+│   │       ├── OldestIndividuals.php
+│   │       ├── PartnerChainNode.php
+│   │       ├── PartnerChainPerson.php
+│   │       ├── PlaceAbbreviation.php
+│   │       ├── ProbandName.php
+│   │       ├── RepeatedLineagePerson.php
+│   │       ├── SexStatistics.php
 │   │       ├── SummaryStatistics.php
 │   │       └── ...
+│   ├── Internationalization/
+│   │   └── MoreI18N.php
 │   └── Services/
 │       └── ClippingsCartWriter.php
 ```
@@ -493,9 +540,6 @@ When new family parts are added, the preference key, class name, and translation
 
 Filter variants are calculated eagerly.
 This is straightforward and keeps the templates simple, but it may need optimization if more filters or more expensive relationship searches are introduced.
-
-The module uses existing GEDCOM and webtrees APIs as its source of truth.
-It should avoid persisting derived relationship results unless there is a clear cache invalidation strategy.
 
 Partner-chain handling is a unique feature of this module. It is more complex than most other family parts.
 Changes in this area should be tested with simple couples, multiple partnerships, and longer partner chains.

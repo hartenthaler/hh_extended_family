@@ -44,29 +44,9 @@ class ExtendedFamily
     // ------------ definition of data structures (they have to be public so that they can be accessed in tab.phtml)
     
     /**
-     * @var $config                                 object
-     *        ->showFilterOptions                   bool
-     *        ->filterOptions                       array<int,string>
-     *        ->showSummary                         bool
-     *        ->showEmptyBlock                      int [0,1,2]
-     *        ->countPartnerChainsToTotal           bool
-     *        ->showShortName                       bool
-     *        ->showLabels                          bool
-     *        ->showSosaNumbers                     bool
-     *        ->showRelationshipToProband           bool
-     *        ->useCompactDesign                    bool
-     *        ->useClippingsCart                    bool
-     *        ->shownFamilyParts[]                  array<string,object>
-     *                            ->name            string
-     *                            ->enabled         bool
-     *        ->showParameters                      bool
-     *        ->familyPartParameters                array of array
-     *        ->showThumbnail                       bool
-     *        ->sizeThumbnailW                      int (in pixel)
-     *        ->sizeThumbnailH                      int (in pixel)
-     *        ->placeFormat                         int
+     * @var ExtendedFamilyConfig $config runtime configuration for this extended family
      */
-    public object $config;
+    public ExtendedFamilyConfig $config;
     
     /**
      * @var ExtendedFamilyProband $proband
@@ -96,9 +76,9 @@ class ExtendedFamily
      * Extended Family constructor
      *
      * @param Individual $proband the proband for whom the extended family members are searched
-     * @param object $config configuration parameters for this extended family
+     * @param ExtendedFamilyConfig $config configuration parameters for this extended family
      */
-    public function __construct(Individual $proband, object $config)
+    public function __construct(Individual $proband, ExtendedFamilyConfig $config)
     {
         $this->constructConfig($config);
         $this->constructProband($proband);
@@ -108,9 +88,9 @@ class ExtendedFamily
     /**
      * construct object containing configuration information based on module parameters
      *
-     * @param object $config configuration parameters
+     * @param ExtendedFamilyConfig $config configuration parameters
      */
-    protected function constructConfig(object $config)
+    protected function constructConfig(ExtendedFamilyConfig $config)
     {
         $this->config = $config;
     }
@@ -147,7 +127,7 @@ class ExtendedFamily
                     if (isset($familyParts[$efp])) {
                         $extfamObj->efp->$efp = $familyParts[$efp];
                         if ($efp !== 'godparents_witnesses') {
-                            $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
+                            $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->counts->allCount;
                         }
                     }
                 }
@@ -163,7 +143,7 @@ class ExtendedFamily
                 if (isset($familyParts[$efp])) {
                     $extfamObj->efp->$efp = $familyParts[$efp];
                     if ($efp !== 'godparents_witnesses') {
-                        $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->allCount;
+                        $extfamObj->efp->summary->allCount += $extfamObj->efp->$efp->counts->allCount;
                     }
                 }
             }
@@ -1029,7 +1009,7 @@ class ExtendedFamily
         $emptyBlocks = [];
         foreach ($extendedFamily->efp as $propName => $propValue) {
             if ($propName !== 'summary' &&
-                $extendedFamily->efp->$propName->allCount == 0) {
+                $extendedFamily->efp->$propName->counts->allCount === 0) {
                 $emptyBlocks[] = $propName;
             }
         }

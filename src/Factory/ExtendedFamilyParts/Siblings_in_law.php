@@ -40,10 +40,6 @@ class Siblings_in_law extends ExtendedFamilyPart
      * common:
      *  ->groups[]                      array
      *  ->counts                        FamilyPartCounts
-     *  ->maleCount                     int legacy alias
-     *  ->femaleCount                   int legacy alias
-     *  ->otherSexCount                 int legacy alias
-     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:

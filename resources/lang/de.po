@@ -745,6 +745,10 @@ msgid "Children of half siblings of stepparents"
 msgstr "Kinder der Halbgeschwister der Stiefeltern"
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:951
+msgid "Full siblings"
+msgstr "Vollgeschwister"
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:951
 msgid "Half siblings"
 msgstr "Halbgeschwister"
 
@@ -3961,9 +3965,6 @@ msgstr "Später laden"
 
 #~ msgid "Full siblings of biological parents"
 #~ msgstr "Vollbürtige Geschwister der biologischen Eltern"
-
-#~ msgid "Full siblings"
-#~ msgstr "Vollgeschwister"
 
 #~ msgid "Children of full siblings of biological parents"
 #~ msgstr "Kinder der vollbürtigen Geschwister der biologischen Eltern"

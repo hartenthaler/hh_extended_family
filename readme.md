@@ -120,6 +120,7 @@ The special family part for godparents, witnesses, and other linked persons is g
 * godparents, witnesses, and other linked persons: all generations
 
 Every family part can be enabled, disabled, and reordered in the webtrees control panel.
+For the quick selection by degree in the control panel, the family part "godparents and witnesses" is treated as degree 9 because linked persons can be very remote from the proband.
 
 The family part "godparents and witnesses" also searches configured proprietary name tags in
 individual and family events.

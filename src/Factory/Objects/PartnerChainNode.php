@@ -33,13 +33,12 @@ class PartnerChainNode
 {
     // ------------ definition of data structures
 
-    /**
-     * @var object $node
-     *  ->individual                    Individual
-     *  ->chains                        array<int,PartnerChainNode>
-     *  ->filterComment                 string
-     */
-    private object $node;
+    private Individual $individual;
+
+    /** @var array<int,PartnerChainNode> $chains */
+    private array $chains;
+
+    private string $filterComment;
 
     // ------------ definition of methods
 
@@ -52,18 +51,9 @@ class PartnerChainNode
      */
     public function __construct(Individual $individual, array $chains = [], string $filterComment = '')
     {
-        $this->node = (object)[];
-        $this->node->individual = $individual;
-        $this->node->chains = $chains;
-        $this->node->filterComment = $filterComment;
-    }
-
-    /**
-     * @return object
-     */
-    public function getNode(): object
-    {
-        return $this->node;
+        $this->individual = $individual;
+        $this->chains = $chains;
+        $this->filterComment = $filterComment;
     }
 
     /**
@@ -71,7 +61,7 @@ class PartnerChainNode
      */
     public function getIndividual(): Individual
     {
-        return $this->node->individual;
+        return $this->individual;
     }
 
     /**
@@ -79,11 +69,7 @@ class PartnerChainNode
      */
     public function getIndividualXref(): string
     {
-        if ($this->node->individual instanceof Individual) {
-            return $this->node->individual->xref();
-        } else {
-            return '';
-        }
+        return $this->individual->xref();
     }
 
     /**
@@ -91,11 +77,7 @@ class PartnerChainNode
      */
     public function getIndividualSex(): string
     {
-        if ($this->node->individual instanceof Individual) {
-            return $this->node->individual->sex();
-        } else {
-            return 'U';
-        }
+        return $this->individual->sex();
     }
 
     /**
@@ -103,7 +85,7 @@ class PartnerChainNode
      */
     public function getChains(): array
     {
-        return $this->node->chains;
+        return $this->chains;
     }
 
     /**
@@ -111,7 +93,7 @@ class PartnerChainNode
      */
     public function setChains(array $chains): void
     {
-        $this->node->chains = $chains;
+        $this->chains = $chains;
     }
 
     /**
@@ -119,7 +101,7 @@ class PartnerChainNode
      */
     public function getFilterComment(): string
     {
-        return $this->node->filterComment;
+        return $this->filterComment;
     }
 
     /**
@@ -127,6 +109,6 @@ class PartnerChainNode
      */
     public function setFilterComment(string $filterComment): void
     {
-        $this->node->filterComment = $filterComment;
+        $this->filterComment = $filterComment;
     }
 }

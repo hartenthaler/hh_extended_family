@@ -8,7 +8,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
  * @var object $filterObj  contains the filtered extended family data
  */
 
-$partnerChainsCount = $filterObj->efp->partner_chains->allCount ?? 0;
+$partnerChainsCount = $filterObj->efp->partner_chains->counts->allCount ?? 0;
 $showPartnerChainsNotCounted = !$extfam_obj->config->countPartnerChainsToTotal && $partnerChainsCount > 1;
 $emptyFamilyParts = array_map(
     static fn (string $familyPart): string => method_exists(ExtendedFamilySupport::class, 'translateFamilyPartSentenceObject')
@@ -133,7 +133,7 @@ if ($showPartnerChainsNotCounted) {
 }
 $summarySentences[] = $summarySentence . '.';
 
-if ($filterObj->efp->summary->allCountUnique - 1 < $filterObj->efp->summary->allCount - ($extfam_obj->config->countPartnerChainsToTotal ? 0 : (false ? $filterObj->efp->partner_chains->allCount : 0))) {
+if ($filterObj->efp->summary->allCountUnique - 1 < $filterObj->efp->summary->allCount - ($extfam_obj->config->countPartnerChainsToTotal ? 0 : (false ? $partnerChainsCount : 0))) {
     $summarySentences[] = I18N::translate('Some of them are member in more than one part of the extended family.');
 }
 

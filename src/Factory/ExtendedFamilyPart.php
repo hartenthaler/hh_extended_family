@@ -46,10 +46,6 @@ abstract class ExtendedFamilyPart
      *  ->groups                        array<string|int,FamilyPartGroup> // not used in extended family part "partner_chains"
      *  ->chains                        object          // only used for extended family part "partner_chains"
      *  ->counts                        FamilyPartCounts
-     *  ->maleCount                     int legacy alias for counts->maleCount
-     *  ->femaleCount                   int legacy alias for counts->femaleCount
-     *  ->otherSexCount                 int legacy alias for counts->otherSexCount
-     *  ->allCount                      int legacy alias for counts->allCount
      *  ->partName                      string
      */
     protected object $efpObject;
@@ -655,10 +651,6 @@ abstract class ExtendedFamilyPart
     protected function setFamilyPartCounts(object $familyPart, FamilyPartCounts $counts): void
     {
         $familyPart->counts = $counts;
-        $familyPart->maleCount = $counts->maleCount;
-        $familyPart->femaleCount = $counts->femaleCount;
-        $familyPart->otherSexCount = $counts->otherSexCount;
-        $familyPart->allCount = $counts->allCount;
     }
 
     /**

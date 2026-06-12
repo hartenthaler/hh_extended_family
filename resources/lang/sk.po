@@ -833,6 +833,11 @@ msgstr "Deti polovičných súrodencov nevlastných rodičov"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #: src/Factory/Objects/ExtendedFamilySupport.php:951
+msgid "Full siblings"
+msgstr "Súrodenci"
+
+# Migrated from ExtendedFamilyTranslations.php.old
+#: src/Factory/Objects/ExtendedFamilySupport.php:951
 msgid "Half siblings"
 msgstr "Poloviční súrodenci"
 
@@ -4247,10 +4252,6 @@ msgstr "Načítaj neskôr"
 
 #~ msgid "Son"
 #~ msgstr "Syn"
-
-# Migrated from ExtendedFamilyTranslations.php.old
-#~ msgid "Full siblings"
-#~ msgstr "Súrodenci"
 
 #~ msgid "today"
 #~ msgstr "dnešok"

@@ -110,7 +110,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     public const CUSTOM_WEBSITE     = 'https://github.com/' . self::GITHUB_REPO . '/';
 
     // Custom module version
-    public const CUSTOM_VERSION     = '2.2.6.8';
+    public const CUSTOM_VERSION     = '2.2.6.9';
 
     // URL to the latest version of the custom module
     public const CUSTOM_LAST        = 'https://github.com/' . self::CUSTOM_GITHUB_USER . '/' .
@@ -156,52 +156,35 @@ class ExtendedFamilyTabModule extends AbstractModule
      * get configuration information
      *
      * @param Individual $proband
-     * @return object
+     * @return ExtendedFamilyConfig
      */
-    private function buildConfig(Individual $proband): object
+    private function buildConfig(Individual $proband): ExtendedFamilyConfig
     {
-        $configObj = (object)[];
-        $configObj->showFilterOptions           = $this->showFilterOptions();
-        $configObj->filterOptions               = $this->showFilterOptions() ? ExtendedFamilySupport::getFilterOptions(): ['all'];
-        $configObj->showSummary                 = $this->showSummary();
-        $configObj->showSummaryStatistics       = $this->showSummaryStatistics();
-        $configObj->showEmptyBlock              = $this->showEmptyBlock();
-        $configObj->countPartnerChainsToTotal   = $this->countPartnerChainsToTotal();
-        $configObj->showPrintButton             = $this->showPrintButton();
-        $configObj->showShortName               = $this->showShortName();
-        $configObj->showLabels                  = $this->showLabels();
-        $configObj->showSosaNumbers             = $this->showSosaNumbers();
-        $configObj->showRelationshipToProband   = $this->showRelationshipToProband();
-        $configObj->useCompactDesign            = $this->useCompactDesign();
-        $configObj->useClippingsCart            = $this->useClippingsCart();
-        $configObj->shownFamilyParts            = $this->getShownFamilyParts();
-        $configObj->showParameters              = $this->showParameters();
-        $configObj->familyPartParameters        = ExtendedFamilySupport::getFamilyPartParameters();
-        $configObj->placeFormat                 = $this->placeFormat();
-        $configObj->showThumbnail               = $this->showThumbnail($proband->tree());
-        $configObj->sizeThumbnailW              = $this->getSizeThumbnailW();
-        $configObj->sizeThumbnailH              = $this->getSizeThumbnailH();
-        return $configObj;
-    }
+        $showFilterOptions = $this->showFilterOptions();
+        $thumbnailDimensions = $this->thumbnailDimensions();
 
-    /**
-     * size for thumbnails W
-     *
-     * @return int
-     */
-    private function getSizeThumbnailW(): int
-    {
-        return $this->thumbnailDimensions()['width'];
-    }
-
-    /**
-     * size for thumbnails H
-     *
-     * @return int
-     */
-    private function getSizeThumbnailH(): int
-    {
-        return $this->thumbnailDimensions()['height'];
+        return new ExtendedFamilyConfig(
+            $showFilterOptions,
+            $showFilterOptions ? ExtendedFamilySupport::getFilterOptions() : ['all'],
+            $this->showSummary(),
+            $this->showSummaryStatistics(),
+            $this->showEmptyBlock(),
+            $this->countPartnerChainsToTotal(),
+            $this->showPrintButton(),
+            $this->showShortName(),
+            $this->showLabels(),
+            $this->showSosaNumbers(),
+            $this->showRelationshipToProband(),
+            $this->useCompactDesign(),
+            $this->useClippingsCart(),
+            $this->getShownFamilyParts(),
+            $this->showParameters(),
+            ExtendedFamilySupport::getFamilyPartParameters(),
+            $this->placeFormat(),
+            $this->showThumbnail($proband->tree()),
+            $thumbnailDimensions['width'],
+            $thumbnailDimensions['height']
+        );
     }
 
     /**
@@ -1129,8 +1112,9 @@ class ExtendedFamilyTabModule extends AbstractModule
             return [];
         }
 
-        $poFile = __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR . $languageFile . '.po';
-        $moFile = __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR . $languageFile . '.mo';
+        $languageFolder = __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR;
+        $poFile = $languageFolder . $languageFile . '.po';
+        $moFile = $languageFolder . $languageFile . '.mo';
 
         if (is_file($poFile)) {
             return (new Translation($poFile))->asArray();

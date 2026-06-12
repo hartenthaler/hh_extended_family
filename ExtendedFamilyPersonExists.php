@@ -98,9 +98,9 @@ class ExtendedFamilyPersonExists extends ExtendedFamily
      * constructor for this class
      *
      * @param Individual $proband the proband for whom the extended family members are searched
-     * @param object $config configuration parameters for this extended family
+     * @param ExtendedFamilyConfig $config configuration parameters for this extended family
      */
-    public function __construct(Individual $proband, object $config)
+    public function __construct(Individual $proband, ExtendedFamilyConfig $config)
     {
         $this->constructConfig($config);
         $this->constructProband($proband);
@@ -120,7 +120,7 @@ class ExtendedFamilyPersonExists extends ExtendedFamily
                                                       $this->proband->indi,
                                                       'all',
                                                       $this->config->placeFormat)
-                        ->getEfpObject()->allCount > 0) {
+                        ->getEfpObject()->counts->allCount > 0) {
                     return true;
                 }
             }

@@ -58,10 +58,6 @@ class Grandparents extends ExtendedFamilyPart
      * common:
      *  ->groups[]                      array there are 7 groups defined (1a, 1b, 1c, 2a, 2b, 2c, 3)
      *  ->counts                        FamilyPartCounts
-     *  ->maleCount                     int legacy alias
-     *  ->femaleCount                   int legacy alias
-     *  ->otherSexCount                 int legacy alias
-     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:

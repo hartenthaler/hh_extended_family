@@ -35,13 +35,11 @@ class IndividualFamily
 {
     // ------------ definition of data structures
 
-    /**
-     * @var object $objectIndiFamily
-     *  ->individual                    Individual
-     *  ->family                        Family
-     *  ->referencePersons[]            array of Individual
-     */
-    private object $objectIndiFamily;
+    private Individual $individual;
+    private ?Family $family = null;
+
+    /** @var array<int,Individual> $referencePersons */
+    private array $referencePersons = [];
 
     // ------------ definition of methods
 
@@ -58,27 +56,13 @@ class IndividualFamily
                                 ?Individual $referencePerson = null,
                                 ?Individual $referencePerson2 = null)
     {
-        $this->objectIndiFamily = (object)[];
-        $this->objectIndiFamily->individual = $individual;
-        if (isset($family)) {
-            $this->objectIndiFamily->family = $family;
-        }
-        $this->objectIndiFamily->referencePersons = [];
+        $this->individual = $individual;
+        $this->family = $family;
         foreach ([1 => $referencePerson, 2 => $referencePerson2] as $refIndex => $refPerson) {
             if (isset($refPerson) && ($refPerson instanceof Individual)) {
-                $this->objectIndiFamily->referencePersons[$refIndex] = $refPerson;
+                $this->referencePersons[$refIndex] = $refPerson;
             }
         }
-    }
-
-    /**
-     * get objectIndiFamily
-     *
-     * @return object
-     */
-    public function getObjectIndiFamily(): object
-    {
-        return $this->objectIndiFamily;
     }
 
     /**
@@ -88,7 +72,7 @@ class IndividualFamily
      */
     public function getIndividual(): Individual
     {
-        return $this->objectIndiFamily->individual;
+        return $this->individual;
     }
 
     /**
@@ -98,10 +82,7 @@ class IndividualFamily
      */
     public function getFamily(): ?Family
     {
-       if (isset($this->objectIndiFamily->family)) {
-           return $this->objectIndiFamily->family;
-       }
-       return null;
+       return $this->family;
     }
 
     /**
@@ -111,7 +92,7 @@ class IndividualFamily
      */
     public function getReferencePersons(): array
     {
-        return $this->objectIndiFamily->referencePersons;
+        return $this->referencePersons;
     }
 
     /**
@@ -122,16 +103,7 @@ class IndividualFamily
      */
     public function setReferencePerson(int $index, Individual $referencePerson)
     {
-        $this->objectIndiFamily->referencePersons[$index] = $referencePerson;
+        $this->referencePersons[$index] = $referencePerson;
     }
 
-    /**
-     * set object
-     *
-     * @param object $object
-     */
-    public function setObjectIndiFamily(object $object): void
-    {
-        $this->objectIndiFamily = $object;
-    }
 }

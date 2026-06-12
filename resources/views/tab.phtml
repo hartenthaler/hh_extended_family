@@ -15,7 +15,7 @@ use Fisharebest\Webtrees\Individual;
     $summaryName = '<span class="hh-extended-family-summary-name">' . $extfam_obj->proband->niceName->name . '</span>';
     $hasVisibleFamilyPart = static function (object $filterObj): bool {
         foreach ($filterObj->efp as $propName => $propValue) {
-            if ($propName !== 'summary' && ($propValue->allCount ?? 0) > 0) {
+            if ($propName !== 'summary' && ($propValue->counts->allCount ?? 0) > 0) {
                 return true;
             }
         }
@@ -62,14 +62,14 @@ use Fisharebest\Webtrees\Individual;
             <?php if ($hasVisibleFamilyPart($filterObj)): ?>
                 <?php foreach ($filterObj->efp as $propName => $propValue) : ?>
                     <?php if ($propName !== 'summary'): ?>
-                        <?php if (($filterObj->efp->$propName->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+                        <?php if (($filterObj->efp->$propName->counts->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
                             <?= view($module . '::partials/family-part-header', [
                                 'extfam_obj' => $extfam_obj,
                                 'filterObj'  => $filterObj,
                                 'propName'   => $propName,
                             ]) ?>
                         <?php endif ?>
-                        <?php if ($filterObj->efp->$propName->allCount): ?>
+                        <?php if ($filterObj->efp->$propName->counts->allCount): ?>
                             <?= view($module . '::partials/family-part-summary', [
                                 'extfam_obj'   => $extfam_obj,
                                 'filterObj'    => $filterObj,

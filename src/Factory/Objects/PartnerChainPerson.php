@@ -22,8 +22,6 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
-use Fisharebest\Webtrees\Individual;
-
 /**
  * class PartnerChainPerson
  *
@@ -31,34 +29,17 @@ use Fisharebest\Webtrees\Individual;
  */
 class PartnerChainPerson
 {
-    // ------------ definition of data structures
-
-    /**
-     * @var object $person
-     *  ->step              string
-     *  ->canShow           bool
-     *  ->fullName          string
-     *  ->url               string
-     */
-    private object $person;
-
     // ------------ definition of methods
 
     /**
      * construct partner chain person object
-     *
-     * @param string $step
-     * @param bool $canShow
-     * @param string $fullName
-     * @param string $url
      */
-    public function __construct(string $step, bool $canShow, string $fullName, string $url)
-    {
-        $this->person = (object)[];
-        $this->person->step = $step;
-        $this->person->canShow = $canShow;
-        $this->person->fullName = $fullName;
-        $this->person->url = $url;
+    public function __construct(
+        private string $step,
+        private bool $canShow,
+        private string $fullName,
+        private string $url
+    ) {
     }
 
     /**
@@ -66,7 +47,7 @@ class PartnerChainPerson
      */
     public function getStep(): string
     {
-        return $this->person->step;
+        return $this->step;
     }
 
     /**
@@ -74,7 +55,7 @@ class PartnerChainPerson
      */
     public function getCanShow(): bool
     {
-        return $this->person->canShow;
+        return $this->canShow;
     }
 
     /**
@@ -82,7 +63,7 @@ class PartnerChainPerson
      */
     public function getFullName(): string
     {
-        return $this->person->fullName;
+        return $this->fullName;
     }
 
     /**
@@ -90,6 +71,6 @@ class PartnerChainPerson
      */
     public function getUrl(): string
     {
-        return $this->person->url;
+        return $this->url;
     }
 }

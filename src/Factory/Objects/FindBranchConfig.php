@@ -38,15 +38,14 @@ class FindBranchConfig
 
     // ------------ definition of data structures
 
-    /** @var object $config
-     *  ->callFamilyPart                string (e.g. 'parents')
-     *  ->const                         array<string,array<string,string>>
-     */
-    private $config;
+    private string $callFamilyPart;
+
+    /** @var array<string,array<string,string>> $const */
+    private array $const;
 
     /** @var array<int,string> $branches e.g. ['bio','step'] or ['full', 'half']
      */
-    private $branches;
+    private array $branches;
 
     // ------------ definition of methods
 
@@ -58,25 +57,14 @@ class FindBranchConfig
      */
     public function __construct(string $callFamilyPart, array $const)
     {
-        $this->config = (object)[];
         if (in_array($callFamilyPart, ExtendedFamilySupport::listFamilyParts())) {
-            $this->config->callFamilyPart = $callFamilyPart;
+            $this->callFamilyPart = $callFamilyPart;
         } else {
             throw new Exception('extended family part ' . $callFamilyPart . ' does not exist');
         }
-        $this->config->const = $this->normalizeAndValidateConst($const);
+        $this->const = $this->normalizeAndValidateConst($const);
 
-        $this->branches = $this->findBranches($this->config->const);
-    }
-
-    /**
-     * get config
-     *
-     * @return object
-     */
-    public function getConfig(): object
-    {
-        return $this->config;
+        $this->branches = $this->findBranches($this->const);
     }
 
     /**
@@ -86,7 +74,7 @@ class FindBranchConfig
      */
     public function getCallFamilyPart(): string
     {
-        return $this->config->callFamilyPart;
+        return $this->callFamilyPart;
     }
 
     /**
@@ -106,21 +94,21 @@ class FindBranchConfig
      */
     public function getConst(): array
     {
-        return $this->config->const;
+        return $this->const;
     }
 
     public function familyPartForSex(string $branch, string $sex): string
     {
-        if (!isset($this->config->const[$branch])) {
+        if (!isset($this->const[$branch])) {
             throw new Exception('extended family branch ' . $branch . ' does not exist');
         }
 
-        if (isset($this->config->const[$branch][$sex])) {
-            return $this->config->const[$branch][$sex];
+        if (isset($this->const[$branch][$sex])) {
+            return $this->const[$branch][$sex];
         }
 
-        if (isset($this->config->const[$branch]['U'])) {
-            return $this->config->const[$branch]['U'];
+        if (isset($this->const[$branch]['U'])) {
+            return $this->const[$branch]['U'];
         }
 
         throw new Exception('sex key ' . $sex . ' is not configured for branch ' . $branch);

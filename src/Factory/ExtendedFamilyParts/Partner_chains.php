@@ -52,10 +52,6 @@ class Partner_chains extends ExtendedFamilyPart
      * common:
      *  ->groups                        array       // not used for this extended family part
      *  ->counts                        FamilyPartCounts
-     *  ->maleCount                     int legacy alias
-     *  ->femaleCount                   int legacy alias
-     *  ->otherSexCount                 int legacy alias
-     *  ->allCount                      int legacy alias
      *  ->partName                      string
      *
      * special for this extended family part:
@@ -210,7 +206,7 @@ class Partner_chains extends ExtendedFamilyPart
     private function addCountersPartnerChains()
     {
         $this->setFamilyPartCounts($this->efpObject, $this->countMaleFemale($this->efpObject->collectionIndividuals->all()));
-        if ($this->efpObject->allCount > 0) {
+        if ($this->efpObject->counts->allCount > 0) {
             $this->addCountersToFamilyPartObjectPartnerChains();
         }
     }

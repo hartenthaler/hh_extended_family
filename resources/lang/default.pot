@@ -736,6 +736,10 @@ msgid "Children of half siblings of stepparents"
 msgstr ""
 
 #: src/Factory/Objects/ExtendedFamilySupport.php:951
+msgid "Full siblings"
+msgstr ""
+
+#: src/Factory/Objects/ExtendedFamilySupport.php:951
 msgid "Half siblings"
 msgstr ""
 

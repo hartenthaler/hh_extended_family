@@ -44,14 +44,14 @@ $summaryName = '<span class="hh-extended-family-summary-name">' . $extfam_obj->p
     <?php if ($filterObj->efp->summary->allCount > 0): ?>
         <?php foreach ($filterObj->efp as $propName => $propValue) : ?>
             <?php if ($propName !== 'summary'): ?>
-                <?php if (($filterObj->efp->$propName->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
+                <?php if (($filterObj->efp->$propName->counts->allCount > 0) or ($extfam_obj->config->showEmptyBlock == 0)): ?>
                     <section class="hh-extended-family-print-part">
                         <?= view($module . '::partials/family-part-header', [
                             'extfam_obj' => $extfam_obj,
                             'filterObj'  => $filterObj,
                             'propName'   => $propName,
                         ]) ?>
-                        <?php if ($filterObj->efp->$propName->allCount): ?>
+                        <?php if ($filterObj->efp->$propName->counts->allCount): ?>
                             <?= view($module . '::partials/family-part-summary', [
                                 'extfam_obj'   => $extfam_obj,
                                 'filterObj'    => $filterObj,
