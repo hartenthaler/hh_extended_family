@@ -108,6 +108,13 @@
 }
 
 /* Namen und XREF-Badges in den Summary-Überschriften in der Textzeile halten */
+#hh-extended-family-summary h3 {
+    display: block !important;
+    max-width: none;
+    white-space: normal;
+    width: auto;
+}
+
 #hh-extended-family-summary h3 .wt-icon-help,
 #hh-extended-family-summary h3 [class*="wt-icon"] {
     font-size: 1rem;
