@@ -559,10 +559,6 @@ class ExtendedFamily
     {
         $individuals = [];
         foreach ($rows as $row) {
-            if ($row->generation === 1) {
-                continue;
-            }
-
             foreach ($row->individuals as $individual) {
                 $individuals[$individual->xref()] = $individual;
             }
@@ -603,10 +599,6 @@ class ExtendedFamily
             foreach ($rows as $row) {
                 if ($row->generationLength !== null) {
                     $generationLengths[] = $row->generationLength;
-                }
-
-                if ($row->generation === 1) {
-                    continue;
                 }
 
                 foreach ($row->individuals as $individual) {
