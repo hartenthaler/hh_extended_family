@@ -6,6 +6,10 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+No unreleased changes yet.
+
+## 2.2.6.10 - 2026-06-29
+
 - Included the proband when calculating oldest direct-line people.
 - Limited godparent/witness lookup to displayed extended-family people and their own partnership families.
 - Fixed inconsistent capitalization in partner h5 headings.
