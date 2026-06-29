@@ -17,12 +17,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                     <?php if ($group->partner->xref() == $extfam_obj->proband->indi->xref()): ?>
                         <?= $extfam_obj->proband->niceName->plain ?>
                     <?php else: ?>
-                        <?php if ($group->partner->canShow()): ?>
-                            <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($group->partner, $extfam_obj->proband->indi) : '' ?>
-                            <span class="hh_extended_family_name"><a href="<?= e($group->partner->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $group->partner->fullName() ?></a></span>
-                        <?php else: ?>
-                            <span class="hh_extended_family_name"><?= $group->partner->fullName() ?></span>
-                        <?php endif ?>
+                        <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($group->partner, $extfam_obj->proband->indi) : '' ?>
+                        <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualLink($group->partner, $relationshipName) ?></span>
                     <?php endif ?>
                     &nbsp;(<?= count($group->entries) ?>)
                 </h4>
@@ -37,7 +33,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                             <?php endif ?>
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
-                            <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $indi->fullName() ?></a></span>
+                            <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualLink($indi, $relationshipName) ?></span>
                             <?php if ($extfam_obj->config->showLabels && $entry->labels): ?>
                                 <?php foreach ($entry->labels as $label): ?>
                                     <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
@@ -56,7 +52,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                                 </span>
                             <?php endif ?>
                         <?php else: ?>
-                            <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
+                            <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualName($indi) ?></span>
                         <?php endif ?>
                     </div>
                 <?php $i++; endforeach ?>

@@ -23,6 +23,7 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
+use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\Elements\PedigreeLinkageType;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
@@ -93,13 +94,42 @@ class ExtendedFamilySupport
         ];
     }
 
-    public static function individualLink(Individual $person): string
+    public static function individualName(Individual $person): string
     {
-        if ($person->canShow()) {
-            return '<a href="' . e($person->url()) . '">' . $person->fullName() . '</a>';
+        if (!$person->canShow() || !self::hasVisibleNameFacts($person)) {
+            return I18N::translate('Private');
         }
 
         return $person->fullName();
+    }
+
+    public static function individualLink(Individual $person, string $title = ''): string
+    {
+        $name = self::individualName($person);
+
+        if (self::canLinkIndividual($person)) {
+            $titleAttribute = $title === '' ? '' : ' title="' . e($title) . '"';
+
+            return '<a href="' . e($person->url()) . '"' . $titleAttribute . '>' . $name . '</a>';
+        }
+
+        return $name;
+    }
+
+    public static function canLinkIndividual(Individual $person): bool
+    {
+        return $person->canShow() && self::hasVisibleNameFacts($person);
+    }
+
+    private static function hasVisibleNameFacts(Individual $person): bool
+    {
+        $allNameFacts = $person->facts(['NAME'], false, Auth::PRIV_HIDE);
+
+        if ($allNameFacts->isEmpty()) {
+            return true;
+        }
+
+        return $person->facts(['NAME'])->count() === $allNameFacts->count();
     }
 
     public static function partnerInFamilyLink(Family $family, Individual $person): string

@@ -18,12 +18,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
         <?php foreach ($filterObj->efp->$propName->groups as $group): ?>
             <div class="hh_extended_family_box">
                 <h4>
-                    <?php if ($group->partner->canShow()): ?>
-                        <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($group->partner, $extfam_obj->proband->indi) : '' ?>
-                        <span class="hh_extended_family_name"><?= I18N::translate($group->partnerFamilyStatus) ?> <?= I18N::translate('with') ?> <a href="<?= e($group->partner->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $group->partner->fullName() ?></a></span>
-                    <?php else: ?>
-                        <span class="hh_extended_family_name"><?= I18N::translate('Partnership') . ' ' . I18N::translate('with') . ' ' . $group->partner->fullName() ?></span>
-                    <?php endif ?>
+                    <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($group->partner, $extfam_obj->proband->indi) : '' ?>
+                    <span class="hh_extended_family_name"><?= I18N::translate($group->partnerFamilyStatus) ?> <?= I18N::translate('with') ?> <?= ExtendedFamilySupport::individualLink($group->partner, $relationshipName) ?></span>
                     &nbsp;(<?= count($group->entries) ?>)
                 </h4>
                 <?php $prev_fam_id = '-1'; ?>
@@ -44,7 +40,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                             <?php endif ?>
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
-                            <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $indi->fullName() ?></a></span>
+                            <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualLink($indi, $relationshipName) ?></span>
                             <?php if ($extfam_obj->config->useCompactDesign): ?>
                                 <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                             <?php else: ?>
@@ -53,7 +49,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                                 </span>
                             <?php endif ?>
                         <?php else: ?>
-                            <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
+                            <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualName($indi) ?></span>
                         <?php endif ?>
                     </div>
                 <?php $i++; endforeach ?>

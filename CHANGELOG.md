@@ -7,6 +7,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 ## After the latest release / Nach dem letzten Release
 
 - Updated Slovak translations; thanks to Ladislav Rosival.
+- Respect hidden individual names when rendering partner lists and partner chains.
 
 ## Previous releases
 
