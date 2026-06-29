@@ -92,7 +92,7 @@ class Godparents_witnesses extends ExtendedFamilyPart
     private function seedRecords(): array
     {
         $individuals = [$this->getProband()->xref() => $this->getProband()];
-        $families = [];
+        $candidateFamilies = [];
 
         foreach ($this->seedFamilyParts as $propName => $familyPart) {
             if ($propName === 'summary') {
@@ -108,7 +108,7 @@ class Godparents_witnesses extends ExtendedFamilyPart
 
                 foreach ($familyPart->collectionFamilies ?? [] as $family) {
                     if ($family instanceof Family) {
-                        $families[$family->xref()] = $family;
+                        $candidateFamilies[$family->xref()] = $family;
                     }
                 }
 
@@ -117,7 +117,7 @@ class Godparents_witnesses extends ExtendedFamilyPart
 
             foreach ($familyPart->groups ?? [] as $group) {
                 if (($group->family ?? null) instanceof Family) {
-                    $families[$group->family->xref()] = $group->family;
+                    $candidateFamilies[$group->family->xref()] = $group->family;
                 }
 
                 foreach ($group->entries ?? [] as $entry) {
@@ -126,29 +126,34 @@ class Godparents_witnesses extends ExtendedFamilyPart
                     }
 
                     if (($entry->family ?? null) instanceof Family) {
-                        $families[$entry->family->xref()] = $entry->family;
-                    }
-
-                    foreach ($entry->referencePersons ?? [] as $referencePerson) {
-                        if ($referencePerson instanceof Individual) {
-                            $individuals[$referencePerson->xref()] = $referencePerson;
-                        }
+                        $candidateFamilies[$entry->family->xref()] = $entry->family;
                     }
                 }
             }
         }
 
-        foreach ($individuals as $individual) {
-            foreach ($individual->spouseFamilies() as $family) {
-                $families[$family->xref()] = $family;
-            }
-
-            foreach ($individual->childFamilies() as $family) {
+        $families = [];
+        foreach ($candidateFamilies as $family) {
+            if ($this->familyHasSeedSpouse($family, $individuals)) {
                 $families[$family->xref()] = $family;
             }
         }
 
         return [...array_values($individuals), ...array_values($families)];
+    }
+
+    /**
+     * @param array<string,Individual> $individuals
+     */
+    private function familyHasSeedSpouse(Family $family, array $individuals): bool
+    {
+        foreach ($family->spouses() as $spouse) {
+            if ($spouse instanceof Individual && array_key_exists($spouse->xref(), $individuals)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
