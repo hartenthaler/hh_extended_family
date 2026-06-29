@@ -6,6 +6,9 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+- Included the proband when calculating oldest direct-line people.
+- Limited godparent/witness lookup to displayed extended-family people and their own partnership families.
+- Fixed inconsistent capitalization in partner h5 headings.
 - Updated Slovak translations; thanks to Ladislav Rosival.
 - Respect hidden individual names when rendering partner lists and partner chains.
 
