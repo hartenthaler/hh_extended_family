@@ -10,6 +10,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 - Limited godparent/witness lookup to displayed extended-family people and their own partnership families.
 - Fixed inconsistent capitalization in partner h5 headings.
 - Updated Slovak translations; thanks to Ladislav Rosival.
+- Respect hidden individual names when rendering partner lists and partner chains.
 
 ## Previous releases
 

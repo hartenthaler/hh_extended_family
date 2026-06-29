@@ -43,7 +43,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                             <?php endif ?>
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
-                            <span class="hh_extended_family_name"><a href="<?= e($indi->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $indi->fullName() ?></a></span>
+                            <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualLink($indi, $relationshipName) ?></span>
                             <?php if ($extfam_obj->config->useCompactDesign): ?>
                                 <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                             <?php else: ?>
@@ -66,7 +66,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                             <?php if ($propName == 'children_in_law'): ?>
                                 <span class="hh_extended_family_label_box"><?= ExtendedFamilySupport::translateFamilyStatusAsPartner($entry->familyStatus) ?></span>&nbsp;
                             <?php endif ?>
-                            <span class="hh_extended_family_name"><?= $indi->fullName() ?></span>
+                            <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualName($indi) ?></span>
                         <?php endif ?>
                     </div>
                 <?php $i++; endforeach ?>

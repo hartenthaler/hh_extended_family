@@ -348,8 +348,8 @@ class Partner_chains extends ExtendedFamilyPart
         if ($node->getIndividual() instanceof Individual) {
             $chainString .= strval($i) . '§';
             if ($node->getFilterComment() == '') {
-                $chainString .= (($node->getIndividual()->canShow()) ? '1' : '0') .
-                                '§' . $node->getIndividual()->fullName() .
+                $chainString .= (ExtendedFamilySupport::canLinkIndividual($node->getIndividual()) ? '1' : '0') .
+                                '§' . ExtendedFamilySupport::individualName($node->getIndividual()) .
                                 '§' . $node->getIndividual()->url();
             } else {
                 $chainString .= I18N::translate($node->getFilterComment());

@@ -32,12 +32,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                             <tr>
                                 <td>
                                     <?php if ($entry->associatedIndividual instanceof Individual): ?>
-                                        <?php if ($entry->associatedIndividual->canShow()): ?>
-                                            <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($entry->associatedIndividual, $extfam_obj->proband->indi) : '' ?>
-                                            <a href="<?= e($entry->associatedIndividual->url()) ?>"<?= $relationshipName !== '' ? ' title="' . e($relationshipName) . '"' : '' ?>><?= $entry->associatedIndividual->fullName() ?></a>
-                                        <?php else: ?>
-                                            <?= $entry->associatedIndividual->fullName() ?>
-                                        <?php endif ?>
+                                        <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($entry->associatedIndividual, $extfam_obj->proband->indi) : '' ?>
+                                        <?= ExtendedFamilySupport::individualLink($entry->associatedIndividual, $relationshipName) ?>
                                     <?php else: ?>
                                         <?= e($entry->associatedName) ?>
                                     <?php endif ?>
