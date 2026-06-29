@@ -6,6 +6,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+- Fixed inconsistent capitalization in partner h5 headings.
 - Updated Slovak translations; thanks to Ladislav Rosival.
 
 ## Previous releases
