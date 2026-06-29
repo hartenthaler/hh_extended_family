@@ -41,6 +41,7 @@ use function strtolower;
 use function str_contains;  // will be added in PHP 8.0, at the moment part of the framework
 use function trim;
 use function preg_match;
+use function mb_substr;
 
 // array functions
 use function in_array;
@@ -655,6 +656,23 @@ class ExtendedFamilySupport
             self::FAM_STATUS_PARTNERSHIP => I18N::translate('partner'),
             default                      => I18N::translate($familyStatus),
         };
+    }
+
+    /**
+     * Capitalize translated labels when they start a heading.
+     *
+     * @param string $label
+     * @return string
+     */
+    public static function headingLabel(string $label): string
+    {
+        $label = trim($label);
+
+        if ($label === '') {
+            return '';
+        }
+
+        return I18N::strtoupper(mb_substr($label, 0, 1)) . mb_substr($label, 1);
     }
 
     /**
