@@ -10,6 +10,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 - Render partner chains as compact HTML/CSS node chains instead of plain text.
 - Updated Czech translations; thanks to Josef Prause.
 - Disabled unsafe translated strings with mismatched placeholders to avoid runtime errors.
+- Detect family-role loops in the displayed extended family and show them as compact node chains in the summary.
 
 ## 2.2.6.10 - 2026-06-29
 

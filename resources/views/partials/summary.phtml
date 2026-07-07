@@ -18,6 +18,7 @@ $emptyFamilyParts = array_map(
 );
 $statistics = $filterObj->efp->summary->statistics ?? null;
 $lineageStatistics = $filterObj->efp->summary->lineageStatistics ?? null;
+$familyRoleLoops = $filterObj->efp->summary->familyRoleLoops ?? null;
 $formatStatValue = static fn ($value): string => $value === null ? '-' : I18N::number((int) $value);
 $formatYearValue = static fn ($value): string => $value === null ? '-' : (string) (int) $value;
 $formatGeneration = static function (int $generation): string {
@@ -135,6 +136,15 @@ $summarySentences[] = $summarySentence . '.';
 
 if ($filterObj->efp->summary->allCountUnique - 1 < $filterObj->efp->summary->allCount - ($extfam_obj->config->countPartnerChainsToTotal ? 0 : (false ? $partnerChainsCount : 0))) {
     $summarySentences[] = I18N::translate('Some of them are member in more than one part of the extended family.');
+}
+
+if ($familyRoleLoops?->hasAny()) {
+    $summarySentences[] = I18N::plural(
+        'One family role loop was detected in the extended family.',
+        '%s family role loops were detected in the extended family.',
+        $familyRoleLoops->count(),
+        I18N::number($familyRoleLoops->count())
+    );
 }
 
 if ($coveredGenerationCount !== null) {
@@ -263,4 +273,36 @@ if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
     <p class="hh-extended-family-summary-text">
         <?= implode(' ', $summarySentences) ?>
     </p>
+    <?php if ($familyRoleLoops?->hasAny()) : ?>
+        <div class="hh-extended-family-role-loops">
+            <h3><?= I18N::translate('Family role loops') ?></h3>
+            <?php foreach ($familyRoleLoops->loops as $loopNumber => $loop) : ?>
+                <?php if ($loopNumber > 0): ?>
+                    <hr>
+                <?php endif ?>
+                <div class="hh-extended-family-role-loop" role="list" aria-label="<?= e(I18N::translate('family role loop')) ?>">
+                    <?php foreach ($loop->steps as $stepNumber => $step) : ?>
+                        <?php if ($stepNumber > 0): ?>
+                            <span class="hh-extended-family-role-loop-connector" aria-hidden="true"></span>
+                        <?php endif ?>
+                        <span class="hh-extended-family-partner-chain-node <?= $step->canShow ? '' : 'hh-extended-family-partner-chain-node-muted' ?>" role="listitem">
+                            <span class="hh_extended_family_counter hh-extended-family-partner-chain-step"><?= $stepNumber + 1 ?></span>
+                            <span class="hh_extended_family_name hh-extended-family-partner-chain-name">
+                                <?php if ($step->canShow): ?>
+                                    <a href="<?= e($step->url) ?>"><?= $step->name ?></a>
+                                <?php else: ?>
+                                    <?= $step->name ?>
+                                <?php endif ?>
+                            </span>
+                        </span>
+                        <?php if ($step->relationToNext !== ''): ?>
+                            <span class="hh-extended-family-role-loop-relation hh-extended-family-role-loop-relation-<?= e($step->edgeType) ?>">
+                                <?= $step->relationToNext ?>
+                            </span>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </div>
+            <?php endforeach ?>
+        </div>
+    <?php endif ?>
 </div>

@@ -3960,6 +3960,32 @@ msgstr ""
 msgid "Load later"
 msgstr "Später laden"
 
+#: ExtendedFamily.php:538
+msgid "spouse of"
+msgstr "Partner von"
+
+#: ExtendedFamily.php:542
+msgid "parent of"
+msgstr "Elternteil von"
+
+#: ExtendedFamily.php:543
+msgid "child of"
+msgstr "Kind von"
+
+#: resources/views/partials/summary.phtml:143
+msgid "One family role loop was detected in the extended family."
+msgid_plural "%s family role loops were detected in the extended family."
+msgstr[0] "In der Großfamilie wurde eine familiäre Rollenschleife erkannt."
+msgstr[1] "In der Großfamilie wurden %s familiäre Rollenschleifen erkannt."
+
+#: resources/views/partials/summary.phtml:278
+msgid "Family role loops"
+msgstr "Familiäre Rollenschleifen"
+
+#: resources/views/partials/summary.phtml:282
+msgid "family role loop"
+msgstr "familiäre Rollenschleife"
+
 #~ msgid "Full siblings of biological grandparents"
 #~ msgstr "Vollbürtige Geschwister der biologischen Großeltern"
 

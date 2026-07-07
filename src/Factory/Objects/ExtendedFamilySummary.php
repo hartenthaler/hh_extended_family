@@ -19,4 +19,6 @@ class ExtendedFamilySummary
     public ?object $statistics = null;
 
     public ?object $lineageStatistics = null;
+
+    public ?FamilyRoleLoopSummary $familyRoleLoops = null;
 }
