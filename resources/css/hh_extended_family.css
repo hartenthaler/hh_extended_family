@@ -221,6 +221,64 @@
     width: 100%;
 }
 
+.hh-extended-family-role-loops {
+    border: 1px solid var(--bs-border-color, #ced4da);
+    border-radius: 0.35rem;
+    margin: 0.75rem 1.25rem;
+    padding: 0.5rem 0.65rem;
+}
+
+.hh-extended-family-role-loops h3 {
+    margin: 0 0 0.5rem;
+}
+
+.hh-extended-family-role-loop {
+    align-items: center;
+    display: flex;
+    gap: 0.35rem;
+    overflow-x: auto;
+    padding: 0.35rem 0.1rem;
+}
+
+.hh-extended-family-role-loop-connector {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 1.5rem;
+    justify-content: center;
+}
+
+.hh-extended-family-role-loop-connector:before {
+    background: var(--bs-border-color, #adb5bd);
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+}
+
+.hh-extended-family-role-loop-relation {
+    background: var(--bs-secondary-bg, #f8f9fa);
+    border: 1px solid var(--bs-border-color, #ced4da);
+    border-radius: 999px;
+    color: var(--bs-body-color, #212529);
+    flex: 0 0 auto;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    padding: 0.18rem 0.45rem;
+    white-space: nowrap;
+}
+
+.hh-extended-family-role-loop-relation-spouse {
+    background: var(--bs-info-bg-subtle, #cff4fc);
+    border-color: var(--bs-info-border-subtle, #9eeaf9);
+    color: var(--bs-info-text-emphasis, #055160);
+}
+
+.hh-extended-family-role-loop-relation-descent {
+    background: var(--bs-success-bg-subtle, #d1e7dd);
+    border-color: var(--bs-success-border-subtle, #a3cfbb);
+    color: var(--bs-success-text-emphasis, #0a3622);
+}
+
 /* Mobile low resolution viewport */
 @media (max-width: 600px) {
     #hh_extended_family_content,

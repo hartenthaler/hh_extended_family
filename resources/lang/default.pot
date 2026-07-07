@@ -3506,3 +3506,29 @@ msgstr ""
 #: resources/views/settings.phtml:418
 msgid "Load later"
 msgstr ""
+
+#: ExtendedFamily.php:538
+msgid "spouse of"
+msgstr ""
+
+#: ExtendedFamily.php:542
+msgid "parent of"
+msgstr ""
+
+#: ExtendedFamily.php:543
+msgid "child of"
+msgstr ""
+
+#: resources/views/partials/summary.phtml:143
+msgid "One family role loop was detected in the extended family."
+msgid_plural "%s family role loops were detected in the extended family."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/partials/summary.phtml:278
+msgid "Family role loops"
+msgstr ""
+
+#: resources/views/partials/summary.phtml:282
+msgid "family role loop"
+msgstr ""

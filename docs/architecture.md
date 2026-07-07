@@ -83,7 +83,7 @@ Important examples are:
 * `ExtendedFamilyFilterResult`: stores the calculated data for one filter option
 * `ExtendedFamilyPartSet`: stores the summary plus the calculated family parts for one filter option
 * `ExtendedFamilyProband`: stores the proband individual, display-name variants, proband labels, and optional SOSA labels
-* `ExtendedFamilySummary`: stores the summary counts and precomputed summary statistics for one filter option
+* `ExtendedFamilySummary`: stores the summary counts, precomputed summary statistics, and detected family-role loops for one filter option
 * `FamilyPart`: compatibility builder for one rendered family-part group
 * `FamilyPartCounts`: stores male, female, other/unknown, and total counters for a family part
 * `FamilyPartGroup`: stores one rendered group inside a family part
@@ -91,6 +91,7 @@ Important examples are:
 * `AssociatedPersonEntry`: keeps one linked person or name together with role, event, and reference person or family for the godparents/witnesses family part
 * `SummaryStatistics`, `LivingStatistics`, `SexStatistics`, and `DateRangeStatistics`: store optional summary-statistic data
 * `LineageStatistics`, `LineageSummary`, `LineageRow`, `LineageImplexSummary`, `RepeatedLineagePerson`, and `OldestIndividuals`: store direct-line statistics and implex data
+* `FamilyRoleLoopSummary`, `FamilyRoleLoop`, and `FamilyRoleLoopStep`: store closed family-role paths in the displayed extended-family network
 * `IndividualFamily`: wraps individual/family relationship context
 * `ProbandName`: formats the proband name for the tab
 * `PartnerChainNode` and `PartnerChainPerson`: represent partner-chain structures
@@ -186,7 +187,8 @@ ExtendedFamily
         │   ├── allCountUnique: int
         │   ├── summaryMessageEmptyBlocks: array<int,string>
         │   ├── statistics: SummaryStatistics|null
-        │   └── lineageStatistics: LineageStatistics|null
+        │   ├── lineageStatistics: LineageStatistics|null
+        │   └── familyRoleLoops: FamilyRoleLoopSummary|null
         └── <family_part_name>
             ├── groups[]: FamilyPartGroup
             │   ├── groupName: string
@@ -332,6 +334,10 @@ The biological column is based on the module's biological relationship groups, n
 Ancestor and descendant implex detection is intentionally stricter than the general duplicate-membership warning.
 Duplicate membership means that the same person appears in more than one extended-family part.
 An implex is reported only when the same person is reachable through more than one biological direct-line path within the selected ancestor or descendant generations.
+Family-role loops are detected separately.
+For this purpose, the displayed extended family is treated as a kinship graph with spouse or partner edges and parent-child edges.
+A loop is reported only for a closed path that contains at least one spouse or partner edge and at least one parent-child edge and has at least four distinct people.
+This keeps ordinary parent-parent-child triangles out of the report while still showing matrimonial circuits and role loops such as the "I'm My Own Grandpa" pattern.
 Partner-chain cycles can indicate a complex relationship network, but they are not themselves treated as ancestor or descendant implex unless they also create repeated biological direct-line paths.
 
 Because filter variants are built eagerly, adding additional filters increases the amount of calculation done during tab rendering.
@@ -506,6 +512,9 @@ hh_extended_family/
 │   │       ├── ExtendedFamilyProband.php
 │   │       ├── ExtendedFamilySummary.php
 │   │       ├── ExtendedFamilySupport.php
+│   │       ├── FamilyRoleLoop.php
+│   │       ├── FamilyRoleLoopStep.php
+│   │       ├── FamilyRoleLoopSummary.php
 │   │       ├── FamilyPart.php
 │   │       ├── FamilyPartCounts.php
 │   │       ├── FamilyPartGroup.php

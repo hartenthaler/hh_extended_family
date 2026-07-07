@@ -28,6 +28,7 @@ use Fisharebest\Webtrees\Date;
 use Fisharebest\Webtrees\Elements\PedigreeLinkageType;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Registry;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
 use Illuminate\Support\Collection;
@@ -209,6 +210,337 @@ class ExtendedFamily
         $extendedFamily->efp->summary->allCountUnique = $individuals->count();
         $extendedFamily->efp->summary->statistics = $this->summaryStatistics($individuals);
         $extendedFamily->efp->summary->lineageStatistics = $this->lineageStatistics($extendedFamily);
+        $extendedFamily->efp->summary->familyRoleLoops = $this->familyRoleLoopSummary($extendedFamily);
+    }
+
+    /**
+     * Detect compact family role loops in the displayed extended-family graph.
+     *
+     * The graph follows the kinship-network idea of directed filiation arcs and
+     * undirected marriage edges, but reports only closed paths that contain a
+     * spouse edge and a non-trivial parent-child path.
+     *
+     * @param object $extendedFamily
+     * @return FamilyRoleLoopSummary
+     */
+    private function familyRoleLoopSummary(object $extendedFamily): FamilyRoleLoopSummary
+    {
+        $individuals = $this->familyRoleLoopIndividuals($extendedFamily);
+
+        if (count($individuals) < 4) {
+            return new FamilyRoleLoopSummary();
+        }
+
+        $graph = $this->familyRoleLoopGraph($individuals);
+        $loops = [];
+        $seen = [];
+
+        foreach ($graph['spouseEdges'] as $spouseEdge) {
+            $path = $this->shortestFamilyRoleLoopPath($graph, $spouseEdge['b'], $spouseEdge['a'], $spouseEdge['id']);
+
+            if ($path === null) {
+                continue;
+            }
+
+            $cycleXrefs = array_merge([$spouseEdge['a']], $path['nodes']);
+            $cycleEdges = array_merge([$spouseEdge], $path['edges']);
+
+            if (!$this->isReportableFamilyRoleLoop($cycleXrefs, $cycleEdges)) {
+                continue;
+            }
+
+            $cycleKey = $this->canonicalFamilyRoleLoopKey($cycleXrefs);
+            if (isset($seen[$cycleKey])) {
+                continue;
+            }
+
+            $seen[$cycleKey] = true;
+            $loops[] = $this->familyRoleLoopFromCycle($cycleXrefs, $cycleEdges, $individuals);
+
+            if (count($loops) >= 3) {
+                break;
+            }
+        }
+
+        return new FamilyRoleLoopSummary($loops);
+    }
+
+    /**
+     * @param object $extendedFamily
+     * @return array<string,Individual>
+     */
+    private function familyRoleLoopIndividuals(object $extendedFamily): array
+    {
+        $individuals = [$this->proband->indi->xref() => $this->proband->indi];
+
+        foreach ($this->collectGroupEntries($extendedFamily) as $entry) {
+            $individuals[$entry->individual->xref()] = $entry->individual;
+
+            foreach ($entry->referencePersons as $referencePerson) {
+                if ($referencePerson instanceof Individual) {
+                    $individuals[$referencePerson->xref()] = $referencePerson;
+                }
+            }
+        }
+
+        if (isset($extendedFamily->efp->partner_chains->collectionIndividuals) && is_iterable($extendedFamily->efp->partner_chains->collectionIndividuals)) {
+            foreach ($extendedFamily->efp->partner_chains->collectionIndividuals as $individual) {
+                if ($individual instanceof Individual) {
+                    $individuals[$individual->xref()] = $individual;
+                }
+            }
+        }
+
+        ksort($individuals);
+
+        return $individuals;
+    }
+
+    /**
+     * @param array<string,Individual> $individuals
+     * @return array{adjacency:array<string,array<int,array<string,mixed>>>,spouseEdges:array<int,array<string,mixed>>}
+     */
+    private function familyRoleLoopGraph(array $individuals): array
+    {
+        $edges = [];
+        $adjacency = [];
+        $spouseEdges = [];
+
+        foreach ($individuals as $xref => $individual) {
+            $adjacency[$xref] = [];
+        }
+
+        foreach ($individuals as $individual) {
+            foreach ($individual->spouseFamilies() as $family) {
+                $this->addFamilyRoleLoopFamilyEdges($family, $individuals, $edges, $adjacency, $spouseEdges);
+            }
+
+            foreach ($individual->childFamilies() as $family) {
+                $this->addFamilyRoleLoopFamilyEdges($family, $individuals, $edges, $adjacency, $spouseEdges);
+            }
+        }
+
+        usort($spouseEdges, static fn (array $a, array $b): int => $a['id'] <=> $b['id']);
+
+        return [
+            'adjacency' => $adjacency,
+            'spouseEdges' => $spouseEdges,
+        ];
+    }
+
+    /**
+     * @param array<string,Individual> $individuals
+     * @param array<string,array<string,mixed>> $edges
+     * @param array<string,array<int,array<string,mixed>>> $adjacency
+     * @param array<int,array<string,mixed>> $spouseEdges
+     */
+    private function addFamilyRoleLoopFamilyEdges(Family $family, array $individuals, array &$edges, array &$adjacency, array &$spouseEdges): void
+    {
+        $spouses = array_values(array_filter(
+            $family->spouses(),
+            static fn (Individual $individual): bool => isset($individuals[$individual->xref()])
+        ));
+
+        for ($left = 0; $left < count($spouses); $left++) {
+            for ($right = $left + 1; $right < count($spouses); $right++) {
+                $edge = $this->addFamilyRoleLoopEdge('spouse', $spouses[$left], $spouses[$right], $family, $edges, $adjacency);
+                if ($edge !== null) {
+                    $spouseEdges[] = $edge;
+                }
+            }
+        }
+
+        foreach ($family->children() as $child) {
+            if (!isset($individuals[$child->xref()])) {
+                continue;
+            }
+
+            foreach ($spouses as $parent) {
+                $this->addFamilyRoleLoopEdge('descent', $parent, $child, $family, $edges, $adjacency);
+            }
+        }
+    }
+
+    /**
+     * @param array<string,array<string,mixed>> $edges
+     * @param array<string,array<int,array<string,mixed>>> $adjacency
+     * @return array<string,mixed>|null
+     */
+    private function addFamilyRoleLoopEdge(string $type, Individual $from, Individual $to, Family $family, array &$edges, array &$adjacency): ?array
+    {
+        if ($from->xref() === $to->xref()) {
+            return null;
+        }
+
+        $pair = [$from->xref(), $to->xref()];
+        sort($pair);
+        $id = $type . ':' . $family->xref() . ':' . implode(':', $pair);
+
+        if (isset($edges[$id])) {
+            return null;
+        }
+
+        $edge = [
+            'id' => $id,
+            'type' => $type,
+            'a' => $type === 'descent' ? $from->xref() : $pair[0],
+            'b' => $type === 'descent' ? $to->xref() : $pair[1],
+            'familyXref' => $family->xref(),
+        ];
+
+        $edges[$id] = $edge;
+        $adjacency[$from->xref()][] = $edge;
+        $adjacency[$to->xref()][] = $edge;
+
+        return $edge;
+    }
+
+    /**
+     * @param array{adjacency:array<string,array<int,array<string,mixed>>>,spouseEdges:array<int,array<string,mixed>>} $graph
+     * @return array{nodes:array<int,string>,edges:array<int,array<string,mixed>>}|null
+     */
+    private function shortestFamilyRoleLoopPath(array $graph, string $startXref, string $targetXref, string $excludedEdgeId): ?array
+    {
+        $queue = [[
+            'xref' => $startXref,
+            'nodes' => [$startXref],
+            'edges' => [],
+        ]];
+        $visited = [$startXref => true];
+
+        while ($queue !== []) {
+            $current = array_shift($queue);
+
+            if (count($current['edges']) >= 8) {
+                continue;
+            }
+
+            foreach ($graph['adjacency'][$current['xref']] ?? [] as $edge) {
+                if ($edge['id'] === $excludedEdgeId) {
+                    continue;
+                }
+
+                $nextXref = $edge['a'] === $current['xref'] ? $edge['b'] : $edge['a'];
+                if (isset($visited[$nextXref]) && $nextXref !== $targetXref) {
+                    continue;
+                }
+
+                $nodes = [...$current['nodes'], $nextXref];
+                $edges = [...$current['edges'], $edge];
+
+                if ($nextXref === $targetXref) {
+                    return [
+                        'nodes' => $nodes,
+                        'edges' => $edges,
+                    ];
+                }
+
+                $visited[$nextXref] = true;
+                $queue[] = [
+                    'xref' => $nextXref,
+                    'nodes' => $nodes,
+                    'edges' => $edges,
+                ];
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param array<int,string> $cycleXrefs
+     * @param array<int,array<string,mixed>> $cycleEdges
+     */
+    private function isReportableFamilyRoleLoop(array $cycleXrefs, array $cycleEdges): bool
+    {
+        $distinctXrefs = array_unique($cycleXrefs);
+        $spouseEdgeCount = count(array_filter($cycleEdges, static fn (array $edge): bool => $edge['type'] === 'spouse'));
+        $descentEdgeCount = count(array_filter($cycleEdges, static fn (array $edge): bool => $edge['type'] === 'descent'));
+
+        return count($distinctXrefs) >= 4 && $spouseEdgeCount >= 1 && $descentEdgeCount >= 1;
+    }
+
+    /**
+     * @param array<int,string> $cycleXrefs
+     */
+    private function canonicalFamilyRoleLoopKey(array $cycleXrefs): string
+    {
+        if (count($cycleXrefs) > 1 && $cycleXrefs[0] === $cycleXrefs[count($cycleXrefs) - 1]) {
+            array_pop($cycleXrefs);
+        }
+
+        $variants = [];
+        foreach ([$cycleXrefs, array_reverse($cycleXrefs)] as $xrefs) {
+            $count = count($xrefs);
+            for ($offset = 0; $offset < $count; $offset++) {
+                $variants[] = implode('>', array_merge(array_slice($xrefs, $offset), array_slice($xrefs, 0, $offset)));
+            }
+        }
+
+        sort($variants);
+
+        return $variants[0] ?? '';
+    }
+
+    /**
+     * @param array<int,string> $cycleXrefs
+     * @param array<int,array<string,mixed>> $cycleEdges
+     * @param array<string,Individual> $individuals
+     */
+    private function familyRoleLoopFromCycle(array $cycleXrefs, array $cycleEdges, array $individuals): FamilyRoleLoop
+    {
+        $steps = [];
+        $familyXrefs = [];
+        $spouseEdgeCount = 0;
+        $descentEdgeCount = 0;
+
+        foreach ($cycleEdges as $index => $edge) {
+            $individual = $individuals[$cycleXrefs[$index]];
+            $familyXrefs[$edge['familyXref']] = $edge['familyXref'];
+            $spouseEdgeCount += $edge['type'] === 'spouse' ? 1 : 0;
+            $descentEdgeCount += $edge['type'] === 'descent' ? 1 : 0;
+            $canShow = ExtendedFamilySupport::canLinkIndividual($individual);
+
+            $steps[] = new FamilyRoleLoopStep(
+                $individual,
+                $this->familyRoleLoopRelationLabel($edge, $cycleXrefs[$index]),
+                $edge['type'],
+                $canShow,
+                ExtendedFamilySupport::individualName($individual),
+                $canShow ? $individual->url() : ''
+            );
+        }
+
+        $closingIndividual = $individuals[$cycleXrefs[count($cycleXrefs) - 1]];
+        $steps[] = new FamilyRoleLoopStep(
+            $closingIndividual,
+            '',
+            '',
+            ExtendedFamilySupport::canLinkIndividual($closingIndividual),
+            ExtendedFamilySupport::individualName($closingIndividual),
+            ExtendedFamilySupport::canLinkIndividual($closingIndividual) ? $closingIndividual->url() : ''
+        );
+
+        return new FamilyRoleLoop(
+            $steps,
+            $spouseEdgeCount,
+            $descentEdgeCount,
+            array_values($familyXrefs)
+        );
+    }
+
+    /**
+     * @param array<string,mixed> $edge
+     */
+    private function familyRoleLoopRelationLabel(array $edge, string $fromXref): string
+    {
+        if ($edge['type'] === 'spouse') {
+            return I18N::translate('spouse of');
+        }
+
+        return $edge['a'] === $fromXref
+            ? I18N::translate('parent of')
+            : I18N::translate('child of');
     }
 
     /**
