@@ -12,6 +12,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 - Disabled unsafe translated strings with mismatched placeholders to avoid runtime errors.
 - Detect family-role loops in the displayed extended family and show them as compact node chains in the summary.
 - Ignore non-positive generation lengths when calculating average generation length for the summary.
+- Show branched partner chains when the proband has multiple direct partners.
 
 ## 2.2.6.10 - 2026-06-29
 

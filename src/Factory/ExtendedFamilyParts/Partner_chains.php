@@ -31,12 +31,9 @@ use Fisharebest\Webtrees\Individual;
 use Illuminate\Support\Collection;
 
 // string functions
-use function str_replace;
 use function strval;
-use function rtrim;
 
 // array functions
-use function explode;
 use function count;
 
 /**
@@ -231,7 +228,7 @@ class Partner_chains extends ExtendedFamilyPart
         }
         $this->efpObject->chains->longestChainCount = $max + 1;
         $this->efpObject->chains->mostDistantPartner = $mostDistantNode->getIndividual();
-        if ($this->efpObject->chains->longestChainCount <= 2) {                // normal marriage is no partner chain
+        if ($this->efpObject->chains->longestChainCount <= 2 && count($this->efpObject->chains->node->getChains()) <= 1) {                // normal marriage is no partner chain
             $this->setFamilyPartCounts($this->efpObject, new FamilyPartCounts());
         }
     }
@@ -266,100 +263,52 @@ class Partner_chains extends ExtendedFamilyPart
      */
     private function buildDisplayObjectPartnerChains(): array
     {
-        $node = $this->efpObject->chains->node;
-        $chainAllString = '';
-        $i = 1;
-        $this->buildStringPartnerChainsRecursive($node, $chainAllString, $i);
-        return $this->prepareChains($chainAllString);
-    }
-
-    /**
-     * prepare chains of chains of partners
-     *
-     * @param string $chainAllString string containing '|' to separate chains; '∞' and '§' are used to separate individuals and their parameters
-     * @return array<int,array<int,PartnerChainPerson>>
-     */
-    private function prepareChains(string $chainAllString): array
-    {
         $chains = [];
-        $chainStrings = explode('|', $this->cleanChainString($chainAllString));
-        foreach ($chainStrings as $chainString) {
-            $chain = $this->prepareOneChain($chainString);
-            if (count($chain) > 0) {
-                $chains[] = $chain;
-            }
-        }
-        return $chains;
+        $this->buildPartnerChainPathsRecursive($this->efpObject->chains->node, [], $chains, 1);
+
+        $chains = array_filter($chains, static fn (array $chain): bool => count($chain) > 1);
+
+        return array_values($chains);
     }
 
     /**
-     * prepare one chain of PartnerChainPerson
-     *
-     * example: 1§1§Max Mustermann§<URL>∞2§not a male person∞...
-     *
-     * @param string $chainString string containing '∞' and '§' to separate individuals and their parameters in one chain
-     * @return array<int,PartnerChainPerson>
-     */
-    private function prepareOneChain(string $chainString): array
-    {
-        $chain = [];
-        $personStrings = explode('∞', $chainString);
-        foreach ($personStrings as $personString) {
-            $attributes = explode('§', $personString);
-            if (count($attributes) == 4) {
-                $chain[] = new PartnerChainPerson($attributes[0], ($attributes[1] == '1'), $attributes[2], $attributes[3]);
-            } elseif (count($attributes) == 2) {
-                $chain[] = new PartnerChainPerson($attributes[0], false, $attributes[1], '');
-            }
-        }
-        return $chain;
-    }
-
-    /**
-     * clean chain string by removing redundant recursion back step indicators
-     *
-     * @param string $chainString string containing '|' to separate chains; '∞' and '§' are used to separate individuals and their parameters
-     * @return string
-     */
-    private function cleanChainString(string $chainString): string
-    {
-        $cleanString = $chainString;
-        do {
-            $cleanString = str_replace("||", "|", $cleanString, $count);
-        } while ($count > 0);
-        return rtrim($cleanString, '|§∞ ');
-    }
-
-    /**
-     * build string of all partners in partner chains
-     * names and urls should not contain:
-     * '|' used to separate chains
-     * '∞' used to separate individuals
-     * '§' used to separate information fields for one individual: step, canShow, fullName, url
-     *
-     * example: 1§1§Max Mustermann§<URL>∞2§not a male person|...
-     *
      * @param PartnerChainNode $node
-     * @param string $chainString (modified in this function)
-     * @param int $i recursion step (modified in this function)
+     * @param array<int,PartnerChainPerson> $path
+     * @param array<int,array<int,PartnerChainPerson>> $chains
+     * @param int $step
      */
-    private function buildStringPartnerChainsRecursive(PartnerChainNode $node, string &$chainString, int &$i)
+    private function buildPartnerChainPathsRecursive(PartnerChainNode $node, array $path, array &$chains, int $step): void
     {
-        if ($node->getIndividual() instanceof Individual) {
-            $chainString .= strval($i) . '§';
-            if ($node->getFilterComment() == '') {
-                $chainString .= (ExtendedFamilySupport::canLinkIndividual($node->getIndividual()) ? '1' : '0') .
-                                '§' . ExtendedFamilySupport::individualName($node->getIndividual()) .
-                                '§' . $node->getIndividual()->url();
-            } else {
-                $chainString .= I18N::translate($node->getFilterComment());
-            }
-            $chainString .= '∞';
-            foreach ($node->getChains() as $nextNode) {
-                $i++;
-                $this->buildStringPartnerChainsRecursive($nextNode, $chainString, $i);
-            }
+        $path[] = $this->partnerChainPerson($node, $step);
+
+        if ($node->getChains() === []) {
+            $chains[] = $path;
+            return;
         }
-        $chainString = rtrim($chainString, '∞') . '|';
+
+        foreach ($node->getChains() as $nextNode) {
+            $this->buildPartnerChainPathsRecursive($nextNode, $path, $chains, $step + 1);
+        }
+    }
+
+    /**
+     * @param PartnerChainNode $node
+     * @param int $step
+     * @return PartnerChainPerson
+     */
+    private function partnerChainPerson(PartnerChainNode $node, int $step): PartnerChainPerson
+    {
+        if ($node->getFilterComment() !== '') {
+            return new PartnerChainPerson(strval($step), false, I18N::translate($node->getFilterComment()), '');
+        }
+
+        $individual = $node->getIndividual();
+
+        return new PartnerChainPerson(
+            strval($step),
+            ExtendedFamilySupport::canLinkIndividual($individual),
+            ExtendedFamilySupport::individualName($individual),
+            $individual->url()
+        );
     }
 }
