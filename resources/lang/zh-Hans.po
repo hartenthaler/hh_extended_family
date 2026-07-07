@@ -3179,7 +3179,7 @@ msgid "%s more"
 msgstr ""
 
 #: resources/views/partials/summary.phtml:124
-#, php-format
+#, php-format, fuzzy
 msgid "The extended family has only %1$s as a member."
 msgid_plural "The extended family of %1$s has %2$d members (including %3$s)."
 msgstr[0] "%1$s的大家庭有%2$d位成员（包括%3$s）。"
