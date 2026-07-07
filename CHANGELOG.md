@@ -6,7 +6,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
-No unreleased changes yet.
+- Render partner chains as compact HTML/CSS node chains instead of plain text.
 
 ## 2.2.6.10 - 2026-06-29
 

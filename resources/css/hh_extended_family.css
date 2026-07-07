@@ -146,6 +146,81 @@
     padding: 5px 5px 5px 10px;
 }
 
+.hh-extended-family-partner-chains {
+    overflow: hidden;
+}
+
+.hh-extended-family-partner-chain {
+    align-items: center;
+    display: flex;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    overflow-x: auto;
+    padding: 0.35rem 0.1rem;
+}
+
+.hh-extended-family-partner-chain-node {
+    align-items: center;
+    background: var(--bs-body-bg, #ffffff);
+    border: 1px solid var(--bs-border-color, #ced4da);
+    border-radius: 0.35rem;
+    color: var(--bs-body-color, #212529);
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 0.35rem;
+    line-height: 1.25;
+    max-width: 18rem;
+    min-height: 2rem;
+    padding: 0.35rem 0.55rem;
+    white-space: normal;
+}
+
+.hh-extended-family-partner-chain-node-muted {
+    background: var(--bs-secondary-bg, #f8f9fa);
+    color: var(--bs-secondary-color, #6c757d);
+}
+
+.hh-extended-family-partner-chain-step {
+    align-items: center;
+    background: var(--bs-primary-bg-subtle, #cfe2ff);
+    border: 1px solid var(--bs-primary-border-subtle, #9ec5fe);
+    border-radius: 999px;
+    color: var(--bs-primary-text-emphasis, #052c65);
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-size: 0.75rem;
+    font-weight: 700;
+    height: 1.35rem;
+    justify-content: center;
+    margin: 0;
+    min-width: 1.35rem;
+    padding: 0 0.3rem;
+}
+
+.hh-extended-family-partner-chain-step:after {
+    content: "";
+}
+
+.hh-extended-family-partner-chain-name {
+    overflow-wrap: anywhere;
+}
+
+.hh-extended-family-partner-chain-connector {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 2.4rem;
+    justify-content: center;
+}
+
+.hh-extended-family-partner-chain-connector:before {
+    background: var(--bs-border-color, #adb5bd);
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+}
+
 /* Mobile low resolution viewport */
 @media (max-width: 600px) {
     #hh_extended_family_content,
@@ -158,6 +233,18 @@
         border-radius: 5px;
         padding: 10px;
         margin-bottom: 10px;
+    }
+
+    .hh-extended-family-partner-chain {
+        padding-bottom: 0.5rem;
+    }
+
+    .hh-extended-family-partner-chain-node {
+        max-width: 14rem;
+    }
+
+    .hh-extended-family-partner-chain-connector {
+        flex-basis: 1.8rem;
     }
 }
 
