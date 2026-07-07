@@ -6,7 +6,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
-No unreleased changes yet.
+- Updated Czech translations; thanks to Josef Prause.
 
 ## 2.2.6.10 - 2026-06-29
 
