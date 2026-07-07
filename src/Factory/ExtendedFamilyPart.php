@@ -24,6 +24,7 @@
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Elements\PedigreeLinkageType;
+use Fisharebest\Webtrees\Date;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Individual;
@@ -37,6 +38,9 @@ use function array_key_exists;
  */
 abstract class ExtendedFamilyPart
 {
+    public const STEP_PARENT_CONCEPT_STRICT  = 'strict';
+    public const STEP_PARENT_CONCEPT_RELAXED = 'relaxed';
+
     // ------------ definition of data structures
         
     /**
@@ -59,6 +63,11 @@ abstract class ExtendedFamilyPart
      * @var int $placeFormat selected format for event places
      */
     protected int $placeFormat;
+
+    /**
+     * @var string $stepParentConcept selected interpretation of stepparent relationships
+     */
+    protected string $stepParentConcept;
     
     // ------------ definition of methods
 
@@ -68,14 +77,19 @@ abstract class ExtendedFamilyPart
      * @param Individual $proband
      * @param string $filterOption
      * @param int $placeFormat
+     * @param string $stepParentConcept
      */
     public function __construct(
         Individual $proband,
         string $filterOption,
-        int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME
+        int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME,
+        string $stepParentConcept = self::STEP_PARENT_CONCEPT_STRICT
     )
     {
         $this->placeFormat = $placeFormat;
+        $this->stepParentConcept = $stepParentConcept === self::STEP_PARENT_CONCEPT_RELAXED
+            ? self::STEP_PARENT_CONCEPT_RELAXED
+            : self::STEP_PARENT_CONCEPT_STRICT;
         $this->initialize($proband);
         $this->addEfpMembers();
         $this->filterAndAddCounters($filterOption);
@@ -271,12 +285,61 @@ abstract class ExtendedFamilyPart
                         break;
                     }
                 }
-                if (!$found) {
+                if (!$found && $this->stepParentMatchesConcept($individual, $stepparent)) {
                     $stepparents[] = $stepparent;
                 }
             }
         }
         return $stepparents;
+    }
+
+    /**
+     * Check whether a parent's partner should be treated as a stepparent.
+     *
+     * The strict concept excludes clearly earlier partner families for children
+     * born in a later partnership. If chronology is unknown, the existing
+     * relaxed result is retained.
+     *
+     * @param Individual $child
+     * @param IndividualFamily $stepparent
+     * @return bool
+     */
+    private function stepParentMatchesConcept(Individual $child, IndividualFamily $stepparent): bool
+    {
+        if ($this->stepParentConcept === self::STEP_PARENT_CONCEPT_RELAXED) {
+            return true;
+        }
+
+        $birthDate = $child->getBirthDate();
+        $familyDate = $this->earliestFamilyRelationDate($stepparent->getFamily());
+
+        if (!$birthDate->isOK() || !$familyDate instanceof Date || !$familyDate->isOK()) {
+            return true;
+        }
+
+        return $familyDate->julianDay() >= $birthDate->julianDay();
+    }
+
+    /**
+     * Return the earliest known event date of a partner family.
+     *
+     * @param Family $family
+     * @return Date|null
+     */
+    private function earliestFamilyRelationDate(Family $family): ?Date
+    {
+        $earliestDate = null;
+        foreach ($family->facts(['ANUL', 'DIV', 'ENGA', 'EVEN', 'MARB', 'MARC', 'MARL', 'MARR', 'MARS'], true) as $fact) {
+            if (!$fact instanceof Fact || !$fact->date()->isOK()) {
+                continue;
+            }
+
+            if (!$earliestDate instanceof Date || $fact->date()->julianDay() < $earliestDate->julianDay()) {
+                $earliestDate = $fact->date();
+            }
+        }
+
+        return $earliestDate;
     }
 
     /**

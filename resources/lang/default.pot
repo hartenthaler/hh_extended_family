@@ -3442,6 +3442,28 @@ msgid "Show labels"
 msgstr ""
 
 #: resources/views/settings.phtml:333
+msgid "How should step-parent relationships be interpreted?"
+msgstr ""
+
+#: resources/views/settings.phtml:334
+msgid ""
+"The strict concept treats a parent's earlier partner as no step-parent of children from a later partnership. The relaxed "
+"concept keeps the previous symmetrical patchwork interpretation."
+msgstr ""
+
+#: resources/views/settings.phtml:339
+msgid "Step-parent concept"
+msgstr ""
+
+#: resources/views/settings.phtml:342
+msgid "strict / sequential"
+msgstr ""
+
+#: resources/views/settings.phtml:342
+msgid "relaxed / symmetrical"
+msgstr ""
+
+#: resources/views/settings.phtml:333
 msgid "Show SOSA numbers for the proband and biological ancestors?"
 msgstr ""
 
