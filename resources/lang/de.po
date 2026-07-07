@@ -2054,7 +2054,7 @@ msgstr[1] ""
 #: resources/views/partials/family-part-summary.phtml:337
 #: resources/views/partials/family-part-summary.phtml:342
 #: resources/views/partials/family-part-summary.phtml:352
-#, php-format
+#, php-format, fuzzy
 msgid "%2$s has %1$d male partner and"
 msgid_plural "%2$s has %1$d male partners and"
 msgstr[0] "Für %2$s sind ein männlicher Partner und"
@@ -2083,14 +2083,14 @@ msgstr[1] ""
 #: resources/views/partials/family-part-summary.phtml:300
 #: resources/views/partials/family-part-summary.phtml:309
 #: resources/views/partials/family-part-summary.phtml:347
-#, php-format
+#, php-format, fuzzy
 msgid "%2$s has %1$d female partner and"
 msgid_plural "%2$s has %1$d female partners and"
 msgstr[0] "Für %2$s sind eine Partnerin und"
 msgstr[1] "Für %2$s sind %1$d Partnerinnen und"
 
 #: resources/views/partials/family-part-summary.phtml:303
-#, php-format
+#, php-format, fuzzy
 msgid "%2$s has %1$d male partner,"
 msgid_plural "%2$s has %1$d male partners,"
 msgstr[0] "Für %2$s sind ein männlicher Partner,"
@@ -2169,7 +2169,7 @@ msgstr[1] ""
 "Partnerkette verzeichnet"
 
 #: resources/views/partials/family-part-summary.phtml:338
-#, php-format
+#, php-format, fuzzy
 msgid "%1$d female partner in this partner chain recorded (%2$d in total"
 msgid_plural ""
 "%1$d female partners in this partner chain recorded (%2$d in total"
@@ -2179,7 +2179,7 @@ msgstr[1] ""
 
 #: resources/views/partials/family-part-summary.phtml:343
 #: resources/views/partials/family-part-summary.phtml:348
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d "
 "in total"
@@ -2194,7 +2194,7 @@ msgstr[1] ""
 "verzeichnet (insgesamt %2$d"
 
 #: resources/views/partials/family-part-summary.phtml:354
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "%1$d partner of diverse or unknown sex in this partner chain recorded (%2$d "
 "in total, including %3$s)."

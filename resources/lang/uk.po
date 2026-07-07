@@ -2330,7 +2330,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: resources/views/partials/family-part-summary.phtml:295
-#, php-format
+#, php-format, fuzzy
 msgid "%d partner of diverse or unknown sex in this partner chain recorded"
 msgid_plural ""
 "%d partners of diverse or unknown sex in this partner chain recorded"
