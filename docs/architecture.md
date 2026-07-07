@@ -374,7 +374,7 @@ The print view uses `resources/views/print.phtml` and shares the same family-par
 
 `resources/views/tab.phtml` renders each configured family part in two stages:
 first the summary text for the family part, then the grouped member list.
-The family-part summary text is delegated to `resources/views/partials/family-part-summary.phtml`.
+The family-part summary text is prepared by `src/Presentation/FamilyPartSummaryPresenter.php` and rendered by `resources/views/partials/family-part-summary.phtml`.
 The member-list stage is delegated to `resources/views/partials/family-part-members.phtml`, which selects a renderer partial.
 
 The table below was checked against `ExtendedFamilySupport::getFamilyPartParameters()`
