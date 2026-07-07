@@ -296,9 +296,9 @@ abstract class ExtendedFamilyPart
     /**
      * Check whether a parent's partner should be treated as a stepparent.
      *
-     * The strict concept excludes clearly earlier partner families for children
-     * born in a later partnership. If chronology is unknown, the existing
-     * relaxed result is retained.
+     * The strict concept excludes earlier partner families only if they were
+     * clearly ended before the child was born. If chronology is unknown, the
+     * existing relaxed result is retained.
      *
      * @param Individual $child
      * @param IndividualFamily $stepparent
@@ -310,36 +310,53 @@ abstract class ExtendedFamilyPart
             return true;
         }
 
+        $family = $stepparent->getFamily();
         $birthDate = $child->getBirthDate();
-        $familyDate = $this->earliestFamilyRelationDate($stepparent->getFamily());
 
-        if (!$birthDate->isOK() || !$familyDate instanceof Date || !$familyDate->isOK()) {
+        if (!$family instanceof Family || !$birthDate->isOK()) {
             return true;
         }
 
-        return $familyDate->julianDay() >= $birthDate->julianDay();
+        $endDate = $this->partnerFamilyEndDate($family);
+
+        if (!$endDate instanceof Date || !$endDate->isOK()) {
+            return true;
+        }
+
+        return Date::compare($endDate, $birthDate) >= 0;
     }
 
     /**
-     * Return the earliest known event date of a partner family.
+     * Return the earliest known end date of a partner family.
      *
      * @param Family $family
      * @return Date|null
      */
-    private function earliestFamilyRelationDate(Family $family): ?Date
+    private function partnerFamilyEndDate(Family $family): ?Date
     {
-        $earliestDate = null;
-        foreach ($family->facts(['ANUL', 'DIV', 'ENGA', 'EVEN', 'MARB', 'MARC', 'MARL', 'MARR', 'MARS'], true) as $fact) {
+        $endDate = null;
+        foreach ($family->facts(['ANUL', 'DIV'], true) as $fact) {
             if (!$fact instanceof Fact || !$fact->date()->isOK()) {
                 continue;
             }
 
-            if (!$earliestDate instanceof Date || $fact->date()->julianDay() < $earliestDate->julianDay()) {
-                $earliestDate = $fact->date();
+            if (!$endDate instanceof Date || Date::compare($fact->date(), $endDate) < 0) {
+                $endDate = $fact->date();
             }
         }
 
-        return $earliestDate;
+        foreach ($family->spouses() as $spouse) {
+            $deathDate = $spouse->getDeathDate();
+            if (!$deathDate->isOK()) {
+                continue;
+            }
+
+            if (!$endDate instanceof Date || Date::compare($deathDate, $endDate) < 0) {
+                $endDate = $deathDate;
+            }
+        }
+
+        return $endDate;
     }
 
     /**
