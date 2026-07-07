@@ -33,6 +33,7 @@ use Fisharebest\Webtrees\Registry;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
 use Illuminate\Support\Collection;
 
+use function in_array;
 use function ucfirst;
 
 /**
@@ -236,7 +237,7 @@ class ExtendedFamily
         $seen = [];
 
         foreach ($graph['spouseEdges'] as $spouseEdge) {
-            $path = $this->shortestFamilyRoleLoopPath($graph, $spouseEdge['b'], $spouseEdge['a'], $spouseEdge['id']);
+            $path = $this->shortestReportableFamilyRoleLoopPath($graph, $spouseEdge);
 
             if ($path === null) {
                 continue;
@@ -400,16 +401,18 @@ class ExtendedFamily
 
     /**
      * @param array{adjacency:array<string,array<int,array<string,mixed>>>,spouseEdges:array<int,array<string,mixed>>} $graph
+     * @param array<string,mixed> $spouseEdge
      * @return array{nodes:array<int,string>,edges:array<int,array<string,mixed>>}|null
      */
-    private function shortestFamilyRoleLoopPath(array $graph, string $startXref, string $targetXref, string $excludedEdgeId): ?array
+    private function shortestReportableFamilyRoleLoopPath(array $graph, array $spouseEdge): ?array
     {
+        $startXref = $spouseEdge['b'];
+        $targetXref = $spouseEdge['a'];
         $queue = [[
             'xref' => $startXref,
             'nodes' => [$startXref],
             'edges' => [],
         ]];
-        $visited = [$startXref => true];
 
         while ($queue !== []) {
             $current = array_shift($queue);
@@ -419,12 +422,12 @@ class ExtendedFamily
             }
 
             foreach ($graph['adjacency'][$current['xref']] ?? [] as $edge) {
-                if ($edge['id'] === $excludedEdgeId) {
+                if ($edge['id'] === $spouseEdge['id']) {
                     continue;
                 }
 
                 $nextXref = $edge['a'] === $current['xref'] ? $edge['b'] : $edge['a'];
-                if (isset($visited[$nextXref]) && $nextXref !== $targetXref) {
+                if (in_array($nextXref, $current['nodes'], true) && $nextXref !== $targetXref) {
                     continue;
                 }
 
@@ -432,13 +435,16 @@ class ExtendedFamily
                 $edges = [...$current['edges'], $edge];
 
                 if ($nextXref === $targetXref) {
-                    return [
-                        'nodes' => $nodes,
-                        'edges' => $edges,
-                    ];
+                    if ($this->isReportableFamilyRoleLoop(array_merge([$spouseEdge['a']], $nodes), array_merge([$spouseEdge], $edges))) {
+                        return [
+                            'nodes' => $nodes,
+                            'edges' => $edges,
+                        ];
+                    }
+
+                    continue;
                 }
 
-                $visited[$nextXref] = true;
                 $queue[] = [
                     'xref' => $nextXref,
                     'nodes' => $nodes,
