@@ -18,6 +18,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var boolean                 $show_labels
  * @var boolean                 $show_sosa_numbers
  * @var boolean                 $show_relationship_to_proband
+ * @var string                  $step_parent_concept
  * @var boolean                 $show_parameters
  * @var boolean                 $use_compact_design
  * @var string                  $thumbnail_size
@@ -40,6 +41,7 @@ $place_format_options ??= PlaceAbbreviation::abbrPlacesOptions();
 $cce_available ??= false;
 $relationship_names_available ??= false;
 $clippings_cart_action ??= 'cce';
+$step_parent_concept ??= 'strict';
 $thumbnail_size ??= 'small';
 $thumbnail_size_options ??= [
     'small' => I18N::translate('small') . ' (66 x 100 px)',
@@ -326,6 +328,20 @@ $coreYes = MoreI18N::xlate('yes');
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/radios-inline', ['name' => 'show_labels', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_labels]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('How should step-parent relationships be interpreted?') ?></h3>
+        <p><?= I18N::translate('The strict concept treats a parent\'s earlier partner as no step-parent of children from a later partnership. The relaxed concept keeps the previous symmetrical patchwork interpretation.') ?></p>
+        <!-- step-parent concept -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Step-parent concept') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'step_parent_concept', 'options' => ['strict' => I18N::translate('strict / sequential'), 'relaxed' => I18N::translate('relaxed / symmetrical')], 'selected' => $step_parent_concept]) ?>
                 </div>
             </div>
         </fieldset>

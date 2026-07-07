@@ -31,6 +31,7 @@ class ExtendedFamilyConfig
         public array $shownFamilyParts,
         public bool $showParameters,
         public array $familyPartParameters,
+        public string $stepParentConcept,
         public int $placeFormat,
         public bool $showThumbnail,
         public int $sizeThumbnailW,

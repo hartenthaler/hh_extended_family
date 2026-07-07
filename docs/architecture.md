@@ -32,7 +32,7 @@ The active filter also controls the toolbar actions, so Print/PDF and clippings-
 
 ### Presentation configuration
 
-The module configuration controls order, visibility, labels, SOSA labels, design density, thumbnail size, summary counts, place formatting, tab-loading behavior, and clippings-cart support.
+The module configuration controls order, visibility, labels, SOSA labels, design density, thumbnail size, summary counts, step-parent interpretation, place formatting, tab-loading behavior, and clippings-cart support.
 Most values come from webtrees module preferences and are assembled into a runtime configuration object.
 
 ## 🧱 Main components
@@ -356,6 +356,7 @@ Important preference groups:
 * thumbnail size and vital data
 * summary counts
 * empty-block handling
+* strict/sequential or relaxed/symmetrical step-parent concept
 * label and relationship-parameter display
 * relationship-path mouseover display
 * Print/PDF button display

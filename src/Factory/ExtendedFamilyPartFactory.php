@@ -37,15 +37,17 @@ class ExtendedFamilyPartFactory
      * @param Individual $proband
      * @param string $filterOption
      * @param int $placeFormat
+     * @param string $stepParentConcept
      */
     public static function create(
         string $extendedFamilyPart,
         Individual $proband,
         string $filterOption,
-        int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME
+        int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME,
+        string $stepParentConcept = ExtendedFamilyPart::STEP_PARENT_CONCEPT_STRICT
     )
     {
         $class = "\\Hartenthaler\\Webtrees\\Module\\ExtendedFamily\\$extendedFamilyPart";
-        return new $class($proband, $filterOption, $placeFormat);
+        return new $class($proband, $filterOption, $placeFormat, $stepParentConcept);
     }
 }

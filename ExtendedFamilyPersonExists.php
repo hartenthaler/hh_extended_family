@@ -119,7 +119,8 @@ class ExtendedFamilyPersonExists extends ExtendedFamily
                 if (ExtendedFamilyPartFactory::create(ucfirst($efp),
                                                       $this->proband->indi,
                                                       'all',
-                                                      $this->config->placeFormat)
+                                                      $this->config->placeFormat,
+                                                      $this->config->stepParentConcept)
                         ->getEfpObject()->counts->allCount > 0) {
                     return true;
                 }

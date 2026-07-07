@@ -119,6 +119,12 @@ class ExtendedFamilyTabModule extends AbstractModule
     private const CLIPPINGS_CART_ACTION_CCE      = 'cce';
     private const CLIPPINGS_CART_ACTION_INTERNAL = 'internal';
     private const CLIPPINGS_CART_ENHANCED_MODULE = '_huhwt-cce_';
+    private const STEP_PARENT_CONCEPT_STRICT     = 'strict';
+    private const STEP_PARENT_CONCEPT_RELAXED    = 'relaxed';
+    private const STEP_PARENT_CONCEPTS           = [
+        self::STEP_PARENT_CONCEPT_STRICT,
+        self::STEP_PARENT_CONCEPT_RELAXED,
+    ];
     private const VESTA_UTILS_CLASS              = '\Vesta\VestaUtils';
     private const THUMBNAIL_SIZE_SMALL           = 'small';
     private const THUMBNAIL_SIZE_MEDIUM          = 'medium';
@@ -180,6 +186,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             $this->getShownFamilyParts(),
             $this->showParameters(),
             ExtendedFamilySupport::getFamilyPartParameters(),
+            $this->stepParentConcept(),
             $this->placeFormat(),
             $this->showThumbnail($proband->tree()),
             $thumbnailDimensions['width'],
@@ -229,6 +236,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_labels',
             'show_sosa_numbers',
             'show_relationship_to_proband',
+            'step_parent_concept',
             'show_parameters',
             'use_compact_design',
             'thumbnail_size',
@@ -259,6 +267,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             $response[$preference] = $this->getPreference($preference);
         }
         $response['show_sosa_numbers'] = $this->showSosaNumbers() ? '0' : '1';
+        $response['step_parent_concept'] = $this->stepParentConcept();
 
         $response['efps']           	   = $this->getShownFamilyParts();
         $response['title']          	   = $this->title();
@@ -331,6 +340,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_labels'             => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_labels', '0'),
             'show_sosa_numbers'       => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_sosa_numbers', '1'),
             'show_relationship_to_proband' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_relationship_to_proband', '0'),
+            'step_parent_concept'  => Validator::parsedBody($request)->isInArray(self::STEP_PARENT_CONCEPTS)->string('step_parent_concept', self::STEP_PARENT_CONCEPT_STRICT),
             'show_parameters'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_parameters', '0'),
             'use_compact_design'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_compact_design', '0'),
             'thumbnail_size'          => Validator::parsedBody($request)->isInArray($thumbnail_size_options)->string('thumbnail_size', self::THUMBNAIL_SIZE_SMALL),
@@ -571,6 +581,18 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function showRelationshipToProband(): bool
     {
         return ($this->getPreference('show_relationship_to_proband', '0') == '0');
+    }
+
+    /**
+     * Which step-parent concept should be used for partner families of biological parents?
+     *
+     * @return string
+     */
+    private function stepParentConcept(): string
+    {
+        $concept = $this->getPreference('step_parent_concept', self::STEP_PARENT_CONCEPT_STRICT);
+
+        return in_array($concept, self::STEP_PARENT_CONCEPTS, true) ? $concept : self::STEP_PARENT_CONCEPT_STRICT;
     }
 
     /**
