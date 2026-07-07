@@ -336,10 +336,13 @@ class ExtendedFamily
      */
     private function addFamilyRoleLoopFamilyEdges(Family $family, array $individuals, array &$edges, array &$adjacency, array &$spouseEdges): void
     {
-        $spouses = array_values(array_filter(
-            $family->spouses(),
-            static fn (Individual $individual): bool => isset($individuals[$individual->xref()])
-        ));
+        $spouses = $family->spouses();
+        $spouses = $spouses instanceof Collection
+            ? $spouses->filter(static fn (Individual $individual): bool => isset($individuals[$individual->xref()]))->values()->all()
+            : array_values(array_filter(
+                $spouses,
+                static fn (Individual $individual): bool => isset($individuals[$individual->xref()])
+            ));
 
         for ($left = 0; $left < count($spouses); $left++) {
             for ($right = $left + 1; $right < count($spouses); $right++) {
