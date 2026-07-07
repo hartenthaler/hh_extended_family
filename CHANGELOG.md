@@ -6,6 +6,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+- Moved family-part summary decision logic from the template into a presenter.
 - Render partner chains as compact HTML/CSS node chains instead of plain text.
 - Updated Czech translations; thanks to Josef Prause.
 - Disabled unsafe translated strings with mismatched placeholders to avoid runtime errors.
