@@ -905,7 +905,10 @@ class ExtendedFamily
             }
         }
 
-        $generationLengths = array_values(array_filter(array_map(static fn (LineageRow $row): ?int => $row->generationLength, $rows), static fn (?int $length): bool => $length !== null));
+        $generationLengths = array_values(array_filter(
+            array_map(static fn (LineageRow $row): ?int => $row->generationLength, $rows),
+            static fn (?int $length): bool => $length !== null && $length > 0
+        ));
         $lifespans = [];
 
         foreach ($individuals as $individual) {
@@ -938,7 +941,7 @@ class ExtendedFamily
 
         foreach ([$ancestorRows, $descendantRows] as $rows) {
             foreach ($rows as $row) {
-                if ($row->generationLength !== null) {
+                if ($row->generationLength !== null && $row->generationLength > 0) {
                     $generationLengths[] = $row->generationLength;
                 }
 

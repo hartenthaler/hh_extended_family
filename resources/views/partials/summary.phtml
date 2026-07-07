@@ -147,6 +147,19 @@ if ($familyRoleLoops?->hasAny()) {
     );
 }
 
+if ($extfam_obj->config->showSummaryStatistics && $statistics !== null) {
+    $implex = $lineageStatistics?->implex ?? null;
+    if ($implex?->hasAncestors) {
+        $summarySentences[] = I18N::translate('Ancestor implex: %s.', $formatImplexPeople($implex->ancestors));
+    }
+    if ($implex?->hasDescendants) {
+        $summarySentences[] = I18N::translate('Descendant implex: %s.', $formatImplexPeople($implex->descendants));
+    }
+    if ($implex !== null && !$implex->hasAny) {
+        $summarySentences[] = I18N::translate('No ancestor or descendant implex was detected in the selected direct-line generations.');
+    }
+}
+
 if ($coveredGenerationCount !== null) {
     $summarySentences[] = I18N::translate(
         'The selected direct line covers %s.',
@@ -206,17 +219,6 @@ if ($extfam_obj->config->showSummaryStatistics && $statistics !== null) {
         if ($combinedLineage->oldestFemale !== null) {
             $summarySentences[] = I18N::translate('Oldest female person: %s.', $formatOldest($combinedLineage->oldestFemale));
         }
-    }
-
-    $implex = $lineageStatistics?->implex ?? null;
-    if ($implex?->hasAncestors) {
-        $summarySentences[] = I18N::translate('Ancestor implex: %s.', $formatImplexPeople($implex->ancestors));
-    }
-    if ($implex?->hasDescendants) {
-        $summarySentences[] = I18N::translate('Descendant implex: %s.', $formatImplexPeople($implex->descendants));
-    }
-    if ($implex !== null && !$implex->hasAny) {
-        $summarySentences[] = I18N::translate('No ancestor or descendant implex was detected in the selected direct-line generations.');
     }
 }
 
