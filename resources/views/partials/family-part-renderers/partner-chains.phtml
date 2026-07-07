@@ -14,24 +14,29 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
 
 ?>
 
-        <div class="hh_extended_family_box">
+        <div class="hh_extended_family_box hh-extended-family-partner-chains">
             <?php $chainNumber = 1; ?>
             <?php foreach ($filterObj->efp->$propName->chains->displayChains as $chain) : ?>
                 <?php if ($chainNumber > 1): ?>
                     <hr>
                 <?php endif ?>
-                <?php $individualNumber = 1; ?>
-                <?php foreach ($chain as $indi) : ?>
-                    <?php if ($individualNumber > 1): ?>
-                        <?php echo ' ∞ ' ?>
-                    <?php endif ?>
-                    <?php if ($indi->getCanShow()): ?>
-                        <span class="hh_extended_family_counter"><?= $indi->getStep() ?></span>
-                        <span class="hh_extended_family_name"><a href="<?= e($indi->getUrl()) ?>"><?= $indi->getFullName() ?></a></span>
-                    <?php else: ?>
-                        <span class="hh_extended_family_counter"><?= $indi->getStep() ?></span>
-                        <span class="hh_extended_family_name"><?= $indi->getFullName() ?></span>
-                    <?php endif ?>
-                <?php $individualNumber++; endforeach ?>
+                <div class="hh-extended-family-partner-chain" role="list" aria-label="<?= e(I18N::translate('partner chains')) ?>">
+                    <?php $individualNumber = 1; ?>
+                    <?php foreach ($chain as $indi) : ?>
+                        <?php if ($individualNumber > 1): ?>
+                            <span class="hh-extended-family-partner-chain-connector" aria-hidden="true"></span>
+                        <?php endif ?>
+                        <span class="hh-extended-family-partner-chain-node <?= $indi->getCanShow() ? '' : 'hh-extended-family-partner-chain-node-muted' ?>" role="listitem">
+                            <span class="hh_extended_family_counter hh-extended-family-partner-chain-step"><?= $indi->getStep() ?></span>
+                            <span class="hh_extended_family_name hh-extended-family-partner-chain-name">
+                                <?php if ($indi->getCanShow()): ?>
+                                    <a href="<?= e($indi->getUrl()) ?>"><?= $indi->getFullName() ?></a>
+                                <?php else: ?>
+                                    <?= $indi->getFullName() ?>
+                                <?php endif ?>
+                            </span>
+                        </span>
+                    <?php $individualNumber++; endforeach ?>
+                </div>
             <?php $chainNumber++; endforeach ?>
         </div>
