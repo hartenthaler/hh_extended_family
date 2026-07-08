@@ -6,6 +6,9 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+- Updated Dutch translations; thanks to TheDutchJewel.
+- Updated Slovak translations; thanks to Ladislav Rosival.
+
 ## 2.2.6.11 - 2026-07-08
 
 - Moved family-part summary decision logic from the template into a presenter.
