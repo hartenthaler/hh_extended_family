@@ -13,12 +13,14 @@ class ExtendedFamilyConfig
      * @param array<int,string> $filterOptions
      * @param array<string,object> $shownFamilyParts
      * @param array<string,array<string,mixed>> $familyPartParameters
+     * @param array<int,string> $summaryLineageColumns
      */
     public function __construct(
         public bool $showFilterOptions,
         public array $filterOptions,
         public bool $showSummary,
         public bool $showSummaryStatistics,
+        public array $summaryLineageColumns,
         public string $showEmptyBlock,
         public bool $countPartnerChainsToTotal,
         public bool $showPrintButton,

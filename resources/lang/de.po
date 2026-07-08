@@ -3451,6 +3451,11 @@ msgstr "Die ausgewählten direkten Generationsverbindungen decken %s ab."
 msgid "Living members: %1$s (%2$s); deceased members: %3$s (%4$s)."
 msgstr "Lebende Mitglieder: %1$s (%2$s); verstorbene Mitglieder: %3$s (%4$s)."
 
+#: resources/views/partials/summary.phtml:39
+#, php-format
+msgid "%1$s (%2$s) / %3$s (%4$s)"
+msgstr "%1$s (%2$s) / %3$s (%4$s)"
+
 #: resources/views/partials/summary.phtml:165
 #, php-format
 msgid ""
@@ -3534,6 +3539,10 @@ msgstr "Beziehung"
 #: resources/views/partials/summary.phtml:233
 msgid "Total profiles"
 msgstr "Summe der Profile"
+
+#: ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+msgid "Living / deceased"
+msgstr "Lebend / Verstorben"
 
 #: resources/views/partials/summary.phtml:234
 msgid "Biological"
@@ -3685,6 +3694,33 @@ msgstr ""
 #: resources/views/settings.phtml:203
 msgid "Show summary statistics"
 msgstr "Zeige zusammenfassende Statistik"
+
+#: resources/views/settings.phtml:213
+msgid "Which columns should be shown in the direct-line summary table?"
+msgstr ""
+"Welche Spalten sollen in der Zusammenfassungstabelle für die direkte Linie "
+"angezeigt werden?"
+
+#: resources/views/settings.phtml:215
+msgid ""
+"The generation column is always shown. All other columns can be selected by "
+"the administrator."
+msgstr ""
+"Die Spalte Generation wird immer angezeigt. Alle anderen Spalten können vom "
+"Administrator ausgewählt werden."
+
+#: resources/views/settings.phtml:219
+msgid ""
+"The direct-line summary table cannot be shown while the summary block or the "
+"summary statistics are disabled."
+msgstr ""
+"Die Zusammenfassungstabelle für die direkte Linie kann nicht angezeigt "
+"werden, solange der Zusammenfassungsblock oder die zusammenfassende Statistik "
+"deaktiviert ist."
+
+#: resources/views/settings.phtml:221
+msgid "Summary table columns"
+msgstr "Spalten der Zusammenfassungstabelle"
 
 #: resources/views/settings.phtml:211
 msgid "How should empty parts of extended family be presented?"
