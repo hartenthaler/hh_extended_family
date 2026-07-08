@@ -4049,6 +4049,32 @@ msgid "Show labels"
 msgstr "Zobraziť štítky"
 
 #: resources/views/settings.phtml:333
+msgid "How should step-parent relationships be interpreted?"
+msgstr "Ako sa má interpretovať vzťah k nevlastným rodičom?"
+
+#: resources/views/settings.phtml:334
+msgid ""
+"The strict concept treats a parent's earlier partner as no step-parent of "
+"children from a later partnership. The relaxed concept keeps the previous "
+"symmetrical patchwork interpretation."
+msgstr ""
+"Striktný koncept nepovažuje predchádzajúcich partnerov rodiča za nevlastného "
+"rodiča pre deti z neskoršieho zväzku. Voľnejší koncept zachováva predošlú "
+"symetrickú patchworkvú interpretáciu."
+
+#: resources/views/settings.phtml:339
+msgid "Step-parent concept"
+msgstr "Koncept nevlastného rodiča"
+
+#: resources/views/settings.phtml:342
+msgid "strict / sequential"
+msgstr "striktný / sekvenčný"
+
+#: resources/views/settings.phtml:342
+msgid "relaxed / symmetrical"
+msgstr "voľnejší / symetrický"
+
+#: resources/views/settings.phtml:333
 msgid "Show SOSA numbers for the proband and biological ancestors?"
 msgstr "Zobraziť SOSA čísla pre probanda a jeho biologických predkov?"
 
@@ -4130,6 +4156,33 @@ msgstr ""
 #: resources/views/settings.phtml:418
 msgid "Load later"
 msgstr "Načítať neskôr"
+
+#: ExtendedFamily.php:538
+msgid "spouse of"
+msgstr "partner osoby"
+
+#: ExtendedFamily.php:542
+msgid "parent of"
+msgstr "rodič osoby"
+
+#: ExtendedFamily.php:543
+msgid "child of"
+msgstr "dieťa osoby"
+
+#: resources/views/partials/summary.phtml:143
+msgid "One family role loop was detected in the extended family."
+msgid_plural "%s family role loops were detected in the extended family."
+msgstr[0] "V širšej rodiny bola zistená jedna rodinná slučka."
+msgstr[1] "V širšej rodiny boli zistené %s rodinné slučky."
+msgstr[2] "V širšej rodiny bolo zistených %s rodinných slučiek."
+
+#: resources/views/partials/summary.phtml:278
+msgid "Family role loops"
+msgstr "Rodinné slučky"
+
+#: resources/views/partials/summary.phtml:282
+msgid "family role loop"
+msgstr "rodinná slučka"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #~ msgctxt "extendedfamily"
