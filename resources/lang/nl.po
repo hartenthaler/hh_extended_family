@@ -3472,6 +3472,26 @@ msgid "Show labels"
 msgstr "Toon labels"
 
 #: resources/views/settings.phtml:333
+msgid "How should step-parent relationships be interpreted?"
+msgstr "Hoe moeten stiefouderrelaties worden geïnterpreteerd?"
+
+#: resources/views/settings.phtml:334
+msgid "The strict concept treats a parent's earlier partner as no step-parent of children from a later partnership. The relaxed concept keeps the previous symmetrical patchwork interpretation."
+msgstr "Volgens het strikte concept wordt een eerdere partner van een ouder niet beschouwd als stiefouder van kinderen uit een latere relatie. Het soepele concept behoudt de bestaande symmetrische patchworkinterpretatie."
+
+#: resources/views/settings.phtml:339
+msgid "Step-parent concept"
+msgstr "Stiefouderconcept"
+
+#: resources/views/settings.phtml:342
+msgid "strict / sequential"
+msgstr "strikt / chronologisch"
+
+#: resources/views/settings.phtml:342
+msgid "relaxed / symmetrical"
+msgstr "soepel / symmetrisch"
+
+#: resources/views/settings.phtml:333
 msgid "Show SOSA numbers for the proband and biological ancestors?"
 msgstr "Toon SOSA-nummers van de proband en de biologische voorouders?"
 
