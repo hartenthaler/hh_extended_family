@@ -125,6 +125,7 @@ class ExtendedFamilyTabModule extends AbstractModule
     private const FAMILY_PART_QUERY_KEY          = 'family_parts';
     private const FAMILY_PART_SELECTION_MARKER   = 'family_part_selection';
     private const FAMILY_PART_SELECTABLE_PREFIX  = 'select-';
+    private const FAMILY_PART_SELECTION_SESSION   = 'hhEF-family-part-selection';
     private const STEP_PARENT_CONCEPT_STRICT     = 'strict';
     private const STEP_PARENT_CONCEPT_RELAXED    = 'relaxed';
     private const STEP_PARENT_CONCEPTS           = [
@@ -925,11 +926,43 @@ class ExtendedFamilyTabModule extends AbstractModule
             [
             'module'                => $this->name(),
             'individual'            => $individual,
-            'extfam_obj'            => $this->getExtendedFamily($individual, $this->requestedFamilyPartsFromCurrentRequest()),
+            'extfam_obj'            => $this->getExtendedFamily($individual, $this->requestedFamilyPartsFromCurrentRequest($individual)),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
             'clippings_cart_action' => $clippings_cart_action,
             ]);
         }
+
+    /**
+     * Store the per-individual family-part selection for the current session.
+     *
+     * @param ServerRequestInterface $request
+     * @return ResponseInterface
+     */
+    public function postFamilyPartSelectionAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $return_url = Validator::parsedBody($request)->isLocalUrl()->string('return_url', '');
+        $xref       = Validator::parsedBody($request)->isXref()->string('xref', '');
+        $tree       = Validator::attributes($request)->tree();
+
+        $individual = Registry::individualFactory()->make($xref, $tree);
+        $individual = Auth::checkIndividualAccess($individual);
+
+        if (!$individual instanceof Individual) {
+            FlashMessages::addMessage(I18N::translate('The selected individual could not be found.'), 'danger');
+            return redirect($return_url === '' ? '/' : $return_url);
+        }
+
+        $selectedFamilyParts = $this->normalizeRequestedFamilyParts(Validator::parsedBody($request)->array(self::FAMILY_PART_QUERY_KEY));
+        $sessionKey          = $this->familyPartSelectionSessionKey($individual);
+
+        if ($selectedFamilyParts === $this->defaultFamilyPartSelection()) {
+            Session::forget($sessionKey);
+        } else {
+            Session::put($sessionKey, $selectedFamilyParts);
+        }
+
+        return redirect($return_url === '' ? $individual->url() . '#tab-' . $this->name() : $return_url);
+    }
 
     /**
      * Render a print-optimized view of the selected extended-family filter.
@@ -1089,19 +1122,23 @@ class ExtendedFamilyTabModule extends AbstractModule
     /**
      * @return array<int,string>|null
      */
-    private function requestedFamilyPartsFromCurrentRequest(): ?array
+    private function requestedFamilyPartsFromCurrentRequest(Individual $individual): ?array
     {
         try {
             $request = self::getFromContainer(ServerRequestInterface::class);
 
             if ($request instanceof ServerRequestInterface) {
-                return $this->requestedFamilyPartsFromRequest($request);
+                $requestedFamilyParts = $this->requestedFamilyPartsFromRequest($request);
+
+                if ($requestedFamilyParts !== null) {
+                    return $requestedFamilyParts;
+                }
             }
         } catch (\Throwable) {
             // Use the administrator defaults if the current request is not available.
         }
 
-        return null;
+        return $this->requestedFamilyPartsFromSession($individual);
     }
 
     /**
@@ -1123,6 +1160,33 @@ class ExtendedFamilyTabModule extends AbstractModule
         }
 
         return null;
+    }
+
+    /**
+     * @param Individual $individual
+     * @return array<int,string>|null
+     */
+    private function requestedFamilyPartsFromSession(Individual $individual): ?array
+    {
+        $selectedFamilyParts = Session::get($this->familyPartSelectionSessionKey($individual));
+
+        return is_array($selectedFamilyParts) ? $this->normalizeRequestedFamilyParts($selectedFamilyParts) : null;
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function defaultFamilyPartSelection(): array
+    {
+        return array_keys(array_filter(
+            $this->getShownFamilyParts(),
+            static fn (object $familyPart): bool => (bool) $familyPart->enabled
+        ));
+    }
+
+    private function familyPartSelectionSessionKey(Individual $individual): string
+    {
+        return self::FAMILY_PART_SELECTION_SESSION . '-' . $individual->tree()->name() . '-' . $individual->xref();
     }
 
     /**

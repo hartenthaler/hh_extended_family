@@ -14,13 +14,6 @@ $selectableFamilyParts = array_filter(
     static fn (object $familyPart): bool => (bool) ($familyPart->selectable ?? false)
 );
 $individualUrl = $individual->url();
-$selectorActionUrl = preg_replace('/[?#].*$/', '', $individualUrl) ?: $individualUrl;
-$selectorHiddenParams = [];
-$query = parse_url($individualUrl, PHP_URL_QUERY);
-
-if (is_string($query)) {
-    parse_str($query, $selectorHiddenParams);
-}
 ?>
 
 <?php if ($selectableFamilyParts !== []): ?>
@@ -28,12 +21,14 @@ if (is_string($query)) {
         <summary class="btn btn-outline-secondary btn-sm">
             <?= I18N::translate('Choose family parts') ?>
         </summary>
-        <form method="get" class="border rounded p-3 mt-2" action="<?= e($selectorActionUrl . '#tab-' . $module) ?>">
-            <?php foreach ($selectorHiddenParams as $name => $value): ?>
-                <?php if (is_scalar($value)): ?>
-                    <input type="hidden" name="<?= e((string) $name) ?>" value="<?= e((string) $value) ?>">
-                <?php endif ?>
-            <?php endforeach ?>
+        <form method="post" class="border rounded p-2 mt-2" action="<?= e(route('module', [
+            'module' => $module,
+            'action' => 'FamilyPartSelection',
+            'tree'   => $individual->tree()->name(),
+        ])) ?>">
+            <?= csrf_field() ?>
+            <input type="hidden" name="xref" value="<?= e($individual->xref()) ?>">
+            <input type="hidden" name="return_url" value="<?= e($individualUrl . '#tab-' . $module) ?>">
             <input type="hidden" name="family_part_selection" value="1">
             <p class="small text-muted mb-2">
                 <?= I18N::translate('Select the family parts to show for this individual.') ?>
@@ -47,6 +42,7 @@ if (is_string($query)) {
                                 class="form-check-input"
                                 name="family_parts[]"
                                 value="<?= e($familyPartId) ?>"
+                                data-default-enabled="<?= ($familyPart->defaultEnabled ?? false) ? '1' : '0' ?>"
                                 <?= $familyPart->enabled ? 'checked' : '' ?>
                             >
                             <span class="form-check-label">
@@ -60,9 +56,9 @@ if (is_string($query)) {
                 <button type="submit" class="btn btn-primary btn-sm">
                     <?= I18N::translate('Apply') ?>
                 </button>
-                <a href="<?= e($individual->url() . '#tab-' . $module) ?>" class="btn btn-secondary btn-sm">
+                <button type="button" class="btn btn-secondary btn-sm hh-extended-family-reset-family-parts">
                     <?= I18N::translate('Reset to default') ?>
-                </a>
+                </button>
             </div>
         </form>
     </details>
