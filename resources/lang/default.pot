@@ -3583,3 +3583,31 @@ msgstr ""
 #: resources/views/partials/summary.phtml:282
 msgid "family role loop"
 msgstr ""
+
+#: resources/views/settings.phtml:110
+msgid "Available to users"
+msgstr ""
+
+#: resources/views/settings.phtml:111
+msgid "Shown by default"
+msgstr ""
+
+#: resources/views/partials/family-part-selector.phtml:22
+msgid "Choose family parts"
+msgstr ""
+
+#: resources/views/partials/family-part-selector.phtml:26
+msgid "Select the family parts to show for this individual."
+msgstr ""
+
+#: resources/views/partials/family-part-selector.phtml:51
+msgid "Apply"
+msgstr ""
+
+#: resources/views/partials/family-part-selector.phtml:54
+msgid "Reset to default"
+msgstr ""
+
+#: resources/views/settings.phtml:91
+msgid "Disable all non-blood family parts"
+msgstr ""

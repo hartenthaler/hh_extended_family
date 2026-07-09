@@ -1,0 +1,65 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+
+/**
+ * @var object               $extfam_obj
+ * @var Individual           $individual
+ * @var string               $module
+ */
+
+$selectableFamilyParts = array_filter(
+    $extfam_obj->config->shownFamilyParts,
+    static fn (object $familyPart): bool => (bool) ($familyPart->selectable ?? false)
+);
+$individualUrl = $individual->url();
+?>
+
+<?php if ($selectableFamilyParts !== []): ?>
+    <details class="hh-extended-family-part-selector">
+        <summary class="btn btn-outline-secondary btn-sm">
+            <?= I18N::translate('Choose family parts') ?>
+        </summary>
+        <form method="post" class="border rounded p-2 mt-2" action="<?= e(route('module', [
+            'module' => $module,
+            'action' => 'FamilyPartSelection',
+            'tree'   => $individual->tree()->name(),
+        ])) ?>">
+            <?= csrf_field() ?>
+            <input type="hidden" name="xref" value="<?= e($individual->xref()) ?>">
+            <input type="hidden" name="return_url" value="<?= e($individualUrl . '#tab-' . $module) ?>">
+            <input type="hidden" name="family_part_selection" value="1">
+            <p class="small text-muted mb-2">
+                <?= I18N::translate('Select the family parts to show for this individual.') ?>
+            </p>
+            <div class="row">
+                <?php foreach ($selectableFamilyParts as $familyPartId => $familyPart): ?>
+                    <div class="col-sm-6 col-lg-4">
+                        <label class="form-check">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="family_parts[]"
+                                value="<?= e($familyPartId) ?>"
+                                data-default-enabled="<?= ($familyPart->defaultEnabled ?? false) ? '1' : '0' ?>"
+                                <?= $familyPart->enabled ? 'checked' : '' ?>
+                            >
+                            <span class="form-check-label">
+                                <?= $familyPart->name ?> (<?= $familyPart->generation ?>)
+                            </span>
+                        </label>
+                    </div>
+                <?php endforeach ?>
+            </div>
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <?= I18N::translate('Apply') ?>
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm hh-extended-family-reset-family-parts">
+                    <?= I18N::translate('Reset to default') ?>
+                </button>
+            </div>
+        </form>
+    </details>
+<?php endif ?>

@@ -37,7 +37,9 @@ class ExtendedFamilyConfig
         public int $placeFormat,
         public bool $showThumbnail,
         public int $sizeThumbnailW,
-        public int $sizeThumbnailH
+        public int $sizeThumbnailH,
+        public bool $familyPartSelectionActive = false,
+        public array $selectedFamilyParts = []
     ) {
     }
 }

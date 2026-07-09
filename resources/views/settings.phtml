@@ -55,7 +55,6 @@ $summary_lineage_column_options ??= [];
 $family_part_degrees = ExtendedFamilySupport::getFamilyPartDegrees();
 $default_family_part_order = ExtendedFamilySupport::listFamilyParts();
 $coreControlPanel = MoreI18N::xlate('Control panel');
-$coreEnabled = MoreI18N::xlate('Enabled');
 $coreMoveDown = MoreI18N::xlate('Move down');
 $coreMoveUp = MoreI18N::xlate('Move up');
 $coreNo = MoreI18N::xlate('no');
@@ -92,8 +91,8 @@ $coreYes = MoreI18N::xlate('yes');
                     </button>
                 </div>
                 <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
-                    <button type="button" class="btn btn-secondary hh-extended-family-deselect-in-law">
-                        <?= I18N::translate('Disable all in-law family parts') ?>
+                    <button type="button" class="btn btn-secondary hh-extended-family-deselect-non-blood">
+                        <?= I18N::translate('Disable all non-blood family parts') ?>
                     </button>
                 </div>
                 <div class="input-group input-group-sm mb-2 hh-extended-family-degree-selector">
@@ -112,7 +111,8 @@ $coreYes = MoreI18N::xlate('yes');
             <thead>
                 <tr>
                     <th><?= I18N::translate('Family part (generation relative to proband)') ?></th>
-                    <th class="text-center"><?= $coreEnabled ?></th>
+                    <th class="text-center"><?= I18N::translate('Available to users') ?></th>
+                    <th class="text-center"><?= I18N::translate('Shown by default') ?></th>
                     <?php if ($uses_sorting) : ?>
                       <th class="text-center"><?= $coreMoveUp ?></th>
                       <th class="text-center"><?= $coreMoveDown ?></th>
@@ -122,7 +122,7 @@ $coreYes = MoreI18N::xlate('yes');
 
             <tbody>
                 <?php foreach ($efps as $efp => $value) : ?>
-                    <?php $is_in_law_selection = str_contains($efp, 'in_law') || $efp === 'uncles_and_aunts_bm' || $efp === 'partners' || $efp === 'partner_chains'; ?>
+                    <?php $is_non_blood_selection = str_contains($efp, 'in_law') || $efp === 'uncles_and_aunts_bm' || $efp === 'partners' || $efp === 'partner_chains' || $efp === 'godparents_witnesses'; ?>
                     <tr>
                         <th scope="col">
                             <input type="hidden" name="order[]" value="<?= $efp ?>">
@@ -135,16 +135,32 @@ $coreYes = MoreI18N::xlate('yes');
                             <label class="d-block">
                                 <input
                                     type="checkbox"
+                                    class="hh-extended-family-part-selectable"
+                                    name="select-<?= $efp ?>"
+                                    id="select-<?= $efp ?>"
+                                    data-family-part="<?= e($efp) ?>"
+                                    <?= ($value->selectable ?? false) ? 'checked' : '' ?>
+                                >
+                                <span class="sr-only">
+                                    <?= I18N::translate('Available to users') ?>
+                                </span>
+                            </label>
+                        </td>
+
+                        <td class="text-center">
+                            <label class="d-block">
+                                <input
+                                    type="checkbox"
                                     class="hh-extended-family-part-status"
                                     name="status-<?= $efp ?>"
                                     id="status-<?= $efp ?>"
                                     data-family-part="<?= e($efp) ?>"
                                     data-degree="<?= $family_part_degrees[$efp] ?? '' ?>"
-                                    data-in-law="<?= $is_in_law_selection ? '1' : '0' ?>"
-                                    <?= ($value->enabled == 'on') ? 'checked' : '' ?>
+                                    data-non-blood="<?= $is_non_blood_selection ? '1' : '0' ?>"
+                                    <?= ($value->defaultEnabled ?? false) ? 'checked' : '' ?>
                                 >
                                 <span class="sr-only">
-                                    <?= $coreEnabled ?>
+                                    <?= I18N::translate('Shown by default') ?>
                                 </span>
                             </label>
                         </td>
@@ -500,14 +516,17 @@ $coreYes = MoreI18N::xlate('yes');
 
   $('.hh-extended-family-select-all').click(function () {
       $('.hh-extended-family-part-status').prop('checked', true);
+      syncFamilyPartAvailability();
   });
 
   $('.hh-extended-family-select-none').click(function () {
       $('.hh-extended-family-part-status').prop('checked', false);
+      syncFamilyPartAvailability();
   });
 
-  $('.hh-extended-family-deselect-in-law').click(function () {
-      $('.hh-extended-family-part-status[data-in-law="1"]').prop('checked', false);
+  $('.hh-extended-family-deselect-non-blood').click(function () {
+      $('.hh-extended-family-part-status[data-non-blood="1"]').prop('checked', false);
+      syncFamilyPartAvailability();
   });
 
   $('.hh-extended-family-reset-order').click(function () {
@@ -539,7 +558,26 @@ $coreYes = MoreI18N::xlate('yes');
               $(this).prop('checked', degree <= degreeLimit);
           }
       });
+      syncFamilyPartAvailability();
   });
+
+  function syncFamilyPartAvailability() {
+      $('.hh-extended-family-part-status').each(function () {
+          const status = $(this);
+          const familyPart = status.data('family-part');
+          const selectable = $('.hh-extended-family-part-selectable[data-family-part="' + familyPart + '"]');
+
+          if (status.prop('checked')) {
+              selectable.prop('checked', true);
+          }
+
+          status.prop('disabled', !selectable.prop('checked'));
+      });
+  }
+
+  $('.hh-extended-family-part-status').on('change', syncFamilyPartAvailability);
+  $('.hh-extended-family-part-selectable').on('change', syncFamilyPartAvailability);
+  syncFamilyPartAvailability();
 
   function updateDependencyWarnings() {
       const summaryDisabled = $('input[name="show_summary"]:checked').val() === '1';

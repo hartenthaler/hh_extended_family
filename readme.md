@@ -63,6 +63,8 @@ Administrators can decide whether these filter controls are shown to regular use
 The module supports
 
 * configurable family parts and display order
+* separate administrator control for family parts available to users and family parts rendered by default
+* optional per-individual user selection of family parts in the tab
 * compact and enriched layouts
 * optional thumbnail, birth, and death information with configurable thumbnail size
 * optional labels with generation shift and coefficient of relationship
@@ -152,6 +154,16 @@ The most important settings are
 * whether the Extended family tab is loaded immediately with the individual page or later when it is opened
 * whether the clippings cart action is available
 * whether the clippings cart button uses huhwt-cce or the internal Extended Family action
+
+For family parts, administrators configure two related choices:
+
+* **available to users**: the family parts that can be selected in the tab
+* **shown by default**: the family parts that are rendered when no user-specific selection is active
+
+The per-individual family-part selector in the tab stores the selection only in the current webtrees session.
+This means a user can temporarily choose different family parts for one individual without changing module defaults.
+If the administrator later changes the default selection, an already active user-specific selection remains active until the user resets it to the default or the session ends.
+Family parts that are no longer available to users cannot be shown through an older user-specific selection.
 
 By default, the Extended family tab is loaded later when the user opens it.
 This keeps the initial individual page request faster, but the user waits for the extended-family calculation when opening the tab.

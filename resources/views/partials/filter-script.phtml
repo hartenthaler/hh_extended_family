@@ -34,6 +34,15 @@ use Fisharebest\Webtrees\View;
   $(".hh-extended-filter[data-filter-value='N']").addClass('d-none');
   $(".hh-extended-family-filter-actions[data-filter-value!='all']").addClass('d-none');
 
+  $(".hh-extended-family-reset-family-parts").click(function () {
+      $(this)
+          .closest("form")
+          .find("input[name='family_parts[]']")
+          .each(function () {
+              $(this).prop("checked", $(this).data("default-enabled") === 1);
+          });
+  });
+
   // filter click function
   $(".hh-extended-filter-button").click(function ()
   {

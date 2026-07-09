@@ -75,7 +75,10 @@ use function explode;
 use function implode;
 use function count;
 use function in_array;
+use function is_array;
+use function is_scalar;
 use function redirect;
+use function strval;
 
 /**
  * Class ExtendedFamilyTabModule
@@ -119,6 +122,10 @@ class ExtendedFamilyTabModule extends AbstractModule
     private const CLIPPINGS_CART_ACTION_CCE      = 'cce';
     private const CLIPPINGS_CART_ACTION_INTERNAL = 'internal';
     private const CLIPPINGS_CART_ENHANCED_MODULE = '_huhwt-cce_';
+    private const FAMILY_PART_QUERY_KEY          = 'family_parts';
+    private const FAMILY_PART_SELECTION_MARKER   = 'family_part_selection';
+    private const FAMILY_PART_SELECTABLE_PREFIX  = 'select-';
+    private const FAMILY_PART_SELECTION_SESSION   = 'hhEF-family-part-selection';
     private const STEP_PARENT_CONCEPT_STRICT     = 'strict';
     private const STEP_PARENT_CONCEPT_RELAXED    = 'relaxed';
     private const STEP_PARENT_CONCEPTS           = [
@@ -174,9 +181,9 @@ class ExtendedFamilyTabModule extends AbstractModule
      * @param Individual $proband
      * @return object
      */
-    public function getExtendedFamily(Individual $proband): object
+    public function getExtendedFamily(Individual $proband, ?array $selectedFamilyParts = null): object
     {
-        return new ExtendedFamily($proband, $this->buildConfig($proband));
+        return new ExtendedFamily($proband, $this->buildConfig($proband, $selectedFamilyParts));
     }
 
     /**
@@ -197,10 +204,13 @@ class ExtendedFamilyTabModule extends AbstractModule
      * @param Individual $proband
      * @return ExtendedFamilyConfig
      */
-    private function buildConfig(Individual $proband): ExtendedFamilyConfig
+    private function buildConfig(Individual $proband, ?array $selectedFamilyParts = null): ExtendedFamilyConfig
     {
         $showFilterOptions = $this->showFilterOptions();
         $thumbnailDimensions = $this->thumbnailDimensions();
+        $selectionActive = $selectedFamilyParts !== null;
+        $shownFamilyParts = $this->getShownFamilyParts($selectedFamilyParts);
+        $effectiveSelection = array_keys(array_filter($shownFamilyParts, static fn (object $familyPart): bool => (bool) $familyPart->enabled));
 
         return new ExtendedFamilyConfig(
             $showFilterOptions,
@@ -217,14 +227,16 @@ class ExtendedFamilyTabModule extends AbstractModule
             $this->showRelationshipToProband(),
             $this->useCompactDesign(),
             $this->useClippingsCart(),
-            $this->getShownFamilyParts(),
+            $shownFamilyParts,
             $this->showParameters(),
             ExtendedFamilySupport::getFamilyPartParameters(),
             $this->stepParentConcept(),
             $this->placeFormat(),
             $this->showThumbnail($proband->tree()),
             $thumbnailDimensions['width'],
-            $thumbnailDimensions['height']
+            $thumbnailDimensions['height'],
+            $selectionActive,
+            $effectiveSelection
         );
     }
 
@@ -404,7 +416,12 @@ class ExtendedFamilyTabModule extends AbstractModule
         }
 
         foreach ($family_parts as $family_part) {
+            if (Validator::parsedBody($request)->boolean(self::FAMILY_PART_SELECTABLE_PREFIX . $family_part, false)) {
+                $params[self::FAMILY_PART_SELECTABLE_PREFIX . $family_part] = 'on';
+            }
+
             if (Validator::parsedBody($request)->boolean('status-' . $family_part, false)) {
+                $params[self::FAMILY_PART_SELECTABLE_PREFIX . $family_part] = 'on';
                 $params['status-' . $family_part] = 'on';
             }
         }
@@ -439,9 +456,10 @@ class ExtendedFamilyTabModule extends AbstractModule
         $this->setPreference('order', $order);
         foreach (ExtendedFamilySupport::listFamilyParts() as $efp) {
             $this->setPreference('status-' . $efp, '0');
+            $this->setPreference(self::FAMILY_PART_SELECTABLE_PREFIX . $efp, '0');
         }
         foreach ($params as $key => $value) {
-            if (str_starts_with($key, 'status-')) {
+            if (str_starts_with($key, 'status-') || str_starts_with($key, self::FAMILY_PART_SELECTABLE_PREFIX)) {
                 $this->setPreference($key, $value);
             }
         }
@@ -453,7 +471,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      *
      * @return array<string,object> of ordered objects with translated name and status (enabled/disabled)
      */
-    private function getShownFamilyParts(): array
+    private function getShownFamilyParts(?array $selectedFamilyParts = null): array
     {
         $listFamilyParts = ExtendedFamilySupport::listFamilyParts();
         $orderDefault = implode(',', $listFamilyParts);
@@ -465,10 +483,21 @@ class ExtendedFamilyTabModule extends AbstractModule
         
         $shownParts = [];
         foreach ($order as $efp) {
+            $defaultEnabled = $this->getPreference('status-' . $efp, 'on') === 'on';
+            $selectable = $this->getPreference(self::FAMILY_PART_SELECTABLE_PREFIX . $efp, $defaultEnabled ? 'on' : '0') === 'on';
+
+            if ($defaultEnabled) {
+                $selectable = true;
+            }
+
             $efpObj = (object)[];
             $efpObj->name       = ExtendedFamilySupport::translateFamilyPart($efp);
             $efpObj->generation = ExtendedFamilySupport::formatGeneration($efp);
-            $efpObj->enabled    = $this->getPreference('status-' . $efp, 'on');
+            $efpObj->selectable = $selectable;
+            $efpObj->defaultEnabled = $defaultEnabled;
+            $efpObj->enabled    = $selectedFamilyParts === null
+                ? $defaultEnabled
+                : ($selectable && in_array($efp, $selectedFamilyParts, true));
             $shownParts[$efp]   = $efpObj;
         }
         return $shownParts;
@@ -984,11 +1013,43 @@ class ExtendedFamilyTabModule extends AbstractModule
             [
             'module'                => $this->name(),
             'individual'            => $individual,
-            'extfam_obj'            => $this->getExtendedFamily($individual),
+            'extfam_obj'            => $this->getExtendedFamily($individual, $this->requestedFamilyPartsFromCurrentRequest($individual)),
             'extended_family_css'   => route('module', ['module' => $this->name(), 'action' => 'Css']),
             'clippings_cart_action' => $clippings_cart_action,
             ]);
         }
+
+    /**
+     * Store the per-individual family-part selection for the current session.
+     *
+     * @param ServerRequestInterface $request
+     * @return ResponseInterface
+     */
+    public function postFamilyPartSelectionAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $return_url = Validator::parsedBody($request)->isLocalUrl()->string('return_url', '');
+        $xref       = Validator::parsedBody($request)->isXref()->string('xref', '');
+        $tree       = Validator::attributes($request)->tree();
+
+        $individual = Registry::individualFactory()->make($xref, $tree);
+        $individual = Auth::checkIndividualAccess($individual);
+
+        if (!$individual instanceof Individual) {
+            FlashMessages::addMessage(I18N::translate('The selected individual could not be found.'), 'danger');
+            return redirect($return_url === '' ? '/' : $return_url);
+        }
+
+        $selectedFamilyParts = $this->normalizeRequestedFamilyParts(Validator::parsedBody($request)->array(self::FAMILY_PART_QUERY_KEY));
+        $sessionKey          = $this->familyPartSelectionSessionKey($individual);
+
+        if ($selectedFamilyParts === $this->defaultFamilyPartSelection()) {
+            Session::forget($sessionKey);
+        } else {
+            Session::put($sessionKey, $selectedFamilyParts);
+        }
+
+        return redirect($return_url === '' ? $individual->url() . '#tab-' . $this->name() : $return_url);
+    }
 
     /**
      * Render a print-optimized view of the selected extended-family filter.
@@ -1009,7 +1070,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             throw new HttpAccessDeniedException();
         }
 
-        $extfam_obj   = $this->getExtendedFamily($individual);
+        $extfam_obj   = $this->getExtendedFamily($individual, $this->requestedFamilyPartsFromRequest($request));
         $filterOption = Validator::queryParams($request)->string('filter', 'all');
 
         if (!isset($extfam_obj->filters[$filterOption])) {
@@ -1063,7 +1124,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             $return_url = $individual->url() . '#tab-' . $this->name();
         }
 
-        $extended_family = $this->getExtendedFamily($individual);
+        $extended_family = $this->getExtendedFamily($individual, $this->requestedFamilyPartsFromRequest($request));
 
         if (!isset($extended_family->filters[$filter])) {
             $filter = 'all';
@@ -1143,6 +1204,104 @@ class ExtendedFamilyTabModule extends AbstractModule
         }
 
         Session::put('hhEF-act-route', $path);
+    }
+
+    /**
+     * @return array<int,string>|null
+     */
+    private function requestedFamilyPartsFromCurrentRequest(Individual $individual): ?array
+    {
+        try {
+            $request = self::getFromContainer(ServerRequestInterface::class);
+
+            if ($request instanceof ServerRequestInterface) {
+                $requestedFamilyParts = $this->requestedFamilyPartsFromRequest($request);
+
+                if ($requestedFamilyParts !== null) {
+                    return $requestedFamilyParts;
+                }
+            }
+        } catch (\Throwable) {
+            // Use the administrator defaults if the current request is not available.
+        }
+
+        return $this->requestedFamilyPartsFromSession($individual);
+    }
+
+    /**
+     * @param ServerRequestInterface $request
+     * @return array<int,string>|null
+     */
+    private function requestedFamilyPartsFromRequest(ServerRequestInterface $request): ?array
+    {
+        $query = $request->getQueryParams();
+        $parsedBody = $request->getParsedBody();
+        $body = is_array($parsedBody) ? $parsedBody : [];
+
+        if (array_key_exists(self::FAMILY_PART_SELECTION_MARKER, $body)) {
+            return $this->normalizeRequestedFamilyParts($body[self::FAMILY_PART_QUERY_KEY] ?? []);
+        }
+
+        if (array_key_exists(self::FAMILY_PART_SELECTION_MARKER, $query)) {
+            return $this->normalizeRequestedFamilyParts($query[self::FAMILY_PART_QUERY_KEY] ?? []);
+        }
+
+        return null;
+    }
+
+    /**
+     * @param Individual $individual
+     * @return array<int,string>|null
+     */
+    private function requestedFamilyPartsFromSession(Individual $individual): ?array
+    {
+        $selectedFamilyParts = Session::get($this->familyPartSelectionSessionKey($individual));
+
+        return is_array($selectedFamilyParts) ? $this->normalizeRequestedFamilyParts($selectedFamilyParts) : null;
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function defaultFamilyPartSelection(): array
+    {
+        return array_keys(array_filter(
+            $this->getShownFamilyParts(),
+            static fn (object $familyPart): bool => (bool) $familyPart->enabled
+        ));
+    }
+
+    private function familyPartSelectionSessionKey(Individual $individual): string
+    {
+        return self::FAMILY_PART_SELECTION_SESSION . '-' . $individual->tree()->name() . '-' . $individual->xref();
+    }
+
+    /**
+     * @param mixed $familyParts
+     * @return array<int,string>
+     */
+    private function normalizeRequestedFamilyParts(mixed $familyParts): array
+    {
+        if (is_scalar($familyParts)) {
+            $familyParts = explode(',', strval($familyParts));
+        }
+
+        if (!is_array($familyParts)) {
+            return [];
+        }
+
+        $knownFamilyParts = ExtendedFamilySupport::listFamilyParts();
+        $selectedFamilyParts = [];
+
+        foreach ($familyParts as $familyPart) {
+            $familyPart = strval($familyPart);
+
+            if (in_array($familyPart, $knownFamilyParts, true) && !in_array($familyPart, $selectedFamilyParts, true)) {
+                $selectedFamilyParts[] = $familyPart;
+            }
+        }
+
+        return $selectedFamilyParts;
     }
 
     /**
