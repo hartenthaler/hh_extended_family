@@ -4036,6 +4036,10 @@ msgstr "Anwenden"
 msgid "Reset to default"
 msgstr "Auf Standard zurücksetzen"
 
+#: resources/views/settings.phtml:91
+msgid "Disable all non-blood family parts"
+msgstr "Alle nicht blutsverwandten Familienteile abwählen"
+
 #~ msgid "Full siblings of biological grandparents"
 #~ msgstr "Vollbürtige Geschwister der biologischen Großeltern"
 

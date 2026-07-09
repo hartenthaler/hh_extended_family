@@ -3578,3 +3578,7 @@ msgstr ""
 #: resources/views/partials/family-part-selector.phtml:54
 msgid "Reset to default"
 msgstr ""
+
+#: resources/views/settings.phtml:91
+msgid "Disable all non-blood family parts"
+msgstr ""

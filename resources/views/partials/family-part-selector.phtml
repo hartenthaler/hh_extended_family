@@ -13,6 +13,14 @@ $selectableFamilyParts = array_filter(
     $extfam_obj->config->shownFamilyParts,
     static fn (object $familyPart): bool => (bool) ($familyPart->selectable ?? false)
 );
+$individualUrl = $individual->url();
+$selectorActionUrl = preg_replace('/[?#].*$/', '', $individualUrl) ?: $individualUrl;
+$selectorHiddenParams = [];
+$query = parse_url($individualUrl, PHP_URL_QUERY);
+
+if (is_string($query)) {
+    parse_str($query, $selectorHiddenParams);
+}
 ?>
 
 <?php if ($selectableFamilyParts !== []): ?>
@@ -20,7 +28,12 @@ $selectableFamilyParts = array_filter(
         <summary class="btn btn-outline-secondary btn-sm">
             <?= I18N::translate('Choose family parts') ?>
         </summary>
-        <form method="get" class="border rounded p-3 mt-2" action="<?= e($individual->url() . '#tab-' . $module) ?>">
+        <form method="get" class="border rounded p-3 mt-2" action="<?= e($selectorActionUrl . '#tab-' . $module) ?>">
+            <?php foreach ($selectorHiddenParams as $name => $value): ?>
+                <?php if (is_scalar($value)): ?>
+                    <input type="hidden" name="<?= e((string) $name) ?>" value="<?= e((string) $value) ?>">
+                <?php endif ?>
+            <?php endforeach ?>
             <input type="hidden" name="family_part_selection" value="1">
             <p class="small text-muted mb-2">
                 <?= I18N::translate('Select the family parts to show for this individual.') ?>
