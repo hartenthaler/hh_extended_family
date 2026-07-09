@@ -3143,6 +3143,11 @@ msgstr "De geselecteerde directe lijn beslaat %s."
 msgid "Living members: %1$s (%2$s); deceased members: %3$s (%4$s)."
 msgstr "Levende leden: %1$s (%2$s); overleden leden: %3$s (%4$s)."
 
+#: resources/views/partials/summary.phtml:39
+#, php-format
+msgid "%1$s (%2$s) / %3$s (%4$s)"
+msgstr "%1$s (%2$s) / %3$s (%4$s)"
+
 #: resources/views/partials/summary.phtml:165
 #, php-format
 msgid "Gender distribution: %1$s male (%2$s), %3$s female (%4$s), %5$s other or unknown (%6$s)."
@@ -3218,6 +3223,10 @@ msgstr "Relatie"
 #: resources/views/partials/summary.phtml:233
 msgid "Total profiles"
 msgstr "Aantal personen"
+
+#: ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+msgid "Living / deceased"
+msgstr "Levend / overleden"
 
 #: resources/views/partials/summary.phtml:234
 msgid "Biological"
@@ -3346,6 +3355,22 @@ msgstr "Overzichtsstatistieken kunnen niet worden weergegeven zolang het samenva
 #: resources/views/settings.phtml:203
 msgid "Show summary statistics"
 msgstr "Toon samenvattingsstatistieken"
+
+#: resources/views/settings.phtml:213
+msgid "Which columns should be shown in the direct-line summary table?"
+msgstr "Welke kolommen moeten worden weergegeven in de samenvattingstabel van de rechte lijn?"
+
+#: resources/views/settings.phtml:215
+msgid "The generation column is always shown. All other columns can be selected by the administrator."
+msgstr "De kolom Generatie wordt altijd weergegeven. Alle andere kolommen kunnen door de beheerder worden geselecteerd."
+
+#: resources/views/settings.phtml:219
+msgid "The direct-line summary table cannot be shown while the summary block or the summary statistics are disabled."
+msgstr "De samenvattingstabel van de rechte lijn kan niet worden weergegeven zolang het samenvattingsblok of de samenvattende statistieken zijn uitgeschakeld."
+
+#: resources/views/settings.phtml:221
+msgid "Summary table columns"
+msgstr "Samenvattingstabelkolommen"
 
 #: resources/views/settings.phtml:211
 msgid "How should empty parts of extended family be presented?"
@@ -3580,3 +3605,31 @@ msgstr "Familierol-lussen"
 #: resources/views/partials/summary.phtml:282
 msgid "family role loop"
 msgstr "familierol-lus"
+
+#: resources/views/settings.phtml:110
+msgid "Available to users"
+msgstr "Beschikbaar voor gebruikers"
+
+#: resources/views/settings.phtml:111
+msgid "Shown by default"
+msgstr "Standaard weergegeven"
+
+#: resources/views/partials/family-part-selector.phtml:22
+msgid "Choose family parts"
+msgstr "Familiedelen kiezen"
+
+#: resources/views/partials/family-part-selector.phtml:26
+msgid "Select the family parts to show for this individual."
+msgstr "Selecteer de familiedelen die voor deze persoon moeten worden weergegeven."
+
+#: resources/views/partials/family-part-selector.phtml:51
+msgid "Apply"
+msgstr "Toepassen"
+
+#: resources/views/partials/family-part-selector.phtml:54
+msgid "Reset to default"
+msgstr "Standaardinstellingen herstellen"
+
+#: resources/views/settings.phtml:91
+msgid "Disable all non-blood family parts"
+msgstr "Alle niet-bloedverwante familiedelen uitschakelen"
