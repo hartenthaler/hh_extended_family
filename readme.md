@@ -28,6 +28,7 @@ This Readme contains the following main sections
 * [Installation](#Installation)
 * [Upgrade](#Upgrade)
 * [Translation](#Translation)
+* [Credits](#Credits)
 * [Support](#Support)
 * [License](#License)
 
@@ -269,6 +270,15 @@ There are currently translations for
 * Swedish by Simon W
 * Ukrainian by [@z-yurets](https://github.com/z-yurets)
 * Vietnamese by [@ngohuuthuan](https://github.com/ngohuuthuan)
+
+<a name="Credits"></a>
+## 🙏 Credits
+
+Special thanks go to the developers whose earlier work inspired and shaped this module.
+
+* Vytautas Krivickas / vytux.com and Nigel Osborne / kiwtrees.net for the historical foundations of this extended-family tab module and especially for the idea and implementation trail behind the cousins family part.
+* OpenAI Codex for many rounds of code analysis, implementation support, refactoring, documentation work, and release preparation.
+* JetBrains PhpStorm for long-time support during earlier development phases of this module.
 
 <a name="Support"></a>
 ## ❓ Support
