@@ -425,6 +425,11 @@
     display: none;
 }
 
+.hh-extended-family-part-selector p {
+    margin: 0 0 0.5rem;
+    padding: 0;
+}
+
 .hh-extended-family-clippings-cart-form {
     display: inline-block;
     margin: 0;

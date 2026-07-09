@@ -155,6 +155,16 @@ The most important settings are
 * whether the clippings cart action is available
 * whether the clippings cart button uses huhwt-cce or the internal Extended Family action
 
+For family parts, administrators configure two related choices:
+
+* **available to users**: the family parts that can be selected in the tab
+* **shown by default**: the family parts that are rendered when no user-specific selection is active
+
+The per-individual family-part selector in the tab stores the selection only in the current webtrees session.
+This means a user can temporarily choose different family parts for one individual without changing module defaults.
+If the administrator later changes the default selection, an already active user-specific selection remains active until the user resets it to the default or the session ends.
+Family parts that are no longer available to users cannot be shown through an older user-specific selection.
+
 By default, the Extended family tab is loaded later when the user opens it.
 This keeps the initial individual page request faster, but the user waits for the extended-family calculation when opening the tab.
 Administrators can disable this behavior if they prefer the tab content to be calculated immediately with the individual page.
