@@ -406,6 +406,25 @@
     gap: 0.5rem;
 }
 
+.hh-extended-family-part-selector {
+    margin: 0;
+}
+
+.hh-extended-family-part-selector[open] {
+    flex-basis: 100%;
+}
+
+.hh-extended-family-part-selector > summary {
+    align-items: center;
+    display: inline-flex;
+    list-style: none;
+    margin: 0;
+}
+
+.hh-extended-family-part-selector > summary::-webkit-details-marker {
+    display: none;
+}
+
 .hh-extended-family-clippings-cart-form {
     display: inline-block;
     margin: 0;
