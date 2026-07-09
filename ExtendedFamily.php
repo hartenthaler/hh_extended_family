@@ -858,6 +858,8 @@ class ExtendedFamily
             $relation,
             $individuals,
             count($individuals),
+            count(array_filter($individuals, static fn (Individual $individual): bool => !$individual->isDead())),
+            count(array_filter($individuals, static fn (Individual $individual): bool => $individual->isDead())),
             count($biologicalIndividuals),
             count($birthYears),
             count(array_filter($biologicalIndividuals, fn (Individual $individual): bool => $this->individualBirthYear($individual) !== null)),
