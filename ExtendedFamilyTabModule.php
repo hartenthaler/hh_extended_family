@@ -141,6 +141,39 @@ class ExtendedFamilyTabModule extends AbstractModule
         self::THUMBNAIL_SIZE_MEDIUM => ['width' => 80, 'height' => 120],
         self::THUMBNAIL_SIZE_LARGE  => ['width' => 100, 'height' => 150],
     ];
+    private const SUMMARY_LINEAGE_COLUMN_RELATION              = 'relation';
+    private const SUMMARY_LINEAGE_COLUMN_TOTAL                 = 'total';
+    private const SUMMARY_LINEAGE_COLUMN_LIVING                = 'living';
+    private const SUMMARY_LINEAGE_COLUMN_BIOLOGICAL            = 'biological';
+    private const SUMMARY_LINEAGE_COLUMN_BIRTH_RANGE           = 'birth_range';
+    private const SUMMARY_LINEAGE_COLUMN_AVERAGE_BIRTH_YEAR    = 'average_birth_year';
+    private const SUMMARY_LINEAGE_COLUMN_AVERAGE_MARRIAGE_AGE  = 'average_marriage_age';
+    private const SUMMARY_LINEAGE_COLUMN_GENERATION_LENGTH     = 'generation_length';
+    private const SUMMARY_LINEAGE_COLUMN_AVERAGE_LIFESPAN      = 'average_lifespan';
+    private const SUMMARY_LINEAGE_COLUMN_AVERAGE_CHILDREN      = 'average_children';
+    private const SUMMARY_LINEAGE_COLUMNS = [
+        self::SUMMARY_LINEAGE_COLUMN_RELATION,
+        self::SUMMARY_LINEAGE_COLUMN_TOTAL,
+        self::SUMMARY_LINEAGE_COLUMN_LIVING,
+        self::SUMMARY_LINEAGE_COLUMN_BIOLOGICAL,
+        self::SUMMARY_LINEAGE_COLUMN_BIRTH_RANGE,
+        self::SUMMARY_LINEAGE_COLUMN_AVERAGE_BIRTH_YEAR,
+        self::SUMMARY_LINEAGE_COLUMN_AVERAGE_MARRIAGE_AGE,
+        self::SUMMARY_LINEAGE_COLUMN_GENERATION_LENGTH,
+        self::SUMMARY_LINEAGE_COLUMN_AVERAGE_LIFESPAN,
+        self::SUMMARY_LINEAGE_COLUMN_AVERAGE_CHILDREN,
+    ];
+    private const DEFAULT_SUMMARY_LINEAGE_COLUMNS = [
+        self::SUMMARY_LINEAGE_COLUMN_RELATION,
+        self::SUMMARY_LINEAGE_COLUMN_LIVING,
+        self::SUMMARY_LINEAGE_COLUMN_BIOLOGICAL,
+        self::SUMMARY_LINEAGE_COLUMN_BIRTH_RANGE,
+        self::SUMMARY_LINEAGE_COLUMN_AVERAGE_BIRTH_YEAR,
+        self::SUMMARY_LINEAGE_COLUMN_AVERAGE_MARRIAGE_AGE,
+        self::SUMMARY_LINEAGE_COLUMN_GENERATION_LENGTH,
+        self::SUMMARY_LINEAGE_COLUMN_AVERAGE_LIFESPAN,
+        self::SUMMARY_LINEAGE_COLUMN_AVERAGE_CHILDREN,
+    ];
 
     /**
      * find members of extended family parts
@@ -184,6 +217,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             $showFilterOptions ? ExtendedFamilySupport::getFilterOptions() : ['all'],
             $this->showSummary(),
             $this->showSummaryStatistics(),
+            $this->summaryLineageColumns(),
             $this->showEmptyBlock(),
             $this->countPartnerChainsToTotal(),
             $this->showPrintButton(),
@@ -255,6 +289,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'place_format',
             'show_summary',
             'show_summary_statistics',
+            'summary_lineage_cols',
             'count_partner_chains',
             'show_print_button',
             'use_clippings_cart',
@@ -288,6 +323,8 @@ class ExtendedFamilyTabModule extends AbstractModule
         $response['place_format_options']  = PlaceAbbreviation::abbrPlacesOptions();
         $response['thumbnail_size']         = $this->thumbnailSize();
         $response['thumbnail_size_options'] = $this->thumbnailSizeOptions();
+        $response['summary_lineage_columns'] = $this->summaryLineageColumns();
+        $response['summary_lineage_column_options'] = $this->summaryLineageColumnOptions();
         $response['cce_available']  	   = $this->isClippingsCartEnhancedAvailable();
         $response['clippings_cart_action'] = $this->clippingsCartAction();
         $response['relationship_names_available'] = $this->relationshipNamesAvailable();
@@ -359,6 +396,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             'place_format'            => Validator::parsedBody($request)->isInArray($place_format_options)->string('place_format', (string) PlaceAbbreviation::OPTION_FULL_PLACE_NAME),
             'show_summary'            => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary', '0'),
             'show_summary_statistics' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary_statistics', '0'),
+            'summary_lineage_cols'     => implode(',', $this->validatedSummaryLineageColumns($request)),
             'count_partner_chains'    => Validator::parsedBody($request)->isInArray(['0', '1'])->string('count_partner_chains', '0'),
             'show_print_button'       => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_print_button', '0'),
             'use_clippings_cart'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_clippings_cart', '0'),
@@ -529,6 +567,55 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function showSummaryStatistics(): bool
     {
         return ($this->getPreference('show_summary_statistics', '0') == '0');
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function summaryLineageColumns(): array
+    {
+        $columns = array_values(array_filter(explode(',', $this->getPreference(
+            'summary_lineage_cols',
+            implode(',', self::DEFAULT_SUMMARY_LINEAGE_COLUMNS)
+        ))));
+
+        $columns = array_values(array_intersect($columns, self::SUMMARY_LINEAGE_COLUMNS));
+
+        return $columns === [] ? self::DEFAULT_SUMMARY_LINEAGE_COLUMNS : $columns;
+    }
+
+    /**
+     * @return array<string,string>
+     */
+    private function summaryLineageColumnOptions(): array
+    {
+        return [
+            self::SUMMARY_LINEAGE_COLUMN_RELATION             => I18N::translate('Relation'),
+            self::SUMMARY_LINEAGE_COLUMN_TOTAL                => I18N::translate('Total profiles'),
+            self::SUMMARY_LINEAGE_COLUMN_LIVING               => I18N::translate('Living / deceased'),
+            self::SUMMARY_LINEAGE_COLUMN_BIOLOGICAL           => I18N::translate('Biological'),
+            self::SUMMARY_LINEAGE_COLUMN_BIRTH_RANGE          => I18N::translate('Earliest / latest birth year'),
+            self::SUMMARY_LINEAGE_COLUMN_AVERAGE_BIRTH_YEAR   => I18N::translate('Average birth year'),
+            self::SUMMARY_LINEAGE_COLUMN_AVERAGE_MARRIAGE_AGE => I18N::translate('Average marriage age'),
+            self::SUMMARY_LINEAGE_COLUMN_GENERATION_LENGTH    => I18N::translate('Generation length'),
+            self::SUMMARY_LINEAGE_COLUMN_AVERAGE_LIFESPAN     => I18N::translate('Average lifespan'),
+            self::SUMMARY_LINEAGE_COLUMN_AVERAGE_CHILDREN     => I18N::translate('Average children'),
+        ];
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function validatedSummaryLineageColumns(ServerRequestInterface $request): array
+    {
+        $columns = [];
+        foreach (Validator::parsedBody($request)->array('summary_lineage_cols') as $column) {
+            if (in_array($column, self::SUMMARY_LINEAGE_COLUMNS, true)) {
+                $columns[] = $column;
+            }
+        }
+
+        return $columns === [] ? self::DEFAULT_SUMMARY_LINEAGE_COLUMNS : array_values(array_unique($columns));
     }
 
     /**

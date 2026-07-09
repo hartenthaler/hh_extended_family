@@ -27,6 +27,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var array<int,string>       $place_format_options
  * @var boolean                 $show_summary
  * @var boolean                 $show_summary_statistics
+ * @var array<int,string>       $summary_lineage_columns
+ * @var array<string,string>    $summary_lineage_column_options
  * @var boolean                 $count_partner_chains
  * @var boolean                 $show_print_button
  * @var boolean                 $use_clippings_cart
@@ -48,6 +50,8 @@ $thumbnail_size_options ??= [
     'medium' => I18N::translate('medium') . ' (80 x 120 px)',
     'large' => I18N::translate('large') . ' (100 x 150 px)',
 ];
+$summary_lineage_columns ??= [];
+$summary_lineage_column_options ??= [];
 $family_part_degrees = ExtendedFamilySupport::getFamilyPartDegrees();
 $default_family_part_order = ExtendedFamilySupport::listFamilyParts();
 $coreControlPanel = MoreI18N::xlate('Control panel');
@@ -222,6 +226,38 @@ $coreYes = MoreI18N::xlate('yes');
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/radios-inline', ['name' => 'show_summary_statistics', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_summary_statistics]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('Which columns should be shown in the direct-line summary table?') ?></h3>
+        <p class="small text-muted">
+            <?= I18N::translate('The generation column is always shown. All other columns can be selected by the administrator.') ?>
+        </p>
+        <div class="alert alert-warning hh-extended-family-summary-table-columns-warning" role="alert">
+            <?= I18N::translate('The direct-line summary table cannot be shown while the summary block or the summary statistics are disabled.') ?>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Summary table columns') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <?php foreach ($summary_lineage_column_options as $column => $label) : ?>
+                            <div class="col-sm-6 col-lg-4">
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name="summary_lineage_cols[]"
+                                        value="<?= e($column) ?>"
+                                        <?= in_array($column, $summary_lineage_columns, true) ? 'checked' : '' ?>
+                                    >
+                                    <?= $label ?>
+                                </label>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
                 </div>
             </div>
         </fieldset>
@@ -546,11 +582,13 @@ $coreYes = MoreI18N::xlate('yes');
   function updateDependencyWarnings() {
       const summaryDisabled = $('input[name="show_summary"]:checked').val() === '1';
       const statisticsEnabled = $('input[name="show_summary_statistics"]:checked').val() === '0';
+      const statisticsDisabled = !statisticsEnabled;
       const emptyPartsCollectedAtSummary = $('[name="show_empty_block"]').val() === '1';
       const relationshipMouseoverEnabled = $('input[name="show_relationship_to_proband"]:checked').val() === '0';
       const relationshipNamesAvailable = <?= $relationship_names_available ? 'true' : 'false' ?>;
 
       $('.hh-extended-family-summary-statistics-warning').toggleClass('d-none', !(summaryDisabled && statisticsEnabled));
+      $('.hh-extended-family-summary-table-columns-warning').toggleClass('d-none', !(summaryDisabled || statisticsDisabled));
       $('.hh-extended-family-empty-summary-warning').toggleClass('d-none', !(summaryDisabled && emptyPartsCollectedAtSummary));
       $('.hh-extended-family-relationship-warning').toggleClass('d-none', !(!relationshipNamesAvailable && relationshipMouseoverEnabled));
   }

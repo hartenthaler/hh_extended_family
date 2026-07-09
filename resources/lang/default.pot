@@ -3094,6 +3094,11 @@ msgstr ""
 msgid "Living members: %1$s (%2$s); deceased members: %3$s (%4$s)."
 msgstr ""
 
+#: resources/views/partials/summary.phtml:39
+#, php-format
+msgid "%1$s (%2$s) / %3$s (%4$s)"
+msgstr ""
+
 #: resources/views/partials/summary.phtml:165
 #, php-format
 msgid "Gender distribution: %1$s male (%2$s), %3$s female (%4$s), %5$s other or unknown (%6$s)."
@@ -3168,6 +3173,10 @@ msgstr ""
 
 #: resources/views/partials/summary.phtml:233
 msgid "Total profiles"
+msgstr ""
+
+#: ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+msgid "Living / deceased"
 msgstr ""
 
 #: resources/views/partials/summary.phtml:234
@@ -3300,6 +3309,26 @@ msgstr ""
 
 #: resources/views/settings.phtml:203
 msgid "Show summary statistics"
+msgstr ""
+
+#: resources/views/settings.phtml:213
+msgid "Which columns should be shown in the direct-line summary table?"
+msgstr ""
+
+#: resources/views/settings.phtml:215
+msgid ""
+"The generation column is always shown. All other columns can be selected by "
+"the administrator."
+msgstr ""
+
+#: resources/views/settings.phtml:219
+msgid ""
+"The direct-line summary table cannot be shown while the summary block or the "
+"summary statistics are disabled."
+msgstr ""
+
+#: resources/views/settings.phtml:221
+msgid "Summary table columns"
 msgstr ""
 
 #: resources/views/settings.phtml:211

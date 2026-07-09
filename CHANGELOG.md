@@ -6,6 +6,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+- Added configurable columns for the direct-line summary table, including a combined living/deceased column.
 - Updated Dutch translations; thanks to TheDutchJewel.
 - Updated Slovak translations; thanks to Ladislav Rosival.
 - Let administrators define which family parts users may choose and which of them are rendered by default.

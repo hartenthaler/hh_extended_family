@@ -19,6 +19,8 @@ class LineageRow
         public string $relation,
         public array $individuals,
         public int $totalCount,
+        public int $livingCount,
+        public int $deceasedCount,
         public int $biologicalCount,
         public int $birthYearCount,
         public int $biologicalBirthYearCount,

@@ -19,6 +19,17 @@ $emptyFamilyParts = array_map(
 $statistics = $filterObj->efp->summary->statistics ?? null;
 $lineageStatistics = $filterObj->efp->summary->lineageStatistics ?? null;
 $familyRoleLoops = $filterObj->efp->summary->familyRoleLoops ?? null;
+$selectedLineageColumns = $extfam_obj->config->summaryLineageColumns ?? [
+    'relation',
+    'living',
+    'biological',
+    'birth_range',
+    'average_birth_year',
+    'average_marriage_age',
+    'generation_length',
+    'average_lifespan',
+    'average_children',
+];
 $formatStatValue = static fn ($value): string => $value === null ? '-' : I18N::number((int) $value);
 $formatYearValue = static fn ($value): string => $value === null ? '-' : (string) (int) $value;
 $formatGeneration = static function (int $generation): string {
@@ -37,6 +48,19 @@ $formatRelation = static fn (string $relation): string => match ($relation) {
     'grandchildren' => I18N::translate('Grandchildren'),
     'great-grandchildren' => I18N::translate('Great-grandchildren'),
     default => $relation,
+};
+$formatLivingDeceased = static function ($row): string {
+    if ($row->totalCount <= 0) {
+        return '-';
+    }
+
+    return I18N::translate(
+        '%1$s (%2$s) / %3$s (%4$s)',
+        I18N::number($row->livingCount),
+        I18N::percentage($row->livingCount / $row->totalCount),
+        I18N::number($row->deceasedCount),
+        I18N::percentage($row->deceasedCount / $row->totalCount)
+    );
 };
 $formatOldest = static function (?object $oldest): string {
     if ($oldest === null) {
@@ -106,6 +130,49 @@ if ($lineageStatistics?->descendants !== null) {
         }
     }
 }
+$lineageColumnDefinitions = [
+    'relation' => [
+        'label' => I18N::translate('Relation'),
+        'value' => static fn ($displayGeneration, $row): string => $formatRelation($row->relation),
+    ],
+    'total' => [
+        'label' => I18N::translate('Total profiles'),
+        'value' => static fn ($displayGeneration, $row): string => I18N::number($row->totalCount),
+    ],
+    'living' => [
+        'label' => I18N::translate('Living / deceased'),
+        'value' => static fn ($displayGeneration, $row): string => $formatLivingDeceased($row),
+    ],
+    'biological' => [
+        'label' => I18N::translate('Biological'),
+        'value' => static fn ($displayGeneration, $row): string => I18N::number($row->biologicalCount),
+    ],
+    'birth_range' => [
+        'label' => I18N::translate('Earliest / latest birth year'),
+        'value' => static fn ($displayGeneration, $row): string => $formatYearValue($row->earliestBirthYear) . ' / ' . $formatYearValue($row->latestBirthYear),
+    ],
+    'average_birth_year' => [
+        'label' => I18N::translate('Average birth year'),
+        'value' => static fn ($displayGeneration, $row): string => $formatYearValue($row->averageBirthYear),
+    ],
+    'average_marriage_age' => [
+        'label' => I18N::translate('Average marriage age'),
+        'value' => static fn ($displayGeneration, $row): string => $formatStatValue($row->averageMarriageAge),
+    ],
+    'generation_length' => [
+        'label' => I18N::translate('Generation length'),
+        'value' => static fn ($displayGeneration, $row): string => $formatStatValue($row->generationLength),
+    ],
+    'average_lifespan' => [
+        'label' => I18N::translate('Average lifespan'),
+        'value' => static fn ($displayGeneration, $row): string => $formatStatValue($row->averageLifespan),
+    ],
+    'average_children' => [
+        'label' => I18N::translate('Average children'),
+        'value' => static fn ($displayGeneration, $row): string => $formatStatValue($row->averageChildren),
+    ],
+];
+$lineageColumns = array_intersect_key($lineageColumnDefinitions, array_flip($selectedLineageColumns));
 
 $coveredGenerationCount = null;
 if ($lineageRows !== []) {
@@ -241,30 +308,18 @@ if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
                 <thead>
                     <tr>
                         <th><?= I18N::translate('Generation') ?></th>
-                        <th><?= I18N::translate('Relation') ?></th>
-                        <th><?= I18N::translate('Total profiles') ?></th>
-                        <th><?= I18N::translate('Biological') ?></th>
-                        <th><?= I18N::translate('Earliest / latest birth year') ?></th>
-                        <th><?= I18N::translate('Average birth year') ?></th>
-                        <th><?= I18N::translate('Average marriage age') ?></th>
-                        <th><?= I18N::translate('Generation length') ?></th>
-                        <th><?= I18N::translate('Average lifespan') ?></th>
-                        <th><?= I18N::translate('Average children') ?></th>
+                        <?php foreach ($lineageColumns as $column) : ?>
+                            <th><?= $column['label'] ?></th>
+                        <?php endforeach ?>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($lineageRows as [$displayGeneration, $row]) : ?>
                         <tr>
                             <td><?= $formatGeneration($displayGeneration) ?></td>
-                            <td><?= $formatRelation($row->relation) ?></td>
-                            <td><?= I18N::number($row->totalCount) ?></td>
-                            <td><?= I18N::number($row->biologicalCount) ?></td>
-                            <td><?= $formatYearValue($row->earliestBirthYear) ?> / <?= $formatYearValue($row->latestBirthYear) ?></td>
-                            <td><?= $formatYearValue($row->averageBirthYear) ?></td>
-                            <td><?= $formatStatValue($row->averageMarriageAge) ?></td>
-                            <td><?= $formatStatValue($row->generationLength) ?></td>
-                            <td><?= $formatStatValue($row->averageLifespan) ?></td>
-                            <td><?= $formatStatValue($row->averageChildren) ?></td>
+                            <?php foreach ($lineageColumns as $column) : ?>
+                                <td><?= $column['value']($displayGeneration, $row) ?></td>
+                            <?php endforeach ?>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
