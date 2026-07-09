@@ -63,6 +63,8 @@ Administrators can decide whether these filter controls are shown to regular use
 The module supports
 
 * configurable family parts and display order
+* separate administrator control for family parts available to users and family parts rendered by default
+* optional per-individual user selection of family parts in the tab
 * compact and enriched layouts
 * optional thumbnail, birth, and death information with configurable thumbnail size
 * optional labels with generation shift and coefficient of relationship

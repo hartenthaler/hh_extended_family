@@ -6,6 +6,8 @@ use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
 
 /**
  * @var string     $action_mode
+ * @var bool       $family_part_selection_active
+ * @var string     $family_part_selection_query
  * @var string     $filterOption
  * @var Individual $individual
  * @var string     $module
@@ -32,6 +34,14 @@ if ($action_mode === 'cce') {
         $uses_internal_action = true;
     }
 }
+
+$return_url = $individual->url();
+
+if ($family_part_selection_active) {
+    $return_url .= (str_contains($return_url, '?') ? '&' : '?') . 'family_part_selection=1&family_parts=' . rawurlencode($family_part_selection_query);
+}
+
+$return_url .= '#tab-' . $module;
 ?>
 
 <form class="hh-extended-family-clippings-cart-form" method="post" action="<?= e($action_url); ?>">
@@ -40,7 +50,11 @@ if ($action_mode === 'cce') {
         <input type="hidden" name="tree" value="<?= e($tree_name) ?>">
         <input type="hidden" name="xref" value="<?= e($individual->xref()) ?>">
         <input type="hidden" name="filter" value="<?= e($filterOption) ?>">
-        <input type="hidden" name="return_url" value="<?= e($individual->url() . '#tab-' . $module) ?>">
+        <?php if ($family_part_selection_active): ?>
+            <input type="hidden" name="family_part_selection" value="1">
+            <input type="hidden" name="family_parts" value="<?= e($family_part_selection_query) ?>">
+        <?php endif ?>
+        <input type="hidden" name="return_url" value="<?= e($return_url) ?>">
     <?php endif ?>
     <button type="submit"
             class="btn btn-secondary btn-sm"

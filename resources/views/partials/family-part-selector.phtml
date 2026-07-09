@@ -1,0 +1,56 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
+
+/**
+ * @var object               $extfam_obj
+ * @var Individual           $individual
+ * @var string               $module
+ */
+
+$selectableFamilyParts = array_filter(
+    $extfam_obj->config->shownFamilyParts,
+    static fn (object $familyPart): bool => (bool) ($familyPart->selectable ?? false)
+);
+?>
+
+<?php if ($selectableFamilyParts !== []): ?>
+    <details class="hh-extended-family-part-selector mb-3">
+        <summary class="btn btn-outline-secondary btn-sm">
+            <?= I18N::translate('Choose family parts') ?>
+        </summary>
+        <form method="get" class="border rounded p-3 mt-2" action="<?= e($individual->url() . '#tab-' . $module) ?>">
+            <input type="hidden" name="family_part_selection" value="1">
+            <p class="small text-muted mb-2">
+                <?= I18N::translate('Select the family parts to show for this individual.') ?>
+            </p>
+            <div class="row">
+                <?php foreach ($selectableFamilyParts as $familyPartId => $familyPart): ?>
+                    <div class="col-sm-6 col-lg-4">
+                        <label class="form-check">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="family_parts[]"
+                                value="<?= e($familyPartId) ?>"
+                                <?= $familyPart->enabled ? 'checked' : '' ?>
+                            >
+                            <span class="form-check-label">
+                                <?= $familyPart->name ?> (<?= $familyPart->generation ?>)
+                            </span>
+                        </label>
+                    </div>
+                <?php endforeach ?>
+            </div>
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <?= I18N::translate('Apply') ?>
+                </button>
+                <a href="<?= e($individual->url() . '#tab-' . $module) ?>" class="btn btn-secondary btn-sm">
+                    <?= I18N::translate('Reset to default') ?>
+                </a>
+            </div>
+        </form>
+    </details>
+<?php endif ?>

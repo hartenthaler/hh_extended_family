@@ -12,6 +12,8 @@ use Fisharebest\Webtrees\Individual;
  */
 
     $tree_name = $individual->tree()->name();
+    $familyPartSelectionActive = $extfam_obj->config->familyPartSelectionActive;
+    $familyPartSelectionQuery = implode(',', $extfam_obj->config->selectedFamilyParts);
     $summaryName = '<span class="hh-extended-family-summary-name">' . $extfam_obj->proband->niceName->name . '</span>';
     $hasVisibleFamilyPart = static function (object $filterObj): bool {
         foreach ($filterObj->efp as $propName => $propValue) {
@@ -26,6 +28,11 @@ use Fisharebest\Webtrees\Individual;
  
 <div class="wt-tab-hh-extended-family py-4">
     <div class="hh-extended-family-toolbar d-print-none">
+        <?= view($module . '::partials/family-part-selector', [
+            'extfam_obj' => $extfam_obj,
+            'individual' => $individual,
+            'module'     => $module,
+        ]) ?>
         <?= view($module . '::partials/filter-controls', [
             'extfam_obj' => $extfam_obj,
         ]) ?>
@@ -33,13 +40,18 @@ use Fisharebest\Webtrees\Individual;
             <?php if ($hasVisibleFamilyPart($filterObj)): ?>
                 <div class="hh-extended-family-filter-actions<?= $filterOption === 'all' ? '' : ' d-none' ?>" data-filter-value="<?= $filterOption ?>">
                     <?php if ($extfam_obj->config->showPrintButton): ?>
-                        <a class="btn btn-secondary btn-sm" href="<?= e(route('module', [
+                        <?php $printRouteParameters = [
                             'module' => $module,
                             'action' => 'Print',
                             'tree'   => $tree_name,
                             'xref'   => $individual->xref(),
                             'filter' => $filterOption,
-                        ])) ?>" target="_blank" rel="noopener noreferrer">
+                        ]; ?>
+                        <?php if ($familyPartSelectionActive): ?>
+                            <?php $printRouteParameters['family_part_selection'] = '1'; ?>
+                            <?php $printRouteParameters['family_parts'] = $familyPartSelectionQuery; ?>
+                        <?php endif ?>
+                        <a class="btn btn-secondary btn-sm" href="<?= e(route('module', $printRouteParameters)) ?>" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-print" aria-hidden="true"></i>
                             <?= I18N::translate('Print/PDF') ?>
                         </a>
@@ -47,6 +59,8 @@ use Fisharebest\Webtrees\Individual;
                     <?php if ($extfam_obj->config->useClippingsCart): ?>
                         <?= view($module . '::partials/clippings-cart-button', [
                             'action_mode'  => $clippings_cart_action,
+                            'family_part_selection_active' => $familyPartSelectionActive,
+                            'family_part_selection_query' => $familyPartSelectionQuery,
                             'filterOption' => $filterOption,
                             'individual'   => $individual,
                             'module'       => $module,

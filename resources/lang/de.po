@@ -4012,6 +4012,30 @@ msgstr "Familiäre Rollenschleifen"
 msgid "family role loop"
 msgstr "familiäre Rollenschleife"
 
+#: resources/views/settings.phtml:110
+msgid "Available to users"
+msgstr "Für Nutzer auswählbar"
+
+#: resources/views/settings.phtml:111
+msgid "Shown by default"
+msgstr "Standardmäßig angezeigt"
+
+#: resources/views/partials/family-part-selector.phtml:22
+msgid "Choose family parts"
+msgstr "Familienteile auswählen"
+
+#: resources/views/partials/family-part-selector.phtml:26
+msgid "Select the family parts to show for this individual."
+msgstr "Wählen Sie die Familienteile aus, die für diese Person angezeigt werden sollen."
+
+#: resources/views/partials/family-part-selector.phtml:51
+msgid "Apply"
+msgstr "Anwenden"
+
+#: resources/views/partials/family-part-selector.phtml:54
+msgid "Reset to default"
+msgstr "Auf Standard zurücksetzen"
+
 #~ msgid "Full siblings of biological grandparents"
 #~ msgstr "Vollbürtige Geschwister der biologischen Großeltern"
 

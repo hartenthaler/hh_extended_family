@@ -8,6 +8,8 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 - Updated Dutch translations; thanks to TheDutchJewel.
 - Updated Slovak translations; thanks to Ladislav Rosival.
+- Let administrators define which family parts users may choose and which of them are rendered by default.
+- Let users choose the family parts for an individual directly in the Extended family tab without changing module defaults.
 
 ## 2.2.6.11 - 2026-07-08
 
