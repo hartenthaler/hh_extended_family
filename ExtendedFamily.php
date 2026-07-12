@@ -849,7 +849,9 @@ class ExtendedFamily
             if ($lifespan !== null) {
                 $lifespans[] = $lifespan;
             }
+        }
 
+        foreach ($biologicalIndividuals as $individual) {
             $childrenCounts[] = $this->biologicalChildrenCount($individual);
         }
 
@@ -869,7 +871,7 @@ class ExtendedFamily
             $this->averageRounded($marriageAges),
             null,
             $this->averageRounded($lifespans),
-            $this->averageRounded($childrenCounts)
+            $this->averageToOneDecimal($childrenCounts)
         );
     }
 
@@ -1206,6 +1208,18 @@ class ExtendedFamily
         }
 
         return (int) round(array_sum($values) / count($values));
+    }
+
+    /**
+     * @param array<int,int|float> $values
+     */
+    private function averageToOneDecimal(array $values): ?float
+    {
+        if ($values === []) {
+            return null;
+        }
+
+        return round(array_sum($values) / count($values), 1);
     }
 
     /**

@@ -330,6 +330,9 @@ It still keeps its own member and sex/gender counters for the family-part summar
 It can also render direct-line statistics for selected ancestor and descendant generations.
 These statistics are calculated only for direct-line family parts that are currently enabled and non-empty.
 The biological column is based on the module's biological relationship groups, not on all visible people in the row.
+The average-children column likewise uses only the biological people in the respective direct-line generation.
+For each of these people, it counts only biological children: a child-to-family link without an explicit pedigree value or with `PEDI BIRTH` is biological, while `ADOPTED`, `FOSTER`, `RADA`, `SEALING`, and other non-birth pedigree values are excluded.
+The displayed value is the sum of these biological-child counts divided by the number of biological people in the generation, rounded to one decimal place.
 
 Ancestor and descendant implex detection is intentionally stricter than the general duplicate-membership warning.
 Duplicate membership means that the same person appears in more than one extended-family part.

@@ -6,6 +6,9 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+## 2.2.6.13 - 2026-07-12
+
+- Calculated the average number of biological children for the biological people in each direct-line generation and displayed it with one decimal place.
 - Removed living/deceased percentages from the direct-line summary table.
 
 ## 2.2.6.12 - 2026-07-09

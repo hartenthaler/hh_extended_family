@@ -31,6 +31,7 @@ $selectedLineageColumns = $extfam_obj->config->summaryLineageColumns ?? [
     'average_children',
 ];
 $formatStatValue = static fn ($value): string => $value === null ? '-' : I18N::number((int) $value);
+$formatDecimalValue = static fn ($value): string => $value === null ? '-' : I18N::locale()->number(number_format($value, 1, '.', ''));
 $formatYearValue = static fn ($value): string => $value === null ? '-' : (string) (int) $value;
 $formatGeneration = static function (int $generation): string {
     if ($generation > 0) {
@@ -163,7 +164,7 @@ $lineageColumnDefinitions = [
     ],
     'average_children' => [
         'label' => I18N::translate('Average children'),
-        'value' => static fn ($displayGeneration, $row): string => $formatStatValue($row->averageChildren),
+        'value' => static fn ($displayGeneration, $row): string => $formatDecimalValue($row->averageChildren),
     ],
 ];
 $lineageColumns = array_intersect_key($lineageColumnDefinitions, array_flip($selectedLineageColumns));

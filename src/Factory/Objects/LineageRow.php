@@ -30,7 +30,7 @@ class LineageRow
         public ?int $averageMarriageAge,
         public ?int $generationLength,
         public ?int $averageLifespan,
-        public ?int $averageChildren
+        public ?float $averageChildren
     ) {
     }
 }
