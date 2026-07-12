@@ -54,13 +54,7 @@ $formatLivingDeceased = static function ($row): string {
         return '-';
     }
 
-    return I18N::translate(
-        '%1$s (%2$s) / %3$s (%4$s)',
-        I18N::number($row->livingCount),
-        I18N::percentage($row->livingCount / $row->totalCount),
-        I18N::number($row->deceasedCount),
-        I18N::percentage($row->deceasedCount / $row->totalCount)
-    );
+    return I18N::number($row->livingCount) . ' / ' . I18N::number($row->deceasedCount);
 };
 $formatOldest = static function (?object $oldest): string {
     if ($oldest === null) {
