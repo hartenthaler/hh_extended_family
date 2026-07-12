@@ -6,6 +6,8 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+- Removed living/deceased percentages from the direct-line summary table.
+
 ## 2.2.6.12 - 2026-07-09
 
 - Added configurable columns for the direct-line summary table, including a combined living/deceased column.
