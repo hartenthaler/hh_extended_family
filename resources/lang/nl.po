@@ -3633,3 +3633,27 @@ msgstr "Standaardinstellingen herstellen"
 #: resources/views/settings.phtml:91
 msgid "Disable all non-blood family parts"
 msgstr "Alle niet-bloedverwante familiedelen uitschakelen"
+
+msgid "Degree paths"
+msgstr "Graadpaden"
+
+msgid "Should a Degree table be shown?"
+msgstr "Moet een gradentabel worden weergegeven?"
+
+msgid "The Degree table lists the number of persons at each distance and provides a list of linked persons."
+msgstr "De gradentabel toont voor elke graad het aantal personen en een lijst met aanklikbare personen."
+
+msgid "Show Degree table"
+msgstr "Gradentabel weergeven"
+
+msgid "Should Degree labels be shown?"
+msgstr "Moeten graadlabels worden weergegeven?"
+
+msgid "Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step."
+msgstr "De graad volgt de definitie van WikiTree; ouders, kinderen, partners en broers of zussen tellen elk als één stap."
+
+msgid "Show Degree labels"
+msgstr "Graadlabels weergeven"
+
+msgid "Degree shells"
+msgstr "Graadlagen"
