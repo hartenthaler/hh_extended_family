@@ -3637,6 +3637,12 @@ msgstr "Alle niet-bloedverwante familiedelen uitschakelen"
 msgid "Degree paths"
 msgstr "Graadpaden"
 
+msgid "Number of persons"
+msgstr "Aantal personen"
+
+msgid "List of linked persons"
+msgstr "Lijst met aanklikbare personen"
+
 msgid "Should a Degree table be shown?"
 msgstr "Moet een gradentabel worden weergegeven?"
 
