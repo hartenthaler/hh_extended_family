@@ -280,6 +280,16 @@ The admin UI can use a coarse family-part degree to help administrators select w
 This degree is not the exact person-level graph distance.
 It is a local selection aid for family parts.
 
+### Person-level Degree (WikiTree definition)
+
+Issue #208 adds person-level Degree metadata without changing which people are selected or how family parts classify them. Following WikiTree, a parent, child, partner, full sibling, or half sibling is one Degree away. Parent-child edges count as one step regardless of biological, adoptive, foster, RADA, or other pedigree linkage. Step-siblings have no direct sibling edge and are reached through parent, partner, and child in three steps.
+
+Each rendered person may carry a sorted list of Degree values because distinct shortcut-free paths can lead from the proband to the same person; repeated values are retained for distinct paths (for example `3, 3, 5`). A path is retained only if it is induced: no two non-adjacent people within that path have a direct relationship edge. This removes detours such as mother → spouse → daughter when mother and daughter are directly related, while preserving a genuinely different longer chain that has no shortcut within the chain. The label tooltip lists those paths and labels every edge with its relationship. Summary rows count a person once per Degree even when several paths have that same Degree; Degree 0 contains the proband. People in each row are sorted by their path, then birth date, then name, so branches remain together. Label and table have independent administrator settings and both default to visible.
+
+English uses **Degree**. German translations use **Entfernungsschritte**, not **Grad**, because canon law defines degrees differently.
+
+The Degree label uses a gold color so it remains distinguishable from SOSA labels and from the sex-dependent blue or red person cards. The Degree-shell table is rendered immediately after the direct-line summary table. Both tables use caption text below the table with additional bottom spacing, preventing the first caption from looking like a heading for the next table.
+
 The core family has degree 1:
 parents, children, siblings, and partners.
 The partner-chain family part is a special case and has administrative degree 2,

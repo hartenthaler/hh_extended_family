@@ -362,6 +362,17 @@
     color: green;
 }
 
+.hh_extended_family_label_box.hh-extended-family-degree-label {
+    border-color: #a66b00;
+    background-color: #ffe6a3;
+    color: #5c3b00;
+}
+
+.hh-extended-family-table-caption {
+    margin-top: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
 #hh_extended_family_content .wt-chart-box-m .hh_extended_family_label,
 #hh_extended_family_content .wt-chart-box-f .hh_extended_family_label,
 #hh_extended_family_content .wt-chart-box-u .hh_extended_family_label,

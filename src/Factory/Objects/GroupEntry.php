@@ -24,7 +24,11 @@ class GroupEntry
         public array $referencePersons,
         public array $labels,
         public string $vitalEventsSummary,
-        public array $sosaLabels = []
+        public array $sosaLabels = [],
+        /** @var array<int,int> */
+        public array $degrees = [],
+        /** @var array<int,string> */
+        public array $degreePaths = []
     ) {
     }
 }

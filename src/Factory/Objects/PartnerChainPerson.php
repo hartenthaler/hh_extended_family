@@ -38,7 +38,8 @@ class PartnerChainPerson
         private string $step,
         private bool $canShow,
         private string $fullName,
-        private string $url
+        private string $url,
+        private string $xref
     ) {
     }
 
@@ -72,5 +73,10 @@ class PartnerChainPerson
     public function getUrl(): string
     {
         return $this->url;
+    }
+
+    public function getXref(): string
+    {
+        return $this->xref;
     }
 }

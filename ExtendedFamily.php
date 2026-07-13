@@ -30,6 +30,7 @@ use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Registry;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
 use Illuminate\Support\Collection;
 
@@ -212,6 +213,210 @@ class ExtendedFamily
         $extendedFamily->efp->summary->statistics = $this->summaryStatistics($individuals);
         $extendedFamily->efp->summary->lineageStatistics = $this->lineageStatistics($extendedFamily);
         $extendedFamily->efp->summary->familyRoleLoops = $this->familyRoleLoopSummary($extendedFamily);
+        $this->addDegreeData($extendedFamily);
+    }
+
+    /**
+     * Add WikiTree-style Degree distances without changing family-part selection.
+     * Parent, child, partner, and sibling links each count as one step.
+     */
+    private function addDegreeData(ExtendedFamilyFilterResult $extendedFamily): void
+    {
+        $individuals = $this->familyRoleLoopIndividuals($extendedFamily);
+        $graph = $this->degreeGraph($individuals);
+        $start = $this->proband->indi->xref();
+        $shortest = $this->degreeShortestDistances($graph, $start);
+        $degreeData = [];
+
+        foreach ($individuals as $xref => $individual) {
+            if ($xref === $start || !isset($shortest[$xref])) {
+                continue;
+            }
+
+            // Keep all shortcut-free routes. This preserves genuinely different
+            // longer relationships while excluding detours along a shorter route.
+            $paths = $this->degreePaths($graph, $start, $xref);
+            $degreeData[$xref] = [
+                'degrees' => array_map(static fn (array $path): int => count($path) - 1, $paths),
+                'paths' => array_map(fn (array $path): string => $this->degreePathLabel($path, $graph, $individuals), $paths),
+            ];
+        }
+
+        foreach ($this->collectGroupEntries($extendedFamily) as $entry) {
+            $data = $degreeData[$entry->individual->xref()] ?? null;
+            if ($data !== null) {
+                $entry->degrees = $data['degrees'];
+                $entry->degreePaths = $data['paths'];
+            }
+        }
+
+        $extendedFamily->efp->summary->degreeData = $degreeData;
+
+        $rows = [0 => [$start => $this->proband->indi]];
+        foreach ($degreeData as $xref => $data) {
+            foreach (array_unique($data['degrees']) as $degree) {
+                $rows[$degree][$xref] = $individuals[$xref];
+            }
+        }
+        ksort($rows);
+        foreach ($rows as $degree => $people) {
+            uasort($people, function (Individual $a, Individual $b) use ($degree, $degreeData): int {
+                $pathA = $this->degreePathSortKey($degreeData[$a->xref()] ?? null, (int) $degree);
+                $pathB = $this->degreePathSortKey($degreeData[$b->xref()] ?? null, (int) $degree);
+                $comparison = strcasecmp($pathA, $pathB);
+                if ($comparison !== 0) {
+                    return $comparison;
+                }
+
+                $birthA = $a->getBirthDate();
+                $birthB = $b->getBirthDate();
+                $julianA = $birthA->isOK() ? $birthA->minimumJulianDay() : PHP_INT_MAX;
+                $julianB = $birthB->isOK() ? $birthB->minimumJulianDay() : PHP_INT_MAX;
+
+                return $julianA <=> $julianB ?: strcasecmp(strip_tags($a->fullName()), strip_tags($b->fullName()));
+            });
+            $extendedFamily->efp->summary->degrees[$degree] = ['count' => count($people), 'individuals' => array_values($people)];
+        }
+    }
+
+    /** @param array<string,Individual> $individuals */
+    private function degreeGraph(array $individuals): array
+    {
+        $graph = array_fill_keys(array_keys($individuals), []);
+        $families = [];
+        foreach ($individuals as $individual) {
+            foreach (array_merge($individual->spouseFamilies()->all(), $individual->childFamilies()->all()) as $family) {
+                $families[$family->xref()] = $family;
+            }
+        }
+        foreach ($families as $family) {
+            $spouses = array_values(array_filter($family->spouses()->all(), static fn (Individual $person): bool => isset($individuals[$person->xref()])));
+            $children = array_values(array_filter($family->children()->all(), static fn (Individual $person): bool => isset($individuals[$person->xref()])));
+            $this->addDegreeClique($graph, $spouses, 'partner');
+            $this->addDegreeClique($graph, $children, 'sibling'); // WikiTree: siblings are directly one Degree apart.
+            foreach ($spouses as $parent) {
+                foreach ($children as $child) {
+                    $graph[$parent->xref()][$child->xref()] = 'child';
+                    $graph[$child->xref()][$parent->xref()] = 'parent';
+                }
+            }
+        }
+        return $graph;
+    }
+
+    private function addDegreeClique(array &$graph, array $people, string $relation): void
+    {
+        foreach ($people as $left => $person) {
+            foreach (array_slice($people, $left + 1) as $other) {
+                $graph[$person->xref()][$other->xref()] = $relation;
+                $graph[$other->xref()][$person->xref()] = $relation;
+            }
+        }
+    }
+
+    private function degreeShortestDistances(array $graph, string $start): array
+    {
+        $distances = [$start => 0];
+        $queue = [$start];
+        while ($queue !== []) {
+            $current = array_shift($queue);
+            foreach (array_keys($graph[$current] ?? []) as $next) {
+                if (!isset($distances[$next])) {
+                    $distances[$next] = $distances[$current] + 1;
+                    $queue[] = $next;
+                }
+            }
+        }
+        return $distances;
+    }
+
+    private function degreePaths(array $graph, string $start, string $target): array
+    {
+        $result = [];
+        $visit = function (string $current, array $path) use (&$visit, &$result, $graph, $target): void {
+            if ($current === $target) {
+                $result[] = $path;
+                return;
+            }
+            foreach (array_keys($graph[$current] ?? []) as $next) {
+                if (in_array($next, $path, true)) {
+                    continue;
+                }
+
+                // An induced path has no edge from the new node to an earlier,
+                // non-adjacent node. Such an edge would be a shortcut and would
+                // turn this route into a mere detour.
+                foreach (array_slice($path, 0, -1) as $earlier) {
+                    if (isset($graph[$next][$earlier])) {
+                        continue 2;
+                    }
+                }
+
+                $visit($next, [...$path, $next]);
+            }
+        };
+        $visit($start, [$start]);
+        usort($result, static fn (array $a, array $b): int => count($a) <=> count($b) ?: strcmp(implode('|', $a), implode('|', $b)));
+        return $result;
+    }
+
+    /** @param array<int,string> $path @param array<string,Individual> $individuals */
+    private function degreePathLabel(array $path, array $graph, array $individuals): string
+    {
+        $first = array_shift($path);
+        $label = strip_tags(ExtendedFamilySupport::individualName($individuals[$first]));
+        $previous = $first;
+
+        foreach ($path as $xref) {
+            $relationship = ExtendedFamilySupport::relationshipNameToProband($individuals[$xref], $individuals[$previous]);
+            if ($relationship === '') {
+                $relationship = $this->degreeFallbackRelationship($graph[$previous][$xref] ?? '', $individuals[$xref]);
+            }
+            $label .= ' → ' . $relationship . ' ' . strip_tags(ExtendedFamilySupport::individualName($individuals[$xref]));
+            $previous = $xref;
+        }
+
+        return $label;
+    }
+
+    private function degreeFallbackRelationship(string $relation, Individual $person): string
+    {
+        return match ($relation) {
+            'parent' => match ($person->sex()) {
+                'M' => MoreI18N::xlate('Father'),
+                'F' => MoreI18N::xlate('Mother'),
+                default => MoreI18N::xlate('Parent'),
+            },
+            'child' => match ($person->sex()) {
+                'M' => MoreI18N::xlate('Son'),
+                'F' => MoreI18N::xlate('Daughter'),
+                default => MoreI18N::xlate('Child'),
+            },
+            'sibling' => match ($person->sex()) {
+                'M' => MoreI18N::xlate('Brother'),
+                'F' => MoreI18N::xlate('Sister'),
+                default => MoreI18N::xlate('Sibling'),
+            },
+            default => MoreI18N::xlate('Partner'),
+        };
+    }
+
+    /** @param array{degrees:array<int,int>,paths:array<int,string>}|null $data */
+    private function degreePathSortKey(?array $data, int $degree): string
+    {
+        if ($degree === 0) {
+            return '';
+        }
+
+        $paths = [];
+        foreach ($data['degrees'] ?? [] as $index => $pathDegree) {
+            if ($pathDegree === $degree) {
+                $paths[] = $data['paths'][$index];
+            }
+        }
+        sort($paths, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return $paths[0] ?? '';
     }
 
     /**

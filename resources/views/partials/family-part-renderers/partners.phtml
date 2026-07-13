@@ -34,6 +34,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
                             <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualLink($indi, $relationshipName) ?></span>
+                            <?php include dirname(__DIR__) . '/degree-label.phtml'; ?>
                             <?php if ($extfam_obj->config->showLabels && $entry->labels): ?>
                                 <?php foreach ($entry->labels as $label): ?>
                                     <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;

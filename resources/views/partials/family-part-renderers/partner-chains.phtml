@@ -35,6 +35,10 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                                     <?= $indi->getFullName() ?>
                                 <?php endif ?>
                             </span>
+                            <?php $degreeData = $filterObj->efp->summary->degreeData[$indi->getXref()] ?? null; ?>
+                            <?php if ($extfam_obj->config->showDegreeLabels && $degreeData !== null): ?>
+                                <span class="hh_extended_family_label_box hh-extended-family-degree-label" title="<?= e(I18N::translate('Degree paths') . ': ' . implode(' | ', $degreeData['paths'])) ?>"><?= e(implode(', ', $degreeData['degrees'])) ?></span>
+                            <?php endif ?>
                         </span>
                     <?php $individualNumber++; endforeach ?>
                 </div>

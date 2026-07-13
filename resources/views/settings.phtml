@@ -230,6 +230,18 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
+        <h3><?= I18N::translate('Should a Degree table be shown?') ?></h3>
+        <p><?= I18N::translate('The Degree table lists the number of persons at each distance and provides a list of linked persons.') ?></p>
+        <p class="small text-muted"><?= I18N::translate('This option only has an effect if the summary block is shown.') ?></p>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3"><?= I18N::translate('Show Degree table') ?></legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_degree_table', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_degree_table]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Which columns should be shown in the direct-line summary table?') ?></h3>
         <p class="small text-muted">
             <?= I18N::translate('The generation column is always shown. All other columns can be selected by the administrator.') ?>
@@ -408,6 +420,17 @@ $coreYes = MoreI18N::xlate('yes');
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/radios-inline', ['name' => 'show_sosa_numbers', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_sosa_numbers]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('Should Degree labels be shown?') ?></h3>
+        <p><?= I18N::translate('Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step.') ?></p>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3"><?= I18N::translate('Show Degree labels') ?></legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_degree_labels', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_degree_labels]) ?>
                 </div>
             </div>
         </fieldset>

@@ -3243,6 +3243,7 @@ msgstr ""
 msgid "Disable all in-law family parts"
 msgstr ""
 
+#. TRANSLATORS: In German, use "Entfernungsschritte", not "Grad"; canon law defines degrees differently.
 #: resources/views/settings.phtml:94 resources/views/settings.phtml:95
 msgid "Degree"
 msgstr ""
@@ -3610,4 +3611,34 @@ msgstr ""
 
 #: resources/views/settings.phtml:91
 msgid "Disable all non-blood family parts"
+msgstr ""
+
+msgid "Degree paths"
+msgstr ""
+
+msgid "Number of persons"
+msgstr ""
+
+msgid "List of linked persons"
+msgstr ""
+
+msgid "Should a Degree table be shown?"
+msgstr ""
+
+msgid "The Degree table lists the number of persons at each distance and provides a list of linked persons."
+msgstr ""
+
+msgid "Show Degree table"
+msgstr ""
+
+msgid "Should Degree labels be shown?"
+msgstr ""
+
+msgid "Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step."
+msgstr ""
+
+msgid "Show Degree labels"
+msgstr ""
+
+msgid "Degree shells"
 msgstr ""
