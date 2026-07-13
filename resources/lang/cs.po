@@ -1,3 +1,4 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Extended Family\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "X-Generator: Poedit 3.9\n"
 "X-Poedit-Basepath: ../..\n"
-"X-Poedit-KeywordsList: translate;noop;plural:1,2,3;translateContext:1c,2\n"
+"X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: ExtendedFamilyTabModule.php:228
@@ -1233,7 +1234,7 @@ msgstr "Partner/ka"
 #: resources/views/partials/family-part-summary.phtml:21
 #, php-format
 msgid "%s has one great-grandmother recorded."
-msgstr "%s má zaznamenánu jednu praprababičku."
+msgstr "%s má zaznamenánu jednu prababičku."
 
 #: resources/views/partials/family-part-summary.phtml:23
 #, php-format
@@ -1249,9 +1250,9 @@ msgstr "%s má zaznamenaného jednoho praprarodiče neurčeného nebo neznáméh
 #, php-format
 msgid "%2$s has %1$d great-grandmother recorded."
 msgid_plural "%2$s has %1$d great-grandmothers recorded."
-msgstr[0] "%2$s má zaznamenánu %1$d praprababičku."
-msgstr[1] "%2$s má zaznamenány %1$d praprababičky."
-msgstr[2] "%2$s má zaznamenáno %1$d praprababiček."
+msgstr[0] "%2$s má zaznamenánu %1$d prababičku."
+msgstr[1] "%2$s má zaznamenány %1$d prababičky."
+msgstr[2] "%2$s má zaznamenáno %1$d prababiček."
 
 #: resources/views/partials/family-part-summary.phtml:31
 #, php-format
@@ -1281,9 +1282,9 @@ msgstr[2] "%2$s má zaznamenáno %1$d pradědečků a"
 #, php-format
 msgid "%d great-grandmother recorded (%d in total)."
 msgid_plural "%d great-grandmothers recorded (%d in total)."
-msgstr[0] "%d praprababičku (celkem %d)."
-msgstr[1] "%d praprababičky (celkem %d)."
-msgstr[2] "%d praprababiček (celkem %d)."
+msgstr[0] "%d prababičku (celkem %d)."
+msgstr[1] "%d prababičky (celkem %d)."
+msgstr[2] "%d prababiček (celkem %d)."
 
 #: resources/views/partials/family-part-summary.phtml:39 resources/views/partials/family-part-summary.phtml:42 resources/views/partials/family-part-summary.phtml:46
 #, php-format
@@ -1297,9 +1298,9 @@ msgstr[2] "%d praprarodičů neurčeného nebo neznámého pohlaví (celkem %d).
 #, php-format
 msgid "%2$s has %1$d great-grandmother and"
 msgid_plural "%2$s has %1$d great-grandmothers and"
-msgstr[0] "%2$s má zaznamenánu %1$d praprababičku a"
-msgstr[1] "%2$s má zaznamenány %1$d praprababičky a"
-msgstr[2] "%2$s má zaznamenáno %1$d praprababiček a"
+msgstr[0] "%2$s má zaznamenánu %1$d prababičku a"
+msgstr[1] "%2$s má zaznamenány %1$d prababičky a"
+msgstr[2] "%2$s má zaznamenáno %1$d prababiček a"
 
 #: resources/views/partials/family-part-summary.phtml:44
 #, php-format
@@ -1313,9 +1314,9 @@ msgstr[2] "%2$s má zaznamenáno %1$d pradědečků,"
 #, php-format
 msgid "%d great-grandmother, and"
 msgid_plural "%d great-grandmothers, and"
-msgstr[0] "%d praprababičku a"
-msgstr[1] "%d praprababičky a"
-msgstr[2] "%d praprababiček a"
+msgstr[0] "%d prababičku a"
+msgstr[1] "%d prababičky a"
+msgstr[2] "%d prababiček a"
 
 #: resources/views/partials/family-part-summary.phtml:52
 #, php-format
@@ -3648,3 +3649,108 @@ msgstr "Zvolte, zda se obsah záložky širší rodiny vypočítá ihned při ot
 #: resources/views/settings.phtml:418
 msgid "Load later"
 msgstr "Načíst později"
+
+# ---------------------------------------------------------------------
+# Následující řetězce jsou převzaty a přeloženy pomocí AI ChatGPT
+# z default.pot Release v2.2.6.12, dne 10/7/2026
+#: resources/views/partials/summary.phtml:39
+#, php-format
+msgid "%1$s (%2$s) / %3$s (%4$s)"
+msgstr "%1$s (%2$s) / %3$s (%4$s)"
+
+#: ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+msgid "Living / deceased"
+msgstr "Žijící / zemřelý"
+
+#: resources/views/settings.phtml:213
+msgid "Which columns should be shown in the direct-line summary table?"
+msgstr "Které sloupce mají být zobrazeny v souhrnné tabulce přímé linie?"
+
+#: resources/views/settings.phtml:215
+msgid "The generation column is always shown. All other columns can be selected by the administrator."
+msgstr "Sloupec generace se zobrazuje vždy. Všechny ostatní sloupce může vybrat správce."
+
+#: resources/views/settings.phtml:219
+msgid "The direct-line summary table cannot be shown while the summary block or the summary statistics are disabled."
+msgstr "Souhrnnou tabulku přímé linie nelze zobrazit, pokud jsou souhrnný blok nebo souhrnné statistiky vypnuty."
+
+#: resources/views/settings.phtml:221
+msgid "Summary table columns"
+msgstr "Sloupce souhrnné tabulky"
+
+#: resources/views/settings.phtml:333
+msgid "How should step-parent relationships be interpreted?"
+msgstr "Jak mají být interpretovány vztahy nevlastních rodičů?"
+
+#: resources/views/settings.phtml:334
+msgid ""
+"The strict concept treats a parent's earlier partner as no step-parent of children from a later partnership. The relaxed concept keeps the previous symmetrical patchwork interpretation."
+msgstr ""
+"Přísné pojetí nepovažuje dřívějšího partnera rodiče za nevlastního rodiče dětí z pozdějšího partnerství. Mírnější pojetí zachovává dosavadní symetrický výklad vztahů ve smíšené rodině."
+
+#: resources/views/settings.phtml:339
+msgid "Step-parent concept"
+msgstr "Pojetí nevlastního rodičovství"
+
+#: resources/views/settings.phtml:342
+msgid "strict / sequential"
+msgstr "striktní / sekvenční"
+
+#: resources/views/settings.phtml:342
+msgid "relaxed / symmetrical"
+msgstr "uvolněné / symetrické"
+
+#: ExtendedFamily.php:538
+msgid "spouse of"
+msgstr "partner osoby"
+
+#: ExtendedFamily.php:542
+msgid "parent of"
+msgstr "rodič osoby"
+
+#: ExtendedFamily.php:543
+msgid "child of"
+msgstr "dítě osoby"
+
+#: resources/views/partials/summary.phtml:143
+msgid "One family role loop was detected in the extended family."
+msgid_plural "%s family role loops were detected in the extended family."
+msgstr[0] "V rozšířené rodině byl zjištěn jeden cyklus rodinných rolí."
+msgstr[1] "V rozšířené rodině byly zjištěny %s cykly rodinných rolí."
+msgstr[2] "V rozšířené rodině bylo zjištěno %s cyklů rodinných rolí."
+
+#: resources/views/partials/summary.phtml:278
+msgid "Family role loops"
+msgstr "Cykly rodinných rolí"
+
+#: resources/views/partials/summary.phtml:282
+msgid "family role loop"
+msgstr "cyklus rodinných rolí"
+
+#: resources/views/settings.phtml:110
+msgid "Available to users"
+msgstr "Dostupné uživatelům"
+
+#: resources/views/settings.phtml:111
+msgid "Shown by default"
+msgstr "Zobrazeno ve výchozím nastavení"
+
+#: resources/views/partials/family-part-selector.phtml:22
+msgid "Choose family parts"
+msgstr "Vyberte části rodiny"
+
+#: resources/views/partials/family-part-selector.phtml:26
+msgid "Select the family parts to show for this individual."
+msgstr "Vyberte části rodiny, které se mají pro tuto osobu zobrazit."
+
+#: resources/views/partials/family-part-selector.phtml:51
+msgid "Apply"
+msgstr "Použít"
+
+#: resources/views/partials/family-part-selector.phtml:54
+msgid "Reset to default"
+msgstr "Obnovit výchozí nastavení"
+
+#: resources/views/settings.phtml:91
+msgid "Disable all non-blood family parts"
+msgstr "Zakázat všechny nepokrevní části rodiny"
