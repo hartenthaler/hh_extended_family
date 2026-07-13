@@ -7,6 +7,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 ## After the latest release / Nach dem letzten Release
 
 - Updated Czech translations; thanks to Josef Prause.
+- Added WikiTree-style person-level Degree distances, distinct optional Degree labels with relationship-labelled path tooltips, and an optional Degree-shell summary table with linked persons ordered by path and birth date.
 
 ## 2.2.6.13 - 2026-07-12
 

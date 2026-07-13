@@ -224,6 +224,8 @@ class ExtendedFamilyTabModule extends AbstractModule
             $this->showShortName(),
             $this->showLabels(),
             $this->showSosaNumbers(),
+            $this->showDegreeLabels(),
+            $this->showDegreeTable(),
             $this->showRelationshipToProband(),
             $this->useCompactDesign(),
             $this->useClippingsCart(),
@@ -281,6 +283,8 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_short_name',
             'show_labels',
             'show_sosa_numbers',
+            'show_degree_labels',
+            'show_degree_table',
             'show_relationship_to_proband',
             'step_parent_concept',
             'show_parameters',
@@ -388,6 +392,8 @@ class ExtendedFamilyTabModule extends AbstractModule
             'show_short_name'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_short_name', '0'),
             'show_labels'             => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_labels', '0'),
             'show_sosa_numbers'       => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_sosa_numbers', '1'),
+            'show_degree_labels'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_degree_labels', '0'),
+            'show_degree_table'       => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_degree_table', '0'),
             'show_relationship_to_proband' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_relationship_to_proband', '0'),
             'step_parent_concept'  => Validator::parsedBody($request)->isInArray(self::STEP_PARENT_CONCEPTS)->string('step_parent_concept', self::STEP_PARENT_CONCEPT_STRICT),
             'show_parameters'         => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_parameters', '0'),
@@ -697,6 +703,16 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function showRelationshipToProband(): bool
     {
         return ($this->getPreference('show_relationship_to_proband', '0') == '0');
+    }
+
+    private function showDegreeLabels(): bool
+    {
+        return $this->getPreference('show_degree_labels', '0') === '0';
+    }
+
+    private function showDegreeTable(): bool
+    {
+        return $this->getPreference('show_degree_table', '0') === '0';
     }
 
     /**

@@ -27,6 +27,8 @@ class ExtendedFamilyConfig
         public bool $showShortName,
         public bool $showLabels,
         public bool $showSosaNumbers,
+        public bool $showDegreeLabels,
+        public bool $showDegreeTable,
         public bool $showRelationshipToProband,
         public bool $useCompactDesign,
         public bool $useClippingsCart,

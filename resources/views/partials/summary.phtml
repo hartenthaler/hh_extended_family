@@ -320,7 +320,29 @@ if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
                 </tbody>
             </table>
         </div>
-        <p><em><?= I18N::translate('Summary table for direct line') ?></em></p>
+        <p class="hh-extended-family-table-caption"><em><?= I18N::translate('Summary table for direct line') ?></em></p>
+    <?php endif ?>
+    <?php if ($extfam_obj->config->showDegreeTable && $filterObj->efp->summary->degrees !== []) : ?>
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered wt-facts-table hh-extended-family-degree-table">
+                <thead><tr>
+                    <!-- TRANSLATORS: In German, translate genealogical "Degree" as "Entfernungsschritte", not "Grad"; canon law defines degrees differently. -->
+                    <th><?= I18N::translate('Degree') ?></th>
+                    <th><?= I18N::translate('Number of persons') ?></th>
+                    <th><?= I18N::translate('List of linked persons') ?></th>
+                </tr></thead>
+                <tbody>
+                <?php foreach ($filterObj->efp->summary->degrees as $degree => $row) : ?>
+                    <tr>
+                        <td><?= I18N::number($degree) ?></td>
+                        <td><?= I18N::number($row['count']) ?></td>
+                        <td><?= implode(', ', array_map(static fn ($person): string => '<a href="' . e($person->url()) . '">' . $person->fullName() . '</a>', $row['individuals'])) ?></td>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+        <p class="hh-extended-family-table-caption"><em><?= I18N::translate('Degree shells') ?></em></p>
     <?php endif ?>
     <p class="hh-extended-family-summary-text">
         <?= implode(' ', $summarySentences) ?>

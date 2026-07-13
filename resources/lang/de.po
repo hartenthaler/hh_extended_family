@@ -3612,7 +3612,7 @@ msgstr "Alle angeheirateten Familienteile deaktivieren"
 
 #: resources/views/settings.phtml:94 resources/views/settings.phtml:95
 msgid "Degree"
-msgstr "Entfernung"
+msgstr "Entfernungsschritte"
 
 #: resources/views/settings.phtml:95
 msgid "unlimited"
@@ -4123,3 +4123,33 @@ msgstr "Alle nicht blutsverwandten Familienteile abwählen"
 
 #~ msgid "Full sibling"
 #~ msgstr "vollbürtiges Geschwister"
+
+msgid "Degree paths"
+msgstr "Pfade der Entfernungsschritte"
+
+msgid "Number of persons"
+msgstr "Anzahl Personen"
+
+msgid "List of linked persons"
+msgstr "Liste mit anklickbaren Personen"
+
+msgid "Should a Degree table be shown?"
+msgstr "Soll eine Tabelle der Entfernungsschritte angezeigt werden?"
+
+msgid "The Degree table lists the number of persons at each distance and provides a list of linked persons."
+msgstr "Die Tabelle der Entfernungsschritte zeigt für jede Entfernung die Anzahl der Personen sowie eine Liste mit anklickbaren Personen."
+
+msgid "Show Degree table"
+msgstr "Tabelle der Entfernungsschritte anzeigen"
+
+msgid "Should Degree labels be shown?"
+msgstr "Sollen Label mit Entfernungsschritten angezeigt werden?"
+
+msgid "Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step."
+msgstr "Die Entfernungsschritte folgen der Definition von WikiTree; Eltern, Kinder, Partner und Geschwister zählen jeweils als ein Schritt."
+
+msgid "Show Degree labels"
+msgstr "Label mit Entfernungsschritten anzeigen"
+
+msgid "Degree shells"
+msgstr "Schalen der Entfernungsschritte"

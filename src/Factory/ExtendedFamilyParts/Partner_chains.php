@@ -299,7 +299,7 @@ class Partner_chains extends ExtendedFamilyPart
     private function partnerChainPerson(PartnerChainNode $node, int $step): PartnerChainPerson
     {
         if ($node->getFilterComment() !== '') {
-            return new PartnerChainPerson(strval($step), false, I18N::translate($node->getFilterComment()), '');
+            return new PartnerChainPerson(strval($step), false, I18N::translate($node->getFilterComment()), '', $node->getIndividualXref());
         }
 
         $individual = $node->getIndividual();
@@ -308,7 +308,8 @@ class Partner_chains extends ExtendedFamilyPart
             strval($step),
             ExtendedFamilySupport::canLinkIndividual($individual),
             ExtendedFamilySupport::individualName($individual),
-            $individual->url()
+            $individual->url(),
+            $individual->xref()
         );
     }
 }
