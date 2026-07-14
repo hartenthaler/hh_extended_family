@@ -34,7 +34,7 @@ msgstr "De aangepaste module “huhwt-cce” is niet beschikbaar. De knop “Kop
 
 #: ExtendedFamilyTabModule.php:755
 msgid "Vesta relationship names are not available. Mouse-over text for relationships to the proband will not be shown."
-msgstr "Vesta-verwantschapsnamen zijn niet beschikbaar. De muisovertekst over de verwantschap met de proband kan niet worden weergegeven."
+msgstr "Vesta-verwantschapsnamen zijn niet beschikbaar. De muis-over-tekst over de verwantschap met de proband kan niet worden weergegeven."
 
 #: ExtendedFamilyTabModule.php:765 ExtendedFamilyTabModule.php:937
 msgid "Extended family"
@@ -3530,7 +3530,7 @@ msgstr "Toon SOSA-nummers"
 
 #: resources/views/settings.phtml:347
 msgid "Show relationship to the proband as mouse-over text?"
-msgstr "Toon verwantschap met de proband als mouse-overtekst?"
+msgstr "Toon verwantschap met de proband als muis-over-tekst?"
 
 #: resources/views/settings.phtml:348
 msgid "This shows the relationship of a person to the proband when the mouse pointer is over the name."
