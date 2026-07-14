@@ -3644,6 +3644,11 @@ msgstr "Zvolená priama línia zahŕňa %s."
 msgid "Living members: %1$s (%2$s); deceased members: %3$s (%4$s)."
 msgstr "Žijúci členovia: %1$s (%2$s); zosnulí členovia: %3$s (%4$s)."
 
+#: resources/views/partials/summary.phtml:39
+#, php-format
+msgid "%1$s (%2$s) / %3$s (%4$s)"
+msgstr "%1$s (%2$s) / %3$s (%4$s)"
+
 #: resources/views/partials/summary.phtml:165
 #, php-format
 msgid ""
@@ -3728,13 +3733,17 @@ msgstr "Vzťah"
 msgid "Total profiles"
 msgstr "Spolu profilov"
 
+#: ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+msgid "Living / deceased"
+msgstr "Žijúci / zosnulí"
+
 #: resources/views/partials/summary.phtml:234
 msgid "Biological"
 msgstr "Biologickí"
 
 #: resources/views/partials/summary.phtml:235
 msgid "Earliest / latest birth year"
-msgstr "Najskorší /najneskorší rok narodenia"
+msgstr "Najskorší / najneskorší rok narodenia"
 
 #: resources/views/partials/summary.phtml:236
 msgid "Average birth year"
@@ -3792,6 +3801,7 @@ msgstr "Zakázať všetky"
 msgid "Disable all in-law family parts"
 msgstr "Zakázať všetky časti rodiny získané sobášom"
 
+#. TRANSLATORS: In German, use "Entfernungsschritte", not "Grad"; canon law defines degrees differently.
 #: resources/views/settings.phtml:94 resources/views/settings.phtml:95
 msgid "Degree"
 msgstr "Stupeň"
@@ -3869,6 +3879,30 @@ msgstr ""
 #: resources/views/settings.phtml:203
 msgid "Show summary statistics"
 msgstr "Zobraziť štatistický súhrn"
+
+#: resources/views/settings.phtml:213
+msgid "Which columns should be shown in the direct-line summary table?"
+msgstr "Ktoré stĺpce sa majú zobrazi v sumárnej tabuľke priamej línie?"
+
+#: resources/views/settings.phtml:215
+msgid ""
+"The generation column is always shown. All other columns can be selected by "
+"the administrator."
+msgstr ""
+"Stĺpec generácia sa zobrazí vždy. Administrátor môže rozhodnúť o zobrazení "
+"všetkých ostatných stĺpcov."
+
+#: resources/views/settings.phtml:219
+msgid ""
+"The direct-line summary table cannot be shown while the summary block or the "
+"summary statistics are disabled."
+msgstr ""
+"Sumárna tabuľka priamej línie sa nemôže zobraziť, pokiaľ je zakázané "
+"zobrazenie sumárneho blok alebo súhrnnej štatistiky."
+
+#: resources/views/settings.phtml:221
+msgid "Summary table columns"
+msgstr "Stĺpce sumárnej tabuľky"
 
 #: resources/views/settings.phtml:211
 msgid "How should empty parts of extended family be presented?"
@@ -4183,6 +4217,72 @@ msgstr "Rodinné slučky"
 #: resources/views/partials/summary.phtml:282
 msgid "family role loop"
 msgstr "rodinná slučka"
+
+#: resources/views/settings.phtml:110
+msgid "Available to users"
+msgstr "Užívateľ si môže zvoli"
+
+#: resources/views/settings.phtml:111
+msgid "Shown by default"
+msgstr "Prednastavené"
+
+#: resources/views/partials/family-part-selector.phtml:22
+msgid "Choose family parts"
+msgstr "Vybrať časti rodiny"
+
+#: resources/views/partials/family-part-selector.phtml:26
+msgid "Select the family parts to show for this individual."
+msgstr "Zvoli časti rodiny pre túto osobu."
+
+#: resources/views/partials/family-part-selector.phtml:51
+msgid "Apply"
+msgstr "Použi"
+
+#: resources/views/partials/family-part-selector.phtml:54
+msgid "Reset to default"
+msgstr "Reset"
+
+#: resources/views/settings.phtml:91
+msgid "Disable all non-blood family parts"
+msgstr "Zrušiť všetky časti rodiny, ktoré nie sú pokrvné"
+
+msgid "Degree paths"
+msgstr "Postupnosť pre stupne príbuzenstva"
+
+msgid "Number of persons"
+msgstr "Počet osôb"
+
+msgid "List of linked persons"
+msgstr "Zoznam osôb, ktoré môžete zobraziť kliknutím na meno"
+
+msgid "Should a Degree table be shown?"
+msgstr "Má sa ukázať tabuľka stupňov príbuzenstva?"
+
+msgid ""
+"The Degree table lists the number of persons at each distance and provides a "
+"list of linked persons."
+msgstr ""
+"Tabuľka stupňov príbuzenstva zobrazuje počet osôb v každej vzdialenosti a "
+"poskytuje zoznam prepojených osôb."
+
+msgid "Show Degree table"
+msgstr "Ukázať tabuľku stupňov príbuzenstva"
+
+msgid "Should Degree labels be shown?"
+msgstr "Majú sa zobrazovať štítky stupňov príbuzenstva?"
+
+msgid ""
+"Degree follows the WikiTree definition and counts parent, child, partner, "
+"and sibling relationships as one step."
+msgstr ""
+"Stupne príbuzenstva sa počítajú podľa definície WikiTree. Vzťahy rodiča, "
+"dieťaťa, partnera a súrodenca sa počítajú ako jeden krok."
+
+msgid "Show Degree labels"
+msgstr "Zobraziť štítky stupňov príbuzenstva"
+
+msgid "Degree shells"
+msgstr "Tabuľka širšej rodiny podľa stupňov príbuzenstva"
 
 # Migrated from ExtendedFamilyTranslations.php.old
 #~ msgctxt "extendedfamily"
