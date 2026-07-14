@@ -34,7 +34,7 @@ msgstr "De aangepaste module “huhwt-cce” is niet beschikbaar. De knop “Kop
 
 #: ExtendedFamilyTabModule.php:755
 msgid "Vesta relationship names are not available. Mouse-over text for relationships to the proband will not be shown."
-msgstr "Vesta-verwantschapsnamen zijn niet beschikbaar. De muisovertekst over de verwantschap met de proband kan niet worden weergegeven."
+msgstr "Vesta-verwantschapsnamen zijn niet beschikbaar. De muis-over-tekst over de verwantschap met de proband kan niet worden weergegeven."
 
 #: ExtendedFamilyTabModule.php:765 ExtendedFamilyTabModule.php:937
 msgid "Extended family"
@@ -3530,7 +3530,7 @@ msgstr "Toon SOSA-nummers"
 
 #: resources/views/settings.phtml:347
 msgid "Show relationship to the proband as mouse-over text?"
-msgstr "Toon verwantschap met de proband als mouse-overtekst?"
+msgstr "Toon verwantschap met de proband als muis-over-tekst?"
 
 #: resources/views/settings.phtml:348
 msgid "This shows the relationship of a person to the proband when the mouse pointer is over the name."
@@ -3633,3 +3633,33 @@ msgstr "Standaardinstellingen herstellen"
 #: resources/views/settings.phtml:91
 msgid "Disable all non-blood family parts"
 msgstr "Alle niet-bloedverwante familiedelen uitschakelen"
+
+msgid "Degree paths"
+msgstr "Graadpaden"
+
+msgid "Number of persons"
+msgstr "Aantal personen"
+
+msgid "List of linked persons"
+msgstr "Lijst met aanklikbare personen"
+
+msgid "Should a Degree table be shown?"
+msgstr "Moet een gradentabel worden weergegeven?"
+
+msgid "The Degree table lists the number of persons at each distance and provides a list of linked persons."
+msgstr "De gradentabel toont voor elke graad het aantal personen en een lijst met aanklikbare personen."
+
+msgid "Show Degree table"
+msgstr "Gradentabel weergeven"
+
+msgid "Should Degree labels be shown?"
+msgstr "Moeten graadlabels worden weergegeven?"
+
+msgid "Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step."
+msgstr "De graad volgt de definitie van WikiTree; ouders, kinderen, partners en broers of zussen tellen elk als één stap."
+
+msgid "Show Degree labels"
+msgstr "Graadlabels weergeven"
+
+msgid "Degree shells"
+msgstr "Graadlagen"
