@@ -15,6 +15,9 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
 ?>
 
         <div class="hh_extended_family_box hh-extended-family-partner-chains">
+            <?php if (!$extfam_obj->config->countPartnerChainsToTotal): ?>
+                <p class="small text-muted mb-2"><?= I18N::translate('(additional members of the partner chains are not counted)') ?></p>
+            <?php endif ?>
             <?php $chainNumber = 1; ?>
             <?php foreach ($filterObj->efp->$propName->chains->displayChains as $chain) : ?>
                 <?php if ($chainNumber > 1): ?>

@@ -137,7 +137,7 @@ The administrative flow is separate:
 The clippings-cart flow depends on the selected action:
 
 1. `getTabContent()` checks whether huhwt-cce is installed, active, and accessible for the current tree and user.
-1. If huhwt-cce is selected and available, the tab button routes to `ClippingsCartEnhancedModule` with action `clip_hhEF`.
+1. If huhwt-cce is selected and available, the tab button routes to `ClippingsCartEnhancedModule` with action `clip_hhEF`. When additional partner-chain people are configured not to count as extended-family members, the module uses its internal action instead because huhwt-cce rebuilds the family independently and cannot apply this preference.
 1. If huhwt-cce is unavailable or the internal action is selected, the button posts to this module's `ClippingsCart` action.
 1. `postClippingsCartAction()` rebuilds the current extended-family data, applies the selected filter, and delegates the filtered collections to `ExtendedFamily::addExtendedFamilyToClippingsCart()`.
 1. The internal `ClippingsCartWriter` adds the records and their linked records to the session cart.
@@ -284,7 +284,7 @@ It is a local selection aid for family parts.
 
 Issue #208 adds person-level Degree metadata without changing which people are selected or how family parts classify them. Following WikiTree, a parent, child, partner, full sibling, or half sibling is one Degree away. Parent-child edges count as one step regardless of biological, adoptive, foster, RADA, or other pedigree linkage. Step-siblings have no direct sibling edge and are reached through parent, partner, and child in three steps.
 
-Each rendered person may carry a sorted list of Degree values because distinct shortcut-free paths can lead from the proband to the same person; repeated values are retained for distinct paths (for example `3, 3, 5`). A path is retained only if it is induced: no two non-adjacent people within that path have a direct relationship edge. This removes detours such as mother → spouse → daughter when mother and daughter are directly related, while preserving a genuinely different longer chain that has no shortcut within the chain. The label tooltip lists those paths and labels every edge with its relationship. Summary rows count a person once per Degree even when several paths have that same Degree; Degree 0 contains the proband. People in each row are sorted by their path, then birth date, then name, so branches remain together. Label and table have independent administrator settings and both default to visible.
+Each rendered person may carry a sorted list of Degree values because distinct shortcut-free paths can lead from the proband to the same person; repeated values are retained for distinct paths (for example `3, 3, 5`). A path is retained only if it is induced: no two non-adjacent people within that path have a direct relationship edge. This removes detours such as mother → spouse → daughter when mother and daughter are directly related, while preserving a genuinely different longer chain that has no shortcut within the chain. The label tooltip lists those paths and labels every edge with its relationship. Summary rows count a person once per Degree even when several paths have that same Degree; Degree 0 contains the proband. People in each row are sorted by their path, then birth date, then name, so branches remain together. Label and table have independent administrator settings and both default to visible. Degree paths are calculated for all rendered people so that additional partner-chain people retain their labels. The Degree-shell rows, however, are restricted to `collectAllIndividuals()`, which is the authoritative membership set and respects `countPartnerChainsToTotal`.
 
 English uses **Degree**. German translations use **Entfernungsschritte**, not **Grad**, because canon law defines degrees differently.
 
@@ -347,7 +347,7 @@ The displayed value is the sum of these biological-child counts divided by the n
 Ancestor and descendant implex detection is intentionally stricter than the general duplicate-membership warning.
 Duplicate membership means that the same person appears in more than one extended-family part.
 An implex is reported only when the same person is reachable through more than one biological direct-line path within the selected ancestor or descendant generations.
-Family-role loops are detected separately.
+Family-role loops are detected separately and use the same authoritative membership set as the unique-member count and internal clippings-cart export.
 For this purpose, the displayed extended family is treated as a kinship graph with spouse or partner edges and parent-child edges.
 A loop is reported only for a closed path that contains at least one spouse or partner edge and at least one parent-child edge and has at least four distinct people.
 This keeps ordinary parent-parent-child triangles out of the report while still showing matrimonial circuits and role loops such as the "I'm My Own Grandpa" pattern.

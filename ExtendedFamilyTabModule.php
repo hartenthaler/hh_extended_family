@@ -1017,7 +1017,12 @@ class ExtendedFamilyTabModule extends AbstractModule
         $cce_ok                = $this->canAccessClippingsCartEnhanced($individual);
         $clippings_cart_action = $this->clippingsCartAction();
 
-        if ($clippings_cart_action === self::CLIPPINGS_CART_ACTION_CCE && !$cce_ok) {
+        // CCE rebuilds the family independently and cannot honor this module's
+        // partner-chain membership preference. Use the filtered internal export
+        // whenever additional partner-chain people are not family members.
+        if (!$this->countPartnerChainsToTotal()) {
+            $clippings_cart_action = self::CLIPPINGS_CART_ACTION_INTERNAL;
+        } elseif ($clippings_cart_action === self::CLIPPINGS_CART_ACTION_CCE && !$cce_ok) {
             $clippings_cart_action = self::CLIPPINGS_CART_ACTION_INTERNAL;
         }
 
