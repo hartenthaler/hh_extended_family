@@ -222,7 +222,8 @@ class ExtendedFamily
      */
     private function addDegreeData(ExtendedFamilyFilterResult $extendedFamily): void
     {
-        $individuals = $this->familyRoleLoopIndividuals($extendedFamily);
+        $individuals = $this->degreeIndividuals($extendedFamily);
+        $members = $this->extendedFamilyMemberIndividuals($extendedFamily);
         $graph = $this->degreeGraph($individuals);
         $start = $this->proband->indi->xref();
         $shortest = $this->degreeShortestDistances($graph, $start);
@@ -254,8 +255,12 @@ class ExtendedFamily
 
         $rows = [0 => [$start => $this->proband->indi]];
         foreach ($degreeData as $xref => $data) {
+            if (!isset($members[$xref])) {
+                continue;
+            }
+
             foreach (array_unique($data['degrees']) as $degree) {
-                $rows[$degree][$xref] = $individuals[$xref];
+                $rows[$degree][$xref] = $members[$xref];
             }
         }
         ksort($rows);
@@ -431,7 +436,7 @@ class ExtendedFamily
      */
     private function familyRoleLoopSummary(object $extendedFamily): FamilyRoleLoopSummary
     {
-        $individuals = $this->familyRoleLoopIndividuals($extendedFamily);
+        $individuals = $this->extendedFamilyMemberIndividuals($extendedFamily);
 
         if (count($individuals) < 4) {
             return new FamilyRoleLoopSummary();
@@ -475,7 +480,7 @@ class ExtendedFamily
      * @param object $extendedFamily
      * @return array<string,Individual>
      */
-    private function familyRoleLoopIndividuals(object $extendedFamily): array
+    private function degreeIndividuals(object $extendedFamily): array
     {
         $individuals = [$this->proband->indi->xref() => $this->proband->indi];
 
@@ -494,6 +499,27 @@ class ExtendedFamily
                 if ($individual instanceof Individual) {
                     $individuals[$individual->xref()] = $individual;
                 }
+            }
+        }
+
+        ksort($individuals);
+
+        return $individuals;
+    }
+
+    /**
+     * Return exactly the people who count as members of the extended family.
+     *
+     * @param object $extendedFamily
+     * @return array<string,Individual>
+     */
+    private function extendedFamilyMemberIndividuals(object $extendedFamily): array
+    {
+        $individuals = [];
+
+        foreach ($this->collectAllIndividuals($extendedFamily) as $individual) {
+            if ($individual instanceof Individual) {
+                $individuals[$individual->xref()] = $individual;
             }
         }
 
