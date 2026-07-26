@@ -3715,9 +3715,9 @@ msgstr "dítě osoby"
 #: resources/views/partials/summary.phtml:143
 msgid "One family role loop was detected in the extended family."
 msgid_plural "%s family role loops were detected in the extended family."
-msgstr[0] "V rozšířené rodině byl zjištěn jeden cyklus rodinných rolí."
-msgstr[1] "V rozšířené rodině byly zjištěny %s cykly rodinných rolí."
-msgstr[2] "V rozšířené rodině bylo zjištěno %s cyklů rodinných rolí."
+msgstr[0] "V širší rodině byl zjištěn jeden cyklus rodinných rolí."
+msgstr[1] "V širší rodině byly zjištěny %s cykly rodinných rolí."
+msgstr[2] "V širší rodině bylo zjištěno %s cyklů rodinných rolí."
 
 #: resources/views/partials/summary.phtml:278
 msgid "Family role loops"
@@ -3754,3 +3754,33 @@ msgstr "Obnovit výchozí nastavení"
 #: resources/views/settings.phtml:91
 msgid "Disable all non-blood family parts"
 msgstr "Zakázat všechny nepokrevní části rodiny"
+
+msgid "Degree paths"
+msgstr "Cesty stupňů příbuzenství"
+
+msgid "Number of persons"
+msgstr "Počet osob"
+
+msgid "List of linked persons"
+msgstr "Seznam spřízněných osob"
+
+msgid "Should a Degree table be shown?"
+msgstr "Má se zobrazit tabulka stupňů příbuzenství?"
+
+msgid "The Degree table lists the number of persons at each distance and provides a list of linked persons."
+msgstr "Tabulka stupňů příbuzenství je seznam osob podle vzdáleností a dává seznam spřízněných osob."
+
+msgid "Show Degree table"
+msgstr "Zobrazit tabulku stupňů příbuzenství"
+
+msgid "Should Degree labels be shown?"
+msgstr "Mají se zobrazit štítky stupně příbuzenství?"
+
+msgid "Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step."
+msgstr "Stupeň příbuzenství odpovídá definici WikiTree a pokládá rodiče, dítě, partnera a sourozence za jeden krok."
+
+msgid "Show Degree labels"
+msgstr "Zobrazit štítky stupně příbuzenství"
+
+msgid "Degree shells"
+msgstr "Skupiny stupňů příbuzenství"
