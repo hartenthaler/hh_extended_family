@@ -62,6 +62,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                                     <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
                                 <?php endforeach ?>
                             <?php endif ?>
+                            <?php include dirname(__DIR__) . '/person-additional-details.phtml'; ?>
                         <?php else: ?>
                             <span class="hh_extended_family_counter"><?= $i ?></span>
                             <?php if ($propName == 'children_in_law'): ?>

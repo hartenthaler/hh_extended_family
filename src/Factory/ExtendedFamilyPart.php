@@ -64,6 +64,8 @@ abstract class ExtendedFamilyPart
      */
     protected int $placeFormat;
 
+    protected PlaceDisplayConfig $placeDisplay;
+
     /**
      * @var string $stepParentConcept selected interpretation of stepparent relationships
      */
@@ -83,10 +85,13 @@ abstract class ExtendedFamilyPart
         Individual $proband,
         string $filterOption,
         int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME,
-        string $stepParentConcept = self::STEP_PARENT_CONCEPT_STRICT
+        string $stepParentConcept = self::STEP_PARENT_CONCEPT_STRICT,
+        ?PlaceDisplayConfig $placeDisplay = null
     )
     {
         $this->placeFormat = $placeFormat;
+        $this->placeDisplay = $placeDisplay ?? ExtendedFamilySupport::currentPlaceDisplay();
+        ExtendedFamilySupport::setCurrentPlaceDisplay($this->placeDisplay);
         $this->stepParentConcept = $stepParentConcept === self::STEP_PARENT_CONCEPT_RELAXED
             ? self::STEP_PARENT_CONCEPT_RELAXED
             : self::STEP_PARENT_CONCEPT_STRICT;
@@ -609,7 +614,7 @@ abstract class ExtendedFamilyPart
         foreach (['BIRT', 'DEAT'] as $tag) {
             $event = $individual->facts([$tag])->first();
             if ($event instanceof Fact) {
-                $summary .= ExtendedFamilySupport::eventSummary($event, $this->placeFormat);
+                $summary .= ExtendedFamilySupport::eventSummary($event, $this->placeDisplay);
             }
         }
         return $summary;

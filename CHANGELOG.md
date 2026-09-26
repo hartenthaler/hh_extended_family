@@ -6,6 +6,8 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+- Added optional latest occupation and residence details to person entries and optional marriage date/place details to partner entries.
+- Added configurable event-place sources for GEDCOM `PLAC`, the historical shared-place hierarchy at the event date, and the current shared-place hierarchy, with the existing place-format variants.
 - Improved the spacing around summary-table captions so that each caption is clearly attached to its table and separated from the following content.
 - Added compatibility support for webtrees 2.3 while retaining support for webtrees 2.2.6: access-level enums, hidden-fact privacy values, date calculations, translation loading, number formatting, and the settings/filter JavaScript now use compatible APIs.
 - Updated Czech translations; thanks to Josef Prause.

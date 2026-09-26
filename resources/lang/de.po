@@ -4157,3 +4157,42 @@ msgstr "Label mit Entfernungsschritten anzeigen"
 
 msgid "Degree shells"
 msgstr "Schalen der Entfernungsschritte"
+
+msgid "Which additional information should be shown?"
+msgstr "Welche zusätzlichen Informationen sollen angezeigt werden?"
+
+msgid "These options add the latest occupation and residence to person entries and marriage details to partner entries."
+msgstr "Diese Optionen ergänzen Personeneinträge um den letzten Beruf und Wohnsitz sowie Partnereinträge um Heiratsdatum und -ort."
+
+msgid "Show last occupation"
+msgstr "Letzten Beruf anzeigen"
+
+msgid "Show last residence"
+msgstr "Letzten Wohnsitz anzeigen"
+
+msgid "Show marriage date and place"
+msgstr "Heiratsdatum und -ort anzeigen"
+
+msgid "Which place information should be shown in event boxes?"
+msgstr "Welche Ortsinformationen sollen in Ereignisboxen angezeigt werden?"
+
+msgid "You can show the GEDCOM place, the shared-place hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources."
+msgstr "Sie können den GEDCOM-Ort, die Hierarchie des gemeinsamen Ortes zum Ereignisdatum, die aktuelle Hierarchie des gemeinsamen Ortes oder eine Kombination dieser Quellen anzeigen."
+
+msgid "Place information sources"
+msgstr "Quellen der Ortsinformationen"
+
+msgid "PLAC information"
+msgstr "PLAC-Informationen"
+
+msgid "_LOC hierarchy at the event date"
+msgstr "_LOC-Hierarchie zum Ereignisdatum"
+
+msgid "Current _LOC hierarchy"
+msgstr "Aktuelle _LOC-Hierarchie"
+
+msgid "Last occupation"
+msgstr "Letzter Beruf"
+
+msgid "Last residence"
+msgstr "Letzter Wohnsitz"

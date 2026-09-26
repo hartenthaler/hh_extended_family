@@ -45,6 +45,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                                     <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
                                 <?php endforeach ?>
                             <?php endif ?>
+                            <?php include dirname(__DIR__) . '/person-additional-details.phtml'; ?>
                             <?php if ($extfam_obj->config->useCompactDesign): ?>
                                 <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
                             <?php else: ?>

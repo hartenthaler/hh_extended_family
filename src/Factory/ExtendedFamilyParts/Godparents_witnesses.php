@@ -53,11 +53,12 @@ class Godparents_witnesses extends ExtendedFamilyPart
         string $filterOption,
         int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME,
         string $stepParentConcept = self::STEP_PARENT_CONCEPT_STRICT,
-        ?ExtendedFamilyPartSet $seedFamilyParts = null
+        ?ExtendedFamilyPartSet $seedFamilyParts = null,
+        ?PlaceDisplayConfig $placeDisplay = null
     ) {
         $this->seedFamilyParts = $seedFamilyParts ?? new ExtendedFamilyPartSet();
 
-        parent::__construct($proband, $filterOption, $placeFormat, $stepParentConcept);
+        parent::__construct($proband, $filterOption, $placeFormat, $stepParentConcept, $placeDisplay);
     }
 
     protected function addEfpMembers(): void

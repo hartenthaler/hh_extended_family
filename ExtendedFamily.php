@@ -185,13 +185,13 @@ class ExtendedFamily
                 continue;
             }
 
-            $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption, $this->config->placeFormat, $this->config->stepParentConcept);
+            $efpO = ExtendedFamilyPartFactory::create(ucfirst($efp), $this->proband->indi, $filterOption, $this->config->placeFormat, $this->config->stepParentConcept, $this->config->placeDisplay);
             $familyParts[$efp] = $efpO->getEfpObject();
             $seedFamilyParts->$efp = $familyParts[$efp];
         }
 
         if ($this->config->shownFamilyParts['godparents_witnesses']->enabled ?? false) {
-            $efpO = new Godparents_witnesses($this->proband->indi, $filterOption, $this->config->placeFormat, $this->config->stepParentConcept, $seedFamilyParts);
+            $efpO = new Godparents_witnesses($this->proband->indi, $filterOption, $this->config->placeFormat, $this->config->stepParentConcept, $seedFamilyParts, $this->config->placeDisplay);
             $familyParts['godparents_witnesses'] = $efpO->getEfpObject();
         }
 
