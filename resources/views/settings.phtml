@@ -233,6 +233,9 @@ $coreYes = MoreI18N::xlate('yes');
         <h3><?= I18N::translate('Should a Degree table be shown?') ?></h3>
         <p><?= I18N::translate('The Degree table lists the number of persons at each distance and provides a list of linked persons.') ?></p>
         <p class="small text-muted"><?= I18N::translate('This option only has an effect if the summary block is shown.') ?></p>
+        <div class="alert alert-warning hh-extended-family-degree-table-warning" role="alert">
+            <?= I18N::translate('The Degree table cannot be shown while the summary block is disabled.') ?>
+        </div>
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3"><?= I18N::translate('Show Degree table') ?></legend>
@@ -627,17 +630,19 @@ $coreYes = MoreI18N::xlate('yes');
       const summaryDisabled = document.querySelector('input[name="show_summary"]:checked')?.value === '1';
       const statisticsEnabled = document.querySelector('input[name="show_summary_statistics"]:checked')?.value === '0';
       const statisticsDisabled = !statisticsEnabled;
+      const degreeTableEnabled = document.querySelector('input[name="show_degree_table"]:checked')?.value === '0';
       const emptyPartsCollectedAtSummary = document.querySelector('[name="show_empty_block"]')?.value === '1';
       const relationshipMouseoverEnabled = document.querySelector('input[name="show_relationship_to_proband"]:checked')?.value === '0';
       const relationshipNamesAvailable = <?= $relationship_names_available ? 'true' : 'false' ?>;
 
       document.querySelectorAll('.hh-extended-family-summary-statistics-warning').forEach((element) => element.classList.toggle('d-none', !(summaryDisabled && statisticsEnabled)));
       document.querySelectorAll('.hh-extended-family-summary-table-columns-warning').forEach((element) => element.classList.toggle('d-none', !(summaryDisabled || statisticsDisabled)));
+      document.querySelectorAll('.hh-extended-family-degree-table-warning').forEach((element) => element.classList.toggle('d-none', !(summaryDisabled && degreeTableEnabled)));
       document.querySelectorAll('.hh-extended-family-empty-summary-warning').forEach((element) => element.classList.toggle('d-none', !(summaryDisabled && emptyPartsCollectedAtSummary)));
       document.querySelectorAll('.hh-extended-family-relationship-warning').forEach((element) => element.classList.toggle('d-none', !(!relationshipNamesAvailable && relationshipMouseoverEnabled)));
   }
 
-  document.querySelectorAll('input[name="show_summary"], input[name="show_summary_statistics"], input[name="show_relationship_to_proband"], [name="show_empty_block"]').forEach((input) => {
+  document.querySelectorAll('input[name="show_summary"], input[name="show_summary_statistics"], input[name="show_degree_table"], input[name="show_relationship_to_proband"], [name="show_empty_block"]').forEach((input) => {
       input.addEventListener('change', updateDependencyWarnings);
   });
   updateDependencyWarnings();

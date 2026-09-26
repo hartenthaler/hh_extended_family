@@ -3308,6 +3308,10 @@ msgstr ""
 msgid "Summary statistics cannot be shown while the summary block is disabled."
 msgstr ""
 
+#: resources/views/settings.phtml:237
+msgid "The Degree table cannot be shown while the summary block is disabled."
+msgstr ""
+
 #: resources/views/settings.phtml:203
 msgid "Show summary statistics"
 msgstr ""
