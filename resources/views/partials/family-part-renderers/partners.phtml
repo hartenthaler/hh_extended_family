@@ -47,10 +47,10 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                             <?php endif ?>
                             <?php include dirname(__DIR__) . '/person-additional-details.phtml'; ?>
                             <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                <span class="hh_extended_family_lifespan" ><?= ExtendedFamilySupport::personLifespan($indi, $extfam_obj->config->useBaptismAsBirthFallback, $extfam_obj->config->baptismFallbackPriority) ?></span>
                             <?php else: ?>
                                 <span class="hh_extended_family_birth_death">
-                                    <?= $entry->vitalEventsSummary ?>
+                                    <?= ExtendedFamilySupport::personVitalEventsSummary($indi, $extfam_obj->config->placeDisplay, $extfam_obj->config->useBaptismAsBirthFallback, $extfam_obj->config->baptismFallbackPriority) ?>
                                 </span>
                             <?php endif ?>
                         <?php else: ?>

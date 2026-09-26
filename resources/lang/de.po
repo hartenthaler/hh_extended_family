@@ -4191,6 +4191,24 @@ msgstr "Letzten Wohnsitz anzeigen"
 msgid "Show marriage date and place"
 msgstr "Heiratsdatum und -ort anzeigen"
 
+msgid "Use a baptismal date as a fallback for a missing birth date"
+msgstr "Ein Taufdatum als Ersatz für ein fehlendes Geburtsdatum verwenden"
+
+msgid "Preferred baptismal event"
+msgstr "Bevorzugtes Taufereignis"
+
+msgid "Christening (CHR)"
+msgstr "Taufe (CHR)"
+
+msgid "Baptism (BAPM)"
+msgstr "Taufe (BAPM)"
+
+msgid "If both events are available, this event is used first as the birth-date fallback."
+msgstr "Wenn beide Ereignisse vorhanden sind, wird dieses Ereignis zuerst als Ersatz für das Geburtsdatum verwendet."
+
+msgid "Baptismal date shown as birth date"
+msgstr "Taufdatum wird als Geburtsdatum angezeigt"
+
 msgid "Which place information should be shown in event boxes?"
 msgstr "Welche Ortsinformationen sollen in Ereignisboxen angezeigt werden?"
 

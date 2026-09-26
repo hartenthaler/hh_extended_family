@@ -41,6 +41,8 @@ class ExtendedFamilyConfig
         public bool $showLastOccupation,
         public bool $showLastResidence,
         public bool $showMarriageDetails,
+        public bool $useBaptismAsBirthFallback,
+        public string $baptismFallbackPriority,
         public bool $showThumbnail,
         public int $sizeThumbnailW,
         public int $sizeThumbnailH,
