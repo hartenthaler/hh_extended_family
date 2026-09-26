@@ -819,6 +819,24 @@ msgstr ""
 msgid "Stepchildren of nephews and nieces"
 msgstr ""
 
+msgid "Children of nephews and nieces from the sibling line"
+msgstr ""
+
+msgid "Social children of nephews and nieces from the sibling line"
+msgstr ""
+
+msgid "Children of nephews and nieces from the step-sibling line"
+msgstr ""
+
+msgid "Social children of nephews and nieces from the step-sibling line"
+msgstr ""
+
+msgid "Children of nephews and nieces from the partners' sibling line"
+msgstr ""
+
+msgid "Social children of nephews and nieces from the partners' sibling line"
+msgstr ""
+
 #: src/Factory/Objects/ExtendedFamilySupport.php:971
 msgid "Godparents, witnesses, and other linked persons"
 msgstr ""

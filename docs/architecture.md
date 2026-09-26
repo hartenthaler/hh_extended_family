@@ -313,7 +313,7 @@ although individual members of a partner chain may later receive their exact per
 | `partner_chains` | 2 | Special administrative value for partner chains. |
 | `great_grandparents` | 3 | Parents of grandparents. |
 | `grandaunts_uncles` | 3 | Siblings of grandparents. |
-| `grandnephews_nieces` | 3 | Children of nephews and nieces. |
+| `grandnephews_nieces` | 3 | Children of nephews and nieces, grouped by sibling, stepsibling, and partners' sibling line. |
 | `great_grandchildren` | 3 | Children of grandchildren. |
 | `cousins` | 3 | Children of uncles and aunts. |
 | `uncles_and_aunts_bm` | 3 | Partners of uncles and aunts. |
