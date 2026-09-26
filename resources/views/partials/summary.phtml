@@ -298,6 +298,7 @@ if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
 <div id="hh-extended-family-summary-block">
     <h2><?= I18N::translate('Summary for the extended family of %s',$extfam_obj->proband->niceName->name) ?></h2>
     <?php if ($extfam_obj->config->showSummaryStatistics && $statistics !== null && $lineageRows !== []) : ?>
+        <p class="hh-extended-family-table-caption"><em><?= I18N::translate('Summary table for direct line') ?></em></p>
         <div class="table-responsive">
             <table class="table table-sm table-bordered wt-facts-table hh-extended-family-lineage-statistics">
                 <thead>
@@ -320,9 +321,9 @@ if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
                 </tbody>
             </table>
         </div>
-        <p class="hh-extended-family-table-caption"><em><?= I18N::translate('Summary table for direct line') ?></em></p>
     <?php endif ?>
     <?php if ($extfam_obj->config->showDegreeTable && $filterObj->efp->summary->degrees !== []) : ?>
+        <p class="hh-extended-family-table-caption"><em><?= I18N::translate('Degree shells') ?></em></p>
         <div class="table-responsive">
             <table class="table table-sm table-bordered wt-facts-table hh-extended-family-degree-table">
                 <thead><tr>
@@ -342,7 +343,6 @@ if ($extfam_obj->config->showEmptyBlock == 1 && count($emptyFamilyParts) > 0) {
                 </tbody>
             </table>
         </div>
-        <p class="hh-extended-family-table-caption"><em><?= I18N::translate('Degree shells') ?></em></p>
     <?php endif ?>
     <p class="hh-extended-family-summary-text">
         <?= implode(' ', $summarySentences) ?>
