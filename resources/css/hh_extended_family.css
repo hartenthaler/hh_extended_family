@@ -382,8 +382,7 @@
 }
 
 .hh-extended-family-table-caption {
-    margin-top: -0.5rem;
-    margin-bottom: 2rem;
+    margin: 1.25rem 0 0.35rem;
 }
 
 #hh_extended_family_content .wt-chart-box-m .hh_extended_family_label,
@@ -428,6 +427,23 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+/* The filter inputs remain keyboard-accessible, but must not render a second
+ * checkbox next to the icon or label supplied by the button. */
+.hh-extended-family-filter-controls .hh-extended-filter-button {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    display: block !important;
+    height: 1px;
+    margin: -1px;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 .hh-extended-family-part-selector {

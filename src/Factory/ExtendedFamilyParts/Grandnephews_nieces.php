@@ -57,7 +57,7 @@ class Grandnephews_nieces extends ExtendedFamilyPart
             foreach ($group->entries as $entry) {
                 $nephewOrNiece = $entry->individual;
                 if ($nephewOrNiece instanceof Individual) {
-                    $this->addChildrenOfNephewOrNiece($nephewOrNiece, $group->groupName);
+                    $this->addChildrenOfNephewOrNiece($nephewOrNiece, $group->groupName, $entry->referencePersons);
                     $this->addStepchildrenOfNephewOrNiece($nephewOrNiece);
                 }
             }
@@ -69,14 +69,20 @@ class Grandnephews_nieces extends ExtendedFamilyPart
      *
      * @param Individual $nephewOrNiece
      * @param string     $sourceGroupName
+     * @param array<int,Individual> $sourceReferencePersons
      * @return void
      */
-    private function addChildrenOfNephewOrNiece(Individual $nephewOrNiece, string $sourceGroupName): void
+    private function addChildrenOfNephewOrNiece(Individual $nephewOrNiece, string $sourceGroupName, array $sourceReferencePersons): void
     {
+        $referencePerson2 = $sourceGroupName === Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER
+            ? ($sourceReferencePersons[1] ?? null)
+            : null;
+        $referencePerson2 = $referencePerson2 instanceof Individual ? $referencePerson2 : null;
+
         foreach ($nephewOrNiece->spouseFamilies() as $family) {
             foreach ($family->children() as $grandnephewOrGrandniece) {
                 $this->addIndividualToFamily(
-                    new IndividualFamily($grandnephewOrGrandniece, $family),
+                    new IndividualFamily($grandnephewOrGrandniece, $family, $nephewOrNiece, $referencePerson2),
                     $this->childrenOfNephewOrNieceGroupName($grandnephewOrGrandniece, $family, $sourceGroupName)
                 );
             }
