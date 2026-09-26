@@ -3691,6 +3691,10 @@ msgstr ""
 "Zusammenfassende Statistiken können nicht angezeigt werden, solange der "
 "Zusammenfassungsblock deaktiviert ist."
 
+#: resources/views/settings.phtml:237
+msgid "The Degree table cannot be shown while the summary block is disabled."
+msgstr "Die Tabelle der Entfernungsschritte kann nicht angezeigt werden, solange der Zusammenfassungsblock deaktiviert ist."
+
 #: resources/views/settings.phtml:203
 msgid "Show summary statistics"
 msgstr "Zeige zusammenfassende Statistik"
