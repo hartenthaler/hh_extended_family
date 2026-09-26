@@ -222,12 +222,18 @@ class ExtendedFamily
      */
     private function addDegreeData(ExtendedFamilyFilterResult $extendedFamily): void
     {
-        $individuals = $this->degreeIndividuals($extendedFamily);
+        $sourceIndividuals = $this->degreeSourceIndividuals($extendedFamily);
+        $individuals = $this->degreeIndividuals($sourceIndividuals);
         $members = $this->extendedFamilyMemberIndividuals($extendedFamily);
-        $graph = $this->degreeGraph($individuals);
+        $graph = $this->degreeGraph($individuals, $sourceIndividuals);
         $start = $this->proband->indi->xref();
         $shortest = $this->degreeShortestDistances($graph, $start);
-        $degreeData = [];
+        $degreeData = [
+            $start => [
+                'degrees' => [0],
+                'paths' => [strip_tags(ExtendedFamilySupport::individualName($this->proband->indi))],
+            ],
+        ];
 
         foreach ($individuals as $xref => $individual) {
             if ($xref === $start || !isset($shortest[$xref])) {
@@ -284,12 +290,85 @@ class ExtendedFamily
         }
     }
 
-    /** @param array<string,Individual> $individuals */
-    private function degreeGraph(array $individuals): array
+    /**
+     * Return the people that are explicitly part of the rendered family data.
+     *
+     * Reference persons are included because they can be the visible bridge to
+     * a step/social relationship.  Additional family members are added later
+     * as graph-only connector nodes.
+     *
+     * @param ExtendedFamilyFilterResult $extendedFamily
+     * @return array<string,Individual>
+     */
+    private function degreeSourceIndividuals(ExtendedFamilyFilterResult $extendedFamily): array
+    {
+        $individuals = [$this->proband->indi->xref() => $this->proband->indi];
+
+        foreach ($this->collectGroupEntries($extendedFamily) as $entry) {
+            $individuals[$entry->individual->xref()] = $entry->individual;
+
+            foreach ($entry->referencePersons as $referencePerson) {
+                if ($referencePerson instanceof Individual) {
+                    $individuals[$referencePerson->xref()] = $referencePerson;
+                }
+            }
+        }
+
+        if (isset($extendedFamily->efp->partner_chains->collectionIndividuals) && is_iterable($extendedFamily->efp->partner_chains->collectionIndividuals)) {
+            foreach ($extendedFamily->efp->partner_chains->collectionIndividuals as $individual) {
+                if ($individual instanceof Individual) {
+                    $individuals[$individual->xref()] = $individual;
+                }
+            }
+        }
+
+        ksort($individuals);
+
+        return $individuals;
+    }
+
+    /**
+     * Add spouses of the relevant families as graph-only connector nodes.
+     *
+     * A stepchild of a nephew/niece, for example, is connected through the
+     * nephew's partner.  That partner is not necessarily a rendered person,
+     * but is required to calculate the path correctly.
+     *
+     * @param array<string,Individual> $sourceIndividuals
+     * @return array<string,Individual>
+     */
+    private function degreeIndividuals(array $sourceIndividuals): array
+    {
+        $individuals = $sourceIndividuals;
+
+        foreach ($sourceIndividuals as $individual) {
+            $families = array_merge($individual->spouseFamilies()->all(), $individual->childFamilies()->all());
+
+            foreach ($families as $family) {
+                foreach ($family->spouses() as $spouse) {
+                    $individuals[$spouse->xref()] = $spouse;
+                }
+            }
+        }
+
+        ksort($individuals);
+
+        return $individuals;
+    }
+
+    /**
+     * Build the Degree graph from the source people only.  Connector nodes
+     * participate in these families, but their unrelated families are not
+     * traversed and therefore cannot introduce accidental shortcuts.
+     *
+     * @param array<string,Individual> $individuals
+     * @param array<string,Individual> $sourceIndividuals
+     */
+    private function degreeGraph(array $individuals, array $sourceIndividuals): array
     {
         $graph = array_fill_keys(array_keys($individuals), []);
         $families = [];
-        foreach ($individuals as $individual) {
+        foreach ($sourceIndividuals as $individual) {
             foreach (array_merge($individual->spouseFamilies()->all(), $individual->childFamilies()->all()) as $family) {
                 $families[$family->xref()] = $family;
             }
@@ -474,37 +553,6 @@ class ExtendedFamily
         }
 
         return new FamilyRoleLoopSummary($loops);
-    }
-
-    /**
-     * @param object $extendedFamily
-     * @return array<string,Individual>
-     */
-    private function degreeIndividuals(object $extendedFamily): array
-    {
-        $individuals = [$this->proband->indi->xref() => $this->proband->indi];
-
-        foreach ($this->collectGroupEntries($extendedFamily) as $entry) {
-            $individuals[$entry->individual->xref()] = $entry->individual;
-
-            foreach ($entry->referencePersons as $referencePerson) {
-                if ($referencePerson instanceof Individual) {
-                    $individuals[$referencePerson->xref()] = $referencePerson;
-                }
-            }
-        }
-
-        if (isset($extendedFamily->efp->partner_chains->collectionIndividuals) && is_iterable($extendedFamily->efp->partner_chains->collectionIndividuals)) {
-            foreach ($extendedFamily->efp->partner_chains->collectionIndividuals as $individual) {
-                if ($individual instanceof Individual) {
-                    $individuals[$individual->xref()] = $individual;
-                }
-            }
-        }
-
-        ksort($individuals);
-
-        return $individuals;
     }
 
     /**

@@ -290,6 +290,8 @@ English uses **Degree**. German translations use **Entfernungsschritte**, not **
 
 The Degree label uses a gold color so it remains distinguishable from SOSA labels and from the sex-dependent blue or red person cards. The Degree-shell table is rendered immediately after the direct-line summary table. Both tables use caption text below the table with additional bottom spacing, preventing the first caption from looking like a heading for the next table.
 
+The graph also includes non-rendered spouse nodes when they are needed to connect a displayed person to the proband. This is important for stepchildren of nephews and nieces: their path runs through the nephew's partner even when that partner is not itself a rendered family member. These connector nodes are limited to families of the explicitly selected people, so unrelated families cannot create accidental shortcuts. The proband is represented explicitly as Degree 0, including in partner-chain labels.
+
 The core family has degree 1:
 parents, children, siblings, and partners.
 The partner-chain family part is a special case and has administrative degree 2,
