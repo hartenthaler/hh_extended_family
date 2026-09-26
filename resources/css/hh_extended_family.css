@@ -363,9 +363,18 @@
 }
 
 .hh_extended_family_label_box.hh-extended-family-degree-label {
+    float: right;
     border-color: #a66b00;
     background-color: #ffe6a3;
     color: #5c3b00;
+    margin-inline: 0 0;
+}
+
+#hh_extended_family_content_compact .hh_extended_family_label_box.hh-extended-family-degree-label,
+.hh-extended-family-partner-chain-node .hh_extended_family_label_box.hh-extended-family-degree-label {
+    float: none;
+    margin-inline-start: auto;
+    margin-inline-end: 0;
 }
 
 .hh-extended-family-table-caption {

@@ -9,5 +9,5 @@ if ($extfam_obj->config->showDegreeLabels && $entry->degrees !== []) :
     // TRANSLATORS: In German, translate genealogical "Degree" as "Entfernungsschritte", not "Grad"; canon law defines degrees differently.
     $tooltip = I18N::translate('Degree paths') . ': ' . implode(' | ', $entry->degreePaths);
 ?>
-    <span class="hh_extended_family_label_box hh-extended-family-degree-label" title="<?= e($tooltip) ?>"><?= e($degreeList) ?></span>&nbsp;
+    <span class="hh_extended_family_label_box hh-extended-family-degree-label" title="<?= e($tooltip) ?>"><?= e($degreeList) ?></span>
 <?php endif ?>
