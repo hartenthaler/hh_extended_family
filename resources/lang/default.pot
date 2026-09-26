@@ -3680,6 +3680,24 @@ msgstr ""
 msgid "Show marriage date and place"
 msgstr ""
 
+msgid "Use a baptismal date as a fallback for a missing birth date"
+msgstr ""
+
+msgid "Preferred baptismal event"
+msgstr ""
+
+msgid "Christening (CHR)"
+msgstr ""
+
+msgid "Baptism (BAPM)"
+msgstr ""
+
+msgid "If both events are available, this event is used first as the birth-date fallback."
+msgstr ""
+
+msgid "Baptismal date shown as birth date"
+msgstr ""
+
 msgid "Which place information should be shown in event boxes?"
 msgstr ""
 

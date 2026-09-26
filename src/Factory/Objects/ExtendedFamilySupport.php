@@ -513,6 +513,96 @@ class ExtendedFamilySupport
     }
 
     /**
+     * Render the birth/death summaries used in person boxes.
+     *
+     * A dated BIRT event always wins. When enabled, a dated CHR or BAPM event
+     * is used if no dated BIRT event exists. The fallback is marked separately
+     * so that it is not mistaken for a recorded birth date.
+     */
+    public static function personVitalEventsSummary(
+        Individual $individual,
+        PlaceDisplayConfig $placeDisplay,
+        bool $useBaptismAsBirthFallback,
+        string $baptismFallbackPriority
+    ): string {
+        $summary = '';
+        $birth = self::birthFactForDisplay($individual, $useBaptismAsBirthFallback, $baptismFallbackPriority);
+
+        if ($birth instanceof Fact) {
+            $birthSummary = self::eventSummary($birth, $placeDisplay);
+            if ($birth->tag() !== 'INDI:BIRT') {
+                $birthSummary = '<span class="hh-extended-family-birth-fallback" title="' . e(I18N::translate('Baptismal date shown as birth date')) . '">' . $birthSummary . '</span>';
+            }
+            $summary .= $birthSummary;
+        }
+
+        $death = $individual->facts(['DEAT'])->first();
+        if ($death instanceof Fact) {
+            $summary .= self::eventSummary($death, $placeDisplay);
+        }
+
+        return $summary;
+    }
+
+    /**
+     * Render the compact lifespan with the same baptismal fallback as the
+     * enriched person-box design.
+     */
+    public static function personLifespan(
+        Individual $individual,
+        bool $useBaptismAsBirthFallback,
+        string $baptismFallbackPriority
+    ): string {
+        $birth = self::birthFactForDisplay($individual, $useBaptismAsBirthFallback, $baptismFallbackPriority);
+        if (!$birth instanceof Fact || $birth->tag() === 'INDI:BIRT') {
+            return $individual->lifespan();
+        }
+
+        $birthPlace = strip_tags($birth->place()->shortName());
+        $deathPlace = strip_tags($individual->getDeathPlace()->shortName());
+        $birthDate = "\u{2068}" . strip_tags($birth->date()->display()) . "\u{2069}";
+        $deathDate = "\u{2068}" . strip_tags($individual->getDeathDate()->display()) . "\u{2069}";
+        $birthYear = $birth->date()->minimumDate()->format('%Y');
+        $deathYear = $individual->getDeathDate()->maximumDate()->format('%Y');
+
+        if ($birthYear === '') {
+            $birthYear = I18N::translate('…');
+        }
+        if ($deathYear === '' && $individual->isDead()) {
+            $deathYear = I18N::translate('…');
+        }
+
+        $birthTitle = I18N::translate('Baptismal date shown as birth date') . ' ' . $birthPlace . ' ' . $birthDate;
+        $birthSpan = '<span class="hh-extended-family-birth-fallback" title="' . e($birthTitle) . '">' . $birthYear . '</span>';
+        $deathSpan = '<span title="' . e($deathPlace . ' ' . $deathDate) . '">' . $deathYear . '</span>';
+
+        return I18N::translate('%1$s–%2$s', $birthSpan, $deathSpan);
+    }
+
+    private static function birthFactForDisplay(Individual $individual, bool $useBaptismAsBirthFallback, string $baptismFallbackPriority): ?Fact
+    {
+        $birth = $individual->facts(['BIRT'])->first();
+        if ($birth instanceof Fact && $birth->date()->isOK()) {
+            return $birth;
+        }
+
+        if (!$useBaptismAsBirthFallback) {
+            return $birth instanceof Fact ? $birth : null;
+        }
+
+        $tags = $baptismFallbackPriority === 'BAPM' ? ['BAPM', 'CHR'] : ['CHR', 'BAPM'];
+        foreach ($tags as $tag) {
+            foreach ($individual->facts([$tag]) as $candidate) {
+                if ($candidate instanceof Fact && $candidate->date()->isOK()) {
+                    return $candidate;
+                }
+            }
+        }
+
+        return $birth instanceof Fact ? $birth : null;
+    }
+
+    /**
      * Return a person's latest fact of the requested type.
      * Undated facts are retained as a fallback when no dated fact exists.
      */

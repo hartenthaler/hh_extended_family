@@ -43,10 +43,10 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Nephews_and_nieces;
                             <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualLink($indi, $relationshipName) ?></span>
                             <?php include dirname(__DIR__) . '/degree-label.phtml'; ?>
                             <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                <span class="hh_extended_family_lifespan" ><?= $indi->lifespan() ?></span>
+                                <span class="hh_extended_family_lifespan" ><?= ExtendedFamilySupport::personLifespan($indi, $extfam_obj->config->useBaptismAsBirthFallback, $extfam_obj->config->baptismFallbackPriority) ?></span>
                             <?php else: ?>
                                 <span class="hh_extended_family_birth_death">
-                                    <?= $entry->vitalEventsSummary ?>
+                                    <?= ExtendedFamilySupport::personVitalEventsSummary($indi, $extfam_obj->config->placeDisplay, $extfam_obj->config->useBaptismAsBirthFallback, $extfam_obj->config->baptismFallbackPriority) ?>
                                 </span>
                             <?php endif ?>
                             <?php include dirname(__DIR__) . '/person-additional-details.phtml'; ?>

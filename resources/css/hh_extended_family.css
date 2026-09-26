@@ -319,6 +319,10 @@
     padding: 3px 5px 0px 5px;
 }
 
+.hh-extended-family-birth-fallback {
+    color: var(--bs-warning-text-emphasis, #856404);
+}
+
 .hh_extended_family_counter {
     margin: 0 3px;
     font-size: 75%;

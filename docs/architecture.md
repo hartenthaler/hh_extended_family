@@ -231,6 +231,11 @@ Every `GroupEntry` contains the rendered individual plus the context that belong
 This keeps person-level context on the person entry instead of spreading it across parallel arrays.
 The older parallel arrays (`members`, `families`, `familiesStatus`, `referencePersons`, `labels`, and `vitalEventsSummaries`) are no longer populated.
 
+Person-box vital data is rendered centrally by `ExtendedFamilySupport::personVitalEventsSummary()` and
+`personLifespan()`. A dated `BIRT` event always takes precedence. If the administrator enables the
+birth-date fallback, a dated `CHR` or `BAPM` event is used according to the configured priority and
+is marked with the `hh-extended-family-birth-fallback` CSS class and tooltip.
+
 The `partner_chains` family part is the main exception.
 It uses the `chains` structure with `PartnerChainNode` and `PartnerChainPerson` because it renders a recursive graph rather than flat groups of entries.
 
@@ -368,7 +373,7 @@ Important preference groups:
 * shown family parts and their display order
 * user-visible filter options
 * compact or enriched design
-* thumbnail size and vital data
+* thumbnail size and vital data, including the optional CHR/BAPM birth-date fallback
 * summary counts
 * empty-block handling
 * strict/sequential or relaxed/symmetrical step-parent concept

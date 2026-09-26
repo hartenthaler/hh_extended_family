@@ -29,6 +29,8 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var boolean                 $show_last_occupation
  * @var boolean                 $show_last_residence
  * @var boolean                 $show_marriage_details
+ * @var boolean                 $use_baptism_as_birth_fallback
+ * @var string                  $baptism_fallback_priority
  * @var boolean                 $show_summary
  * @var boolean                 $show_summary_statistics
  * @var array<int,string>       $summary_lineage_columns
@@ -48,6 +50,8 @@ $place_display_sources ??= ['plac'];
 $show_last_occupation ??= false;
 $show_last_residence ??= false;
 $show_marriage_details ??= false;
+$use_baptism_as_birth_fallback ??= true;
+$baptism_fallback_priority ??= 'CHR';
 $cce_available ??= false;
 $relationship_names_available ??= false;
 $clippings_cart_action ??= 'cce';
@@ -122,6 +126,7 @@ $coreYes = MoreI18N::xlate('yes');
             'show_last_occupation' => I18N::translate('Show last occupation'),
             'show_last_residence' => I18N::translate('Show last residence'),
             'show_marriage_details' => I18N::translate('Show marriage date and place'),
+            'use_baptism_as_birth_fallback' => I18N::translate('Use a baptismal date as a fallback for a missing birth date'),
         ] as $name => $label): ?>
             <fieldset class="form-group">
                 <div class="row">
@@ -132,6 +137,18 @@ $coreYes = MoreI18N::xlate('yes');
                 </div>
             </fieldset>
         <?php endforeach ?>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3"><?= I18N::translate('Preferred baptismal event') ?></legend>
+                <div class="col-sm-9">
+                    <select class="form-select" name="baptism_fallback_priority">
+                        <option value="CHR" <?= $baptism_fallback_priority === 'CHR' ? 'selected' : '' ?>><?= I18N::translate('Christening (CHR)') ?></option>
+                        <option value="BAPM" <?= $baptism_fallback_priority === 'BAPM' ? 'selected' : '' ?>><?= I18N::translate('Baptism (BAPM)') ?></option>
+                    </select>
+                    <p class="small text-muted mt-1"><?= I18N::translate('If both events are available, this event is used first as the birth-date fallback.') ?></p>
+                </div>
+            </div>
+        </fieldset>
 
         <h3><?= I18N::translate('Which place information should be shown in event boxes?') ?></h3>
         <p><?= I18N::translate('You can show the GEDCOM place, the shared-place hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources.') ?></p>

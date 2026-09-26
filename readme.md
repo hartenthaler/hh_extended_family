@@ -152,6 +152,7 @@ The most important settings are
 * which thumbnail size is used in the enriched design
 * whether labels, SOSA numbers, and relationship parameters are displayed
 * whether relationship-path mouseover information is available for shown people
+* whether a dated CHR/BAPM event is used as a colored fallback when a birth date is missing, and which event has priority
 * how place names are displayed in event boxes
 * whether latest occupation, latest residence, and marriage date/place are displayed
 * which `PLAC`/`_LOC` place sources and hierarchy format are used in event boxes
