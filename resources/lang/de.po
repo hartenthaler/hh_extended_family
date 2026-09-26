@@ -828,6 +828,24 @@ msgstr "Soziale Kinder von Neffen und Nichten"
 msgid "Stepchildren of nephews and nieces"
 msgstr "Stiefkinder von Neffen und Nichten"
 
+msgid "Children of nephews and nieces from the sibling line"
+msgstr "Kinder von Neffen und Nichten aus der Geschwisterlinie"
+
+msgid "Social children of nephews and nieces from the sibling line"
+msgstr "Soziale Kinder von Neffen und Nichten aus der Geschwisterlinie"
+
+msgid "Children of nephews and nieces from the step-sibling line"
+msgstr "Kinder von Neffen und Nichten aus der Stiefgeschwisterlinie"
+
+msgid "Social children of nephews and nieces from the step-sibling line"
+msgstr "Soziale Kinder von Neffen und Nichten aus der Stiefgeschwisterlinie"
+
+msgid "Children of nephews and nieces from the partners' sibling line"
+msgstr "Kinder von Neffen und Nichten aus der Geschwisterlinie von Partnern"
+
+msgid "Social children of nephews and nieces from the partners' sibling line"
+msgstr "Soziale Kinder von Neffen und Nichten aus der Geschwisterlinie von Partnern"
+
 #: src/Factory/Objects/ExtendedFamilySupport.php:971
 msgid "Godparents, witnesses, and other linked persons"
 msgstr "Paten, Trauzeugen und andere verknüpfte Personen"

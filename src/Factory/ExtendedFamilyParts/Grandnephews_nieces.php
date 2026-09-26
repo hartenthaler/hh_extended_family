@@ -39,6 +39,13 @@ class Grandnephews_nieces extends ExtendedFamilyPart
     public const GROUP_GRANDNEPHEW_NIECES_STEPCHILD    = 'Stepchildren of nephews and nieces';
     public const GROUP_GRANDNEPHEW_NIECES_CHILD_FULL   = 'Biological grandchildren of biological full siblings';
 
+    public const GROUP_GRANDNEPHEW_NIECES_CHILD_SIBLING = 'Children of nephews and nieces from the sibling line';
+    public const GROUP_GRANDNEPHEW_NIECES_SOCIAL_CHILD_SIBLING = 'Social children of nephews and nieces from the sibling line';
+    public const GROUP_GRANDNEPHEW_NIECES_CHILD_STEP_SIBLING = 'Children of nephews and nieces from the step-sibling line';
+    public const GROUP_GRANDNEPHEW_NIECES_SOCIAL_CHILD_STEP_SIBLING = 'Social children of nephews and nieces from the step-sibling line';
+    public const GROUP_GRANDNEPHEW_NIECES_CHILD_SIBLING_PARTNER = 'Children of nephews and nieces from the partners\' sibling line';
+    public const GROUP_GRANDNEPHEW_NIECES_SOCIAL_CHILD_SIBLING_PARTNER = 'Social children of nephews and nieces from the partners\' sibling line';
+
     /**
      * Find members for this specific extended family part and modify $this->efpObject.
      */
@@ -50,7 +57,7 @@ class Grandnephews_nieces extends ExtendedFamilyPart
             foreach ($group->entries as $entry) {
                 $nephewOrNiece = $entry->individual;
                 if ($nephewOrNiece instanceof Individual) {
-                    $this->addChildrenOfNephewOrNiece($nephewOrNiece);
+                    $this->addChildrenOfNephewOrNiece($nephewOrNiece, $group->groupName);
                     $this->addStepchildrenOfNephewOrNiece($nephewOrNiece);
                 }
             }
@@ -61,15 +68,16 @@ class Grandnephews_nieces extends ExtendedFamilyPart
      * Add children of one nephew or niece.
      *
      * @param Individual $nephewOrNiece
+     * @param string     $sourceGroupName
      * @return void
      */
-    private function addChildrenOfNephewOrNiece(Individual $nephewOrNiece): void
+    private function addChildrenOfNephewOrNiece(Individual $nephewOrNiece, string $sourceGroupName): void
     {
         foreach ($nephewOrNiece->spouseFamilies() as $family) {
             foreach ($family->children() as $grandnephewOrGrandniece) {
                 $this->addIndividualToFamily(
                     new IndividualFamily($grandnephewOrGrandniece, $family),
-                    $this->childrenOfNephewOrNieceGroupName($grandnephewOrGrandniece, $family)
+                    $this->childrenOfNephewOrNieceGroupName($grandnephewOrGrandniece, $family, $sourceGroupName)
                 );
             }
         }
@@ -112,12 +120,23 @@ class Grandnephews_nieces extends ExtendedFamilyPart
      *
      * @param Individual $grandnephewOrGrandniece
      * @param Family $family
+     * @param string $sourceGroupName
      * @return string
      */
-    private function childrenOfNephewOrNieceGroupName(Individual $grandnephewOrGrandniece, Family $family): string
+    private function childrenOfNephewOrNieceGroupName(Individual $grandnephewOrGrandniece, Family $family, string $sourceGroupName): string
     {
-        return $this->isSocialChildInFamily($grandnephewOrGrandniece, $family)
-            ? self::GROUP_GRANDNEPHEW_NIECES_SOCIAL_CHILD
-            : self::GROUP_GRANDNEPHEW_NIECES_CHILD;
+        $isSocialChild = $this->isSocialChildInFamily($grandnephewOrGrandniece, $family);
+
+        return match ($sourceGroupName) {
+            Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_PARTNER_SIBLING => $isSocialChild
+                ? self::GROUP_GRANDNEPHEW_NIECES_SOCIAL_CHILD_STEP_SIBLING
+                : self::GROUP_GRANDNEPHEW_NIECES_CHILD_STEP_SIBLING,
+            Nephews_and_nieces::GROUP_NEPHEW_NIECES_CHILD_SIBLING_PARTNER => $isSocialChild
+                ? self::GROUP_GRANDNEPHEW_NIECES_SOCIAL_CHILD_SIBLING_PARTNER
+                : self::GROUP_GRANDNEPHEW_NIECES_CHILD_SIBLING_PARTNER,
+            default => $isSocialChild
+                ? self::GROUP_GRANDNEPHEW_NIECES_SOCIAL_CHILD_SIBLING
+                : self::GROUP_GRANDNEPHEW_NIECES_CHILD_SIBLING,
+        };
     }
 }

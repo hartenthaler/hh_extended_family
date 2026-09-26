@@ -6,6 +6,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+- Grouped children of nephews and nieces by their sibling, stepsibling, or partners' sibling line, so direct and step lines are no longer mixed under one heading.
 - Fixed missing person-level Degree labels for stepchildren of nephews and nieces and for the proband in partner-chain displays.
 - Added optional latest occupation and residence details to person entries and optional marriage date/place details to partner entries.
 - Added configurable event-place sources for GEDCOM `PLAC`, the historical shared-place hierarchy at the event date, and the current shared-place hierarchy, with the existing place-format variants.
