@@ -210,14 +210,14 @@ Control panel settings
 <a name="Requirements"></a>
 ## 📌 Requirements
 
-This module requires **webtrees** version 2.1 or later.
+This module requires **webtrees** version 2.2.6 or 2.3.
 It has the same system requirements as [webtrees](https://github.com/fisharebest/webtrees#system-requirements).
 
 To use the functions related to the clippings cart,
 it is recommended to install the custom module
 [clippings cart enhanced](https://github.com/huhwt/huhwt-cce).
 
-The current module version is tested with **webtrees** 2.2.6,
+The current module version is tested with **webtrees** 2.2.6 and 2.3,
 all available themes, and all other custom modules.
 
 The last version of this module for **webtrees** 2.0 is 2.0.16.58.

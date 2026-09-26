@@ -21,85 +21,73 @@ use Fisharebest\Webtrees\View;
   sessionStorage.removeItem('aliveFilterValue');
 
   // filter: initial status: show only "all"
-  $(".hh-extended-filter[data-filter-value='MY']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='FY']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='UY']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='MN']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='FN']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='UN']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='M']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='F']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='U']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='Y']").addClass('d-none');
-  $(".hh-extended-filter[data-filter-value='N']").addClass('d-none');
-  $(".hh-extended-family-filter-actions[data-filter-value!='all']").addClass('d-none');
+  document.querySelectorAll('.hh-extended-filter[data-filter-value]:not([data-filter-value="all"]), .hh-extended-family-filter-actions[data-filter-value]:not([data-filter-value="all"])').forEach((element) => {
+      element.classList.add('d-none');
+  });
 
-  $(".hh-extended-family-reset-family-parts").click(function () {
-      $(this)
-          .closest("form")
-          .find("input[name='family_parts[]']")
-          .each(function () {
-              $(this).prop("checked", $(this).data("default-enabled") === 1);
+  document.querySelectorAll('.hh-extended-family-reset-family-parts').forEach((button) => {
+      button.addEventListener('click', () => {
+          const form = button.closest('form');
+          form?.querySelectorAll("input[name='family_parts[]']").forEach((input) => {
+              input.checked = input.dataset.defaultEnabled === '1';
           });
+      });
   });
 
   // filter click function
-  $(".hh-extended-filter-button").click(function ()
-  {
-      let checkbox = $(this);
-      let buttonGroup = checkbox.closest(".btn-group");
-      let siblings = buttonGroup.find("input[type='checkbox']");
-
-      let checked = checkbox.prop("checked");
+  document.querySelectorAll('.hh-extended-filter-button').forEach((checkbox) => {
+      checkbox.addEventListener('click', () => {
+      const buttonGroup = checkbox.closest('.btn-group');
+      const siblings = buttonGroup?.querySelectorAll("input[type='checkbox']") ?? [];
+      const checked = checkbox.checked;
 
       // Entferne `checked` und `active` von allen benachbarten Buttons
-      siblings.prop("checked", false);
-      buttonGroup.find("label.btn").removeClass("active");
+      siblings.forEach((sibling) => { sibling.checked = false; });
+      buttonGroup?.querySelectorAll('label.btn').forEach((label) => label.classList.remove('active'));
 
       // Wende `checked` und `active` nur auf aktuellen Button an
       if (checked) {
-          checkbox.prop("checked", true);
-          checkbox.closest("label").addClass("active"); // Wichtig für Bootstrap
+          checkbox.checked = true;
+          checkbox.closest('label')?.classList.add('active'); // Wichtig für Bootstrap
       } else {
-          checkbox.closest("label").removeClass("active");
+          checkbox.closest('label')?.classList.remove('active');
       }
 
       // Speichere die Filterwerte
-      let filterType = checkbox.data("filter-type");
+      const filterType = checkbox.dataset.filterType;
 
       if (filterType === "sex") {
           sessionStorage.setItem(
               "sexFilterValue",
-              checked ? checkbox.data("filter-value") : ""
+              checked ? checkbox.dataset.filterValue : ''
           );
       } else if (filterType === "alive") {
           sessionStorage.setItem(
               "aliveFilterValue",
-              checked ? checkbox.data("filter-value") : ""
+              checked ? checkbox.dataset.filterValue : ''
           );
       }
 
       // Hole die aktuellen Filterwerte aus dem sessionStorage
-      let sexFilterValue = sessionStorage.getItem("sexFilterValue") || "";
-      let aliveFilterValue = sessionStorage.getItem("aliveFilterValue") || "";
+      const sexFilterValue = sessionStorage.getItem('sexFilterValue') || '';
+      const aliveFilterValue = sessionStorage.getItem('aliveFilterValue') || '';
 
       // Kombiniere die beiden Filterwerte
       let filterValue = sexFilterValue + aliveFilterValue;
 
       // Fallback: Wenn kein Filter aktiv ist, zeige "all"
       if (filterValue === "") {
-          filterValue = "all";
+          filterValue = 'all';
       }
 
       // Alle Blöcke unsichtbar machen
-      $(".hh-extended-filter").addClass("d-none");
-      $(".hh-extended-family-filter-actions").addClass("d-none");
+      document.querySelectorAll('.hh-extended-filter, .hh-extended-family-filter-actions').forEach((element) => element.classList.add('d-none'));
 
       // Zeige den passenden Block
-      $(".hh-extended-filter[data-filter-value='" + filterValue + "']").removeClass("d-none");
-      $(".hh-extended-family-filter-actions[data-filter-value='" + filterValue + "']").removeClass("d-none");
+      document.querySelectorAll(`[data-filter-value="${CSS.escape(filterValue)}"]`).forEach((element) => element.classList.remove('d-none'));
 
       // console.log("hh-extended-filter[data-filter-value='"+filterValue+"']");
+      });
   });
 </script>
 <?php View::endpush() ?>
