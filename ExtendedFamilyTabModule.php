@@ -174,6 +174,11 @@ class ExtendedFamilyTabModule extends AbstractModule
         self::SUMMARY_LINEAGE_COLUMN_AVERAGE_LIFESPAN,
         self::SUMMARY_LINEAGE_COLUMN_AVERAGE_CHILDREN,
     ];
+    private const PLACE_DISPLAY_SOURCES = [
+        PlaceDisplayConfig::SOURCE_PLAC,
+        PlaceDisplayConfig::SOURCE_LOC_HISTORICAL,
+        PlaceDisplayConfig::SOURCE_LOC_CURRENT,
+    ];
 
     /**
      * find members of extended family parts
@@ -234,6 +239,10 @@ class ExtendedFamilyTabModule extends AbstractModule
             ExtendedFamilySupport::getFamilyPartParameters(),
             $this->stepParentConcept(),
             $this->placeFormat(),
+            $this->placeDisplayConfig(),
+            $this->showLastOccupation(),
+            $this->showLastResidence(),
+            $this->showMarriageDetails(),
             $this->showThumbnail($proband->tree()),
             $thumbnailDimensions['width'],
             $thumbnailDimensions['height'],
@@ -291,6 +300,10 @@ class ExtendedFamilyTabModule extends AbstractModule
             'use_compact_design',
             'thumbnail_size',
             'place_format',
+            'place_display_sources',
+            'show_last_occupation',
+            'show_last_residence',
+            'show_marriage_details',
             'show_summary',
             'show_summary_statistics',
             'summary_lineage_cols',
@@ -325,6 +338,10 @@ class ExtendedFamilyTabModule extends AbstractModule
         $response['description']    	   = $this->description();
         $response['uses_sorting']   	   = true;
         $response['place_format_options']  = PlaceAbbreviation::abbrPlacesOptions();
+        $response['place_display_sources'] = $this->placeDisplaySources();
+        $response['show_last_occupation'] = $this->showLastOccupation();
+        $response['show_last_residence'] = $this->showLastResidence();
+        $response['show_marriage_details'] = $this->showMarriageDetails();
         $response['thumbnail_size']         = $this->thumbnailSize();
         $response['thumbnail_size_options'] = $this->thumbnailSizeOptions();
         $response['summary_lineage_columns'] = $this->summaryLineageColumns();
@@ -400,6 +417,10 @@ class ExtendedFamilyTabModule extends AbstractModule
             'use_compact_design'      => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_compact_design', '0'),
             'thumbnail_size'          => Validator::parsedBody($request)->isInArray($thumbnail_size_options)->string('thumbnail_size', self::THUMBNAIL_SIZE_SMALL),
             'place_format'            => Validator::parsedBody($request)->isInArray($place_format_options)->string('place_format', (string) PlaceAbbreviation::OPTION_FULL_PLACE_NAME),
+            'place_display_sources'   => $this->validatedPlaceDisplaySources($request),
+            'show_last_occupation'    => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_last_occupation', '1'),
+            'show_last_residence'     => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_last_residence', '1'),
+            'show_marriage_details'   => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_marriage_details', '1'),
             'show_summary'            => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary', '0'),
             'show_summary_statistics' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary_statistics', '0'),
             'summary_lineage_cols'     => implode(',', $this->validatedSummaryLineageColumns($request)),
@@ -433,6 +454,19 @@ class ExtendedFamilyTabModule extends AbstractModule
         }
 
         return $params;
+    }
+
+    /** @return string */
+    private function validatedPlaceDisplaySources(ServerRequestInterface $request): string
+    {
+        $sources = [];
+        foreach (Validator::parsedBody($request)->array('place_display_sources') as $source) {
+            if (in_array($source, self::PLACE_DISPLAY_SOURCES, true)) {
+                $sources[] = $source;
+            }
+        }
+
+        return implode(',', array_values(array_unique($sources))) ?: PlaceDisplayConfig::SOURCE_PLAC;
     }
 
     /**
@@ -758,6 +792,35 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function placeFormat(): int
     {
         return (int) $this->getPreference('place_format', (string) PlaceAbbreviation::OPTION_FULL_PLACE_NAME);
+    }
+
+    /** @return array<int,string> */
+    private function placeDisplaySources(): array
+    {
+        $stored = array_filter(explode(',', $this->getPreference('place_display_sources', PlaceDisplayConfig::SOURCE_PLAC)));
+        $sources = array_values(array_intersect($stored, self::PLACE_DISPLAY_SOURCES));
+
+        return $sources === [] ? [PlaceDisplayConfig::SOURCE_PLAC] : $sources;
+    }
+
+    private function placeDisplayConfig(): PlaceDisplayConfig
+    {
+        return new PlaceDisplayConfig($this->placeDisplaySources(), $this->placeFormat());
+    }
+
+    private function showLastOccupation(): bool
+    {
+        return $this->getPreference('show_last_occupation', '1') === '0';
+    }
+
+    private function showLastResidence(): bool
+    {
+        return $this->getPreference('show_last_residence', '1') === '0';
+    }
+
+    private function showMarriageDetails(): bool
+    {
+        return $this->getPreference('show_marriage_details', '1') === '0';
     }
 
     /**

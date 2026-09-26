@@ -83,6 +83,8 @@ The module supports
 * configurable handling of empty family parts
 * full or shortened display name of the proband
 * configurable place-name format in event boxes, including full place names, city-only display, and city plus ISO country code
+* optional display of the latest occupation and residence for each person, and marriage date/place for partners
+* configurable event-place sources: GEDCOM `PLAC`, the shared-place hierarchy at the event date, and the current shared-place hierarchy
 
 Special labels are derived from GEDCOM patterns such as
 
@@ -151,6 +153,8 @@ The most important settings are
 * whether labels, SOSA numbers, and relationship parameters are displayed
 * whether relationship-path mouseover information is available for shown people
 * how place names are displayed in event boxes
+* whether latest occupation, latest residence, and marriage date/place are displayed
+* which `PLAC`/`_LOC` place sources and hierarchy format are used in event boxes
 * whether the Print/PDF button is available
 * whether the Extended family tab is loaded immediately with the individual page or later when it is opened
 * whether the clippings cart action is available

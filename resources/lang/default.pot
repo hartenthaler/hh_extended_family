@@ -3646,3 +3646,42 @@ msgstr ""
 
 msgid "Degree shells"
 msgstr ""
+
+msgid "Which additional information should be shown?"
+msgstr ""
+
+msgid "These options add the latest occupation and residence to person entries and marriage details to partner entries."
+msgstr ""
+
+msgid "Show last occupation"
+msgstr ""
+
+msgid "Show last residence"
+msgstr ""
+
+msgid "Show marriage date and place"
+msgstr ""
+
+msgid "Which place information should be shown in event boxes?"
+msgstr ""
+
+msgid "You can show the GEDCOM place, the shared-place hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources."
+msgstr ""
+
+msgid "Place information sources"
+msgstr ""
+
+msgid "PLAC information"
+msgstr ""
+
+msgid "_LOC hierarchy at the event date"
+msgstr ""
+
+msgid "Current _LOC hierarchy"
+msgstr ""
+
+msgid "Last occupation"
+msgstr ""
+
+msgid "Last residence"
+msgstr ""

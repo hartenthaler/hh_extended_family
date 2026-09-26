@@ -47,6 +47,8 @@ use function mb_substr;
 // array functions
 use function in_array;
 use function array_filter;
+use function array_unique;
+use function usort;
 
 /**
  * class ExtendedFamilySupport
@@ -55,6 +57,17 @@ use function array_filter;
  */
 class ExtendedFamilySupport
 {
+    private static ?PlaceDisplayConfig $currentPlaceDisplay = null;
+
+    public static function setCurrentPlaceDisplay(PlaceDisplayConfig $placeDisplay): void
+    {
+        self::$currentPlaceDisplay = $placeDisplay;
+    }
+
+    public static function currentPlaceDisplay(): PlaceDisplayConfig
+    {
+        return self::$currentPlaceDisplay ?? new PlaceDisplayConfig();
+    }
     /**
      * list of const for extended family
      */
@@ -478,15 +491,94 @@ class ExtendedFamilySupport
      * @param int $placeFormat
      * @return string
      */
-    public static function eventSummary(Fact $event, int $placeFormat): string
+    public static function eventSummary(Fact $event, PlaceDisplayConfig|int $placeDisplay): string
     {
         $summary = $event->summary();
-        if ($event->place()->gedcomName() === '') {
+        if (is_int($placeDisplay)) {
+            $placeDisplay = new PlaceDisplayConfig([PlaceDisplayConfig::SOURCE_PLAC], $placeDisplay);
+        }
+
+        $places = self::eventPlaces($event, $placeDisplay);
+        if ($places === []) {
             return $summary;
         }
 
-        $place = PlaceAbbreviation::getAbbreviatedPlace($event->place()->gedcomName(), $placeFormat);
-        return str_replace($event->place()->shortName(), '<span class="ut">' . e($place) . '</span>', $summary);
+        $place = implode(' | ', $places);
+        $shortPlace = $event->place()->shortName();
+        $renderedPlace = '<span class="ut">' . e($place) . '</span>';
+
+        return $shortPlace === ''
+            ? $summary . ' — ' . $renderedPlace
+            : str_replace($shortPlace, $renderedPlace, $summary);
+    }
+
+    /**
+     * Return a person's latest fact of the requested type.
+     * Undated facts are retained as a fallback when no dated fact exists.
+     */
+    public static function latestFactSummary(Individual $individual, string $tag, PlaceDisplayConfig $placeDisplay): string
+    {
+        $facts = array_values($individual->facts([$tag])->all());
+        if ($facts === []) {
+            return '';
+        }
+
+        usort($facts, static function (Fact $left, Fact $right): int {
+            $leftDate = $left->date();
+            $rightDate = $right->date();
+            $leftDay = $leftDate->isOK() ? $leftDate->julianDay() : PHP_INT_MIN;
+            $rightDay = $rightDate->isOK() ? $rightDate->julianDay() : PHP_INT_MIN;
+
+            return $rightDay <=> $leftDay;
+        });
+
+        return self::eventSummary($facts[0], $placeDisplay);
+    }
+
+    /** Return a marriage fact summary for a family, if one is recorded. */
+    public static function marriageSummary(?Family $family, PlaceDisplayConfig $placeDisplay): string
+    {
+        if ($family === null) {
+            return '';
+        }
+
+        $marriage = $family->facts(['MARR'])->first();
+
+        return $marriage instanceof Fact ? self::eventSummary($marriage, $placeDisplay) : '';
+    }
+
+    /** @return array<int,string> */
+    private static function eventPlaces(Fact $event, PlaceDisplayConfig $placeDisplay): array
+    {
+        $places = [];
+        $plac = $event->place()->gedcomName();
+
+        if ($placeDisplay->uses(PlaceDisplayConfig::SOURCE_PLAC) && $plac !== '') {
+            $places[] = PlaceAbbreviation::getAbbreviatedPlace($plac, $placeDisplay->variant);
+        }
+
+        $loc = trim((string) $event->attribute('_LOC'), "@ ");
+        if ($loc !== '' && (class_exists(Registry::class)) && method_exists(Registry::class, 'locationFactory')) {
+            try {
+                $location = Registry::locationFactory()->make($loc, $event->record()->tree());
+                if ($location !== null) {
+                    if ($placeDisplay->uses(PlaceDisplayConfig::SOURCE_LOC_HISTORICAL) && class_exists('Vesta\\Model\\GedcomDateInterval') && method_exists($location, 'primaryPlaceAt')) {
+                        $dateClass = 'Vesta\\Model\\GedcomDateInterval';
+                        $date = $dateClass::create($event->attribute('DATE'));
+                        $place = $location->primaryPlaceAt($date);
+                        $places[] = PlaceAbbreviation::getAbbreviatedPlace($place->gedcomName(), $placeDisplay->variant);
+                    }
+                    if ($placeDisplay->uses(PlaceDisplayConfig::SOURCE_LOC_CURRENT) && method_exists($location, 'primaryPlace')) {
+                        $place = $location->primaryPlace();
+                        $places[] = PlaceAbbreviation::getAbbreviatedPlace($place->gedcomName(), $placeDisplay->variant);
+                    }
+                }
+            } catch (\Throwable) {
+                // Optional Vesta location support must never break the tab.
+            }
+        }
+
+        return array_values(array_unique(array_filter($places, static fn (string $place): bool => trim($place) !== '')));
     }
 
     /**

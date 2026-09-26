@@ -1,0 +1,33 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+
+/** @var object $extfam_obj */
+/** @var \Fisharebest\Webtrees\Individual $indi */
+/** @var object|null $entry */
+
+$placeDisplay = $extfam_obj->config->placeDisplay;
+$occupation = $extfam_obj->config->showLastOccupation
+    ? ExtendedFamilySupport::latestFactSummary($indi, 'OCCU', $placeDisplay)
+    : '';
+$residence = $extfam_obj->config->showLastResidence
+    ? ExtendedFamilySupport::latestFactSummary($indi, 'RESI', $placeDisplay)
+    : '';
+$marriage = $extfam_obj->config->showMarriageDetails && isset($entry)
+    ? ExtendedFamilySupport::marriageSummary($entry->family ?? null, $placeDisplay)
+    : '';
+?>
+<?php if ($occupation !== '' || $residence !== '' || $marriage !== ''): ?>
+    <div class="small text-muted hh-extended-family-additional-details">
+        <?php if ($occupation !== ''): ?>
+            <div><span class="label"><?= I18N::translate('Last occupation') ?>:</span> <?= $occupation ?></div>
+        <?php endif ?>
+        <?php if ($residence !== ''): ?>
+            <div><span class="label"><?= I18N::translate('Last residence') ?>:</span> <?= $residence ?></div>
+        <?php endif ?>
+        <?php if ($marriage !== ''): ?>
+            <div><span class="label"><?= I18N::translate('Marriage') ?>:</span> <?= $marriage ?></div>
+        <?php endif ?>
+    </div>
+<?php endif ?>

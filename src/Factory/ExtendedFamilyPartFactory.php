@@ -44,10 +44,11 @@ class ExtendedFamilyPartFactory
         Individual $proband,
         string $filterOption,
         int $placeFormat = PlaceAbbreviation::OPTION_FULL_PLACE_NAME,
-        string $stepParentConcept = ExtendedFamilyPart::STEP_PARENT_CONCEPT_STRICT
+        string $stepParentConcept = ExtendedFamilyPart::STEP_PARENT_CONCEPT_STRICT,
+        ?PlaceDisplayConfig $placeDisplay = null
     )
     {
         $class = "\\Hartenthaler\\Webtrees\\Module\\ExtendedFamily\\$extendedFamilyPart";
-        return new $class($proband, $filterOption, $placeFormat, $stepParentConcept);
+        return new $class($proband, $filterOption, $placeFormat, $stepParentConcept, $placeDisplay);
     }
 }
