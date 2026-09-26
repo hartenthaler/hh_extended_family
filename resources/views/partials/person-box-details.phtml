@@ -1,0 +1,29 @@
+<?php
+
+use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
+
+/**
+ * @var object $extfam_obj
+ * @var object $entry
+ * @var \Fisharebest\Webtrees\Individual $indi
+ */
+
+?>
+<?php if ($extfam_obj->config->useCompactDesign): ?>
+    <span class="hh_extended_family_lifespan"><?= ExtendedFamilySupport::personLifespan($indi, $extfam_obj->config->useBaptismAsBirthFallback, $extfam_obj->config->baptismFallbackPriority) ?></span>
+<?php else: ?>
+    <span class="hh_extended_family_birth_death">
+        <?= ExtendedFamilySupport::personVitalEventsSummary($indi, $extfam_obj->config->placeDisplay, $extfam_obj->config->useBaptismAsBirthFallback, $extfam_obj->config->baptismFallbackPriority) ?>
+    </span>
+<?php endif ?>
+<?php if ($extfam_obj->config->showLabels && $entry->labels): ?>
+    <?php foreach ($entry->labels as $label): ?>
+        <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
+    <?php endforeach ?>
+<?php endif ?>
+<?php include __DIR__ . '/person-additional-details.phtml'; ?>
+<?php if ($extfam_obj->config->showSosaNumbers && $entry->sosaLabels): ?>
+    <?php foreach ($entry->sosaLabels as $label): ?>
+        <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
+    <?php endforeach ?>
+<?php endif ?>

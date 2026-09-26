@@ -40,7 +40,6 @@ class ExtendedFamilyConfig
         public PlaceDisplayConfig $placeDisplay,
         public bool $showLastOccupation,
         public bool $showLastResidence,
-        public bool $showMarriageDetails,
         public bool $useBaptismAsBirthFallback,
         public string $baptismFallbackPriority,
         public bool $showThumbnail,

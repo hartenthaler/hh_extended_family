@@ -3104,7 +3104,7 @@ msgstr[1] ""
 
 #: resources/views/partials/summary.phtml:142
 #, php-format
-msgid "The selected direct line covers %s."
+msgid "The selected direct line covers a span of %s."
 msgstr ""
 
 #: resources/views/partials/summary.phtml:154

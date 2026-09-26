@@ -28,7 +28,6 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\PlaceAbbreviation;
  * @var array<int,string>       $place_display_sources
  * @var boolean                 $show_last_occupation
  * @var boolean                 $show_last_residence
- * @var boolean                 $show_marriage_details
  * @var boolean                 $use_baptism_as_birth_fallback
  * @var string                  $baptism_fallback_priority
  * @var boolean                 $show_summary
@@ -49,7 +48,6 @@ $place_format_options ??= PlaceAbbreviation::abbrPlacesOptions();
 $place_display_sources ??= ['plac'];
 $show_last_occupation ??= false;
 $show_last_residence ??= false;
-$show_marriage_details ??= false;
 $use_baptism_as_birth_fallback ??= true;
 $baptism_fallback_priority ??= 'CHR';
 $cce_available ??= false;
@@ -120,51 +118,6 @@ $coreYes = MoreI18N::xlate('yes');
             </p>
         </fieldset>
 
-        <h3><?= I18N::translate('Which additional information should be shown?') ?></h3>
-        <p><?= I18N::translate('These options add the latest occupation and residence to person entries and marriage details to partner entries.') ?></p>
-        <?php foreach ([
-            'show_last_occupation' => I18N::translate('Show last occupation'),
-            'show_last_residence' => I18N::translate('Show last residence'),
-            'show_marriage_details' => I18N::translate('Show marriage date and place'),
-            'use_baptism_as_birth_fallback' => I18N::translate('Use a baptismal date as a fallback for a missing birth date'),
-        ] as $name => $label): ?>
-            <fieldset class="form-group">
-                <div class="row">
-                    <legend class="col-form-label col-sm-3"><?= $label ?></legend>
-                    <div class="col-sm-9">
-                        <?= view('components/radios-inline', ['name' => $name, 'options' => [$coreYes, $coreNo], 'selected' => ${$name} ? 0 : 1]) ?>
-                    </div>
-                </div>
-            </fieldset>
-        <?php endforeach ?>
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3"><?= I18N::translate('Preferred baptismal event') ?></legend>
-                <div class="col-sm-9">
-                    <select class="form-select" name="baptism_fallback_priority">
-                        <option value="CHR" <?= $baptism_fallback_priority === 'CHR' ? 'selected' : '' ?>><?= I18N::translate('Christening (CHR)') ?></option>
-                        <option value="BAPM" <?= $baptism_fallback_priority === 'BAPM' ? 'selected' : '' ?>><?= I18N::translate('Baptism (BAPM)') ?></option>
-                    </select>
-                    <p class="small text-muted mt-1"><?= I18N::translate('If both events are available, this event is used first as the birth-date fallback.') ?></p>
-                </div>
-            </div>
-        </fieldset>
-
-        <h3><?= I18N::translate('Which place information should be shown in event boxes?') ?></h3>
-        <p><?= I18N::translate('You can show the GEDCOM place, the shared-place hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources.') ?></p>
-        <fieldset class="form-group">
-            <legend><?= I18N::translate('Place information sources') ?></legend>
-            <?php foreach ([
-                'plac' => I18N::translate('PLAC information'),
-                'loc_historical' => I18N::translate('_LOC hierarchy at the event date'),
-                'loc_current' => I18N::translate('Current _LOC hierarchy'),
-            ] as $value => $label): ?>
-                <label class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="place_display_sources[]" value="<?= e($value) ?>" <?= in_array($value, $place_display_sources, true) ? 'checked' : '' ?> />
-                    <span class="form-check-label"><?= $label ?></span>
-                </label>
-            <?php endforeach ?>
-        </fieldset>
         <table class="table table-bordered wt-table-menu">
             <thead>
                 <tr>
@@ -186,7 +139,7 @@ $coreYes = MoreI18N::xlate('yes');
                             <input type="hidden" name="order[]" value="<?= $efp ?>">
                             <span title="<?= $value->name ?>">
                                 <?= $value->name . ' (' . $value->generation . ')' ?>
-                            </span>                          
+                            </span>
                         </th>
 
                         <td class="text-center">
@@ -239,7 +192,7 @@ $coreYes = MoreI18N::xlate('yes');
                 <?php endforeach ?>
             </tbody>
         </table>
-        
+
         <h3><?= I18N::translate('Show options to filter the results?') ?></h3>
         <p><?= I18N::translate('This allows a user to filter the members of the extended family by gender and if they are alive or dead.') ?></p>
         <!-- show filter options -->
@@ -373,6 +326,34 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
+        <h3><?= I18N::translate('Which additional information should be shown?') ?></h3>
+        <?php foreach ([
+            'show_last_occupation' => I18N::translate('Show last occupation'),
+            'show_last_residence' => I18N::translate('Show last residence'),
+            'use_baptism_as_birth_fallback' => I18N::translate('Use a baptismal date as a fallback for a missing birth date'),
+        ] as $name => $label): ?>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-3"><?= $label ?></legend>
+                    <div class="col-sm-9">
+                        <?= view('components/radios-inline', ['name' => $name, 'options' => [$coreYes, $coreNo], 'selected' => ${$name} ? 0 : 1]) ?>
+                    </div>
+                </div>
+            </fieldset>
+        <?php endforeach ?>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3"><?= I18N::translate('Preferred baptismal event') ?></legend>
+                <div class="col-sm-9">
+                    <select class="form-select" name="baptism_fallback_priority">
+                        <option value="CHR" <?= $baptism_fallback_priority === 'CHR' ? 'selected' : '' ?>><?= I18N::translate('Christening (CHR)') ?></option>
+                        <option value="BAPM" <?= $baptism_fallback_priority === 'BAPM' ? 'selected' : '' ?>><?= I18N::translate('Baptism (BAPM)') ?></option>
+                    </select>
+                    <p class="small text-muted mt-1"><?= I18N::translate('If both events are available, this event is used first as the birth-date fallback.') ?></p>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Show parameters of extended family part?') ?></h3>
         <p><?= I18N::translate('Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.') ?></p>
         <!-- show parameters of family parts -->
@@ -425,20 +406,6 @@ $coreYes = MoreI18N::xlate('yes');
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/radios-inline', ['name' => 'show_short_name', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_short_name]) ?>
-                </div>
-            </div>
-        </fieldset>
-
-        <h3><?= I18N::translate('How should place names be shown in event boxes?') ?></h3>
-        <p><?= I18N::translate('This setting controls whether event places are shown as full place names or as abbreviated place names.') ?></p>
-        <!-- place name format in event boxes -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Place name format') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/select', ['name' => 'place_format', 'options' => $place_format_options, 'selected' => (int)$place_format]) ?>
                 </div>
             </div>
         </fieldset>
@@ -511,6 +478,36 @@ $coreYes = MoreI18N::xlate('yes');
                     <?= view('components/radios-inline', ['name' => 'show_relationship_to_proband', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_relationship_to_proband]) ?>
                 </div>
             </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('Which place information should be shown in event boxes?') ?></h3>
+        <p>
+            <?= I18N::translate('This setting controls whether event places are shown as full place names or as abbreviated place names.') ?>
+            <?= I18N::translate('You can show the GEDCOM place, the shared-place hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources.') ?>
+        </p>
+        <!-- place name format in event boxes -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Place name format') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/select', ['name' => 'place_format', 'options' => $place_format_options, 'selected' => (int)$place_format]) ?>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <legend><?= I18N::translate('Place information sources') ?></legend>
+            <?php foreach ([
+                'plac' => I18N::translate('PLAC information'),
+                'loc_historical' => I18N::translate('_LOC hierarchy at the event date'),
+                'loc_current' => I18N::translate('Current _LOC hierarchy'),
+            ] as $value => $label): ?>
+                <label class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="place_display_sources[]" value="<?= e($value) ?>" <?= in_array($value, $place_display_sources, true) ? 'checked' : '' ?> />
+                    <span class="form-check-label"><?= $label ?></span>
+                </label>
+            <?php endforeach ?>
         </fieldset>
 
         <h3><?= I18N::translate('Show a button "Print/PDF"?') ?></h3>

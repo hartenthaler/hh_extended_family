@@ -35,24 +35,7 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
                             <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
                             <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualLink($indi, $relationshipName) ?></span>
                             <?php include dirname(__DIR__) . '/degree-label.phtml'; ?>
-                            <?php if ($extfam_obj->config->showLabels && $entry->labels): ?>
-                                <?php foreach ($entry->labels as $label): ?>
-                                    <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
-                                <?php endforeach ?>
-                            <?php endif ?>
-                            <?php if ($extfam_obj->config->showSosaNumbers && $entry->sosaLabels): ?>
-                                <?php foreach ($entry->sosaLabels as $label): ?>
-                                    <span class="hh_extended_family_label_box"><?= $label ?></span>&nbsp;
-                                <?php endforeach ?>
-                            <?php endif ?>
-                            <?php include dirname(__DIR__) . '/person-additional-details.phtml'; ?>
-                            <?php if ($extfam_obj->config->useCompactDesign): ?>
-                                <span class="hh_extended_family_lifespan" ><?= ExtendedFamilySupport::personLifespan($indi, $extfam_obj->config->useBaptismAsBirthFallback, $extfam_obj->config->baptismFallbackPriority) ?></span>
-                            <?php else: ?>
-                                <span class="hh_extended_family_birth_death">
-                                    <?= ExtendedFamilySupport::personVitalEventsSummary($indi, $extfam_obj->config->placeDisplay, $extfam_obj->config->useBaptismAsBirthFallback, $extfam_obj->config->baptismFallbackPriority) ?>
-                                </span>
-                            <?php endif ?>
+                            <?php include dirname(__DIR__) . '/person-box-details.phtml'; ?>
                         <?php else: ?>
                             <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualName($indi) ?></span>
                         <?php endif ?>

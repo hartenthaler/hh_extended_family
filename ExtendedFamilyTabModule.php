@@ -242,7 +242,6 @@ class ExtendedFamilyTabModule extends AbstractModule
             $this->placeDisplayConfig(),
             $this->showLastOccupation(),
             $this->showLastResidence(),
-            $this->showMarriageDetails(),
             $this->useBaptismAsBirthFallback(),
             $this->baptismFallbackPriority(),
             $this->showThumbnail($proband->tree()),
@@ -305,7 +304,6 @@ class ExtendedFamilyTabModule extends AbstractModule
             'place_display_sources',
             'show_last_occupation',
             'show_last_residence',
-            'show_marriage_details',
             'use_baptism_as_birth_fallback',
             'baptism_fallback_priority',
             'show_summary',
@@ -345,7 +343,6 @@ class ExtendedFamilyTabModule extends AbstractModule
         $response['place_display_sources'] = $this->placeDisplaySources();
         $response['show_last_occupation'] = $this->showLastOccupation();
         $response['show_last_residence'] = $this->showLastResidence();
-        $response['show_marriage_details'] = $this->showMarriageDetails();
         $response['use_baptism_as_birth_fallback'] = $this->useBaptismAsBirthFallback();
         $response['baptism_fallback_priority'] = $this->baptismFallbackPriority();
         $response['thumbnail_size']         = $this->thumbnailSize();
@@ -426,7 +423,6 @@ class ExtendedFamilyTabModule extends AbstractModule
             'place_display_sources'   => $this->validatedPlaceDisplaySources($request),
             'show_last_occupation'    => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_last_occupation', '1'),
             'show_last_residence'     => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_last_residence', '1'),
-            'show_marriage_details'   => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_marriage_details', '1'),
             'use_baptism_as_birth_fallback' => Validator::parsedBody($request)->isInArray(['0', '1'])->string('use_baptism_as_birth_fallback', '1'),
             'baptism_fallback_priority' => Validator::parsedBody($request)->isInArray(['CHR', 'BAPM'])->string('baptism_fallback_priority', 'CHR'),
             'show_summary'            => Validator::parsedBody($request)->isInArray(['0', '1'])->string('show_summary', '0'),
@@ -824,11 +820,6 @@ class ExtendedFamilyTabModule extends AbstractModule
     private function showLastResidence(): bool
     {
         return $this->getPreference('show_last_residence', '1') === '0';
-    }
-
-    private function showMarriageDetails(): bool
-    {
-        return $this->getPreference('show_marriage_details', '1') === '0';
     }
 
     private function useBaptismAsBirthFallback(): bool
