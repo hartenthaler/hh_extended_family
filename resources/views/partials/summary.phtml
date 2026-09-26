@@ -224,7 +224,7 @@ if ($extfam_obj->config->showSummaryStatistics && $statistics !== null) {
 
 if ($coveredGenerationCount !== null) {
     $summarySentences[] = I18N::translate(
-        'The selected direct line covers %s.',
+        'The selected direct line covers a span of %s.',
         I18N::plural('%s generation', '%s generations', $coveredGenerationCount, I18N::number($coveredGenerationCount))
     );
 }

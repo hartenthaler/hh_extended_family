@@ -9,25 +9,19 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
 
 $placeDisplay = $extfam_obj->config->placeDisplay;
 $occupation = $extfam_obj->config->showLastOccupation
-    ? ExtendedFamilySupport::latestFactSummary($indi, 'OCCU', $placeDisplay)
+    ? ExtendedFamilySupport::latestFactSummary($indi, 'OCCU', $placeDisplay, true)
     : '';
 $residence = $extfam_obj->config->showLastResidence
-    ? ExtendedFamilySupport::latestFactSummary($indi, 'RESI', $placeDisplay)
-    : '';
-$marriage = $extfam_obj->config->showMarriageDetails && isset($entry)
-    ? ExtendedFamilySupport::marriageSummary($entry->family ?? null, $placeDisplay)
+    ? ExtendedFamilySupport::latestFactSummary($indi, 'RESI', $placeDisplay, true)
     : '';
 ?>
-<?php if ($occupation !== '' || $residence !== '' || $marriage !== ''): ?>
+<?php if ($occupation !== '' || $residence !== ''): ?>
     <div class="small text-muted hh-extended-family-additional-details">
         <?php if ($occupation !== ''): ?>
             <div><span class="label"><?= I18N::translate('Last occupation') ?>:</span> <?= $occupation ?></div>
         <?php endif ?>
         <?php if ($residence !== ''): ?>
             <div><span class="label"><?= I18N::translate('Last residence') ?>:</span> <?= $residence ?></div>
-        <?php endif ?>
-        <?php if ($marriage !== ''): ?>
-            <div><span class="label"><?= I18N::translate('Marriage') ?>:</span> <?= $marriage ?></div>
         <?php endif ?>
     </div>
 <?php endif ?>

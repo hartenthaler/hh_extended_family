@@ -3461,8 +3461,8 @@ msgstr[1] "%s Generationen"
 
 #: resources/views/partials/summary.phtml:142
 #, php-format
-msgid "The selected direct line covers %s."
-msgstr "Die ausgewählten direkten Generationsverbindungen decken %s ab."
+msgid "The selected direct line covers a span of %s."
+msgstr "Die ausgewählten direkten Generationsverbindungen decken eine Spanne von %s ab."
 
 #: resources/views/partials/summary.phtml:154
 #, php-format
