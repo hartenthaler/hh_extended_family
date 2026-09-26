@@ -525,98 +525,121 @@ $coreYes = MoreI18N::xlate('yes');
 <script>
   const defaultFamilyPartOrder = <?= json_encode($default_family_part_order) ?>;
 
-  $('.wt-table-menu td.move').click(function () {
-      var row = $(this).closest('tr');
+  document.querySelectorAll('.wt-table-menu td.move').forEach((cell) => {
+      cell.addEventListener('click', (event) => {
+          event.preventDefault();
+          const row = cell.closest('tr');
 
-      if ($(this).hasClass('up')) {
-          row.prev().before(row);
-      } else {
-          row.next().after(row);
-      }
+          if (!row) {
+              return;
+          }
 
-      return false;
-  });
-
-  $('.hh-extended-family-select-all').click(function () {
-      $('.hh-extended-family-part-status').prop('checked', true);
-      syncFamilyPartAvailability();
-  });
-
-  $('.hh-extended-family-select-none').click(function () {
-      $('.hh-extended-family-part-status').prop('checked', false);
-      syncFamilyPartAvailability();
-  });
-
-  $('.hh-extended-family-deselect-non-blood').click(function () {
-      $('.hh-extended-family-part-status[data-non-blood="1"]').prop('checked', false);
-      syncFamilyPartAvailability();
-  });
-
-  $('.hh-extended-family-reset-order').click(function () {
-      const tableBody = $('.wt-table-menu tbody');
-
-      defaultFamilyPartOrder.forEach(function (familyPart) {
-          const row = tableBody.find('input[name="order[]"]').filter(function () {
-              return $(this).val() === familyPart;
-          }).closest('tr');
-
-          if (row.length) {
-              tableBody.append(row);
+          if (cell.classList.contains('up')) {
+              row.previousElementSibling?.before(row);
+          } else {
+              row.nextElementSibling?.after(row);
           }
       });
   });
 
-  $('.hh-extended-family-apply-degree').click(function () {
-      const degreeLimit = parseInt($('.hh-extended-family-degree-limit').val(), 10);
-
-      if (Number.isNaN(degreeLimit)) {
-          $('.hh-extended-family-part-status').prop('checked', true);
-          return;
-      }
-
-      $('.hh-extended-family-part-status').each(function () {
-          const degree = parseInt($(this).data('degree'), 10);
-
-          if (!Number.isNaN(degree)) {
-              $(this).prop('checked', degree <= degreeLimit);
-          }
+  document.querySelectorAll('.hh-extended-family-select-all').forEach((button) => {
+      button.addEventListener('click', () => {
+          document.querySelectorAll('.hh-extended-family-part-status').forEach((input) => { input.checked = true; });
+          syncFamilyPartAvailability();
       });
-      syncFamilyPartAvailability();
+  });
+
+  document.querySelectorAll('.hh-extended-family-select-none').forEach((button) => {
+      button.addEventListener('click', () => {
+          document.querySelectorAll('.hh-extended-family-part-status').forEach((input) => { input.checked = false; });
+          syncFamilyPartAvailability();
+      });
+  });
+
+  document.querySelectorAll('.hh-extended-family-deselect-non-blood').forEach((button) => {
+      button.addEventListener('click', () => {
+          document.querySelectorAll('.hh-extended-family-part-status[data-non-blood="1"]').forEach((input) => { input.checked = false; });
+          syncFamilyPartAvailability();
+      });
+  });
+
+  document.querySelectorAll('.hh-extended-family-reset-order').forEach((button) => {
+      button.addEventListener('click', () => {
+          const tableBody = document.querySelector('.wt-table-menu tbody');
+
+          if (!tableBody) {
+              return;
+          }
+
+          defaultFamilyPartOrder.forEach((familyPart) => {
+              const input = Array.from(tableBody.querySelectorAll('input[name="order[]"]'))
+                  .find((candidate) => candidate.value === familyPart);
+              const row = input?.closest('tr');
+
+              if (row) {
+                  tableBody.append(row);
+              }
+          });
+      });
+  });
+
+  document.querySelectorAll('.hh-extended-family-apply-degree').forEach((button) => {
+      button.addEventListener('click', () => {
+          const degreeInput = document.querySelector('.hh-extended-family-degree-limit');
+          const degreeLimit = Number.parseInt(degreeInput?.value ?? '', 10);
+
+          if (Number.isNaN(degreeLimit)) {
+              document.querySelectorAll('.hh-extended-family-part-status').forEach((input) => { input.checked = true; });
+              syncFamilyPartAvailability();
+              return;
+          }
+
+          document.querySelectorAll('.hh-extended-family-part-status').forEach((input) => {
+              const degree = Number.parseInt(input.dataset.degree ?? '', 10);
+
+              if (!Number.isNaN(degree)) {
+                  input.checked = degree <= degreeLimit;
+              }
+          });
+          syncFamilyPartAvailability();
+      });
   });
 
   function syncFamilyPartAvailability() {
-      $('.hh-extended-family-part-status').each(function () {
-          const status = $(this);
-          const familyPart = status.data('family-part');
-          const selectable = $('.hh-extended-family-part-selectable[data-family-part="' + familyPart + '"]');
+      document.querySelectorAll('.hh-extended-family-part-status').forEach((status) => {
+          const familyPart = status.dataset.familyPart;
+          const selectable = document.querySelector('.hh-extended-family-part-selectable[data-family-part="' + CSS.escape(familyPart) + '"]');
 
-          if (status.prop('checked')) {
-              selectable.prop('checked', true);
+          if (selectable && status.checked) {
+              selectable.checked = true;
           }
 
-          status.prop('disabled', !selectable.prop('checked'));
+          status.disabled = !selectable?.checked;
       });
   }
 
-  $('.hh-extended-family-part-status').on('change', syncFamilyPartAvailability);
-  $('.hh-extended-family-part-selectable').on('change', syncFamilyPartAvailability);
+  document.querySelectorAll('.hh-extended-family-part-status, .hh-extended-family-part-selectable').forEach((input) => {
+      input.addEventListener('change', syncFamilyPartAvailability);
+  });
   syncFamilyPartAvailability();
 
   function updateDependencyWarnings() {
-      const summaryDisabled = $('input[name="show_summary"]:checked').val() === '1';
-      const statisticsEnabled = $('input[name="show_summary_statistics"]:checked').val() === '0';
+      const summaryDisabled = document.querySelector('input[name="show_summary"]:checked')?.value === '1';
+      const statisticsEnabled = document.querySelector('input[name="show_summary_statistics"]:checked')?.value === '0';
       const statisticsDisabled = !statisticsEnabled;
-      const emptyPartsCollectedAtSummary = $('[name="show_empty_block"]').val() === '1';
-      const relationshipMouseoverEnabled = $('input[name="show_relationship_to_proband"]:checked').val() === '0';
+      const emptyPartsCollectedAtSummary = document.querySelector('[name="show_empty_block"]')?.value === '1';
+      const relationshipMouseoverEnabled = document.querySelector('input[name="show_relationship_to_proband"]:checked')?.value === '0';
       const relationshipNamesAvailable = <?= $relationship_names_available ? 'true' : 'false' ?>;
 
-      $('.hh-extended-family-summary-statistics-warning').toggleClass('d-none', !(summaryDisabled && statisticsEnabled));
-      $('.hh-extended-family-summary-table-columns-warning').toggleClass('d-none', !(summaryDisabled || statisticsDisabled));
-      $('.hh-extended-family-empty-summary-warning').toggleClass('d-none', !(summaryDisabled && emptyPartsCollectedAtSummary));
-      $('.hh-extended-family-relationship-warning').toggleClass('d-none', !(!relationshipNamesAvailable && relationshipMouseoverEnabled));
+      document.querySelectorAll('.hh-extended-family-summary-statistics-warning').forEach((element) => element.classList.toggle('d-none', !(summaryDisabled && statisticsEnabled)));
+      document.querySelectorAll('.hh-extended-family-summary-table-columns-warning').forEach((element) => element.classList.toggle('d-none', !(summaryDisabled || statisticsDisabled)));
+      document.querySelectorAll('.hh-extended-family-empty-summary-warning').forEach((element) => element.classList.toggle('d-none', !(summaryDisabled && emptyPartsCollectedAtSummary)));
+      document.querySelectorAll('.hh-extended-family-relationship-warning').forEach((element) => element.classList.toggle('d-none', !(!relationshipNamesAvailable && relationshipMouseoverEnabled)));
   }
 
-  $('input[name="show_summary"], input[name="show_summary_statistics"], input[name="show_relationship_to_proband"], [name="show_empty_block"]').on('change', updateDependencyWarnings);
+  document.querySelectorAll('input[name="show_summary"], input[name="show_summary_statistics"], input[name="show_relationship_to_proband"], [name="show_empty_block"]').forEach((input) => {
+      input.addEventListener('change', updateDependencyWarnings);
+  });
   updateDependencyWarnings();
 </script>
 <?php View::endpush() ?>

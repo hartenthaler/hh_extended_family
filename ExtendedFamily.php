@@ -29,7 +29,7 @@ use Fisharebest\Webtrees\Elements\PedigreeLinkageType;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\I18N;
-use Fisharebest\Webtrees\Registry;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Support\WebtreesCompatibility;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Services\ClippingsCartWriter;
 use Illuminate\Support\Collection;
@@ -1555,7 +1555,7 @@ class ExtendedFamily
             $total > 0 ? $otherSexCount / $total : 0
         );
 
-        $dateRangeEndJulianDay = $livingCount > 0 ? Registry::timestampFactory()->now()->julianDay() : $latestDeathJulianDay;
+        $dateRangeEndJulianDay = $livingCount > 0 ? WebtreesCompatibility::todayJulianDay() : $latestDeathJulianDay;
         $dateRange = new DateRangeStatistics(
             $earliestBirthDate !== null && $dateRangeEndJulianDay > 0 && $earliestBirthJulianDay < $dateRangeEndJulianDay,
             $earliestBirthDate?->display(),

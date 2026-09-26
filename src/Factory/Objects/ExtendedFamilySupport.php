@@ -23,7 +23,6 @@
 
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
-use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\Elements\PedigreeLinkageType;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
@@ -31,6 +30,7 @@ use Fisharebest\Webtrees\Family;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Registry;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Support\WebtreesCompatibility;
 
 // string functions
 use function e;
@@ -124,7 +124,7 @@ class ExtendedFamilySupport
 
     private static function hasVisibleNameFacts(Individual $person): bool
     {
-        $allNameFacts = $person->facts(['NAME'], false, Auth::PRIV_HIDE);
+        $allNameFacts = $person->facts(['NAME'], false, WebtreesCompatibility::hiddenAccessLevel());
 
         if ($allNameFacts->isEmpty()) {
             return true;

@@ -45,7 +45,6 @@ declare(strict_types=1);
 namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use HuHwt\WebtreesMods\ClippingsCartEnhanced\ClippingsCartEnhancedModule;
-use Fisharebest\Localization\Translation;
 use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\Http\Exceptions\HttpAccessDeniedException;
 use Fisharebest\Webtrees\I18N;
@@ -67,6 +66,7 @@ use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Fisharebest\Webtrees\Services\ModuleService;
 use Fisharebest\Webtrees\Services\TreeService;
 use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
+use Hartenthaler\Webtrees\Module\ExtendedFamily\Support\WebtreesCompatibility;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -863,7 +863,8 @@ class ExtendedFamilyTabModule extends AbstractModule
             }
 
             if ($individual !== null && $access_interface !== null && $module !== null) {
-                return $module->accessLevel($individual->tree(), $access_interface) >= Auth::accessLevel($individual->tree(), Auth::user());
+                return WebtreesCompatibility::accessLevelValue($module->accessLevel($individual->tree(), $access_interface))
+                    >= WebtreesCompatibility::accessLevelValue(Auth::accessLevel($individual->tree(), Auth::user()));
             }
 
             return true;
@@ -1087,7 +1088,8 @@ class ExtendedFamilyTabModule extends AbstractModule
         $individual = Registry::individualFactory()->make($xref, $tree);
         $individual = Auth::checkIndividualAccess($individual);
 
-        if ($this->accessLevel($tree, ModuleTabInterface::class) < Auth::accessLevel($tree, $user)) {
+        if (WebtreesCompatibility::accessLevelValue($this->accessLevel($tree, ModuleTabInterface::class))
+            < WebtreesCompatibility::accessLevelValue(Auth::accessLevel($tree, $user))) {
             throw new HttpAccessDeniedException();
         }
 
@@ -1405,12 +1407,35 @@ class ExtendedFamilyTabModule extends AbstractModule
         $poFile = $languageFolder . $languageFile . '.po';
         $moFile = $languageFolder . $languageFile . '.mo';
 
-        if (is_file($poFile)) {
-            return (new Translation($poFile))->asArray();
+        $translationClass = 'Fisharebest\\Webtrees\\I18N\\Translation';
+
+        if (class_exists($translationClass)) {
+            $filename = is_file($poFile) ? $poFile : (is_file($moFile) ? $moFile : null);
+
+            if ($filename !== null) {
+                $stream = fopen($filename, 'rb');
+
+                if ($stream !== false) {
+                    $translation = str_ends_with($filename, '.po')
+                        ? $translationClass::fromPoStream($stream)
+                        : $translationClass::fromMoStream($stream);
+                    fclose($stream);
+
+                    return $translation->toArray();
+                }
+            }
         }
 
-        if (is_file($moFile)) {
-            return (new Translation($moFile))->asArray();
+        $legacyTranslationClass = 'Fisharebest\\Localization\\Translation';
+
+        if (class_exists($legacyTranslationClass)) {
+            if (is_file($poFile)) {
+                return (new $legacyTranslationClass($poFile))->asArray();
+            }
+
+            if (is_file($moFile)) {
+                return (new $legacyTranslationClass($moFile))->asArray();
+            }
         }
 
         return [];
