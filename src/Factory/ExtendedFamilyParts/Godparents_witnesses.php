@@ -15,8 +15,10 @@ use function count;
 use function in_array;
 use function preg_match;
 use function preg_split;
+use function str_replace;
 use function strtolower;
 use function trim;
+use function ucwords;
 
 /**
  * Godparents, witnesses, and other people linked to extended-family records.
@@ -197,7 +199,7 @@ class Godparents_witnesses extends ExtendedFamilyPart
                     $entries[] = new AssociatedPersonEntry(
                         $individual,
                         '',
-                        $this->translateRole($role),
+                        $this->roleLabel($role),
                         $this->eventLabel($recordType, $this->parentEventTag($stack, $level)),
                         $referenceIndividual,
                         $referenceFamily,
@@ -220,7 +222,7 @@ class Godparents_witnesses extends ExtendedFamilyPart
                 $entries[] = new AssociatedPersonEntry(
                     $individual instanceof Individual ? $individual : null,
                     $associatedName,
-                    $this->translateRole($tag),
+                    $this->roleLabel($tag),
                     $this->eventLabel($recordType, $this->parentEventTag($stack, $level)),
                     $referenceIndividual,
                     $referenceFamily,
@@ -298,22 +300,38 @@ class Godparents_witnesses extends ExtendedFamilyPart
         return Registry::elementFactory()->make($recordType . ':' . $eventTag)->label();
     }
 
-    private function translateRole(string $role): string
+    /**
+     * Resolve role labels through the webtrees core role catalogue.
+     *
+     * The module must not maintain its own translations for relationship
+     * roles.  The core element for INDI:ASSO:RELA is the authoritative source
+     * for the standard role identifiers and their localized labels.
+     */
+    private function roleLabel(string $role): string
     {
         $role = trim($role);
 
-        return match (strtolower($role)) {
-            '_godp', 'godparent', 'godfather', 'godmother' => I18N::translate('Godparent'),
-            'godmother_confirmation', 'godfather_confirmation', 'godparent_confirmation' => I18N::translate('Confirmation godparent'),
-            '_witn', '_witness', 'witness' => I18N::translate('Witness'),
-            'witnees_of_marriage', 'witness_of_marriage' => I18N::translate('Witness of marriage'),
-            'priest' => I18N::translate('Priest'),
-            '_spon', '_sponsor', 'sponsor' => I18N::translate('Sponsor'),
-            'employer' => I18N::translate('Employer'),
-            'landlord' => I18N::translate('Landlord'),
-            'neighbor', 'neighbour' => I18N::translate('Neighbor'),
-            default => $role !== '' ? $role : I18N::translate('Associated person'),
+        if ($role === '') {
+            return I18N::translate('Associated person');
+        }
+
+        $normalizedRole = strtolower($role);
+        $normalizedRole = match ($normalizedRole) {
+            '_godp' => 'godparent',
+            '_witn', '_witness' => 'witness',
+            '_spon', '_sponsor' => 'sponsor',
+            default => $normalizedRole,
         };
+
+        $roleValues = Registry::elementFactory()->make('INDI:ASSO:RELA')->values();
+
+        if (isset($roleValues[$normalizedRole]) && $roleValues[$normalizedRole] !== '') {
+            return $roleValues[$normalizedRole];
+        }
+
+        // Custom roles can be translated by webtrees or another loaded module,
+        // without adding a second role catalogue to this module.
+        return I18N::translate(ucwords(str_replace('_', ' ', $normalizedRole)));
     }
 
     private function filterAssociatedEntries(array $filterOptions): void
