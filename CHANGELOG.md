@@ -4,8 +4,6 @@ This file records user-visible changes for the **Extended family** module.
 The section **After the latest release / Nach dem letzten Release** is a working log for changes that are already merged but not yet released.
 It should be reviewed and converted into meaningful GitHub release notes before publishing a new release.
 
-## After the latest release / Nach dem letzten Release
-
 ## 2.2.6.15 - 2026-09-28
 
 - Added an administrator-controlled birth-date fallback in person boxes: when no dated `BIRT` event exists, a dated `CHR` or `BAPM` event can be shown, with configurable priority and a distinct visual marker.
@@ -20,6 +18,10 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 - Updated Dutch translations; thanks to TheDutchJewel.
 - Added an optional family part for former partners of biological, step, and social/adoptive parents. Biological/social partnerships must end before the proband's birth; step-parent partnerships are compared with the beginning of the parent role. Relaxed/symmetrical step-parent mode also includes one additional partner level.
 - Clarified the ex-partner summary wording and kept Degree labels anchored in the upper-right corner of enriched person boxes.
+
+## After the latest release / Nach dem letzten Release
+
+- No unreleased changes yet.
 
 ## 2.2.6.14 - 2026-07-13
 
