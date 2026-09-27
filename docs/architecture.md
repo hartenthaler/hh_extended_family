@@ -256,6 +256,7 @@ so that biological, social, step, and in-law relationship distinctions are propa
 | Family part | Definition | Basis | Implementation note |
 | --- | --- | --- | --- |
 | `parents` | Biological, social, and step parents of the proband | Proband plus shared parent helper methods | source-level family part. |
+| `ex_partners_of_parents` | Former partners of biological, step, and social/adoptive parents | Parent-role families plus partner families | Biological/social parent partnerships must have ended before the proband's birth; a former partner of a stepparent must have ended before that stepparent's role began. |
 | `grandparents` | Parents and stepparents of the proband's biological, social, and step parents | `parents` | uses `Parents` as basis and preserves biological, social, and step-parent distinctions. |
 | `great_grandparents` | Parents and stepparents of the relevant grandparent groups | `grandparents` | uses `Grandparents` as basis and preserves its group distinctions. |
 | `grandaunts_uncles` | Siblings and half siblings of the proband's grandparent groups | `grandparents` | uses `Grandparents` as basis and preserves biological, social, and step-grandparent distinctions. |

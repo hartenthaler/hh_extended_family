@@ -61,6 +61,9 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
                                     <?php else: ?>
                                         <h5><?= I18N::translate('%1$s %2$s, grandparents of stepparent %3$s', $familyStatus, $linkParents, $linkReferencePerson) ?></h5>
                                     <?php endif ?>
+                                <?php elseif ($propName == 'ex_partners_of_parents' && $referencePerson instanceof Individual): ?>
+                                    <?php $linkReferencePerson = ExtendedFamilySupport::individualLink($referencePerson) ?>
+                                    <h5><?= I18N::translate('Ex-partner of %s', $linkReferencePerson) ?></h5>
                                 <?php elseif (str_starts_with($group->groupName, 'Siblings and half siblings of')): ?>
                                     <?php $isHalfSibling = $referencePerson instanceof Individual && ExtendedFamilySupport::areHalfSiblings($indi, $referencePerson) ?>
                                     <?php $siblingLabel = I18N::translate($isHalfSibling ? 'Half siblings' : 'Full siblings') ?>
@@ -82,7 +85,10 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\Internationalization\MoreI18N;
                                     <h5><?= $familyStatus ?>&nbsp;<a href="<?= e($family->url()); ?>">&nbsp;<?= $family->fullName() ?></a></h5>
                                 <?php endif ?>
                             <?php else: ?>
-                                <?php if ($group->groupName == 'Parents of stepparents' || $group->groupName == 'Partners of siblings'): ?>
+                                <?php if ($propName == 'ex_partners_of_parents'): ?>
+                                    <?php $referenceName = $referencePerson instanceof Individual ? ExtendedFamilySupport::individualName($referencePerson) : I18N::translate('Parent') ?>
+                                    <h5><?= I18N::translate('Ex-partner of %s', $referenceName) ?></h5>
+                                <?php elseif ($group->groupName == 'Parents of stepparents' || $group->groupName == 'Partners of siblings'): ?>
                                     <h5><?= I18N::translate('%1$s %2$s connected with %3$s', $familyStatus, $family->fullName(), $referencePerson instanceof Individual ? $referencePerson->fullName() : '') ?></h5>
                                 <?php elseif (str_starts_with($group->groupName, 'Siblings and half siblings of')): ?>
                                     <?php $isHalfSibling = $referencePerson instanceof Individual && ExtendedFamilySupport::areHalfSiblings($indi, $referencePerson) ?>

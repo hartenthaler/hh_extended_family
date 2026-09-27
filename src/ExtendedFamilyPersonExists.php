@@ -72,6 +72,7 @@ class ExtendedFamilyPersonExists extends ExtendedFamily
         'grandparents',
         'grandchildren',
         'parents_in_law',
+        'ex_partners_of_parents',
         'children_in_law',
         'siblings_in_law',
         'co_parents_in_law',

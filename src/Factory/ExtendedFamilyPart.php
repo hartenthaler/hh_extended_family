@@ -279,23 +279,76 @@ abstract class ExtendedFamilyPart
      */
     protected function findStepparentsIndividuals(Individual $individual): array
     {
-        $stepparents = [];
         $bioParents = $this->findBioparentsIndividuals($individual);
+        $stepparents = $this->findDirectStepparentsIndividuals($individual, $bioParents);
+
+        // In the relaxed/symmetrical concept, include one additional partner
+        // level. This models a patchwork family without traversing arbitrary
+        // partner chains. The strict concept remains limited to direct
+        // partners of the biological parents.
+        if ($this->stepParentConcept !== self::STEP_PARENT_CONCEPT_RELAXED) {
+            return $stepparents;
+        }
+
+        $known = array_fill_keys(array_map(
+            static fn (IndividualFamily $entry): string => $entry->getIndividual()->xref(),
+            $stepparents
+        ), true);
+
+        $directStepparents = $stepparents;
+        foreach ($directStepparents as $stepparent) {
+            foreach ($this->findPartnersIndividuals($stepparent->getIndividual()) as $partner) {
+                $xref = $partner->getIndividual()->xref();
+                if (isset($known[$xref]) || $this->isBiologicalParent($partner->getIndividual(), $bioParents)) {
+                    continue;
+                }
+
+                if ($this->stepParentMatchesConcept($individual, $partner)) {
+                    $known[$xref] = true;
+                    $stepparents[] = $partner;
+                }
+            }
+        }
+
+        return $stepparents;
+    }
+
+    /**
+     * Find only the direct partners of the biological parents.
+     *
+     * @param Individual $individual
+     * @param array<int,IndividualFamily>|null $bioParents
+     * @return array<int,IndividualFamily>
+     */
+    protected function findDirectStepparentsIndividuals(Individual $individual, ?array $bioParents = null): array
+    {
+        $stepparents = [];
+        $bioParents ??= $this->findBioparentsIndividuals($individual);
         foreach ($bioParents as $parent) {
             foreach ($this->findPartnersIndividuals($parent->getIndividual()) as $stepparent) {
-                $found = false;
-                foreach ($bioParents as $bioParent)  {      // check if this stepparent is one of the biological parents
-                    if ($stepparent->getIndividual()->xref() == $bioParent->getIndividual()->xref()) {
-                        $found = true;
-                        break;
-                    }
-                }
-                if (!$found && $this->stepParentMatchesConcept($individual, $stepparent)) {
+                if (!$this->isBiologicalParent($stepparent->getIndividual(), $bioParents)
+                    && $this->stepParentMatchesConcept($individual, $stepparent)) {
                     $stepparents[] = $stepparent;
                 }
             }
         }
         return $stepparents;
+    }
+
+    /**
+     * @param Individual $individual
+     * @param array<int,IndividualFamily> $bioParents
+     * @return bool
+     */
+    private function isBiologicalParent(Individual $individual, array $bioParents): bool
+    {
+        foreach ($bioParents as $bioParent) {
+            if ($individual->xref() === $bioParent->getIndividual()->xref()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -315,20 +368,7 @@ abstract class ExtendedFamilyPart
             return true;
         }
 
-        $family = $stepparent->getFamily();
-        $birthDate = $child->getBirthDate();
-
-        if (!$family instanceof Family || !$birthDate->isOK()) {
-            return true;
-        }
-
-        $endDate = $this->partnerFamilyEndDate($family);
-
-        if (!$endDate instanceof Date || !$endDate->isOK()) {
-            return true;
-        }
-
-        return Date::compare($endDate, $birthDate) >= 0;
+        return !$this->partnerFamilyEndedBeforeChildBirth($child, $stepparent->getFamily());
     }
 
     /**
@@ -337,7 +377,7 @@ abstract class ExtendedFamilyPart
      * @param Family $family
      * @return Date|null
      */
-    private function partnerFamilyEndDate(Family $family): ?Date
+    protected function partnerFamilyEndDate(Family $family): ?Date
     {
         $endDate = null;
         foreach ($family->facts(['ANUL', 'DIV'], true) as $fact) {
@@ -362,6 +402,87 @@ abstract class ExtendedFamilyPart
         }
 
         return $endDate;
+    }
+
+    /**
+     * Return the earliest known beginning of a partner family.
+     *
+     * Engagement, marriage, and dated non-marital partnership/status records
+     * are valid indications that a partnership had started. In particular,
+     * Vesta-style ``1 _NMR / 2 DATE ...`` and ``1 _STAT / 2 DATE ...``
+     * records are accepted.
+     * Unknown dates remain unknown.
+     *
+     * @param Family $family
+     * @return Date|null
+     */
+    protected function partnerFamilyStartDate(Family $family): ?Date
+    {
+        $startDate = null;
+        foreach ($family->facts(['_NMR', '_STAT', 'ENGA', 'MARR'], true) as $fact) {
+            if (!$fact instanceof Fact || !$fact->date()->isOK()) {
+                continue;
+            }
+
+            if (!$startDate instanceof Date || Date::compare($fact->date(), $startDate) < 0) {
+                $startDate = $fact->date();
+            }
+        }
+
+        return $startDate;
+    }
+
+    /**
+     * Check whether a partner's family clearly ended before the child's birth.
+     *
+     * @param Individual       $child
+     * @param IndividualFamily $partner
+     * @return bool
+     */
+    protected function isExPartnerBeforeChildBirth(Individual $child, IndividualFamily $partner): bool
+    {
+        return $this->partnerFamilyEndedBeforeChildBirth($child, $partner->getFamily());
+    }
+
+    /**
+     * Check whether a partner family ended before a role began.
+     *
+     * @param Date|null $roleStartDate
+     * @param IndividualFamily $partner
+     * @return bool
+     */
+    protected function isExPartnerBeforeDate(?Date $roleStartDate, IndividualFamily $partner): bool
+    {
+        $family = $partner->getFamily();
+        if (!$family instanceof Family || !$roleStartDate instanceof Date || !$roleStartDate->isOK()) {
+            return false;
+        }
+
+        $endDate = $this->partnerFamilyEndDate($family);
+
+        return $endDate instanceof Date && $endDate->isOK() && Date::compare($endDate, $roleStartDate) < 0;
+    }
+
+    /**
+     * Check whether a partner family clearly ended before the child's birth.
+     *
+     * Unknown dates are deliberately not treated as an ended partnership.
+     *
+     * @param Individual   $child
+     * @param Family|null  $family
+     * @return bool
+     */
+    protected function partnerFamilyEndedBeforeChildBirth(Individual $child, ?Family $family): bool
+    {
+        $birthDate = $child->getBirthDate();
+
+        if (!$family instanceof Family || !$birthDate->isOK()) {
+            return false;
+        }
+
+        $endDate = $this->partnerFamilyEndDate($family);
+
+        return $endDate instanceof Date && $endDate->isOK() && Date::compare($endDate, $birthDate) < 0;
     }
 
     /**

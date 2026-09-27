@@ -32,6 +32,12 @@ class FamilyPartSummaryPresenter
             return $this->godparentsWitnessesSummaryLines($counts, $summaryName);
         }
 
+        if ($propName === 'ex_partners_of_parents') {
+            return $counts->allCount === 1
+                ? [I18N::translate('For %s, one ex-partner of a parent is recorded.', $summaryName)]
+                : [I18N::translate('For %s, %d ex-partners of parents are recorded.', $summaryName, $counts->allCount)];
+        }
+
         $terms = $this->terms($propName);
         if ($terms === []) {
             return [];

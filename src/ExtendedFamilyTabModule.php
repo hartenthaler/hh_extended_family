@@ -1035,7 +1035,7 @@ class ExtendedFamilyTabModule extends AbstractModule
      */
     public function resourcesFolder(): string
     {
-        return __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR;
+        return dirname(__DIR__) . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR;
     }
 
     /**
@@ -1478,7 +1478,7 @@ class ExtendedFamilyTabModule extends AbstractModule
             return [];
         }
 
-        $languageFolder = __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR;
+        $languageFolder = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR;
         $poFile = $languageFolder . $languageFile . '.po';
         $moFile = $languageFolder . $languageFile . '.mo';
 

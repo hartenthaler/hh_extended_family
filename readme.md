@@ -75,6 +75,7 @@ The module supports
 * optional summary counts
 * optional summary statistics for selected direct-line generations, including ancestor/descendant rows, biological counts, generation length, lifespan, oldest persons, and detected ancestor/descendant implex
 * optional handling of partner chains
+* optional family part for former partners of biological, step, and social/adoptive parents; the relationship chronology is checked against the proband's birth or the beginning of the parent role
 * optional family part for godparents, witnesses, and other linked persons from `ASSO`, `_ASSO`, and configured proprietary event tags
 * optional print/PDF button that opens a print-optimized view for the currently selected filter
 * optional "copy to clippings cart" action with support for huhwt-cce or the module's internal fallback action
@@ -108,6 +109,7 @@ The special family part for godparents, witnesses, and other linked persons is g
 * uncles and aunts: generation +1
 * uncles and aunts by marriage: generation +1
 * parents: generation +1
+* ex-partners of parents: generation +1 (possible overlap with stepparents)
 * parents-in-law: generation +1
 * co-parents-in-law: generation 0
 * partners and partner chains: generation 0

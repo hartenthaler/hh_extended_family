@@ -3902,6 +3902,10 @@ msgstr ""
 msgid "Show short name"
 msgstr "Zeige die Kurzform des Namens"
 
+#: resources/views/settings.phtml:441
+msgid "Labels"
+msgstr "Etiketten"
+
 #: resources/views/settings.phtml:319
 msgid "Show labels in special situations?"
 msgstr "Sollen in besonderen Situationen Etiketten gezeigt werden?"
@@ -4229,3 +4233,37 @@ msgstr "Letzter Wohnsitz"
 
 msgid "Buttons"
 msgstr "Schaltflächen"
+
+msgid "Ex-partners of parents"
+msgstr "Ex-Partner der Eltern"
+
+msgctxt "Family part name in sentence"
+msgid "ex-partners of parents"
+msgstr "Ex-Partner der Eltern"
+
+msgid "Ex-partner of father"
+msgstr "Ex-Partner des Vaters"
+
+msgid "Ex-partner of mother"
+msgstr "Ex-Partner der Mutter"
+
+msgid "Ex-partner of parent"
+msgstr "Ex-Partner des Elternteils"
+
+msgid "Ex-partners of biological parents"
+msgstr "Ex-Partner der biologischen Eltern"
+
+msgid "Ex-partners of stepparents"
+msgstr "Ex-Partner der Stiefeltern"
+
+msgid "Ex-partners of social parents"
+msgstr "Ex-Partner der Adoptiv-/Sozialeltern"
+
+msgid "Ex-partner of %s"
+msgstr "Ex-Partner von %s"
+
+msgid "For %s, one ex-partner of a parent is recorded."
+msgstr "Für %s ist ein Ex-Partner eines Elternteils aufgezeichnet."
+
+msgid "For %s, %d ex-partners of parents are recorded."
+msgstr "Für %s sind %d Ex-Partner von Elternteilen aufgezeichnet."
