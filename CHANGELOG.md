@@ -9,7 +9,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 - Added an administrator-controlled birth-date fallback in person boxes: when no dated `BIRT` event exists, a dated `CHR` or `BAPM` event can be shown, with configurable priority and a distinct visual marker.
 - Grouped children of nephews and nieces by their sibling, stepsibling, or partners' sibling line, so direct and step lines are no longer mixed under one heading.
 - Fixed missing person-level Degree labels for stepchildren of nephews and nieces and for the proband in partner-chain displays.
-- Added optional latest occupation and residence details to person entries and optional marriage date/place details to partner entries.
+- Added optional latest occupation and residence details to person entries.
 - Added configurable event-place sources for GEDCOM `PLAC`, the historical shared-place hierarchy at the event date, and the current shared-place hierarchy, with the existing place-format variants.
 - Improved the spacing around summary-table captions so that each caption is clearly attached to its table and separated from the following content.
 - Added compatibility support for webtrees 2.3 while retaining support for webtrees 2.2.6: access-level enums, hidden-fact privacy values, date calculations, translation loading, number formatting, and the settings/filter JavaScript now use compatible APIs.
