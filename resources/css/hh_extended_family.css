@@ -385,6 +385,12 @@
     margin: 1.25rem 0 0.35rem;
 }
 
+/* Keep the summary tables aligned with the surrounding summary text. */
+#hh-extended-family-summary-block .table-responsive,
+#hh-extended-family-summary-block .wt-facts-table {
+    margin-inline: 0;
+}
+
 #hh_extended_family_content .wt-chart-box-m .hh_extended_family_label,
 #hh_extended_family_content .wt-chart-box-f .hh_extended_family_label,
 #hh_extended_family_content .wt-chart-box-u .hh_extended_family_label,
