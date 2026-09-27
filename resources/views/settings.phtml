@@ -193,20 +193,6 @@ $coreYes = MoreI18N::xlate('yes');
             </tbody>
         </table>
 
-        <h3><?= I18N::translate('Show options to filter the results?') ?></h3>
-        <p><?= I18N::translate('This allows a user to filter the members of the extended family by gender and if they are alive or dead.') ?></p>
-        <!-- show filter options -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Show filter options') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'show_filter_options', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_filter_options]) ?>
-                </div>
-            </div>
-        </fieldset>
-
         <h3><?= I18N::translate('Should a summary block be shown?') ?></h3>
         <p><?= I18N::translate('The summary contains information about the extended family in total.') ?></p>
         <!-- show summary block -->
@@ -510,7 +496,23 @@ $coreYes = MoreI18N::xlate('yes');
             <?php endforeach ?>
         </fieldset>
 
-        <h3><?= I18N::translate('Show a button "Print/PDF"?') ?></h3>
+        <h3><?= I18N::translate('Buttons') ?></h3>
+
+        <h4><?= I18N::translate('Show options to filter the results?') ?></h4>
+        <p><?= I18N::translate('This allows a user to filter the members of the extended family by gender and if they are alive or dead.') ?></p>
+        <!-- show filter options -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show filter options') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_filter_options', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_filter_options]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h4><?= I18N::translate('Show a button "Print/PDF"?') ?></h4>
         <p><?= I18N::translate('This allows a user to open a print-optimized view and save it as a PDF file from the browser print dialog.') ?></p>
         <!-- show print/PDF button -->
         <fieldset class="form-group">
@@ -524,7 +526,7 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Show a button "Copy to clippings cart"?') ?></h3>
+        <h4><?= I18N::translate('Show a button "Copy to clippings cart"?') ?></h4>
         <p><?= I18N::translate('This allows a user to copy all members of the extended family to the clippings cart.') ?></p>
         <?php if ((int) $use_clippings_cart === 0 && !$cce_available) : ?>
             <div class="alert alert-warning" role="alert">

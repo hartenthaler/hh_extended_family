@@ -4232,3 +4232,6 @@ msgstr "Letzter Beruf"
 
 msgid "Last residence"
 msgstr "Letzter Wohnsitz"
+
+msgid "Buttons"
+msgstr "Schaltflächen"

@@ -824,7 +824,8 @@ class ExtendedFamilyTabModule extends AbstractModule
 
     private function useBaptismAsBirthFallback(): bool
     {
-        return $this->getPreference('use_baptism_as_birth_fallback', '1') === '1';
+        // webtrees radio controls store “yes” as 0 and “no” as 1.
+        return $this->getPreference('use_baptism_as_birth_fallback', '1') === '0';
     }
 
     private function baptismFallbackPriority(): string
