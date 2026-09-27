@@ -133,7 +133,7 @@ $coreYes = MoreI18N::xlate('yes');
 
             <tbody>
                 <?php foreach ($efps as $efp => $value) : ?>
-                    <?php $is_non_blood_selection = str_contains($efp, 'in_law') || $efp === 'uncles_and_aunts_bm' || $efp === 'partners' || $efp === 'partner_chains' || $efp === 'godparents_witnesses'; ?>
+                    <?php $is_non_blood_selection = str_contains($efp, 'in_law') || $efp === 'uncles_and_aunts_bm' || $efp === 'partners' || $efp === 'partner_chains' || $efp === 'ex_partners_of_parents' || $efp === 'godparents_witnesses'; ?>
                     <tr>
                         <th scope="col">
                             <input type="hidden" name="order[]" value="<?= $efp ?>">
@@ -438,8 +438,9 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Show labels in special situations?') ?></h3>
+        <h3><?= I18N::translate('Labels') ?></h3>
         <p><?= I18N::translate('Labels (or stickers) are used for example for adopted persons or foster children.') ?></p>
+        <h4><?= I18N::translate('Show labels in special situations?') ?></h4>
         <!-- show labels -->
         <fieldset class="form-group">
             <div class="row">
@@ -452,7 +453,7 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Show SOSA numbers for the proband and biological ancestors?') ?></h3>
+        <h4><?= I18N::translate('Show SOSA numbers for the proband and biological ancestors?') ?></h4>
         <p><?= I18N::translate('SOSA numbers are shown as separate labels for the proband and biological ancestors in the direct line.') ?></p>
         <!-- show SOSA numbers -->
         <fieldset class="form-group">
@@ -466,7 +467,7 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Should Degree labels be shown?') ?></h3>
+        <h4><?= I18N::translate('Should Degree labels be shown?') ?></h4>
         <p><?= str_replace('WikiTree', '<a href="https://www.wikitree.com/wiki/Help:Connection_Counts#What_is_a_CC7.3F">WikiTree</a>', e(I18N::translate('Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step.'))) ?></p>
         <fieldset class="form-group">
             <div class="row">

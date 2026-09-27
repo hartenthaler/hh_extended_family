@@ -3469,6 +3469,10 @@ msgstr ""
 msgid "Show short name"
 msgstr ""
 
+#: resources/views/settings.phtml:441
+msgid "Labels"
+msgstr ""
+
 #: resources/views/settings.phtml:319
 msgid "Show labels in special situations?"
 msgstr ""
@@ -3717,4 +3721,38 @@ msgid "Last residence"
 msgstr ""
 
 msgid "Buttons"
+msgstr ""
+
+msgid "Ex-partners of parents"
+msgstr ""
+
+msgctxt "Family part name in sentence"
+msgid "ex-partners of parents"
+msgstr ""
+
+msgid "Ex-partner of father"
+msgstr ""
+
+msgid "Ex-partner of mother"
+msgstr ""
+
+msgid "Ex-partner of parent"
+msgstr ""
+
+msgid "Ex-partners of biological parents"
+msgstr ""
+
+msgid "Ex-partners of stepparents"
+msgstr ""
+
+msgid "Ex-partners of social parents"
+msgstr ""
+
+msgid "Ex-partner of %s"
+msgstr ""
+
+msgid "For %s, one ex-partner of a parent is recorded."
+msgstr ""
+
+msgid "For %s, %d ex-partners of parents are recorded."
 msgstr ""

@@ -409,7 +409,10 @@
 }
 
 /* Keep the summary tables aligned with the surrounding summary text. */
-#hh-extended-family-summary-block .table-responsive,
+#hh-extended-family-summary-block .table-responsive {
+    margin-inline: 20px;
+}
+
 #hh-extended-family-summary-block .wt-facts-table {
     margin-inline: 0;
 }
@@ -423,6 +426,24 @@
     font-size: 10px;
     padding: 1px 5px 1px 5px;
     margin: 0px 0px 0px 0px;
+}
+
+/* Keep Degree labels in the upper-right corner of the enriched person box. */
+#hh_extended_family_content .wt-chart-box-m,
+#hh_extended_family_content .wt-chart-box-f,
+#hh_extended_family_content .wt-chart-box-u {
+    position: relative;
+}
+
+#hh_extended_family_content .wt-chart-box-m .hh_extended_family_label_box.hh-extended-family-degree-label,
+#hh_extended_family_content .wt-chart-box-f .hh_extended_family_label_box.hh-extended-family-degree-label,
+#hh_extended_family_content .wt-chart-box-u .hh_extended_family_label_box.hh-extended-family-degree-label {
+    float: none;
+    inset-inline-end: 5px;
+    margin: 0;
+    position: absolute;
+    right: 5px;
+    top: 5px;
 }
 
 .comment {

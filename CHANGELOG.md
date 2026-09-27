@@ -16,6 +16,8 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 - Updated Czech translations; thanks to Josef Prause.
 - Kept additional partner-chain people out of Degree shells, family-role loop detection, and clippings-cart exports when they are configured not to count as members of the extended family, while retaining their Degree labels.
 - Updated Dutch translations; thanks to TheDutchJewel.
+- Added an optional family part for former partners of biological, step, and social/adoptive parents. Biological/social partnerships must end before the proband's birth; step-parent partnerships are compared with the beginning of the parent role. Relaxed/symmetrical step-parent mode also includes one additional partner level.
+- Clarified the ex-partner summary wording and kept Degree labels anchored in the upper-right corner of enriched person boxes.
 
 ## 2.2.6.14 - 2026-07-13
 
