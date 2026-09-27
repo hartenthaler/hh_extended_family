@@ -3436,7 +3436,7 @@ msgstr ""
 #: resources/views/settings.phtml:264
 msgid ""
 "The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is "
-"activated for this tree) as well as birth and death information."
+"activated for this tree) as well as birth and death information and optional additional information."
 msgstr ""
 
 #: resources/views/settings.phtml:269
@@ -3467,18 +3467,6 @@ msgstr ""
 
 #: resources/views/settings.phtml:297
 msgid "Show short name"
-msgstr ""
-
-#: resources/views/settings.phtml:305
-msgid "How should place names be shown in event boxes?"
-msgstr ""
-
-#: resources/views/settings.phtml:306
-msgid "This setting controls whether event places are shown as full place names or as abbreviated place names."
-msgstr ""
-
-#: resources/views/settings.phtml:311
-msgid "Place name format"
 msgstr ""
 
 #: resources/views/settings.phtml:319
@@ -3574,7 +3562,7 @@ msgstr ""
 #: resources/views/settings.phtml:413
 msgid ""
 "Choose whether the extended family tab content is calculated immediately while the individual page opens or later by Ajax "
-"when the user opens the tab."
+"when the user opens the tab. Loading it immediately can lead to generally longer page load times."
 msgstr ""
 
 #: resources/views/settings.phtml:418
@@ -3668,6 +3656,9 @@ msgstr ""
 msgid "Which additional information should be shown?"
 msgstr ""
 
+msgid "Birth and death are always shown. The options below control additional information."
+msgstr ""
+
 msgid "These options add the latest occupation and residence to person entries and marriage details to partner entries."
 msgstr ""
 
@@ -3701,7 +3692,10 @@ msgstr ""
 msgid "Which place information should be shown in event boxes?"
 msgstr ""
 
-msgid "You can show the GEDCOM place, the shared-place hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources."
+msgid "You can show the place from the GEDCOM PLAC tag, the shared-place (_LOC) hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources. PLAC place names can be shown in full or abbreviated form."
+msgstr ""
+
+msgid "PLAC place format"
 msgstr ""
 
 msgid "Place information sources"
