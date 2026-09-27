@@ -3,6 +3,7 @@
 This file records user-visible changes for the **Extended family** module.
 The section **After the latest release / Nach dem letzten Release** is a working log for changes that are already merged but not yet released.
 It should be reviewed and converted into meaningful GitHub release notes before publishing a new release.
+User-visible translation updates must be mentioned in both the changelog and the release notes; purely internal catalog maintenance may be summarized briefly.
 
 ## 2.2.6.15 - 2026-09-28
 
