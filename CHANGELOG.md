@@ -16,6 +16,7 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 - Updated Czech translations; thanks to Josef Prause.
 - Kept additional partner-chain people out of Degree shells, family-role loop detection, and clippings-cart exports when they are configured not to count as members of the extended family, while retaining their Degree labels.
 - Updated Dutch translations; thanks to TheDutchJewel.
+- Updated Dutch translations; thanks to TheDutchJewel.
 
 ## 2.2.6.14 - 2026-07-13
 
