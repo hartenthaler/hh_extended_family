@@ -7,3 +7,4 @@
 - Adds configurable event-place sources for GEDCOM `PLAC`, the historical `_LOC` hierarchy at the event date, and the current `_LOC` hierarchy.
 - Improves shared-place hierarchy display and summary-table spacing, and keeps Degree labels anchored in the upper-right corner of enriched person boxes.
 - Adds compatibility support for webtrees 2.3 while retaining support for webtrees 2.2.6.
+- Updates the Czech and Dutch translations.
