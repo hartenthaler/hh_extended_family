@@ -207,21 +207,6 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Should a Degree table be shown?') ?></h3>
-        <p><?= I18N::translate('The Degree table lists the number of persons at each distance and provides a list of linked persons.') ?></p>
-        <p class="small text-muted"><?= I18N::translate('This option only has an effect if the summary block is shown.') ?></p>
-        <div class="alert alert-warning hh-extended-family-degree-table-warning" role="alert">
-            <?= I18N::translate('The Degree table cannot be shown while the summary block is disabled.') ?>
-        </div>
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3"><?= I18N::translate('Show Degree table') ?></legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'show_degree_table', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_degree_table]) ?>
-                </div>
-            </div>
-        </fieldset>
-
         <h3><?= I18N::translate('Should summary statistics be shown?') ?></h3>
         <p><?= I18N::translate('The summary statistics contain additional information about living and deceased members, gender distribution, and the known date range.') ?></p>
         <p class="small text-muted">
@@ -274,21 +259,17 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Count the members of the partner chains as members of the extended family?') ?></h3>
-        <p>
-            <?= I18N::translate('If you select "no", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family.') ?>
-            <?= I18N::translate('And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.') ?>
-            <?= I18N::translate('But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".') ?>
-            <?= I18N::translate('This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.') ?>
-        </p>
-        <!-- count partner chain members as members of extended family -->
+        <h3><?= I18N::translate('Should a Degree table be shown?') ?></h3>
+        <p><?= I18N::translate('The Degree table lists the number of persons at each distance and provides a list of linked persons.') ?></p>
+        <p class="small text-muted"><?= I18N::translate('This option only has an effect if the summary block is shown.') ?></p>
+        <div class="alert alert-warning hh-extended-family-degree-table-warning" role="alert">
+            <?= I18N::translate('The Degree table cannot be shown while the summary block is disabled.') ?>
+        </div>
         <fieldset class="form-group">
             <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Include them') ?>
-                </legend>
+                <legend class="col-form-label col-sm-3"><?= I18N::translate('Show Degree table') ?></legend>
                 <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'count_partner_chains', 'options' => [$coreYes, $coreNo], 'selected' => (int)$count_partner_chains]) ?>
+                    <?= view('components/radios-inline', ['name' => 'show_degree_table', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_degree_table]) ?>
                 </div>
             </div>
         </fieldset>
@@ -308,6 +289,25 @@ $coreYes = MoreI18N::xlate('yes');
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/select', ['name' => 'show_empty_block', 'options' => [I18N::translate('yes, always at standard location'), I18N::translate('no, but collect messages about empty blocks at the summary block'), I18N::translate('never')], 'selected' => (int)$show_empty_block]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('Count the members of the partner chains as members of the extended family?') ?></h3>
+        <p>
+            <?= I18N::translate('If you select "no", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family.') ?>
+            <?= I18N::translate('And these persons and families will be not selected when a user decides to copy the extended family to the clippings cart.') ?>
+            <?= I18N::translate('But even in this case, you can copy these persons and families to the clippings cart by using a special menu topic of the custom module "enhanced clippings cart": "add partner chains for an individual".') ?>
+            <?= I18N::translate('This is only relevant if you have chosen in the above table, that the partner chains should be shown as a part of the extended family.') ?>
+        </p>
+        <!-- count partner chain members as members of extended family -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Include them') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'count_partner_chains', 'options' => [$coreYes, $coreNo], 'selected' => (int)$count_partner_chains]) ?>
                 </div>
             </div>
         </fieldset>
@@ -424,20 +424,6 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Show labels in special situations?') ?></h3>
-        <p><?= I18N::translate('Labels (or stickers) are used for example for adopted persons or foster children.') ?></p>
-        <!-- show labels -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Show labels') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'show_labels', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_labels]) ?>
-                </div>
-            </div>
-        </fieldset>
-
         <h3><?= I18N::translate('How should step-parent relationships be interpreted?') ?></h3>
         <p><?= I18N::translate('The strict concept treats a parent\'s earlier partner as no step-parent of children from a later partnership. The relaxed concept keeps the previous symmetrical patchwork interpretation.') ?></p>
         <!-- step-parent concept -->
@@ -448,6 +434,20 @@ $coreYes = MoreI18N::xlate('yes');
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/radios-inline', ['name' => 'step_parent_concept', 'options' => ['strict' => I18N::translate('strict / sequential'), 'relaxed' => I18N::translate('relaxed / symmetrical')], 'selected' => $step_parent_concept]) ?>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3><?= I18N::translate('Show labels in special situations?') ?></h3>
+        <p><?= I18N::translate('Labels (or stickers) are used for example for adopted persons or foster children.') ?></p>
+        <!-- show labels -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show labels') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_labels', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_labels]) ?>
                 </div>
             </div>
         </fieldset>
@@ -467,7 +467,7 @@ $coreYes = MoreI18N::xlate('yes');
         </fieldset>
 
         <h3><?= I18N::translate('Should Degree labels be shown?') ?></h3>
-        <p><?= I18N::translate('Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step.') ?></p>
+        <p><?= str_replace('WikiTree', '<a href="https://www.wikitree.com/wiki/Help:Connection_Counts#What_is_a_CC7.3F">WikiTree</a>', e(I18N::translate('Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step.'))) ?></p>
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3"><?= I18N::translate('Show Degree labels') ?></legend>
