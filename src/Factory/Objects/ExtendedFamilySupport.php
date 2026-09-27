@@ -667,11 +667,14 @@ class ExtendedFamilySupport
                         $dateClass = 'Vesta\\Model\\GedcomDateInterval';
                         $date = $dateClass::create($event->attribute('DATE'));
                         $place = $location->primaryPlaceAt($date);
-                        $places[] = PlaceAbbreviation::getAbbreviatedPlace($place->gedcomName(), $placeDisplay->variant);
+                        // Shared-place hierarchies may contain more levels than a
+                        // PLAC value. Keep them complete; the abbreviation option
+                        // is intentionally limited to the GEDCOM PLAC value.
+                        $places[] = $place->gedcomName();
                     }
                     if ($placeDisplay->uses(PlaceDisplayConfig::SOURCE_LOC_CURRENT) && method_exists($location, 'primaryPlace')) {
                         $place = $location->primaryPlace();
-                        $places[] = PlaceAbbreviation::getAbbreviatedPlace($place->gedcomName(), $placeDisplay->variant);
+                        $places[] = $place->gedcomName();
                     }
                 }
             } catch (\Throwable) {
