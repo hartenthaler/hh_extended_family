@@ -26,7 +26,6 @@ use Hartenthaler\Webtrees\Module\ExtendedFamily\ExtendedFamilySupport;
         <?php $relationshipName = $extfam_obj->config->showRelationshipToProband ? ExtendedFamilySupport::relationshipNameToProband($indi, $extfam_obj->proband->indi) : '' ?>
         <span class="hh_extended_family_name"><?= ExtendedFamilySupport::individualLink($indi, $relationshipName) ?></span>
         <?php include __DIR__ . '/person-box-details.phtml'; ?>
-        <?php include __DIR__ . '/degree-label.phtml'; ?>
     <?php else: ?>
         <span class="hh_extended_family_counter"><?= $i ?></span>
         <?php if ($propName === 'children_in_law'): ?>

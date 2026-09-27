@@ -13,19 +13,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "X-Generator: Poedit 3.9\n"
 
-#: ExtendedFamilyTabModule.php:228
+#: src/ExtendedFamilyTabModule.php:228
 msgid "small"
 msgstr "malý"
 
-#: ExtendedFamilyTabModule.php:229
+#: src/ExtendedFamilyTabModule.php:229
 msgid "medium"
 msgstr "stredný"
 
-#: ExtendedFamilyTabModule.php:230
+#: src/ExtendedFamilyTabModule.php:230
 msgid "large"
 msgstr "veľký"
 
-#: ExtendedFamilyTabModule.php:745
+#: src/ExtendedFamilyTabModule.php:745
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “Copy to "
 "clippings cart” will use the internal Extended Family action."
@@ -33,7 +33,7 @@ msgstr ""
 "Užívateľský modul “huhwt-cce” nie je prístupný. Tlačidlo \"kopírovať do "
 "schránky výstrižkov\" použije internú akciu modulu širšia rodina."
 
-#: ExtendedFamilyTabModule.php:755
+#: src/ExtendedFamilyTabModule.php:755
 msgid ""
 "Vesta relationship names are not available. Mouse-over text for "
 "relationships to the proband will not be shown."
@@ -42,24 +42,24 @@ msgstr ""
 "osobu sa nezobrazí text so vzťahom k probandovi."
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:765 ExtendedFamilyTabModule.php:937
+#: src/ExtendedFamilyTabModule.php:765 src/ExtendedFamilyTabModule.php:937
 msgid "Extended family"
 msgstr "Širšia rodina"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:775
+#: src/ExtendedFamilyTabModule.php:775
 msgid "A tab showing the extended family of an individual."
 msgstr "Záložka širšej rodiny danej osoby."
 
-#: ExtendedFamilyTabModule.php:959
+#: src/ExtendedFamilyTabModule.php:959
 msgid "The selected tree could not be found."
 msgstr "Zvolený rodokmeň sa nenašiel."
 
-#: ExtendedFamilyTabModule.php:966
+#: src/ExtendedFamilyTabModule.php:966
 msgid "The selected individual could not be found."
 msgstr "Zvolená osoba sa nenašla."
 
-#: ExtendedFamilyTabModule.php:991
+#: src/ExtendedFamilyTabModule.php:991
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"
@@ -3733,7 +3733,7 @@ msgstr "Vzťah"
 msgid "Total profiles"
 msgstr "Spolu profilov"
 
-#: ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+#: src/ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
 msgid "Living / deceased"
 msgstr "Žijúci / zosnulí"
 
@@ -4191,15 +4191,15 @@ msgstr ""
 msgid "Load later"
 msgstr "Načítať neskôr"
 
-#: ExtendedFamily.php:538
+#: src/ExtendedFamily.php:538
 msgid "spouse of"
 msgstr "partner osoby"
 
-#: ExtendedFamily.php:542
+#: src/ExtendedFamily.php:542
 msgid "parent of"
 msgstr "rodič osoby"
 
-#: ExtendedFamily.php:543
+#: src/ExtendedFamily.php:543
 msgid "child of"
 msgstr "dieťa osoby"
 

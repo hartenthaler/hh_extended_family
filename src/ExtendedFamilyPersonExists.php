@@ -25,30 +25,30 @@ namespace Hartenthaler\Webtrees\Module\ExtendedFamily;
 
 use Fisharebest\Webtrees\Individual;
 
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyPartFactory.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyPart.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyPartFactory.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyPart.php');
 
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandparents.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandparents.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Uncles_and_aunts_bm.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Parents.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Parents_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Co_parents_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Siblings.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Siblings_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Co_siblings_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partners.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Partner_chains.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Godparents_witnesses.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Cousins.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Nephews_and_nieces.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandnephews_nieces.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Children_in_law.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Grandchildren.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandchildren.php');
-require_once(__DIR__ . '/src/Factory/ExtendedFamilyParts/Great_grandchild_in_law.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Great_grandparents.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Grandparents.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Uncles_and_aunts.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Uncles_and_aunts_bm.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Parents.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Parents_in_law.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Co_parents_in_law.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Siblings.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Siblings_in_law.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Co_siblings_in_law.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Partners.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Partner_chains.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Godparents_witnesses.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Cousins.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Nephews_and_nieces.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Grandnephews_nieces.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Children.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Children_in_law.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Grandchildren.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Great_grandchildren.php');
+require_once(__DIR__ . '/Factory/ExtendedFamilyParts/Great_grandchild_in_law.php');
 
 /**
  * class ExtendedFamilyPersonExists

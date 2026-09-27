@@ -16,18 +16,18 @@ msgstr ""
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:289
+#: src/ExtendedFamilyTabModule.php:289
 #, php-format
 msgid "The preferences for the module “%s” have been updated."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:686
+#: src/ExtendedFamilyTabModule.php:686
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “copy to "
 "clippings cart” will use the internal Extended Family action."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:696
+#: src/ExtendedFamilyTabModule.php:696
 msgid ""
 "Vesta relationship names are not available. Mouse-over text for "
 "relationships to the proband will not be shown."
@@ -35,25 +35,25 @@ msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:706 ExtendedFamilyTabModule.php:875
+#: src/ExtendedFamilyTabModule.php:706 src/ExtendedFamilyTabModule.php:875
 msgid "Extended family"
 msgstr "大家庭"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:716
+#: src/ExtendedFamilyTabModule.php:716
 msgid "A tab showing the extended family of an individual."
 msgstr "显示本人大家庭的选项卡。"
 
-#: ExtendedFamilyTabModule.php:897
+#: src/ExtendedFamilyTabModule.php:897
 msgid "The selected tree could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:904
+#: src/ExtendedFamilyTabModule.php:904
 msgid "The selected individual could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:929
+#: src/ExtendedFamilyTabModule.php:929
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"

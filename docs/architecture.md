@@ -39,7 +39,7 @@ Most values come from webtrees module preferences and are assembled into a runti
 
 ### `ExtendedFamilyTabModule`
 
-`ExtendedFamilyTabModule.php` is the webtrees integration point.
+`src/ExtendedFamilyTabModule.php` is the webtrees integration point.
 It registers the module as an individual-page tab and provides the administrative settings screen.
 
 Main responsibilities:
@@ -54,7 +54,7 @@ Main responsibilities:
 
 ### `ExtendedFamily`
 
-`ExtendedFamily.php` coordinates the actual calculation.
+`src/ExtendedFamily.php` coordinates the actual calculation.
 It receives the proband and the runtime configuration, builds all configured filter variants, creates the configured family parts, and stores summary counts.
 It also prepares summary statistics, direct-line ancestor/descendant statistics, and detected ancestor/descendant implex information for the summary partial.
 
@@ -449,9 +449,10 @@ The module's source code is organized into the following directories
 ```text
 hh_extended_family/
 ├── autoload.php
-├── ExtendedFamilyTabModule.php
-├── ExtendedFamily.php
-├── ExtendedFamilyPersonExists.php
+├── src/
+│   ├── ExtendedFamilyTabModule.php
+│   ├── ExtendedFamily.php
+│   └── ExtendedFamilyPersonExists.php
 ├── latest-version.txt
 ├── module.php
 ├── README.md

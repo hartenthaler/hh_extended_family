@@ -17,12 +17,12 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2,3;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:304
+#: src/ExtendedFamilyTabModule.php:304
 #, php-format
 msgid "The preferences for the module “%s” have been updated."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:649
+#: src/ExtendedFamilyTabModule.php:649
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “copy to "
 "clippings cart” will use the internal Extended Family action."
@@ -30,25 +30,25 @@ msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:669
+#: src/ExtendedFamilyTabModule.php:669
 msgid "A tab showing the extended family of an individual."
 msgstr "Вкладка с родственниками человека."
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:828
+#: src/ExtendedFamilyTabModule.php:828
 msgid "Extended family"
 msgstr "Родственники"
 
-#: ExtendedFamilyTabModule.php:850
+#: src/ExtendedFamilyTabModule.php:850
 msgid "The selected tree could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:857
+#: src/ExtendedFamilyTabModule.php:857
 msgid "The selected individual could not be found."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:882
+#: src/ExtendedFamilyTabModule.php:882
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"

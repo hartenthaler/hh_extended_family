@@ -381,6 +381,29 @@
     margin-inline-end: 0;
 }
 
+#hh_extended_family_content_compact .wt-chart-box-m .hh_extended_family_lifespan,
+#hh_extended_family_content_compact .wt-chart-box-f .hh_extended_family_lifespan,
+#hh_extended_family_content_compact .wt-chart-box-u .hh_extended_family_lifespan {
+    order: 2;
+}
+
+#hh_extended_family_content_compact .wt-chart-box-m .hh_extended_family_label_box.hh-extended-family-degree-label,
+#hh_extended_family_content_compact .wt-chart-box-f .hh_extended_family_label_box.hh-extended-family-degree-label,
+#hh_extended_family_content_compact .wt-chart-box-u .hh_extended_family_label_box.hh-extended-family-degree-label {
+    align-self: flex-start;
+    order: 3;
+}
+
+#hh_extended_family_content_compact .wt-chart-box-m .hh_extended_family_label_box:not(.hh-extended-family-degree-label),
+#hh_extended_family_content_compact .wt-chart-box-f .hh_extended_family_label_box:not(.hh-extended-family-degree-label),
+#hh_extended_family_content_compact .wt-chart-box-u .hh_extended_family_label_box:not(.hh-extended-family-degree-label) {
+    order: 4;
+}
+
+#hh_extended_family_content_compact .hh-extended-family-additional-details {
+    display: none;
+}
+
 .hh-extended-family-table-caption {
     margin: 1.25rem 0 0.35rem;
 }
