@@ -207,6 +207,21 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
+        <h3><?= I18N::translate('Should a Degree table be shown?') ?></h3>
+        <p><?= I18N::translate('The Degree table lists the number of persons at each distance and provides a list of linked persons.') ?></p>
+        <p class="small text-muted"><?= I18N::translate('This option only has an effect if the summary block is shown.') ?></p>
+        <div class="alert alert-warning hh-extended-family-degree-table-warning" role="alert">
+            <?= I18N::translate('The Degree table cannot be shown while the summary block is disabled.') ?>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3"><?= I18N::translate('Show Degree table') ?></legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_degree_table', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_degree_table]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Should summary statistics be shown?') ?></h3>
         <p><?= I18N::translate('The summary statistics contain additional information about living and deceased members, gender distribution, and the known date range.') ?></p>
         <p class="small text-muted">
@@ -223,21 +238,6 @@ $coreYes = MoreI18N::xlate('yes');
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/radios-inline', ['name' => 'show_summary_statistics', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_summary_statistics]) ?>
-                </div>
-            </div>
-        </fieldset>
-
-        <h3><?= I18N::translate('Should a Degree table be shown?') ?></h3>
-        <p><?= I18N::translate('The Degree table lists the number of persons at each distance and provides a list of linked persons.') ?></p>
-        <p class="small text-muted"><?= I18N::translate('This option only has an effect if the summary block is shown.') ?></p>
-        <div class="alert alert-warning hh-extended-family-degree-table-warning" role="alert">
-            <?= I18N::translate('The Degree table cannot be shown while the summary block is disabled.') ?>
-        </div>
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3"><?= I18N::translate('Show Degree table') ?></legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'show_degree_table', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_degree_table]) ?>
                 </div>
             </div>
         </fieldset>
@@ -274,25 +274,6 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('How should empty parts of extended family be presented?') ?></h3>
-        <p class="small text-muted">
-            <?= I18N::translate('The option to collect messages about empty family parts at the summary block only has an effect if the summary block is shown.') ?>
-        </p>
-        <div class="alert alert-warning hh-extended-family-empty-summary-warning" role="alert">
-            <?= I18N::translate('Empty family parts cannot be collected at the summary block while the summary block is disabled.') ?>
-        </div>
-        <!-- show empty block -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Show empty block') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/select', ['name' => 'show_empty_block', 'options' => [I18N::translate('yes, always at standard location'), I18N::translate('no, but collect messages about empty blocks at the summary block'), I18N::translate('never')], 'selected' => (int)$show_empty_block]) ?>
-                </div>
-            </div>
-        </fieldset>
-
         <h3><?= I18N::translate('Count the members of the partner chains as members of the extended family?') ?></h3>
         <p>
             <?= I18N::translate('If you select "no", then the additional members in the partner chains will not be counted to the total number of individuals in the extended family.') ?>
@@ -312,7 +293,27 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
+        <h3><?= I18N::translate('How should empty parts of extended family be presented?') ?></h3>
+        <p class="small text-muted">
+            <?= I18N::translate('The option to collect messages about empty family parts at the summary block only has an effect if the summary block is shown.') ?>
+        </p>
+        <div class="alert alert-warning hh-extended-family-empty-summary-warning" role="alert">
+            <?= I18N::translate('Empty family parts cannot be collected at the summary block while the summary block is disabled.') ?>
+        </div>
+        <!-- show empty block -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show empty block') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/select', ['name' => 'show_empty_block', 'options' => [I18N::translate('yes, always at standard location'), I18N::translate('no, but collect messages about empty blocks at the summary block'), I18N::translate('never')], 'selected' => (int)$show_empty_block]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Which additional information should be shown?') ?></h3>
+        <p class="small text-muted"><?= I18N::translate('Birth and death are always shown. The options below control additional information.') ?></p>
         <?php foreach ([
             'show_last_occupation' => I18N::translate('Show last occupation'),
             'show_last_residence' => I18N::translate('Show last residence'),
@@ -340,6 +341,47 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
+        <h3><?= I18N::translate('Which place information should be shown in event boxes?') ?></h3>
+        <p><?= I18N::translate('You can show the place from the GEDCOM PLAC tag, the shared-place (_LOC) hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources. PLAC place names can be shown in full or abbreviated form.') ?></p>
+        <!-- place name format in event boxes -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('PLAC place format') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/select', ['name' => 'place_format', 'options' => $place_format_options, 'selected' => (int)$place_format]) ?>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <legend><?= I18N::translate('Place information sources') ?></legend>
+            <?php foreach ([
+                'plac' => I18N::translate('PLAC information'),
+                'loc_historical' => I18N::translate('_LOC hierarchy at the event date'),
+                'loc_current' => I18N::translate('Current _LOC hierarchy'),
+            ] as $value => $label): ?>
+                <label class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="place_display_sources[]" value="<?= e($value) ?>" <?= in_array($value, $place_display_sources, true) ? 'checked' : '' ?> />
+                    <span class="form-check-label"><?= $label ?></span>
+                </label>
+            <?php endforeach ?>
+        </fieldset>
+
+        <h3><?= I18N::translate('Show name of proband as short name or as full name?') ?></h3>
+        <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
+        <!-- nice_name -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-3">
+                    <?= I18N::translate('Show short name') ?>
+                </legend>
+                <div class="col-sm-9">
+                    <?= view('components/radios-inline', ['name' => 'show_short_name', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_short_name]) ?>
+                </div>
+            </div>
+        </fieldset>
+
         <h3><?= I18N::translate('Show parameters of extended family part?') ?></h3>
         <p><?= I18N::translate('Display of additional information for each part of the extended family, such as the generation shift and the coefficient of relationship, which is a measure of the degree of consanguinity.') ?></p>
         <!-- show parameters of family parts -->
@@ -355,7 +397,7 @@ $coreYes = MoreI18N::xlate('yes');
         </fieldset>
 
         <h3><?= I18N::translate('Use the compact design?') ?></h3>
-        <p><?= I18N::translate('The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information.') ?></p>
+        <p><?= I18N::translate('The compact design only shows the name and life span for each person. The enriched design also shows a photo (if this is activated for this tree) as well as birth and death information and optional additional information.') ?></p>
         <!-- use compact design -->
         <fieldset class="form-group">
             <div class="row">
@@ -378,20 +420,6 @@ $coreYes = MoreI18N::xlate('yes');
                 </legend>
                 <div class="col-sm-9">
                     <?= view('components/select', ['name' => 'thumbnail_size', 'options' => $thumbnail_size_options, 'selected' => $thumbnail_size]) ?>
-                </div>
-            </div>
-        </fieldset>
-
-        <h3><?= I18N::translate('Show name of proband as short name or as full name?') ?></h3>
-        <p><?= I18N::translate('The short name is based on the probands Rufname or nickname. If these are not available, the first of the given names is used, if one is given. Otherwise the last name is used.') ?></p>
-        <!-- nice_name -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Show short name') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/radios-inline', ['name' => 'show_short_name', 'options' => [$coreYes, $coreNo], 'selected' => (int)$show_short_name]) ?>
                 </div>
             </div>
         </fieldset>
@@ -466,36 +494,6 @@ $coreYes = MoreI18N::xlate('yes');
             </div>
         </fieldset>
 
-        <h3><?= I18N::translate('Which place information should be shown in event boxes?') ?></h3>
-        <p>
-            <?= I18N::translate('This setting controls whether event places are shown as full place names or as abbreviated place names.') ?>
-            <?= I18N::translate('You can show the GEDCOM place, the shared-place hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources.') ?>
-        </p>
-        <!-- place name format in event boxes -->
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3">
-                    <?= I18N::translate('Place name format') ?>
-                </legend>
-                <div class="col-sm-9">
-                    <?= view('components/select', ['name' => 'place_format', 'options' => $place_format_options, 'selected' => (int)$place_format]) ?>
-                </div>
-            </div>
-        </fieldset>
-        <fieldset class="form-group">
-            <legend><?= I18N::translate('Place information sources') ?></legend>
-            <?php foreach ([
-                'plac' => I18N::translate('PLAC information'),
-                'loc_historical' => I18N::translate('_LOC hierarchy at the event date'),
-                'loc_current' => I18N::translate('Current _LOC hierarchy'),
-            ] as $value => $label): ?>
-                <label class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="place_display_sources[]" value="<?= e($value) ?>" <?= in_array($value, $place_display_sources, true) ? 'checked' : '' ?> />
-                    <span class="form-check-label"><?= $label ?></span>
-                </label>
-            <?php endforeach ?>
-        </fieldset>
-
         <h3><?= I18N::translate('Buttons') ?></h3>
 
         <h4><?= I18N::translate('Show options to filter the results?') ?></h4>
@@ -561,7 +559,7 @@ $coreYes = MoreI18N::xlate('yes');
         <?php endif ?>
 
         <h3><?= I18N::translate('When should the extended family tab be loaded?') ?></h3>
-        <p><?= I18N::translate('Choose whether the extended family tab content is calculated immediately while the individual page opens or later by Ajax when the user opens the tab.') ?></p>
+        <p><?= I18N::translate('Choose whether the extended family tab content is calculated immediately while the individual page opens or later by Ajax when the user opens the tab. Loading it immediately can lead to generally longer page load times.') ?></p>
         <!-- load tab content immediately or later by Ajax when the tab is opened -->
         <fieldset class="form-group">
             <div class="row">

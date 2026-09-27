@@ -3802,7 +3802,7 @@ msgid ""
 "And these persons and families will be not selected when a user decides to "
 "copy the extended family to the clippings cart."
 msgstr ""
-"Und diese Personen und Familien werden nicht ausgewählt, wenn ein Anwender "
+"Und diese Personen und Familien werden nicht ausgewählt, wenn ein Nutzer "
 "sich entscheidet, die Großfamilie in den Sammelbehälter zu kopieren."
 
 #: resources/views/settings.phtml:234
@@ -3855,11 +3855,12 @@ msgstr "Soll das kompakte Design verwendet werden?"
 msgid ""
 "The compact design only shows the name and life span for each person. The "
 "enriched design also shows a photo (if this is activated for this tree) as "
-"well as birth and death information."
+"well as birth and death information and optional additional information."
 msgstr ""
 "Das kompakte Design zeigt für jede Person nur den Namen und die "
 "Lebensspanne. Das angereicherte Design zeigt zusätzlich ein Foto (wenn dies "
-"für diesen Baum aktiviert ist) sowie Geburts- und Sterbeinformationen."
+"für diesen Baum aktiviert ist) sowie Geburts- und Sterbeinformationen und "
+"optionale weitere Informationen."
 
 #: resources/views/settings.phtml:269
 msgid "Use the compact design"
@@ -3867,7 +3868,7 @@ msgstr "Kompaktes Design anwenden"
 
 #: resources/views/settings.phtml:277
 msgid "Which thumbnail size should be used in the enriched design?"
-msgstr "Welche Thumbnail-Größe soll im umfangreichen Design verwendet werden?"
+msgstr "Welche Größe der Miniaturansicht soll im umfangreichen Design verwendet werden?"
 
 #: resources/views/settings.phtml:278
 msgid ""
@@ -3875,11 +3876,12 @@ msgid ""
 "The compact design does not show thumbnails."
 msgstr ""
 "Diese Einstellung betrifft die Größe des Fotos oder der Silhouette im "
-"umfangreichen Design. Im kompakten Design werden keine Thumbnails angezeigt."
+"umfangreichen Design. Im kompakten Design werden keine Miniaturansichten "
+"angezeigt."
 
 #: resources/views/settings.phtml:283
 msgid "Thumbnail size"
-msgstr "Thumbnail-Größe"
+msgstr "Größe der Miniaturansicht"
 
 #: resources/views/settings.phtml:291
 msgid "Show name of proband as short name or as full name?"
@@ -3899,22 +3901,6 @@ msgstr ""
 #: resources/views/settings.phtml:297
 msgid "Show short name"
 msgstr "Zeige die Kurzform des Namens"
-
-#: resources/views/settings.phtml:305
-msgid "How should place names be shown in event boxes?"
-msgstr "Wie sollen Ortsnamen in Ereignisboxen angezeigt werden?"
-
-#: resources/views/settings.phtml:306
-msgid ""
-"This setting controls whether event places are shown as full place names or "
-"as abbreviated place names."
-msgstr ""
-"Diese Einstellung legt fest, ob Ereignisorte als vollständige oder als "
-"abgekürzte Ortsnamen angezeigt werden."
-
-#: resources/views/settings.phtml:311
-msgid "Place name format"
-msgstr "Format der Ortsnamen"
 
 #: resources/views/settings.phtml:319
 msgid "Show labels in special situations?"
@@ -3967,7 +3953,7 @@ msgid ""
 "SOSA numbers are shown as separate labels for the proband and biological "
 "ancestors in the direct line."
 msgstr ""
-"SOSA-Nummern werden als separate Labels für den Probanden und biologische "
+"SOSA-Nummern werden als separate Etiketten für den Probanden und biologische "
 "Vorfahren in der direkten Linie angezeigt."
 
 #: resources/views/settings.phtml:339
@@ -3999,7 +3985,7 @@ msgid ""
 "This allows a user to open a print-optimized view and save it as a PDF file "
 "from the browser print dialog."
 msgstr ""
-"Das erlaubt einem Anwender, eine druckoptimierte Ansicht zu öffnen und sie "
+"Das erlaubt einem Nutzer, eine druckoptimierte Ansicht zu öffnen und sie "
 "über den Druckdialog des Browsers als PDF-Datei zu speichern."
 
 #: resources/views/settings.phtml:370 resources/views/settings.phtml:389
@@ -4016,7 +4002,7 @@ msgid ""
 "This allows a user to copy all members of the extended family to the "
 "clippings cart."
 msgstr ""
-"Das erlaubt einem Anwender alle Mitglieder der erweiterten Familie in den "
+"Das erlaubt einem Nutzer, alle Mitglieder der erweiterten Familie in den "
 "Sammelbehälter zu kopieren."
 
 #: resources/views/settings.phtml:401
@@ -4025,7 +4011,7 @@ msgstr "Sammelbehälter-Aktion"
 
 #: resources/views/settings.phtml:404
 msgid "huhwt-cce (recommended)"
-msgstr "huhwt-cce (empfohlen)"
+msgstr "Modul huhwt-cce"
 
 #: resources/views/settings.phtml:412
 msgid "When should the extended family tab be loaded?"
@@ -4034,11 +4020,13 @@ msgstr "Wann soll die Registerkarte „Großfamilie“ geladen werden?"
 #: resources/views/settings.phtml:413
 msgid ""
 "Choose whether the extended family tab content is calculated immediately "
-"while the individual page opens or later by Ajax when the user opens the tab."
+"while the individual page opens or later by Ajax when the user opens the tab. "
+"Loading it immediately can lead to generally longer page load times."
 msgstr ""
 "Legen Sie fest, ob der Inhalt der Registerkarte „Großfamilie“ sofort beim "
-"Öffnen der Seite oder erst später per Ajax geladen wird, wenn der Benutzer "
-"die Registerkarte öffnet."
+"Öffnen der Seite oder erst später per Ajax geladen wird, wenn der Nutzer die "
+"Registerkarte öffnet. Ein sofortiges Laden kann generell zu längeren "
+"Ladezeiten der Seite führen."
 
 #: resources/views/settings.phtml:418
 msgid "Load later"
@@ -4165,19 +4153,22 @@ msgid "Show Degree table"
 msgstr "Tabelle der Entfernungsschritte anzeigen"
 
 msgid "Should Degree labels be shown?"
-msgstr "Sollen Label mit Entfernungsschritten angezeigt werden?"
+msgstr "Sollen Etiketten mit Entfernungsschritten angezeigt werden?"
 
 msgid "Degree follows the WikiTree definition and counts parent, child, partner, and sibling relationships as one step."
 msgstr "Die Entfernungsschritte folgen der Definition von WikiTree; Eltern, Kinder, Partner und Geschwister zählen jeweils als ein Schritt."
 
 msgid "Show Degree labels"
-msgstr "Label mit Entfernungsschritten anzeigen"
+msgstr "Etiketten mit Entfernungsschritten anzeigen"
 
 msgid "Degree shells"
 msgstr "Schalen der Entfernungsschritte"
 
 msgid "Which additional information should be shown?"
 msgstr "Welche zusätzlichen Informationen sollen angezeigt werden?"
+
+msgid "Birth and death are always shown. The options below control additional information."
+msgstr "Geburt und Tod werden immer angezeigt. Die folgenden Optionen steuern zusätzliche Informationen."
 
 msgid "These options add the latest occupation and residence to person entries and marriage details to partner entries."
 msgstr "Diese Optionen ergänzen Personeneinträge um den letzten Beruf und Wohnsitz sowie Partnereinträge um Heiratsdatum und -ort."
@@ -4212,8 +4203,11 @@ msgstr "Taufdatum wird als Geburtsdatum angezeigt"
 msgid "Which place information should be shown in event boxes?"
 msgstr "Welche Ortsinformationen sollen in Ereignisboxen angezeigt werden?"
 
-msgid "You can show the GEDCOM place, the shared-place hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources."
-msgstr "Sie können den GEDCOM-Ort, die Hierarchie des gemeinsamen Ortes zum Ereignisdatum, die aktuelle Hierarchie des gemeinsamen Ortes oder eine Kombination dieser Quellen anzeigen."
+msgid "You can show the place from the GEDCOM PLAC tag, the shared-place (_LOC) hierarchy at the event date, the current shared-place hierarchy, or any combination of these sources. PLAC place names can be shown in full or abbreviated form."
+msgstr "Sie können den Ort aus dem GEDCOM-Kennzeichen PLAC, die Hierarchie des gemeinsamen Ortes (_LOC) zum Ereignisdatum, die aktuelle Hierarchie des gemeinsamen Ortes oder eine Kombination dieser Quellen anzeigen. PLAC-Ortsangaben können vollständig oder abgekürzt angezeigt werden."
+
+msgid "PLAC place format"
+msgstr "Format der PLAC-Ortsangabe"
 
 msgid "Place information sources"
 msgstr "Quellen der Ortsinformationen"
