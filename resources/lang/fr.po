@@ -16,92 +16,92 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamily.php:778
+#: src/ExtendedFamily.php:778
 msgid "spouse of"
 msgstr ""
 
-#: ExtendedFamily.php:782
+#: src/ExtendedFamily.php:782
 #, fuzzy
 #| msgid "Parents"
 msgid "parent of"
 msgstr "Parents"
 
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamily.php:783
+#: src/ExtendedFamily.php:783
 #, fuzzy
 #| msgid "Children"
 msgid "child of"
 msgstr "Enfants"
 
-#: ExtendedFamilyTabModule.php:266
+#: src/ExtendedFamilyTabModule.php:266
 msgid "small"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:267
+#: src/ExtendedFamilyTabModule.php:267
 msgid "medium"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:268
+#: src/ExtendedFamilyTabModule.php:268
 msgid "large"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:599
+#: src/ExtendedFamilyTabModule.php:599
 msgid "Relation"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:600
+#: src/ExtendedFamilyTabModule.php:600
 msgid "Total profiles"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:601
+#: src/ExtendedFamilyTabModule.php:601
 msgid "Living / deceased"
 msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:602
+#: src/ExtendedFamilyTabModule.php:602
 #, fuzzy
 #| msgid "Biological parents"
 msgid "Biological"
 msgstr "Parents biologiques"
 
-#: ExtendedFamilyTabModule.php:603
+#: src/ExtendedFamilyTabModule.php:603
 msgid "Earliest / latest birth year"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:604
+#: src/ExtendedFamilyTabModule.php:604
 msgid "Average birth year"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:605
+#: src/ExtendedFamilyTabModule.php:605
 msgid "Average marriage age"
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:606
+#: src/ExtendedFamilyTabModule.php:606
 #, fuzzy
 #| msgid "generation %s"
 msgid "Generation length"
 msgstr "durée de génération"
 
-#: ExtendedFamilyTabModule.php:607
+#: src/ExtendedFamilyTabModule.php:607
 msgid "Average lifespan"
 msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:608
+#: src/ExtendedFamilyTabModule.php:608
 #, fuzzy
 #| msgid "Grandchildren"
 msgid "Average children"
 msgstr "Petits-enfants"
 
-#: ExtendedFamilyTabModule.php:882
+#: src/ExtendedFamilyTabModule.php:882
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “Copy to "
 "clippings cart” will use the internal Extended Family action."
 msgstr ""
 
-#: ExtendedFamilyTabModule.php:892
+#: src/ExtendedFamilyTabModule.php:892
 msgid ""
 "Vesta relationship names are not available. Mouse-over text for "
 "relationships to the proband will not be shown."
@@ -109,25 +109,25 @@ msgstr ""
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:902 ExtendedFamilyTabModule.php:1111
+#: src/ExtendedFamilyTabModule.php:902 src/ExtendedFamilyTabModule.php:1111
 msgid "Extended family"
 msgstr "Famille élargie"
 
 # #-#-#-#-#  catalog.po  #-#-#-#-#
 # Migrated from ExtendedFamilyTranslations.php.old
-#: ExtendedFamilyTabModule.php:912
+#: src/ExtendedFamilyTabModule.php:912
 msgid "A tab showing the extended family of an individual."
 msgstr "Un onglet montrant la famille élargie d'un individu."
 
-#: ExtendedFamilyTabModule.php:1059 ExtendedFamilyTabModule.php:1140
+#: src/ExtendedFamilyTabModule.php:1059 src/ExtendedFamilyTabModule.php:1140
 msgid "The selected individual could not be found."
 msgstr "La personne sélectionnée est introuvable."
 
-#: ExtendedFamilyTabModule.php:1133
+#: src/ExtendedFamilyTabModule.php:1133
 msgid "The selected tree could not be found."
 msgstr "L'arborescence sélectionnée est introuvable."
 
-#: ExtendedFamilyTabModule.php:1165
+#: src/ExtendedFamilyTabModule.php:1165
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"

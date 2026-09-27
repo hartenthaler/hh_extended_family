@@ -17,43 +17,43 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:228
+#: src/ExtendedFamilyTabModule.php:228
 msgid "small"
 msgstr "malá"
 
-#: ExtendedFamilyTabModule.php:229
+#: src/ExtendedFamilyTabModule.php:229
 msgid "medium"
 msgstr "střední"
 
-#: ExtendedFamilyTabModule.php:230
+#: src/ExtendedFamilyTabModule.php:230
 msgid "large"
 msgstr "velká"
 
-#: ExtendedFamilyTabModule.php:745
+#: src/ExtendedFamilyTabModule.php:745
 msgid "The custom module “huhwt-cce” is not available. The button “Copy to clippings cart” will use the internal Extended Family action."
 msgstr "Vlastní modul „huhwt-cce“ není k dispozici. Tlačítko „Kopírovat do schránky“ použije interní akci širší rodiny."
 
-#: ExtendedFamilyTabModule.php:755
+#: src/ExtendedFamilyTabModule.php:755
 msgid "Vesta relationship names are not available. Mouse-over text for relationships to the proband will not be shown."
 msgstr "Názvy příbuzenských vztahů Vesta nejsou k dispozici. Text zobrazovaný při najetí myší na příbuzenské vztahy k probandovi nebude zobrazen."
 
-#: ExtendedFamilyTabModule.php:765 ExtendedFamilyTabModule.php:937
+#: src/ExtendedFamilyTabModule.php:765 src/ExtendedFamilyTabModule.php:937
 msgid "Extended family"
 msgstr "Širší rodina"
 
-#: ExtendedFamilyTabModule.php:775
+#: src/ExtendedFamilyTabModule.php:775
 msgid "A tab showing the extended family of an individual."
 msgstr "Záložka zobrazující širší rodinu osoby."
 
-#: ExtendedFamilyTabModule.php:959
+#: src/ExtendedFamilyTabModule.php:959
 msgid "The selected tree could not be found."
 msgstr "Vybraný strom se nepodařilo najít."
 
-#: ExtendedFamilyTabModule.php:966
+#: src/ExtendedFamilyTabModule.php:966
 msgid "The selected individual could not be found."
 msgstr "Vybranou osobu se nepodařilo najít."
 
-#: ExtendedFamilyTabModule.php:991
+#: src/ExtendedFamilyTabModule.php:991
 #, php-format
 msgid "The extended family has been copied to the clippings cart. New entries: %s"
 msgstr "Širší rodina byla zkopírována do schránky. Nové záznamy: %s"
@@ -3658,7 +3658,7 @@ msgstr "Načíst později"
 msgid "%1$s (%2$s) / %3$s (%4$s)"
 msgstr "%1$s (%2$s) / %3$s (%4$s)"
 
-#: ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+#: src/ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
 msgid "Living / deceased"
 msgstr "Žijící / zemřelý"
 
@@ -3700,15 +3700,15 @@ msgstr "striktní / sekvenční"
 msgid "relaxed / symmetrical"
 msgstr "uvolněné / symetrické"
 
-#: ExtendedFamily.php:538
+#: src/ExtendedFamily.php:538
 msgid "spouse of"
 msgstr "partner osoby"
 
-#: ExtendedFamily.php:542
+#: src/ExtendedFamily.php:542
 msgid "parent of"
 msgstr "rodič osoby"
 
-#: ExtendedFamily.php:543
+#: src/ExtendedFamily.php:543
 msgid "child of"
 msgstr "dítě osoby"
 

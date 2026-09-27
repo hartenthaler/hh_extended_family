@@ -16,19 +16,19 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:1c,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ExtendedFamilyTabModule.php:228
+#: src/ExtendedFamilyTabModule.php:228
 msgid "small"
 msgstr "klein"
 
-#: ExtendedFamilyTabModule.php:229
+#: src/ExtendedFamilyTabModule.php:229
 msgid "medium"
 msgstr "middelgroot"
 
-#: ExtendedFamilyTabModule.php:230
+#: src/ExtendedFamilyTabModule.php:230
 msgid "large"
 msgstr "groot"
 
-#: ExtendedFamilyTabModule.php:745
+#: src/ExtendedFamilyTabModule.php:745
 msgid ""
 "The custom module “huhwt-cce” is not available. The button “Copy to "
 "clippings cart” will use the internal Extended Family action."
@@ -36,7 +36,7 @@ msgstr ""
 "De aangepaste module “huhwt-cce” is niet beschikbaar. De knop “Kopiëren naar "
 "stamboomknipsels” maakt gebruik van de interne Uitgebreide family-actie."
 
-#: ExtendedFamilyTabModule.php:755
+#: src/ExtendedFamilyTabModule.php:755
 msgid ""
 "Vesta relationship names are not available. Mouse-over text for "
 "relationships to the proband will not be shown."
@@ -44,23 +44,23 @@ msgstr ""
 "Vesta-verwantschapsnamen zijn niet beschikbaar. De muis-over-tekst over de "
 "verwantschap met de proband kan niet worden getoond."
 
-#: ExtendedFamilyTabModule.php:765 ExtendedFamilyTabModule.php:937
+#: src/ExtendedFamilyTabModule.php:765 src/ExtendedFamilyTabModule.php:937
 msgid "Extended family"
 msgstr "Uitgebreide familie"
 
-#: ExtendedFamilyTabModule.php:775
+#: src/ExtendedFamilyTabModule.php:775
 msgid "A tab showing the extended family of an individual."
 msgstr "Een tabblad met de uitgebreide familie van een persoon."
 
-#: ExtendedFamilyTabModule.php:959
+#: src/ExtendedFamilyTabModule.php:959
 msgid "The selected tree could not be found."
 msgstr "De geselecteerde stamboom is niet gevonden."
 
-#: ExtendedFamilyTabModule.php:966
+#: src/ExtendedFamilyTabModule.php:966
 msgid "The selected individual could not be found."
 msgstr "De geselecteerde persoon is niet gevonden."
 
-#: ExtendedFamilyTabModule.php:991
+#: src/ExtendedFamilyTabModule.php:991
 #, php-format
 msgid ""
 "The extended family has been copied to the clippings cart. New entries: %s"
@@ -3436,7 +3436,7 @@ msgstr "Relatie"
 msgid "Total profiles"
 msgstr "Aantal personen"
 
-#: ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+#: src/ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
 msgid "Living / deceased"
 msgstr "Levend / overleden"
 
@@ -3917,15 +3917,15 @@ msgstr ""
 msgid "Load later"
 msgstr "Later laden"
 
-#: ExtendedFamily.php:538
+#: src/ExtendedFamily.php:538
 msgid "spouse of"
 msgstr "echtgenoot van"
 
-#: ExtendedFamily.php:542
+#: src/ExtendedFamily.php:542
 msgid "parent of"
 msgstr "ouder van"
 
-#: ExtendedFamily.php:543
+#: src/ExtendedFamily.php:543
 msgid "child of"
 msgstr "kind van"
 
