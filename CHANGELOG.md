@@ -6,6 +6,8 @@ It should be reviewed and converted into meaningful GitHub release notes before 
 
 ## After the latest release / Nach dem letzten Release
 
+## 2.2.6.15 - 2026-09-28
+
 - Added an administrator-controlled birth-date fallback in person boxes: when no dated `BIRT` event exists, a dated `CHR` or `BAPM` event can be shown, with configurable priority and a distinct visual marker.
 - Grouped children of nephews and nieces by their sibling, stepsibling, or partners' sibling line, so direct and step lines are no longer mixed under one heading.
 - Fixed missing person-level Degree labels for stepchildren of nephews and nieces and for the proband in partner-chain displays.
