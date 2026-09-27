@@ -3721,3 +3721,6 @@ msgstr ""
 
 msgid "Last residence"
 msgstr ""
+
+msgid "Buttons"
+msgstr ""
