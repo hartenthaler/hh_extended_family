@@ -3729,11 +3729,12 @@ msgstr "Compact ontwerp gebruiken?"
 msgid ""
 "The compact design only shows the name and life span for each person. The "
 "enriched design also shows a photo (if this is activated for this tree) as "
-"well as birth and death information."
+"well as birth and death information and optional additional information."
 msgstr ""
-"Het compacte ontwerp toont alleen de naam en levensduur van elk persoon. Het "
-"verrijkte ontwerp toont ook een foto (als dit voor deze boom is geactiveerd) "
-"en geboorte- en overlijdensinformatie."
+"Het compacte ontwerp toont alleen de naam en levensduur van elke persoon. "
+"Het verrijkte ontwerp toont ook een foto (als dit voor deze stamboom is "
+"geactiveerd), evenals geboorte- en overlijdensinformatie en optionele "
+"aanvullende informatie."
 
 #: resources/views/settings.phtml:269
 msgid "Use the compact design"
@@ -3772,22 +3773,6 @@ msgstr ""
 #: resources/views/settings.phtml:297
 msgid "Show short name"
 msgstr "Toon korte naam"
-
-#: resources/views/settings.phtml:305
-msgid "How should place names be shown in event boxes?"
-msgstr "Hoe moeten plaatsnamen in gebeurtenisvakken worden getoond?"
-
-#: resources/views/settings.phtml:306
-msgid ""
-"This setting controls whether event places are shown as full place names or "
-"as abbreviated place names."
-msgstr ""
-"Deze instelling bepaalt of locaties van gebeurtenissen worden getoond als "
-"volledige plaatsnamen of als afgekorte plaatsnamen."
-
-#: resources/views/settings.phtml:311
-msgid "Place name format"
-msgstr "Plaatsnaamnotatie"
 
 #: resources/views/settings.phtml:319
 msgid "Show labels in special situations?"
@@ -3907,11 +3892,13 @@ msgstr "Wanneer moet het tabblad \"Uitgebreide familie\" worden geladen?"
 #: resources/views/settings.phtml:413
 msgid ""
 "Choose whether the extended family tab content is calculated immediately "
-"while the individual page opens or later by Ajax when the user opens the tab."
+"while the individual page opens or later by Ajax when the user opens the "
+"tab. Loading it immediately can lead to generally longer page load times."
 msgstr ""
-"Geef aan of de inhoud van het tabblad \"Uitgebreide familie\" direct bij het "
-"openen van de pagina wordt geladen, of pas later via Ajax wanneer de "
-"gebruiker het tabblad opent."
+"Kies of de inhoud van het tabblad \"Uitgebreide familie\" onmiddellijk wordt "
+"berekend wanneer de pagina van de persoon wordt geopend, of later via Ajax "
+"wanneer de gebruiker het tabblad opent. Onmiddellijk laden kan in het "
+"algemeen leiden tot langere laadtijden van de pagina."
 
 #: resources/views/settings.phtml:418
 msgid "Load later"
@@ -4014,6 +4001,13 @@ msgid "Which additional information should be shown?"
 msgstr "Welke aanvullende informatie moet worden getoond?"
 
 msgid ""
+"Birth and death are always shown. The options below control additional "
+"information."
+msgstr ""
+"Geboorte en overlijden worden altijd getoond. De onderstaande opties bepalen "
+"de aanvullende informatie."
+
+msgid ""
 "These options add the latest occupation and residence to person entries and "
 "marriage details to partner entries."
 msgstr ""
@@ -4056,12 +4050,18 @@ msgid "Which place information should be shown in event boxes?"
 msgstr "Welke plaatsinformatie moet in gebeurtenisvakken worden getoond?"
 
 msgid ""
-"You can show the GEDCOM place, the shared-place hierarchy at the event date, "
-"the current shared-place hierarchy, or any combination of these sources."
+"You can show the place from the GEDCOM PLAC tag, the shared-place (_LOC) "
+"hierarchy at the event date, the current shared-place hierarchy, or any "
+"combination of these sources. PLAC place names can be shown in full or "
+"abbreviated form."
 msgstr ""
-"U kunt de GEDCOM-plaats, de hiërarchie van de gedeelde plaats op de datum "
-"van de gebeurtenis, de huidige hiërarchie van de gedeelde plaats of een "
-"combinatie van deze bronnen weergeven."
+"U kunt de plaats uit het GEDCOM-label PLAC, de hiërarchie van de gedeelde "
+"plaats (_LOC) op de datum van de gebeurtenis, de huidige hiërarchie van de "
+"gedeelde plaats of een combinatie van deze bronnen weergeven. PLAC-"
+"plaatsnamen kunnen volledig of afgekort worden weergegeven."
+
+msgid "PLAC place format"
+msgstr "Formaat van de PLAC-plaatsnaam"
 
 msgid "Place information sources"
 msgstr "Bronnen van plaatsinformatie"
@@ -4080,3 +4080,6 @@ msgstr "Laatste beroep"
 
 msgid "Last residence"
 msgstr "Laatste woonplaats"
+
+msgid "Buttons"
+msgstr "Knoppen"
