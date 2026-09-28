@@ -3436,7 +3436,8 @@ msgstr "Relatie"
 msgid "Total profiles"
 msgstr "Aantal personen"
 
-#: src/ExtendedFamilyTabModule.php:252 resources/views/partials/summary.phtml:234
+#: src/ExtendedFamilyTabModule.php:252
+#: resources/views/partials/summary.phtml:234
 msgid "Living / deceased"
 msgstr "Levend / overleden"
 
@@ -3774,6 +3775,10 @@ msgstr ""
 msgid "Show short name"
 msgstr "Toon korte naam"
 
+#: resources/views/settings.phtml:441
+msgid "Labels"
+msgstr "Labels"
+
 #: resources/views/settings.phtml:319
 msgid "Show labels in special situations?"
 msgstr "Toon labels in bijzondere situaties?"
@@ -4083,3 +4088,37 @@ msgstr "Laatste woonplaats"
 
 msgid "Buttons"
 msgstr "Knoppen"
+
+msgid "Ex-partners of parents"
+msgstr "Ex-partners van de ouders"
+
+msgctxt "Family part name in sentence"
+msgid "ex-partners of parents"
+msgstr "ex-partners van de ouders"
+
+msgid "Ex-partner of father"
+msgstr "Ex-partner van de vader"
+
+msgid "Ex-partner of mother"
+msgstr "Ex-partner van de moeder"
+
+msgid "Ex-partner of parent"
+msgstr "Ex-partner van een ouder"
+
+msgid "Ex-partners of biological parents"
+msgstr "Ex-partners van de biologische ouders"
+
+msgid "Ex-partners of stepparents"
+msgstr "Ex-partners van de stiefouders"
+
+msgid "Ex-partners of social parents"
+msgstr "Ex-partners van de sociale ouders"
+
+msgid "Ex-partner of %s"
+msgstr "Ex-partner van %s"
+
+msgid "For %s, one ex-partner of a parent is recorded."
+msgstr "Voor %s is één ex-partner van een ouder vastgelegd."
+
+msgid "For %s, %d ex-partners of parents are recorded."
+msgstr "Voor %s zijn %d ex-partners van ouders vastgelegd."
