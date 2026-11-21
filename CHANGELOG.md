@@ -22,7 +22,7 @@ User-visible translation updates must be mentioned in both the changelog and the
 
 ## After the latest release / Nach dem letzten Release
 
-- No unreleased changes yet.
+- Updated French translations; thanks to Fa10175.
 
 ## 2.2.6.14 - 2026-07-13
 
